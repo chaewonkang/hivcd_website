@@ -22,7 +22,7 @@ BASE_DIR = Path(__file__).resolve(strict=True).parent.parent
 # SECURITY WARNING: keep the secret key used in production secret!
 import os
 
-SECRET_KEY = os.environ["hivcd_site"]
+SECRET_KEY = 'd_^g6fx5x-5x=sgd86!0p!0^j-zsx8y@+06&%akxpbd)zt3krb'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
