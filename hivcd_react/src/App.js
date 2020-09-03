@@ -1,16 +1,20 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
+    <header className="App-header">
         <p>
           Hongik University Fine Arts.<br></br>
 		  Visual Communication Design Department.
         </p>
-      </header>
+    </header>
+	<body>
+		<div>
+			Hello, we are developing hivcd website.
+		</div>
+	</body>
     </div>
   );
 }
