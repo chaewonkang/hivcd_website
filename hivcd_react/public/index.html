@@ -3,7 +3,9 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#000000" />
+	<meta name="theme-color" content="#000000" />
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+	<link rel="stylesheet" href="/index.css">
     <meta
       name="description"
       content="Web site created using create-react-app"
@@ -24,18 +26,36 @@
     -->
     <title>홍익대학교 미술대학 시각디자인과</title>
   </head>
-  <body>
+  <body class="controller--home_page action--show current-user--not-admin">
+	<header class="header--primary">
+		<div class="container-fluid">
+			<div class="row">
+				<div class="header__title-col col-sm-10">
+					<h1>
+						<a class="blank-link" href="/en/">Hongik University Fine Arts. Visual Communication Design Department.</a>
+					</h1>
+				</div>
+				<div class="header__search-col col-sm-2">
+					<div class="header__search-form">
+						<div class="header__search-form__arrow-right"></div>
+						<div class="header__search-form__close"></div>
+						<div class="search-form"></div>
+					</div>
+					Search
+				</div>
+			</div>
+			<div class="row">
+				<div class="header__menu-col col-sm-10">
+					<ul class="menu menu--main_menu">
+						<li class="menu__item menu__item--level-0 menu__item--exhibitions menu__item--with-children"></li>
+					</ul>
+				</div>
+				<div class="header__yellow-pages-col col-sm-2"></div>
+			</div>
+		</div>
+	</header>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
-    <!--
-      This HTML file is a template.
-      If you open it directly in the browser, you will see an empty page.
 
-      You can add webfonts, meta tags, or analytics to this file.
-      The build step will place the bundled scripts into the <body> tag.
-
-      To begin the development, run `npm start` or `yarn start`.
-      To create a production bundle, use `npm run build` or `yarn build`.
-	-->
   </body>
 </html>
