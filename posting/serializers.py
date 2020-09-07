@@ -9,7 +9,7 @@ from django.http import HttpResponse, JsonResponse
 class PostingSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Posting
-        fields = ('created_at', 'url', 'author', 'title')
+        fields = ('created_datetime', 'url', 'author', 'title')
 
 class PostingDetailSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:

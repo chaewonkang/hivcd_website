@@ -21,8 +21,8 @@ BASE_DIR = Path(__file__).resolve(strict=True).parent.parent
 
 # SECURITY WARNING: keep the secret key used in production secret!
 import os
-
-SECRET_KEY = 'd_^g6fx5x-5x=sgd86!0p!0^j-zsx8y@+06&%akxpbd)zt3krb'
+from .password import SecretKey_hivcd
+SECRET_KEY = SecretKey_hivcd
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
@@ -164,7 +164,7 @@ REST_USE_JWT = True
 
 REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': (
-        'rest_framework.permissions.IsAuthenticated',
+        # 'rest_framework.permissions.IsAuthenticated',
     ),
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'rest_framework_jwt.authentication.JSONWebTokenAuthentication',
