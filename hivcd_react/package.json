@@ -16,8 +16,7 @@
     "react-scripts": "3.4.3",
     "redux": "^4.0.5",
     "redux-promise": "^0.6.0",
-    "redux-thunk": "^2.3.0"
-    "react-scripts": "3.4.3",
+    "redux-thunk": "^2.3.0",
     "yarn": "^1.22.5"
   },
   "scripts": {

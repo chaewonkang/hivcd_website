@@ -11,10 +11,14 @@ router.register(r'postings', PostingViewSet)
 router.register(r'comments', CommentsViewSet)
 
 urlpatterns = [
+    path('', include(router.urls)),
     path('postings/<int:pk>/comments/', posting_comments),
     path('postings/<int:pk>/', posting_detail),
-    path('', include(router.urls)),
+
     path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
+
+    path('rest-auth/', include('rest_auth.urls')),
+    path('rest-auth/registration/', include('rest_auth.registration.urls')),
     path('rest-auth/facebook/connect/', FacebookConnect.as_view(), name='fb_connect'),
     path('rest-auth/twitter/connect/', TwitterConnect.as_view(), name='twitter_connect'),
     # path('rest-auth/github/connect/$', GithubConnect.as_view(), name='github_connect'),
