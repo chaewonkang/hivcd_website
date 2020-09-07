@@ -1,22 +1,21 @@
-import React from 'react';
+import React, { Component } from 'react';
 import './App.css';
+import 'antd/dist/antd.css';
 
-function App() {
-  return (
-    <div className="App">
-    <header className="App-header">
-        <p>
-          Hongik University Fine Arts.<br></br>
-		  Visual Communication Design Department.
-        </p>
-    </header>
-	<body>
-		<div>
-			Hello, we are developing hivcd website.
-		</div>
-	</body>
-    </div>
-  );
+import CustomLayout from './containers/Layout'
+import ArticleList from './containers/ArticleListView'
+
+class App extends Component {
+	render() {
+
+		return (
+			<div>
+				<CustomLayout>
+					<ArticleList></ArticleList>
+				</CustomLayout>
+			</div>
+		)
+	}
 }
 
 export default App;
