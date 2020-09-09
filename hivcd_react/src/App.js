@@ -1,18 +1,30 @@
 import React, { Component } from 'react';
 import './App.css';
-import 'antd/dist/antd.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
-import CustomLayout from './containers/Layout'
-import ArticleList from './containers/ArticleListView'
+
+import ArticleList from './containers/ArticleList'
+import HeaderMenuBar from './components/Header/HeaderMenuBar'
+import HeaderTitle from './components/Header/HeaderTitle'
+import SideBar from './containers/SideBar'
+import SiteContainer from './containers/SiteContainer'
+import Footer from './components/Footer/Footer'
 
 class App extends Component {
 	render() {
 
 		return (
 			<div>
-				<CustomLayout>
+				<HeaderTitle></HeaderTitle>
+				<HeaderMenuBar></HeaderMenuBar>
+				<SideBar></SideBar>
+				<SiteContainer>
 					<ArticleList></ArticleList>
-				</CustomLayout>
+					<ArticleList></ArticleList>
+					<ArticleList></ArticleList>
+					<ArticleList></ArticleList>
+				</SiteContainer>
+				<Footer></Footer>
 			</div>
 		)
 	}
