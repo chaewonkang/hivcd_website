@@ -23,7 +23,7 @@ class ArticleList extends React.Component {
 	}
 
 	componentDidMount() {
-		axios.get('http://127.0.0.1:8000/api/')
+		axios.get('http://127.0.0.1:8000/api/postings/')
 			.then(res => {
 				this.setState({
 					articles: res.data
@@ -34,7 +34,7 @@ class ArticleList extends React.Component {
 
 	render() {
 		return (
-			<Articles data={listData}></Articles>
+			<Articles data={listData} />
 		)
 	}
 }

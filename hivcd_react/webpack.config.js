@@ -1,21 +1,27 @@
+var path = require('path');
+var webpack = require('webpack');
+
 module.export = {
 	entry: "./src/index.js",
 	output: {
 		path: "dist/assets",
 		filename: "bundle.js",
-		sourceMapFilename: "bundle.map"
+		sourceMapFilename: 'bundle.map'
 	},
-	devtool: "#source-map", // made webpack use source mapping
 	module: {
 		rules: [
 			{
-				test: /\.js$/,
-				exclude: /(node_modules)/,
+				test: /\.js$|jsx/,
+				exclude: /node_modules/,
 				loader: 'babel-loader',
 				query: {
 					presets: ['env', 'stage-0', 'react']
 				}
 			}
 		]
-	}
+	},
+	stats: {
+		colors: true
+	},
+	devtool: 'source-map'
 }
