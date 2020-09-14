@@ -1,5 +1,5 @@
 import React from 'react';
-import logo from '../containers/img/logo.png'
+import logo from '../../containers/img/logo.png'
 
 
 const Articles = (props) => {

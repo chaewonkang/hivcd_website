@@ -6,17 +6,17 @@ from rest_framework.parsers import JSONParser
 from django.views.decorators.csrf import csrf_exempt
 from django.http import HttpResponse, JsonResponse
 
-class PostingSerializer(serializers.HyperlinkedModelSerializer):
+class PostingSerializer(serializers.ModelSerializer):
     class Meta:
         model = Posting
-        fields = ('created_datetime', 'url', 'author', 'title')
+        fields = ('created_datetime', 'url', 'author', 'title', 'view_count')
 
-class PostingDetailSerializer(serializers.HyperlinkedModelSerializer):
+class PostingDetailSerializer(serializers.ModelSerializer):
     class Meta:
         model = Posting
         fields = '__all__'
 
-class CommentSerializer(serializers.HyperlinkedModelSerializer):
+class CommentSerializer(serializers.ModelSerializer):
     class Meta:
         model = Comment
         fields = '__all__'
