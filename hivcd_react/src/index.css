@@ -1,14 +1,18 @@
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  align-content: center;
+	background: #FFF5F5;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+@font-face {
+	font-family: 'AGChoiJeongHo';
+	src: local('AGChoiJeongHo'), url(./fonts/AGChoiJeongHoStd.otf) format('opentype');
+}
+
+@font-face {
+	font-family: 'CenturySchoolbook';
+	src: local('CenturySchoolbook'), url(./fonts/Century\ Schoolbook\ Std\ Regular.otf) format('opentype')
+}
+
+@font-face {
+	font-family: 'NewParisSkyline';
+	src: local('NewParisSkyline'), url(./fonts/NewParisSkylineTrial-Regular.otf) format('opentype')
 }
