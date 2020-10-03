@@ -1,0 +1,51 @@
+.archive {
+	position: relative;
+	background-color: #00FFB5;
+	box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+	border: 2px solid #00AE63;
+	padding: 1rem;
+	margin-bottom: 20px;
+	height: 230px;
+	width: 100%;
+	overflow: hidden;
+
+}
+
+.archive h2 {
+	font-family: "AGChoiJeongHo";
+	font-size: 18px;
+	padding-top: .5rem;
+	line-height: 23px;
+}
+
+.archive p {
+    font-size: 2rem;
+}
+
+.archive .archive_tag {
+	position: absolute;
+	top: 0;
+	right: 0;
+	font-family: "NewParisSkyline";
+	position: absolute;
+	background-color: #000;
+	color: #fff;
+	padding: 0 1em 0 1em;
+}
+
+.archive .archive_content {
+	font-family: "CenturySchoolbook";
+	font-size: 18px;
+	margin-left: -10px;
+}
+
+.archive_image {
+	margin-top: 10px;
+}
+
+.image_fill {
+	overflow: hidden;
+	background-size: cover;
+	background-position: center;
+	background-image: url('../../img/archive_ex.png');
+}

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { PostWrapper, Post, Archive } from '../../components';
+import { PostWrapper, Post, HomeArchive } from '../../components';
 import { ArchiveWrapper } from '../../components';
 import './ContentContainer.css'
 
@@ -21,8 +21,8 @@ class ContentContainer extends Component {
 					</div>
 					<div className="archivewrapper col-lg-4">
 						<ArchiveWrapper>
-							<Archive></Archive>
-							<Archive></Archive>
+							<HomeArchive></HomeArchive>
+							<HomeArchive></HomeArchive>
 						</ArchiveWrapper>
 					</div>
 				</div>
