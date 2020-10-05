@@ -1,0 +1,39 @@
+
+
+
+.post {
+	position: relative;
+	background-color: #FFFF35;
+	box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+	border: 2px solid #FFD73A;
+	padding: 1rem;
+	margin-bottom: 20px;
+	height: 230px;
+	width: 100%;
+}
+
+.post h2 {
+	font-family: "AGChoiJeongHo";
+	font-size: 18px;
+	padding-top: .5rem;
+}
+
+.post p {
+    font-size: 2rem;
+}
+
+.post .post_tag {
+	position: absolute;
+	top: 0;
+	right: 0;
+	font-family: "NewParisSkyline";
+	background-color: #000;
+	color: #fff;
+	text-align: center;
+	padding: 0 1em 0 1em;
+}
+
+.post .post_content {
+	font-family: "CenturySchoolbook";
+	font-size: 18px;
+}
