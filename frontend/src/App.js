@@ -1,13 +1,14 @@
-import React from 'react';
-import { Header, Footer } from './components'
-import './App.css';
+import React from "react";
+import { ThemeProvider } from "styled-components";
+import { Header, Footer } from "./components";
+import "./App.css";
 
 function App() {
   return (
-	  <div>
-		  <Header/>
-		  <Footer/>
-	  </div>
+    <div>
+      <Header />
+      <Footer />
+    </div>
   );
 }
 

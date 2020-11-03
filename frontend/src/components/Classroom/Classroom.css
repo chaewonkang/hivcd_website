@@ -1,48 +1,40 @@
-.archive {
+.classroom {
   position: relative;
-  background-color: #ffeb00;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
-  border: 2px solid #ffba00;
   padding: 1rem;
+  margin-bottom: 20px;
   height: 100%;
-  overflow: hidden;
 }
 
-.archive h2 {
+.classroom_check {
+  background: #339902;
+  background-image: linear-gradient(#007946 2px, transparent 0),
+    linear-gradient(90deg, #007946 2px, transparent 0);
+  background-size: 16.5% 19.9%;
+}
+
+.classroom h2 {
   font-family: "AGChoiJeongHo";
   font-size: 18px;
   padding-top: 0.5rem;
-  line-height: 23px;
 }
 
-.archive p {
+.classroom p {
   font-size: 2rem;
 }
 
-.archive .archive_tag {
+.classroom .module_tag {
   position: absolute;
   top: 0;
   right: 0;
   font-family: "NewParisSkyline";
-  position: absolute;
   background-color: #000;
   color: #fff;
+  text-align: center;
   padding: 0 1em 0 1em;
 }
 
-.archive .archive_content {
+.classroom .module_content {
   font-family: "CenturySchoolbook";
   font-size: 18px;
-  margin-left: -10px;
-}
-
-.archive_image {
-  margin-top: 10px;
-}
-
-.image_fill {
-  overflow: hidden;
-  background-size: cover;
-  background-position: center;
-  background-image: url("../../img/archive_ex.png");
 }

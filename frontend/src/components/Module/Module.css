@@ -1,25 +1,29 @@
-.post {
-  grid-column: 1 / 2;
+.module {
   position: relative;
-  background-color: #ffff35;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
-  border: 2px solid #ffd73a;
   padding: 1rem;
-  width: 100%;
-  height: 100%;
+  margin-bottom: 20px;
+  height: 150%;
 }
 
-.post h2 {
+.check {
+  background: #00c4ff;
+  background-image: linear-gradient(#0048ff 2px, transparent 0),
+    linear-gradient(90deg, #0048ff 2px, transparent 0);
+  background-size: 16.5% 19.9%;
+}
+
+.module h2 {
   font-family: "AGChoiJeongHo";
   font-size: 18px;
   padding-top: 0.5rem;
 }
 
-.post p {
+.module p {
   font-size: 2rem;
 }
 
-.post .post_tag {
+.module .module_tag {
   position: absolute;
   top: 0;
   right: 0;
@@ -30,7 +34,7 @@
   padding: 0 1em 0 1em;
 }
 
-.post .post_content {
+.module .module_content {
   font-family: "CenturySchoolbook";
   font-size: 18px;
 }
