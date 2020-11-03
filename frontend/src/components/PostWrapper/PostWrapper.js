@@ -1,14 +1,9 @@
-import React from 'react';
-import './PostWrapper.css'
+import React from "react";
+import PostContainer from "../PostContainer/PostContainer";
+import "./PostWrapper.css";
 
-const PostWrapper = ({children}) => {
-	return (
-		<div className="container-fluid">
-			<div className="row">
-				{children}
-			</div>
-		</div>
-	)
-}
+const PostWrapper = ({ children }) => {
+  return <div className="postwrapper">{children}</div>;
+};
 
 export default PostWrapper;

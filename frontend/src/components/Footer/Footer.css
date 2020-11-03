@@ -34,6 +34,67 @@
 }
 
 /********** Extra small devices only **********/
-@media (max-width: 767px) {
+@media (max-width: 577px) and (max-width: 767px) {
+	.footer-item {
+		margin-bottom: 20px;
+	}
 
+	.footer-item .footer-item-title {
+		font-family: 'CenturySchoolback';
+		font-size: 13px;
+		text-decoration: underline;
+	}
+
+	.footer-item-title {
+		margin-bottom: 20px;
+		line-height: 1.3em;
+	}
+
+	.footer-item p {
+		font-family: 'CenturySchoolback';
+		font-size: 13px;
+	}
+
+	.korean_address {
+		font-family: 'AGChoiJeongHo';
+		font-size: 13px;
+	}
+
+	.english_address {
+		font-family: 'CenturySchoolback';
+		font-size: 13px;
+	}
+}
+
+/********** Extra Extra small (xxs) devices only **********/
+@media (max-width: 577px) and (max-width: 767px) {
+	.footer-item {
+		margin-bottom: 20px;
+	}
+
+	.footer-item .footer-item-title {
+		font-family: 'CenturySchoolback';
+		font-size: 13px;
+		text-decoration: underline;
+	}
+
+	.footer-item-title {
+		margin-bottom: 20px;
+		line-height: 1.3em;
+	}
+
+	.footer-item p {
+		font-family: 'CenturySchoolback';
+		font-size: 13px;
+	}
+
+	.korean_address {
+		font-family: 'AGChoiJeongHo';
+		font-size: 13px;
+	}
+
+	.english_address {
+		font-family: 'CenturySchoolback';
+		font-size: 13px;
+	}
 }

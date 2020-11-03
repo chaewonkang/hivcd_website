@@ -7,7 +7,7 @@ const Footer = () => {
 		<div className="footer">
 			<div className="container-fluid">
 				<div className="row">
-					<div className="footer-item col-lg-2 col-md-2">
+					<div className="footer-item col-lg-2 col-md-12 col-sm-12 col-xs-12">
 						<img
 						src={logo}
 						margin-left='20'
@@ -16,7 +16,7 @@ const Footer = () => {
 						alt='HIVCD Logo'
 						></img>
 					</div>
-					<div className="footer-item col-lg-2 col-md-2">
+					<div className="footer-item col-lg-2 col-md-3 col-sm-4 col-xs-6">
 						<span className="footer-item-title">Address</span>
 						<p>
 						<span className="english_address">04066 </span>
@@ -26,25 +26,25 @@ const Footer = () => {
 						<span className="english_address">R715</span>
 						</p>
 					</div>
-					<div className="footer-item col-lg-2 col-md-2">
+					<div className="footer-item col-lg-2 col-md-3 col-sm-4 col-xs-6">
 						<span className="footer-item-title">Contact</span>
 						<p>
 						Tel	02-320-1214<br></br>
 						Fax	02-3142-5792
 						</p>
 					</div>
-					<div className="footer-item col-lg-2 col-md-2">
+					<div className="footer-item col-lg-2 col-md-3 col-sm-4 col-xs-6">
 						<span className="footer-item-title">Open Hours</span>
 						<p>
 						Mon - Fri	9 am - 5.30 pm <br></br>
 						Winter		9 am - 5 pm
 						</p>
 					</div>
-					<div className="footer-item col-lg-2 col-md-2">
+					<div className="footer-item col-lg-2 col-md-3 col-sm-12 col-xs-6">
 						<span className="footer-item-title">Newsletter</span>
 						<p>Button place</p>
 					</div>
-					<div className="footer-item col-lg-2">
+					<div className="footer-item col-lg-2 col-md-6 col-sm-12 col-xs-12">
 						<span className="footer-item-title">Website by</span>
 						<p>
 						Yinyang, Seogyu Kim
