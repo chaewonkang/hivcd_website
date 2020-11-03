@@ -1,19 +1,17 @@
 import React, { Component } from "react";
-import PropTyles from "prop-types";
 import "./Post.css";
 
 class Post extends Component {
-  state = {
-    number: 0,
-    color: null,
-    borderColor: null,
-  };
-  myRef = null;
-
   constructor(props) {
     super(props);
     console.log("contructor()");
+    this.state = {
+      number: 0,
+      color: null,
+      borderColor: null,
+    };
   }
+  myRef = null;
 
   render() {
     const style = {

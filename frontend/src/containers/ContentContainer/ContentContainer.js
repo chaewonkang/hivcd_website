@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link, Route, BrowserRouter as Router } from "react-router-dom";
 import {
   PostWrapper,
   Post,
@@ -6,7 +7,8 @@ import {
   Calandar,
   Equipment,
   Classroom,
-  PostContainer,
+  LogoImage,
+  CalandarContainer,
 } from "../../components";
 import { ArchiveWrapper } from "../../components";
 import "./ContentContainer.css";
@@ -32,7 +34,7 @@ function getRandomColor() {
 
   // 0 부터 12까지 랜덤 숫자
   const random = Math.floor(Math.random() * 6);
-  let ret = [];
+  let ret;
 
   // 랜덤 색상 반환
   return (ret = [colors[random], borderColors[random]]);
@@ -46,7 +48,7 @@ class ContentContainer extends Component {
     color: "#000000",
     borderColor: "#000000",
   };
-  componentDidMount() {
+  componentWillMount() {
     this.setState({
       color: retColor[0],
       borderColor: retColor[1],
@@ -54,42 +56,71 @@ class ContentContainer extends Component {
   }
   render() {
     return (
-      <div className="contentcontainer">
-        <PostWrapper>
-          <Post
-            color={this.state.color}
-            borderColor={this.state.borderColor}
-          ></Post>
+      <Router>
+        <div className="contentcontainer">
+          <PostWrapper>
+            <Post
+              color={this.state.color}
+              borderColor={this.state.borderColor}
+            ></Post>
+            <LogoImage></LogoImage>
 
-          <Classroom></Classroom>
-          <Post
-            color={this.state.color}
-            borderColor={this.state.borderColor}
-          ></Post>
+            <Classroom></Classroom>
+            <Post
+              color={this.state.color}
+              borderColor={this.state.borderColor}
+            ></Post>
 
-          <Calandar></Calandar>
-          <Post
-            color={this.state.color}
-            borderColor={this.state.borderColor}
-          ></Post>
-          <Post
-            color={this.state.color}
-            borderColor={this.state.borderColor}
-          ></Post>
+            <div>
+              <Link to="/calandar">
+                <Calandar></Calandar>
+              </Link>
+            </div>
 
-          <Equipment></Equipment>
-          <Post
-            color={this.state.color}
-            borderColor={this.state.borderColor}
-          ></Post>
-        </PostWrapper>
-        <ArchiveWrapper>
-          <HomeArchive></HomeArchive>
-          <HomeArchive></HomeArchive>
-          <HomeArchive></HomeArchive>
-          <HomeArchive></HomeArchive>
-        </ArchiveWrapper>
-      </div>
+            <Post
+              color={this.state.color}
+              borderColor={this.state.borderColor}
+            ></Post>
+            <LogoImage></LogoImage>
+            <Post
+              color={this.state.color}
+              borderColor={this.state.borderColor}
+            ></Post>
+            <LogoImage></LogoImage>
+            <Post
+              color={this.state.color}
+              borderColor={this.state.borderColor}
+            ></Post>
+            <Equipment></Equipment>
+            <Post
+              color={this.state.color}
+              borderColor={this.state.borderColor}
+            ></Post>
+            <Post
+              color={this.state.color}
+              borderColor={this.state.borderColor}
+            ></Post>
+            <Post
+              color={this.state.color}
+              borderColor={this.state.borderColor}
+            ></Post>
+            <Post
+              color={this.state.color}
+              borderColor={this.state.borderColor}
+            ></Post>
+            <LogoImage></LogoImage>
+          </PostWrapper>
+          <ArchiveWrapper>
+            <HomeArchive></HomeArchive>
+            <HomeArchive></HomeArchive>
+            <HomeArchive></HomeArchive>
+            <HomeArchive></HomeArchive>
+          </ArchiveWrapper>
+        </div>
+        <main>
+          <Route path="/calandar" component={CalandarContainer} />
+        </main>
+      </Router>
     );
   }
 }
