@@ -11,6 +11,8 @@ class Header extends Component {
     super(props);
     this.state = {
       visible: false,
+      id: "",
+      password: "",
     };
   }
 
@@ -26,7 +28,28 @@ class Header extends Component {
     });
   };
 
+  _changeId = function () {
+    const idValue = document.getElementsByName("id")[0].value;
+    console.log(idValue);
+
+    this.setState({
+      ...this.state,
+      id: idValue,
+    });
+  };
+
+  _changePW = function () {
+    const pwValue = document.getElementsByName("password")[0].value;
+    console.log(pwValue);
+
+    this.setState({
+      ...this.state,
+      password: pwValue,
+    });
+  };
+
   render() {
+    console.log("ID:" + this.state.id + ", PW:" + this.state.password);
     return (
       <Router>
         <header>
@@ -38,18 +61,43 @@ class Header extends Component {
                 </h1>
               </Link>
             </div>
-            <div
-              className="header_container_login"
-              onClick={() => this._openModal()}
-            >
+            <div className="header_container_login">
               <Modal
                 visible={this.state.visible}
-                width="400"
-                height="300"
+                width="450"
+                height="380"
                 effect="fadeInDown"
-                onClickAway={() => this._closeModal}
-              ></Modal>
-              <div className="navbar_login_item">LOGIN</div>
+                onClickAway={() => this._closeModal()}
+              >
+                <div>
+                  <form>
+                    <div className="navbar_login_modal_container">
+                      <input
+                        type="text"
+                        name="id"
+                        onChange={() => this._changeId()}
+                      ></input>
+                      <input
+                        type="text"
+                        name="password"
+                        onChange={() => this._changePW()}
+                      ></input>
+                      <input
+                        value="LOGIN"
+                        type="button"
+                        onClick={() => this._closeModal()}
+                      ></input>
+                      <span className="create-account">create account</span>
+                    </div>
+                  </form>
+                </div>
+              </Modal>
+              <div
+                className="navbar_login_item"
+                onClick={() => this._openModal()}
+              >
+                LOGIN
+              </div>
             </div>
             <div className="header_container_menubar">
               <Link to="/aboutus">
