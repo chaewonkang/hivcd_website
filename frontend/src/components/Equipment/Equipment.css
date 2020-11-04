@@ -1,0 +1,40 @@
+.equipment {
+  position: relative;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  padding: 1rem;
+  margin-bottom: 20px;
+  height: 100%;
+}
+
+.equipment_check {
+  background: #deadf0;
+  background-image: linear-gradient(#bc70c7 2px, transparent 0),
+    linear-gradient(90deg, #bc70c7 2px, transparent 0);
+  background-size: 16.5% 19.9%;
+}
+
+.equipment h2 {
+  font-family: "AGChoiJeongHo";
+  font-size: 18px;
+  padding-top: 0.5rem;
+}
+
+.equipment p {
+  font-size: 2rem;
+}
+
+.equipment .module_tag {
+  position: absolute;
+  top: 0;
+  right: 0;
+  font-family: "NewParisSkyline";
+  background-color: #000;
+  color: #fff;
+  text-align: center;
+  padding: 0 1em 0 1em;
+}
+
+.equipment .module_content {
+  font-family: "CenturySchoolbook";
+  font-size: 18px;
+}
