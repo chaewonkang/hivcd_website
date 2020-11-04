@@ -34,6 +34,7 @@ header {
   font-size: 18px;
   width: 20%;
   border: 1px solid #000;
+  cursor: pointer;
 }
 
 .navbar_search_item {
@@ -43,6 +44,7 @@ header {
   text-align: center;
   position: absolute;
   border: 1px solid #000;
+  cursor: pointer;
 }
 
 /********** Large devices only **********/

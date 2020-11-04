@@ -11,6 +11,7 @@ import {
   CalandarContainer,
 } from "../../components";
 import { ArchiveWrapper } from "../../components";
+import * as service from "../../services/post";
 import "./ContentContainer.css";
 
 function getRandomColor() {
@@ -47,13 +48,44 @@ class ContentContainer extends Component {
   state = {
     color: "#000000",
     borderColor: "#000000",
+    postId: 1,
+    fetching: false,
+    post: {
+      title: null,
+      id: null,
+    },
   };
+
   componentWillMount() {
     this.setState({
       color: retColor[0],
       borderColor: retColor[1],
     });
   }
+
+  componentDidMount() {
+    this.fetchPostInfo(1);
+  }
+
+  fetchPostInfo = async (postId) => {
+    this.setState({
+      fetching: true, // requesting..
+    });
+    const info = await Promise.all([service.getPost(postId)]);
+
+    const { title, id } = info[0].data;
+
+    this.setState({
+      ...this.state,
+      postId,
+      post: {
+        title,
+        id,
+      },
+      fetching: false, // done!
+    });
+    console.log(info);
+  };
   render() {
     return (
       <Router>
@@ -62,6 +94,8 @@ class ContentContainer extends Component {
             <Post
               color={this.state.color}
               borderColor={this.state.borderColor}
+              title={this.state.post.title}
+              id={this.state.post.id}
             ></Post>
             <LogoImage></LogoImage>
 
@@ -69,6 +103,8 @@ class ContentContainer extends Component {
             <Post
               color={this.state.color}
               borderColor={this.state.borderColor}
+              title={this.state.post.title}
+              id={this.state.post.id}
             ></Post>
 
             <div>
@@ -80,33 +116,47 @@ class ContentContainer extends Component {
             <Post
               color={this.state.color}
               borderColor={this.state.borderColor}
+              title={this.state.post.title}
+              id={this.state.post.id}
             ></Post>
             <LogoImage></LogoImage>
             <Post
               color={this.state.color}
               borderColor={this.state.borderColor}
+              title={this.state.post.title}
+              id={this.state.post.id}
             ></Post>
             <LogoImage></LogoImage>
             <Post
               color={this.state.color}
               borderColor={this.state.borderColor}
+              title={this.state.post.title}
+              id={this.state.post.id}
             ></Post>
             <Equipment></Equipment>
             <Post
               color={this.state.color}
               borderColor={this.state.borderColor}
+              title={this.state.post.title}
+              id={this.state.post.id}
             ></Post>
             <Post
               color={this.state.color}
               borderColor={this.state.borderColor}
+              title={this.state.post.title}
+              id={this.state.post.id}
             ></Post>
             <Post
               color={this.state.color}
               borderColor={this.state.borderColor}
+              title={this.state.post.title}
+              id={this.state.post.id}
             ></Post>
             <Post
               color={this.state.color}
               borderColor={this.state.borderColor}
+              title={this.state.post.title}
+              id={this.state.post.id}
             ></Post>
             <LogoImage></LogoImage>
           </PostWrapper>
