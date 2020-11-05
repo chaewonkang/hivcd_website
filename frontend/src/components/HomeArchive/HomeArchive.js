@@ -6,8 +6,7 @@ const HomeArchive = () => (
     <div className="archive_tag">
       <span>archive</span>
     </div>
-    <div className="container-fluid">
-      <div className="row">
+    <div className="archive_content_container">
         <div className="archive_content col-lg-8">
           <h2 className="archive_content_header">
             2018 시각디자인과 졸업주간<br></br>
@@ -20,10 +19,9 @@ const HomeArchive = () => (
           </h2>
           <span className="archive_content_date"></span>
         </div>
-        <div className="archive_image col-lg-4 image_fill"></div>
+        <div className="archive_image image_fill"></div>
       </div>
     </div>
-  </div>
 );
 
 export default HomeArchive;

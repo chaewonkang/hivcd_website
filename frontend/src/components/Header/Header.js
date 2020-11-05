@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Link, Route, BrowserRouter as Router } from "react-router-dom";
-import { AboutUs, Board, Address, Archive } from "../../components";
+import { AboutUs, Board, Address, Archive, Search } from "../../components";
 import ContentContainer from "../../containers/ContentContainer/ContentContainer";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Modal from "react-awesome-modal";
@@ -73,20 +73,20 @@ class Header extends Component {
                   <form>
                     <div className="navbar_login_modal_container">
                       <input
+					  placeholder="ID"
                         type="text"
                         name="id"
                         onChange={() => this._changeId()}
                       ></input>
                       <input
+					  placeholder="password"
                         type="text"
                         name="password"
                         onChange={() => this._changePW()}
                       ></input>
-                      <input
-                        value="LOGIN"
-                        type="button"
-                        onClick={() => this._closeModal()}
-                      ></input>
+                      <div className="button">
+						<span>LOGIN</span>
+					  </div>
                       <span className="create-account">create account</span>
                     </div>
                   </form>
@@ -113,9 +113,7 @@ class Header extends Component {
                 <span className="navbar_menu_wrapper_item_title">Archive</span>
               </Link>
             </div>
-            <div className="header_container_search">
-              <div className="navbar_search_item">SEARCH</div>
-            </div>
+			<Search/>
           </div>
         </header>
         <main>

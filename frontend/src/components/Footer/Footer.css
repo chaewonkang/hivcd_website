@@ -38,7 +38,7 @@
   font-family: "NewParisSkyline";
   padding: 2px 2px 2px 2px;
   font-size: 18px;
-  width: 30%;
+  width: fit-content;
   border: 1px solid #000;
 }
 

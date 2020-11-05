@@ -30,6 +30,12 @@
   padding: 0 1em 0 1em;
 }
 
+.archive_content_container {
+	display: grid;
+	grid-template-columns: 2fr 1fr;
+	grid-template-rows: 1fr;
+}
+
 .archive .archive_content {
   font-family: "CenturySchoolbook";
   font-size: 18px;
@@ -37,7 +43,7 @@
 }
 
 .archive_image {
-  margin-top: 10px;
+  width: 100%;
 }
 
 .image_fill {

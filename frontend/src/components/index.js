@@ -14,6 +14,7 @@ import Equipment from "./Equipment/Equipment";
 import Classroom from "./Classroom/Classroom";
 import LogoImage from "./LogoImage/LogoImage";
 import CalandarContainer from "./CalandarContainer/CalandarContainer";
+import Search from "./Search/Search"
 
 export {
   Header,
@@ -32,4 +33,5 @@ export {
   Classroom,
   LogoImage,
   CalandarContainer,
+  Search
 };

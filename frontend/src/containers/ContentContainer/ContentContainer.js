@@ -106,13 +106,9 @@ class ContentContainer extends Component {
               title={this.state.post.title}
               id={this.state.post.id}
             ></Post>
-
-            <div>
               <Link to="/calandar">
                 <Calandar></Calandar>
               </Link>
-            </div>
-
             <Post
               color={this.state.color}
               borderColor={this.state.borderColor}
