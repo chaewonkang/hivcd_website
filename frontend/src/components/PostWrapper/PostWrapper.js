@@ -1,5 +1,4 @@
 import React from "react";
-import PostContainer from "../PostContainer/PostContainer";
 import "./PostWrapper.css";
 
 const PostWrapper = ({ children }) => {

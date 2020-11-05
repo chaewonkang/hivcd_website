@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link, Route, BrowserRouter as Router } from "react-router-dom";
 import {
   PostWrapper,
   Post,
@@ -6,9 +7,11 @@ import {
   Calandar,
   Equipment,
   Classroom,
-  PostContainer,
+  LogoImage,
+  CalandarContainer,
 } from "../../components";
 import { ArchiveWrapper } from "../../components";
+import * as service from "../../services/post";
 import "./ContentContainer.css";
 
 function getRandomColor() {
@@ -32,7 +35,7 @@ function getRandomColor() {
 
   // 0 부터 12까지 랜덤 숫자
   const random = Math.floor(Math.random() * 6);
-  let ret = [];
+  let ret;
 
   // 랜덤 색상 반환
   return (ret = [colors[random], borderColors[random]]);
@@ -45,51 +48,129 @@ class ContentContainer extends Component {
   state = {
     color: "#000000",
     borderColor: "#000000",
+    postId: 1,
+    fetching: false,
+    post: {
+      title: null,
+      id: null,
+    },
   };
-  componentDidMount() {
+
+  componentWillMount() {
     this.setState({
       color: retColor[0],
       borderColor: retColor[1],
     });
   }
+
+  componentDidMount() {
+    this.fetchPostInfo(1);
+  }
+
+  fetchPostInfo = async (postId) => {
+    this.setState({
+      fetching: true, // requesting..
+    });
+    const info = await Promise.all([service.getPost(postId)]);
+
+    const { title, id } = info[0].data;
+
+    this.setState({
+      ...this.state,
+      postId,
+      post: {
+        title,
+        id,
+      },
+      fetching: false, // done!
+    });
+    console.log(info);
+  };
   render() {
     return (
-      <div className="contentcontainer">
-        <PostWrapper>
-          <Post
-            color={this.state.color}
-            borderColor={this.state.borderColor}
-          ></Post>
+      <Router>
+        <div className="contentcontainer">
+          <PostWrapper>
+            <Post
+              color={this.state.color}
+              borderColor={this.state.borderColor}
+              title={this.state.post.title}
+              id={this.state.post.id}
+            ></Post>
+            <LogoImage></LogoImage>
 
-          <Classroom></Classroom>
-          <Post
-            color={this.state.color}
-            borderColor={this.state.borderColor}
-          ></Post>
+            <Classroom></Classroom>
+            <Post
+              color={this.state.color}
+              borderColor={this.state.borderColor}
+              title={this.state.post.title}
+              id={this.state.post.id}
+            ></Post>
 
-          <Calandar></Calandar>
-          <Post
-            color={this.state.color}
-            borderColor={this.state.borderColor}
-          ></Post>
-          <Post
-            color={this.state.color}
-            borderColor={this.state.borderColor}
-          ></Post>
+            <div>
+              <Link to="/calandar">
+                <Calandar></Calandar>
+              </Link>
+            </div>
 
-          <Equipment></Equipment>
-          <Post
-            color={this.state.color}
-            borderColor={this.state.borderColor}
-          ></Post>
-        </PostWrapper>
-        <ArchiveWrapper>
-          <HomeArchive></HomeArchive>
-          <HomeArchive></HomeArchive>
-          <HomeArchive></HomeArchive>
-          <HomeArchive></HomeArchive>
-        </ArchiveWrapper>
-      </div>
+            <Post
+              color={this.state.color}
+              borderColor={this.state.borderColor}
+              title={this.state.post.title}
+              id={this.state.post.id}
+            ></Post>
+            <LogoImage></LogoImage>
+            <Post
+              color={this.state.color}
+              borderColor={this.state.borderColor}
+              title={this.state.post.title}
+              id={this.state.post.id}
+            ></Post>
+            <LogoImage></LogoImage>
+            <Post
+              color={this.state.color}
+              borderColor={this.state.borderColor}
+              title={this.state.post.title}
+              id={this.state.post.id}
+            ></Post>
+            <Equipment></Equipment>
+            <Post
+              color={this.state.color}
+              borderColor={this.state.borderColor}
+              title={this.state.post.title}
+              id={this.state.post.id}
+            ></Post>
+            <Post
+              color={this.state.color}
+              borderColor={this.state.borderColor}
+              title={this.state.post.title}
+              id={this.state.post.id}
+            ></Post>
+            <Post
+              color={this.state.color}
+              borderColor={this.state.borderColor}
+              title={this.state.post.title}
+              id={this.state.post.id}
+            ></Post>
+            <Post
+              color={this.state.color}
+              borderColor={this.state.borderColor}
+              title={this.state.post.title}
+              id={this.state.post.id}
+            ></Post>
+            <LogoImage></LogoImage>
+          </PostWrapper>
+          <ArchiveWrapper>
+            <HomeArchive></HomeArchive>
+            <HomeArchive></HomeArchive>
+            <HomeArchive></HomeArchive>
+            <HomeArchive></HomeArchive>
+          </ArchiveWrapper>
+        </div>
+        <main>
+          <Route path="/calandar" component={CalandarContainer} />
+        </main>
+      </Router>
     );
   }
 }

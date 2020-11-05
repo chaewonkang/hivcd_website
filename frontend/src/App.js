@@ -1,5 +1,4 @@
 import React from "react";
-import { ThemeProvider } from "styled-components";
 import { Header, Footer } from "./components";
 import "./App.css";
 

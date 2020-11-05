@@ -12,7 +12,8 @@ import Archive from "./Archive/Archive";
 import Calandar from "./Calandar/Calandar";
 import Equipment from "./Equipment/Equipment";
 import Classroom from "./Classroom/Classroom";
-import PostContainer from "./PostContainer/PostContainer";
+import LogoImage from "./LogoImage/LogoImage";
+import CalandarContainer from "./CalandarContainer/CalandarContainer";
 
 export {
   Header,
@@ -29,5 +30,6 @@ export {
   Calandar,
   Equipment,
   Classroom,
-  PostContainer,
+  LogoImage,
+  CalandarContainer,
 };

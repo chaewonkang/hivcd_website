@@ -1,69 +1,81 @@
-/** HEADER **/
-
 header {
-	margin-top: 20px;
-	display: grid;
-	grid-template-areas: "navbar_title nav";
+  background-color: #fff5f5;
+  padding: 15px 20px;
 }
 
-.nav {
-	grid-area: nav;
-	display: grid;
-	grid-template-columns: repeat(4, auto);
-	align-items: center;
-	justify-items: center;
+.header_container {
+  display: inline-grid;
+  width: 100vw;
+  grid-template-columns: 6fr 2fr 3fr 1fr;
 }
 
-.navbar_title h1 { /* Restaurant name */
-	font-family: 'CenturySchoolbook';
-	font-weight: 400;
-	color: #000;
-	font-size: 18px;
+.header_container_title h1 {
+  font-family: "CenturySchoolbook";
+  font-weight: 400;
+  color: #000;
+  font-size: 18px;
 }
-
-.navbar_menu {
-	float: right;
-}
-
 .navbar_menu_wrapper_item_title {
-	font-family: 'CenturySchoolbook';
-	font-weight: 400;
-	color: #000;
-	font-size: 18px;
-	margin-right: 20px;
-	text-decoration: underline;
+  font-family: "CenturySchoolbook";
+  font-weight: 400;
+  color: #000;
+  font-size: 18px;
+  margin-right: 20px;
+  text-decoration: underline;
 }
 
 .navbar_login {
-	position: relative;
+  position: relative;
 }
 
 .navbar_login_item {
-	font-family: "NewParisSkyline";
-	padding: 2px 2px 2px 2px;
-	font-size: 18px;
-	text-align: center;
-	position: absolute;
-	border: 1px solid #000;
+  font-family: "NewParisSkyline";
+  padding: 2px 2px 2px 2px;
+  font-size: 18px;
+  width: 20%;
+  border: 1px solid #000;
+  cursor: pointer;
+}
+
+.navbar_login_modal_container {
+  display: grid;
+  grid-template-columns: 370px;
+  grid-template-rows: 70px 70px 70px;
+  row-gap: 20px;
+  padding: 20px;
+  align-content: center;
+  justify-content: center;
+}
+
+input {
+  border: 1px solid #000;
+  font: 1em/1.25em "NewParisSkyline", sans-serif;
+}
+
+.create-account {
+  font-family: "NewParisSkyline";
+  padding: 2px 2px 2px 2px;
+  font-size: 30px;
+  text-align: right;
+  text-decoration: underline;
 }
 
 .navbar_search_item {
-	font-family: "NewParisSkyline";
-	padding: 2px 2px 2px 2px;
-	font-size: 18px;
-	text-align: center;
-	position: absolute;
-	border: 1px solid #000;
+  font-family: "NewParisSkyline";
+  padding: 2px 2px 2px 2px;
+  font-size: 18px;
+  text-align: center;
+  position: absolute;
+  border: 1px solid #000;
+  cursor: pointer;
 }
 
 /********** Large devices only **********/
 @media (min-width: 1200px) {
-
 }
 
 /********** Medium devices only **********/
 @media (min-width: 992px) and (max-width: 1199px) {
-
 }
 
 /********** Small devices only **********/
@@ -72,86 +84,86 @@ header {
 
 /********** Extra small devices only **********/
 @media (max-width: 577px) and (max-width: 767px) {
+  .navbar_title {
+    margin-bottom: 20px;
+  }
 
-	.navbar_title {
-		margin-bottom: 20px;
-	}
+  .navbar_title h1 {
+    /* Restaurant name */
+    font-family: "CenturySchoolbook";
+    font-weight: 400;
+    color: #000;
+    font-size: 18px;
+  }
 
-	.navbar_title h1 { /* Restaurant name */
-		font-family: 'CenturySchoolbook';
-		font-weight: 400;
-		color: #000;
-		font-size: 18px;
-	}
+  .navbar_menu_wrapper_item_title {
+    font-family: "CenturySchoolbook";
+    font-weight: 400;
+    color: #000;
+    font-size: 18px;
+    text-decoration: underline;
+  }
 
-	.navbar_menu_wrapper_item_title {
-		font-family: 'CenturySchoolbook';
-		font-weight: 400;
-		color: #000;
-		font-size: 18px;
-		text-decoration: underline;
-	}
+  .navbar_login_item {
+    font-family: "NewParisSkyline";
+    padding: 2px 2px 2px 2px;
+    font-size: 16px;
+    text-align: center;
+    border: 1px solid #000;
+    width: 80%;
+  }
 
-	.navbar_login_item {
-		font-family: "NewParisSkyline";
-		padding: 2px 2px 2px 2px;
-		font-size: 16px;
-		text-align: center;
-		border: 1px solid #000;
-		width: 80%;
-	}
-
-	.navbar_search_item {
-		font-family: "NewParisSkyline";
-		padding: 2px 2px 2px 2px;
-		font-size: 16px;
-		text-align: center;
-		border: 1px solid #000;
-		width: 80%;
-	}
+  .navbar_search_item {
+    font-family: "NewParisSkyline";
+    padding: 2px 2px 2px 2px;
+    font-size: 16px;
+    text-align: center;
+    border: 1px solid #000;
+    width: 80%;
+  }
 }
 
 @media (max-width: 576px) {
-	.navbar_title {
-		margin-bottom: 20px;
-	}
+  .navbar_title {
+    margin-bottom: 20px;
+  }
 
-	.navbar_menu {
-		margin-bottom: 20px;
-	}
+  .navbar_menu {
+    margin-bottom: 20px;
+  }
 
-	.navbar_login {
-		margin-bottom: 60px;
-	}
+  .navbar_login {
+    margin-bottom: 60px;
+  }
 
-	.navbar_search {
-		margin-bottom: 40px;
-	}
+  .navbar_search {
+    margin-bottom: 40px;
+  }
 
-	.navbar_menu_wrapper_item_title {
-		font-family: 'CenturySchoolbook';
-		font-weight: 400;
-		color: #000;
-		font-size: 18px;
-		text-decoration: underline;
-	}
+  .navbar_menu_wrapper_item_title {
+    font-family: "CenturySchoolbook";
+    font-weight: 400;
+    color: #000;
+    font-size: 18px;
+    text-decoration: underline;
+  }
 
-	.navbar_login_item {
-		font-family: "NewParisSkyline";
-		padding: 2px 2px 2px 2px;
-		font-size: 16px;
-		text-align: center;
-		border: 1px solid #000;
-		width: 80%;
-		margin-bottom: 20px;
-	}
+  .navbar_login_item {
+    font-family: "NewParisSkyline";
+    padding: 2px 2px 2px 2px;
+    font-size: 16px;
+    text-align: center;
+    border: 1px solid #000;
+    width: 80%;
+    margin-bottom: 20px;
+  }
 
-	.navbar_search_item {
-		font-family: "NewParisSkyline";
-		padding: 2px 2px 2px 2px;
-		font-size: 16px;
-		text-align: center;
-		border: 1px solid #000;
-		width: 80%;
-	}
+  .navbar_search_item {
+    font-family: "NewParisSkyline";
+    padding: 2px 2px 2px 2px;
+    font-size: 16px;
+    text-align: center;
+    border: 1px solid #000;
+    width: 80%;
+  }
 }
