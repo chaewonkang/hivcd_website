@@ -1,6 +1,6 @@
 .postwrapper {
   display: inline-grid;
-  width: 60%;
+  width: calc((100vw - 40px) * 0.6);
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-template-rows: repeat(3, 295px);
   grid-auto-rows: 295px;

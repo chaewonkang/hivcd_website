@@ -117,7 +117,7 @@ class Header extends Component {
           </div>
         </header>
         <main>
-          <Route exact path="/" component={ContentContainer} />
+		<Route exact path="/" component={ContentContainer} />
           <Route path="/aboutus" component={AboutUs} />
           <Route path="/board" component={Board} />
           <Route path="/address" component={Address} />

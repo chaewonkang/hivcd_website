@@ -1,0 +1,9 @@
+.board_post_wrapper {
+	display: inline-grid;
+	width: 100%;
+	grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+	grid-template-rows: repeat(4, 295px);
+	grid-auto-rows: 295px;
+	row-gap: 20px;
+	column-gap: 20px;
+  }
