@@ -1,18 +1,16 @@
 .archive {
   position: relative;
-  background-color: #ffeb00;
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
-  border: 2px solid #ffba00;
   padding: 1rem;
+  background-color: #ffeb00;
+  border: 2px solid #ffba00;
+  width: 100%;
   height: 100%;
-  overflow: hidden;
 }
 
 .archive h2 {
   font-family: "AGChoiJeongHo";
   font-size: 18px;
   padding-top: 0.5rem;
-  line-height: 23px;
 }
 
 .archive p {
@@ -21,35 +19,33 @@
 
 .archive .archive_tag {
   position: absolute;
-  top: 0;
-  right: 0;
+  top: -1px;
+  right: -1px;
   font-family: "NewParisSkyline";
-  position: absolute;
   background-color: #000;
   color: #fff;
+  text-align: center;
   padding: 0 1em 0 1em;
-}
-
-.archive_content_container {
-	display: grid;
-	grid-template-columns: 2fr 1fr;
-	grid-template-rows: 1fr;
-	height: 100%;
+  z-index: 98;
 }
 
 .archive .archive_content {
-  font-family: "CenturySchoolbook";
-  font-size: 18px;
-  margin-left: -10px;
+	font-family: "CenturySchoolbook";
+	font-size: 18px;
+	display: inline-grid;
+	width: 100%;
+	grid-template-columns: 2fr 1fr;
+	grid-template-rows: 1fr;
+	position: sticky;
+	top: 0;
 }
 
-.archive_image {
-  width: 100%;
+.archive_content_image {
+  float: right;
 }
 
 .image_fill {
-  overflow: hidden;
   background-size: cover;
   background-position: center;
-  background-image: url("../../img/archive_ex.png");
+  width: 100%;
 }

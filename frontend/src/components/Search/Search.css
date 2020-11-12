@@ -2,6 +2,7 @@
 	font-family: "NewParisSkyline";
 	padding: 2px 2px 2px 2px;
 	width: fit-content;
+	justify-self: right;
 	font-size: 18px;
 	text-align: center;
 	position: absolute;

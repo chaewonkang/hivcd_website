@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import axios from 'axios';
-import { Link, Route, BrowserRouter as Router } from "react-router-dom";
+import { BrowserRouter as Router } from "react-router-dom";
 import {
   PostWrapper,
   Post,
@@ -9,18 +9,17 @@ import {
   Equipment,
   Classroom,
   LogoImage,
-  CalandarContainer,
 } from "../../components";
 import { ArchiveWrapper } from "../../components";
-import * as service from "../../services/post";
 import "./ContentContainer.css";
 
 class ContentContainer extends Component {
   state = {
-
     postId: 1,
-	loading: false,
+	loadingPost: false,
+	loadingArchive: false,
 	postList: [],
+	archiveList: [],
 	items: 20,
 	preItems: 0
   };
@@ -32,7 +31,7 @@ class ContentContainer extends Component {
   componentDidMount() {
 	// this.fetchPostInfo(1);
 	this._loadPost();
-
+	this._loadArchive();
 	// window.addEventListener('scroll', this._infiniteScroll);
   }
 
@@ -46,7 +45,7 @@ class ContentContainer extends Component {
 		.then(({data}) => {
 			this.setState({
 				...this.state,
-				loading: true,
+				loadingPost: true,
 				postList: data
 			});
 		})
@@ -54,45 +53,59 @@ class ContentContainer extends Component {
 			console.error(e);
 			this.setState({
 				...this.state,
-				loading: false
+				loadingPost: false
+			});
+		});
+	};
+
+	_loadArchive = async () => {
+		axios
+		.get("https://jsonplaceholder.typicode.com/photos")
+		.then(({data}) => {
+			this.setState({
+				...this.state,
+				loadingArchive: true,
+				archiveList: data
+			});
+		})
+		.catch(e => {
+			console.error(e);
+			this.setState({
+				...this.state,
+				loadingArchive: false
 			});
 		});
 	};
 
   render() {
-	const { postList } = this.state;
+	const { postList, archiveList } = this.state;
+	const latestArchiveList = archiveList.slice(0, 6);
+	const latestPostList = postList.slice(0, 20);
    return (
       <Router>
         <div className="contentcontainer">
           <PostWrapper>
-			  {postList && postList.map((post) => {
+			  {latestPostList && latestPostList.map((post) => {
 				  return (
 					  <Post
 					  title={post.title}
 					  id={post.id}></Post>
 				  )
 			  })}
-            <LogoImage></LogoImage>
+			<LogoImage></LogoImage>
             <Classroom></Classroom>
-			<div className="calandar calandar_check">
-				<div className="module_tag">
-					<span>calandar</span>
-				</div>
-			</div>
-
-            <LogoImage></LogoImage>
-
-            <LogoImage></LogoImage>
-
+			<Calandar onClick={() => console.log("Calandar Module Clicked!")}></Calandar>
             <Equipment></Equipment>
-
-            <LogoImage></LogoImage>
           </PostWrapper>
           <ArchiveWrapper>
-            <HomeArchive></HomeArchive>
-            <HomeArchive></HomeArchive>
-            <HomeArchive></HomeArchive>
-            <HomeArchive></HomeArchive>
+		  {latestArchiveList && latestArchiveList.map((post) => {
+				  return (
+					  <HomeArchive
+					  title={post.title}
+					  id={post.id}
+					  thumbnailUrl={post.thumbnailUrl}></HomeArchive>
+				  )
+			  })}
           </ArchiveWrapper>
         </div>
         <main>

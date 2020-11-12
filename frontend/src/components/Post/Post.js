@@ -57,20 +57,18 @@ class Post extends Component {
 		border: `2px solid ${this.state.style.borderColor}`
 	}
     return (
-      <div className="">
         <div className="post" style={style} ref={(ref) => (this.myRef = ref)}>
           <div className="post_tag">
             <span>board</span>
           </div>
           <div className="post_content">
-            <h2 className="post_content_header">
+            <h2 className="post_content_header" onClick={() => console.log("Post Title Clicked!")}>
               title: {title} <br></br>
               color: {this.state.color}
             </h2>
             <span className="post_content_date">date: {id}</span>
           </div>
         </div>
-      </div>
     );
   }
 }
