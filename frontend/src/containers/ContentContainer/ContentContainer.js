@@ -93,9 +93,9 @@ class ContentContainer extends Component {
 				  )
 			  })}
 			<LogoImage></LogoImage>
-            <Classroom></Classroom>
+            {/* <Classroom></Classroom>
 			<Calandar onClick={() => console.log("Calandar Module Clicked!")}></Calandar>
-            <Equipment></Equipment>
+            <Equipment></Equipment> */}
           </PostWrapper>
           <ArchiveWrapper>
 		  {latestArchiveList && latestArchiveList.map((post) => {

@@ -15,8 +15,10 @@ import Classroom from "./Classroom/Classroom";
 import LogoImage from "./LogoImage/LogoImage";
 import CalandarContainer from "./CalandarContainer/CalandarContainer";
 import Search from "./Search/Search";
-import BoardPostWrapper from './BoardPostWrapper/BoardPostWrapper';
-import FilterBox from './FilterBox/FilterBox'
+import BoardPostWrapper from "./BoardPostWrapper/BoardPostWrapper";
+import FilterBox from "./FilterBox/FilterBox";
+import ResponsiveHeader from "./ResponsiveHeader/ResponsiveHeader";
+import Navbar from "./Navbar/Navbar";
 
 export {
   Header,
@@ -37,5 +39,7 @@ export {
   CalandarContainer,
   Search,
   BoardPostWrapper,
-  FilterBox
+  FilterBox,
+  ResponsiveHeader,
+  Navbar,
 };

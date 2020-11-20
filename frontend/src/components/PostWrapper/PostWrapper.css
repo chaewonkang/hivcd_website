@@ -6,7 +6,6 @@
   grid-auto-rows: 295px;
   row-gap: 20px;
   column-gap: 20px;
-
 }
 
 @media (min-width: 1440px) and (max-width: 1920px) {

@@ -8,8 +8,8 @@ class Search extends Component {
   constructor(props) {
     super(props);
     this.state = {
-	  visible: false,
-	  search: ""
+      visible: false,
+      search: "",
     };
   }
 
@@ -26,35 +26,39 @@ class Search extends Component {
   };
 
   _changeSearch = function () {
-	  const searchValue = document.getElementsByName("search")[0].value;
-	  console.log(searchValue);
+    const searchValue = document.getElementsByName("search")[0].value;
+    console.log(searchValue);
 
-	  this.setState({
-		...this.tate,
-		search: searchValue
-	  });
-  }
+    this.setState({
+      ...this.tate,
+      search: searchValue,
+    });
+  };
 
   render() {
     return (
       <Router>
-          <div>
-				<Modal
-				visible={this.state.visible}
-				width="815"
-				height="70"
-				effect="fadeInDown"
-				onClickAway={() => this._closeModal()}>
-					<form>
-						<input placeholder="SEARCH..." type="text" name="search" onChange={() => this._changeSearch()}></input>
-					</form>
-				</Modal>
-			  <div
-			  className="navbar_search_item"
-			  onClick={() => this._openModal()}>
-				  SEARCH
-			  </div>
-            </div>
+        <div>
+          <Modal
+            visible={this.state.visible}
+            width="815"
+            height="70"
+            effect="fadeInDown"
+            onClickAway={() => this._closeModal()}
+          >
+            <form>
+              <input
+                placeholder="SEARCH..."
+                type="text"
+                name="search"
+                onChange={() => this._changeSearch()}
+              ></input>
+            </form>
+          </Modal>
+          <div className="navbar_search_item" onClick={() => this._openModal()}>
+            SEARCH
+          </div>
+        </div>
       </Router>
     );
   }
