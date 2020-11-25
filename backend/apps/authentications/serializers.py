@@ -68,8 +68,8 @@ class LoginSerializer(serializers.ModelSerializer):
     def validate(self, attrs):
         email = attrs.get("email", "")
         password = attrs.get("password", "")
-        user = auth.authenticate(email=email, password=password)
-
+        # user = auth.authenticate(email=email, password=password)
+        user = User.objects.get(email=email)
         if not user:
             raise AuthenticationFailed("Invalid credentials, try again")
 

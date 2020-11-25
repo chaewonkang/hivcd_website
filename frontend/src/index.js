@@ -1,19 +1,17 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { createStore } from "redux";
-import reducers from "./reducers";
 import { Provider } from "react-redux";
+import { BrowserRouter } from "react-router-dom";
+import store from "./store/configure";
 import App from "./App";
-import "semantic-ui-css/semantic.min.css";
-import "bootstrap/dist/css/bootstrap.css";
 import "./index.css";
 import * as serviceWorker from "./serviceWorker";
 
-const store = createStore(reducers);
-
 ReactDOM.render(
   <Provider store={store}>
-    <App />
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
   </Provider>,
   document.getElementById("root")
 );

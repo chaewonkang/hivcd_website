@@ -1,7 +1,8 @@
 import React, { Component } from "react";
-import { BrowserRouter as Router } from "react-router-dom";
 import Modal from "react-awesome-modal";
 import "./Login.css";
+import { async } from "rxjs";
+import axios from "axios";
 
 class Login extends Component {
   constructor(props) {
@@ -9,6 +10,8 @@ class Login extends Component {
     this.state = {
       visible: false,
       search: "",
+      id: "",
+      password: "",
     };
   }
 
@@ -54,7 +57,23 @@ class Login extends Component {
     });
   };
 
+  _postLogin = async () => {
+    axios
+      .post("http://localhost:8000/api/v1/auth/login/", {
+        email: this.state.id,
+        password: this.state.password,
+      })
+      .then(function (response) {
+        console.log(response);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  };
+
   render() {
+    console.log("ID:" + this.state.id + ", PW:" + this.state.password);
+
     return (
       <div className="header_container_login">
         <Modal
@@ -72,6 +91,7 @@ class Login extends Component {
                   type="text"
                   name="id"
                   onChange={() => this._changeId()}
+                  onClick={() => this._postLogin()}
                 ></input>
                 <input
                   placeholder="password"
