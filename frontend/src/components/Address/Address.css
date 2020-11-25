@@ -1,0 +1,26 @@
+.address_wrapper {
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-bottom: 120px;
+}
+
+.address_container {
+  display: inline-grid;
+  width: 100%;
+  height: 100vh;
+  grid-template-columns: repeat(9, 1fr);
+  column-gap: 14px;
+  row-gap: 14px;
+  grid-template-rows: repeat(7, 170px);
+}
+
+.address_module {
+  border: 1px solid #000;
+  width: 100%;
+  text-align: center;
+  padding: 10px;
+}
+
+.address_module span {
+  display: block;
+}
