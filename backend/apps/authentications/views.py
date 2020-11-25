@@ -59,8 +59,7 @@ class RegistrationView(generics.GenericAPIView):
         token = RefreshToken.for_user(user).access_token
         current_site = get_current_site(request).domain
         relativeLink = reverse("authentications:email-verify")
-        absurl = "http://" + current_site + \
-            relativeLink + "?token=" + str(token)
+        absurl = "http://" + current_site + relativeLink + "?token=" + str(token)
         email_body = (
             "Hi "
             + user.username
@@ -194,8 +193,7 @@ class PasswordTokenCheckAPI(generics.GenericAPIView):
                     return CustomRedirect(redirect_url + "?token_valid=False")
                 else:
                     return CustomRedirect(
-                        os.environ.get("FRONTEND_URL", "") +
-                        "?token_valid=False"
+                        os.environ.get("FRONTEND_URL", "") + "?token_valid=False"
                     )
 
             if redirect_url and len(redirect_url) > 3:

@@ -27,7 +27,7 @@ urlpatterns = [
         name="password-reset-confirm",
     ),
     path(
-        "password-reset-complete",
+        "password-reset-complete/",
         views.SetNewPasswordAPIView.as_view(),
         name="password-reset-complete",
     ),
