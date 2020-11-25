@@ -3,26 +3,27 @@
   width: 40px;
   height: 35px;
   position: absolute;
-  top: 20px;
+  top: 10px;
   right: 20px;
   outline: none;
   background-color: #fff5f5;
   color: #000;
+  border: none;
 }
 
 .addTransiton {
-  transform: translateX(-700px);
+  transform: translateX(-700px) translateY(60px);
   transition: transform 0.5s ease-in-out;
 }
 .removeTransition {
-  transform: translateX(0px);
+  transform: translateX(0px) translateY(60px);
   transition: transform 0.5s ease-in-out;
 }
 
 #sidebar-list {
   background-color: #fff5f5;
   height: 100vh;
-  width: 50vw;
+  width: 300px;
   position: absolute;
   z-index: 2000;
   left: 0;
@@ -53,4 +54,44 @@
 .nav-small-link {
   cursor: pointer;
   padding-bottom: 5px;
+}
+
+@media (min-width: 1440px) and (max-width: 1920px) {
+}
+
+/********** Large devices only **********/
+@media (min-width: 1200px) and (max-width: 1440px) {
+}
+
+/********** Medium devices only **********/
+@media (min-width: 992px) and (max-width: 1199px) {
+}
+
+/********** Small devices only **********/
+@media (min-width: 768px) and (max-width: 991px) {
+}
+
+/********** Extra small devices only **********/
+@media (min-width: 577px) and (max-width: 767px) {
+}
+
+@media (min-width: 320px) and (max-width: 576px) {
+  .addTransiton {
+    transform: translateX(-700px) translateY(60px);
+    transition: transform 0.5s ease-in-out;
+  }
+  .removeTransition {
+    transform: translateX(0px) translateY(60px);
+    transition: transform 0.5s ease-in-out;
+  }
+
+  #sidebar-list {
+    background-color: #fff5f5;
+    height: 100vh;
+    width: 100vw;
+    position: absolute;
+    z-index: 2000;
+    left: 0;
+    top: 0;
+  }
 }

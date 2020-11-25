@@ -1,0 +1,6 @@
+.archive_container {
+  display: inline-grid;
+  grid-template-columns: repeat(9, 1fr);
+  column-gap: 10px;
+  grid-template-rows: repeat(10, 1fr);
+}

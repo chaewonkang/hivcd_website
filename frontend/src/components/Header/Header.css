@@ -39,30 +39,6 @@ header {
   margin-right: 20px;
   text-decoration: underline;
 }
-
-.navbar_login {
-  position: relative;
-}
-
-.navbar_login_item {
-  font-family: "NewParisSkyline";
-  padding: 2px 2px 2px 2px;
-  font-size: 18px;
-  width: fit-content;
-  border: 1px solid #000;
-  cursor: pointer;
-}
-
-.navbar_login_modal_container {
-  display: grid;
-  grid-template-columns: 370px;
-  grid-template-rows: 70px 70px 70px;
-  row-gap: 20px;
-  padding: 40px;
-  align-content: center;
-  justify-content: center;
-}
-
 input[name="id"] {
   border: 1px solid #000;
   font-family: "NewParisSkyline", sans-serif;
@@ -125,16 +101,10 @@ input[type="text"]:focus {
 }
 
 @media (min-width: 1440px) and (max-width: 1920px) {
-  .header_container_responsive {
-    display: none;
-  }
 }
 
 /********** Large devices only **********/
 @media (min-width: 1200px) and (max-width: 1440px) {
-  .header_container_responsive {
-    display: none;
-  }
 }
 
 /********** Medium devices only **********/
@@ -149,6 +119,10 @@ input[type="text"]:focus {
 
   .hamburger_btn {
     display: grid;
+  }
+
+  .header_container_title {
+    text-align: center;
   }
 
   .header_container_left {
@@ -171,6 +145,11 @@ input[type="text"]:focus {
   .header_container_responsive {
     display: inline-grid;
   }
+
+  .header_container_title {
+    text-align: center;
+  }
+
   .hamburger_btn {
     display: grid;
   }

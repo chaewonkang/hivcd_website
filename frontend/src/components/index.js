@@ -19,6 +19,7 @@ import BoardPostWrapper from "./BoardPostWrapper/BoardPostWrapper";
 import FilterBox from "./FilterBox/FilterBox";
 import ResponsiveHeader from "./ResponsiveHeader/ResponsiveHeader";
 import Navbar from "./Navbar/Navbar";
+import Login from "./Login/Login";
 
 export {
   Header,
@@ -42,4 +43,5 @@ export {
   FilterBox,
   ResponsiveHeader,
   Navbar,
+  Login,
 };

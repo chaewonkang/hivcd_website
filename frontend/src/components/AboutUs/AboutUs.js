@@ -4,25 +4,40 @@ import "./AboutUs.css";
 const AboutUs = () => {
   return (
     <div className="aboutus_wrapper">
-		<div className="aboutus_maintext">
-			<p>
-			홍익대학교 시각디자인과는 디자인의 세계화, 국제화 시대에 부응하는 디자이너를 길러내기 위해 국제 디자인 워크숍 개최, 해외디자인 세미나 참여, 세계 여러 유수 디자인대학과의 교류를 진행하고 있다. <br></br>
-홍익대학교 시각디자인 전공은 시각정보매체 발달에 맞추어 관련 분야와 적극적인 교류를 통해 시각디자인의 영역을 넓히는 한편, 새로운 이론과 교육방법을 창출하여 현 교육체제에 반영함으로써 21세기 국내외 디자인계에서 창조적이면서 능동적인 리더의 역할을 담당하는 전문디자이너를 양성하는데 그 교육목표를 두고 있다.
-			</p>
-		</div>
       <div className="aboutus_container">
         <div id="history" className="aboutus_item">
           <div className="aboutus_item_tag">
             <span>HISTORY</span>
           </div>
           <div className="aboutus_content">
-            <h2>
-              {" "}
-              미술대학 시각디자인과, 한국디자인학회 대학생학술대회 우수논문상,
-              장려상 수상 <br></br>
-              {/* color: {this.state.color} */}
-            </h2>
-            <span className="post_content_date">2020.07.15</span>
+            오늘날 매체의 발달로 시각디자인의 영역은 계속 넓어지고 있다. 따라서
+            시각디자인 전공 교육은 관련 분야와의 폭넓은 교류를 통해 새로운
+            이론을 받아들이고 이에 따른 교육 내용과 방법을 창출하여 교육에
+            반영하고 있다. <br></br>
+            <br></br>1학년 학부 공통 기초 과정에서는 조형 실기 및 이론을
+            가르치며, 2학년에서는 깊이 있는 세부 전공분야 실기 교육, 3-4학년
+            과정에는 광고디자인, 영상디자인, 편집 및 멀티미디어디자인,
+            포장디자인, 일러스트레이션, 사진디자인, 시각환경디자인 등을 학생
+            희망에 따라 분야 별 전공 코스트랙(course track)에 따라 교육하여
+            창의적인 전문 시각디자이너로서 능력을 기르는데 힘쓰고 있다.{" "}
+            <br></br>
+            <br></br>특히 국제적인 디자이너를 길러내기 위해 국내외 이름난 전문가
+            및 교육자 초청 디자인 워크숍을 정기적으로 열고, 해외 디자인 행사
+            학생 참여, 세계의 여러 유수 디자인대학과 학생 및 교수 교류를 활발히
+            하고 있다. 오늘날 매체의 발달로 시각디자인의 영역은 계속 넓어지고
+            있다. 따라서 시각디자인 전공 교육은 관련 분야와의 폭넓은 교류를 통해
+            새로운 이론을 받아들이고 이에 따른 교육 내용과 방법을 창출하여
+            교육에 반영하고 있다. 1학년 학부 공통 기초 과정에서는 조형 실기 및
+            이론을 가르치며, 2학년에서는 깊이 있는 세부 전공분야 실기 교육,
+            3-4학년 과정에는 광고디자인, 영상디자인, 편집 및 멀티미디어디자인,
+            포장디자인, 일러스트레이션, 사진디자인, 시각환경디자인 등을 학생
+            희망에 따라 분야 별 전공 코스트랙(course track)에 따라 교육하여
+            창의적인 전문 시각디자이너로서 능력을 기르는데 힘쓰고 있다.{" "}
+            <br></br>
+            <br></br>특히 국제적인 디자이너를 길러내기 위해 국내외 이름난 전문가
+            및 교육자 초청 디자인 워크숍을 정기적으로 열고, 해외 디자인 행사
+            학생 참여, 세계의 여러 유수 디자인대학과 학생 및 교수 교류를 활발히
+            하고 있다.
           </div>
         </div>
         <div id="curriculum" className="aboutus_item">
@@ -30,13 +45,92 @@ const AboutUs = () => {
             <span>CURRICULUM</span>
           </div>
           <div className="aboutus_content">
-            <h2>
-              {" "}
-              미술대학 시각디자인과, 한국디자인학회 대학생학술대회 우수논문상,
-              장려상 수상 <br></br>
-              {/* color: {this.state.color} */}
-            </h2>
-            <span className="post_content_date">2020.07.15</span>
+            <table className="aboutus_curriculum">
+              <tr>
+                <th>학년/학기</th>
+                <th>이수구분</th>
+                <th>교과목</th>
+                <th>학수번호</th>
+                <th>학점/시수</th>
+              </tr>
+              <tr>
+                <td>1/1</td>
+                <td>전공선택</td>
+                <td>드로잉(1)</td>
+                <td>410113</td>
+                <td>3/3</td>
+              </tr>
+              <tr>
+                <td>1/1</td>
+                <td>전공선택</td>
+                <td>드로잉(1)</td>
+                <td>410113</td>
+                <td>3/3</td>
+              </tr>
+              <tr>
+                <td>1/1</td>
+                <td>전공선택</td>
+                <td>드로잉(1)</td>
+                <td>410113</td>
+                <td>3/3</td>
+              </tr>
+              <tr>
+                <td>1/1</td>
+                <td>전공선택</td>
+                <td>드로잉(1)</td>
+                <td>410113</td>
+                <td>3/3</td>
+              </tr>
+              <tr>
+                <td>1/1</td>
+                <td>전공선택</td>
+                <td>드로잉(1)</td>
+                <td>410113</td>
+                <td>3/3</td>
+              </tr>
+              <tr>
+                <td>1/1</td>
+                <td>전공선택</td>
+                <td>드로잉(1)</td>
+                <td>410113</td>
+                <td>3/3</td>
+              </tr>
+              <tr>
+                <td>1/1</td>
+                <td>전공선택</td>
+                <td>드로잉(1)</td>
+                <td>410113</td>
+                <td>3/3</td>
+              </tr>
+              <tr>
+                <td>1/1</td>
+                <td>전공선택</td>
+                <td>드로잉(1)</td>
+                <td>410113</td>
+                <td>3/3</td>
+              </tr>
+              <tr>
+                <td>1/1</td>
+                <td>전공선택</td>
+                <td>드로잉(1)</td>
+                <td>410113</td>
+                <td>3/3</td>
+              </tr>
+              <tr>
+                <td>1/1</td>
+                <td>전공선택</td>
+                <td>드로잉(1)</td>
+                <td>410113</td>
+                <td>3/3</td>
+              </tr>
+              <tr>
+                <td>1/1</td>
+                <td>전공선택</td>
+                <td>드로잉(1)</td>
+                <td>410113</td>
+                <td>3/3</td>
+              </tr>
+            </table>
           </div>
         </div>
         <div id="map" className="aboutus_item">
@@ -58,13 +152,29 @@ const AboutUs = () => {
             <span>CONTACT</span>
           </div>
           <div className="aboutus_content">
-            <h2>
-              {" "}
-              미술대학 시각디자인과, 한국디자인학회 대학생학술대회 우수논문상,
-              장려상 수상 <br></br>
-              {/* color: {this.state.color} */}
-            </h2>
-            <span className="post_content_date">2020.07.15</span>
+            <table className="aboutus_contact">
+              <tr>
+                <td>위치</td>
+                <td>R715</td>
+                <td>전화</td>
+                <td>02-370-8888</td>
+              </tr>
+              <tr>
+                <td>업무시간</td>
+                <td>
+                  월~금 오전 9:00~오후 5:30 <br></br>(동절기 오전 9:00~오후
+                  5:00)
+                </td>
+                <td>팩스</td>
+                <td>02-3145-5792</td>
+              </tr>
+              <tr>
+                <td>홈페이지</td>
+                <td>https://hongiksidi.com</td>
+                <td></td>
+                <td></td>
+              </tr>
+            </table>
           </div>
         </div>
       </div>

@@ -4,6 +4,28 @@
   position: relative;
 }
 
+.aboutus_curriculum {
+  width: 100%;
+  text-align: center;
+}
+
+.aboutus_contact {
+  width: 100%;
+  text-align: left;
+}
+
+.aboutus_contact tr {
+  border-bottom: 1px solid black;
+}
+
+th {
+  border-bottom: 1px solid black;
+  padding: 10px;
+}
+
+td {
+  padding: 5px;
+}
 .aboutus_container {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -12,14 +34,9 @@
   row-gap: 20px;
 }
 
-.aboutus_maintext {
-	font-family: 'AGChoiJeongHo';
-	margin-top: 20px;
-	margin-bottom: 20px;
-	font-size: 2em;
-	word-break: keep-all;
-	width: 60%;
-	line-height: 1.8em;
+.aboutus_container div {
+  overflow: auto;
+  line-height: 1.7em;
 }
 
 .aboutus_container .aboutus_item {
@@ -32,9 +49,8 @@
 }
 
 .aboutus_item h2 {
-
   font-family: "AGChoiJeongHo";
-  font-size: 18px;
+  font-size: 22px;
   padding-top: 0.5rem;
 }
 
@@ -44,44 +60,45 @@
 }
 
 .aboutus_item .aboutus_item_tag {
-	position: absolute;
-	top: -1px;
-	left: -1px;
-	background-color: #000;
-	color: #fff;
-	width: fit-content;
-	padding: 0 1em 0 1em;
-  font-family: "NewParisSkyline";
-  font-size: 20px;
-  text-align: left;
+  font-family: Helvetica;
+  font-size: 22px;
+  text-align: center;
 }
 
 .aboutus_item .aboutus_content {
-	position: absolute;
-margin-top: 20px;
+  position: absolute;
+  margin-top: 20px;
   font-family: "CenturySchoolbook";
   font-size: 18px;
   position: sticky;
   top: 0;
+}
 
+.aboutus_content_contact {
+  display: block;
+  border-bottom: 1px solid black;
+}
+
+.aboutus_content_contact p {
+  display: inline;
 }
 
 #history {
-	background-color: #9099FF;
-	border: 2px solid #6F55FF;
+  background-color: #9099ff;
+  border: 2px solid #6f55ff;
 }
 
 #map {
-	background-color: #FFCC99;
-	border: 2px solid #FF9191;
+  background-color: #ffcc99;
+  border: 2px solid #ff9191;
 }
 
 #curriculum {
-	background-color: #FF01FF;
-	border: 2px solid #E3001F;
+  background-color: #ff01ff;
+  border: 2px solid #e3001f;
 }
 
 #contact {
-	background-color: #729B00;
-	border: 2px solid #19A300;
+  background-color: #729b00;
+  border: 2px solid #19a300;
 }

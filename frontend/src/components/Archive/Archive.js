@@ -3,10 +3,9 @@ import "./Archive.css";
 
 const Archive = () => {
   return (
-    <div className="container-fluid">
-      <div className="tempstyle">
-        <h1>This is Archive Page</h1>
-        <p>Welcome Archive</p>
+    <div className="archive_wrapper">
+      <div className="archive_container">
+        <div className="archive_module"></div>
       </div>
     </div>
   );

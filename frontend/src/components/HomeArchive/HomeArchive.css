@@ -30,14 +30,14 @@
 }
 
 .archive .archive_content {
-	font-family: "CenturySchoolbook";
-	font-size: 18px;
-	display: inline-grid;
-	width: 100%;
-	grid-template-columns: 2fr 1fr;
-	grid-template-rows: 1fr;
-	position: sticky;
-	top: 0;
+  font-family: "CenturySchoolbook";
+  font-size: 18px;
+  display: inline-grid;
+  width: 100%;
+  grid-template-columns: 2fr 1fr;
+  grid-template-rows: 1fr;
+  position: sticky;
+  top: 0;
 }
 
 .archive_content_image {
@@ -48,4 +48,32 @@
   background-size: cover;
   background-position: center;
   width: 100%;
+}
+media (min-width: 1440px) and (max-width: 1920px) {
+}
+
+/********** Large devices only **********/
+@media (min-width: 1200px) and (max-width: 1440px) {
+}
+
+/********** Medium devices only **********/
+@media (min-width: 992px) and (max-width: 1199px) {
+}
+
+/********** Small devices only **********/
+@media (min-width: 768px) and (max-width: 991px) {
+}
+
+/********** Extra small devices only **********/
+@media (min-width: 577px) and (max-width: 767px) {
+}
+
+@media (max-width: 576px) {
+}
+
+@media only screen and (max-width: 576px) {
+  .archive {
+    height: 50vh;
+    margin-bottom: 20px;
+  }
 }

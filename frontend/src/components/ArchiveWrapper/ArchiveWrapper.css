@@ -1,58 +1,42 @@
 .archivewrapper {
-	display: inline-grid;
-	width: calc((100vw - 40px) * 0.4);
-	grid-template-columns: 1fr;
-	grid-template-rows: repeat(4, 295px);
-	grid-auto-rows: 295px;
-	padding-left: 20px;
-	row-gap: 20px;
-	position: absolute;
-	top: 0;
-  }
+  display: inline-grid;
+  width: 40%;
+  height: 100%;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(6, 200px);
+  grid-auto-rows: 200px;
+  grid-row-gap: 20px;
+  grid-column-gap: 20px;
+  padding-left: 20px;
+  position: absolute;
+  top: 0;
+}
 
-  @media (min-width: 1440px) and (max-width: 1920px) {
-	  .archivewrapper {
-		  grid-template-rows: repeat(4, 220px);
-		  grid-auto-rows: 220px;
-		}
-  }
+@media (min-width: 1440px) and (max-width: 1920px) {
+}
 
-  /********** Large devices only **********/
-  @media (min-width: 1200px) and (max-width: 1440px) {
-	  .archivewrapper {
-		  grid-template-rows: repeat(3, 200px);
-		  grid-auto-rows: 200px;
-		}
-  }
+/********** Large devices only **********/
+@media (min-width: 1200px) and (max-width: 1440px) {
+}
 
-  /********** Medium devices only **********/
-  @media (min-width: 992px) and (max-width: 1199px) {
-	  .archivewrapper {
-		  grid-template-rows: repeat(3, 200px);
-		  grid-auto-rows: 200px;
-		}
-  }
+/********** Medium devices only **********/
+@media (min-width: 992px) and (max-width: 1199px) {
+}
 
-  /********** Small devices only **********/
-  @media (min-width: 768px) and (max-width: 991px) {
-	  .archivewrapper {
-		  grid-template-rows: repeat(3, 200px);
-		  grid-auto-rows: 200px;
-		}
-  }
+/********** Small devices only **********/
+@media (min-width: 768px) and (max-width: 991px) {
+}
 
-  /********** Extra small devices only **********/
-  @media (min-width: 577px) and (max-width: 767px) {
-	  .archivewrapper {
-		  grid-template-rows: repeat(3, 200px);
-		  grid-auto-rows: 200px;
-		}
-  }
+/********** Extra small devices only **********/
+@media (min-width: 577px) and (max-width: 767px) {
+}
 
-  @media (max-width: 576px) {
-	  .archivewrapper {
-		  grid-template-rows: repeat(3, 200px);
-		  grid-auto-rows: 200px;
-		}
+@media (max-width: 576px) {
+  .archivewrapper {
+    display: block;
+    position: relative;
+    margin-top: 20px;
+    width: calc(100vw - 40px);
+    padding-left: 0;
   }
-
+}

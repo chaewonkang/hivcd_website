@@ -22,6 +22,7 @@
     "react-scroll": "^1.8.1",
     "react-split-pane": "^0.1.92",
     "redux": "^4.0.5",
+    "redux-pender": "^2.0.12",
     "sass-loader": "^10.0.2",
     "semantic-ui-css": "^2.4.1",
     "styled-components": "^5.2.0"
@@ -50,5 +51,6 @@
   },
   "devDependencies": {
     "parcel-bundler": "^1.12.4"
-  }
+  },
+  "proxy": "http://localhost:4000"
 }

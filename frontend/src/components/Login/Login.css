@@ -1,29 +1,3 @@
-.nav_class_wrapper {
-  padding: 20px;
-}
-
-.nav_class_boilerplate {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  font-size: 13px;
-}
-
-.nav_class_wrapper span {
-  text-decoration: underline;
-}
-
-.nav_class_copyright {
-  position: absolute;
-  bottom: 0;
-  padding-bottom: 20px;
-}
-
-.nav_class_menubar ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-}
-
 .navbar_login {
   position: relative;
 }

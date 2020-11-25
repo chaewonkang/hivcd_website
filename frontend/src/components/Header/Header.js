@@ -3,10 +3,10 @@ import { Link, Route, BrowserRouter as Router } from "react-router-dom";
 import { AboutUs, Board, Address, Archive, Search } from "../../components";
 import ContentContainer from "../../containers/ContentContainer/ContentContainer";
 import "bootstrap/dist/css/bootstrap.min.css";
-import Modal from "react-awesome-modal";
 import { ResponsiveHeader } from "../../components";
 import { Navbar } from "../../components";
 import "./Header.css";
+import { Login } from "../../components";
 
 class Header extends Component {
   constructor(props) {
@@ -64,59 +64,18 @@ class Header extends Component {
                   </h1>
                 </Link>
               </div>
-              <div className="header_container_login">
-                <Modal
-                  visible={this.state.visible}
-                  width="450"
-                  height="380"
-                  effect="fadeInDown"
-                  onClickAway={() => this._closeModal()}
-                >
-                  <div>
-                    <form>
-                      <div className="navbar_login_modal_container">
-                        <input
-                          placeholder="ID"
-                          type="text"
-                          name="id"
-                          onChange={() => this._changeId()}
-                        ></input>
-                        <input
-                          placeholder="password"
-                          type="text"
-                          name="password"
-                          onChange={() => this._changePW()}
-                        ></input>
-                        <div className="button">
-                          <span>LOGIN</span>
-                        </div>
-                        <span className="create-account">create account</span>
-                      </div>
-                    </form>
-                  </div>
-                </Modal>
-                <div
-                  className="navbar_login_item"
-                  onClick={() => this._openModal()}
-                >
-                  LOGIN
-                </div>
-              </div>
+              <Login></Login>
             </div>
             <div className="header_container_right">
               <div className="header_container_menubar">
                 <Link to="/aboutus">
-                  <span className="navbar_menu_wrapper_item_title">
-                    About Us
-                  </span>
+                  <span className="navbar_menu_wrapper_item_title">About</span>
                 </Link>
                 <Link to="/board">
                   <span className="navbar_menu_wrapper_item_title">Board</span>
                 </Link>
                 <Link to="/address">
-                  <span className="navbar_menu_wrapper_item_title">
-                    Address
-                  </span>
+                  <span className="navbar_menu_wrapper_item_title">Alumni</span>
                 </Link>
                 <Link to="/archive">
                   <span className="navbar_menu_wrapper_item_title">

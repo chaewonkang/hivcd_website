@@ -53,10 +53,17 @@
 
 /********** Small devices only **********/
 @media (min-width: 768px) and (max-width: 991px) {
+  .footer {
+    display: none;
+  }
 }
 
 /********** Extra small devices only **********/
 @media (max-width: 577px) and (max-width: 767px) {
+  .footer {
+    display: none;
+  }
+
   .footer-item {
     margin-bottom: 20px;
   }
@@ -90,6 +97,9 @@
 
 /********** Extra Extra small (xxs) devices only **********/
 @media (max-width: 577px) and (max-width: 767px) {
+  .footer {
+    display: none;
+  }
   .footer-item {
     margin-bottom: 20px;
   }
