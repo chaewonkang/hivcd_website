@@ -1,16 +1,17 @@
 .equipment {
   position: relative;
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
   padding: 1rem;
   margin-bottom: 20px;
   height: 100%;
+  grid-column: 4 / 5;
+  grid-row: 2 / 3;
 }
 
 .equipment_check {
   background: #deadf0;
   background-image: linear-gradient(#bc70c7 2px, transparent 0),
     linear-gradient(90deg, #bc70c7 2px, transparent 0);
-  background-size: 16.5% 19.9%;
+  background-size: 16.5% 19.8%;
 }
 
 .equipment h2 {
@@ -32,9 +33,68 @@
   color: #fff;
   text-align: center;
   padding: 0 1em 0 1em;
+  cursor: pointer;
 }
 
 .equipment .module_content {
   font-family: "CenturySchoolbook";
   font-size: 18px;
+}
+
+@media (min-width: 1440px) and (max-width: 1920px) {
+  .equipment {
+    position: relative;
+    padding: 1rem;
+    grid-column: 3 / 4;
+    grid-row: 2 / 3;
+  }
+}
+
+/********** Large devices only **********/
+@media (min-width: 1200px) and (max-width: 1440px) {
+  .equipment {
+    position: relative;
+    padding: 1rem;
+    grid-column: 3 / 4;
+    grid-row: 2 / 3;
+  }
+}
+
+/********** Medium devices only **********/
+@media (min-width: 992px) and (max-width: 1199px) {
+  .equipment {
+    position: relative;
+    padding: 1rem;
+    grid-column: 1 / 2;
+    grid-row: 2 / 3;
+  }
+}
+
+/********** Small devices only **********/
+@media (min-width: 768px) and (max-width: 991px) {
+  .equipment {
+    position: relative;
+    padding: 1rem;
+    grid-column: 1 / 2;
+    grid-row: 2 / 3;
+  }
+}
+
+/********** Extra small devices only **********/
+@media (min-width: 577px) and (max-width: 767px) {
+  .equipment {
+    position: relative;
+    padding: 1rem;
+    grid-column: 1 / 2;
+    grid-row: 2 / 3;
+  }
+}
+
+@media only screen and (max-width: 576px) {
+  .equipment {
+    position: relative;
+    padding: 1rem;
+    grid-column: 1 / 2;
+    grid-row: 2 / 3;
+  }
 }

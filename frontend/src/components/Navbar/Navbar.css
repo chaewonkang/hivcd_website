@@ -1,0 +1,48 @@
+.nav_class_wrapper {
+  padding: 20px;
+}
+
+.nav_class_boilerplate {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  font-size: 13px;
+}
+
+.nav_class_wrapper span {
+  text-decoration: underline;
+}
+
+.nav_class_copyright {
+  position: absolute;
+  bottom: 0;
+  padding-bottom: 20px;
+}
+
+.nav_class_menubar ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar_login {
+  position: relative;
+}
+
+.navbar_login_item {
+  font-family: "NewParisSkyline";
+  padding: 2px 2px 2px 2px;
+  font-size: 18px;
+  width: fit-content;
+  border: 1px solid #000;
+  cursor: pointer;
+}
+
+.navbar_login_modal_container {
+  display: grid;
+  grid-template-columns: 370px;
+  grid-template-rows: 70px 70px 70px;
+  row-gap: 20px;
+  padding: 40px;
+  align-content: center;
+  justify-content: center;
+}

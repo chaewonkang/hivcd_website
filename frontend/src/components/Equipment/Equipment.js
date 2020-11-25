@@ -2,7 +2,6 @@ import React from "react";
 import "./Equipment.css";
 
 const Equipment = () => (
-  <div className="">
     <div className="equipment equipment_check">
       <div className="module_tag">
         <span>
@@ -10,7 +9,6 @@ const Equipment = () => (
         </span>
       </div>
     </div>
-  </div>
 );
 
 export default Equipment;

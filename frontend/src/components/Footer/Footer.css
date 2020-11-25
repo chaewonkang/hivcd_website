@@ -1,9 +1,10 @@
 .footer {
   background-color: #fff5f5;
   padding: 15px 20px;
-  position: fixed;
+  /* position: fixed;
   left: 0;
-  bottom: 0;
+  bottom: 0; */
+  z-index: 99;
 }
 
 .footer_container {
@@ -38,7 +39,7 @@
   font-family: "NewParisSkyline";
   padding: 2px 2px 2px 2px;
   font-size: 18px;
-  width: 30%;
+  width: fit-content;
   border: 1px solid #000;
 }
 
@@ -52,10 +53,17 @@
 
 /********** Small devices only **********/
 @media (min-width: 768px) and (max-width: 991px) {
+  .footer {
+    display: none;
+  }
 }
 
 /********** Extra small devices only **********/
 @media (max-width: 577px) and (max-width: 767px) {
+  .footer {
+    display: none;
+  }
+
   .footer-item {
     margin-bottom: 20px;
   }
@@ -89,6 +97,9 @@
 
 /********** Extra Extra small (xxs) devices only **********/
 @media (max-width: 577px) and (max-width: 767px) {
+  .footer {
+    display: none;
+  }
   .footer-item {
     margin-bottom: 20px;
   }

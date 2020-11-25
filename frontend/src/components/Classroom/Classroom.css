@@ -1,16 +1,15 @@
 .classroom {
   position: relative;
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
   padding: 1rem;
-  margin-bottom: 20px;
-  height: 100%;
+  grid-column: 3 / 4;
+  grid-row: 1 / 2;
 }
 
 .classroom_check {
   background: #339902;
   background-image: linear-gradient(#007946 2px, transparent 0),
     linear-gradient(90deg, #007946 2px, transparent 0);
-  background-size: 16.5% 19.9%;
+  background-size: 16.5% 19.8%;
 }
 
 .classroom h2 {
@@ -37,4 +36,62 @@
 .classroom .module_content {
   font-family: "CenturySchoolbook";
   font-size: 18px;
+}
+
+@media (min-width: 1440px) and (max-width: 1920px) {
+  .classroom {
+    position: relative;
+    padding: 1rem;
+    grid-column: 3 / 4;
+    grid-row: 1 / 2;
+  }
+}
+
+/********** Large devices only **********/
+@media (min-width: 1200px) and (max-width: 1440px) {
+  .classroom {
+    position: relative;
+    padding: 1rem;
+    grid-column: 3 / 4;
+    grid-row: 1 / 2;
+  }
+}
+
+/********** Medium devices only **********/
+@media (min-width: 992px) and (max-width: 1199px) {
+  .classroom {
+    position: relative;
+    padding: 1rem;
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
+  }
+}
+
+/********** Small devices only **********/
+@media (min-width: 768px) and (max-width: 991px) {
+  .classroom {
+    position: relative;
+    padding: 1rem;
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
+  }
+}
+
+/********** Extra small devices only **********/
+@media (min-width: 577px) and (max-width: 767px) {
+  .classroom {
+    position: relative;
+    padding: 1rem;
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
+  }
+}
+
+@media only screen and (max-width: 576px) {
+  .classroom {
+    position: relative;
+    padding: 1rem;
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
+  }
 }

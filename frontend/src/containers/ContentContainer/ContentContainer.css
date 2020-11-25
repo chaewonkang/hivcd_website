@@ -1,6 +1,10 @@
 .contentcontainer {
-  margin-top: 20px;
-  margin-bottom: 120px;
+  margin-top: 10px;
   margin-left: 20px;
+  margin-bottom: 20px;
   margin-right: 20px;
+  position: relative;
+}
+
+@media only screen and (max-width: 576px) {
 }

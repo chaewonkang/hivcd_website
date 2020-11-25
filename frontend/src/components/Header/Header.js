@@ -1,16 +1,21 @@
 import React, { Component } from "react";
 import { Link, Route, BrowserRouter as Router } from "react-router-dom";
-import { AboutUs, Board, Address, Archive } from "../../components";
+import { AboutUs, Board, Address, Archive, Search } from "../../components";
 import ContentContainer from "../../containers/ContentContainer/ContentContainer";
 import "bootstrap/dist/css/bootstrap.min.css";
-import Modal from "react-awesome-modal";
+import { ResponsiveHeader } from "../../components";
+import { Navbar } from "../../components";
 import "./Header.css";
+import { Login } from "../../components";
 
 class Header extends Component {
   constructor(props) {
     super(props);
     this.state = {
       visible: false,
+      id: "",
+      password: "",
+      translate: true,
     };
   }
 
@@ -26,47 +31,65 @@ class Header extends Component {
     });
   };
 
+  _changeId = function () {
+    const idValue = document.getElementsByName("id")[0].value;
+    console.log(idValue);
+
+    this.setState({
+      ...this.state,
+      id: idValue,
+    });
+  };
+
+  _changePW = function () {
+    const pwValue = document.getElementsByName("password")[0].value;
+    console.log(pwValue);
+
+    this.setState({
+      ...this.state,
+      password: pwValue,
+    });
+  };
   render() {
+    console.log("ID:" + this.state.id + ", PW:" + this.state.password);
     return (
       <Router>
         <header>
           <div className="header_container">
-            <div className="header_container_title">
-              <Link to="/">
-                <h1 className="">
-                  Hongik University Visual Communication Design
-                </h1>
-              </Link>
+            <div className="header_container_left">
+              <div className="header_container_title">
+                <Link to="/">
+                  <h1 className="">
+                    Hongik University Visual Communication Design
+                  </h1>
+                </Link>
+              </div>
+              <Login></Login>
             </div>
-            <div
-              className="header_container_login"
-              onClick={() => this._openModal()}
-            >
-              <Modal
-                visible={this.state.visible}
-                width="400"
-                height="300"
-                effect="fadeInDown"
-                onClickAway={() => this._closeModal}
-              ></Modal>
-              <div className="navbar_login_item">LOGIN</div>
+            <div className="header_container_right">
+              <div className="header_container_menubar">
+                <Link to="/aboutus">
+                  <span className="navbar_menu_wrapper_item_title">About</span>
+                </Link>
+                <Link to="/board">
+                  <span className="navbar_menu_wrapper_item_title">Board</span>
+                </Link>
+                <Link to="/address">
+                  <span className="navbar_menu_wrapper_item_title">Alumni</span>
+                </Link>
+                <Link to="/archive">
+                  <span className="navbar_menu_wrapper_item_title">
+                    Archive
+                  </span>
+                </Link>
+              </div>
+              <Search />
             </div>
-            <div className="header_container_menubar">
-              <Link to="/aboutus">
-                <span className="navbar_menu_wrapper_item_title">About Us</span>
-              </Link>
-              <Link to="/board">
-                <span className="navbar_menu_wrapper_item_title">Board</span>
-              </Link>
-              <Link to="/address">
-                <span className="navbar_menu_wrapper_item_title">Address</span>
-              </Link>
-              <Link to="/archive">
-                <span className="navbar_menu_wrapper_item_title">Archive</span>
-              </Link>
-            </div>
-            <div className="header_container_search">
-              <div className="navbar_search_item">SEARCH</div>
+            <div className="header_container_responsive">
+              <ResponsiveHeader
+                navClass="nav-small"
+                linkClassName="nav-small-link"
+              ></ResponsiveHeader>
             </div>
           </div>
         </header>

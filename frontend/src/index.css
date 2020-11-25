@@ -1,18 +1,21 @@
 body {
-	background: #FFF5F5;
+  background: #fff5f5;
 }
 
 @font-face {
-	font-family: 'AGChoiJeongHo';
-	src: local('AGChoiJeongHo'), url(./fonts/AGChoiJeongHoStd.otf) format('opentype');
+  font-family: "AGChoiJeongHo";
+  src: local("AGChoiJeongHo"),
+    url(./fonts/AGChoiJeongHoStd.otf) format("opentype");
 }
 
 @font-face {
-	font-family: 'CenturySchoolbook';
-	src: local('CenturySchoolbook'), url(./fonts/Century\ Schoolbook\ Std\ Regular.otf) format('opentype')
+  font-family: "CenturySchoolbook";
+  src: local("CenturySchoolbook"),
+    url(./fonts/Century\ Schoolbook\ Std\ Regular.otf) format("opentype");
 }
 
 @font-face {
-	font-family: 'NewParisSkyline';
-	src: local('NewParisSkyline'), url(./fonts/NewParisSkylineTrial-Regular.otf) format('opentype')
+  font-family: "NewParisSkyline";
+  src: local("NewParisSkyline"),
+    url(./fonts/NewParisSkylineTrial-Regular.otf) format("opentype");
 }

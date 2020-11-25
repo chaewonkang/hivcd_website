@@ -2,7 +2,6 @@ import React from "react";
 import "./Classroom.css";
 
 const Classroom = () => (
-  <div className="">
     <div className="classroom classroom_check">
       <div className="module_tag">
         <span>
@@ -10,7 +9,6 @@ const Classroom = () => (
         </span>
       </div>
     </div>
-  </div>
 );
 
 export default Classroom;
