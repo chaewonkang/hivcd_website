@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import Modal from "react-awesome-modal";
 import "./Login.css";
-import { async } from "rxjs";
 import axios from "axios";
 
 class Login extends Component {

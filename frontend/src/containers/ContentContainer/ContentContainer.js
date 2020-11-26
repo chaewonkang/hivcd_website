@@ -80,36 +80,32 @@ class ContentContainer extends Component {
     const latestArchiveList = archiveList.slice(0, 6);
     const latestPostList = postList.slice(0, 20);
     return (
-      <Router>
-        <div className="contentcontainer">
-          <PostWrapper>
-            <LogoImage></LogoImage>
-
-            {latestPostList &&
-              latestPostList.map((post) => {
-                return <Post title={post.title} id={post.id}></Post>;
-              })}
-            <Classroom></Classroom>
-            <Calandar
-              onClick={() => console.log("Calandar Module Clicked!")}
-            ></Calandar>
-            <Equipment></Equipment>
-          </PostWrapper>
-          <ArchiveWrapper>
-            {latestArchiveList &&
-              latestArchiveList.map((post) => {
-                return (
-                  <HomeArchive
-                    title={post.title}
-                    id={post.id}
-                    thumbnailUrl={post.thumbnailUrl}
-                  ></HomeArchive>
-                );
-              })}
-          </ArchiveWrapper>
-        </div>
-        <main></main>
-      </Router>
+      <div className="contentcontainer">
+        <PostWrapper>
+          {/* <LogoImage></LogoImage> */}
+          {latestPostList &&
+            latestPostList.map((post) => {
+              return <Post title={post.title} id={post.id}></Post>;
+            })}
+          <Classroom></Classroom>
+          <Calandar
+            onClick={() => console.log("Calandar Module Clicked!")}
+          ></Calandar>
+          <Equipment></Equipment>
+        </PostWrapper>
+        <ArchiveWrapper>
+          {latestArchiveList &&
+            latestArchiveList.map((post) => {
+              return (
+                <HomeArchive
+                  title={post.title}
+                  id={post.id}
+                  thumbnailUrl={post.thumbnailUrl}
+                ></HomeArchive>
+              );
+            })}
+        </ArchiveWrapper>
+      </div>
     );
   }
 }

@@ -1,0 +1,13 @@
+.comment_container {
+  display: inline-grid;
+  grid-template-columns: 1.5fr 4fr 1fr;
+}
+
+.comment_container div {
+  padding-left: 1rem;
+  margin-bottom: 1rem;
+}
+
+.comment p b {
+  color: 212529;
+}

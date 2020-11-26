@@ -1,0 +1,4 @@
+.EachPostWrapper {
+  height: calc(100vh - 20px);
+  margin-left: 20px;
+}

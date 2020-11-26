@@ -1,7 +1,13 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router } from "react-router-dom";
-import { Post, LogoImage, BoardPostWrapper } from "../../components";
+import {
+  Post,
+  LogoImage,
+  BoardPostWrapper,
+  EachPostWrapper,
+} from "../../components";
 import axios from "axios";
+import { EachPostContainer } from "../../containers";
 
 class Board extends Component {
   state = {
@@ -18,12 +24,12 @@ class Board extends Component {
     // this.fetchPostInfo(1);
     this._loadPost();
 
-    // window.addEventListener('scroll', this._infiniteScroll);
+    window.addEventListener("scroll", this._infiniteScroll);
   }
 
-  //   componentWillUnmount() {
-  // 	  window.removeEventListener("scroll", this.infiniteScroll);
-  //   }
+  componentWillUnmount() {
+    window.removeEventListener("scroll", this.infiniteScroll);
+  }
 
   _loadPost = async () => {
     axios

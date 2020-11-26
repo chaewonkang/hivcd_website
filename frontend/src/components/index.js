@@ -20,6 +20,11 @@ import FilterBox from "./FilterBox/FilterBox";
 import ResponsiveHeader from "./ResponsiveHeader/ResponsiveHeader";
 import Navbar from "./Navbar/Navbar";
 import Login from "./Login/Login";
+import EachPostWrapper from "./EachPostWrapper/EachPostWrapper";
+import EachPostNavigator from "./EachPostNavigator/EachPostNavigator";
+import EachPost from "./EachPost/EachPost";
+import CommentList from "./CommentList/CommentList";
+import Comment from "./Comment/Comment";
 
 export {
   Header,
@@ -44,4 +49,9 @@ export {
   ResponsiveHeader,
   Navbar,
   Login,
+  EachPostWrapper,
+  EachPostNavigator,
+  EachPost,
+  CommentList,
+  Comment,
 };

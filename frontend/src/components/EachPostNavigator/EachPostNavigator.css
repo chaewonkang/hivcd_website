@@ -1,0 +1,42 @@
+.each_post_navigator_container {
+  position: relative;
+  background-color: #ff00ff;
+}
+
+.navigate_page_num {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  font-size: 25px;
+}
+
+button.navigate_right_button {
+  font-family: "NewParisSkyline", sans-serif;
+  font-size: 25px;
+  border: 1px solid #000;
+  background-color: #000;
+  color: #fff;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+  float: right;
+  margin: 0px;
+}
+
+button.navigate_left_button {
+  font-family: "NewParisSkyline", sans-serif;
+  font-size: 25px;
+  border: 1px solid #000;
+  background-color: #000;
+  color: #fff;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+  float: left;
+  margin: 0px;
+}
+
+button span {
+  align-self: center;
+  justify-self: center;
+}
