@@ -12,6 +12,7 @@ from rest_framework.response import Response
 from rest_framework_simplejwt.tokens import RefreshToken
 from drf_yasg.utils import swagger_auto_schema
 from drf_yasg import openapi
+from decouple import config
 from .serializers import (
     UserSerializer,
     RegistrationSerializer,
@@ -183,7 +184,6 @@ class PasswordTokenCheckAPI(generics.GenericAPIView):
     def get(self, request, uidb64, token):
 
         redirect_url = request.GET.get("redirect_url")
-
         try:
             id = smart_str(urlsafe_base64_decode(uidb64))
             user = User.objects.get(id=id)
@@ -192,9 +192,7 @@ class PasswordTokenCheckAPI(generics.GenericAPIView):
                 if len(redirect_url) > 3:
                     return CustomRedirect(redirect_url + "?token_valid=False")
                 else:
-                    return CustomRedirect(
-                        os.environ.get("FRONTEND_URL", "") + "?token_valid=False"
-                    )
+                    return CustomRedirect(config("FRONTEND_URL") + "?token_valid=False")
 
             if redirect_url and len(redirect_url) > 3:
                 return CustomRedirect(

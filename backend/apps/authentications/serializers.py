@@ -23,7 +23,9 @@ class UserSerializer(serializers.ModelSerializer):
 class RegistrationSerializer(serializers.Serializer):
     username = serializers.CharField(max_length=255, required=True, help_text="")
     email = serializers.EmailField(max_length=255)
-    password = serializers.CharField(style={"input_type": "password"}, write_only=True)
+    password = serializers.CharField(
+        style={"input_type": "password"}, write_only=True, min_length=8
+    )
     password2 = serializers.CharField(style={"input_type": "password"}, write_only=True)
 
     class Meta:
@@ -57,7 +59,7 @@ class EmailVerificationSerializer(serializers.ModelSerializer):
 
 class LoginSerializer(serializers.ModelSerializer):
     email = serializers.EmailField(max_length=255)
-    password = serializers.CharField(max_length=68, min_length=16, write_only=True)
+    password = serializers.CharField(max_length=68, min_length=8, write_only=True)
     username = serializers.CharField(max_length=255, read_only=True)
     tokens = serializers.CharField(max_length=255, read_only=True)
 
@@ -98,6 +100,7 @@ class ResetPasswordEmailRequestSerializer(serializers.Serializer):
 
 class SetNewPasswordSerializer(serializers.Serializer):
     password = serializers.CharField(min_length=6, max_length=68, write_only=True)
+    password2 = serializers.CharField(max_length=68, min_length=8, write_only=True)
     token = serializers.CharField(min_length=1, write_only=True)
     uidb64 = serializers.CharField(min_length=1, write_only=True)
 
@@ -107,6 +110,7 @@ class SetNewPasswordSerializer(serializers.Serializer):
     def validate(self, attrs):
         try:
             password = attrs.get("password")
+            password2 = attrs.get("password2")
             token = attrs.get("token")
             uidb64 = attrs.get("uidb64")
 
@@ -114,6 +118,9 @@ class SetNewPasswordSerializer(serializers.Serializer):
             user = User.objects.get(id=id)
             if not PasswordResetTokenGenerator().check_token(user, token):
                 raise AuthenticationFailed("The reset link is invalid", 401)
+
+            if password != password2:
+                raise ValueError("Password error")
 
             user.set_password(password)
             user.save()
