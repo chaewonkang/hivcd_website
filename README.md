@@ -28,8 +28,12 @@ Authentication
 4. http://localhost:8000/api/v1/authentications/registration/email-verify/ : 회원가입 이메일 인증
 5. http://localhost:8000/api/v1/authentications/login/ : 로그인
 6. http://localhost:8000/api/v1/authentications/logout/ : 로그아웃
-7. http://localhost:8000/api/v1/authentications/request-reset-email/ : 비밀번호 리셋 신청
-8. http://localhost:8000/api/v1/authentications/password-reset-email : 비밀번호 리셋 확인
-9. http://localhost:8000/api/v1/authentications/password-reset-complete : 비밀번호 리셋 완료
+7. http://localhost:8000/api/v1/authentications/request-reset-email/ : 비밀번호 리셋 신청 (7,8,9 순서로 진행)
+8. http://localhost:8000/api/v1/authentications/password-reset-email/ : 비밀번호 리셋 확인
+9. http://localhost:8000/api/v1/authentications/password-reset-complete/ : 비밀번호 리셋 완료
 10. http://localhost:8000/api/v1/authentications/token-verify/ : 토큰 확인
 11. http://localhost:8000/api/v1/authentications/token-refresh/ : 토큰 리프레쉬
+
+
+백엔드
+- 11월 29일 : API 테스트 완료, 
