@@ -18,10 +18,20 @@ const EachPost = ({ title, body, comments }) => (
         <button>DOWNLOAD</button>
       </div>
       <hr></hr>
-      <p>{body}</p>
-      <p>{body}</p>
-      <p>{body}</p>
-      <p>{body}</p>
+      <p>
+        {body}
+        {body}
+        {body}
+        {body}
+        <br></br>
+        {body}
+        {body}
+        {body}
+        {body}
+        <br></br>
+        {body}
+        {body}
+      </p>
       <hr></hr>
     </div>
     <CommentList comments={comments}></CommentList>

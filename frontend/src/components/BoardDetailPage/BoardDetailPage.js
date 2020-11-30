@@ -3,12 +3,7 @@ import { EachPostContainer } from "../../containers";
 import "./BoardDetailPage.css";
 
 const BoardDetailPage = ({ children }) => {
-  return (
-    <div className="board_detail_page_container">
-      <div>BoardListingPage</div>
-      <EachPostContainer></EachPostContainer>
-    </div>
-  );
+  return <EachPostContainer></EachPostContainer>;
 };
 
 export default BoardDetailPage;

@@ -3,6 +3,10 @@ header {
   padding: 15px 20px;
 }
 
+.header_line {
+  display: none;
+}
+
 .header_container_left {
   display: inline-grid;
   width: calc((100vw - 40px) * 0.6);
@@ -37,7 +41,18 @@ header {
   color: #000;
   font-size: 18px;
   margin-right: 20px;
+}
+
+.navbar_menu_wrapper_item_title:hover {
   text-decoration: underline;
+}
+
+.navbar_menu_wrapper_item_title:visited {
+  text-decoration: underline !important;
+}
+
+.navbar_menu_wrapper_item_title:active {
+  text-decoration: underline !important;
 }
 
 .navbar_search_item {
@@ -70,6 +85,12 @@ header {
 
 /********** Small devices only **********/
 @media (min-width: 768px) and (max-width: 991px) {
+  header {
+    position: fixed;
+    z-index: 2000;
+    left: 0;
+    top: 0;
+  }
   .header_container_responsive {
     display: inline-grid;
   }
@@ -99,12 +120,15 @@ header {
 
 /********** Extra small devices only **********/
 @media (min-width: 577px) and (max-width: 767px) {
-  .header_container_responsive {
-    display: inline-grid;
+  header {
+    position: fixed;
+    z-index: 2000;
+    left: 0;
+    top: 0;
   }
 
-  .header_container_title {
-    text-align: center;
+  .header_container_responsive {
+    display: inline-grid;
   }
 
   .hamburger_btn {
@@ -126,9 +150,27 @@ header {
 }
 
 @media (max-width: 576px) {
+  header {
+    position: fixed;
+    z-index: 2000;
+    top: 0;
+  }
+
+  .header_line {
+    display: grid;
+  }
   .header_container_responsive {
     display: inline-grid;
   }
+
+  .header_container_login {
+    display: none;
+  }
+
+  .header_container_title h1 {
+    font-size: 15px;
+  }
+
   .hamburger_btn {
     display: grid;
   }
@@ -139,9 +181,6 @@ header {
     column-gap: 20px;
   }
 
-  .header_container_login {
-    display: none;
-  }
   .header_container_right {
     display: none;
   }

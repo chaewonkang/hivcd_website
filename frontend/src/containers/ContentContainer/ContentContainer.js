@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import axios from "axios";
-import { BrowserRouter as Router } from "react-router-dom";
 import {
   PostWrapper,
   Post,
@@ -24,7 +23,7 @@ class ContentContainer extends Component {
     preItems: 0,
   };
 
-  componentWillMount() {}
+  UNSAFE_componentWillMount() {}
 
   componentDidMount() {
     // this.fetchPostInfo(1);
@@ -82,7 +81,7 @@ class ContentContainer extends Component {
     return (
       <div className="contentcontainer">
         <PostWrapper>
-          {/* <LogoImage></LogoImage> */}
+          <LogoImage></LogoImage>
           {latestPostList &&
             latestPostList.map((post) => {
               return <Post title={post.title} id={post.id}></Post>;

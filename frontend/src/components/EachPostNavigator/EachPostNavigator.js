@@ -9,17 +9,13 @@ const EachPostNavigator = ({ onClick, postId, disabled }) => {
           className="navigate_left_button"
           onClick={() => onClick("PREV")}
         >
-          ←
+          ＜
         </button>
-        <div className="navigate_page_num">{postId}</div>
         <button
-          color="pink"
-          icon="right arrow"
-          labelPosition="right"
           className="navigate_right_button"
           onClick={() => onClick("NEXT")}
         >
-          →
+          ＞
         </button>
       </div>
     </div>

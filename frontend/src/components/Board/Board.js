@@ -1,13 +1,7 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router } from "react-router-dom";
-import {
-  Post,
-  LogoImage,
-  BoardPostWrapper,
-  EachPostWrapper,
-} from "../../components";
+import { Post, LogoImage, BoardPostWrapper } from "../../components";
 import axios from "axios";
-import { EachPostContainer } from "../../containers";
 
 class Board extends Component {
   state = {
@@ -18,7 +12,7 @@ class Board extends Component {
     preItems: 0,
   };
 
-  componentWillMount() {}
+  UNSAFE_componentWillMount() {}
 
   componentDidMount() {
     // this.fetchPostInfo(1);
@@ -57,12 +51,15 @@ class Board extends Component {
           <BoardPostWrapper>
             {postList &&
               postList.map((post) => {
-                return <Post title={post.title} id={post.id}></Post>;
+                return (
+                  <>
+                    <Post title={post.title} id={post.id}></Post>
+                  </>
+                );
               })}
             <LogoImage></LogoImage>
           </BoardPostWrapper>
         </div>
-        <main></main>
       </Router>
     );
   }

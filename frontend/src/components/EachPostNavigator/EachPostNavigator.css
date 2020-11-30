@@ -20,6 +20,7 @@ button.navigate_right_button {
   grid-template-columns: 1fr;
   grid-template-rows: 1fr;
   float: right;
+  bottom: 0;
   margin: 0px;
 }
 
@@ -33,6 +34,7 @@ button.navigate_left_button {
   grid-template-columns: 1fr;
   grid-template-rows: 1fr;
   float: left;
+  bottom: 0;
   margin: 0px;
 }
 

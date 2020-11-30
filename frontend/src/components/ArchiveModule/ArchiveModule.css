@@ -1,4 +1,4 @@
-.archive {
+.archive_module_container {
   position: relative;
   padding: 1rem;
   background-color: #ffeb00;
@@ -17,7 +17,7 @@
   font-size: 2rem;
 }
 
-.archive .archive_tag {
+.archive_module_tag {
   position: absolute;
   top: -1px;
   right: -1px;
@@ -29,7 +29,7 @@
   z-index: 98;
 }
 
-.archive .archive_content {
+.archive .archive_module_content {
   font-family: "CenturySchoolbook";
   font-size: 18px;
   display: inline-grid;
@@ -40,7 +40,7 @@
   top: 0;
 }
 
-.archive_content_image {
+.archive_module_content_image {
   float: right;
 }
 
@@ -49,6 +49,7 @@
   background-position: center;
   width: 100%;
 }
+
 @media (min-width: 1440px) and (max-width: 1920px) {
 }
 
@@ -72,7 +73,7 @@
 }
 
 @media only screen and (max-width: 576px) {
-  .archive {
+  .archive_module_container {
     margin-bottom: 20px;
   }
 

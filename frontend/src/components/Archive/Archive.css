@@ -1,3 +1,76 @@
-body {
-  background: #fff5f5;
+.archive_wrapper {
+  margin: 20px;
+}
+
+.archive_container {
+  display: inline-grid;
+  width: 100%;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: repeat(auto-fit, minmax(200px, 1fr));
+  grid-auto-columns: 145px;
+  grid-auto-rows: 200px;
+
+  grid-row-gap: 20px;
+  grid-column-gap: 20px;
+}
+
+.archive_gw_container {
+  grid-row-gap: 20px;
+}
+
+.archive_wvf_container {
+  grid-row-gap: 20px;
+}
+
+.archive_etc_container {
+  grid-row-gap: 20px;
+}
+
+.address_module {
+  padding: 15px;
+  border: 1px solid #000;
+}
+
+@media (min-width: 1440px) and (max-width: 1920px) {
+}
+
+/********** Large devices only **********/
+@media (min-width: 1200px) and (max-width: 1440px) {
+}
+
+/********** Medium devices only **********/
+@media (min-width: 992px) and (max-width: 1199px) {
+}
+
+/********** Small devices only **********/
+@media (min-width: 768px) and (max-width: 991px) {
+  .archive_wrapper {
+    margin-top: 70px;
+    margin-bottom: 20px;
+  }
+}
+
+/********** Extra small devices only **********/
+@media (min-width: 577px) and (max-width: 767px) {
+  .archive_wrapper {
+    margin-top: 70px;
+    margin-bottom: 20px;
+  }
+  .archive_container {
+    width: calc(100vw - 40px);
+    grid-template-columns: 1fr 1fr;
+    margin-bottom: 20px;
+  }
+}
+
+@media (max-width: 576px) {
+  .archive_wrapper {
+    margin-top: 70px;
+    margin-bottom: 20px;
+  }
+  .archive_container {
+    width: calc(100vw - 40px);
+    grid-template-columns: 1fr;
+    margin-bottom: 20px;
+  }
 }

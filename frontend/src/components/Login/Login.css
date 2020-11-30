@@ -64,3 +64,9 @@ input[type="text"]:focus {
   text-align: right;
   text-decoration: underline;
 }
+
+@media (max-width: 576px) {
+  .Modal {
+    width: 300px;
+  }
+}
