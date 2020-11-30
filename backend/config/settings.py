@@ -47,6 +47,7 @@ THIRD_PARTY_APPS = [
 ]
 
 PROJECT_APPS = [
+	"apps.api_v1",
     "apps.authentications",
     "apps.postings",
 ]
@@ -154,7 +155,7 @@ AUTH_USER_MODEL = "authentications.User"
 
 REST_FRAMEWORK = {
     "DEFAULT_AUTHENTICATION_CLASSES": (
-        "rest_framework_simplejwt.authentication.JWTAuthentication",
+        # "rest_framework_simplejwt.authentication.JWTAuthentication",
         'rest_framework.authentication.SessionAuthentication',
     )
 }
@@ -165,3 +166,6 @@ EMAIL_PORT = 587
 
 EMAIL_HOST_USER = os.environ.get("EMAIL_HOST_USER")
 EMAIL_HOST_PASSWORD = os.environ.get("EMAIL_HOST_PASSWORD")
+
+CORS_ORIGIN_ALLOW_ALL = True
+CORS_ALLOW_CREDENTIALS = True

@@ -1,0 +1,32 @@
+.each_post_wrapper {
+  border: 1px solid #ff00ff;
+  background: #ff00ff;
+  padding: 20px;
+  position: relative;
+  overflow: auto;
+  height: 100vh;
+}
+
+.each_post {
+  padding: 1rem;
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+  overflow: auto;
+}
+
+.each_post_tag {
+  position: absolute;
+  top: 20px;
+  background-color: #000;
+  color: #fff;
+  width: fit-content;
+  padding: 0 1em 0 1em;
+}
+
+.each_post h1 {
+  font-size: 30px;
+}
+
+.each_post p {
+  font-size: 18px;
+}

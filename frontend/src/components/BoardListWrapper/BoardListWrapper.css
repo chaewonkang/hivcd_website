@@ -1,0 +1,47 @@
+.List {
+  text-align: left;
+  border: 1px solid #d1cab5;
+  padding: 20px;
+}
+
+.list_tit {
+  border-bottom: solid 1px #ababab;
+  color: #ababab;
+}
+
+.list_grid {
+  display: grid;
+  grid-template-columns: 17% 68% 15%;
+}
+
+.list_data {
+  line-height: 2.5em;
+}
+
+.list_tag span {
+  font-family: "NewParisSkyline";
+  background-color: #000;
+  color: #fff;
+  text-align: center;
+  padding: 0 0.75em 0 0.75em;
+}
+
+.paging_div {
+  margin-top: 10px;
+  display: grid;
+  grid-template-columns: 5% 90% 5%;
+  text-align: center;
+  bottom: 0;
+}
+
+.paging_div div {
+  padding: 15px;
+  text-align: center;
+}
+
+.page_num {
+  margin-right: 20px;
+  list-style: none;
+  display: inline-block;
+  cursor: pointer;
+}

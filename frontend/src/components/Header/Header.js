@@ -1,10 +1,9 @@
 import React, { Component } from "react";
 import { Link, Route, BrowserRouter as Router } from "react-router-dom";
-import { AboutUs, Board, Address, Archive, Search } from "../../components";
+import { AboutUs, Board, Alumni, Archive, Search } from "../../components";
 import ContentContainer from "../../containers/ContentContainer/ContentContainer";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { ResponsiveHeader } from "../../components";
-import { Navbar } from "../../components";
 import "./Header.css";
 import { Login } from "../../components";
 
@@ -51,6 +50,7 @@ class Header extends Component {
     });
   };
   render() {
+    const { logged, onLogout } = this.props;
     console.log("ID:" + this.state.id + ", PW:" + this.state.password);
     return (
       <Router>
@@ -59,12 +59,15 @@ class Header extends Component {
             <div className="header_container_left">
               <div className="header_container_title">
                 <Link to="/">
-                  <h1 className="">
-                    Hongik University Visual Communication Design
+                  <h1>
+                    Hongik University <br className="header_line"></br>Visual
+                    Communication Design
                   </h1>
                 </Link>
               </div>
-              <Login></Login>
+              <div className="header_container_login">
+                <Login logged={logged} onLogOut={onLogout}></Login>
+              </div>
             </div>
             <div className="header_container_right">
               <div className="header_container_menubar">
@@ -74,7 +77,7 @@ class Header extends Component {
                 <Link to="/board">
                   <span className="navbar_menu_wrapper_item_title">Board</span>
                 </Link>
-                <Link to="/address">
+                <Link to="/alumni">
                   <span className="navbar_menu_wrapper_item_title">Alumni</span>
                 </Link>
                 <Link to="/archive">
@@ -93,13 +96,11 @@ class Header extends Component {
             </div>
           </div>
         </header>
-        <main>
-          <Route exact path="/" component={ContentContainer} />
-          <Route path="/aboutus" component={AboutUs} />
-          <Route path="/board" component={Board} />
-          <Route path="/address" component={Address} />
-          <Route path="/archive" component={Archive} />
-        </main>
+        <Route exact path="/" component={ContentContainer} />
+        <Route path="/aboutus" component={AboutUs} />
+        <Route path="/board" component={Board} />
+        <Route path="/alumni" component={Alumni} />
+        <Route path="/archive" component={Archive} />
       </Router>
     );
   }

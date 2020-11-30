@@ -12,19 +12,19 @@
 }
 
 .addTransiton {
-  transform: translateX(-700px) translateY(60px);
+  transform: translateX(-100vw) translateY(50px);
   transition: transform 0.5s ease-in-out;
 }
 .removeTransition {
-  transform: translateX(0px) translateY(60px);
+  transform: translateX(0px) translateY(50px);
   transition: transform 0.5s ease-in-out;
 }
 
 #sidebar-list {
   background-color: #fff5f5;
   height: 100vh;
-  width: 300px;
-  position: absolute;
+  width: 100vw;
+  position: fixed;
   z-index: 2000;
   left: 0;
   top: 0;

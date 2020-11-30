@@ -1,7 +1,8 @@
 .aboutus_wrapper {
   margin: 20px;
-  margin-bottom: 120px;
+  margin-bottom: 20px;
   position: relative;
+  height: 100vh;
 }
 
 .aboutus_curriculum {
@@ -29,7 +30,7 @@ td {
 .aboutus_container {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-template-rows: repeat(2, 450px);
+  grid-template-rows: repeat(2, 50vh);
   column-gap: 20px;
   row-gap: 20px;
 }
@@ -42,7 +43,6 @@ td {
 .aboutus_container .aboutus_item {
   border: 2px solid #000000;
   position: relative;
-  background-color: #ffffff;
   padding: 1.5rem;
   width: 100%;
   height: 100%;
@@ -101,4 +101,53 @@ td {
 #contact {
   background-color: #729b00;
   border: 2px solid #19a300;
+}
+
+@media (min-width: 1440px) and (max-width: 1920px) {
+}
+
+/********** Large devices only **********/
+@media (min-width: 1200px) and (max-width: 1440px) {
+}
+
+/********** Medium devices only **********/
+@media (min-width: 992px) and (max-width: 1199px) {
+}
+
+/********** Small devices only **********/
+@media (min-width: 768px) and (max-width: 991px) {
+  .aboutus_wrapper {
+    margin-top: 70px;
+  }
+  .aboutus_container {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(4, 450px);
+    column-gap: 20px;
+    row-gap: 20px;
+  }
+}
+
+/********** Extra small devices only **********/
+@media (min-width: 577px) and (max-width: 767px) {
+  .aboutus_wrapper {
+    margin-top: 70px;
+  }
+  .aboutus_container {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(4, 450px);
+    column-gap: 20px;
+    row-gap: 20px;
+  }
+}
+
+@media (max-width: 576px) {
+  .aboutus_wrapper {
+    margin-top: 70px;
+  }
+  .aboutus_container {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(4, 450px);
+    column-gap: 20px;
+    row-gap: 20px;
+  }
 }

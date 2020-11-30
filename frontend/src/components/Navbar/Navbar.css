@@ -14,8 +14,16 @@
 
 .nav_class_copyright {
   position: absolute;
-  bottom: 0;
+  bottom: 40px;
+  line-height: 1.8em;
   padding-bottom: 20px;
+  padding-right: 20px;
+}
+
+.nav_class_copyright p {
+  color: darkgray;
+  line-height: 1.6em;
+  font-size: 0.9em;
 }
 
 .nav_class_menubar ul {

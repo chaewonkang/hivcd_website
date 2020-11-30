@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import axios from "axios";
-import { BrowserRouter as Router } from "react-router-dom";
 import {
   PostWrapper,
   Post,
@@ -24,7 +23,7 @@ class ContentContainer extends Component {
     preItems: 0,
   };
 
-  componentWillMount() {}
+  UNSAFE_componentWillMount() {}
 
   componentDidMount() {
     // this.fetchPostInfo(1);
@@ -80,36 +79,32 @@ class ContentContainer extends Component {
     const latestArchiveList = archiveList.slice(0, 6);
     const latestPostList = postList.slice(0, 20);
     return (
-      <Router>
-        <div className="contentcontainer">
-          <PostWrapper>
-            <LogoImage></LogoImage>
-
-            {latestPostList &&
-              latestPostList.map((post) => {
-                return <Post title={post.title} id={post.id}></Post>;
-              })}
-            <Classroom></Classroom>
-            <Calandar
-              onClick={() => console.log("Calandar Module Clicked!")}
-            ></Calandar>
-            <Equipment></Equipment>
-          </PostWrapper>
-          <ArchiveWrapper>
-            {latestArchiveList &&
-              latestArchiveList.map((post) => {
-                return (
-                  <HomeArchive
-                    title={post.title}
-                    id={post.id}
-                    thumbnailUrl={post.thumbnailUrl}
-                  ></HomeArchive>
-                );
-              })}
-          </ArchiveWrapper>
-        </div>
-        <main></main>
-      </Router>
+      <div className="contentcontainer">
+        <PostWrapper>
+          <LogoImage></LogoImage>
+          {latestPostList &&
+            latestPostList.map((post) => {
+              return <Post title={post.title} id={post.id}></Post>;
+            })}
+          <Classroom></Classroom>
+          <Calandar
+            onClick={() => console.log("Calandar Module Clicked!")}
+          ></Calandar>
+          <Equipment></Equipment>
+        </PostWrapper>
+        <ArchiveWrapper>
+          {latestArchiveList &&
+            latestArchiveList.map((post) => {
+              return (
+                <HomeArchive
+                  title={post.title}
+                  id={post.id}
+                  thumbnailUrl={post.thumbnailUrl}
+                ></HomeArchive>
+              );
+            })}
+        </ArchiveWrapper>
+      </div>
     );
   }
 }

@@ -7,7 +7,7 @@ import HomeArchive from "./HomeArchive/HomeArchive";
 import Home from "./AboutUs/AboutUs";
 import Board from "./Board/Board";
 import AboutUs from "./AboutUs/AboutUs";
-import Address from "./Address/Address";
+import Alumni from "./Alumni/Alumni";
 import Archive from "./Archive/Archive";
 import Calandar from "./Calandar/Calandar";
 import Equipment from "./Equipment/Equipment";
@@ -20,6 +20,14 @@ import FilterBox from "./FilterBox/FilterBox";
 import ResponsiveHeader from "./ResponsiveHeader/ResponsiveHeader";
 import Navbar from "./Navbar/Navbar";
 import Login from "./Login/Login";
+import EachPostWrapper from "./EachPostWrapper/EachPostWrapper";
+import EachPostNavigator from "./EachPostNavigator/EachPostNavigator";
+import EachPost from "./EachPost/EachPost";
+import CommentList from "./CommentList/CommentList";
+import Comment from "./Comment/Comment";
+import BoardListWrapper from "./BoardListWrapper/BoardListWrapper";
+import ArchiveModule from "./ArchiveModule/ArchiveModule";
+import AlumniModule from "./AlumniModule/AlumniModule";
 
 export {
   Header,
@@ -31,7 +39,7 @@ export {
   Home,
   Board,
   AboutUs,
-  Address,
+  Alumni,
   Archive,
   Calandar,
   Equipment,
@@ -44,4 +52,12 @@ export {
   ResponsiveHeader,
   Navbar,
   Login,
+  EachPostWrapper,
+  EachPostNavigator,
+  EachPost,
+  CommentList,
+  Comment,
+  BoardListWrapper,
+  ArchiveModule,
+  AlumniModule,
 };
