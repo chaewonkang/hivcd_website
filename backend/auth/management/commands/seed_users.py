@@ -1,6 +1,6 @@
 from django.core.management.base import BaseCommand
 from django_seed import Seed
-from apps.authentications.models import User
+from auth.models import User
 
 
 class Command(BaseCommand):

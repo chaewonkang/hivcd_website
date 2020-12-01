@@ -1,4 +1,6 @@
-.gitignore
+.back_venv
+.idea
+.pre-commit-config.yaml
 # Created by https://www.toptal.com/developers/gitignore/api/django,python,vim
 # Edit at https://www.toptal.com/developers/gitignore?templates=django,python,vim
 
@@ -227,3 +229,4 @@ tags
 [._]*.un~
 
 # End of https://www.toptal.com/developers/gitignore/api/django,python,vim
+.vscode

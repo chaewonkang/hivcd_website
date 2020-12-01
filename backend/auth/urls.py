@@ -5,7 +5,7 @@ from rest_framework_simplejwt.views import (
     TokenVerifyView,
 )
 
-app_name = "authentications"
+app_name = "auth"
 
 urlpatterns = [
     path("", views.UserListAPIView.as_view(), name="user-list"),

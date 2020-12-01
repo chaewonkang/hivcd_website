@@ -2,8 +2,8 @@ import random
 from django.core.management.base import BaseCommand
 from django.contrib.admin.utils import flatten
 from django_seed import Seed
-from apps.authentications.models import User
-from apps.postings import models as posting_models
+from auth.models import User
+from postings import models as posting_models
 
 NAME = "postings"
 
@@ -24,13 +24,14 @@ class Command(BaseCommand):
         seeder = Seed.seeder()
         all_users = User.objects.all()
         postings = posting_models.Post.objects.all()
+
         seeder.add_entity(
             posting_models.Post,
             number,
             {
                 "author": lambda x: random.choice(all_users),
-                "title": seeder.faker.sentence(),
-                "text": seeder.faker.sentence(),
+                "title": lambda x: seeder.faker.sentence(),
+                "text": lambda x: seeder.faker.text(),
                 "category": lambda x: random.randint(1, 4)
             },
         )
@@ -64,6 +65,6 @@ class Command(BaseCommand):
                 posting_models.File.objects.create(
                     name=seeder.faker.sentence(),
                     post=post_instance,
-                    files=f"room_photos/{random.randint(1,31)}.webp",
+                    files=f"room_photos/{random.randint(1, 31)}.webp",
                 )
         self.stdout.write(self.style.SUCCESS(f"{number} {NAME} Created"))
