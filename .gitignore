@@ -1,4 +1,6 @@
 .back_venv
+.venv
+.vscode
 .idea
 .pre-commit-config.yaml
 # Created by https://www.toptal.com/developers/gitignore/api/django,python,vim
