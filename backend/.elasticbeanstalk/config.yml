@@ -1,9 +1,9 @@
 branch-defaults:
   default:
-    environment: hivcd-env
+    environment: null
     group_suffix: null
 global:
-  application_name: hivcd
+  application_name: hivcd_website
   branch: null
   default_ec2_keyname: null
   default_platform: Python 3.7 running on 64bit Amazon Linux 2
