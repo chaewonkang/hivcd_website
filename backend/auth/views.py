@@ -191,7 +191,7 @@ class PasswordTokenCheckAPI(generics.GenericAPIView):
                 if len(redirect_url) > 3:
                     return CustomRedirect(redirect_url + "?token_valid=False")
                 else:
-                    return CustomRedirect(config("FRONTEND_URL") + "?token_valid=False")
+                    return CustomRedirect(os.environ.get("FRONTEND_URL") + "?token_valid=False")
 
             if redirect_url and len(redirect_url) > 3:
                 return CustomRedirect(

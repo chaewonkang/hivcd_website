@@ -40,16 +40,11 @@ urlpatterns = [
     path("admin/", admin.site.urls),
     path("api-auth/", include("rest_framework.urls", namespace="rest_framework")),
     # API Settings
-<<<<<<< HEAD
-	path("api/v1/auth/", include("apps.authentications.urls", namespace="authentications")),
-    # path("api/v1/", include("apps.api_v1.urls", namespace="api_v1")),
-=======
     path("api/v1/postings/", include("postings.urls", namespace="postings")),
     path(
         "api/v1/auth/",
         include("auth.urls", namespace="auth"),
     ),
->>>>>>> back1130
     # Swagger Settings
     path("", schema_view.with_ui("swagger", cache_timeout=0), name="schema-swagger-ui"),
     path(
