@@ -2,7 +2,7 @@ from .base import *
 
 DEBUG = False
 
-ALLOWED_HOSTS = ["hivcd-env.eba-xbhnr3bs.ap-northeast-2.elasticbeanstalk.com"]
+ALLOWED_HOSTS = ["http://hivcdwebsite-env.ap-northeast-2.elasticbeanstalk.com/"]
 
 DATABASES = {
     "default": {
