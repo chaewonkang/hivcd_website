@@ -10,30 +10,7 @@ API Test 방법
 6. 마이그레이션 (python manage.py migrate)
 7. 서버 실행 (python manage.py runserver)
 
-API EndPoints
-
-게시판:
-
-1. http://localhost:8000/api/v1/postings : 게시글 리스트(ReadOnly)
-2. http://localhost:8000/api/v1/postings/create/ : 게시글 생성
-3. http://localhost:8000/api/v1/postings/pk/ : 게시글 세부사항
-4. http://localhost:8000/api/v1/postings/update/ : 게시글 업데이트
-5. http://localhost:8000/api/v1/postings/delete/ : 게시글 삭제
-
-Authentication
-
-1. http://localhost:8000/api/v1/authentications : 유저 리스트
-2. http://localhost:8000/api/v1/authentications/pk/ : 유저 디테일
-3. http://localhost:8000/api/v1/authentications/registration/ : 회원가입
-4. http://localhost:8000/api/v1/authentications/registration/email-verify/ : 회원가입 이메일 인증
-5. http://localhost:8000/api/v1/authentications/login/ : 로그인
-6. http://localhost:8000/api/v1/authentications/logout/ : 로그아웃
-7. http://localhost:8000/api/v1/authentications/request-reset-email/ : 비밀번호 리셋 신청 (7,8,9 순서로 진행)
-8. http://localhost:8000/api/v1/authentications/password-reset-email/ : 비밀번호 리셋 확인
-9. http://localhost:8000/api/v1/authentications/password-reset-complete/ : 비밀번호 리셋 완료
-10. http://localhost:8000/api/v1/authentications/token-verify/ : 토큰 확인
-11. http://localhost:8000/api/v1/authentications/token-refresh/ : 토큰 리프레쉬
-
-
 백엔드
-- 11월 29일 : API 테스트 완료, 
+- 11월 29일 : API 테스트 완료
+- 12월 01일 : AWS 배포 튜토리얼 성공
+- 12월 02일 :

@@ -74,7 +74,7 @@ ROOT_URLCONF = 'config.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ['client'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -124,14 +124,17 @@ USE_L10N = True
 USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/2.1/howto/static-files/
-
 STATIC_URL = "/static/"
+STATICFILES_DIRS = [
+    # 실제 static 파일은 모두 client 측에서 소유
+    os.path.join(BASE_DIR, 'client/static')
+]
 
+# Media files
 MEDIA_ROOT = os.path.join(BASE_DIR, "uploads")
-
 MEDIA_URL = "/media/"
 
+# Rest Framework
 REST_FRAMEWORK = {
     "DEFAULT_AUTHENTICATION_CLASSES": (
         "rest_framework_simplejwt.authentication.JWTAuthentication",
@@ -140,24 +143,12 @@ REST_FRAMEWORK = {
     )
 }
 
+# Email Settings
 EMAIL_USE_TLS = os.environ.get("EMAIL_USE_TLS")
 EMAIL_HOST = os.environ.get("EMAIL_HOST")
 EMAIL_PORT = os.environ.get("EMAIL_PORT")
-
 EMAIL_HOST_USER = os.environ.get("EMAIL_HOST_USER")
 EMAIL_HOST_PASSWORD = os.environ.get("EMAIL_HOST_PASSWORD")
-CORS_ORIGIN_WHITELIST = ["https://localhost:3000"]
-# CORS_URLS_REGEX = r"^/api/.*$"
-# CORS_ALLOW_CREDENTIALS = True
-# CSRF_TRUSTED_ORIGINS = CORS_ORIGIN_WHITELIST
-# CSRF_COOKIE_SECURE = True
-# SESSION_COOKIE_SECURE = True
-# SECURE_SSL_REDIRECT = True
-# SECURE_HSTS_SECONDS = 31536000  # 365 * 24 * 60 * 60
-# SECURE_HSTS_PRELOAD = True
-# SECURE_HSTS_INCLUDE_SUBDOMAINS = True
-# SECURE_CONTENT_TYPE_NOSNIFF = True
-# SECURE_BROWSER_XSS_FILTER = True
-# X_FRAME_OPTIONS = "DENY"
 
-# eb secretkey : eDduDJqpWrUtuPzi4N58OADLdQ6C0xGKkMKfFXTN
+# Cors Policy
+CORS_ORIGIN_WHITELIST = ["https://localhost:3000"]
