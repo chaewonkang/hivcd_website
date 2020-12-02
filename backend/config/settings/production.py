@@ -2,7 +2,7 @@ from .base import *
 
 DEBUG = False
 
-ALLOWED_HOSTS = ["https://127.0.0.1", 'localhost']
+ALLOWED_HOSTS = ['hongiksidi-env.eba-2gniavxu.us-west-2.elasticbeanstalk.com']
 
 DATABASES = {
     "default": {
