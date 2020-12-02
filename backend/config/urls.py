@@ -39,26 +39,10 @@ schema_view = get_schema_view(
 urlpatterns = [
     path("", TemplateView.as_view(template_name="index.html"), name="index"),
     # Admin Page
-    path("api/admin/", admin.site.urls),
-    path("api/api-auth/", include("rest_framework.urls", namespace="rest_framework")),
+    path("admin/", admin.site.urls),
+    path("api-auth/", include("rest_framework.urls", namespace="rest_framework")),
     # API Settings
-    path("api/v1/postings/", include("postings.urls", namespace="postings")),
-    path(
-        "api/v1/auth/",
-        include("auth.urls", namespace="auth"),
-    ),
-    # Swagger Settings
-    path(
-        "api/",
-        schema_view.with_ui("swagger", cache_timeout=0),
-        name="schema-swagger-ui",
-    ),
-    path(
-        "api/json/", schema_view.without_ui(cache_timeout=0), name="schema-swagger-ui"
-    ),
-    path(
-        "api/redoc/", schema_view.with_ui("redoc", cache_timeout=0), name="schema-redoc"
-    ),
+    path("api", include("api_v1.urls", namespace="urls")),
 ]
 
 if settings.DEBUG:

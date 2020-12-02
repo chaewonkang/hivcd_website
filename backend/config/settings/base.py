@@ -42,6 +42,7 @@ DJANGO_APPS = [
 PROJECT_APPS = [
     "auth.apps.AuthConfig",
     "postings.apps.PostingsConfig",
+    "api_v1.apps.Api_v1Config",
 ]
 
 THIRDPARTY_APPS = [
