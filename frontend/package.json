@@ -10,6 +10,7 @@
     "axios": "^0.21.0",
     "bootstrap": "^4.5.2",
     "classnames": "^2.2.6",
+    "google-maps-react": "^2.0.6",
     "include-media": "^1.4.9",
     "node-sass": "^4.14.1",
     "open-color": "^1.7.0",

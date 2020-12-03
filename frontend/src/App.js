@@ -1,8 +1,17 @@
 import React, { Component } from "react";
 import { Header, Footer } from "./components";
-import { Auth } from "./pages";
-import { Switch, Route, BrowserRouter } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import "./App.css";
+import {
+  AboutUs,
+  Board,
+  Alumni,
+  Archive,
+  Search,
+  BoardDetailPage,
+  SignUp,
+} from "./components";
+import ContentContainer from "./containers/ContentContainer/ContentContainer";
 
 class App extends Component {
   constructor(props) {
@@ -48,13 +57,21 @@ class App extends Component {
   render() {
     const { logged, onLogout } = this.state;
     return (
-      <div className="AppBody">
-        <Header logged={logged} onLogOut={onLogout}></Header>
+      <Router>
         <Switch>
-          <Route path="/auth/:kind" exact={true} component={Auth}></Route>
+          <div className="AppBody">
+            <Route path="/auth/registration" component={SignUp}></Route>
+            <Header logged={logged} onLogOut={onLogout}></Header>
+            <Route exact path="/" component={ContentContainer} />
+            <Route exact path="/board" component={Board} />
+            <Route path="/aboutus" component={AboutUs} />
+            <Route path="/alumni" component={Alumni} />
+            <Route path="/archive" component={Archive} />
+            <Route path="/board/posts" component={BoardDetailPage}></Route>
+            <Footer />
+          </div>
         </Switch>
-        <Footer />
-      </div>
+      </Router>
     );
   }
 }

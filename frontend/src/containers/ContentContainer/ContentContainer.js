@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { useHistory } from "react-router-dom";
 import axios from "axios";
 import {
   PostWrapper,
@@ -8,6 +9,7 @@ import {
   Equipment,
   Classroom,
   LogoImage,
+  BoardDetailPage,
 } from "../../components";
 import { ArchiveWrapper } from "../../components";
 import "./ContentContainer.css";
@@ -78,13 +80,16 @@ class ContentContainer extends Component {
     const { postList, archiveList } = this.state;
     const latestArchiveList = archiveList.slice(0, 6);
     const latestPostList = postList.slice(0, 20);
+
     return (
       <div className="contentcontainer">
         <PostWrapper>
           <LogoImage></LogoImage>
           {latestPostList &&
             latestPostList.map((post) => {
-              return <Post title={post.title} id={post.id}></Post>;
+              return (
+                <Post key={post.id} title={post.title} id={post.id}></Post>
+              );
             })}
           <Classroom></Classroom>
           <Calandar
@@ -97,6 +102,7 @@ class ContentContainer extends Component {
             latestArchiveList.map((post) => {
               return (
                 <HomeArchive
+                  key={post.id}
                   title={post.title}
                   id={post.id}
                   thumbnailUrl={post.thumbnailUrl}

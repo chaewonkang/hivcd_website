@@ -1,13 +1,5 @@
 .each_post_navigator_container {
   position: relative;
-  background-color: #ff00ff;
-}
-
-.navigate_page_num {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  font-size: 25px;
 }
 
 button.navigate_right_button {
@@ -21,7 +13,6 @@ button.navigate_right_button {
   grid-template-rows: 1fr;
   float: right;
   bottom: 0;
-  margin: 0px;
 }
 
 button.navigate_left_button {
@@ -35,7 +26,6 @@ button.navigate_left_button {
   grid-template-rows: 1fr;
   float: left;
   bottom: 0;
-  margin: 0px;
 }
 
 button span {

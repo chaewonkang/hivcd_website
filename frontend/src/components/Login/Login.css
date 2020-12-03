@@ -41,7 +41,7 @@ input[type="text"]:focus {
   /* background-color: #ff00ff; */
 }
 
-.button {
+.login_button {
   font-family: "NewParisSkyline", sans-serif;
   font-size: 33px;
   border: 1px solid #000;
@@ -50,9 +50,14 @@ input[type="text"]:focus {
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: 1fr;
+  cursor: pointer;
 }
 
-.button span {
+.login_button:hover {
+  color: yellow;
+}
+
+.login_button span {
   align-self: center;
   justify-self: center;
 }
@@ -63,6 +68,17 @@ input[type="text"]:focus {
   font-size: 30px;
   text-align: right;
   text-decoration: underline;
+}
+
+.create_account_link {
+  text-align: right;
+  text-decoration: none;
+  color: #000;
+  cursor: pointer;
+}
+
+.create_account_link:hover {
+  color: yellow;
 }
 
 @media (max-width: 576px) {

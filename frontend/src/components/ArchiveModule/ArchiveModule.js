@@ -12,7 +12,7 @@ const ArchiveModule = ({ title, id, thumbnailUrl }) => (
         date: {id}
       </div>
       <div
-        className="archive_content_image image_fill"
+        className="archive_module_content_image image_fill"
         style={{
           backgroundImage: `url(${thumbnailUrl})`,
         }}

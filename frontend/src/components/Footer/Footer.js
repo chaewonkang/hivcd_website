@@ -38,11 +38,24 @@ const Footer = () => {
           </div>
           <div className="footer-item">
             <span className="footer-item-title">Newsletter</span>
-            <div class="subscription_button">SUBSCRIBE</div>
+            <div id="subscription_button" class="subscription_button">
+              SUBSCRIBE
+            </div>
           </div>
-          <div className="footer-item">
-            <span className="footer-item-title">Website by</span>
-            <p>Yinyang, Seogyu Kim</p>
+          <div id="credit" className="footer-item">
+            <p>
+              Design by{" "}
+              <a href="https://instagram.com/yinyang.fig" target="_blank">
+                Yinyang,
+              </a>{" "}
+              <a href="https://chaewonkang.com" target="_blank">
+                Developed by Chaewon Kang
+              </a>{" "}
+              <a href="https://github.com/SeogyuGim" target="_blank">
+                and Seogyu Kim
+              </a>{" "}
+              ⓒ2020 HIVCD
+            </p>
           </div>
         </div>
       </div>

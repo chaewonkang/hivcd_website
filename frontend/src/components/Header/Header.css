@@ -44,7 +44,7 @@ header {
 }
 
 .navbar_menu_wrapper_item_title:hover {
-  text-decoration: underline;
+  text-decoration: underline !important;
 }
 
 .navbar_menu_wrapper_item_title:visited {
@@ -52,6 +52,10 @@ header {
 }
 
 .navbar_menu_wrapper_item_title:active {
+  text-decoration: underline !important;
+}
+
+.navbar_menu_wrapper_item_title:focus {
   text-decoration: underline !important;
 }
 

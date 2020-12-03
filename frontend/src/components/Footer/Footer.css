@@ -6,9 +6,12 @@
   z-index: 99;
 }
 
+.footer_wrapper {
+}
+
 .footer_container {
   display: inline-grid;
-  width: 100vw;
+  width: 100%;
   grid-template-columns: repeat(6, 1fr);
 }
 
@@ -17,21 +20,35 @@
   font-size: 16px;
   text-decoration: underline;
   margin-bottom: 0.5em;
+  margin-right: 1em;
 }
 
 .footer-item p {
   font-family: "CenturySchoolback";
-  font-size: 16px;
+  font-size: 15px;
+  margin-top: 0.3em;
+}
+
+#subscription_button {
+  margin-top: 0.3em;
+}
+
+#credit {
+  color: #7c7769;
+}
+
+#credit a {
+  color: #7c7769;
 }
 
 .korean_address {
   font-family: "AGChoiJeongHo";
-  font-size: 16px;
+  font-size: 15px;
 }
 
 .english_address {
   font-family: "CenturySchoolback";
-  font-size: 16px;
+  font-size: 15px;
 }
 
 .subscription_button {

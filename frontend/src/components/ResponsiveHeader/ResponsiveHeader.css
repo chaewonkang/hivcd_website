@@ -11,6 +11,16 @@
   border: none;
 }
 
+.hamburget-btn:focus {
+  border-bottom: none;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-radius: 0;
+  border: 2px solid #000;
+  outline: none;
+}
+
 .addTransiton {
   transform: translateX(-100vw) translateY(50px);
   transition: transform 0.5s ease-in-out;

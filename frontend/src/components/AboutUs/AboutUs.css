@@ -27,6 +27,7 @@ th {
 td {
   padding: 5px;
 }
+
 .aboutus_container {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -35,9 +36,8 @@ td {
   row-gap: 20px;
 }
 
-.aboutus_container div {
+.aboutus_item {
   overflow: auto;
-  line-height: 1.7em;
 }
 
 .aboutus_container .aboutus_item {
@@ -46,12 +46,6 @@ td {
   padding: 1.5rem;
   width: 100%;
   height: 100%;
-}
-
-.aboutus_item h2 {
-  font-family: "AGChoiJeongHo";
-  font-size: 22px;
-  padding-top: 0.5rem;
 }
 
 .aboutus_item p {
@@ -68,7 +62,8 @@ td {
 .aboutus_item .aboutus_content {
   position: absolute;
   margin-top: 20px;
-  font-family: "CenturySchoolbook";
+  font-family: "KoPubBatangMedium";
+  line-height: 30px;
   font-size: 18px;
   position: sticky;
   top: 0;

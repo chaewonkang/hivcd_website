@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { BrowserRouter as Router } from "react-router-dom";
 import { Post, LogoImage, BoardPostWrapper } from "../../components";
 import axios from "axios";
+import "./Board.css";
 
 class Board extends Component {
   state = {
@@ -10,19 +11,11 @@ class Board extends Component {
     postList: [],
     items: 20,
     preItems: 0,
+    boardFilter: null,
   };
 
-  UNSAFE_componentWillMount() {}
-
   componentDidMount() {
-    // this.fetchPostInfo(1);
     this._loadPost();
-
-    window.addEventListener("scroll", this._infiniteScroll);
-  }
-
-  componentWillUnmount() {
-    window.removeEventListener("scroll", this.infiniteScroll);
   }
 
   _loadPost = async () => {
@@ -45,22 +38,80 @@ class Board extends Component {
   };
   render() {
     const { postList } = this.state;
+    const items = postList
+      .filter((data) => {
+        if (this.state.boardFilter === null) return data;
+        else if (data.title.includes(this.state.boardFilter)) return data;
+      })
+      .map((data) => {
+        return <Post key={data.id} title={data.title} id={data.id}></Post>;
+      });
     return (
-      <Router>
-        <div className="contentcontainer">
-          <BoardPostWrapper>
-            {postList &&
-              postList.map((post) => {
-                return (
-                  <>
-                    <Post title={post.title} id={post.id}></Post>
-                  </>
-                );
-              })}
-            <LogoImage></LogoImage>
-          </BoardPostWrapper>
+      <div className="contentcontainer">
+        <div className="board_filter_wrapper">
+          <div className="board_filter_container">
+            <button
+              className="board_filter_option"
+              onClick={() =>
+                this.setState({
+                  ...this.state,
+                  boardFilter: null,
+                })
+              }
+            >
+              ALL
+            </button>
+            <button
+              className="board_filter_option"
+              onClick={() =>
+                this.setState({
+                  ...this.state,
+                  boardFilter: "est",
+                })
+              }
+            >
+              NOTICE
+            </button>
+            <button
+              className="board_filter_option"
+              onClick={() =>
+                this.setState({
+                  ...this.state,
+                  boardFilter: "quo",
+                })
+              }
+            >
+              EVENT
+            </button>
+            <button
+              className="board_filter_option"
+              onClick={() =>
+                this.setState({
+                  ...this.state,
+                  boardFilter: "ut",
+                })
+              }
+            >
+              JOB
+            </button>
+            <button
+              className="board_filter_option"
+              onClick={() =>
+                this.setState({
+                  ...this.state,
+                  boardFilter: "quo",
+                })
+              }
+            >
+              LOST&FOUND
+            </button>
+          </div>
         </div>
-      </Router>
+        <BoardPostWrapper>
+          {items}
+          <LogoImage></LogoImage>
+        </BoardPostWrapper>
+      </div>
     );
   }
 }

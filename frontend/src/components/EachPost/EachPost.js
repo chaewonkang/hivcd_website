@@ -9,13 +9,16 @@ const EachPost = ({ title, body, comments }) => (
       <h1>{title}</h1>
       <hr></hr>
       <div className="each_post_info">
-        <span>작성자 • 조교실</span>
-        <span>작성일 • 2020.10.26</span>
-        <span>조회 • 362</span>
+        <span>작성자 ▪︎ 조교실</span>
+        <span>작성일 ▪︎ 2020.10.26</span>
+        <span>조회 ▪︎ 362</span>
       </div>
+      <hr></hr>
       <div className="each_post_files">
-        <span>첨부파일 • 11월 10일 지하루_1.png</span>
-        <button>DOWNLOAD</button>
+        <span className="attached_file">
+          첨부파일 ▪︎ 11월 10일 지하루_1.png
+        </span>
+        <button className="download_button">DOWNLOAD</button>
       </div>
       <hr></hr>
       <p>
