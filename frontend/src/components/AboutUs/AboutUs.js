@@ -1,5 +1,32 @@
 import React from "react";
 import "./AboutUs.css";
+import { RenderAfterNavermapsLoaded, NaverMap, Marker } from "react-naver-maps";
+
+function NaverMapAPI() {
+  const navermaps = window.naver.maps;
+  return (
+    <NaverMap
+      mapDivId={"react-naver-map"}
+      style={{
+        width: "90%",
+        height: "400px",
+        overflow: "auto",
+        margin: "auto",
+      }}
+      defaultCenter={{ lat: 37.5526276, lng: 126.9243904 }}
+      defaultZoom={13}
+    >
+      <Marker
+        key={1}
+        position={new navermaps.LatLng(37.5526276, 126.9243904)}
+        animation={2}
+        onClick={() => {
+          alert("홍익대학교 홍문관 7층!");
+        }}
+      />
+    </NaverMap>
+  );
+}
 
 const AboutUs = () => {
   return (
@@ -158,7 +185,15 @@ const AboutUs = () => {
           <div className="aboutus_item_tag">
             <span>MAP</span>
           </div>
-          <div className="aboutus_content"></div>
+          <div id="naver_map" className="aboutus_content">
+            <RenderAfterNavermapsLoaded
+              ncpClientId={"copdkbfrqt"}
+              error={<p>Maps Load Error</p>}
+              loading={<p>Maps Loading...</p>}
+            >
+              <NaverMapAPI />
+            </RenderAfterNavermapsLoaded>
+          </div>
         </div>
         <div id="contact" className="aboutus_item">
           <div className="aboutus_item_tag">
