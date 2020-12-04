@@ -4,10 +4,14 @@
 }
 
 .comment_container div {
-  padding-left: 1rem;
   margin-bottom: 1rem;
 }
 
 .comment p b {
   color: 212529;
+}
+
+.comment_container_username {
+  margin-left: 0;
+  padding: 0;
 }

@@ -82,7 +82,7 @@ input[type="text"]:focus {
 }
 
 @media (max-width: 576px) {
-  .Modal {
+  Modal {
     width: 300px;
   }
 }

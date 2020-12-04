@@ -1,10 +1,11 @@
 import React from "react";
 import "./EachPost.css";
-import { CommentList } from "../../components";
+import { CommentList, EachPostNavigator } from "../../components";
 
-const EachPost = ({ title, body, comments }) => (
+const EachPost = ({ title, body, comments, handleNavigateClick }) => (
   <div className="each_post_wrapper">
     <div className="each_post">
+      {" "}
       <div className="each_post_tag">EVENT</div>
       <h1>{title}</h1>
       <hr></hr>
@@ -36,8 +37,11 @@ const EachPost = ({ title, body, comments }) => (
         {body}
       </p>
       <hr></hr>
+      <CommentList comments={comments}></CommentList>
+      <EachPostNavigator
+        handleNavigateClick={handleNavigateClick}
+      ></EachPostNavigator>
     </div>
-    <CommentList comments={comments}></CommentList>
   </div>
 );
 

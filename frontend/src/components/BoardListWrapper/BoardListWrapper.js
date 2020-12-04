@@ -3,7 +3,7 @@ import "./BoardListWrapper.css";
 
 const BoardListWrapper = ({ list, pageArray, page }) => {
   return (
-    <div className="List">
+    <div className="board_list_container">
       <div>
         {list
           ? list.map((el, key) => {

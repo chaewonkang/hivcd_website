@@ -1,5 +1,7 @@
 .each_post_navigator_container {
   position: relative;
+  background-color: #000;
+  margin-top: 2em;
 }
 
 button.navigate_right_button {

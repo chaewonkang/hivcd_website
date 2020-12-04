@@ -22,7 +22,7 @@
 }
 
 .addTransiton {
-  transform: translateX(-100vw) translateY(50px);
+  transform: translateX(-300vw) translateY(50px);
   transition: transform 0.5s ease-in-out;
 }
 .removeTransition {

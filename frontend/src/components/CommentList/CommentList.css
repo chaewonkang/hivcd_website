@@ -19,8 +19,9 @@ input[name="comment"] {
 }
 
 .comment_input_container {
-  display: grid;
+  display: inline-grid;
   grid-template-columns: 1fr 6fr;
+  width: 100%;
 }
 
 button.comment_input_button {
@@ -29,5 +30,5 @@ button.comment_input_button {
   border: 1px solid #000;
   background-color: #000;
   color: #fff;
-  margin-left: 20px;
+  margin-left: 10px;
 }

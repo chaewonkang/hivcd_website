@@ -15,9 +15,9 @@ const CommentList = ({ comments }) => {
       <ul>{commentList}</ul>
       <hr></hr>
       <div className="comment_input_container">
-        <div className="comment_input_container_username">B352020</div>
+        {" "}
+        <div>Chaewon</div>
         <div>
-          {" "}
           <form>
             <input
               type="text"

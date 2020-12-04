@@ -137,12 +137,8 @@ class EachPostContainer extends Component {
             title={post.title}
             body={post.body}
             comments={comments}
+            handleNavigateClick={this.handleNavigateClick}
           ></EachPost>
-          <EachPostNavigator
-            postId={postId}
-            disabled={fetching}
-            onClick={this.handleNavigateClick}
-          ></EachPostNavigator>
         </EachPostWrapper>
       </div>
     );

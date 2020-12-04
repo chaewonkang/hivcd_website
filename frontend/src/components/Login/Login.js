@@ -55,12 +55,14 @@ class Login extends Component {
     this.setState({
       visible: true,
     });
+    document.body.style.overflow = "hidden";
   };
 
   _closeModal = function () {
     this.setState({
       visible: false,
     });
+    document.body.style.overflow = "unset";
   };
 
   _changeSearch = function () {
