@@ -4,7 +4,7 @@
 .idea
 .env
 .pre-commit-config.yaml
-
+.azure
 # Elastic Beanstalk Files
 .elasticbeanstalk/*
 !.elasticbeanstalk/*.cfg.yml
