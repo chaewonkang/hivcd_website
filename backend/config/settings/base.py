@@ -26,7 +26,9 @@ SECRET_KEY = os.environ.get("SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.environ.get("DEBUG", True)
 
-ALLOWED_HOSTS = os.environ.get("ALLOWED_HOSTS", ['385-env.eba-iuvp3dap.ap-northeast-2.elasticbeanstalk.com'])
+ALLOWED_HOSTS = os.environ.get(
+    "ALLOWED_HOSTS", ["385-env.eba-iuvp3dap.ap-northeast-2.elasticbeanstalk.com"]
+)
 
 # Application definition
 
@@ -50,9 +52,9 @@ THIRDPARTY_APPS = [
     "rest_framework.authtoken",
     "rest_framework_simplejwt",
     "rest_framework_simplejwt.token_blacklist",
-    "drf_yasg",
     "corsheaders",
-    "django_seed",
+    # "drf_yasg",
+    # "django_seed",
 ]
 
 INSTALLED_APPS = DJANGO_APPS + PROJECT_APPS + THIRDPARTY_APPS
@@ -120,7 +122,7 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 STATIC_URL = "/static/"
-STATIC_ROOT = 'client/build/static'
+STATIC_ROOT = "client/build/static"
 # STATICFILES_DIRS = [
 #     # 실제 static 파일은 모두 client 측에서 소유
 #     os.path.join(BASE_DIR, "client/build/static")
