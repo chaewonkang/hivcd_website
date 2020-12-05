@@ -23,8 +23,8 @@ schema_view = get_schema_view(
 
 urlpatterns = [
     # API Settings
-    path("v1/postings/", include("postings.urls", namespace="postings")),
-    path("v1/auth/", include("auth.urls", namespace="auth")),
+    path("postings/", include("postings.urls", namespace="postings")),
+    path("auth/", include("auth.urls", namespace="auth")),
     # Swagger Settings
     path("", schema_view.with_ui("swagger", cache_timeout=0), name="schema-swagger-ui"),
     path("json/", schema_view.without_ui(cache_timeout=0), name="schema-swagger-ui"),

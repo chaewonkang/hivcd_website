@@ -43,7 +43,7 @@ urlpatterns = [
     path("admin/", admin.site.urls),
     path("api-auth/", include("rest_framework.urls", namespace="rest_framework")),
     # API Settings
-    path("api", include("api_v1.urls", namespace="urls")),
+    path("api/v1/", include("api_v1.urls", namespace="urls")),
 ]
 
 if settings.DEBUG:
