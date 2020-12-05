@@ -26,9 +26,7 @@ SECRET_KEY = os.environ.get("SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.environ.get("DEBUG", True)
 
-ALLOWED_HOSTS = os.environ.get(
-    "ALLOWED_HOSTS", ["385-env.eba-iuvp3dap.ap-northeast-2.elasticbeanstalk.com"]
-)
+ALLOWED_HOSTS = os.environ.get("ALLOWED_HOSTS", ["https://hivcdapp.azurewebsites.net"])
 
 # Application definition
 
