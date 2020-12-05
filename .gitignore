@@ -2,9 +2,9 @@
 .venv
 .vscode
 .idea
-.env
+*/.env
 .pre-commit-config.yaml
-.azure
+*/.azure
 # Elastic Beanstalk Files
 .elasticbeanstalk/*
 !.elasticbeanstalk/*.cfg.yml
