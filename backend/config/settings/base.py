@@ -26,7 +26,7 @@ SECRET_KEY = os.environ.get("SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.environ.get("DEBUG", True)
 
-ALLOWED_HOSTS = os.environ.get("ALLOWED_HOSTS", [])
+ALLOWED_HOSTS = os.environ.get("ALLOWED_HOSTS", ['385-env.eba-iuvp3dap.ap-northeast-2.elasticbeanstalk.com'])
 
 # Application definition
 
@@ -90,12 +90,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = "config.wsgi.application"
 
-# Database
-# https://docs.djangoproject.com/en/2.1/ref/settings/#databases
-
-# Password validation
-# https://docs.djangoproject.com/en/2.1/ref/settings/#auth-password-validators
-
 AUTH_PASSWORD_VALIDATORS = [
     {
         "NAME": "django.contrib.auth.password_validation.UserAttributeSimilarityValidator",
@@ -126,10 +120,11 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 STATIC_URL = "/static/"
-STATICFILES_DIRS = [
-    # 실제 static 파일은 모두 client 측에서 소유
-    os.path.join(BASE_DIR, "client/build/static")
-]
+STATIC_ROOT = 'client/build/static'
+# STATICFILES_DIRS = [
+#     # 실제 static 파일은 모두 client 측에서 소유
+#     os.path.join(BASE_DIR, "client/build/static")
+# ]
 
 # Media files
 MEDIA_ROOT = os.path.join(BASE_DIR, "uploads")
