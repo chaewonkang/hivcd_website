@@ -37,6 +37,7 @@ schema_view = get_schema_view(
     permission_classes=(permissions.AllowAny,),
 )
 
+
 urlpatterns = [
     path("", TemplateView.as_view(template_name="index.html"), name="index"),
     # Admin Page

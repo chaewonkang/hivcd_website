@@ -147,4 +147,6 @@ EMAIL_HOST_PASSWORD = os.environ.get("EMAIL_HOST_PASSWORD")
 # Cors Policy
 CORS_ORIGIN_WHITELIST = ["https://localhost:3000"]
 
+
+# USER Model
 AUTH_USER_MODEL = "my_auth.User"
