@@ -62,6 +62,7 @@ INSTALLED_APPS = DJANGO_APPS + PROJECT_APPS + THIRDPARTY_APPS
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
+    "whitenoise.middleware.WhiteNoiseMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "corsheaders.middleware.CorsMiddleware",
     "django.middleware.common.CommonMiddleware",
@@ -76,7 +77,7 @@ ROOT_URLCONF = "config.urls"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": ["client/build"],
+        "DIRS": [BASE_DIR + "client/build"],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
@@ -121,15 +122,11 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 STATIC_URL = "/static/"
-STATIC_ROOT = "client/build/static"
-# STATICFILES_DIRS = [
-#     # 실제 static 파일은 모두 client 측에서 소유
-#     os.path.join(BASE_DIR, "client/build/static")
-# ]
-
+STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
 # Media files
-MEDIA_ROOT = os.path.join(BASE_DIR, "uploads")
 MEDIA_URL = "/media/"
+MEDIA_ROOT = os.path.join(BASE_DIR, "media")
+
 
 # Rest Framework
 REST_FRAMEWORK = {
