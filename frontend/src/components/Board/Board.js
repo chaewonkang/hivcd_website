@@ -27,8 +27,8 @@ class Board extends Component {
 
   _loadPost = async () => {
     axios
-      // .get("https://jsonplaceholder.typicode.com/posts")
-      .get("https://https://hivcdapp.azurewebsites.net/api/v1/postings")
+      // .get(`https://jsonplaceholder.typicode.com/posts`)
+      .get("http://127.0.0.1:8000/api/v1/postings")
       .then(({ data }) => {
         this.setState({
           ...this.state,
