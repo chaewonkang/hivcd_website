@@ -53,13 +53,12 @@ THIRDPARTY_APPS = [
     "rest_framework_simplejwt",
     "rest_framework_simplejwt.token_blacklist",
     "corsheaders",
-    # "drf_yasg",
-    # "django_seed",
+    "drf_yasg",
+    "django_seed",
 ]
 
 INSTALLED_APPS = DJANGO_APPS + PROJECT_APPS + THIRDPARTY_APPS
 
-AUTH_USER_MODEL = "my_auth.User"
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
@@ -150,3 +149,5 @@ EMAIL_HOST_PASSWORD = os.environ.get("EMAIL_HOST_PASSWORD")
 
 # Cors Policy
 CORS_ORIGIN_WHITELIST = ["https://localhost:3000"]
+
+AUTH_USER_MODEL = "my_auth.User"

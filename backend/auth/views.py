@@ -11,8 +11,8 @@ from rest_framework import views, generics, status
 from rest_framework.response import Response
 from rest_framework_simplejwt.tokens import RefreshToken
 
-# from drf_yasg.utils import swagger_auto_schema
-# from drf_yasg import openapi
+from drf_yasg.utils import swagger_auto_schema
+from drf_yasg import openapi
 from .serializers import (
     UserSerializer,
     RegistrationSerializer,
