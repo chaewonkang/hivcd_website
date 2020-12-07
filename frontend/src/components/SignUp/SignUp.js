@@ -30,6 +30,10 @@ class SignUp extends Component {
     document.body.style.overflow = "unset";
   };
 
+  componentWillUnmount() {
+    document.body.style.overflow = "unset";
+  }
+
   _changeSearch = function () {
     const searchValue = document.getElementsByName("search")[0].value;
     console.log(searchValue);

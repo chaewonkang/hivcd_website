@@ -2,7 +2,7 @@ import React from "react";
 import "./EachPost.css";
 import { CommentList, EachPostNavigator } from "../../components";
 
-const EachPost = ({ title, body, comments, handleNavigateClick }) => (
+const EachPost = ({ title, body, comments, handleNavigateClick, style }) => (
   <div className="each_post_wrapper">
     <div className="each_post">
       {" "}

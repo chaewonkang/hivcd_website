@@ -45,13 +45,25 @@ const Footer = () => {
           <div id="credit" className="footer-item">
             <p>
               Design by{" "}
-              <a href="https://instagram.com/yinyang.fig" target="_blank">
+              <a
+                href="https://instagram.com/yinyang.fig"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 Yinyang,
               </a>{" "}
-              <a href="https://chaewonkang.com" target="_blank">
+              <a
+                href="https://chaewonkang.com"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 Developed by Chaewon Kang
               </a>{" "}
-              <a href="https://github.com/SeogyuGim" target="_blank">
+              <a
+                href="https://github.com/SeogyuGim"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 and Seogyu Kim
               </a>{" "}
               ⓒ2020 HIVCD

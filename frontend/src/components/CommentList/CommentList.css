@@ -13,7 +13,7 @@ input[name="comment"] {
   border-top: none;
   border-left: none;
   border-right: none;
-  background-color: #ff00ff;
+  background-color: #fff5f5;
   width: 90%;
   outline: none;
 }
@@ -30,5 +30,7 @@ button.comment_input_button {
   border: 1px solid #000;
   background-color: #000;
   color: #fff;
+  justify-self: right;
   margin-left: 10px;
+  right: 0;
 }

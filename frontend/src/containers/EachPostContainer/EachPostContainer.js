@@ -1,10 +1,5 @@
 import React, { Component } from "react";
-import {
-  EachPostWrapper,
-  EachPostNavigator,
-  EachPost,
-  BoardListWrapper,
-} from "../../components";
+import { EachPostWrapper, EachPost, BoardListWrapper } from "../../components";
 import axios from "axios";
 import "./EachPostContainer.css";
 
@@ -12,7 +7,7 @@ class EachPostContainer extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      postId: 1,
+      postId: this.props.postId,
       fetching: false,
       post: {
         title: null,
@@ -27,7 +22,7 @@ class EachPostContainer extends Component {
   }
 
   componentDidMount() {
-    this.fetchPostInfo(1);
+    this.fetchPostInfo(this.state.postId);
   }
 
   UNSAFE_componentWillMount() {
@@ -85,10 +80,6 @@ class EachPostContainer extends Component {
       pageArray.push(i);
     }
 
-    console.log(`Length is: ${dataNum}`);
-
-    console.log(`pageArray is: ${pageArray}`);
-
     this.setState({
       ...this.state,
       postId,
@@ -101,7 +92,6 @@ class EachPostContainer extends Component {
       list,
       pageArray,
     });
-    console.log(info);
   };
 
   handleNavigateClick = (type) => {
@@ -115,16 +105,8 @@ class EachPostContainer extends Component {
   };
 
   render() {
-    const {
-      postId,
-      fetching,
-      post,
-      comments,
-      list,
-      pageArray,
-      page,
-      limit,
-    } = this.state;
+    const { postId, post, comments, list, pageArray, page, limit } = this.state;
+    const { style } = this.props;
     return (
       <div className="each_post_container">
         <BoardListWrapper
@@ -134,10 +116,12 @@ class EachPostContainer extends Component {
         ></BoardListWrapper>
         <EachPostWrapper>
           <EachPost
+            key={postId}
             title={post.title}
             body={post.body}
             comments={comments}
             handleNavigateClick={this.handleNavigateClick}
+            style={style}
           ></EachPost>
         </EachPostWrapper>
       </div>

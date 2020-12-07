@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { BrowserRouter as Router } from "react-router-dom";
 import { Post, LogoImage, BoardPostWrapper } from "../../components";
 import axios from "axios";
 import "./Board.css";
@@ -42,6 +41,7 @@ class Board extends Component {
       .filter((data) => {
         if (this.state.boardFilter === null) return data;
         else if (data.title.includes(this.state.boardFilter)) return data;
+        return;
       })
       .map((data) => {
         return <Post key={data.id} title={data.title} id={data.id}></Post>;

@@ -32,7 +32,6 @@ import AlumniSearch from "./AlumniSearch/AlumniSearch";
 import BoardDetailPage from "./BoardDetailPage/BoardDetailPage";
 import PostModule from "./PostModule/PostModule";
 import SignUp from "./SignUp/SignUp";
-import MapContent from "./MapContent/MapContent";
 
 export {
   Header,
@@ -69,5 +68,4 @@ export {
   BoardDetailPage,
   PostModule,
   SignUp,
-  MapContent,
 };

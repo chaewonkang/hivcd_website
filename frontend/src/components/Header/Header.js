@@ -1,15 +1,6 @@
 import React, { Component } from "react";
-import { Link, Route, BrowserRouter as Router } from "react-router-dom";
-import {
-  AboutUs,
-  Board,
-  Alumni,
-  Archive,
-  Search,
-  BoardDetailPage,
-  SignUp,
-} from "../../components";
-import ContentContainer from "../../containers/ContentContainer/ContentContainer";
+import { Link } from "react-router-dom";
+import { Search } from "../../components";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { ResponsiveHeader } from "../../components";
 import "./Header.css";

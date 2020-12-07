@@ -73,7 +73,7 @@ class Post extends Component {
       backgroundColor: this.state.style.color,
       border: `2px solid ${this.state.style.borderColor}`,
     };
-    return <PostModule style={style} title={title} date={id}></PostModule>;
+    return <PostModule style={style} title={title} id={id}></PostModule>;
   }
 }
 

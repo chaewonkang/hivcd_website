@@ -43,6 +43,7 @@ class Archive extends Component {
       .filter((data) => {
         if (this.state.archiveFilter === null) return data;
         else if (data.title.includes(this.state.archiveFilter)) return data;
+        return;
       })
       .map((data) => {
         return (

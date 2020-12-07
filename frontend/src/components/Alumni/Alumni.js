@@ -55,6 +55,7 @@ class Alumni extends Component {
           data.website.toLowerCase().includes(this.state.alumniSearch)
         )
           return data;
+        return;
       })
       .map((data) => {
         return (

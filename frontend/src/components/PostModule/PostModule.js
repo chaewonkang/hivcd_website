@@ -4,9 +4,8 @@ import { useHistory } from "react-router-dom";
 
 const PostModule = ({ style, title, id }) => {
   let history = useHistory();
-
   function handleClick() {
-    history.push("/board/posts");
+    history.push(`/board/${id}`);
   }
 
   return (

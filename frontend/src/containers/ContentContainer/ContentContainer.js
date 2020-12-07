@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { useHistory } from "react-router-dom";
 import axios from "axios";
 import {
   PostWrapper,
@@ -9,7 +8,6 @@ import {
   Equipment,
   Classroom,
   LogoImage,
-  BoardDetailPage,
 } from "../../components";
 import { ArchiveWrapper } from "../../components";
 import "./ContentContainer.css";

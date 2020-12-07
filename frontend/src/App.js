@@ -7,7 +7,6 @@ import {
   Board,
   Alumni,
   Archive,
-  Search,
   BoardDetailPage,
   SignUp,
 } from "./components";
@@ -67,7 +66,7 @@ class App extends Component {
             <Route path="/aboutus" component={AboutUs} />
             <Route path="/alumni" component={Alumni} />
             <Route path="/archive" component={Archive} />
-            <Route path="/board/posts" component={BoardDetailPage}></Route>
+            <Route path="/board/:postId" component={BoardDetailPage}></Route>
             <Footer />
           </div>
         </Switch>

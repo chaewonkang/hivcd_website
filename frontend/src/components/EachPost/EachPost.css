@@ -1,6 +1,4 @@
 .each_post_wrapper {
-  border: 1px solid #ff00ff;
-  background: #ff00ff;
   padding: 20px;
   position: relative;
   overflow: auto;
