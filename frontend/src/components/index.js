@@ -32,6 +32,7 @@ import AlumniSearch from "./AlumniSearch/AlumniSearch";
 import BoardDetailPage from "./BoardDetailPage/BoardDetailPage";
 import PostModule from "./PostModule/PostModule";
 import SignUp from "./SignUp/SignUp";
+import MobileSignup from "./MobileSignup/MobileSignup";
 
 export {
   Header,
@@ -68,4 +69,5 @@ export {
   BoardDetailPage,
   PostModule,
   SignUp,
+  MobileSignup,
 };

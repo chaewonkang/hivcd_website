@@ -4,6 +4,13 @@ import "./ResponsiveHeader.css";
 
 const ResponsiveHeader = () => {
   let [translate, setTranslate] = useState(true);
+  if (translate === false) document.body.style.overflow = "hidden";
+  else document.body.style.overflow = "unset";
+
+  function handleLoginData(e) {
+    e.preventDefault();
+  }
+
   return (
     <div>
       <button
@@ -24,6 +31,7 @@ const ResponsiveHeader = () => {
           navClass="nav-small"
           linkClassName="nav-small-link"
           onClick={() => setTranslate(true)} //set translate to true to hide the sidebar list
+          handleLoginData={handleLoginData}
         />
       </div>
     </div>

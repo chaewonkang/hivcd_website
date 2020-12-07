@@ -64,7 +64,7 @@ class SignUp extends Component {
     });
   };
 
-  _postLogin = async () => {
+  _postSignup = async () => {
     axios
       .post("http://localhost:8000/api/v1/auth/registration", {
         email: this.state.id,
@@ -117,16 +117,10 @@ class SignUp extends Component {
                   name="password"
                   onChange={() => this._changePW()}
                 ></input>
-                <div
-                  className="signup_button"
-                  onClick={() => this._postLogin()}
-                >
+                <div className="signup_button" onClick={() => this._Signup()}>
                   <span>SIGN UP</span>
                 </div>
-                <div
-                  className="signup_button"
-                  onClick={() => this._postLogin()}
-                >
+                <div className="signup_button">
                   <Link
                     to="/"
                     className="back_to_home"

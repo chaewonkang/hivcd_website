@@ -8,11 +8,11 @@ const Navbar = ({ navClass, linkClassName }) => (
   <NavComponent navClass={navClass} linkClassName={linkClassName} />
 );
 
-export const NavComponent = ({ onClick }) => (
+export const NavComponent = ({ onClick, handleLoginData }) => (
   <>
     <nav>
       <div className="nav_class_wrapper">
-        <div className="nav_class_boilerplate">
+        <div className="nav_class_boilerplate ">
           <div className="nav_class_bp_address">
             <span>Address</span>
             <p>
@@ -36,7 +36,23 @@ export const NavComponent = ({ onClick }) => (
         </div>
         <hr></hr>
         <div>
-          <Login></Login>
+          <form onSubmit={() => handleLoginData()}>
+            <input name="mobile_login_id" type="id" placeholder="ID"></input>
+            <input
+              name="mobile_login_pw"
+              type="password"
+              placeholder="password"
+            ></input>
+            <button type="submit" className="mobile_login_input_button">
+              submit
+            </button>
+          </form>
+          <div className="applebox"></div>
+          <Link to="/mobile/signup">
+            <p className="become_a_member" onClick={onClick}>
+              Become a member →{" "}
+            </p>
+          </Link>
         </div>
         <hr></hr>
         <div className="nav_class_menubar">
@@ -60,9 +76,11 @@ export const NavComponent = ({ onClick }) => (
         </div>
         <hr></hr>
         <div className="nav_class_newsletter">
-          <span>Subscribe Newsletter</span>
+          <span>Subscribe Newsletter</span> 💌
         </div>
         <div className="nav_class_copyright">
+          <hr className="bottomline"></hr>
+
           <p>
             Website Designed by Yinyang, <br></br>Developed by Chaewon Kang,
             Seokyu Kim<br></br>Ⓒ 2020 HIVCD

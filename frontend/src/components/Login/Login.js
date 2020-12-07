@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import Modal from "react-awesome-modal";
 import "./Login.css";
 import axios from "axios";
-// import { GoogleLogin } from "react-google-login";
 import { Link, withRouter } from "react-router-dom";
 
 class Login extends Component {
@@ -16,40 +15,6 @@ class Login extends Component {
       provider: "",
     };
   }
-
-  // Google Login
-  responseGoogle = (res) => {
-    this.setState({
-      id: res.googldId,
-      name: res.profileObj.name,
-      provider: "google",
-    });
-    this.doSignUp();
-  };
-
-  // Kakao Login
-  responseKakao = (res) => {
-    this.setState({
-      id: res.profile.id,
-      name: res.profile.properties.nickname,
-      provider: "kakao",
-    });
-    this.doSignUp();
-  };
-
-  // Login Fail
-  responseFail = (err) => {
-    console.error(err);
-  };
-
-  doSignUp = () => {
-    const { id, name, provider } = this.state;
-    window.sessionStorage.setItem("id", id);
-    window.sessionStorage.setItem("name", name);
-    window.sessionStorage.setItem("provider", provider);
-    this.props.onLogin();
-    this.props.history.push("/");
-  };
 
   _openModal = function () {
     this.setState({

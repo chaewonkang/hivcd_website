@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Header, Footer } from "./components";
+import { Header, Footer, MobileSignup } from "./components";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import "./App.css";
 import {
@@ -59,6 +59,7 @@ class App extends Component {
       <Router>
         <Switch>
           <div className="AppBody">
+            <Route path="/mobile/signup" component={MobileSignup}></Route>
             <Route path="/auth/registration" component={SignUp}></Route>
             <Header logged={logged} onLogOut={onLogout}></Header>
             <Route exact path="/" component={ContentContainer} />
