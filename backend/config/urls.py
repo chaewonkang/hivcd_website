@@ -39,6 +39,7 @@ schema_view = get_schema_view(
 
 
 urlpatterns = [
+    # Index Page
     path("", TemplateView.as_view(template_name="index.html"), name="index"),
     # Admin Page
     path("admin/", admin.site.urls),
