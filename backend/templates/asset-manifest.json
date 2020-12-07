@@ -1,0 +1,30 @@
+{
+  "files": {
+    "main.css": "/static/css/main.088a7ecb.chunk.css",
+    "main.js": "/static/js/main.0901671e.chunk.js",
+    "main.js.map": "/static/js/main.0901671e.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.5ddcebdb.js",
+    "runtime-main.js.map": "/static/js/runtime-main.5ddcebdb.js.map",
+    "static/css/2.275f2336.chunk.css": "/static/css/2.275f2336.chunk.css",
+    "static/js/2.7d1b0c0c.chunk.js": "/static/js/2.7d1b0c0c.chunk.js",
+    "static/js/2.7d1b0c0c.chunk.js.map": "/static/js/2.7d1b0c0c.chunk.js.map",
+    "index.html": "/index.html",
+    "precache-manifest.aba0fb45bc67989212d6727a323a5962.js": "/precache-manifest.aba0fb45bc67989212d6727a323a5962.js",
+    "service-worker.js": "/service-worker.js",
+    "static/css/2.275f2336.chunk.css.map": "/static/css/2.275f2336.chunk.css.map",
+    "static/css/main.088a7ecb.chunk.css.map": "/static/css/main.088a7ecb.chunk.css.map",
+    "static/js/2.7d1b0c0c.chunk.js.LICENSE.txt": "/static/js/2.7d1b0c0c.chunk.js.LICENSE.txt",
+    "static/media/index.css": "/static/media/NewParisSkylineTrial-Regular.b233a6ec.otf",
+    "static/media/semantic.min.css": "/static/media/outline-icons.ef60a4f6.woff",
+    "static/media/hivcd_logo.png": "/static/media/hivcd_logo.264851ab.png",
+    "static/media/logoImage_C.png": "/static/media/logoImage_C.8009336f.png",
+    "static/media/logogif.gif": "/static/media/logogif.d54d1617.gif"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.5ddcebdb.js",
+    "static/css/2.275f2336.chunk.css",
+    "static/js/2.7d1b0c0c.chunk.js",
+    "static/css/main.088a7ecb.chunk.css",
+    "static/js/main.0901671e.chunk.js"
+  ]
+}
