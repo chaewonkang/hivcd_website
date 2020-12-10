@@ -1,5 +1,7 @@
 .archive_wrapper {
-  margin: 20px;
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-bottom: 20px;
 }
 
 .archive_container {
@@ -10,8 +12,8 @@
   grid-auto-columns: 145px;
   grid-auto-rows: 200px;
 
-  grid-row-gap: 20px;
-  grid-column-gap: 20px;
+  grid-row-gap: 10px;
+  grid-column-gap: 10px;
 }
 
 .archive_gw_container {
@@ -72,5 +74,86 @@
     width: calc(100vw - 40px);
     grid-template-columns: 1fr;
     margin-bottom: 20px;
+  }
+}
+
+.archive_filter_wrapper {
+  margin-bottom: 20px;
+}
+
+.archive_filter_container {
+  display: inline;
+}
+
+.archive_filter_option {
+  font-size: 15px;
+  color: #000;
+  font-weight: 100;
+  padding: 0.1em 0.75em 0.1em 0.75em;
+  margin-right: 10px;
+  text-align: center;
+  width: fit-content;
+  background-color: #fff5f5;
+  border-bottom: none;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border: 1px solid #000;
+}
+
+.archive_filter_option:focus {
+  font-size: 15px;
+  color: #fff;
+  font-weight: 100;
+  padding: 0.1em 0.75em 0.1em 0.75em;
+  margin-right: 10px;
+  text-align: center;
+  width: fit-content;
+  background-color: #000;
+  border-bottom: none;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-radius: 0;
+  border: 1px solid #000;
+  outline: none;
+}
+
+@media (min-width: 1440px) and (max-width: 1920px) {
+}
+
+/********** Large devices only **********/
+@media (min-width: 1200px) and (max-width: 1440px) {
+}
+
+/********** Medium devices only **********/
+@media (min-width: 992px) and (max-width: 1199px) {
+}
+
+/********** Small devices only **********/
+@media (min-width: 768px) and (max-width: 991px) {
+  .archive_filter_wrapper {
+    margin-top: 70px;
+  }
+}
+
+/********** Extra small devices only **********/
+@media (min-width: 577px) and (max-width: 767px) {
+  .archive_filter_wrapper {
+    margin-top: 70px;
+  }
+}
+
+@media (max-width: 576px) {
+  .archive_filter_wrapper {
+    margin-top: 70px;
+  }
+
+  .archive_filter_container {
+    display: inline-grid;
+  }
+
+  .archive_filter_option {
+    margin-bottom: 10px;
   }
 }

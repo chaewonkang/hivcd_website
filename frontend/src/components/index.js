@@ -28,6 +28,11 @@ import Comment from "./Comment/Comment";
 import BoardListWrapper from "./BoardListWrapper/BoardListWrapper";
 import ArchiveModule from "./ArchiveModule/ArchiveModule";
 import AlumniModule from "./AlumniModule/AlumniModule";
+import AlumniSearch from "./AlumniSearch/AlumniSearch";
+import BoardDetailPage from "./BoardDetailPage/BoardDetailPage";
+import PostModule from "./PostModule/PostModule";
+import SignUp from "./SignUp/SignUp";
+import MobileSignup from "./MobileSignup/MobileSignup";
 
 export {
   Header,
@@ -60,4 +65,9 @@ export {
   BoardListWrapper,
   ArchiveModule,
   AlumniModule,
+  AlumniSearch,
+  BoardDetailPage,
+  PostModule,
+  SignUp,
+  MobileSignup,
 };

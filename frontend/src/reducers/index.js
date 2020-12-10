@@ -1,10 +1,11 @@
 import * as types from "../actions/ActionTypes";
 
 const initialState = {
-  color: "#ffff35",
+  color: null,
+  borderColor: null,
 };
 
-function postColor(state = initialState, action) {
+function moduleColor(state = initialState, action) {
   switch (action.type) {
     case types.SET_COLOR:
       return {
@@ -16,4 +17,4 @@ function postColor(state = initialState, action) {
   }
 }
 
-export default postColor;
+export default moduleColor;

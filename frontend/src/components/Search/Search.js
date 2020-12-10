@@ -3,13 +3,14 @@ import { BrowserRouter as Router } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Modal from "react-awesome-modal";
 import "./Search.css";
+import { withRouter } from "react-router-dom";
 
 class Search extends Component {
   constructor(props) {
     super(props);
     this.state = {
       visible: false,
-      search: "",
+      searchResult: null,
     };
   }
 
@@ -17,51 +18,48 @@ class Search extends Component {
     this.setState({
       visible: true,
     });
+    document.body.style.overflow = "hidden";
   };
 
   _closeModal = function () {
     this.setState({
       visible: false,
     });
+    document.body.style.overflow = "unset";
   };
 
-  _changeSearch = function () {
+  _changeSearch = function () {};
+
+  submitSearch(e) {
+    e.preventDefault();
     const searchValue = document.getElementsByName("search")[0].value;
-    console.log(searchValue);
 
-    this.setState({
-      ...this.tate,
-      search: searchValue,
-    });
-  };
+    this.props.handleSearchKeyword(searchValue);
+    console.log(`Search Component value is: ${searchValue}`);
+    this.props.history.push("/search");
+    this._closeModal();
+  }
 
   render() {
     return (
-      <Router>
-        <div>
-          <Modal
-            visible={this.state.visible}
-            width="815"
-            height="70"
-            effect="fadeInDown"
-            onClickAway={() => this._closeModal()}
-          >
-            <form>
-              <input
-                placeholder="SEARCH..."
-                type="text"
-                name="search"
-                onChange={() => this._changeSearch()}
-              ></input>
-            </form>
-          </Modal>
-          <div className="navbar_search_item" onClick={() => this._openModal()}>
-            SEARCH
-          </div>
+      <div>
+        <Modal
+          visible={this.state.visible}
+          width="815"
+          height="70"
+          effect="fadeInDown"
+          onClickAway={() => this._closeModal()}
+        >
+          <form onSubmit={this.submitSearch.bind(this)}>
+            <input placeholder="SEARCH..." type="text" name="search"></input>
+          </form>
+        </Modal>
+        <div className="navbar_search_item" onClick={() => this._openModal()}>
+          SEARCH
         </div>
-      </Router>
+      </div>
     );
   }
 }
 
-export default Search;
+export default withRouter(Search);

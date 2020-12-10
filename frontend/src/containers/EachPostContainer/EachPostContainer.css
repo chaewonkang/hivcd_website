@@ -2,9 +2,43 @@
   display: inline-grid;
   width: calc(100% - 40px);
   margin-left: 20px;
-  margin-top: 20px;
   margin-right: 20px;
   margin-bottom: 20px;
   background: #fff5f5;
   grid-template-columns: 1fr 2fr;
+  height: fit-content;
+}
+
+@media (min-width: 1440px) and (max-width: 1920px) {
+}
+
+/********** Large devices only **********/
+@media (min-width: 1200px) and (max-width: 1440px) {
+}
+
+/********** Medium devices only **********/
+@media (min-width: 992px) and (max-width: 1199px) {
+}
+
+/********** Small devices only **********/
+@media (min-width: 768px) and (max-width: 991px) {
+  .each_post_container {
+    grid-template-columns: 1fr;
+    margin-top: 70px;
+  }
+}
+
+/********** Extra small devices only **********/
+@media (min-width: 577px) and (max-width: 767px) {
+  .each_post_container {
+    margin-top: 70px;
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 576px) {
+  .each_post_container {
+    margin-top: 100px;
+    grid-template-columns: 1fr;
+  }
 }

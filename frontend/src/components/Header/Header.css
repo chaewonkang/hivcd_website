@@ -11,14 +11,14 @@ header {
   display: inline-grid;
   width: calc((100vw - 40px) * 0.6);
   grid-template-columns: repeat(4, 1fr);
-  column-gap: 20px;
+  column-gap: 10px;
 }
 
 .header_container_right {
   display: inline-grid;
   width: calc((100vw - 40px) * 0.4);
   grid-template-columns: 3fr 1fr;
-  padding-left: 20px;
+  padding-left: 10px;
 }
 
 .header_container_title {
@@ -44,7 +44,7 @@ header {
 }
 
 .navbar_menu_wrapper_item_title:hover {
-  text-decoration: underline;
+  text-decoration: underline !important;
 }
 
 .navbar_menu_wrapper_item_title:visited {
@@ -55,8 +55,12 @@ header {
   text-decoration: underline !important;
 }
 
+.navbar_menu_wrapper_item_title:focus {
+  text-decoration: underline !important;
+}
+
 .navbar_search_item {
-  font-family: "NewParisSkyline";
+  font-family: "Helvetica";
   padding: 2px 2px 2px 2px;
   width: fit-content;
   font-size: 18px;
@@ -91,12 +95,13 @@ header {
     left: 0;
     top: 0;
   }
+
   .header_container_responsive {
     display: inline-grid;
   }
 
   .hamburger_btn {
-    display: grid;
+    background-color: none;
   }
 
   .header_container_title {
@@ -107,7 +112,8 @@ header {
     display: inline-grid;
     width: calc(100vw - 40px);
     grid-template-columns: 1fr;
-    column-gap: 20px;
+    column-gap: 0;
+    z-index: 1000;
   }
 
   .header_container_login {
@@ -132,13 +138,19 @@ header {
   }
 
   .hamburger_btn {
-    display: grid;
+    background-color: none;
   }
+
+  .header_container_title {
+    text-align: center;
+  }
+
   .header_container_left {
     display: inline-grid;
     width: calc(100vw - 40px);
     grid-template-columns: 1fr;
-    column-gap: 20px;
+    column-gap: 0;
+    z-index: 1000;
   }
 
   .header_container_login {
@@ -178,7 +190,6 @@ header {
     display: inline-grid;
     width: calc(100vw - 40px);
     grid-template-columns: 1fr;
-    column-gap: 20px;
   }
 
   .header_container_right {

@@ -38,7 +38,7 @@ class ContentContainer extends Component {
 
   _loadPost = async () => {
     axios
-      .get("https://jsonplaceholder.typicode.com/posts")
+      .get("http://127.0.0.1:8000/api/v1/postings")
       .then(({ data }) => {
         this.setState({
           ...this.state,
@@ -78,25 +78,35 @@ class ContentContainer extends Component {
     const { postList, archiveList } = this.state;
     const latestArchiveList = archiveList.slice(0, 6);
     const latestPostList = postList.slice(0, 20);
+
     return (
       <div className="contentcontainer">
         <PostWrapper>
           <LogoImage></LogoImage>
           {latestPostList &&
             latestPostList.map((post) => {
-              return <Post title={post.title} id={post.id}></Post>;
+              return (
+                <Post
+                  key={post.pk}
+                  title={post.title}
+                  date={post.created}
+                  category={post.category}
+                  id={post.pk}
+                ></Post>
+              );
             })}
-          <Classroom></Classroom>
+          {/* <Classroom></Classroom>
           <Calandar
             onClick={() => console.log("Calandar Module Clicked!")}
           ></Calandar>
-          <Equipment></Equipment>
+          <Equipment></Equipment> */}
         </PostWrapper>
         <ArchiveWrapper>
           {latestArchiveList &&
             latestArchiveList.map((post) => {
               return (
                 <HomeArchive
+                  key={post.id}
                   title={post.title}
                   id={post.id}
                   thumbnailUrl={post.thumbnailUrl}

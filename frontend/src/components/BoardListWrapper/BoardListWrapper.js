@@ -1,15 +1,22 @@
 import React from "react";
 import "./BoardListWrapper.css";
+import { useHistory } from "react-router-dom";
 
 const BoardListWrapper = ({ list, pageArray, page }) => {
+  let history = useHistory();
+
   return (
-    <div className="List">
+    <div className="board_list_container">
       <div>
         {list
           ? list.map((el, key) => {
               return (
                 <>
-                  <div className="list_grid list_data" key={key}>
+                  <div
+                    className="list_grid list_data"
+                    key={key}
+                    onClick={() => history.push(`/board/${key}`)}
+                  >
                     <div className="list_tag">
                       {" "}
                       <span>{el.title.slice(0, 5)}</span>
