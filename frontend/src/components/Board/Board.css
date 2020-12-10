@@ -1,3 +1,71 @@
 body {
   background: #fff5f5;
 }
+
+.board_filter_container {
+  display: inline;
+}
+
+.board_filter_option {
+  font-size: 15px;
+  color: #000;
+  font-weight: 100;
+  padding: 0.1em 0.75em 0.1em 0.75em;
+  margin-right: 10px;
+  text-align: center;
+  width: fit-content;
+  background-color: #fff5f5;
+  border-bottom: none;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border: 1px solid #000;
+}
+
+.board_filter_option:focus {
+  font-size: 15px;
+  color: #fff;
+  font-weight: 100;
+  padding: 0.1em 0.75em 0.1em 0.75em;
+  margin-right: 10px;
+  text-align: center;
+  width: fit-content;
+  background-color: #000;
+  border-bottom: none;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border: 1px solid #000;
+  outline: none;
+}
+
+@media (min-width: 1440px) and (max-width: 1920px) {
+}
+
+/********** Large devices only **********/
+@media (min-width: 1200px) and (max-width: 1440px) {
+}
+
+/********** Medium devices only **********/
+@media (min-width: 992px) and (max-width: 1199px) {
+}
+
+/********** Small devices only **********/
+@media (min-width: 768px) and (max-width: 991px) {
+  .board_filter_wrapper {
+    margin-top: 70px;
+  }
+}
+
+/********** Extra small devices only **********/
+@media (min-width: 577px) and (max-width: 767px) {
+  .board_filter_wrapper {
+    margin-top: 70px;
+  }
+}
+
+@media (max-width: 576px) {
+  .board_filter_wrapper {
+    margin-top: 70px;
+  }
+}

@@ -12,6 +12,23 @@
   text-decoration: underline;
 }
 
+.nav_class_boilerplate div span {
+  font-family: "CenturySchoolbook";
+  font-size: 13px;
+}
+
+.nav_class_boilerplate div p {
+  font-family: "KoPubBatangMedium";
+  font-size: 12px;
+  line-height: 20px;
+}
+
+.nav_class_openhours {
+  font-family: "CenturySchoolbook";
+  font-size: 13px;
+  margin-bottom: 1em;
+}
+
 .nav_class_copyright {
   position: absolute;
   bottom: 40px;
@@ -20,10 +37,28 @@
   padding-right: 20px;
 }
 
+.become_a_member,
+.nav_class_newsletter {
+  font-family: "CenturySchoolbook";
+  font-size: 15px;
+  margin-bottom: 1em;
+}
+
+.nav_class_copyright {
+  width: 80%;
+  margin-bottom: 20px;
+  font-family: "CenturySchoolbook";
+  font-size: 13px;
+}
+
 .nav_class_copyright p {
   color: darkgray;
   line-height: 1.6em;
   font-size: 0.9em;
+}
+
+.applebox {
+  height: 10px;
 }
 
 .nav_class_menubar ul {
@@ -32,12 +67,20 @@
   padding: 0;
 }
 
+.nav_class_menubar ul li {
+  font-family: "CenturySchoolbook";
+  font-size: 15px;
+  color: #000;
+  cursor: pointer;
+  margin-bottom: 0.5em;
+}
+
 .navbar_login {
   position: relative;
 }
 
 .navbar_login_item {
-  font-family: "NewParisSkyline";
+  font-family: "Helvetica";
   padding: 2px 2px 2px 2px;
   font-size: 18px;
   width: fit-content;
@@ -53,4 +96,58 @@
   padding: 40px;
   align-content: center;
   justify-content: center;
+}
+
+input[name="mobile_login_id"],
+input[name="mobile_login_pw"] {
+  border-bottom: 1px solid #000;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  background-color: #fff5f5;
+  outline: none;
+  margin-right: 1em;
+}
+
+.comment_input_container {
+  display: inline-grid;
+  grid-template-columns: 1fr 6fr;
+  width: 100%;
+}
+
+button.mobile_login_input_button {
+  font-family: "Helvetica", sans-serif;
+  font-size: 15px;
+  border: 1px solid #000;
+  background-color: #000;
+  color: #fff;
+  justify-self: right;
+  right: 0;
+}
+
+@media (min-width: 1440px) and (max-width: 1920px) {
+}
+
+/********** Large devices only **********/
+@media (min-width: 1200px) and (max-width: 1440px) {
+}
+
+/********** Medium devices only **********/
+@media (min-width: 992px) and (max-width: 1199px) {
+}
+
+/********** Small devices only **********/
+@media (min-width: 768px) and (max-width: 991px) {
+}
+
+/********** Extra small devices only **********/
+@media (min-width: 577px) and (max-width: 767px) {
+}
+
+@media (max-width: 576px) {
+  input[name="mobile_login_id"],
+  input[name="mobile_login_pw"] {
+    width: 37%;
+    margin-bottom: 10px;
+  }
 }

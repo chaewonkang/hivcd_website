@@ -57,7 +57,7 @@ class Post(Timestamp):
     category = models.IntegerField(choices=PostCategory.choices)
 
     class Meta:
-        ordering = ["-updated", "-created", "title"]
+        ordering = ["-pk", "-updated", "-created", "title"]
 
     def __str__(self):
         return self.title
