@@ -23,8 +23,6 @@ class ContentContainer extends Component {
     preItems: 0,
   };
 
-  UNSAFE_componentWillMount() {}
-
   componentDidMount() {
     // this.fetchPostInfo(1);
     this._loadPost();
@@ -38,7 +36,7 @@ class ContentContainer extends Component {
 
   _loadPost = async () => {
     axios
-      .get("http://127.0.0.1:8000/api/v1/postings")
+      .get("http://127.0.0.1:8000/api/v1/postings/")
       .then(({ data }) => {
         this.setState({
           ...this.state,
@@ -57,7 +55,7 @@ class ContentContainer extends Component {
 
   _loadArchive = async () => {
     axios
-      .get("https://jsonplaceholder.typicode.com/photos")
+      .get("https://jsonplaceholder.typicode.com/photos/")
       .then(({ data }) => {
         this.setState({
           ...this.state,
@@ -78,7 +76,7 @@ class ContentContainer extends Component {
     const { postList, archiveList } = this.state;
     const latestArchiveList = archiveList.slice(0, 6);
     const latestPostList = postList.slice(0, 20);
-
+    console.log(`latestArchiveList: ${latestArchiveList}`);
     return (
       <div className="contentcontainer">
         <PostWrapper>

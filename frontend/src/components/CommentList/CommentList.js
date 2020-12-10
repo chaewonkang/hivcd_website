@@ -3,12 +3,9 @@ import "./CommentList.css";
 import { Comment } from "../../components";
 
 const CommentList = ({ comments, style }) => {
+  console.log(`CommentList: ${comments}`);
   const commentList = comments.map((comment, index) => (
-    <Comment
-      name={comment.email.split("@")[0]}
-      body={comment.body}
-      key={index}
-    />
+    <Comment body={comment.text} key={index} />
   ));
   return (
     <div className="comment_list">
