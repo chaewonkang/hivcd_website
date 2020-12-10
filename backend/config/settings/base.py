@@ -38,6 +38,7 @@ PROJECT_APPS = [
     "auth.apps.AuthConfig",
     "postings.apps.PostingsConfig",
     "api_v1.apps.Api_v1Config",
+    "alumnis.apps.AlumnisConfig",
 ]
 
 THIRDPARTY_APPS = [
@@ -120,7 +121,7 @@ STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
 # Media files
 MEDIA_URL = "/media/"
-MEDIA_ROOT = os.path.join(BASE_DIR, "uploads")
+MEDIA_ROOT = os.path.join(BASE_DIR, "assets/django-media")
 
 # Rest Framework
 REST_FRAMEWORK = {
