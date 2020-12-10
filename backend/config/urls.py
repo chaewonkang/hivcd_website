@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.conf import settings
 from django.contrib import admin
-from django.urls import path, include
+from django.urls import path, include, re_path
 from django.conf.urls.static import static
 from django.views.generic import TemplateView
 from rest_framework import permissions
@@ -39,13 +39,13 @@ schema_view = get_schema_view(
 
 
 urlpatterns = [
-    # Index Page
-    path("", TemplateView.as_view(template_name="index.html"), name="index"),
     # Admin Page
     path("admin/", admin.site.urls),
-    path("api-auth/", include("rest_framework.urls", namespace="rest_framework")),
     # API Settings
     path("api/v1/", include("api_v1.urls", namespace="api")),
+    # Index Page
+    path("", TemplateView.as_view(template_name="index.html"), name="index"),
+    re_path(r'^(?:.*)/?', TemplateView.as_view(template_name="index.html"), name='index'),
 ]
 
 if settings.DEBUG:

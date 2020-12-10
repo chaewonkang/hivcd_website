@@ -60,7 +60,7 @@ class App extends Component {
     console.log(`App component searchKeyword: ${this.state.searchKeyword}`);
 
     return (
-      <Router>
+      <Router basename="">
         <Switch>
           <div className="AppBody">
             <Route path="/mobile/signup" component={MobileSignup}></Route>
@@ -70,7 +70,7 @@ class App extends Component {
               linkClassName="nav-small-link"
             ></ResponsiveHeader>
             <Header handleSearchKeyword={this.handleSearchKeyword}></Header>
-            <Route exact path="/" component={ContentContainer} />
+            <Route exact path="/home" component={ContentContainer} />
             <Route exact path="/board" component={Board} />
             <Route path="/aboutus" component={AboutUs} />
             <Route path="/alumni" component={Alumni} />

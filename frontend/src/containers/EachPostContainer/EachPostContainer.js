@@ -36,15 +36,17 @@ class EachPostContainer extends Component {
   }
 
   getList() {
-    return axios.get("http://127.0.0.1:8000/api/v1/postings");
+    return axios.get("http://127.0.0.1:8000/api/v1/postings/");
   }
 
   getPost(postId) {
-    return axios.get("http://127.0.0.1:8000/api/v1/postings" + postId);
+    return axios.get("http://127.0.0.1:8000/api/v1/postings/" + postId);
   }
 
   getComments(postId) {
-    return axios.get("http://127.0.0.1:8000/api/v1/postings/comments" + postId);
+    return axios.get(
+      "http://127.0.0.1:8000/api/v1/postings/comments/" + postId
+    );
   }
 
   fetchPostInfo = async (postId) => {

@@ -95,11 +95,6 @@ class ContentContainer extends Component {
                 ></Post>
               );
             })}
-          {/* <Classroom></Classroom>
-          <Calandar
-            onClick={() => console.log("Calandar Module Clicked!")}
-          ></Calandar>
-          <Equipment></Equipment> */}
         </PostWrapper>
         <ArchiveWrapper>
           {latestArchiveList &&

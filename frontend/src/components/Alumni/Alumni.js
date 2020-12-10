@@ -52,8 +52,7 @@ class Alumni extends Component {
         else if (
           data.name.toLowerCase().includes(this.state.alumniSearch) ||
           data.phone.includes(this.state.alumniSearch) ||
-          data.website.toLowerCase().includes(this.state.alumniSearch) ||
-          data.year.includes(this.state.alumniInfo)
+          data.website.toLowerCase().includes(this.state.alumniSearch)
         )
           return data;
         return;

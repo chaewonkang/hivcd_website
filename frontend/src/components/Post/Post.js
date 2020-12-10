@@ -4,19 +4,6 @@ import "./Post.css";
 import * as actions from "../../actions";
 import { connect } from "react-redux";
 
-const mapStateToProps = (state) => ({
-  color: state.color,
-  borderColor: state.borderColor,
-});
-
-const mapDispatchToProps = (dispatch) => ({
-  onSetColor: () => {
-    const color = "black";
-    const borderColor = "yellow";
-    dispatch(actions.setColor(color));
-  },
-});
-
 class Post extends Component {
   constructor(props) {
     super(props);
