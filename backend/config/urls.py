@@ -20,12 +20,12 @@ from django.views.generic import TemplateView
 from django.contrib import admin
 
 urlpatterns = [
+    path("", TemplateView.as_view(template_name="index.html")),
     # Admin
     path("admin/", admin.site.urls),
     # API Settings
     path("api/v1/", include("api_v1.urls", namespace="api")),
     # Index Page
-    path("", TemplateView.as_view(template_name="index.html")),
     re_path(r"^(?:.*)/?$", TemplateView.as_view(template_name="index.html")),
 ]
 # urlpatterns +=
