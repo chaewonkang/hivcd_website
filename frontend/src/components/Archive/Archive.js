@@ -19,7 +19,7 @@ class Archive extends Component {
 
   getArchiveInfo = async () => {
     axios
-      .get("https://jsonplaceholder.typicode.com/photos")
+      .get("http://127.0.0.1:8000/api/v1/postings/?format=json")
       .then(({ data }) => {
         this.setState({
           ...this.state,
@@ -39,10 +39,14 @@ class Archive extends Component {
   render() {
     const { archiveInfo } = this.state;
     const items = archiveInfo
+      .filter(
+        (data) =>
+          data.category === 5 || data.category === 6 || data.category === 7
+      )
       .slice(0, 100)
       .filter((data) => {
         if (this.state.archiveFilter === null) return data;
-        else if (data.title.includes(this.state.archiveFilter)) return data;
+        else if (data.category === this.state.archiveFilter) return data;
         return;
       })
       .map((data) => {
@@ -50,7 +54,9 @@ class Archive extends Component {
           <ArchiveModule
             key={data.id}
             title={data.title}
-            thumbnailUrl={data.thumbnailUrl}
+            thumbnailUrl={data.photos[0].photo}
+            date={data.created}
+            category={data.category}
           ></ArchiveModule>
         );
       });
@@ -75,7 +81,7 @@ class Archive extends Component {
                 onClick={() =>
                   this.setState({
                     ...this.state,
-                    archiveFilter: "accu",
+                    archiveFilter: 5,
                   })
                 }
               >
@@ -86,7 +92,7 @@ class Archive extends Component {
                 onClick={() =>
                   this.setState({
                     ...this.state,
-                    archiveFilter: "velit",
+                    archiveFilter: 6,
                   })
                 }
               >
@@ -97,7 +103,7 @@ class Archive extends Component {
                 onClick={() =>
                   this.setState({
                     ...this.state,
-                    archiveFilter: "dolore",
+                    archiveFilter: 7,
                   })
                 }
               >

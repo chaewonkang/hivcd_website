@@ -4,10 +4,10 @@ import "./BoardDetailPage.css";
 
 const BoardDetailPage = ({ match }) => {
   const { postId } = match.params;
-  console.log(`BoardDetailPage postId: ${postId}`);
+  console.log(typeof postId);
   return (
     <div className="board_detail_page_container">
-      <EachPostContainer postId={postId}></EachPostContainer>
+      <EachPostContainer postId={parseInt(postId, 10)}></EachPostContainer>
     </div>
   );
 };

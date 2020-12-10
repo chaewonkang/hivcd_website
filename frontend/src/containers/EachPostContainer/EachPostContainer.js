@@ -31,8 +31,9 @@ class EachPostContainer extends Component {
   }
 
   componentDidMount() {
-    this.fetchPostInfo(1);
     console.log(`EachPostContainer's postId: ${this.state.postId}`);
+    console.log(typeof this.state.postId);
+    this.fetchPostInfo(this.state.postId);
   }
 
   getList() {
@@ -56,11 +57,13 @@ class EachPostContainer extends Component {
 
     const { title, text } = info[0].data;
     const comments = info[0].data.comments;
-    console.log(`Container's commentslist: ${info[0].data.comments}`);
     const list = info[1].data;
+    const author = info[0].data.author;
+    const date = info[0].data.created;
     const dataNum = list.length;
     const limit = this.state.limit;
     const pageArray = [];
+    const category = info[0].data.category;
 
     for (let i = 1; i <= Math.ceil(dataNum / limit); i++) {
       pageArray.push(i);
@@ -72,19 +75,22 @@ class EachPostContainer extends Component {
       post: {
         title,
         text,
+        author,
+        date,
       },
       comments,
       list,
       pageArray,
+      category,
     });
     console.log(info);
   };
 
   handleNavigateClick = (type) => {
     if (type === "NEXT") {
-      this.fetchPostInfo(this.state.postId + 1);
+      this.fetchPostInfo(parseInt(this.state.postId) + 1);
     } else {
-      this.fetchPostInfo(this.state.postId - 1);
+      this.fetchPostInfo(parseInt(this.state.postId) - 1);
     }
   };
 
@@ -148,6 +154,7 @@ class EachPostContainer extends Component {
       pageArray,
       page,
       limit,
+      category,
     } = this.state;
     const style = {
       backgroundColor: this.state.style.color,
@@ -167,6 +174,9 @@ class EachPostContainer extends Component {
             comments={comments}
             handleNavigateClick={this.handleNavigateClick}
             postId={this.state.postId}
+            category={this.state.category}
+            author={post.author}
+            date={post.date}
           ></EachPost>
         </EachPostWrapper>
       </div>

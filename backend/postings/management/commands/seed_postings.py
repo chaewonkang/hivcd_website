@@ -32,13 +32,11 @@ class Command(BaseCommand):
                 "author": lambda x: random.choice(all_users),
                 "title": lambda x: seeder.faker.sentence(),
                 "text": lambda x: seeder.faker.text(),
-                "category": lambda x: random.randint(1, 7)
+                "category": lambda x: random.randint(1, 7),
             },
         )
         created_photos = seeder.execute()
         created_clean = flatten(list(created_photos.values()))
-        comments = posting_models.Comment.objects.all()
-        files = posting_models.File.objects.all()
         for pk in created_clean:
             post_instance = posting_models.Post.objects.get(pk=pk)
             for i in range(3):
@@ -47,19 +45,21 @@ class Command(BaseCommand):
                     post=post_instance,
                     photo=f"room_photos/{random.randint(1, 31)}.webp",
                 )
-        created_comments = seeder.execute()
-        created_clean = flatten(list(created_comments.values()))
-        for a in created_clean:
+
+        # created_comments = seeder.execute()
+        # created_clean = flatten(list(created_comments.values()))
+        for pk in created_clean:
             post_instance = posting_models.Post.objects.get(pk=pk)
             for i in range(3):
                 posting_models.Comment.objects.create(
                     post=post_instance,
-                    author=post_instance.author,
-                    text=seeder.faker.sentence()
+                    author=User.objects.get(pk=random.randint(1, number)),
+                    text=seeder.faker.sentence(),
                 )
-        created_files = seeder.execute()
-        created_clean = flatten(list(created_files.values()))
-        for f in created_clean:
+
+        # created_files = seeder.execute()
+        # created_clean = flatten(list(created_files.values()))
+        for pk in created_clean:
             post_instance = posting_models.Post.objects.get(pk=pk)
             for i in range(3):
                 posting_models.File.objects.create(

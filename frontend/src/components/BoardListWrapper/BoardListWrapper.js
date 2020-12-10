@@ -19,10 +19,10 @@ const BoardListWrapper = ({ list, pageArray, page }) => {
                   >
                     <div className="list_tag">
                       {" "}
-                      <span>{el.title.slice(0, 5)}</span>
+                      <span>{el.category}</span>
                     </div>
                     <div> {el.title.slice(0, 40)}... </div>
-                    <div className="acenter"> 20.11.19 </div>
+                    <div className="acenter"> {el.created.slice(2, 10)} </div>
                   </div>
                 </>
               );

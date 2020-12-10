@@ -63,21 +63,35 @@ class EachPost extends Component {
     });
   }
   render() {
-    const { title, body, comments, handleNavigateClick, postId } = this.props;
+    const {
+      title,
+      body,
+      comments,
+      handleNavigateClick,
+      postId,
+      category,
+      author,
+      date,
+    } = this.props;
     const style = {
       backgroundColor: this.state.style.color,
       border: `2px solid ${this.state.style.borderColor}`,
     };
+    let categoryName = null;
+    if (category === 1) categoryName = "NOTICE";
+    else if (category === 2) categoryName = "EVENT";
+    else if (category === 3) categoryName = "JOB";
+    else if (category === 4) categoryName = "LOST&FOUND";
     return (
       <div className="each_post_wrapper" style={style}>
         <div className="each_post">
           {" "}
-          <div className="each_post_tag">EVENT</div>
+          <div className="each_post_tag">{categoryName}</div>
           <h1>{title}</h1>
           <hr style={{ marginBottom: 1 + "em" }}></hr>
           <div className="each_post_info">
-            <span>작성자 ▪︎ 조교실</span>
-            <span>작성일 ▪︎ 2020.10.26</span>
+            <span>작성자 ▪︎ {author}</span>
+            <span>작성일 ▪︎ {date}</span>
             <span>조회 ▪︎ 362</span>
           </div>
           <hr></hr>

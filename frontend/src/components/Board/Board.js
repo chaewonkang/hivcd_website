@@ -40,11 +40,17 @@ class Board extends Component {
   };
   render() {
     const { postList } = this.state;
-    console.log(postList);
-    const items = postList
+    const boardPostList = postList.filter(
+      (data) =>
+        data.category === 1 ||
+        data.category === 2 ||
+        data.category === 3 ||
+        data.category === 4
+    );
+    const items = boardPostList
       .filter((data) => {
         if (this.state.boardFilter === 0) return data;
-        else if (data.title.includes(this.state.boardFilter)) return data;
+        else if (data.category === this.state.boardFilter) return data;
         return;
       })
       .map((data) => {
