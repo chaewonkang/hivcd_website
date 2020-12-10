@@ -53,6 +53,10 @@ class Post(Timestamp):
         NOTICE = 1
         LOSTANDFOUND = 2
         JOB = 3
+        PETC = 4
+        GW = 5
+        WFF = 6
+        AETC = 7
 
     category = models.IntegerField(choices=PostCategory.choices)
 

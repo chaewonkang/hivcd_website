@@ -22,11 +22,7 @@ class Board extends Component {
 
   _loadPost = async () => {
     axios
-<<<<<<< HEAD
-      .get("http://127.0.0.1:8000/api/v1/postings/")
-=======
       .get("http://127.0.0.1:8000/api/v1/postings/?format=json")
->>>>>>> bc6deba11dd5bdaf8c048e4666d9c20c107e2240
       .then(({ data }) => {
         this.setState({
           ...this.state,
