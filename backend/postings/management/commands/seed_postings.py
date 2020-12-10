@@ -53,7 +53,7 @@ class Command(BaseCommand):
             for i in range(3):
                 posting_models.Comment.objects.create(
                     post=post_instance,
-                    author=User.objects.get(pk=random.randint(1, number + 1)),
+                    author=User.objects.get(pk=random.randint(1, number)),
                     text=seeder.faker.sentence(),
                 )
 

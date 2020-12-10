@@ -12,7 +12,7 @@ class Timestamp(models.Model):
 
 class Photo(Timestamp):
     caption = models.CharField(max_length=80)
-    photo = models.ImageField(blank=True, upload_to="photo/%Y/%m/%d")
+    photo = models.ImageField(blank=True, upload_to="photos/%Y/%m/%d")
     post = models.ForeignKey("Post", related_name="photos", on_delete=models.CASCADE)
 
     def __str__(self):
@@ -48,6 +48,7 @@ class Post(Timestamp):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     text = models.TextField()
+    link = models.URLField(default="")
 
     class PostCategory(models.IntegerChoices):
         NOTICE = 1
