@@ -51,9 +51,9 @@ class Post(Timestamp):
 
     class PostCategory(models.IntegerChoices):
         NOTICE = 1
-        LOSTANDFOUND = 2
+        EVENT = 2
         JOB = 3
-        PETC = 4
+        LOSTANDFOUND = 4
         GW = 5
         WFF = 6
         AETC = 7
