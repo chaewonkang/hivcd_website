@@ -32,7 +32,7 @@ class Command(BaseCommand):
                 "author": lambda x: random.choice(all_users),
                 "title": lambda x: seeder.faker.sentence(),
                 "text": lambda x: seeder.faker.text(),
-                "category": lambda x: random.randint(1, 4)
+                "category": lambda x: random.randint(1, 7)
             },
         )
         created_photos = seeder.execute()
