@@ -121,7 +121,7 @@ STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
 # Media files
 MEDIA_URL = "/media/"
-MEDIA_ROOT = os.path.join(BASE_DIR, "assets/django-media")
+MEDIA_ROOT = os.path.join(BASE_DIR, "assets/django-media/")
 
 # Rest Framework
 REST_FRAMEWORK = {
