@@ -23,3 +23,7 @@ class CommentListCreateAPIView(generics.ListCreateAPIView):
     queryset = Comment.objects.all()
     serializer_class = CommentSerializer
     permission_classes = (IsAuthenticatedOrReadOnly,)
+
+    def post(self, pk):
+        post = Post.objects.get(pk=pk)
+        print(post)

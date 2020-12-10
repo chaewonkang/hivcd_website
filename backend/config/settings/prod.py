@@ -18,9 +18,6 @@ ALLOWED_HOSTS = ["*"]
 # DBHOST is only the server name, not the full URL
 hostname = os.environ["DBHOST"]
 
-# Configure Postgres database; the full username is username@servername,
-# which we construct using the DBHOST value.
-
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql",
@@ -30,3 +27,7 @@ DATABASES = {
         "PASSWORD": os.environ["DBPASS"],
     }
 }
+
+SESSION_COOKIE_SECURE = True
+CSRF_COOKIE_SECURE = True
+SECURE_SSL_REDIRECT = True
