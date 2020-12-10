@@ -27,7 +27,7 @@ class Alumni extends Component {
 
   getAlumnis = async () => {
     axios
-      .get("http://127.0.0.1:8000/api/v1/alumnis")
+      .get("http://127.0.0.1:8000/api/v1/alumnis/")
       .then(({ data }) => {
         this.setState({
           ...this.state,

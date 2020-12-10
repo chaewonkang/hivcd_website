@@ -16,7 +16,7 @@ class EachPostContainer extends Component {
       fetching: false,
       post: {
         title: null,
-        body: null,
+        text: null,
       },
       comments: [],
       list: [],
@@ -36,16 +36,12 @@ class EachPostContainer extends Component {
   }
 
   getList() {
-    return axios.get("http://127.0.0.1:8000/api/v1/postings/");
+    return axios.get("http://127.0.0.1:8000/api/v1/postings/?format=json");
   }
 
   getPost(postId) {
-    return axios.get("http://127.0.0.1:8000/api/v1/postings/" + postId);
-  }
-
-  getComments(postId) {
     return axios.get(
-      "http://127.0.0.1:8000/api/v1/postings/comments/" + postId
+      "http://127.0.0.1:8000/api/v1/postings/" + postId + "/?format=json"
     );
   }
 
@@ -55,13 +51,13 @@ class EachPostContainer extends Component {
     });
     const info = await Promise.all([
       this.getPost(this.state.postId),
-      this.getComments(this.state.postId),
       this.getList(),
     ]);
 
-    const { title, body } = info[0].data;
-    const comments = info[1].data;
-    const list = info[2].data;
+    const { title, text } = info[0].data;
+    const comments = info[0].data.comments;
+    console.log(`Container's commentslist: ${info[0].data.comments}`);
+    const list = info[1].data;
     const dataNum = list.length;
     const limit = this.state.limit;
     const pageArray = [];
@@ -75,7 +71,7 @@ class EachPostContainer extends Component {
       fetching: false,
       post: {
         title,
-        body,
+        text,
       },
       comments,
       list,
@@ -167,7 +163,7 @@ class EachPostContainer extends Component {
         <EachPostWrapper>
           <EachPost
             title={post.title}
-            body={post.body}
+            body={post.text}
             comments={comments}
             handleNavigateClick={this.handleNavigateClick}
             postId={this.state.postId}

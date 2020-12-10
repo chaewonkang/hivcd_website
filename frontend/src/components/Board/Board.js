@@ -22,7 +22,7 @@ class Board extends Component {
 
   _loadPost = async () => {
     axios
-      .get("http://127.0.0.1:8000/api/v1/postings")
+      .get("http://127.0.0.1:8000/api/v1/postings/?format=json")
       .then(({ data }) => {
         this.setState({
           ...this.state,
@@ -39,12 +39,11 @@ class Board extends Component {
       });
   };
   render() {
-    console.log(this.state.eachPostId);
-
     const { postList } = this.state;
+    console.log(postList);
     const items = postList
       .filter((data) => {
-        if (this.state.boardFilter === null) return data;
+        if (this.state.boardFilter === 0) return data;
         else if (data.title.includes(this.state.boardFilter)) return data;
         return;
       })
