@@ -81,6 +81,7 @@ class RegistrationView(generics.GenericAPIView):
 
 class VerifyEmail(views.APIView):
     serializer_class = EmailVerificationSerializer
+    permission_classes = (AllowAny,)
     token_param_config = openapi.Parameter(
         "token",
         in_=openapi.IN_QUERY,
