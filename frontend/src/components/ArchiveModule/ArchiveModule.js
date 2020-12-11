@@ -1,24 +1,30 @@
 import React from "react";
 import "./ArchiveModule.css";
 
-const ArchiveModule = ({ title, id, thumbnailUrl }) => (
-  <div className="archive_module_container">
-    <div className="archive_module_tag">
-      <span>archive</span>
-    </div>
-    <div className="archive_module_content">
-      <div className="archive_module_content_header">
-        title: {title} <br></br>
-        date: {id}
+const ArchiveModule = ({ title, id, thumbnailUrl, date, category }) => {
+  let categoryName = null;
+  if (category === 5) categoryName = "GRADUATION EXHIBITION";
+  else if (category === 6) categoryName = "WOW FILM FESTIVAL";
+  else if (category === 7) categoryName = "ETC";
+  return (
+    <div className="archive_module">
+      <div className="archive_module_tag">
+        <span>{categoryName}</span>
+      </div>
+      <div className="archive_module_content">
+        <div className="archive_module_content_header">
+          {title} <br></br>
+          {date}
+        </div>
       </div>
       <div
-        className="archive_content_image image_fill"
+        className="archive_module_content_image image_fill"
         style={{
           backgroundImage: `url(${thumbnailUrl})`,
         }}
       ></div>
     </div>
-  </div>
-);
+  );
+};
 
 export default ArchiveModule;

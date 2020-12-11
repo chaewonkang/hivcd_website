@@ -12,56 +12,38 @@ class EachPostContainer extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      postId: 1,
+      postId: this.props.postId,
       fetching: false,
       post: {
         title: null,
-        body: null,
+        text: null,
       },
       comments: [],
       list: [],
       page: 1,
       limit: 25,
       pageArray: [],
+      style: {
+        color: null,
+        borderColor: null,
+      },
     };
   }
 
   componentDidMount() {
-    this.fetchPostInfo(1);
-  }
-
-  UNSAFE_componentWillMount() {
-    this.getList();
-    this.setPage();
+    console.log(`EachPostContainer's postId: ${this.state.postId}`);
+    console.log(typeof this.state.postId);
+    this.fetchPostInfo(this.state.postId);
   }
 
   getList() {
-    return axios.get("https://jsonplaceholder.typicode.com/posts/");
+    return axios.get("http://127.0.0.1:8000/api/v1/postings/?format=json");
   }
 
   getPost(postId) {
-    return axios.get("https://jsonplaceholder.typicode.com/posts/" + postId);
-  }
-
-  getComments(postId) {
     return axios.get(
-      `https://jsonplaceholder.typicode.com/posts/${postId}/comments`
+      "http://127.0.0.1:8000/api/v1/postings/" + postId + "/?format=json"
     );
-  }
-
-  changePage(el) {
-    this.setState({ page: el });
-    window.sessionStorage.setItem("page", el);
-  }
-
-  setPage() {
-    if (window.sessionStorage.page) {
-      this.setState({ page: Number(window.sessionStorage.page) });
-      return Number(window.sessionStorage.page);
-    }
-
-    this.setState({ page: 1 });
-    return 1;
   }
 
   fetchPostInfo = async (postId) => {
@@ -69,54 +51,102 @@ class EachPostContainer extends Component {
       fetching: true,
     });
     const info = await Promise.all([
-      this.getPost(postId),
-      this.getComments(postId),
+      this.getPost(this.state.postId),
       this.getList(),
     ]);
 
-    const { title, body } = info[0].data;
-    const comments = info[1].data;
-    const list = info[2].data;
+    const { title, text } = info[0].data;
+    const comments = info[0].data.comments;
+    const list = info[1].data;
+    const author = info[0].data.author;
+    const date = info[0].data.created;
     const dataNum = list.length;
     const limit = this.state.limit;
     const pageArray = [];
+    const category = info[0].data.category;
 
     for (let i = 1; i <= Math.ceil(dataNum / limit); i++) {
       pageArray.push(i);
     }
-
-    console.log(`Length is: ${dataNum}`);
-
-    console.log(`pageArray is: ${pageArray}`);
-
     this.setState({
       ...this.state,
       postId,
       fetching: false,
       post: {
         title,
-        body,
+        text,
+        author,
+        date,
       },
       comments,
       list,
       pageArray,
+      category,
     });
     console.log(info);
   };
 
   handleNavigateClick = (type) => {
-    const postId = this.state.postId;
-
     if (type === "NEXT") {
-      this.fetchPostInfo(postId + 1);
+      this.fetchPostInfo(parseInt(this.state.postId) + 1);
     } else {
-      this.fetchPostInfo(postId - 1);
+      this.fetchPostInfo(parseInt(this.state.postId) - 1);
     }
   };
 
+  UNSAFE_componentWillMount() {
+    const colorArray = [
+      "#A3B3C4",
+      "#00F5C6",
+      "#93F421",
+      "#9452FF",
+      "#FDFBC1",
+      "#BC791E",
+      "#00C4FF",
+      "#FF3333",
+      "#FF01FF",
+      "#DEADF0",
+      "#9099FF",
+      "#3EA455",
+      "#FECC99",
+      "#959B01",
+      "#CDCC33",
+    ];
+
+    const borderColorArray = [
+      "#78A4B7",
+      "#47D2DD",
+      "#64CB0C",
+      "#6E12D6",
+      "#CFD372",
+      "#935B0F",
+      "#094EFF",
+      "#B74A6C",
+      "#E00000",
+      "#BB12D8",
+      "#6F55FF",
+      "#0F7946",
+      "#FD9191",
+      "#6F55FF",
+      "#A8B419",
+    ];
+
+    const randomIndex = Math.floor(Math.random() * 15);
+
+    const selectedColor = colorArray[randomIndex];
+    const selectedBorderColor = borderColorArray[randomIndex];
+
+    this.setState({
+      style: {
+        ...this.state.style,
+        color: selectedColor,
+        borderColor: selectedBorderColor,
+      },
+    });
+  }
+
   render() {
     const {
-      postId,
       fetching,
       post,
       comments,
@@ -124,7 +154,12 @@ class EachPostContainer extends Component {
       pageArray,
       page,
       limit,
+      category,
     } = this.state;
+    const style = {
+      backgroundColor: this.state.style.color,
+      border: `2px solid ${this.state.style.borderColor}`,
+    };
     return (
       <div className="each_post_container">
         <BoardListWrapper
@@ -135,14 +170,14 @@ class EachPostContainer extends Component {
         <EachPostWrapper>
           <EachPost
             title={post.title}
-            body={post.body}
+            body={post.text}
             comments={comments}
+            handleNavigateClick={this.handleNavigateClick}
+            postId={this.state.postId}
+            category={this.state.category}
+            author={post.author}
+            date={post.date}
           ></EachPost>
-          <EachPostNavigator
-            postId={postId}
-            disabled={fetching}
-            onClick={this.handleNavigateClick}
-          ></EachPostNavigator>
         </EachPostWrapper>
       </div>
     );

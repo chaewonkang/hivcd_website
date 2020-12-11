@@ -23,12 +23,9 @@ class ContentContainer extends Component {
     preItems: 0,
   };
 
-  UNSAFE_componentWillMount() {}
-
   componentDidMount() {
     // this.fetchPostInfo(1);
     this._loadPost();
-    this._loadArchive();
     // window.addEventListener('scroll', this._infiniteScroll);
   }
 
@@ -38,7 +35,7 @@ class ContentContainer extends Component {
 
   _loadPost = async () => {
     axios
-      .get("https://jsonplaceholder.typicode.com/posts")
+      .get("http://127.0.0.1:8000/api/v1/postings/")
       .then(({ data }) => {
         this.setState({
           ...this.state,
@@ -55,51 +52,52 @@ class ContentContainer extends Component {
       });
   };
 
-  _loadArchive = async () => {
-    axios
-      .get("https://jsonplaceholder.typicode.com/photos")
-      .then(({ data }) => {
-        this.setState({
-          ...this.state,
-          loadingArchive: true,
-          archiveList: data,
-        });
-      })
-      .catch((e) => {
-        console.error(e);
-        this.setState({
-          ...this.state,
-          loadingArchive: false,
-        });
-      });
-  };
-
   render() {
-    const { postList, archiveList } = this.state;
-    const latestArchiveList = archiveList.slice(0, 6);
-    const latestPostList = postList.slice(0, 20);
+    const { postList } = this.state;
+    const latestArchiveList = postList
+      .filter(
+        (data) =>
+          data.category === 5 || data.category === 6 || data.category === 7
+      )
+      .slice(0, 6);
+    const latestPostList = postList
+      .filter(
+        (data) =>
+          data.category === 1 ||
+          data.category === 2 ||
+          data.category === 3 ||
+          data.category === 4
+      )
+      .slice(0, 20);
+    console.log(`latestArchiveList: ${latestArchiveList}`);
     return (
       <div className="contentcontainer">
         <PostWrapper>
           <LogoImage></LogoImage>
           {latestPostList &&
             latestPostList.map((post) => {
-              return <Post title={post.title} id={post.id}></Post>;
+              return (
+                <Post
+                  key={post.pk}
+                  title={post.title}
+                  date={post.created}
+                  category={post.category}
+                  id={post.pk}
+                ></Post>
+              );
             })}
-          <Classroom></Classroom>
-          <Calandar
-            onClick={() => console.log("Calandar Module Clicked!")}
-          ></Calandar>
-          <Equipment></Equipment>
         </PostWrapper>
         <ArchiveWrapper>
           {latestArchiveList &&
             latestArchiveList.map((post) => {
               return (
                 <HomeArchive
+                  key={post.id}
                   title={post.title}
                   id={post.id}
-                  thumbnailUrl={post.thumbnailUrl}
+                  date={post.created}
+                  category={post.category}
+                  thumbnailUrl={post.photos[0].photo}
                 ></HomeArchive>
               );
             })}

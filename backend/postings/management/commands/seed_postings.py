@@ -1,11 +1,19 @@
+import pytz
+import datetime
 import random
+from faker import Faker
 from django.core.management.base import BaseCommand
 from django.contrib.admin.utils import flatten
 from django_seed import Seed
 from auth.models import User
 from postings import models as posting_models
 
+
 NAME = "postings"
+
+fake = Faker()
+start_date = datetime.date(year=2015, month=1, day=1)
+fake.date_between(start_date=start_date, end_date="+30y")
 
 
 class Command(BaseCommand):
@@ -24,7 +32,6 @@ class Command(BaseCommand):
         seeder = Seed.seeder()
         all_users = User.objects.all()
         postings = posting_models.Post.objects.all()
-
         seeder.add_entity(
             posting_models.Post,
             number,
@@ -32,13 +39,17 @@ class Command(BaseCommand):
                 "author": lambda x: random.choice(all_users),
                 "title": lambda x: seeder.faker.sentence(),
                 "text": lambda x: seeder.faker.text(),
-                "category": lambda x: random.randint(1, 4)
+                "category": lambda x: random.randint(1, 7),
+                "created": lambda x: fake.date_between(
+                    start_date=start_date, end_date="+30y"
+                ),
+                "updated": lambda x: fake.date_between(
+                    start_date=start_date, end_date="+30y"
+                ),
             },
         )
         created_photos = seeder.execute()
         created_clean = flatten(list(created_photos.values()))
-        comments = posting_models.Comment.objects.all()
-        files = posting_models.File.objects.all()
         for pk in created_clean:
             post_instance = posting_models.Post.objects.get(pk=pk)
             for i in range(3):
@@ -46,25 +57,41 @@ class Command(BaseCommand):
                     caption=seeder.faker.sentence(),
                     post=post_instance,
                     photo=f"room_photos/{random.randint(1, 31)}.webp",
+                    created=lambda x: fake.date_between(
+                        start_date=start_date, end_date="+30y"
+                    ),
+                    updated=lambda x: fake.date_between(
+                        start_date=start_date, end_date="+30y"
+                    ),
                 )
-        created_comments = seeder.execute()
-        created_clean = flatten(list(created_comments.values()))
-        for a in created_clean:
+
+        for pk in created_clean:
             post_instance = posting_models.Post.objects.get(pk=pk)
             for i in range(3):
                 posting_models.Comment.objects.create(
                     post=post_instance,
-                    author=post_instance.author,
-                    text=seeder.faker.sentence()
+                    author=User.objects.get(pk=random.randint(1, number)),
+                    text=seeder.faker.sentence(),
+                    created=lambda x: fake.date_between(
+                        start_date=start_date, end_date="+30y"
+                    ),
+                    updated=lambda x: fake.date_between(
+                        start_date=start_date, end_date="+30y"
+                    ),
                 )
-        created_files = seeder.execute()
-        created_clean = flatten(list(created_files.values()))
-        for f in created_clean:
+
+        for pk in created_clean:
             post_instance = posting_models.Post.objects.get(pk=pk)
             for i in range(3):
                 posting_models.File.objects.create(
                     name=seeder.faker.sentence(),
                     post=post_instance,
                     files=f"room_photos/{random.randint(1, 31)}.webp",
+                    created=lambda x: fake.date_between(
+                        start_date=start_date, end_date="+30y"
+                    ),
+                    updated=lambda x: fake.date_between(
+                        start_date=start_date, end_date="+30y"
+                    ),
                 )
         self.stdout.write(self.style.SUCCESS(f"{number} {NAME} Created"))

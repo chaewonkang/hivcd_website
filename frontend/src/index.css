@@ -19,3 +19,21 @@ body {
   src: local("NewParisSkyline"),
     url(./fonts/NewParisSkylineTrial-Regular.otf) format("opentype");
 }
+
+@font-face {
+  font-family: "KoPubBatangBold";
+  src: local("KoPubBatangBold"),
+    url(./fonts/KoPubWorld_Batang_Pro_Bold.otf) format("opentype");
+}
+
+@font-face {
+  font-family: "KoPubBatangMedium";
+  src: local("KoPubBatangMedium"),
+    url(./fonts/KoPubWorld_Batang_Pro_Medium.otf) format("opentype");
+}
+
+@font-face {
+  font-family: "KoPubBatangLight";
+  src: local("KoPubBatangLight"),
+    url(./fonts/KoPubWorld_Batang_Pro_Light.otf) format("opentype");
+}

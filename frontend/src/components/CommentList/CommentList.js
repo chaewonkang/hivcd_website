@@ -1,31 +1,31 @@
 import React from "react";
 import "./CommentList.css";
 import { Comment } from "../../components";
+import { CommentContainer } from "../../containers";
 
-const CommentList = ({ comments }) => {
+const CommentList = ({ comments, style }) => {
+  console.log(`CommentList: ${comments}`);
   const commentList = comments.map((comment, index) => (
-    <Comment
-      name={comment.email.split("@")[0]}
-      body={comment.body}
-      key={index}
-    />
+    <Comment body={comment.text} key={index} />
   ));
   return (
     <div className="comment_list">
       <ul>{commentList}</ul>
-      <hr></hr>
+      <hr className="mobile_commentlist_hr_hidden"></hr>
       <div className="comment_input_container">
-        <div className="comment_input_container_username">B352020</div>
+        {" "}
+        <div className="comment_input_username">Chaewon</div>
         <div>
-          {" "}
           <form>
             <input
               type="text"
               name="comment"
               placeholder="댓글을 입력하세요."
+              style={{ backgroundColor: style.backgroundColor }}
             ></input>
             <button className="comment_input_button">입력</button>
           </form>
+          <CommentContainer></CommentContainer>
         </div>
       </div>
     </div>

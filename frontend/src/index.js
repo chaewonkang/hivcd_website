@@ -1,12 +1,15 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { Provider } from "react-redux";
 import { BrowserRouter } from "react-router-dom";
-import store from "./store/configure";
 import App from "./App";
 import "./index.css";
+import "normalize.css";
 import "semantic-ui-css/semantic.min.css";
 import * as serviceWorker from "./serviceWorker";
+
+// REDUX
+import { Provider } from "react-redux";
+import store from "./store/configure";
 
 ReactDOM.render(
   <Provider store={store}>

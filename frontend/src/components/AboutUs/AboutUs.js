@@ -1,5 +1,32 @@
 import React from "react";
 import "./AboutUs.css";
+import { RenderAfterNavermapsLoaded, NaverMap, Marker } from "react-naver-maps";
+
+// function NaverMapAPI() {
+//   const navermaps = window.naver.maps;
+//   return (
+//     <NaverMap
+//       mapDivId={"react-naver-map"}
+//       style={{
+//         width: "90%",
+//         height: "400px",
+//         overflow: "auto",
+//         margin: "auto",
+//       }}
+//       defaultCenter={{ lat: 37.5526276, lng: 126.9243904 }}
+//       defaultZoom={13}
+//     >
+//       <Marker
+//         key={1}
+//         position={new navermaps.LatLng(37.5526276, 126.9243904)}
+//         animation={2}
+//         onClick={() => {
+//           alert("홍익대학교 홍문관 7층!");
+//         }}
+//       />
+//     </NaverMap>
+//   );
+// }
 
 const AboutUs = () => {
   return (
@@ -130,6 +157,27 @@ const AboutUs = () => {
                 <td>410113</td>
                 <td>3/3</td>
               </tr>
+              <tr>
+                <td>1/1</td>
+                <td>전공선택</td>
+                <td>드로잉(1)</td>
+                <td>410113</td>
+                <td>3/3</td>
+              </tr>
+              <tr>
+                <td>1/1</td>
+                <td>전공선택</td>
+                <td>드로잉(1)</td>
+                <td>410113</td>
+                <td>3/3</td>
+              </tr>
+              <tr>
+                <td>1/1</td>
+                <td>전공선택</td>
+                <td>드로잉(1)</td>
+                <td>410113</td>
+                <td>3/3</td>
+              </tr>
             </table>
           </div>
         </div>
@@ -137,15 +185,15 @@ const AboutUs = () => {
           <div className="aboutus_item_tag">
             <span>MAP</span>
           </div>
-          <div className="aboutus_content">
-            <h2>
-              {" "}
-              미술대학 시각디자인과, 한국디자인학회 대학생학술대회 우수논문상,
-              장려상 수상 <br></br>
-              {/* color: {this.state.color} */}
-            </h2>
-            <span className="post_content_date">2020.07.15</span>
-          </div>
+          {/* <div id="naver_map" className="aboutus_content">
+            <RenderAfterNavermapsLoaded
+              ncpClientId={"copdkbfrqt"}
+              error={<p>Maps Load Error</p>}
+              loading={<p>Maps Loading...</p>}
+            >
+              <NaverMapAPI />
+            </RenderAfterNavermapsLoaded>
+          </div> */}
         </div>
         <div id="contact" className="aboutus_item">
           <div className="aboutus_item_tag">

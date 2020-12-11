@@ -1,9 +1,7 @@
 import React, { Component } from "react";
 import "./Alumni.css";
-import Axios from "axios";
-import { async } from "rxjs";
 import axios from "axios";
-import { AlumniModule } from "../../components";
+import { AlumniModule, AlumniSearch, LogoImage } from "../../components";
 
 class Alumni extends Component {
   constructor(props) {
@@ -12,6 +10,7 @@ class Alumni extends Component {
       alumniId: 1,
       fetching: false,
       alumniInfo: [],
+      alumniSearch: null,
     };
   }
 
@@ -19,9 +18,16 @@ class Alumni extends Component {
     this.getAlumnis();
   }
 
+  alumniSearchSpace = (e) => {
+    let keyword = e.target.value;
+    this.setState({
+      alumniSearch: keyword,
+    });
+  };
+
   getAlumnis = async () => {
     axios
-      .get("https://jsonplaceholder.typicode.com/users")
+      .get("http://127.0.0.1:8000/api/v1/alumnis/")
       .then(({ data }) => {
         this.setState({
           ...this.state,
@@ -40,94 +46,40 @@ class Alumni extends Component {
 
   render() {
     const { alumniInfo } = this.state;
-    console.log(alumniInfo);
+    const items = alumniInfo
+      .filter((data) => {
+        if (this.state.alumniSearch === null) return data;
+        else if (
+          data.name.toLowerCase().includes(this.state.alumniSearch) ||
+          data.phone.includes(this.state.alumniSearch) ||
+          data.website.toLowerCase().includes(this.state.alumniSearch)
+        )
+          return data;
+        return;
+      })
+      .map((data) => {
+        return (
+          <AlumniModule
+            key={data.id}
+            year={data.year}
+            name={data.name}
+            tel={data.phone}
+            url={data.website}
+          ></AlumniModule>
+        );
+      });
     return (
       <div className="alumni_wrapper">
+        <AlumniSearch
+          onChange={(e) => this.alumniSearchSpace(e)}
+        ></AlumniSearch>
         <div className="alumni_container">
-          {alumniInfo &&
-            alumniInfo.map((alumni) => {
-              return (
-                <>
-                  <AlumniModule
-                    key={alumni.id}
-                    year={alumni.zipcode}
-                    name={alumni.username}
-                    tel={alumni.phone}
-                    url={alumni.website}
-                  ></AlumniModule>
-                </>
-              );
-            })}
-          {alumniInfo &&
-            alumniInfo.map((alumni) => {
-              return (
-                <>
-                  <AlumniModule
-                    key={alumni.id}
-                    year={alumni.zipcode}
-                    name={alumni.username}
-                    tel={alumni.phone}
-                    url={alumni.website}
-                  ></AlumniModule>
-                </>
-              );
-            })}
-          {alumniInfo &&
-            alumniInfo.map((alumni) => {
-              return (
-                <>
-                  <AlumniModule
-                    key={alumni.id}
-                    year={alumni.zipcode}
-                    name={alumni.username}
-                    tel={alumni.phone}
-                    url={alumni.website}
-                  ></AlumniModule>
-                </>
-              );
-            })}
-          {alumniInfo &&
-            alumniInfo.map((alumni) => {
-              return (
-                <>
-                  <AlumniModule
-                    key={alumni.id}
-                    year={alumni.zipcode}
-                    name={alumni.username}
-                    tel={alumni.phone}
-                    url={alumni.website}
-                  ></AlumniModule>
-                </>
-              );
-            })}
-          {alumniInfo &&
-            alumniInfo.map((alumni) => {
-              return (
-                <>
-                  <AlumniModule
-                    key={alumni.id}
-                    year={alumni.zipcode}
-                    name={alumni.username}
-                    tel={alumni.phone}
-                    url={alumni.website}
-                  ></AlumniModule>
-                </>
-              );
-            })}
-          {alumniInfo &&
-            alumniInfo.map((alumni) => {
-              return (
-                <>
-                  <AlumniModule
-                    key={alumni.id}
-                    year={alumni.zipcode}
-                    name={alumni.username}
-                    tel={alumni.phone}
-                    url={alumni.website}
-                  ></AlumniModule>
-                </>
-              );
-            })}
+          <LogoImage style={{ gridColumn: 1 / 1, gridRow: 1 / 1 }}></LogoImage>
+          {items}
+          {items}
+          {items}
+          {items}
+          {items}
         </div>
       </div>
     );

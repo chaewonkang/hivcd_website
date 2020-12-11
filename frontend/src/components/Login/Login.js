@@ -2,8 +2,7 @@ import React, { Component } from "react";
 import Modal from "react-awesome-modal";
 import "./Login.css";
 import axios from "axios";
-// import { GoogleLogin } from "react-google-login";
-import { withRouter } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
 
 class Login extends Component {
   constructor(props) {
@@ -17,50 +16,18 @@ class Login extends Component {
     };
   }
 
-  // Google Login
-  responseGoogle = (res) => {
-    this.setState({
-      id: res.googldId,
-      name: res.profileObj.name,
-      provider: "google",
-    });
-    this.doSignUp();
-  };
-
-  // Kakao Login
-  responseKakao = (res) => {
-    this.setState({
-      id: res.profile.id,
-      name: res.profile.properties.nickname,
-      provider: "kakao",
-    });
-    this.doSignUp();
-  };
-
-  // Login Fail
-  responseFail = (err) => {
-    console.error(err);
-  };
-
-  doSignUp = () => {
-    const { id, name, provider } = this.state;
-    window.sessionStorage.setItem("id", id);
-    window.sessionStorage.setItem("name", name);
-    window.sessionStorage.setItem("provider", provider);
-    this.props.onLogin();
-    this.props.history.push("/");
-  };
-
   _openModal = function () {
     this.setState({
       visible: true,
     });
+    document.body.style.overflow = "hidden";
   };
 
   _closeModal = function () {
     this.setState({
       visible: false,
     });
+    document.body.style.overflow = "unset";
   };
 
   _changeSearch = function () {
@@ -108,8 +75,6 @@ class Login extends Component {
   };
 
   render() {
-    console.log("ID:" + this.state.id + ", PW:" + this.state.password);
-
     return (
       <>
         <Modal
@@ -127,15 +92,14 @@ class Login extends Component {
                   type="text"
                   name="id"
                   onChange={() => this._changeId()}
-                  onClick={() => this._postLogin()}
                 ></input>
                 <input
                   placeholder="password"
-                  type="text"
+                  type="password"
                   name="password"
                   onChange={() => this._changePW()}
                 ></input>
-                <div className="button">
+                <div className="login_button" onClick={() => this._postLogin()}>
                   <span>LOGIN</span>
                 </div>
                 {/* <GoogleLogin
@@ -144,7 +108,14 @@ class Login extends Component {
                   onSuccess={this.responseGoogle}
                   onFailure={this.responseFail}
                 ></GoogleLogin> */}
-                <span className="create-account">create account</span>
+                <Link to="/auth/registration" className="create_account_link">
+                  <span
+                    className="create-account"
+                    onClick={() => this._closeModal()}
+                  >
+                    create account
+                  </span>
+                </Link>
               </div>
             </form>
           </div>

@@ -10,6 +10,7 @@ from django.utils.encoding import smart_bytes, smart_str, DjangoUnicodeDecodeErr
 from rest_framework import views, generics, status
 from rest_framework.response import Response
 from rest_framework_simplejwt.tokens import RefreshToken
+
 from drf_yasg.utils import swagger_auto_schema
 from drf_yasg import openapi
 from .serializers import (
@@ -191,7 +192,9 @@ class PasswordTokenCheckAPI(generics.GenericAPIView):
                 if len(redirect_url) > 3:
                     return CustomRedirect(redirect_url + "?token_valid=False")
                 else:
-                    return CustomRedirect(os.environ.get("FRONTEND_URL") + "?token_valid=False")
+                    return CustomRedirect(
+                        os.environ.get("FRONTEND_URL") + "?token_valid=False"
+                    )
 
             if redirect_url and len(redirect_url) > 3:
                 return CustomRedirect(

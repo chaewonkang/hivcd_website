@@ -1,5 +1,9 @@
 import React, { Component } from "react";
+import { PostModule } from "../../components";
 import "./Post.css";
+import * as actions from "../../actions";
+import { connect } from "react-redux";
+
 class Post extends Component {
   constructor(props) {
     super(props);
@@ -17,24 +21,42 @@ class Post extends Component {
 
   UNSAFE_componentWillMount() {
     const colorArray = [
-      "#CDCC33",
-      "#FFCC99",
-      "#FF01FF",
-      "#729B00",
-      "#9099FF",
+      "#A3B3C4",
+      "#00F5C6",
+      "#93F421",
+      "#9452FF",
+      "#FDFBC1",
+      "#BC791E",
+      "#00C4FF",
       "#FF3333",
+      "#FF01FF",
+      "#DEADF0",
+      "#9099FF",
+      "#3EA455",
+      "#FECC99",
+      "#959B01",
+      "#CDCC33",
     ];
 
     const borderColorArray = [
-      "#A8B419",
-      "#FF9191",
+      "#78A4B7",
+      "#47D2DD",
+      "#64CB0C",
+      "#6E12D6",
+      "#CFD372",
+      "#935B0F",
+      "#094EFF",
+      "#B74A6C",
       "#E00000",
-      "#19A300",
+      "#BB12D8",
       "#6F55FF",
-      "#8C0091",
+      "#0F7946",
+      "#FD9191",
+      "#6F55FF",
+      "#A8B419",
     ];
 
-    const randomIndex = Math.floor(Math.random() * 6);
+    const randomIndex = Math.floor(Math.random() * 15);
 
     const selectedColor = colorArray[randomIndex];
     const selectedBorderColor = borderColorArray[randomIndex];
@@ -49,27 +71,21 @@ class Post extends Component {
   }
 
   render() {
-    const { title, id } = this.props;
+    const { title, id, category, date } = this.props;
+    console.log(`post modules's id: ${id} ${title}`);
+    console.log(typeof id);
     const style = {
       backgroundColor: this.state.style.color,
       border: `2px solid ${this.state.style.borderColor}`,
     };
     return (
-      <div className="post" style={style} ref={(ref) => (this.myRef = ref)}>
-        <div className="post_tag">
-          <span>board</span>
-        </div>
-        <div className="post_content">
-          <h2
-            className="post_content_header"
-            onClick={() => console.log("Post Title Clicked!")}
-          >
-            title: {title} <br></br>
-            color: {this.state.color}
-          </h2>
-          <span className="post_content_date">date: {id}</span>
-        </div>
-      </div>
+      <PostModule
+        style={style}
+        title={title}
+        id={id}
+        category={category}
+        date={date}
+      ></PostModule>
     );
   }
 }
