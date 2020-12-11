@@ -75,6 +75,7 @@ class SearchResultContainer extends Component {
             title={data.title}
             body={data.body}
             id={data.pk}
+            category={data.category}
           ></Post>
         );
       });

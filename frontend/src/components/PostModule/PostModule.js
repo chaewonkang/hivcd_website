@@ -10,7 +10,7 @@ const PostModule = ({ style, title, date, category, id }) => {
   else if (category === 4) categoryName = "LOST&FOUND";
   console.log(`category name is: ${categoryName}`);
   return (
-    <Link to={`/board/${id}/`}>
+    <Link to={`/board/${id}`}>
       <div className="post" style={style}>
         <div className="post_tag">
           <span>{categoryName}</span>

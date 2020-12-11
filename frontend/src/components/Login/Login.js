@@ -62,10 +62,11 @@ class Login extends Component {
           }
           console.log(error.config);
         });
-      axiosInstance.defaults.headers["Authorization"] = "JWT" + response.tokens;
-      //   localStorage.setItem("access_token", response.tokens.access);
-      //   localStorage.setItem("refresh_token", response.tokens.refresh);
-      console.log(response.tokens);
+      axiosInstance.defaults.headers["Authorization"] =
+        "JWT" + response.data.tokens.refresh;
+      localStorage.setItem("access_token", response.data.tokens.access);
+      localStorage.setItem("refresh_token", response.data.tokens.refresh);
+      console.log(response);
       return response.tokens;
     } catch (error) {
       throw error;

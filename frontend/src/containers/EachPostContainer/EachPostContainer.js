@@ -44,7 +44,8 @@ class EachPostContainer extends Component {
     );
   }
 
-  postComment = async (postId) => {
+  postComment = async (postId, e) => {
+    e.preventDefault();
     axios
       .post(
         "http://localhost:8000/api/v1/postings/" + postId + "/comments/",
