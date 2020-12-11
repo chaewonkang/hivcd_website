@@ -1,8 +1,6 @@
 import React from "react";
 import "./PostModule.css";
-import { useHistory } from "react-router-dom";
-import { Link, Route } from "react-router-dom";
-import { BoardDetailPage } from "../../components";
+import { Link } from "react-router-dom";
 
 const PostModule = ({ style, title, date, category, id }) => {
   let categoryName = null;

@@ -1,5 +1,5 @@
 import { ajax } from "rxjs/observable/dom/ajax";
-import { of, merge } from "rxjs";
+import { of } from "rxjs";
 import { map, mergeMap, catchError, withLatestFrom } from "rxjs/operators";
 import { ofType } from "redux-observable";
 

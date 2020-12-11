@@ -20,7 +20,6 @@ import {
 } from "./components";
 import ContentContainer from "./containers/ContentContainer/ContentContainer";
 import { SearchResultContainer } from "./containers";
-import Auth from "./components/Auth/Auth";
 class App extends Component {
   constructor(props) {
     super(props);

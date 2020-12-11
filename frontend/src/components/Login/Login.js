@@ -73,7 +73,6 @@ class Login extends Component {
   }
 
   render() {
-    const { onLogin, onRegister } = this.props;
     return (
       <>
         <Modal

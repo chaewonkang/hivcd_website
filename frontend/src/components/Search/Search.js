@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { BrowserRouter as Router } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Modal from "react-awesome-modal";
 import "./Search.css";

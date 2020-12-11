@@ -1,10 +1,5 @@
 import React, { Component } from "react";
-import {
-  EachPostWrapper,
-  EachPostNavigator,
-  EachPost,
-  BoardListWrapper,
-} from "../../components";
+import { EachPostWrapper, EachPost, BoardListWrapper } from "../../components";
 import axios from "axios";
 import "./EachPostContainer.css";
 
@@ -162,20 +157,8 @@ class EachPostContainer extends Component {
   }
 
   render() {
-    const {
-      fetching,
-      post,
-      comments,
-      list,
-      pageArray,
-      page,
-      limit,
-      category,
-    } = this.state;
-    const style = {
-      backgroundColor: this.state.style.color,
-      border: `2px solid ${this.state.style.borderColor}`,
-    };
+    const { post, comments, list, pageArray, page, limit } = this.state;
+
     return (
       <div className="each_post_container">
         <BoardListWrapper

@@ -10,7 +10,7 @@ from django.utils.encoding import smart_bytes, smart_str, DjangoUnicodeDecodeErr
 from rest_framework import views, generics, status
 from rest_framework.response import Response
 from rest_framework_simplejwt.tokens import RefreshToken
-from rest_framework.permissions import AllowAny
+from rest_framework.permissions import AllowAny, IsAuthenticatedOrReadOnly
 from drf_yasg.utils import swagger_auto_schema
 from drf_yasg import openapi
 from .serializers import (
@@ -35,6 +35,7 @@ class CustomRedirect(HttpResponsePermanentRedirect):
 class UserListAPIView(generics.ListAPIView):
     queryset = User.objects.all()
     serializer_class = UserSerializer
+    permission_classes = (IsAuthenticatedOrReadOnly,)
 
 
 class UserDetailAPIView(generics.RetrieveAPIView):
@@ -80,7 +81,7 @@ class RegistrationView(generics.GenericAPIView):
 
 class VerifyEmail(views.APIView):
     serializer_class = EmailVerificationSerializer
-    permission_classes = (AllowAny)
+    permission_classes = (AllowAny,)
     token_param_config = openapi.Parameter(
         "token",
         in_=openapi.IN_QUERY,

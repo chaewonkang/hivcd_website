@@ -1,15 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
-import {
-  PostWrapper,
-  Post,
-  HomeArchive,
-  Calandar,
-  Equipment,
-  Classroom,
-  LogoImage,
-} from "../../components";
-import { ArchiveWrapper } from "../../components";
+import { Post } from "../../components";
 import "./SearchResultContainer.css";
 
 class SearchResultContainer extends Component {

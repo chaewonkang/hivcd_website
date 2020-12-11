@@ -1,14 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
-import {
-  PostWrapper,
-  Post,
-  HomeArchive,
-  Calandar,
-  Equipment,
-  Classroom,
-  LogoImage,
-} from "../../components";
+import { PostWrapper, Post, HomeArchive, LogoImage } from "../../components";
 import { ArchiveWrapper } from "../../components";
 import "./ContentContainer.css";
 

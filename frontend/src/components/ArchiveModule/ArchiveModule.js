@@ -13,7 +13,7 @@ const ArchiveModule = ({ title, id, thumbnailUrl, date, category, link }) => {
       </div>
       <div className="archive_module_content">
         <div className="archive_module_content_header">
-          <a href={link} target="_blank">
+          <a href={link} target="_blank" rel="noopener noreferrer">
             {title} <br></br>
           </a>
           {date}

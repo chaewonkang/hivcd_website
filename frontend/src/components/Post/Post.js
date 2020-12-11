@@ -1,8 +1,6 @@
 import React, { Component } from "react";
 import { PostModule } from "../../components";
 import "./Post.css";
-import * as actions from "../../actions";
-import { connect } from "react-redux";
 
 class Post extends Component {
   constructor(props) {
