@@ -1,19 +1,19 @@
 {
   "files": {
-    "main.css": "/static/css/main.7ac62435.chunk.css",
-    "main.js": "/static/js/main.6fd73e90.chunk.js",
-    "main.js.map": "/static/js/main.6fd73e90.chunk.js.map",
+    "main.css": "/static/css/main.fe78f134.chunk.css",
+    "main.js": "/static/js/main.b67575d2.chunk.js",
+    "main.js.map": "/static/js/main.b67575d2.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.5ddcebdb.js",
     "runtime-main.js.map": "/static/js/runtime-main.5ddcebdb.js.map",
-    "static/css/2.e803193d.chunk.css": "/static/css/2.e803193d.chunk.css",
-    "static/js/2.3d297ddc.chunk.js": "/static/js/2.3d297ddc.chunk.js",
-    "static/js/2.3d297ddc.chunk.js.map": "/static/js/2.3d297ddc.chunk.js.map",
+    "static/css/2.5cc7e8f6.chunk.css": "/static/css/2.5cc7e8f6.chunk.css",
+    "static/js/2.91d936f0.chunk.js": "/static/js/2.91d936f0.chunk.js",
+    "static/js/2.91d936f0.chunk.js.map": "/static/js/2.91d936f0.chunk.js.map",
     "index.html": "/index.html",
-    "precache-manifest.5c8c30029041856f34bf203e340ef77f.js": "/precache-manifest.5c8c30029041856f34bf203e340ef77f.js",
+    "precache-manifest.4b7eac0d28e5e3a53372bcdc47331acd.js": "/precache-manifest.4b7eac0d28e5e3a53372bcdc47331acd.js",
     "service-worker.js": "/service-worker.js",
-    "static/css/2.e803193d.chunk.css.map": "/static/css/2.e803193d.chunk.css.map",
-    "static/css/main.7ac62435.chunk.css.map": "/static/css/main.7ac62435.chunk.css.map",
-    "static/js/2.3d297ddc.chunk.js.LICENSE.txt": "/static/js/2.3d297ddc.chunk.js.LICENSE.txt",
+    "static/css/2.5cc7e8f6.chunk.css.map": "/static/css/2.5cc7e8f6.chunk.css.map",
+    "static/css/main.fe78f134.chunk.css.map": "/static/css/main.fe78f134.chunk.css.map",
+    "static/js/2.91d936f0.chunk.js.LICENSE.txt": "/static/js/2.91d936f0.chunk.js.LICENSE.txt",
     "static/media/index.css": "/static/media/NewParisSkylineTrial-Regular.b233a6ec.otf",
     "static/media/semantic.min.css": "/static/media/outline-icons.ef60a4f6.woff",
     "static/media/hivcd_logo.png": "/static/media/hivcd_logo.264851ab.png",
@@ -22,9 +22,9 @@
   },
   "entrypoints": [
     "static/js/runtime-main.5ddcebdb.js",
-    "static/css/2.e803193d.chunk.css",
-    "static/js/2.3d297ddc.chunk.js",
-    "static/css/main.7ac62435.chunk.css",
-    "static/js/main.6fd73e90.chunk.js"
+    "static/css/2.5cc7e8f6.chunk.css",
+    "static/js/2.91d936f0.chunk.js",
+    "static/css/main.fe78f134.chunk.css",
+    "static/js/main.b67575d2.chunk.js"
   ]
 }
