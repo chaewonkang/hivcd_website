@@ -16,14 +16,8 @@ class ContentContainer extends Component {
   };
 
   componentDidMount() {
-    // this.fetchPostInfo(1);
     this._loadPost();
-    // window.addEventListener('scroll', this._infiniteScroll);
   }
-
-  //   componentWillUnmount() {
-  // 	  window.removeEventListener("scroll", this.infiniteScroll);
-  //   }
 
   _loadPost = async () => {
     axios
@@ -90,6 +84,7 @@ class ContentContainer extends Component {
                   date={post.created}
                   category={post.category}
                   thumbnailUrl={post.photos[0].photo}
+                  link={post.link}
                 ></HomeArchive>
               );
             })}

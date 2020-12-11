@@ -5,8 +5,13 @@ import { CommentContainer } from "../../containers";
 
 const CommentList = ({ comments, style, onPostComment }) => {
   console.log(`CommentList: ${comments}`);
-  const commentList = comments.map((comment, index) => (
-    <Comment body={comment.text} key={index} />
+  const commentList = comments.map((comment, index, author) => (
+    <Comment
+      author={comment.author}
+      body={comment.text}
+      key={index}
+      date={comment.created}
+    />
   ));
 
   return (

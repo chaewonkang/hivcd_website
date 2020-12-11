@@ -11,7 +11,7 @@ const BoardListWrapper = ({ list, pageArray, page }) => {
         {list
           ? list.map((el, key) => {
               return (
-                <>
+                <React.Fragment key={key}>
                   <div
                     className="list_grid list_data"
                     key={key}
@@ -24,7 +24,7 @@ const BoardListWrapper = ({ list, pageArray, page }) => {
                     <div> {el.title.slice(0, 40)}... </div>
                     <div className="acenter"> {el.created.slice(2, 10)} </div>
                   </div>
-                </>
+                </React.Fragment>
               );
             })
           : null}

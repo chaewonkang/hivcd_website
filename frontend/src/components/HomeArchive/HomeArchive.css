@@ -45,6 +45,10 @@
   cursor: pointer;
 }
 
+.archive .archive_content .archive_content_header a {
+  color: #000;
+}
+
 .archive .archive_content_image {
   float: right;
   width: 35%;
