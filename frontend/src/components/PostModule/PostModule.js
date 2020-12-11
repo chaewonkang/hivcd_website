@@ -8,6 +8,9 @@ const PostModule = ({ style, title, date, category, id }) => {
   else if (category === 2) categoryName = "EVENT";
   else if (category === 3) categoryName = "JOB";
   else if (category === 4) categoryName = "LOST&FOUND";
+  else if (category === 5) categoryName = "GRADUATION EXHIBITION";
+  else if (category === 6) categoryName = "WOW FILM FESTIVAL";
+  else if (category === 7) categoryName = "ETC";
   console.log(`category name is: ${categoryName}`);
   return (
     <Link to={`/board/${id}`}>

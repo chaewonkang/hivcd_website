@@ -63,10 +63,12 @@ class Login extends Component {
           console.log(error.config);
         });
       axiosInstance.defaults.headers["Authorization"] =
-        "JWT" + response.data.tokens.refresh;
+        "JWT" + response.data.tokens.access;
       localStorage.setItem("access_token", response.data.tokens.access);
       localStorage.setItem("refresh_token", response.data.tokens.refresh);
-      console.log(response);
+      console.log(response.data.tokens);
+      console.log(localStorage);
+      //   this._closeModal();
       return response.tokens;
     } catch (error) {
       throw error;
