@@ -57,6 +57,7 @@ class Archive extends Component {
             thumbnailUrl={data.photos[0].photo}
             date={data.created}
             category={data.category}
+            link={data.link}
           ></ArchiveModule>
         );
       });

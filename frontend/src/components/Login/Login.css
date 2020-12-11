@@ -21,7 +21,7 @@
   justify-content: center;
 }
 
-input[name="id"] {
+input[name="email"] {
   border: 1px solid #000;
   font-family: "Helvetica", sans-serif;
   color: #888888;

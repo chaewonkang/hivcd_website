@@ -5,6 +5,7 @@ import {
   MobileSignup,
   CalandarContainer,
   ResponsiveHeader,
+  Login,
 } from "./components";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import "./App.css";
@@ -19,6 +20,7 @@ import {
 } from "./components";
 import ContentContainer from "./containers/ContentContainer/ContentContainer";
 import { SearchResultContainer } from "./containers";
+import Auth from "./components/Auth/Auth";
 class App extends Component {
   constructor(props) {
     super(props);
@@ -75,6 +77,7 @@ class App extends Component {
             <Route path="/archive" component={Archive} />
             <Route path="/board/:postId" component={BoardDetailPage}></Route>
             <Route path="/calandar" component={CalandarContainer} />
+            <Route path="/login/" exact={true} component={Login} />
             <Route
               path="/search"
               render={() => (

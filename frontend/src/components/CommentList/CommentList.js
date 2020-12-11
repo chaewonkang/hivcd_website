@@ -3,11 +3,12 @@ import "./CommentList.css";
 import { Comment } from "../../components";
 import { CommentContainer } from "../../containers";
 
-const CommentList = ({ comments, style }) => {
+const CommentList = ({ comments, style, onPostComment }) => {
   console.log(`CommentList: ${comments}`);
   const commentList = comments.map((comment, index) => (
     <Comment body={comment.text} key={index} />
   ));
+
   return (
     <div className="comment_list">
       <ul>{commentList}</ul>
@@ -23,7 +24,12 @@ const CommentList = ({ comments, style }) => {
               placeholder="댓글을 입력하세요."
               style={{ backgroundColor: style.backgroundColor }}
             ></input>
-            <button className="comment_input_button">입력</button>
+            <button
+              className="comment_input_button"
+              onClick={() => onPostComment()}
+            >
+              입력
+            </button>
           </form>
           <CommentContainer></CommentContainer>
         </div>

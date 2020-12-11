@@ -27,12 +27,15 @@ class EachPostContainer extends Component {
         color: null,
         borderColor: null,
       },
+      commentInput: {
+        text: null,
+        author: null,
+        post: 0,
+      },
     };
   }
 
   componentDidMount() {
-    console.log(`EachPostContainer's postId: ${this.state.postId}`);
-    console.log(typeof this.state.postId);
     this.fetchPostInfo(this.state.postId);
   }
 
@@ -45,6 +48,20 @@ class EachPostContainer extends Component {
       "http://127.0.0.1:8000/api/v1/postings/" + postId + "/?format=json"
     );
   }
+
+  postComment = async (postId) => {
+    axios
+      .post(
+        "http://localhost:8000/api/v1/postings/" + postId + "/comments/",
+        this.state.commentInput
+      )
+      .then(function (response) {
+        console.log(response);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  };
 
   fetchPostInfo = async (postId) => {
     this.setState({
@@ -83,7 +100,6 @@ class EachPostContainer extends Component {
       pageArray,
       category,
     });
-    console.log(info);
   };
 
   handleNavigateClick = (type) => {
@@ -177,6 +193,7 @@ class EachPostContainer extends Component {
             category={this.state.category}
             author={post.author}
             date={post.date}
+            onPostComment={this.postComment}
           ></EachPost>
         </EachPostWrapper>
       </div>

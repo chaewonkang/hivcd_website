@@ -1,20 +1,23 @@
 import React, { Component } from "react";
 import Modal from "react-awesome-modal";
-import axios from "axios";
 import { Link, withRouter } from "react-router-dom";
 import "./SignUp.css";
+import axiosInstance from "../../utils/axiosApi";
 
 class SignUp extends Component {
   constructor(props) {
     super(props);
     this.state = {
       visible: true,
-      search: "",
-      id: "",
+      username: "",
       password: "",
+      password2: "",
+      email: "",
       provider: "",
     };
     document.body.style.overflow = "hidden";
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   _openModal = function () {
@@ -34,49 +37,62 @@ class SignUp extends Component {
     document.body.style.overflow = "unset";
   }
 
-  _changeSearch = function () {
-    const searchValue = document.getElementsByName("search")[0].value;
-    console.log(searchValue);
+  //   _changeId = function () {
+  //     const idValue = document.getElementsByName("id")[0].value;
+  //     console.log(idValue);
 
-    this.setState({
-      ...this.tate,
-      search: searchValue,
-    });
-  };
+  //     this.setState({
+  //       ...this.state,
+  //       id: idValue,
+  //     });
+  //   };
 
-  _changeId = function () {
-    const idValue = document.getElementsByName("id")[0].value;
-    console.log(idValue);
+  //   _changePW = function () {
+  //     const pwValue = document.getElementsByName("password")[0].value;
+  //     console.log(pwValue);
 
-    this.setState({
-      ...this.state,
-      id: idValue,
-    });
-  };
+  //     this.setState({
+  //       ...this.state,
+  //       password: pwValue,
+  //     });
+  //   };
 
-  _changePW = function () {
-    const pwValue = document.getElementsByName("password")[0].value;
-    console.log(pwValue);
+  handleChange(e) {
+    this.setState({ [e.target.name]: e.target.value });
+  }
 
-    this.setState({
-      ...this.state,
-      password: pwValue,
-    });
-  };
-
-  _postSignup = async () => {
-    axios
-      .post("http://localhost:8000/api/v1/auth/registration", {
-        email: this.state.id,
-        password: this.state.password,
-      })
-      .then(function (response) {
-        console.log(response);
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
-  };
+  async handleSubmit(e) {
+    e.preventDefault();
+    try {
+      const response = await axiosInstance
+        .post("/auth/registration/", {
+          username: this.state.username,
+          email: this.state.email,
+          password: this.state.password,
+          password2: this.state.password2,
+        })
+        .catch(function (error) {
+          if (error.response) {
+            // The request was made and the server responded with a status code
+            // that falls out of the range of 2xx
+            console.log(error.response.data);
+            console.log(error.response.status);
+            console.log(error.response.headers);
+          } else if (error.request) {
+            // The request was made but no response was received
+            // `error.request` is an instance of XMLHttpRequest in the browser and an instance of
+            // http.ClientRequest in node.js
+            console.log(error.request);
+          } else {
+            // Something happened in setting up the request that triggered an Error
+            console.log("Error", error.message);
+          }
+          console.log(error.config);
+        });
+    } catch (error) {
+      console.log(error.stack);
+    }
+  }
 
   render() {
     return (
@@ -91,35 +107,44 @@ class SignUp extends Component {
           effect="fadeInDown"
         >
           <div>
-            <form>
+            <form onSubmit={this.handleSubmit}>
               <div className="navbar_login_modal_container">
                 <input
                   placeholder="e-mail"
                   type="text"
-                  name="id"
-                  onChange={() => this._changeId()}
+                  name="email"
+                  value={this.state.email}
+                  onChange={this.handleChange}
                 ></input>
                 <input
                   placeholder="username"
                   type="text"
-                  name="password"
-                  onChange={() => this._changePW()}
+                  name="username"
+                  value={this.state.username}
+                  onChange={this.handleChange}
                 ></input>
                 <input
                   placeholder="password"
                   type="password"
                   name="password"
-                  onChange={() => this._changePW()}
+                  value={this.state.password}
+                  onChange={this.handleChange}
                 ></input>
                 <input
                   placeholder="confirm password"
                   type="password"
-                  name="password"
-                  onChange={() => this._changePW()}
+                  name="password2"
+                  value={this.state.password2}
+                  onChange={this.handleChange}
                 ></input>
-                <div className="signup_button" onClick={() => this._Signup()}>
+                <button
+                  type="submit"
+                  value="Submit"
+                  className="signup_button"
+                  onClick={() => this.handleSubmit}
+                >
                   <span>SIGN UP</span>
-                </div>
+                </button>
                 <div className="signup_button">
                   <Link
                     to="/"

@@ -45,6 +45,10 @@
   cursor: pointer;
 }
 
+.archive_module .archive_module_content .archive_module_content_header a {
+  color: #000;
+}
+
 .archive_module .archive_module_content_image {
   float: right;
   width: 35%;

@@ -117,7 +117,11 @@ class EachPost extends Component {
             {body}
           </p>
           <hr style={{ marginBottom: 2 + "em", marginTop: 2 + "em" }}></hr>
-          <CommentList comments={comments} style={style}></CommentList>
+          <CommentList
+            comments={comments}
+            style={style}
+            onPostComment={this.props.onPostComment}
+          ></CommentList>
           <EachPostNavigator
             handleNavigateClick={handleNavigateClick}
             postId={postId}

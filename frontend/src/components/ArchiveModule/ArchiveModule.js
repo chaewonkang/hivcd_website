@@ -1,7 +1,7 @@
 import React from "react";
 import "./ArchiveModule.css";
 
-const ArchiveModule = ({ title, id, thumbnailUrl, date, category }) => {
+const ArchiveModule = ({ title, id, thumbnailUrl, date, category, link }) => {
   let categoryName = null;
   if (category === 5) categoryName = "GRADUATION EXHIBITION";
   else if (category === 6) categoryName = "WOW FILM FESTIVAL";
@@ -13,7 +13,9 @@ const ArchiveModule = ({ title, id, thumbnailUrl, date, category }) => {
       </div>
       <div className="archive_module_content">
         <div className="archive_module_content_header">
-          {title} <br></br>
+          <a href={link} target="_blank">
+            {title} <br></br>
+          </a>
           {date}
         </div>
       </div>

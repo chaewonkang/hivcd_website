@@ -1,19 +1,21 @@
 import React, { Component } from "react";
 import Modal from "react-awesome-modal";
 import "./Login.css";
-import axios from "axios";
 import { Link, withRouter } from "react-router-dom";
+import axiosInstance from "../../utils/axiosApi";
 
 class Login extends Component {
   constructor(props) {
     super(props);
     this.state = {
       visible: false,
-      search: "",
-      id: "",
+      email: "",
       password: "",
-      provider: "",
     };
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this._closeModal = this._closeModal.bind(this);
+    this._openModal = this._openModal.bind(this);
   }
 
   _openModal = function () {
@@ -30,51 +32,48 @@ class Login extends Component {
     document.body.style.overflow = "unset";
   };
 
-  _changeSearch = function () {
-    const searchValue = document.getElementsByName("search")[0].value;
-    console.log(searchValue);
-
-    this.setState({
-      ...this.tate,
-      search: searchValue,
-    });
+  handleChange = (e) => {
+    this.setState({ [e.target.name]: e.target.value });
   };
 
-  _changeId = function () {
-    const idValue = document.getElementsByName("id")[0].value;
-    console.log(idValue);
-
-    this.setState({
-      ...this.state,
-      id: idValue,
-    });
-  };
-
-  _changePW = function () {
-    const pwValue = document.getElementsByName("password")[0].value;
-    console.log(pwValue);
-
-    this.setState({
-      ...this.state,
-      password: pwValue,
-    });
-  };
-
-  _postLogin = async () => {
-    axios
-      .post("http://localhost:8000/api/v1/auth/login/", {
-        email: this.state.id,
-        password: this.state.password,
-      })
-      .then(function (response) {
-        console.log(response);
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
-  };
+  async handleSubmit(e) {
+    e.preventDefault();
+    try {
+      const response = await axiosInstance
+        .post("/auth/login/", {
+          email: this.state.email,
+          password: this.state.password,
+        })
+        .catch(function (error) {
+          if (error.response) {
+            // The request was made and the server responded with a status code
+            // that falls out of the range of 2xx
+            console.log(error.response.data);
+            console.log(error.response.status);
+            console.log(error.response.headers);
+          } else if (error.request) {
+            // The request was made but no response was received
+            // `error.request` is an instance of XMLHttpRequest in the browser and an instance of
+            // http.ClientRequest in node.js
+            console.log(error.request);
+          } else {
+            // Something happened in setting up the request that triggered an Error
+            console.log("Error", error.message);
+          }
+          console.log(error.config);
+        });
+      axiosInstance.defaults.headers["Authorization"] = "JWT" + response.tokens;
+      //   localStorage.setItem("access_token", response.tokens.access);
+      //   localStorage.setItem("refresh_token", response.tokens.refresh);
+      console.log(response.tokens);
+      return response.tokens;
+    } catch (error) {
+      throw error;
+    }
+  }
 
   render() {
+    const { onLogin, onRegister } = this.props;
     return (
       <>
         <Modal
@@ -82,37 +81,35 @@ class Login extends Component {
           width="450"
           height="380"
           effect="fadeInDown"
-          onClickAway={() => this._closeModal()}
+          onClickAway={this._closeModal}
         >
           <div>
-            <form>
+            <form onSubmit={this.handleSubmit}>
               <div className="navbar_login_modal_container">
                 <input
-                  placeholder="ID"
+                  placeholder="email"
                   type="text"
-                  name="id"
-                  onChange={() => this._changeId()}
+                  name="email"
+                  value={this.state.email}
+                  onChange={this.handleChange}
                 ></input>
                 <input
                   placeholder="password"
                   type="password"
                   name="password"
-                  onChange={() => this._changePW()}
+                  value={this.state.password}
+                  onChange={this.handleChange}
                 ></input>
-                <div className="login_button" onClick={() => this._postLogin()}>
+                <div
+                  type="submit"
+                  value="Submit"
+                  className="login_button"
+                  onClick={this.handleSubmit}
+                >
                   <span>LOGIN</span>
                 </div>
-                {/* <GoogleLogin
-                  clientId={process.env.REACT_APP_Google}
-                  buttonText="Google Login"
-                  onSuccess={this.responseGoogle}
-                  onFailure={this.responseFail}
-                ></GoogleLogin> */}
                 <Link to="/auth/registration" className="create_account_link">
-                  <span
-                    className="create-account"
-                    onClick={() => this._closeModal()}
-                  >
+                  <span className="create-account" onClick={this._closeModal}>
                     create account
                   </span>
                 </Link>
@@ -120,7 +117,7 @@ class Login extends Component {
             </form>
           </div>
         </Modal>
-        <div className="navbar_login_item" onClick={() => this._openModal()}>
+        <div className="navbar_login_item" onClick={this._openModal}>
           LOGIN
         </div>
       </>
