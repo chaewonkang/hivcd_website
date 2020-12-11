@@ -121,7 +121,7 @@ STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
 # Media files
 MEDIA_URL = "/media/"
-MEDIA_ROOT = os.path.join(BASE_DIR, "assets/django-media/")
+MEDIA_ROOT = os.path.join(BASE_DIR, "uploads")
 
 # Rest Framework
 REST_FRAMEWORK = {
@@ -140,7 +140,12 @@ EMAIL_HOST_USER = os.environ.get("EMAIL_HOST_USER")
 EMAIL_HOST_PASSWORD = os.environ.get("EMAIL_HOST_PASSWORD")
 
 # Cors Policy
-CORS_ORIGIN_WHITELIST = ["http://localhost:3000"]
+CORS_ORIGIN_WHITELIST = [
+    "http://localhost:3000",
+    "http://hongiksidi.azurewebsites.net",
+    "http://google.com",
+    "http://localhost:8000",
+]
 
 
 # USER Model

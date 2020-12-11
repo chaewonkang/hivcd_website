@@ -20,11 +20,16 @@ from django.views.generic import TemplateView
 from django.contrib import admin
 
 urlpatterns = [
-    path("", TemplateView.as_view(template_name="index.html")),
     # Admin
     path("admin/", admin.site.urls),
+    path("api-auth/", include("rest_framework.urls", namespace="rest_framework")),
     # API Settings
     path("api/v1/", include("api_v1.urls", namespace="api")),
     # Index Page
-    re_path(r"^(?:.*)/?$", TemplateView.as_view(template_name="index.html")),
+    path("", TemplateView.as_view(template_name="index.html")),
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+
+urlpatterns += [
+    re_path(r"^(?:.*)/$", TemplateView.as_view(template_name="index.html")),
 ]

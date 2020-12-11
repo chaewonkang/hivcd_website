@@ -16,18 +16,19 @@ ALLOWED_HOSTS = ["*"]
 # }
 
 # DBHOST is only the server name, not the full URL
-hostname = os.environ["DBHOST"]
+hostname = str(os.environ.get("DBHOST"))
 
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql",
-        "NAME": os.environ["DBNAME"],
+        "NAME": os.environ.get("DBNAME"),
         "HOST": hostname + ".postgres.database.azure.com",
-        "USER": os.environ["DBUSER"] + "@" + hostname,
-        "PASSWORD": os.environ["DBPASS"],
+        "USER": str(os.environ.get("DBUSER")) + "@" + hostname,
+        "PASSWORD": os.environ.get("DBPASS"),
     }
 }
 
 SESSION_COOKIE_SECURE = True
 CSRF_COOKIE_SECURE = True
 SECURE_SSL_REDIRECT = True
+SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
