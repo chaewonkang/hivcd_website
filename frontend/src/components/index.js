@@ -33,6 +33,7 @@ import BoardDetailPage from "./BoardDetailPage/BoardDetailPage";
 import PostModule from "./PostModule/PostModule";
 import SignUp from "./SignUp/SignUp";
 import MobileSignup from "./MobileSignup/MobileSignup";
+import CommentInsertForm from "./CommentInsertForm/CommentInsertForm";
 
 export {
   Header,
@@ -70,4 +71,5 @@ export {
   PostModule,
   SignUp,
   MobileSignup,
+  CommentInsertForm,
 };

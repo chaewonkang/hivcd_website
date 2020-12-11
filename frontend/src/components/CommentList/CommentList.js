@@ -1,6 +1,7 @@
 import React from "react";
 import "./CommentList.css";
 import { Comment } from "../../components";
+import { CommentContainer } from "../../containers";
 
 const CommentList = ({ comments, style }) => {
   console.log(`CommentList: ${comments}`);
@@ -24,6 +25,7 @@ const CommentList = ({ comments, style }) => {
             ></input>
             <button className="comment_input_button">입력</button>
           </form>
+          <CommentContainer></CommentContainer>
         </div>
       </div>
     </div>

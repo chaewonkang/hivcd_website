@@ -19,8 +19,6 @@ import {
 } from "./components";
 import ContentContainer from "./containers/ContentContainer/ContentContainer";
 import { SearchResultContainer } from "./containers";
-import axios from "axios";
-
 class App extends Component {
   constructor(props) {
     super(props);
