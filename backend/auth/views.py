@@ -10,7 +10,7 @@ from django.utils.encoding import smart_bytes, smart_str, DjangoUnicodeDecodeErr
 from rest_framework import views, generics, status
 from rest_framework.response import Response
 from rest_framework_simplejwt.tokens import RefreshToken
-
+from rest_framework.permissions import AllowAny
 from drf_yasg.utils import swagger_auto_schema
 from drf_yasg import openapi
 from .serializers import (
@@ -49,6 +49,7 @@ class RegistrationView(generics.GenericAPIView):
 
     serializer_class = RegistrationSerializer
     renderer_classes = (UserRenderer,)
+    permission_classes = (AllowAny,)
 
     def post(self, request):
         user = request.data
@@ -59,7 +60,7 @@ class RegistrationView(generics.GenericAPIView):
         user = User.objects.get(email=user_data["email"])
         token = RefreshToken.for_user(user).access_token
         current_site = get_current_site(request).domain
-        relativeLink = reverse("authentications:email-verify")
+        relativeLink = reverse("api:auth:email-verify")
         absurl = "http://" + current_site + relativeLink + "?token=" + str(token)
         email_body = (
             "Hi "
@@ -110,6 +111,7 @@ class VerifyEmail(views.APIView):
 
 class LoginAPIView(generics.GenericAPIView):
     serializer_class = LoginSerializer
+    permission_classes = (AllowAny,)
 
     def post(self, request):
         serializer = self.serializer_class(data=request.data)
@@ -131,6 +133,7 @@ class LogoutAPIView(generics.GenericAPIView):
 
 class RequestPasswordResetEmail(generics.GenericAPIView):
     serializer_class = ResetPasswordEmailRequestSerializer
+    permission_classes = (AllowAny,)
 
     def post(self, request):
         # serializer = self.serializer_class(data=request.data)
@@ -142,7 +145,7 @@ class RequestPasswordResetEmail(generics.GenericAPIView):
             token = PasswordResetTokenGenerator().make_token(user)
             current_site = get_current_site(request=request).domain
             relativeLink = reverse(
-                "authentications:password-reset-confirm",
+                "api:auth:password-reset-confirm",
                 kwargs={"uidb64": uidb64, "token": token},
             )
 
@@ -168,6 +171,7 @@ class RequestPasswordResetEmail(generics.GenericAPIView):
 
 class SetNewPasswordAPIView(generics.GenericAPIView):
     serializer_class = SetNewPasswordSerializer
+    permission_classes = (AllowAny,)
 
     def patch(self, request):
         serializer = self.serializer_class(data=request.data)

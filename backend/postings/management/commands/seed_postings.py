@@ -70,7 +70,7 @@ class Command(BaseCommand):
             for i in range(3):
                 posting_models.Comment.objects.create(
                     post=post_instance,
-                    author=User.objects.get(pk=random.randint(1, number)),
+                    author=User.objects.get(pk=random.randint(1, 30)),
                     text=seeder.faker.sentence(),
                     created=lambda x: fake.date_between(
                         start_date=start_date, end_date="+30y"
