@@ -15,6 +15,8 @@ const BoardListWrapper = ({
   author,
   date,
   onPostComment,
+  fileUrl,
+  fileName,
 }) => {
   let history = useHistory();
 
@@ -62,10 +64,9 @@ const BoardListWrapper = ({
                     <div
                       className="list_grid list_data"
                       key={key}
-                      onClick={() => history.push(`/board/${key}`)}
+                      onClick={() => history.push(`/board/${el.pk}`)}
                     >
                       <div className="list_tag">
-                        {" "}
                         <span>{categoryName.slice(0, 4)}...</span>
                       </div>
                       <div> {el.title.slice(0, 40)}... </div>
@@ -104,6 +105,8 @@ const BoardListWrapper = ({
         author={author}
         date={date}
         onPostComment={onPostComment}
+        fileUrl={fileUrl}
+        fileName={fileName}
       ></EachPostWrapper>
     </>
   );

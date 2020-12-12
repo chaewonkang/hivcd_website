@@ -82,6 +82,8 @@ class EachPostContainer extends Component {
     const limit = this.state.limit;
     const pageArray = [];
     const category = info[0].data.category;
+    const fileUrl = info[0].data.files[0].files;
+    const fileName = info[0].data.files[0].name;
 
     for (let i = 1; i <= Math.ceil(dataNum / limit); i++) {
       pageArray.push(i);
@@ -95,6 +97,8 @@ class EachPostContainer extends Component {
         text,
         author,
         date,
+        fileUrl,
+        fileName,
       },
       comments,
       list,
@@ -168,7 +172,7 @@ class EachPostContainer extends Component {
     return (
       <div className="each_post_container">
         <BoardListWrapper
-          list={list.reverse()}
+          list={list}
           postId={this.state.postId}
           title={post.title}
           body={post.text}
@@ -179,6 +183,8 @@ class EachPostContainer extends Component {
           author={post.author}
           date={post.date}
           onPostComment={this.postComment}
+          fileUrl={post.fileUrl}
+          fileName={post.fileName}
         ></BoardListWrapper>
       </div>
     );

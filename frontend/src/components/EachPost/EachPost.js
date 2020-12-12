@@ -62,6 +62,20 @@ class EachPost extends Component {
       },
     });
   }
+  download() {
+    // fake server request, getting the file url as response
+    setTimeout(() => {
+      const response = {
+        file:
+          "http://releases.ubuntu.com/12.04.5/ubuntu-12.04.5-alternate-amd64.iso",
+      };
+      // server sent the url to the file!
+      // now, let's download:
+      window.open(response.file);
+      // you could also do:
+      // window.location.href = response.file;
+    }, 100);
+  }
   render() {
     const {
       title,
@@ -72,6 +86,8 @@ class EachPost extends Component {
       category,
       author,
       date,
+      fileUrl,
+      fileName,
     } = this.props;
     const style = {
       backgroundColor: this.state.style.color,
@@ -82,6 +98,7 @@ class EachPost extends Component {
     else if (category === 2) categoryName = "EVENT";
     else if (category === 3) categoryName = "JOB";
     else if (category === 4) categoryName = "LOST&FOUND";
+
     return (
       <div className="each_post_wrapper" style={style}>
         <div className="each_post">
@@ -96,10 +113,10 @@ class EachPost extends Component {
           </div>
           <hr></hr>
           <div className="each_post_files">
-            <span className="attached_file">
-              첨부파일 ▪︎ 11월 10일 지하루_1.png
-            </span>
-            <button className="download_button">DOWNLOAD</button>
+            <span className="attached_file">첨부파일 ▪︎ {fileName}</span>
+            <a href={fileUrl} target="_blank" download>
+              <button className="download_button">DOWNLOAD</button>{" "}
+            </a>
           </div>
           <hr style={{ marginBottom: 2 + "em" }}></hr>
           <p>
