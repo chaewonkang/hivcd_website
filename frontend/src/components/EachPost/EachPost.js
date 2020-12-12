@@ -12,6 +12,7 @@ class EachPost extends Component {
         borderColor: null,
       },
       eachPost: {},
+      files: null,
     };
   }
 
@@ -19,10 +20,13 @@ class EachPost extends Component {
     axios
       .get("http://127.0.0.1:8000/api/v1/postings/" + postId + "/?format=json")
       .then(({ data }) => {
+        console.log(`hellohello: ${data.files[0]["files"]}`);
         this.setState({
           ...this.state,
           loading: true,
           eachPost: data,
+          fileUrl: data.files[0]["files"],
+          fileName: data.files[0]["name"],
         });
       })
       .catch((e) => {
@@ -103,11 +107,13 @@ class EachPost extends Component {
     const category = this.state.eachPost.category;
     const author = this.state.eachPost.author;
     const date = this.state.eachPost.created;
-    const attachedfile = this.state.eachPost.files;
-    console.log(`each post's postId: ${postId}`);
-    console.log(this.state.eachPost);
-    console.log(this.state.eachPost.title);
+    const attachedfile = this.state.fileUrl;
+    const fileName = this.state.fileName;
+    // console.log(`each post's postId: ${postId}`);
+    // console.log(this.state.eachPost.files[0]["files"]);
+    // console.log(this.state.eachPost.files);
     console.log(attachedfile);
+    // console.log(typeof attachedfile);
 
     const style = {
       backgroundColor: this.state.style.color,
@@ -137,8 +143,10 @@ class EachPost extends Component {
           </div>
           <hr></hr>
           <div className="each_post_files">
-            <span className="attached_file">첨부파일 ▪︎ </span>
-            <button className="download_button">DOWNLOAD</button>{" "}
+            <span className="attached_file">첨부파일 ▪︎ {fileName}</span>
+            <a href={attachedfile} target="_blank" download={attachedfile}>
+              <button className="download_button">DOWNLOAD</button>
+            </a>
           </div>
           <hr style={{ marginBottom: 2 + "em" }}></hr>
           <p>

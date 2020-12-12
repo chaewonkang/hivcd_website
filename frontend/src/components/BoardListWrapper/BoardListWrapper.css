@@ -22,6 +22,20 @@
   font-weight: 400;
 }
 
+.board_list_title:hover,
+.board_list_title:target,
+.board_list_title:focus {
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.pagination > li:hover,
+.pagination li:active,
+.pagination li:target,
+.pagination li:visited {
+  font-weight: bold;
+}
+
 .list_tag span {
   font-family: "Helvetica";
   background-color: #000;
