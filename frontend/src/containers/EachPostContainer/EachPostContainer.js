@@ -168,10 +168,7 @@ class EachPostContainer extends Component {
     return (
       <div className="each_post_container">
         <BoardListWrapper
-          list={list}
-          postId={this.state.postId}
-        ></BoardListWrapper>
-        <EachPostWrapper
+          list={list.reverse()}
           postId={this.state.postId}
           title={post.title}
           body={post.text}
@@ -182,7 +179,7 @@ class EachPostContainer extends Component {
           author={post.author}
           date={post.date}
           onPostComment={this.postComment}
-        ></EachPostWrapper>
+        ></BoardListWrapper>
       </div>
     );
   }

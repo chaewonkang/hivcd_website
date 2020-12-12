@@ -26,7 +26,7 @@ class ContentContainer extends Component {
         this.setState({
           ...this.state,
           loadingPost: true,
-          postList: data,
+          postList: data.reverse(),
         });
       })
       .catch((e) => {
