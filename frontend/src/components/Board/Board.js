@@ -126,8 +126,9 @@ class Board extends Component {
           </div>
         </div>
         <BoardPostWrapper>
-          {items}
           <LogoImage></LogoImage>
+
+          {items}
         </BoardPostWrapper>
       </div>
     );

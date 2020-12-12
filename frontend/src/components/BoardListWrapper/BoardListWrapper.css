@@ -86,19 +86,24 @@ li.page_num:target {
 /********** Small devices only **********/
 @media (min-width: 768px) and (max-width: 991px) {
   .board_list_container {
-    display: none;
+    /* display: none; */
+    margin-top: 20px;
+    order: 2;
   }
 }
 
 /********** Extra small devices only **********/
 @media (min-width: 577px) and (max-width: 767px) {
   .board_list_container {
-    display: none;
+    /* display: none; */
+    margin-top: 20px;
+    order: 2;
   }
 }
 
 @media (max-width: 576px) {
   .board_list_container {
-    display: none;
+    margin-top: 20px;
+    order: 2;
   }
 }
