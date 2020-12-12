@@ -29,13 +29,6 @@
   cursor: pointer;
 }
 
-.pagination > li:hover,
-.pagination li:active,
-.pagination li:target,
-.pagination li:visited {
-  font-weight: bold;
-}
-
 .list_tag span {
   font-family: "Helvetica";
   background-color: #000;
@@ -50,15 +43,20 @@
 
 .paging_div {
   margin-top: 10px;
+  width: 100%;
   display: grid;
-  grid-template-columns: 5% 90% 5%;
+  grid-template-columns: 1fr;
   text-align: center;
   bottom: 0;
 }
 
+ul {
+  margin: 0 auto;
+}
+
 .paging_div div {
-  padding: 15px;
-  text-align: center;
+  margin: 0 auto;
+  padding-top: 20px;
 }
 
 .page_num {
@@ -69,7 +67,8 @@
 }
 
 li.page_num:hover,
-li.page_num:active {
+li.page_num:active,
+li.page_num:target {
   font-weight: bold;
 }
 

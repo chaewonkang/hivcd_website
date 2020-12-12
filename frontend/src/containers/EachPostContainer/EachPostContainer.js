@@ -178,9 +178,7 @@ class EachPostContainer extends Component {
           //   date={post.date}
           onPostComment={this.postComment}
         ></BoardListWrapper>
-        <div>
-          {this.props.match.params.postId} {post.title}
-        </div>
+        <div>{/* {this.props.match.params.postId} {post.title} */}</div>
       </div>
     );
   }

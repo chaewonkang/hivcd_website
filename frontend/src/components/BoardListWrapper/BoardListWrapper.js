@@ -75,7 +75,7 @@ const BoardListWrapper = ({
         </div>
         <div className="paging_div">
           {" "}
-          <div>＜</div>
+          {/* <div>＜</div> */}
           <div>
             <ul className="pagination">
               {pageNumber.map((pageNum) => (
@@ -89,7 +89,7 @@ const BoardListWrapper = ({
               ))}
             </ul>
           </div>
-          <div>＞</div>
+          {/* <div>＞</div> */}
         </div>
       </div>
       <EachPostWrapper
