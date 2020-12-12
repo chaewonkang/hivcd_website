@@ -11,7 +11,7 @@ class PostListAPIView(generics.ListAPIView):
     queryset = Post.objects.all()
     serializer_class = PostSerializer
 
-    permission_classes = (IsAuthenticatedOrReadOnly,)
+    # permission_classes = (IsAuthenticatedOrReadOnly,)
 
 
 class PostRetrieveAPIView(generics.RetrieveAPIView):

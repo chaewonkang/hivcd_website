@@ -55,10 +55,10 @@ INSTALLED_APPS = DJANGO_APPS + PROJECT_APPS + THIRDPARTY_APPS
 
 
 MIDDLEWARE = [
-    "corsheaders.middleware.CorsMiddleware",
     "django.middleware.security.SecurityMiddleware",
     "whitenoise.middleware.WhiteNoiseMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
+    "corsheaders.middleware.CorsMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
     "django.contrib.auth.middleware.AuthenticationMiddleware",
@@ -110,7 +110,6 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = True
-SITE_ID = 1
 
 # Static files (CSS, JavaScript, Images)
 STATIC_URL = "/static/"
@@ -126,12 +125,11 @@ MEDIA_ROOT = os.path.join(BASE_DIR, "uploads")
 
 # Rest Framework
 REST_FRAMEWORK = {
-    "DEFAULT_PERMISSION_CLASSES": ("rest_framework.permissions.IsAuthenticated",),
     "DEFAULT_AUTHENTICATION_CLASSES": (
         "rest_framework_simplejwt.authentication.JWTAuthentication",
         "rest_framework.authentication.BasicAuthentication",
         "rest_framework.authentication.SessionAuthentication",
-    ),
+    )
 }
 
 # Email Settings
@@ -144,28 +142,9 @@ EMAIL_HOST_PASSWORD = os.environ.get("EMAIL_HOST_PASSWORD")
 # Cors Policy
 CORS_ORIGIN_WHITELIST = [
     "http://localhost:3000",
-    "http://hongiksidi.azurewebsites.net",
-    "http://google.com",
     "http://localhost:8000",
 ]
 
 
 # USER Model
 AUTH_USER_MODEL = "my_auth.User"
-
-# from datetime import timedelta
-
-# SIMPLE_JWT = {
-#     "ACCESS_TOKEN_LIFETIME": timedelta(minutes=5),
-#     "REFRESH_TOKEN_LIFETIME": timedelta(days=14),
-#     "ROTATE_REFRESH_TOKENS": True,
-#     "BLACKLIST_AFTER_ROTATION": True,
-#     "ALGORITHM": "HS256",
-#     "SIGNING_KEY": SECRET_KEY,
-#     "VERIFYING_KEY": None,
-#     "AUTH_HEADER_TYPES": ("JWT",),
-#     "USER_ID_FIELD": "id",
-#     "USER_ID_CLAIM": "user_id",
-#     "AUTH_TOKEN_CLASSES": ("rest_framework_simplejwt.tokens.AccessToken",),
-#     "TOKEN_TYPE_CLAIM": "token_type",
-# }
