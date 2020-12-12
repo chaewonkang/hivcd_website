@@ -1,5 +1,10 @@
 import React, { Component } from "react";
-import { EachPostWrapper, EachPost, BoardListWrapper } from "../../components";
+import {
+  EachPostWrapper,
+  EachPost,
+  BoardListWrapper,
+  BoardDetailPage,
+} from "../../components";
 import axios from "axios";
 import "./EachPostContainer.css";
 
@@ -7,7 +12,7 @@ class EachPostContainer extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      postId: this.props.postId,
+      postId: props.match.params.postId,
       fetching: false,
       post: {
         title: null,
@@ -158,28 +163,26 @@ class EachPostContainer extends Component {
   }
 
   render() {
-    const { post, comments, list, pageArray, page, limit } = this.state;
+    const { post, comments, list } = this.state;
 
     return (
       <div className="each_post_container">
         <BoardListWrapper
-          list={list.slice(0, limit)}
-          pageArray={pageArray}
-          page={page}
+          list={list}
+          postId={this.state.postId}
         ></BoardListWrapper>
-        <EachPostWrapper>
-          <EachPost
-            title={post.title}
-            body={post.text}
-            comments={comments}
-            handleNavigateClick={this.handleNavigateClick}
-            postId={this.state.postId}
-            category={this.state.category}
-            author={post.author}
-            date={post.date}
-            onPostComment={this.postComment}
-          ></EachPost>
-        </EachPostWrapper>
+        <EachPostWrapper
+          postId={this.state.postId}
+          title={post.title}
+          body={post.text}
+          comments={comments}
+          handleNavigateClick={this.handleNavigateClick}
+          postId={this.state.postId}
+          category={this.state.category}
+          author={post.author}
+          date={post.date}
+          onPostComment={this.postComment}
+        ></EachPostWrapper>
       </div>
     );
   }

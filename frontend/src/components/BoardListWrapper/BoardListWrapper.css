@@ -18,6 +18,10 @@
   line-height: 2.5em;
 }
 
+.list_data {
+  font-weight: 400;
+}
+
 .list_tag span {
   font-family: "Helvetica";
   background-color: #000;
@@ -48,6 +52,11 @@
   list-style: none;
   display: inline-block;
   cursor: pointer;
+}
+
+li.page_num:hover,
+li.page_num:active {
+  font-weight: bold;
 }
 
 @media (min-width: 1440px) and (max-width: 1920px) {

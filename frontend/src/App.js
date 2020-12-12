@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import {
   Header,
   Footer,
@@ -6,11 +7,6 @@ import {
   CalandarContainer,
   ResponsiveHeader,
   Login,
-} from "./components";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import "./App.css";
-import "./components/Header/Header.css";
-import {
   AboutUs,
   Board,
   Alumni,
@@ -18,8 +14,11 @@ import {
   BoardDetailPage,
   SignUp,
 } from "./components";
+import "./App.css";
+import "./components/Header/Header.css";
 import ContentContainer from "./containers/ContentContainer/ContentContainer";
-import { SearchResultContainer } from "./containers";
+import { SearchResultContainer, EachPostContainer } from "./containers";
+
 class App extends Component {
   constructor(props) {
     super(props);
@@ -56,39 +55,35 @@ class App extends Component {
   };
 
   render() {
-    console.log(`App component searchKeyword: ${this.state.searchKeyword}`);
-
     return (
-      <Router>
-        <Switch>
-          <div className="AppBody">
-            <Route path="/mobile/signup" component={MobileSignup}></Route>
-            <Route path="/auth/registration" component={SignUp}></Route>
-            <ResponsiveHeader
-              navClass="nav-small"
-              linkClassName="nav-small-link"
-            ></ResponsiveHeader>
-            <Header handleSearchKeyword={this.handleSearchKeyword}></Header>
-            <Route exact path="/" component={ContentContainer} />
-            <Route exact path="/board" component={Board} />
-            <Route path="/aboutus" component={AboutUs} />
-            <Route path="/alumni" component={Alumni} />
-            <Route path="/archive" component={Archive} />
-            <Route path="/board/:postId" component={BoardDetailPage}></Route>
-            <Route path="/calandar" component={CalandarContainer} />
-            <Route path="/login/" exact={true} component={Login} />
-            <Route
-              path="/search"
-              render={() => (
-                <SearchResultContainer
-                  searchKeyword={this.state.searchKeyword}
-                ></SearchResultContainer>
-              )}
-            />
-            <Footer />
-          </div>
-        </Switch>
-      </Router>
+      <Switch>
+        <div className="AppBody">
+          <Route path="/mobile/signup" component={MobileSignup}></Route>
+          <Route path="/auth/registration" component={SignUp}></Route>
+          <ResponsiveHeader
+            navClass="nav-small"
+            linkClassName="nav-small-link"
+          ></ResponsiveHeader>
+          <Header handleSearchKeyword={this.handleSearchKeyword}></Header>
+          <Route exact path="/" component={ContentContainer} />
+          <Route exact path="/board" component={Board} />
+          <Route path="/board/:postId" component={EachPostContainer} />
+          <Route path="/aboutus" component={AboutUs} />
+          <Route path="/alumni" component={Alumni} />
+          <Route path="/archive" component={Archive} />
+          <Route path="/calandar" component={CalandarContainer} />
+          <Route path="/login/" exact={true} component={Login} />
+          <Route
+            path="/search"
+            render={() => (
+              <SearchResultContainer
+                searchKeyword={this.state.searchKeyword}
+              ></SearchResultContainer>
+            )}
+          />
+          <Footer />
+        </div>
+      </Switch>
     );
   }
 }

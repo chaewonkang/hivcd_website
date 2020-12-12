@@ -12,8 +12,9 @@ const PostModule = ({ style, title, date, category, id }) => {
   else if (category === 6) categoryName = "WOW FILM FESTIVAL";
   else if (category === 7) categoryName = "ETC";
   console.log(`category name is: ${categoryName}`);
+  const postId = parseInt(id, 10);
   return (
-    <Link to={`/board/${id}`}>
+    <Link to={`/board/${postId}`}>
       <div className="post" style={style}>
         <div className="post_tag">
           <span>{categoryName}</span>

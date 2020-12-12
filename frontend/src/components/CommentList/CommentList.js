@@ -4,7 +4,6 @@ import { Comment } from "../../components";
 import CommentInsertForm from "../CommentInsertForm/CommentInsertForm";
 
 const CommentList = ({ comments, style, onPostComment }) => {
-  console.log(`CommentList: ${comments}`);
   const commentList = comments.map((comment, index, author) => (
     <Comment
       author={comment.author}
