@@ -12,6 +12,7 @@ class EachPost extends Component {
       },
     };
   }
+
   UNSAFE_componentWillMount() {
     const colorArray = [
       "#A3B3C4",
@@ -62,20 +63,7 @@ class EachPost extends Component {
       },
     });
   }
-  download() {
-    // fake server request, getting the file url as response
-    setTimeout(() => {
-      const response = {
-        file:
-          "http://releases.ubuntu.com/12.04.5/ubuntu-12.04.5-alternate-amd64.iso",
-      };
-      // server sent the url to the file!
-      // now, let's download:
-      window.open(response.file);
-      // you could also do:
-      // window.location.href = response.file;
-    }, 100);
-  }
+
   render() {
     const {
       title,
@@ -86,18 +74,20 @@ class EachPost extends Component {
       category,
       author,
       date,
-      fileUrl,
-      fileName,
     } = this.props;
     const style = {
       backgroundColor: this.state.style.color,
       border: `2px solid ${this.state.style.borderColor}`,
     };
     let categoryName = null;
-    if (category === 1) categoryName = "NOTICE";
-    else if (category === 2) categoryName = "EVENT";
-    else if (category === 3) categoryName = "JOB";
-    else if (category === 4) categoryName = "LOST&FOUND";
+    if (category === 1) categoryName = "BOARD / NOTICE";
+    else if (category === 2) categoryName = "BOARD / EVENT";
+    else if (category === 3) categoryName = "BOARD / JOB";
+    else if (category === 4) categoryName = "BOARD / LOST&FOUND";
+    else if (category === 5)
+      categoryName = "EXHIBITION / GRADUATION EXHIBITION";
+    else if (category === 6) categoryName = "EXHIBITION / WOW FILM FESTIVAL";
+    else if (category === 7) categoryName = "EXHIBITION / ETC";
 
     return (
       <div className="each_post_wrapper" style={style}>
@@ -113,10 +103,8 @@ class EachPost extends Component {
           </div>
           <hr></hr>
           <div className="each_post_files">
-            <span className="attached_file">첨부파일 ▪︎ {fileName}</span>
-            <a href={fileUrl} target="_blank" download>
-              <button className="download_button">DOWNLOAD</button>{" "}
-            </a>
+            <span className="attached_file">첨부파일 ▪︎ </span>
+            <button className="download_button">DOWNLOAD</button>{" "}
           </div>
           <hr style={{ marginBottom: 2 + "em" }}></hr>
           <p>

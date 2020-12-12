@@ -13,8 +13,6 @@ const EachPostWrapper = ({
   date,
   onPostComment,
   style,
-  fileUrl,
-  fileName,
 }) => {
   return (
     <div className="temp_EachPostWrapper" style={style}>
@@ -28,8 +26,6 @@ const EachPostWrapper = ({
         author={author}
         date={date}
         onPostComment={onPostComment}
-        fileUrl={fileUrl}
-        fileName={fileName}
       ></EachPost>
     </div>
   );

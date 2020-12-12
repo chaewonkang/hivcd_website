@@ -15,8 +15,6 @@ const BoardListWrapper = ({
   author,
   date,
   onPostComment,
-  fileUrl,
-  fileName,
 }) => {
   let history = useHistory();
 
@@ -25,9 +23,6 @@ const BoardListWrapper = ({
   const [postsPerPage] = useState(20);
   const [currentPost, setCurrentPost] = useState(0);
   const pageNumber = [];
-  const postList = [list];
-  const post = list[0];
-  const [rePostId, setRePostId] = useState(postId);
 
   const indexOfLastPost = currentPage * postsPerPage;
   const indexOfFirstPost = indexOfLastPost - postsPerPage;
@@ -39,10 +34,6 @@ const BoardListWrapper = ({
   }
 
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
-  const rePostIdSet = (postId) => {
-    setCurrentPost(postId);
-    setRePostId(postId);
-  };
 
   return (
     <>
@@ -105,8 +96,7 @@ const BoardListWrapper = ({
         author={author}
         date={date}
         onPostComment={onPostComment}
-        fileUrl={fileUrl}
-        fileName={fileName}
+        postId={postId}
       ></EachPostWrapper>
     </>
   );

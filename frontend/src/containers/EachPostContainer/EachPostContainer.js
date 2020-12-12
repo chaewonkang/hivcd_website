@@ -12,7 +12,6 @@ class EachPostContainer extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      postId: props.match.params.postId,
       fetching: false,
       post: {
         title: null,
@@ -36,7 +35,7 @@ class EachPostContainer extends Component {
   }
 
   componentDidMount() {
-    this.fetchPostInfo(this.state.postId);
+    this.fetchPostInfo(this.props.match.params.postId);
   }
 
   getList() {
@@ -69,7 +68,7 @@ class EachPostContainer extends Component {
       fetching: true,
     });
     const info = await Promise.all([
-      this.getPost(this.state.postId),
+      this.getPost(this.props.match.params.postId),
       this.getList(),
     ]);
 
@@ -82,23 +81,19 @@ class EachPostContainer extends Component {
     const limit = this.state.limit;
     const pageArray = [];
     const category = info[0].data.category;
-    const fileUrl = info[0].data.files[0].files;
-    const fileName = info[0].data.files[0].name;
 
     for (let i = 1; i <= Math.ceil(dataNum / limit); i++) {
       pageArray.push(i);
     }
     this.setState({
       ...this.state,
-      postId,
+
       fetching: false,
       post: {
         title,
         text,
         author,
         date,
-        fileUrl,
-        fileName,
       },
       comments,
       list,
@@ -173,19 +168,19 @@ class EachPostContainer extends Component {
       <div className="each_post_container">
         <BoardListWrapper
           list={list}
-          postId={this.state.postId}
+          postId={this.props.match.params.postId}
           title={post.title}
           body={post.text}
           comments={comments}
           handleNavigateClick={this.handleNavigateClick}
-          postId={this.state.postId}
           category={this.state.category}
           author={post.author}
           date={post.date}
           onPostComment={this.postComment}
-          fileUrl={post.fileUrl}
-          fileName={post.fileName}
         ></BoardListWrapper>
+        <div>
+          {this.props.match.params.postId} {post.title}
+        </div>
       </div>
     );
   }
