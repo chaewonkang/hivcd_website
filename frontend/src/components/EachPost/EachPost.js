@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "./EachPost.css";
 import { CommentList, EachPostNavigator } from "../../components";
+import axios from "axios";
 
 class EachPost extends Component {
   constructor(props) {
@@ -10,7 +11,37 @@ class EachPost extends Component {
         color: null,
         borderColor: null,
       },
+      eachPost: {},
     };
+  }
+
+  getEachPost = (postId) => {
+    axios
+      .get("http://127.0.0.1:8000/api/v1/postings/" + postId + "/?format=json")
+      .then(({ data }) => {
+        this.setState({
+          ...this.state,
+          loading: true,
+          eachPost: data,
+        });
+      })
+      .catch((e) => {
+        console.error(e);
+        this.setState({
+          ...this.state,
+          loading: false,
+        });
+      });
+  };
+
+  componentDidMount() {
+    this.getEachPost(this.props.postId);
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    if (this.props.postId !== prevProps.postId) {
+      this.getEachPost(this.props.postId);
+    }
   }
 
   UNSAFE_componentWillMount() {
@@ -56,6 +87,7 @@ class EachPost extends Component {
     const selectedBorderColor = borderColorArray[randomIndex];
 
     this.setState({
+      ...this.state,
       style: {
         ...this.state.style,
         color: selectedColor,
@@ -65,16 +97,18 @@ class EachPost extends Component {
   }
 
   render() {
-    const {
-      title,
-      body,
-      comments,
-      handleNavigateClick,
-      postId,
-      category,
-      author,
-      date,
-    } = this.props;
+    const { comments, handleNavigateClick, postId } = this.props;
+    const title = this.state.eachPost.title;
+    const body = this.state.eachPost.text;
+    const category = this.state.eachPost.category;
+    const author = this.state.eachPost.author;
+    const date = this.state.eachPost.created;
+    const attachedfile = this.state.eachPost.files;
+    console.log(`each post's postId: ${postId}`);
+    console.log(this.state.eachPost);
+    console.log(this.state.eachPost.title);
+    console.log(attachedfile);
+
     const style = {
       backgroundColor: this.state.style.color,
       border: `2px solid ${this.state.style.borderColor}`,

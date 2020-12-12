@@ -169,13 +169,13 @@ class EachPostContainer extends Component {
         <BoardListWrapper
           list={list}
           postId={this.props.match.params.postId}
-          title={post.title}
-          body={post.text}
-          comments={comments}
+          //   title={post.title}
+          //   body={post.text}
+          //   comments={comments}
           handleNavigateClick={this.handleNavigateClick}
-          category={this.state.category}
-          author={post.author}
-          date={post.date}
+          //   category={this.state.category}
+          //   author={post.author}
+          //   date={post.date}
           onPostComment={this.postComment}
         ></BoardListWrapper>
         <div>
