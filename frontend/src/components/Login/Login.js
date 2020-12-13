@@ -72,8 +72,6 @@ class Login extends Component {
       localStorage.setItem("refresh_token", evalTokens.refresh);
 
       console.log(localStorage);
-      const token = localStorage.getItem("access_token");
-      console.log(token);
       this._closeModal();
       return response.tokens;
     } catch (error) {
@@ -125,10 +123,18 @@ class Login extends Component {
             </form>
           </div>
         </Modal>
-        <div className="navbar_login_item" onClick={this._openModal}>
-          LOGIN
-        </div>
-        <div className="navbar_login_item">LOGOUT</div>
+        {localStorage.access_token ? (
+          <div
+            className="navbar_login_item"
+            onClick={() => this.props.handleLogout()}
+          >
+            LOGOUT
+          </div>
+        ) : (
+          <div className="navbar_login_item" onClick={this._openModal}>
+            LOGIN
+          </div>
+        )}
       </>
     );
   }

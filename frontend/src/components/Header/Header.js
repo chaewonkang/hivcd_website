@@ -66,7 +66,11 @@ class Header extends Component {
               </Link>
             </div>
             <div className="header_container_login">
-              <Login logged={logged} onLogOut={onLogout}></Login>
+              <Login
+                logged={logged}
+                onLogOut={onLogout}
+                handleLogout={this.props.handleLogout}
+              ></Login>
             </div>
           </div>
           <div className="header_container_right">

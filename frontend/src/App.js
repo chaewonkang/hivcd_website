@@ -16,6 +16,7 @@ import "./App.css";
 import "./components/Header/Header.css";
 import ContentContainer from "./containers/ContentContainer/ContentContainer";
 import { SearchResultContainer, EachPostContainer } from "./containers";
+import axiosInstance from "./utils/axiosApi";
 
 class App extends Component {
   constructor(props) {
@@ -27,6 +28,7 @@ class App extends Component {
       searchKeyword: "",
       isLogged: true,
     };
+    this.handleLogout = this.handleLogout.bind(this);
   }
 
   handleSearchKeyword = (keyword) => {
@@ -35,6 +37,17 @@ class App extends Component {
       searchKeyword: keyword,
     });
   };
+
+  async handleLogout(e) {
+    try {
+      localStorage.removeItem("access_token");
+      localStorage.removeItem("refresh_token");
+      axiosInstance.defaults.headers["Authorization"] = null;
+      window.location.reload();
+    } catch (e) {
+      console.log(e);
+    }
+  }
 
   makeCalandarComp = () => {
     window.eventCalId = 7279;
@@ -63,7 +76,10 @@ class App extends Component {
               navClass="nav-small"
               linkClassName="nav-small-link"
             ></ResponsiveHeader>
-            <Header handleSearchKeyword={this.handleSearchKeyword}></Header>
+            <Header
+              handleSearchKeyword={this.handleSearchKeyword}
+              handleLogout={this.handleLogout}
+            ></Header>
             <Route exact path="/" component={ContentContainer} />
             <Route exact path="/board" component={Board} />
             <Route path="/board/:postId" component={EachPostContainer} />

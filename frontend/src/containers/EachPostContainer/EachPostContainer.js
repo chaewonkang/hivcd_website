@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { BoardListWrapper } from "../../components";
 import axios from "axios";
+import { Redirect } from "react-router-dom";
 import "./EachPostContainer.css";
 
 class EachPostContainer extends Component {
@@ -157,6 +158,13 @@ class EachPostContainer extends Component {
   }
 
   render() {
+    const token = localStorage.getItem("access_token");
+    console.log(token);
+
+    if (token === null) {
+      alert("로그인하세요.");
+      return <Redirect to="/" />;
+    }
     const { list } = this.state;
 
     return (

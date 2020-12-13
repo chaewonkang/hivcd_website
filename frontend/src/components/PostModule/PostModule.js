@@ -1,6 +1,6 @@
 import React from "react";
 import "./PostModule.css";
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 
 const PostModule = ({ style, title, date, category, id }) => {
   let categoryName = null;
