@@ -162,7 +162,7 @@ class EachPostContainer extends Component {
     console.log(token);
 
     if (token === null) {
-      alert("로그인하세요.");
+      alert("권한이 없습니다.");
       return <Redirect to="/" />;
     }
     const { list } = this.state;

@@ -1,7 +1,7 @@
 import React from "react";
 import "./ArchiveModule.css";
 
-const ArchiveModule = ({ title, id, thumbnailUrl, date, category, link }) => {
+const ArchiveModule = ({ title, thumbnailUrl, date, category, link }) => {
   let categoryName = null;
   if (category === 5) categoryName = "GRADUATION EXHIBITION";
   else if (category === 6) categoryName = "WOW FILM FESTIVAL";
