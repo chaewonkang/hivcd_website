@@ -113,7 +113,7 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 STATIC_URL = "/static/"
-STATIC_ROOT = os.path.join(BASE_DIR, "assets")
+STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "templates", "static"),
 ]
@@ -143,6 +143,7 @@ EMAIL_HOST_PASSWORD = os.environ.get("EMAIL_HOST_PASSWORD")
 CORS_ORIGIN_WHITELIST = [
     "http://localhost:3000",
     "http://localhost:8000",
+    "http://hivcdapp.azurewebsites.net",
 ]
 
 
