@@ -159,7 +159,7 @@ class EachPostContainer extends Component {
 
   render() {
     const token = localStorage.getItem("access_token");
-    console.log(token);
+    // console.log(token);
 
     if (token === null) {
       alert("권한이 없습니다.");

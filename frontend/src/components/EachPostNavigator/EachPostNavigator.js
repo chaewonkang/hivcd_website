@@ -10,7 +10,7 @@ const EachPostNavigator = ({
 }) => {
   let history = useHistory();
   let id = parseInt(postId, 10);
-  console.log(`EachPostNavigator postId: ${postId}`);
+  //   console.log(`EachPostNavigator postId: ${postId}`);
   function routeToPrevPost() {
     id = id - 1;
     history.push(`/board/${id}`);

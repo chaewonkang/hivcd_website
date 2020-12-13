@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "./EachPost.css";
-import { EachPostNavigator } from "../../components";
+import { EachPostNavigator, CommentList } from "../../components";
 import axios from "axios";
 
 class EachPost extends Component {
@@ -20,14 +20,17 @@ class EachPost extends Component {
     axios
       .get("http://127.0.0.1:8000/api/v1/postings/" + postId + "/?format=json")
       .then(({ data }) => {
-        // console.log(`hellohello: ${data.files[0]["files"]}`);
+        // console.log(`hellohello: ${data.comments}`);
         this.setState({
           ...this.state,
           loading: true,
           eachPost: data,
           fileUrl: data.files[0]["files"],
           fileName: data.files[0]["name"],
+          comments: data["comments"],
         });
+        console.log(this.state.comments);
+        console.log(typeof this.state.comments);
       })
       .catch((e) => {
         console.error(e);
@@ -38,13 +41,44 @@ class EachPost extends Component {
       });
   };
 
+  //   getComments = async (postId) => {
+  //     return axios
+  //       .get("http://127.0.0.1:8000/api/v1/postings/" + postId + "/comments/")
+  //       .then(({ data }) => {
+  //         data.filter((el) => {
+  //           if (el.post === postId) return data;
+  //         });
+  //         this.setState({
+  //           ...this.state,
+  //           comments: data,
+  //         });
+  //       });
+  //   };
+
+  postComment = async (postId, e) => {
+    e.preventDefault();
+    axios
+      .post(
+        "http://localhost:8000/api/v1/postings/" + postId + "/comments/",
+        this.state.commentInput
+      )
+      .then(function (response) {
+        console.log(response);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  };
+
   componentDidMount() {
     this.getEachPost(this.props.postId);
+    // this.getComments(this.props.postId);
   }
 
   componentDidUpdate(prevProps, prevState) {
     if (this.props.postId !== prevProps.postId) {
       this.getEachPost(this.props.postId);
+      //   this.getComments(this.props.postId);
     }
   }
 
@@ -109,10 +143,12 @@ class EachPost extends Component {
     const date = this.state.eachPost.created;
     const attachedfile = this.state.fileUrl;
     const fileName = this.state.fileName;
+
+    // console.log(typeof this.state.comments);
     // console.log(`each post's postId: ${postId}`);
     // console.log(this.state.eachPost.files[0]["files"]);
     // console.log(this.state.eachPost.files);
-    console.log(attachedfile);
+    // console.log(attachedfile);
     // console.log(typeof attachedfile);
 
     const style = {
@@ -170,7 +206,7 @@ class EachPost extends Component {
           </p>
           <hr style={{ marginBottom: 2 + "em", marginTop: 2 + "em" }}></hr>
           {/* <CommentList
-            comments={comments}
+            comments={commentsArray}
             style={style}
             onPostComment={this.props.onPostComment}
           ></CommentList> */}
