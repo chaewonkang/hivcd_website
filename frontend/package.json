@@ -12,6 +12,7 @@
     "classnames": "^2.2.6",
     "file-saver": "^2.0.5",
     "google-maps-react": "^2.0.6",
+    "immutable": "^4.0.0-rc.12",
     "include-media": "^1.4.9",
     "install": "^0.13.0",
     "jszip": "^3.5.0",
@@ -36,6 +37,7 @@
     "react-scroll": "^1.8.1",
     "react-split-pane": "^0.1.92",
     "redux": "^4.0.5",
+    "redux-actions": "^2.6.5",
     "redux-devtools-extension": "^2.13.8",
     "redux-observable": "^1.2.0",
     "redux-pender": "^2.0.12",
@@ -44,7 +46,7 @@
     "rxjs-compat": "^6.6.3",
     "sass-loader": "^10.0.2",
     "semantic-ui-css": "^2.4.1",
-    "styled-components": "^5.2.0"
+    "styled-components": "^5.2.1"
   },
   "scripts": {
     "start": "react-scripts start",

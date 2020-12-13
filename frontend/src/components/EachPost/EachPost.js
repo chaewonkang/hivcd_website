@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "./EachPost.css";
-import { CommentList, EachPostNavigator } from "../../components";
+import { EachPostNavigator } from "../../components";
 import axios from "axios";
 
 class EachPost extends Component {
@@ -20,7 +20,7 @@ class EachPost extends Component {
     axios
       .get("http://127.0.0.1:8000/api/v1/postings/" + postId + "/?format=json")
       .then(({ data }) => {
-        console.log(`hellohello: ${data.files[0]["files"]}`);
+        // console.log(`hellohello: ${data.files[0]["files"]}`);
         this.setState({
           ...this.state,
           loading: true,
@@ -101,7 +101,7 @@ class EachPost extends Component {
   }
 
   render() {
-    const { comments, handleNavigateClick, postId } = this.props;
+    const { handleNavigateClick, postId } = this.props;
     const title = this.state.eachPost.title;
     const body = this.state.eachPost.text;
     const category = this.state.eachPost.category;
@@ -144,7 +144,12 @@ class EachPost extends Component {
           <hr></hr>
           <div className="each_post_files">
             <span className="attached_file">첨부파일 ▪︎ {fileName}</span>
-            <a href={attachedfile} target="_blank" download={attachedfile}>
+            <a
+              href={attachedfile}
+              target="_blank"
+              download={attachedfile}
+              rel="noopener noreferrer"
+            >
               <button className="download_button">DOWNLOAD</button>
             </a>
           </div>

@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import "./BoardListWrapper.css";
 import { useHistory } from "react-router-dom";
-import { useEffect } from "react";
+// import { useEffect } from "react";
 import { EachPostWrapper } from "../../components";
-import axios from "axios";
+// import axios from "axios";
 
 const BoardListWrapper = ({
   list,
@@ -16,14 +16,14 @@ const BoardListWrapper = ({
   author,
   date,
   onPostComment,
-  fetchPostInfo,
+  //   fetchPostInfo,
 }) => {
   let history = useHistory();
 
-  const [loading, setLoading] = useState(false);
+  //   const [loading, setLoading] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
   const [postsPerPage] = useState(20);
-  const [currentPost, setCurrentPost] = useState(0);
+  //   const [currentPost, setCurrentPost] = useState(0);
   const pageNumber = [];
 
   const indexOfLastPost = currentPage * postsPerPage;

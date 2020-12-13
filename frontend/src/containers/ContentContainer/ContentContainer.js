@@ -55,7 +55,7 @@ class ContentContainer extends Component {
           data.category === 4
       )
       .slice(0, 20);
-    console.log(`latestArchiveList: ${latestArchiveList}`);
+    // console.log(`latestArchiveList: ${latestArchiveList}`);
     return (
       <div className="contentcontainer">
         <PostWrapper>

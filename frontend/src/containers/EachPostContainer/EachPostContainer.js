@@ -1,10 +1,5 @@
 import React, { Component } from "react";
-import {
-  EachPostWrapper,
-  EachPost,
-  BoardListWrapper,
-  BoardDetailPage,
-} from "../../components";
+import { BoardListWrapper } from "../../components";
 import axios from "axios";
 import "./EachPostContainer.css";
 
@@ -162,7 +157,7 @@ class EachPostContainer extends Component {
   }
 
   render() {
-    const { post, comments, list } = this.state;
+    const { list } = this.state;
 
     return (
       <div className="each_post_container">

@@ -41,12 +41,15 @@
 }
 
 input[name="username"],
+input[name="email"],
+input[name="password"],
 input[name="password2"] {
   border: 1px solid #000;
   font-family: "Helvetica", sans-serif;
   color: #888888;
   padding: 16px;
   font-size: 37px;
+  width: 100%;
 }
 
 @media (min-width: 1440px) and (max-width: 1920px) {

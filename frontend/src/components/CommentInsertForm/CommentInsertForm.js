@@ -5,19 +5,19 @@ const CommentInsertForm = ({
   commentInput,
   onChangeInput,
   onAdd,
-  error,
+  //   error,
   style,
-  onPostComment,
+  //   onPostComment,
 }) => {
-  const handleChange = (e) => {
-    const { value } = e.target;
-    onChangeInput({ value });
-  };
-  const handleKeyPress = (e) => {
-    if (e.key === "Enter") {
-      onAdd();
-    }
-  };
+  //   const handleChange = (e) => {
+  //     const { value } = e.target;
+  //     onChangeInput({ value });
+  //   };
+  //   const handleKeyPress = (e) => {
+  //     if (e.key === "Enter") {
+  //       onAdd();
+  //     }
+  //   };
   return (
     <div className="comment_input_container">
       <div className="comment_input_username">Chaewon</div>

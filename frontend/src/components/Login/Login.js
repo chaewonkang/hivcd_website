@@ -63,12 +63,18 @@ class Login extends Component {
           console.log(error.config);
         });
       axiosInstance.defaults.headers["Authorization"] =
-        "JWT" + response.data.tokens.access;
-      localStorage.setItem("access_token", response.data.tokens.access);
-      localStorage.setItem("refresh_token", response.data.tokens.refresh);
-      console.log(response.data.tokens);
+        "JWT " + response.data.tokens;
+
+      let tokens = response.data.tokens;
+      const evalTokens = eval(`tokens = ${tokens}`);
+
+      localStorage.setItem("access_token", evalTokens.access);
+      localStorage.setItem("refresh_token", evalTokens.refresh);
+
       console.log(localStorage);
-      //   this._closeModal();
+      const token = localStorage.getItem("access_token");
+      console.log(token);
+      this._closeModal();
       return response.tokens;
     } catch (error) {
       throw error;
@@ -122,6 +128,7 @@ class Login extends Component {
         <div className="navbar_login_item" onClick={this._openModal}>
           LOGIN
         </div>
+        <div className="navbar_login_item">LOGOUT</div>
       </>
     );
   }

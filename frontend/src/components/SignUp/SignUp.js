@@ -41,36 +41,23 @@ class SignUp extends Component {
     this.setState({ [e.target.name]: e.target.value });
   }
 
-  async handleSubmit(e) {
-    e.preventDefault();
+  async handleSubmit(event) {
+    event.preventDefault();
     try {
-      const response = await axiosInstance
-        .post("/auth/registration/", {
-          username: this.state.username,
-          email: this.state.email,
-          password: this.state.password,
-          password2: this.state.password2,
-        })
-        .catch(function (error) {
-          if (error.response) {
-            // The request was made and the server responded with a status code
-            // that falls out of the range of 2xx
-            console.log(error.response.data);
-            console.log(error.response.status);
-            console.log(error.response.headers);
-          } else if (error.request) {
-            // The request was made but no response was received
-            // `error.request` is an instance of XMLHttpRequest in the browser and an instance of
-            // http.ClientRequest in node.js
-            console.log(error.request);
-          } else {
-            // Something happened in setting up the request that triggered an Error
-            console.log("Error", error.message);
-          }
-          console.log(error.config);
-        });
+      const response = await axiosInstance.post("/auth/registration/", {
+        ...this.state,
+        username: this.state.username,
+        email: this.state.email,
+        password: this.state.password,
+        password2: this.state.password2,
+      });
+      return response;
     } catch (error) {
       console.log(error.stack);
+      this.setState({
+        ...this.state,
+        errors: error.response.data,
+      });
     }
   }
 
@@ -89,37 +76,55 @@ class SignUp extends Component {
           <div>
             <form onSubmit={this.handleSubmit}>
               <div className="navbar_login_modal_container">
-                <input
-                  placeholder="e-mail"
-                  type="text"
-                  name="email"
-                  value={this.state.email}
-                  onChange={this.handleChange}
-                ></input>
-                <input
-                  placeholder="username"
-                  type="text"
-                  name="username"
-                  value={this.state.username}
-                  onChange={this.handleChange}
-                ></input>
-                <input
-                  placeholder="password"
-                  type="password"
-                  name="password"
-                  value={this.state.password}
-                  onChange={this.handleChange}
-                ></input>
-                <input
-                  placeholder="confirm password"
-                  type="password"
-                  name="password2"
-                  value={this.state.password2}
-                  onChange={this.handleChange}
-                ></input>
+                <label>
+                  <input
+                    placeholder="e-mail"
+                    type="text"
+                    name="email"
+                    value={this.state.email}
+                    onChange={this.handleChange}
+                  ></input>
+                  {/* {this.state.errors.email ? this.state.errors.email : null} */}
+                </label>
+                <label>
+                  <input
+                    placeholder="username"
+                    type="text"
+                    name="username"
+                    value={this.state.username}
+                    onChange={this.handleChange}
+                  ></input>
+                  {/* {this.state.errors.username
+                    ? this.state.errors.username
+                    : null} */}
+                </label>
+                <label>
+                  <input
+                    placeholder="password"
+                    type="password"
+                    name="password"
+                    value={this.state.password}
+                    onChange={this.handleChange}
+                  ></input>
+                  {/* {this.state.errors.password
+                    ? this.state.errors.password
+                    : null} */}
+                </label>
+                <label>
+                  <input
+                    placeholder="confirm password"
+                    type="password"
+                    name="password2"
+                    value={this.state.password2}
+                    onChange={this.handleChange}
+                  ></input>
+                  {/* {this.state.errors.password2
+                    ? this.state.errors.password2
+                    : null} */}
+                </label>
                 <button
                   type="submit"
-                  value="Submit"
+                  value="submit"
                   className="signup_button"
                   onClick={() => this.handleSubmit}
                 >
