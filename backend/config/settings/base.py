@@ -23,6 +23,9 @@ ALLOWED_HOSTS = ['52.79.143.154']
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.environ.get("SECRET_KEY")
 
+import mimetypes
+mimetypes.add_type("text/css", ".css", True)
+
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.environ.get("DEBUG", True)
 
@@ -119,8 +122,6 @@ USE_TZ = True
 
 STATIC_URL = "/static/"
 
-# STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
-
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "templates", "static"),
 ]
@@ -160,6 +161,7 @@ CORS_ORIGIN_WHITELIST = [
     "http://52.79.143.154",
     "http://localhost:3000",
     "http://localhost:8000",
+    "https://hongiksidi-media.s3.ap-northeast-2.amazonaws.com",
 ]
 
 

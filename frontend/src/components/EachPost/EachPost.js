@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "./EachPost.css";
-import { EachPostNavigator } from "../../components";
+import { EachPostNavigator, CommentList, Warning } from "../../components";
 import axios from "axios";
 
 class EachPost extends Component {
@@ -16,18 +16,38 @@ class EachPost extends Component {
     };
   }
 
+  showWarning = () => {
+    this.setState({
+      ...this.state,
+      warningVisibility: true,
+    });
+
+    // after 1.5 sec
+
+    setTimeout(() => {
+      this.setState({
+        ...this.state,
+        warningVisibility: false,
+      });
+    }, 1500);
+  };
+
   getEachPost = (postId) => {
     axios
       .get("http://127.0.0.1:8000/api/v1/postings/" + postId + "/?format=json")
       .then(({ data }) => {
-        // console.log(`hellohello: ${data.files[0]["files"]}`);
+        // console.log(`hellohello: ${data.comments}`);
         this.setState({
           ...this.state,
           loading: true,
           eachPost: data,
           fileUrl: data.files[0]["files"],
           fileName: data.files[0]["name"],
+          comments: data.comments,
         });
+        console.log(this.state.comments);
+        console.log(typeof this.state.comments);
+        console.log(JSON.toString(this.state.comments));
       })
       .catch((e) => {
         console.error(e);
@@ -35,6 +55,22 @@ class EachPost extends Component {
           ...this.state,
           loading: false,
         });
+        this.showWarning();
+      });
+  };
+
+  postComment = async (postId, e) => {
+    e.preventDefault();
+    axios
+      .post(
+        "http://localhost:8000/api/v1/postings/" + postId + "/comments/",
+        this.state.commentInput
+      )
+      .then(function (response) {
+        console.log(response);
+      })
+      .catch(function (error) {
+        console.log(error);
       });
   };
 
@@ -109,11 +145,6 @@ class EachPost extends Component {
     const date = this.state.eachPost.created;
     const attachedfile = this.state.fileUrl;
     const fileName = this.state.fileName;
-    // console.log(`each post's postId: ${postId}`);
-    // console.log(this.state.eachPost.files[0]["files"]);
-    // console.log(this.state.eachPost.files);
-    console.log(attachedfile);
-    // console.log(typeof attachedfile);
 
     const style = {
       backgroundColor: this.state.style.color,
@@ -170,14 +201,19 @@ class EachPost extends Component {
           </p>
           <hr style={{ marginBottom: 2 + "em", marginTop: 2 + "em" }}></hr>
           {/* <CommentList
-            comments={comments}
+            comments={this.state.comments}
             style={style}
-            onPostComment={this.props.onPostComment}
+            onPostComment={this.onPostComment}
           ></CommentList> */}
           <EachPostNavigator
             handleNavigateClick={handleNavigateClick}
             postId={postId}
+            navDisabled={this.state.warningVisibility}
           ></EachPostNavigator>
+          <Warning
+            visible={this.state.warningVisibility}
+            message="마지막 게시물입니다."
+          />
         </div>
       </div>
     );

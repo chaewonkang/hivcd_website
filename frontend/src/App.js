@@ -17,6 +17,7 @@ import "./components/Header/Header.css";
 import ContentContainer from "./containers/ContentContainer/ContentContainer";
 import { SearchResultContainer, EachPostContainer } from "./containers";
 import axiosInstance from "./utils/axiosApi";
+import "./Animation.css";
 
 class App extends Component {
   constructor(props) {

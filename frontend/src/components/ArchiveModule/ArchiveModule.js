@@ -6,6 +6,7 @@ const ArchiveModule = ({ title, thumbnailUrl, date, category, link }) => {
   if (category === 5) categoryName = "GRADUATION EXHIBITION";
   else if (category === 6) categoryName = "WOW FILM FESTIVAL";
   else if (category === 7) categoryName = "ETC";
+  const slicedDate = date.slice(0, 10);
   return (
     <div className="archive_module">
       <div className="archive_module_tag">
@@ -16,7 +17,7 @@ const ArchiveModule = ({ title, thumbnailUrl, date, category, link }) => {
           <a href={link} target="_blank" rel="noopener noreferrer">
             {title} <br></br>
           </a>
-          {date}
+          {slicedDate}
         </div>
       </div>
       <div

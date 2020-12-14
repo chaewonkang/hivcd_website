@@ -27,6 +27,7 @@ class EachPostContainer extends Component {
         author: null,
         post: 0,
       },
+      warningVisibility: false,
     };
   }
 
@@ -63,39 +64,48 @@ class EachPostContainer extends Component {
     this.setState({
       fetching: true,
     });
-    const info = await Promise.all([
-      this.getPost(this.props.match.params.postId),
-      this.getList(),
-    ]);
 
-    const { title, text } = info[0].data;
-    const comments = info[0].data.comments;
-    const list = info[1].data;
-    const author = info[0].data.author;
-    const date = info[0].data.created;
-    const dataNum = list.length;
-    const limit = this.state.limit;
-    const pageArray = [];
-    const category = info[0].data.category;
+    try {
+      const info = await Promise.all([
+        this.getPost(this.props.match.params.postId),
+        this.getList(),
+      ]);
 
-    for (let i = 1; i <= Math.ceil(dataNum / limit); i++) {
-      pageArray.push(i);
+      const { title, text } = info[0].data;
+      const comments = info[0].data.comments;
+      const list = info[1].data;
+      const author = info[0].data.author;
+      const date = info[0].data.created;
+      const dataNum = list.length;
+      const limit = this.state.limit;
+      const pageArray = [];
+      const category = info[0].data.category;
+
+      for (let i = 1; i <= Math.ceil(dataNum / limit); i++) {
+        pageArray.push(i);
+      }
+      this.setState({
+        ...this.state,
+
+        fetching: false,
+        post: {
+          title,
+          text,
+          author,
+          date,
+        },
+        comments,
+        list,
+        pageArray,
+        category,
+      });
+    } catch (e) {
+      this.setState({
+        ...this.state,
+        fetching: false,
+      });
+      console.log("error occurred", e);
     }
-    this.setState({
-      ...this.state,
-
-      fetching: false,
-      post: {
-        title,
-        text,
-        author,
-        date,
-      },
-      comments,
-      list,
-      pageArray,
-      category,
-    });
   };
 
   handleNavigateClick = (type) => {
@@ -159,7 +169,7 @@ class EachPostContainer extends Component {
 
   render() {
     const token = localStorage.getItem("access_token");
-    console.log(token);
+    // console.log(token);
 
     if (token === null) {
       alert("권한이 없습니다.");
@@ -172,14 +182,10 @@ class EachPostContainer extends Component {
         <BoardListWrapper
           list={list}
           postId={this.props.match.params.postId}
-          //   title={post.title}
-          //   body={post.text}
-          //   comments={comments}
           handleNavigateClick={this.handleNavigateClick}
-          //   category={this.state.category}
-          //   author={post.author}
-          //   date={post.date}
           onPostComment={this.postComment}
+          showWarning={this.showWarning}
+          fetching={this.state.fetching}
         ></BoardListWrapper>
         <div>{/* {this.props.match.params.postId} {post.title} */}</div>
       </div>

@@ -13,6 +13,7 @@ const PostModule = ({ style, title, date, category, id }) => {
   else if (category === 7) categoryName = "ETC";
   //   console.log(`category name is: ${categoryName}`);
   const postId = parseInt(id, 10);
+  const slicedDate = date.slice(0, 10);
   return (
     <Link to={`/board/${postId}`}>
       <div className="post" style={style}>
@@ -23,7 +24,7 @@ const PostModule = ({ style, title, date, category, id }) => {
           <div className="post_content_header">
             {title} <br></br>
           </div>
-          <span className="post_content_date">{date}</span>
+          <span className="post_content_date">{slicedDate}</span>
         </div>
       </div>
     </Link>
