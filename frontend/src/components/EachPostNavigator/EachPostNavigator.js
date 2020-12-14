@@ -2,18 +2,14 @@ import React from "react";
 import "./EachPostNavigator.css";
 import { useHistory } from "react-router-dom";
 
-const EachPostNavigator = ({
-  onClick,
-  postId,
-  disabled,
-  handleNavigateClick,
-}) => {
+const EachPostNavigator = ({ postId, handleNavigateClick }) => {
   let history = useHistory();
   let id = parseInt(postId, 10);
-  //   console.log(`EachPostNavigator postId: ${postId}`);
   function routeToPrevPost() {
     id = id - 1;
-    history.push(`/board/${id}`);
+    if (id > 0) {
+      history.push(`/board/${id}`);
+    }
     handleNavigateClick("PREV");
   }
   function routeToNextPost() {

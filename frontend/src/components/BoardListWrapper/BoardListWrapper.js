@@ -16,6 +16,7 @@ const BoardListWrapper = ({
   author,
   date,
   onPostComment,
+
   //   fetchPostInfo,
 }) => {
   let history = useHistory();
