@@ -1,3 +1,4 @@
+priv/
 backend/.djangoenv
 .djangoenv
 .DS_Store
