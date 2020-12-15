@@ -18,11 +18,16 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__fil
 FRONTEND_URL = os.environ.get("FRONTEND_URL")
 APP_SCHEME = os.environ.get("APP_SCHEME")
 
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ.get("SECRET_KEY")
-
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.environ.get("DEBUG", True)
+
+if DEBUG == False:
+    ALLOWED_HOSTS = ['13.125.84.10', '127.0.0.1', 'localhost']
+else:
+    ALLOWED_HOSTS = ['*']
+
+# SECURITY WARNING: keep the secret key used in production secret!
+SECRET_KEY = os.environ.get("SECRET_KEY")
 
 # Application definition
 DJANGO_APPS = [
@@ -49,6 +54,8 @@ THIRDPARTY_APPS = [
     "corsheaders",
     "drf_yasg",
     "django_seed",
+    "storages",
+    "sslserver",
 ]
 
 INSTALLED_APPS = DJANGO_APPS + PROJECT_APPS + THIRDPARTY_APPS
@@ -86,6 +93,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = "config.wsgi.application"
 
+# WSGI_APPLICATION = 'wsgi.application'
 AUTH_PASSWORD_VALIDATORS = [
     {
         "NAME": "django.contrib.auth.password_validation.UserAttributeSimilarityValidator",
@@ -111,17 +119,34 @@ USE_L10N = True
 
 USE_TZ = True
 
+# S3 Strorage
+#DEFAULT_FILE_STORAGE = 'config.storage_backends.MediaStorage'
+#STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+
+
 # Static files (CSS, JavaScript, Images)
-STATIC_URL = "/static/"
-STATIC_ROOT = os.path.join(BASE_DIR, "assets")
+#STATIC_URL = 'https://%s/%s/static/' % (AWS_S3_CUSTOM_DOMAIN, AWS_LOCATION)
+STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "templates", "static"),
 ]
-STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
+
+
+# AWS Access
+#AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
+#AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
+#AWS_STORAGE_BUCKET_NAME = 'hivcdmedia'
+#AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
+#AWS_S3_OBJECT_PARAMETERS = {'CacheControl': 'max-age=86400',}
+#AWS_LOCATION = 'static'
+
 
 # Media files
 MEDIA_URL = "/media/"
-MEDIA_ROOT = os.path.join(BASE_DIR, "uploads")
+MEDIA_ROOT = os.path.join(BASE_DIR, 'uploads')
+#MEDIA_ROOT = 'https://%s/%s/media/' % (AWS_S3_CUSTOM_DOMAIN, AWS_LOCATION)
+
 
 # Rest Framework
 REST_FRAMEWORK = {
@@ -141,8 +166,10 @@ EMAIL_HOST_PASSWORD = os.environ.get("EMAIL_HOST_PASSWORD")
 
 # Cors Policy
 CORS_ORIGIN_WHITELIST = [
+    "http://52.79.143.154",
     "http://localhost:3000",
     "http://localhost:8000",
+    "https://hongiksidi-media.s3.ap-northeast-2.amazonaws.com",
 ]
 
 

@@ -1,3 +1,7 @@
+priv/
+backend/.djangoenv
+.djangoenv
+.DS_Store
 .back_venv
 .venv
 .vscode
