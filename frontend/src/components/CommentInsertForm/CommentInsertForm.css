@@ -19,7 +19,7 @@ button.comment_input_button {
   right: 0;
 }
 
-input[name="comment"] {
+input[name="text"] {
   border-bottom: 1px solid #000;
   border-top: none;
   border-left: none;

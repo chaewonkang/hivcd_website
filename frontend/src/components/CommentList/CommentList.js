@@ -3,7 +3,7 @@ import "./CommentList.css";
 import { Comment } from "../../components";
 import CommentInsertForm from "../CommentInsertForm/CommentInsertForm";
 
-const CommentList = ({ comments, style, onPostComment }) => {
+const CommentList = ({ comments, style, onPostComment, postId }) => {
   let commentList;
   if (comments) {
     commentList = comments.map((comment) => {
@@ -25,6 +25,7 @@ const CommentList = ({ comments, style, onPostComment }) => {
       <CommentInsertForm
         style={style}
         onPostComment={onPostComment}
+        postId={postId}
       ></CommentInsertForm>
     </div>
   );

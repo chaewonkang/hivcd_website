@@ -9,7 +9,7 @@ const CommentInsertForm = ({
   onChangeInput,
   onAdd,
   style,
-  onPostComment,
+  postId,
 }) => {
   axios.defaults.xsrfCookieName = "csrftoken";
   axios.defaults.xsrfHeaderName = "X-CSRFToken";
@@ -29,7 +29,15 @@ const CommentInsertForm = ({
     return cookieValue;
   }
 
-  async function handleSubmit(e, t) {
+  function handleChange(e) {
+    setComment({
+      author: username,
+      [e.target.name]: e.target.value,
+      post: postId,
+    });
+  }
+
+  async function handleSubmit(e, t, data) {
     e.preventDefault();
     console.log(t);
 
@@ -38,9 +46,7 @@ const CommentInsertForm = ({
         .post(
           "http://127.0.0.1:8000/api/v1/postings/100/comments/",
           {
-            author: 12,
-            text: "hello!! testststs",
-            post: 100,
+            ...data,
           },
           {
             headers: {
@@ -71,8 +77,9 @@ const CommentInsertForm = ({
   }
 
   const [username, setUsername] = useState(localStorage.username);
+  const [comment, setComment] = useState({});
   const token = getCookie("csrftoken");
-  console.log(typeof token);
+  console.log(comment);
 
   return (
     <div className="comment_input_container">
@@ -81,13 +88,16 @@ const CommentInsertForm = ({
         <form>
           <input
             type="text"
-            name="comment"
+            name="text"
             placeholder="댓글을 입력하세요."
             style={{ backgroundColor: style.backgroundColor }}
+            onChange={(e) => handleChange(e)}
           ></input>
           <button
             className="comment_input_button"
-            onClick={(e, t = token) => handleSubmit(e, (t = token))}
+            onClick={(e, t = token, data = comment) =>
+              handleSubmit(e, (t = token), (data = comment))
+            }
           >
             입력
           </button>

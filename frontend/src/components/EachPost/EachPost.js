@@ -201,6 +201,7 @@ class EachPost extends Component {
             comments={this.state.comments}
             style={style}
             onPostComment={this.onPostComment}
+            postId={postId}
           ></CommentList>
           <EachPostNavigator
             handleNavigateClick={handleNavigateClick}
