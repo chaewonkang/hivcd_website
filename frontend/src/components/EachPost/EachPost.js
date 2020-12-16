@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import "./EachPost.css";
 import { EachPostNavigator, CommentList, Warning } from "../../components";
 import axios from "axios";
+import getCookie from "../../utils/getCookie";
 
 class EachPost extends Component {
   constructor(props) {
@@ -13,6 +14,7 @@ class EachPost extends Component {
       },
       eachPost: {},
       files: null,
+      token: getCookie("csrftoken"),
     };
   }
 
@@ -34,7 +36,18 @@ class EachPost extends Component {
 
   getEachPost = (postId) => {
     axios
-      .get("http://127.0.0.1:8000/api/v1/postings/" + postId + "/?format=json")
+      .get(
+        "http://127.0.0.1:8000/api/v1/postings/" + postId,
+        {},
+        {
+          headers: {
+            Authorization: "Bearer " + localStorage.getItem("access_token"),
+            Accept: "application/json",
+            "X-CSRFToken": this.state.token,
+            "Content-type": "application/json",
+          },
+        }
+      )
       .then(({ data }) => {
         // console.log(`hellohello: ${data.comments}`);
         this.setState({
@@ -53,21 +66,6 @@ class EachPost extends Component {
           loading: false,
         });
         this.showWarning();
-      });
-  };
-
-  postComment = async (postId, e) => {
-    e.preventDefault();
-    axios
-      .post(
-        "http://localhost:8000/api/v1/postings/" + postId + "/comments/",
-        this.state.commentInput
-      )
-      .then(function (response) {
-        console.log(response);
-      })
-      .catch(function (error) {
-        console.log(error);
       });
   };
 
@@ -142,6 +140,7 @@ class EachPost extends Component {
     const date = this.state.eachPost.created;
     const attachedfile = this.state.fileUrl;
     const fileName = this.state.fileName;
+    console.log(this.state.token);
 
     const style = {
       backgroundColor: this.state.style.color,

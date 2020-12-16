@@ -1,7 +1,7 @@
 import React from "react";
 import "./AlumniModule.css";
 
-const AlumniModule = ({ key, year, name, tel, url }) => {
+const AlumniModule = ({ year, name, tel, url }) => {
   return (
     <div className="alumni_module_container">
       {year} <br></br>

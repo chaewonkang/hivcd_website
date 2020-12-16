@@ -3,6 +3,7 @@ import { BoardListWrapper, Warning } from "../../components";
 import axios from "axios";
 import { Redirect } from "react-router-dom";
 import "./EachPostContainer.css";
+import getCookie from "../../utils/getCookie";
 
 class EachPostContainer extends Component {
   constructor(props) {
@@ -28,6 +29,7 @@ class EachPostContainer extends Component {
         post: 0,
       },
       warningVisibility: false,
+      csrftoken: getCookie("csrftoken"),
     };
   }
 
@@ -36,29 +38,34 @@ class EachPostContainer extends Component {
   }
 
   getList() {
-    return axios.get("http://127.0.0.1:8000/api/v1/postings/?format=json");
+    return axios.get(
+      "http://127.0.0.1:8000/api/v1/postings/?format=json",
+      {},
+      {
+        headers: {
+          Authorization: "Bearer " + localStorage.getItem("access_token"),
+          Accept: "application/json",
+          "X-CSRFToken": this.state.token,
+          "Content-type": "application/json",
+        },
+      }
+    );
   }
 
   getPost(postId) {
     return axios.get(
-      "http://127.0.0.1:8000/api/v1/postings/" + postId + "/?format=json"
+      "http://127.0.0.1:8000/api/v1/postings/" + postId + "/?format=json",
+      {},
+      {
+        headers: {
+          Authorization: "Bearer " + localStorage.getItem("access_token"),
+          Accept: "application/json",
+          "X-CSRFToken": this.state.token,
+          "Content-type": "application/json",
+        },
+      }
     );
   }
-
-  postComment = async (postId, e) => {
-    e.preventDefault();
-    axios
-      .post(
-        "http://localhost:8000/api/v1/postings/" + postId + "/comments/",
-        this.state.commentInput
-      )
-      .then(function (response) {
-        console.log(response);
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
-  };
 
   fetchPostInfo = async (postId) => {
     this.setState({

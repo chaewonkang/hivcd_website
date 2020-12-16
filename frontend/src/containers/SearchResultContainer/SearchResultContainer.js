@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import axios from "axios";
 import { Post } from "../../components";
 import "./SearchResultContainer.css";
+import getCookie from "../../utils/getCookie";
 
 class SearchResultContainer extends Component {
   constructor(props) {
@@ -10,6 +11,7 @@ class SearchResultContainer extends Component {
       searchKeyword: this.props.searchKeyword,
       postList: [],
       archiveList: [],
+      token: getCookie("csrftoken"),
     };
   }
 
@@ -19,7 +21,18 @@ class SearchResultContainer extends Component {
 
   _loadPost = async () => {
     axios
-      .get("http://127.0.0.1:8000/api/v1/postings")
+      .get(
+        "http://127.0.0.1:8000/api/v1/postings",
+        {},
+        {
+          headers: {
+            Authorization: "Bearer " + localStorage.getItem("access_token"),
+            Accept: "application/json",
+            "X-CSRFToken": this.state.token,
+            "Content-type": "application/json",
+          },
+        }
+      )
       .then(({ data }) => {
         this.setState({
           ...this.state,

@@ -1,34 +1,9 @@
 import React, { useState } from "react";
 import "./CommentInsertForm.css";
 import axios from "axios";
-import CSRFToken from "../../utils/CSRFToken";
-import jQuery from "jquery";
+import getCookie from "../../utils/getCookie";
 
-const CommentInsertForm = ({
-  commentInput,
-  onChangeInput,
-  onAdd,
-  style,
-  postId,
-}) => {
-  axios.defaults.xsrfCookieName = "csrftoken";
-  axios.defaults.xsrfHeaderName = "X-CSRFToken";
-
-  function getCookie(name) {
-    var cookieValue = null;
-    if (document.cookie && document.cookie !== "") {
-      var cookies = document.cookie.split(";");
-      for (var i = 0; i < cookies.length; i++) {
-        var cookie = cookies[i].replace(" ", "");
-        if (cookie.substring(0, name.length + 1) === name + "=") {
-          cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
-          break;
-        }
-      }
-    }
-    return cookieValue;
-  }
-
+const CommentInsertForm = ({ style, postId }) => {
   function handleChange(e) {
     setComment({
       author: username,

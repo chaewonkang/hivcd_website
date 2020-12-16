@@ -1,8 +1,6 @@
 import React, { Component } from "react";
-import "bootstrap/dist/css/bootstrap.min.css";
 import Modal from "react-awesome-modal";
 import "./Search.css";
-import { withRouter } from "react-router-dom";
 
 class Search extends Component {
   constructor(props) {
@@ -27,15 +25,12 @@ class Search extends Component {
     document.body.style.overflow = "unset";
   };
 
-  _changeSearch = function () {};
-
   submitSearch(e) {
     e.preventDefault();
     const searchValue = document.getElementsByName("search")[0].value;
 
     this.props.handleSearchKeyword(searchValue);
     console.log(`Search Component value is: ${searchValue}`);
-    this.props.history.push("/search");
     this._closeModal();
   }
 
@@ -61,4 +56,4 @@ class Search extends Component {
   }
 }
 
-export default withRouter(Search);
+export default Search;

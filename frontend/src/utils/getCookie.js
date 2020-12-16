@@ -1,5 +1,4 @@
 import axios from "axios";
-import React from "react";
 
 axios.defaults.xsrfCookieName = "csrftoken";
 axios.defaults.xsrfHeaderName = "X-CSRFToken";
@@ -18,9 +17,5 @@ function getCookie(name) {
   }
   return cookieValue;
 }
-const CSRFToken = () => {
-  const csrftoken = getCookie("csrftoken");
-  return <input type="hidden" name="csrfmiddlewaretoken" value={csrftoken} />;
-};
 
-export default CSRFToken;
+export default getCookie;
