@@ -8,15 +8,6 @@
   padding-left: 0;
 }
 
-input[name="comment"] {
-  border-bottom: 1px solid #000;
-  border-top: none;
-  border-left: none;
-  border-right: none;
-  width: 90%;
-  outline: none;
-}
-
 /********** Large devices only **********/
 @media (min-width: 1200px) {
 }

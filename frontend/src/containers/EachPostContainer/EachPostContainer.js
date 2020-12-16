@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { BoardListWrapper } from "../../components";
+import { BoardListWrapper, Warning } from "../../components";
 import axios from "axios";
 import { Redirect } from "react-router-dom";
 import "./EachPostContainer.css";
@@ -36,12 +36,12 @@ class EachPostContainer extends Component {
   }
 
   getList() {
-    return axios.get("http://13.125.84.10/api/v1/postings/?format=json");
+    return axios.get("http://127.0.0.1:8000/api/v1/postings/?format=json");
   }
 
   getPost(postId) {
     return axios.get(
-      "http://13.125.84.10/api/v1/postings/" + postId + "/?format=json"
+      "http://127.0.0.1:8000/api/v1/postings/" + postId + "/?format=json"
     );
   }
 

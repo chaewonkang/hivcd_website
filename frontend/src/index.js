@@ -6,6 +6,7 @@ import "./index.css";
 import "normalize.css";
 import "semantic-ui-css/semantic.min.css";
 import * as serviceWorker from "./serviceWorker";
+import axios from "axios";
 
 // REDUX
 import { Provider } from "react-redux";
