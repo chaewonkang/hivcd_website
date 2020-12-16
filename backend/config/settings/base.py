@@ -153,8 +153,8 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'uploads')
 REST_FRAMEWORK = {
     "DEFAULT_AUTHENTICATION_CLASSES": (
         "rest_framework_simplejwt.authentication.JWTAuthentication",
-        "rest_framework.authentication.BasicAuthentication",
-        "rest_framework.authentication.SessionAuthentication",
+#        "rest_framework.authentication.BasicAuthentication",
+#        "rest_framework.authentication.SessionAuthentication",
     )
 }
 
@@ -171,6 +171,7 @@ EMAIL_HOST_PASSWORD = os.environ.get("EMAIL_HOST_PASSWORD")
 
 # Cors Policy
 CORS_ORIGIN_WHITELIST = [
+    "http://13.125.84.10",
     "http://13.125.84.10:8000",
     "http://127.0.0.1:8000",
     "http://13.125.84.10:80",
