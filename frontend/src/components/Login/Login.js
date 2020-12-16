@@ -12,10 +12,9 @@ class Login extends Component {
       email: "",
       password: "",
     };
-    this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
     this._closeModal = this._closeModal.bind(this);
     this._openModal = this._openModal.bind(this);
+    this.handleChange = this.handleChange.bind(this);
   }
 
   _openModal = function () {
@@ -34,50 +33,24 @@ class Login extends Component {
 
   handleChange = (e) => {
     this.setState({ [e.target.name]: e.target.value });
+    console.log(this.state);
   };
 
-  async handleSubmit(e) {
+  handleSubmit = (e) => {
     e.preventDefault();
-    try {
-      const response = await axiosInstance
-        .post("/auth/login/", {
-          email: this.state.email,
-          password: this.state.password,
-        })
-        .catch(function (error) {
-          if (error.response) {
-            // The request was made and the server responded with a status code
-            // that falls out of the range of 2xx
-            console.log(error.response.data);
-            console.log(error.response.status);
-            console.log(error.response.headers);
-          } else if (error.request) {
-            // The request was made but no response was received
-            // `error.request` is an instance of XMLHttpRequest in the browser and an instance of
-            // http.ClientRequest in node.js
-            console.log(error.request);
-          } else {
-            // Something happened in setting up the request that triggered an Error
-            console.log("Error", error.message);
-          }
-          console.log(error.config);
-        });
-      axiosInstance.defaults.headers["Authorization"] =
-        "JWT " + response.data.tokens;
-
-      let tokens = response.data.tokens;
-      const evalTokens = eval(`tokens = ${tokens}`);
-
-      localStorage.setItem("access_token", evalTokens.access);
-      localStorage.setItem("refresh_token", evalTokens.refresh);
-
-      console.log(localStorage);
-      this._closeModal();
-      return response.tokens;
-    } catch (error) {
-      throw error;
+    const { email, password } = this.state;
+    this.props.handleLogin({
+      email: email,
+      password: password,
+    });
+    if (localStorage.access_token) {
+      this.setState({
+        ...this.state,
+        isLogged: true,
+      });
     }
-  }
+    this._closeModal();
+  };
 
   render() {
     return (
@@ -90,27 +63,27 @@ class Login extends Component {
           onClickAway={this._closeModal}
         >
           <div>
-            <form onSubmit={this.handleSubmit}>
+            <form onSubmit={(e) => this.handleSubmit(e)}>
               <div className="navbar_login_modal_container">
                 <input
                   placeholder="email"
                   type="text"
                   name="email"
                   value={this.state.email}
-                  onChange={this.handleChange}
+                  onChange={(e) => this.handleChange(e)}
                 ></input>
                 <input
                   placeholder="password"
                   type="password"
                   name="password"
                   value={this.state.password}
-                  onChange={this.handleChange}
+                  onChange={(e) => this.handleChange(e)}
                 ></input>
                 <div
                   type="submit"
                   value="Submit"
                   className="login_button"
-                  onClick={this.handleSubmit}
+                  onClick={(e) => this.handleSubmit(e)}
                 >
                   <span>LOGIN</span>
                 </div>
@@ -123,7 +96,7 @@ class Login extends Component {
             </form>
           </div>
         </Modal>
-        {localStorage.access_token ? (
+        {this.state.isLogged ? (
           <div
             className="navbar_login_item"
             onClick={() => this.props.handleLogout()}

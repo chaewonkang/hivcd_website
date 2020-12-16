@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import { Post, LogoImage, BoardPostWrapper } from "../../components";
 import axios from "axios";
 import "./Board.css";
-import withAuth from "../../utils/withAuth";
 
 class Board extends Component {
   constructor(props) {
@@ -136,4 +135,4 @@ class Board extends Component {
   }
 }
 
-export default withAuth(Board);
+export default Board;

@@ -45,9 +45,6 @@ class EachPost extends Component {
           fileName: data.files[0]["name"],
           comments: data.comments,
         });
-        console.log(this.state.comments);
-        console.log(typeof this.state.comments);
-        console.log(JSON.toString(this.state.comments));
       })
       .catch((e) => {
         console.error(e);
@@ -200,11 +197,11 @@ class EachPost extends Component {
             {body}
           </p>
           <hr style={{ marginBottom: 2 + "em", marginTop: 2 + "em" }}></hr>
-          {/* <CommentList
+          <CommentList
             comments={this.state.comments}
             style={style}
             onPostComment={this.onPostComment}
-          ></CommentList> */}
+          ></CommentList>
           <EachPostNavigator
             handleNavigateClick={handleNavigateClick}
             postId={postId}

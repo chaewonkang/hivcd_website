@@ -88,6 +88,7 @@ li.page_num:target {
   .board_list_container {
     /* display: none; */
     margin-top: 20px;
+    margin-bottom: 20px;
     order: 2;
   }
 }
@@ -97,6 +98,7 @@ li.page_num:target {
   .board_list_container {
     /* display: none; */
     margin-top: 20px;
+    margin-bottom: 20px;
     order: 2;
   }
 }
@@ -104,6 +106,7 @@ li.page_num:target {
 @media (max-width: 576px) {
   .board_list_container {
     margin-top: 20px;
+    margin-bottom: 20px;
     order: 2;
   }
 }

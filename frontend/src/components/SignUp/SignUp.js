@@ -53,7 +53,6 @@ class SignUp extends Component {
       });
       return response;
     } catch (error) {
-      console.log(error.stack);
       this.setState({
         ...this.state,
         errors: error.response.data,
