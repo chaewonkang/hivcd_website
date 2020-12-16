@@ -109,4 +109,8 @@ li.page_num:target {
     margin-bottom: 20px;
     order: 2;
   }
+
+  .list_grid {
+    display: block;
+  }
 }

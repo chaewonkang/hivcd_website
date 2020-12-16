@@ -10,8 +10,6 @@ import AboutUs from "./AboutUs/AboutUs";
 import Alumni from "./Alumni/Alumni";
 import Archive from "./Archive/Archive";
 import Calandar from "./Calandar/Calandar";
-import Equipment from "./Equipment/Equipment";
-import Classroom from "./Classroom/Classroom";
 import LogoImage from "./LogoImage/LogoImage";
 import CalandarContainer from "./CalandarContainer/CalandarContainer";
 import Search from "./Search/Search";
@@ -48,8 +46,6 @@ export {
   Alumni,
   Archive,
   Calandar,
-  Equipment,
-  Classroom,
   LogoImage,
   CalandarContainer,
   Search,

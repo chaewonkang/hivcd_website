@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import Modal from "react-awesome-modal";
 import "./Login.css";
 import { Link, withRouter } from "react-router-dom";
-import axiosInstance from "../../utils/axiosApi";
 
 class Login extends Component {
   constructor(props) {

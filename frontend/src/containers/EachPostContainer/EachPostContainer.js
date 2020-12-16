@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { BoardListWrapper, Warning } from "../../components";
+import { BoardListWrapper } from "../../components";
 import axios from "axios";
 import { Redirect } from "react-router-dom";
 import "./EachPostContainer.css";

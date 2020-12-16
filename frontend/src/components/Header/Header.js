@@ -74,6 +74,8 @@ class Header extends Component {
             <ResponsiveHeader
               navClass="nav-small"
               linkClassName="nav-small-link"
+              handleLogout={this.props.handleLogout}
+              handleLogin={this.props.handleLogin}
             ></ResponsiveHeader>
           </div>
         </div>
