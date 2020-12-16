@@ -37,14 +37,13 @@ const CommentInsertForm = ({
     });
   }
 
-  async function handleSubmit(e, t, data) {
+  async function handleSubmit(e, t, data, p) {
     e.preventDefault();
-    console.log(t);
 
     try {
       const response = await axios
         .post(
-          "http://127.0.0.1:8000/api/v1/postings/100/comments/",
+          "http://127.0.0.1:8000/api/v1/postings/" + p + "/comments/",
           {
             ...data,
           },
@@ -79,7 +78,6 @@ const CommentInsertForm = ({
   const [username, setUsername] = useState(localStorage.username);
   const [comment, setComment] = useState({});
   const token = getCookie("csrftoken");
-  console.log(comment);
 
   return (
     <div className="comment_input_container">
@@ -95,8 +93,8 @@ const CommentInsertForm = ({
           ></input>
           <button
             className="comment_input_button"
-            onClick={(e, t = token, data = comment) =>
-              handleSubmit(e, (t = token), (data = comment))
+            onClick={(e, t = token, data = comment, p = postId) =>
+              handleSubmit(e, (t = token), (data = comment), (p = postId))
             }
           >
             입력
