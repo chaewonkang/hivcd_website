@@ -37,18 +37,15 @@ class Login extends Component {
   };
 
   handleSubmit = (e) => {
-    e.preventDefault();
     const { email, password } = this.state;
     this.props.handleLogin({
       email: email,
       password: password,
     });
-    if (localStorage.access_token) {
-      this.setState({
-        ...this.state,
-        isLogged: true,
-      });
-    }
+    this.setState({
+      ...this.state,
+      isLogged: true,
+    });
     this._closeModal();
   };
 
@@ -96,7 +93,7 @@ class Login extends Component {
             </form>
           </div>
         </Modal>
-        {this.state.isLogged ? (
+        {localStorage.getItem("access_token") || this.state.isLogged ? (
           <div
             className="navbar_login_item"
             onClick={() => this.props.handleLogout()}

@@ -106,11 +106,9 @@ class App extends Component {
     }
   };
 
-  componentDidUpdate(prevState) {
+  componentDidUpdate() {
     if (localStorage.username) {
-      if (this.state.isLogged !== prevState.isLogged) {
-        this.setState({ isLogged: true });
-      }
+      this.setState({ isLogged: true });
     }
   }
 
