@@ -142,6 +142,7 @@ STATICFILES_DIRS = [
 #AWS_LOCATION = 'static'
 
 
+
 # Media files
 MEDIA_URL = "/media/"
 MEDIA_ROOT = os.path.join(BASE_DIR, 'uploads')
@@ -157,6 +158,8 @@ REST_FRAMEWORK = {
     )
 }
 
+
+
 # Email Settings
 EMAIL_USE_TLS = os.environ.get("EMAIL_USE_TLS")
 EMAIL_HOST = os.environ.get("EMAIL_HOST")
@@ -164,12 +167,14 @@ EMAIL_PORT = os.environ.get("EMAIL_PORT")
 EMAIL_HOST_USER = os.environ.get("EMAIL_HOST_USER")
 EMAIL_HOST_PASSWORD = os.environ.get("EMAIL_HOST_PASSWORD")
 
+
+
 # Cors Policy
 CORS_ORIGIN_WHITELIST = [
-    "http://52.79.143.154",
-    "http://localhost:3000",
-    "http://localhost:8000",
-    "https://hongiksidi-media.s3.ap-northeast-2.amazonaws.com",
+    "http://13.125.84.10:8000",
+    "http://127.0.0.1:8000",
+    "http://13.125.84.10:80",
+#   "https://hongiksidi-media.s3.ap-northeast-2.amazonaws.com",
 ]
 
 

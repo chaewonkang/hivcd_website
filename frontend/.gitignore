@@ -8,8 +8,11 @@
 # testing
 /coverage
 
+<<<<<<< HEAD
 # production
 # /build
+=======
+>>>>>>> e05a962eaec8a112b3f33e4ea329ea71b906a55f
 
 # misc
 .DS_Store

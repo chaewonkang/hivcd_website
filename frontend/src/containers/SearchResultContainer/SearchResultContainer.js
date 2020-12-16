@@ -15,7 +15,6 @@ class SearchResultContainer extends Component {
 
   componentDidMount() {
     this._loadPost();
-    this._loadArchive();
   }
 
   _loadPost = async () => {
@@ -37,48 +36,33 @@ class SearchResultContainer extends Component {
       });
   };
 
-  _loadArchive = async () => {
-    axios
-      .get("https://jsonplaceholder.typicode.com/photos")
-      .then(({ data }) => {
-        this.setState({
-          ...this.state,
-          loadingArchive: true,
-          archiveList: data,
-        });
-      })
-      .catch((e) => {
-        console.error(e);
-        this.setState({
-          ...this.state,
-          loadingArchive: false,
-        });
-      });
-  };
-
   render() {
     console.log(
       `searchResultContainer's searchKeyword: ${this.state.searchKeyword}`
     );
     const { postList } = this.state;
-    const items = postList
-      .filter((data) => {
-        if (this.state.searchKeyword === null) return data;
-        else if (data.title.toLowerCase().includes(this.state.searchKeyword))
-          return data;
-        return;
-      })
-      .map((data) => {
-        return (
-          <Post
-            key={data.pk}
-            title={data.title}
-            body={data.body}
-            id={data.pk}
-            category={data.category}
-          ></Post>
-        );
-      });
+
+    let items;
+    if (items) {
+      const items = postList
+        .filter((data) => {
+          if (this.state.searchKeyword === null) return data;
+          else if (data.title.toLowerCase().includes(this.state.searchKeyword))
+            return data;
+          return;
+        })
+        .map((data) => {
+          return (
+            <Post
+              key={data.pk}
+              title={data.title}
+              body={data.body}
+              id={data.pk}
+              category={data.category}
+            ></Post>
+          );
+        });
+    }
 
     return (
       <div className="search_result_container">

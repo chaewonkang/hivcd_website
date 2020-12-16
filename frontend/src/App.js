@@ -18,8 +18,12 @@ import ContentContainer from "./containers/ContentContainer/ContentContainer";
 import { SearchResultContainer, EachPostContainer } from "./containers";
 import axiosInstance from "./utils/axiosApi";
 import "./Animation.css";
+import axios from 'axios'
 
 class App extends Component {
+
+	axios.defaults.withCredentials = true;
+
   constructor(props) {
     super(props);
     this.state = {
@@ -27,7 +31,7 @@ class App extends Component {
       onLogin: this.onLogin,
       onLogout: this.onLogout,
       searchKeyword: "",
-      isLogged: true,
+      isLogged: false,
     };
     this.handleLogout = this.handleLogout.bind(this);
   }
@@ -38,6 +42,46 @@ class App extends Component {
       searchKeyword: keyword,
     });
   };
+
+  async handleLogin(data) {
+    const { email, password } = data;
+    try {
+      const response = await axiosInstance
+        .post("/auth/login/", {
+          email: email,
+          password: password,
+        })
+        .catch(function (error) {
+          if (error.response) {
+            console.log(error.response.data);
+            console.log(error.response.status);
+            console.log(error.response.headers);
+          } else if (error.request) {
+            console.log(error.request);
+          } else {
+            console.log("Error", error.message);
+          }
+          console.log(error.config);
+        });
+
+      axiosInstance.defaults.headers["Authorization"] =
+        "JWT " + response.data.tokens;
+
+      let tokens = response.data.tokens;
+      const evalTokens = eval(`tokens = ${tokens}`);
+
+      localStorage.setItem("access_token", evalTokens.access);
+      localStorage.setItem("refresh_token", evalTokens.refresh);
+      localStorage.setItem("email", response.data.email);
+      localStorage.setItem("username", response.data.username);
+
+      console.log(response);
+      console.log(localStorage);
+      return response.tokens;
+    } catch (error) {
+      throw error;
+    }
+  }
 
   async handleLogout(e) {
     try {
@@ -66,6 +110,14 @@ class App extends Component {
     }
   };
 
+  componentDidUpdate(prevState) {
+    if (localStorage.username) {
+      if (this.state.isLogged !== prevState.isLogged) {
+        this.setState({ isLogged: true });
+      }
+    }
+  }
+
   render() {
     return (
       <main>
@@ -80,6 +132,8 @@ class App extends Component {
             <Header
               handleSearchKeyword={this.handleSearchKeyword}
               handleLogout={this.handleLogout}
+              handleLogin={this.handleLogin}
+              isLogged={this.state.isLogged}
             ></Header>
             <Route exact path="/" component={ContentContainer} />
             <Route exact path="/board" component={Board} />

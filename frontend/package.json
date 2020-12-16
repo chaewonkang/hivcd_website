@@ -10,6 +10,7 @@
     "axios": "^0.21.0",
     "bootstrap": "^4.5.2",
     "classnames": "^2.2.6",
+    "core-js": "^3.8.1",
     "file-saver": "^2.0.5",
     "google-maps-react": "^2.0.6",
     "immutable": "^4.0.0-rc.12",
@@ -72,5 +73,6 @@
   },
   "devDependencies": {
     "parcel-bundler": "^1.12.4"
-  }
+  },
+	  "proxy" : "http://13.125.84.10/"
 }
