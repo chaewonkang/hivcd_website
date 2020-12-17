@@ -30,29 +30,7 @@ class Header extends Component {
     });
   };
 
-  _changeId = function () {
-    const idValue = document.getElementsByName("id")[0].value;
-    console.log(idValue);
-
-    this.setState({
-      ...this.state,
-      id: idValue,
-    });
-  };
-
-  _changePW = function () {
-    const pwValue = document.getElementsByName("password")[0].value;
-    console.log(pwValue);
-
-    this.setState({
-      ...this.state,
-      password: pwValue,
-    });
-  };
-
   render() {
-    const { logged, onLogout } = this.props;
-
     return (
       <header>
         <div className="header_container">
@@ -66,7 +44,10 @@ class Header extends Component {
               </Link>
             </div>
             <div className="header_container_login">
-              <Login logged={logged} onLogOut={onLogout}></Login>
+              <Login
+                handleLogout={this.props.handleLogout}
+                handleLogin={this.props.handleLogin}
+              ></Login>
             </div>
           </div>
           <div className="header_container_right">
@@ -93,6 +74,8 @@ class Header extends Component {
             <ResponsiveHeader
               navClass="nav-small"
               linkClassName="nav-small-link"
+              handleLogout={this.props.handleLogout}
+              handleLogin={this.props.handleLogin}
             ></ResponsiveHeader>
           </div>
         </div>

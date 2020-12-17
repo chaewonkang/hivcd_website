@@ -27,7 +27,18 @@ class Alumni extends Component {
 
   getAlumnis = async () => {
     axios
-      .get("http://127.0.0.1:8000/api/v1/alumnis/")
+      .get(
+        "http://127.0.0.1:8000/api/v1/alumnis/",
+        {},
+        {
+          headers: {
+            Authorization: "Bearer " + localStorage.getItem("access_token"),
+            Accept: "application/json",
+            "X-CSRFToken": this.state.token,
+            "Content-type": "application/json",
+          },
+        }
+      )
       .then(({ data }) => {
         this.setState({
           ...this.state,
@@ -52,7 +63,8 @@ class Alumni extends Component {
         else if (
           data.name.toLowerCase().includes(this.state.alumniSearch) ||
           data.phone.includes(this.state.alumniSearch) ||
-          data.website.toLowerCase().includes(this.state.alumniSearch)
+          data.website.toLowerCase().includes(this.state.alumniSearch) ||
+          data.year.includes(this.state.alumniSearch)
         )
           return data;
         return;

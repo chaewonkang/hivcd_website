@@ -1,11 +1,12 @@
 import React from "react";
 import "./HomeArchive.css";
 
-const HomeArchive = ({ title, id, thumbnailUrl, date, category }) => {
+const HomeArchive = ({ title, thumbnailUrl, date, category, link }) => {
   let categoryName = null;
   if (category === 5) categoryName = "GRADUATION EXHIBITION";
   else if (category === 6) categoryName = "WOW FILM FESTIVAL";
   else if (category === 7) categoryName = "ETC";
+  const slicedDate = date.slice(0, 10);
   return (
     <div className="archive">
       <div className="archive_tag">
@@ -13,9 +14,11 @@ const HomeArchive = ({ title, id, thumbnailUrl, date, category }) => {
       </div>
       <div className="archive_content">
         <div className="archive_content_header">
-          {title} <br></br>
+          <a href={link} target="_blank" rel="noopener noreferrer">
+            {title} <br></br>
+          </a>
         </div>
-        <span className="archive_content_date"> {date}</span>
+        <span className="archive_content_date"> {slicedDate}</span>
       </div>
       <div
         className="archive_content_image image_fill"

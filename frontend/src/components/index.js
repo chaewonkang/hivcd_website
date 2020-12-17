@@ -10,8 +10,6 @@ import AboutUs from "./AboutUs/AboutUs";
 import Alumni from "./Alumni/Alumni";
 import Archive from "./Archive/Archive";
 import Calandar from "./Calandar/Calandar";
-import Equipment from "./Equipment/Equipment";
-import Classroom from "./Classroom/Classroom";
 import LogoImage from "./LogoImage/LogoImage";
 import CalandarContainer from "./CalandarContainer/CalandarContainer";
 import Search from "./Search/Search";
@@ -29,11 +27,11 @@ import BoardListWrapper from "./BoardListWrapper/BoardListWrapper";
 import ArchiveModule from "./ArchiveModule/ArchiveModule";
 import AlumniModule from "./AlumniModule/AlumniModule";
 import AlumniSearch from "./AlumniSearch/AlumniSearch";
-import BoardDetailPage from "./BoardDetailPage/BoardDetailPage";
 import PostModule from "./PostModule/PostModule";
 import SignUp from "./SignUp/SignUp";
 import MobileSignup from "./MobileSignup/MobileSignup";
 import CommentInsertForm from "./CommentInsertForm/CommentInsertForm";
+import Warning from "./Warning/Warning";
 
 export {
   Header,
@@ -48,8 +46,6 @@ export {
   Alumni,
   Archive,
   Calandar,
-  Equipment,
-  Classroom,
   LogoImage,
   CalandarContainer,
   Search,
@@ -67,9 +63,9 @@ export {
   ArchiveModule,
   AlumniModule,
   AlumniSearch,
-  BoardDetailPage,
   PostModule,
   SignUp,
   MobileSignup,
   CommentInsertForm,
+  Warning,
 };

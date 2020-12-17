@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import Modal from "react-awesome-modal";
 import "./Login.css";
-import axios from "axios";
 import { Link, withRouter } from "react-router-dom";
 
 class Login extends Component {
@@ -9,11 +8,12 @@ class Login extends Component {
     super(props);
     this.state = {
       visible: false,
-      search: "",
-      id: "",
+      email: "",
       password: "",
-      provider: "",
     };
+    this._closeModal = this._closeModal.bind(this);
+    this._openModal = this._openModal.bind(this);
+    this.handleChange = this.handleChange.bind(this);
   }
 
   _openModal = function () {
@@ -30,48 +30,22 @@ class Login extends Component {
     document.body.style.overflow = "unset";
   };
 
-  _changeSearch = function () {
-    const searchValue = document.getElementsByName("search")[0].value;
-    console.log(searchValue);
-
-    this.setState({
-      ...this.tate,
-      search: searchValue,
-    });
+  handleChange = (e) => {
+    this.setState({ [e.target.name]: e.target.value });
+    console.log(this.state);
   };
 
-  _changeId = function () {
-    const idValue = document.getElementsByName("id")[0].value;
-    console.log(idValue);
-
+  handleSubmit = (e) => {
+    const { email, password } = this.state;
+    this.props.handleLogin({
+      email: email,
+      password: password,
+    });
     this.setState({
       ...this.state,
-      id: idValue,
+      isLogged: true,
     });
-  };
-
-  _changePW = function () {
-    const pwValue = document.getElementsByName("password")[0].value;
-    console.log(pwValue);
-
-    this.setState({
-      ...this.state,
-      password: pwValue,
-    });
-  };
-
-  _postLogin = async () => {
-    axios
-      .post("http://localhost:8000/api/v1/auth/login/", {
-        email: this.state.id,
-        password: this.state.password,
-      })
-      .then(function (response) {
-        console.log(response);
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
+    this._closeModal();
   };
 
   render() {
@@ -82,37 +56,35 @@ class Login extends Component {
           width="450"
           height="380"
           effect="fadeInDown"
-          onClickAway={() => this._closeModal()}
+          onClickAway={this._closeModal}
         >
           <div>
-            <form>
+            <form onSubmit={(e) => this.handleSubmit(e)}>
               <div className="navbar_login_modal_container">
                 <input
-                  placeholder="ID"
+                  placeholder="email"
                   type="text"
-                  name="id"
-                  onChange={() => this._changeId()}
+                  name="email"
+                  value={this.state.email}
+                  onChange={(e) => this.handleChange(e)}
                 ></input>
                 <input
                   placeholder="password"
                   type="password"
                   name="password"
-                  onChange={() => this._changePW()}
+                  value={this.state.password}
+                  onChange={(e) => this.handleChange(e)}
                 ></input>
-                <div className="login_button" onClick={() => this._postLogin()}>
+                <div
+                  type="submit"
+                  value="Submit"
+                  className="login_button"
+                  onClick={(e) => this.handleSubmit(e)}
+                >
                   <span>LOGIN</span>
                 </div>
-                {/* <GoogleLogin
-                  clientId={process.env.REACT_APP_Google}
-                  buttonText="Google Login"
-                  onSuccess={this.responseGoogle}
-                  onFailure={this.responseFail}
-                ></GoogleLogin> */}
                 <Link to="/auth/registration" className="create_account_link">
-                  <span
-                    className="create-account"
-                    onClick={() => this._closeModal()}
-                  >
+                  <span className="create-account" onClick={this._closeModal}>
                     create account
                   </span>
                 </Link>
@@ -120,9 +92,18 @@ class Login extends Component {
             </form>
           </div>
         </Modal>
-        <div className="navbar_login_item" onClick={() => this._openModal()}>
-          LOGIN
-        </div>
+        {localStorage.getItem("access_token") || this.state.isLogged ? (
+          <div
+            className="navbar_login_item"
+            onClick={() => this.props.handleLogout()}
+          >
+            LOGOUT
+          </div>
+        ) : (
+          <div className="navbar_login_item" onClick={this._openModal}>
+            LOGIN
+          </div>
+        )}
       </>
     );
   }

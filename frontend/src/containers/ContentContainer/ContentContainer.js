@@ -1,14 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
-import {
-  PostWrapper,
-  Post,
-  HomeArchive,
-  Calandar,
-  Equipment,
-  Classroom,
-  LogoImage,
-} from "../../components";
+import { PostWrapper, Post, HomeArchive, LogoImage } from "../../components";
 import { ArchiveWrapper } from "../../components";
 import "./ContentContainer.css";
 
@@ -24,23 +16,17 @@ class ContentContainer extends Component {
   };
 
   componentDidMount() {
-    // this.fetchPostInfo(1);
     this._loadPost();
-    // window.addEventListener('scroll', this._infiniteScroll);
   }
-
-  //   componentWillUnmount() {
-  // 	  window.removeEventListener("scroll", this.infiniteScroll);
-  //   }
 
   _loadPost = async () => {
     axios
-      .get("http://127.0.0.1:8000/api/v1/postings/")
+      .get("http://127.0.0.1:8000/api/v1/postings")
       .then(({ data }) => {
         this.setState({
           ...this.state,
           loadingPost: true,
-          postList: data,
+          postList: data.reverse(),
         });
       })
       .catch((e) => {
@@ -69,7 +55,7 @@ class ContentContainer extends Component {
           data.category === 4
       )
       .slice(0, 20);
-    console.log(`latestArchiveList: ${latestArchiveList}`);
+    // console.log(`latestArchiveList: ${latestArchiveList}`);
     return (
       <div className="contentcontainer">
         <PostWrapper>
@@ -98,6 +84,7 @@ class ContentContainer extends Component {
                   date={post.created}
                   category={post.category}
                   thumbnailUrl={post.photos[0].photo}
+                  link={post.link}
                 ></HomeArchive>
               );
             })}

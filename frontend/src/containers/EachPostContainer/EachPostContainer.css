@@ -6,6 +6,7 @@
   margin-bottom: 20px;
   background: #fff5f5;
   grid-template-columns: 1fr 2fr;
+
   height: fit-content;
 }
 
@@ -14,15 +15,22 @@
 
 /********** Large devices only **********/
 @media (min-width: 1200px) and (max-width: 1440px) {
+  .each_post_container {
+    grid-template-columns: 1fr 1.5fr;
+  }
 }
 
 /********** Medium devices only **********/
 @media (min-width: 992px) and (max-width: 1199px) {
+  .each_post_container {
+    grid-template-columns: 1fr 1fr;
+  }
 }
 
 /********** Small devices only **********/
 @media (min-width: 768px) and (max-width: 991px) {
   .each_post_container {
+    display: grid;
     grid-template-columns: 1fr;
     margin-top: 70px;
   }

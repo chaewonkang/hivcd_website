@@ -1,16 +1,8 @@
 import React, { Component } from "react";
 import axios from "axios";
-import {
-  PostWrapper,
-  Post,
-  HomeArchive,
-  Calandar,
-  Equipment,
-  Classroom,
-  LogoImage,
-} from "../../components";
-import { ArchiveWrapper } from "../../components";
+import { Post } from "../../components";
 import "./SearchResultContainer.css";
+import getCookie from "../../utils/getCookie";
 
 class SearchResultContainer extends Component {
   constructor(props) {
@@ -19,17 +11,28 @@ class SearchResultContainer extends Component {
       searchKeyword: this.props.searchKeyword,
       postList: [],
       archiveList: [],
+      token: getCookie("csrftoken"),
     };
   }
 
   componentDidMount() {
     this._loadPost();
-    this._loadArchive();
   }
 
   _loadPost = async () => {
     axios
-      .get("http://127.0.0.1:8000/api/v1/postings")
+      .get(
+        "http://127.0.0.1:8000/api/v1/postings",
+        {},
+        {
+          headers: {
+            Authorization: "Bearer " + localStorage.getItem("access_token"),
+            Accept: "application/json",
+            "X-CSRFToken": this.state.token,
+            "Content-type": "application/json",
+          },
+        }
+      )
       .then(({ data }) => {
         this.setState({
           ...this.state,
@@ -46,47 +49,33 @@ class SearchResultContainer extends Component {
       });
   };
 
-  _loadArchive = async () => {
-    axios
-      .get("https://jsonplaceholder.typicode.com/photos")
-      .then(({ data }) => {
-        this.setState({
-          ...this.state,
-          loadingArchive: true,
-          archiveList: data,
-        });
-      })
-      .catch((e) => {
-        console.error(e);
-        this.setState({
-          ...this.state,
-          loadingArchive: false,
-        });
-      });
-  };
-
   render() {
     console.log(
       `searchResultContainer's searchKeyword: ${this.state.searchKeyword}`
     );
     const { postList } = this.state;
-    const items = postList
-      .filter((data) => {
-        if (this.state.searchKeyword === null) return data;
-        else if (data.title.toLowerCase().includes(this.state.searchKeyword))
-          return data;
-        return;
-      })
-      .map((data) => {
-        return (
-          <Post
-            key={data.pk}
-            title={data.title}
-            body={data.body}
-            id={data.pk}
-          ></Post>
-        );
-      });
+
+    let items;
+    if (items) {
+      const items = postList
+        .filter((data) => {
+          if (this.state.searchKeyword === null) return data;
+          else if (data.title.toLowerCase().includes(this.state.searchKeyword))
+            return data;
+          return;
+        })
+        .map((data) => {
+          return (
+            <Post
+              key={data.pk}
+              title={data.title}
+              body={data.body}
+              id={data.pk}
+              category={data.category}
+            ></Post>
+          );
+        });
+    }
 
     return (
       <div className="search_result_container">

@@ -1,8 +1,6 @@
 import React, { Component } from "react";
 import { PostModule } from "../../components";
 import "./Post.css";
-import * as actions from "../../actions";
-import { connect } from "react-redux";
 
 class Post extends Component {
   constructor(props) {
@@ -72,8 +70,8 @@ class Post extends Component {
 
   render() {
     const { title, id, category, date } = this.props;
-    console.log(`post modules's id: ${id} ${title}`);
-    console.log(typeof id);
+    // console.log(`post modules's id: ${id} ${title}`);
+    // console.log(typeof id);
     const style = {
       backgroundColor: this.state.style.color,
       border: `2px solid ${this.state.style.borderColor}`,

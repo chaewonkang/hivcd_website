@@ -1,6 +1,6 @@
 import React from "react";
 import "./AboutUs.css";
-import { RenderAfterNavermapsLoaded, NaverMap, Marker } from "react-naver-maps";
+// import { RenderAfterNavermapsLoaded, NaverMap, Marker } from "react-naver-maps";
 
 // function NaverMapAPI() {
 //   const navermaps = window.naver.maps;

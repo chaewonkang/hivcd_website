@@ -29,7 +29,6 @@
   padding: 0.1em 0.75em 0.1em 0.75em;
   text-transform: uppercase;
   font-size: 11px;
-  z-index: 2000;
   font-weight: 100;
 }
 
@@ -43,6 +42,10 @@
   top: 0;
   padding-right: 0.5em;
   cursor: pointer;
+}
+
+.archive .archive_content .archive_content_header a {
+  color: #000;
 }
 
 .archive .archive_content_image {

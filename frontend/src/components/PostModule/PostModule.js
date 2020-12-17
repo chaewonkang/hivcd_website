@@ -1,8 +1,6 @@
 import React from "react";
 import "./PostModule.css";
-import { useHistory } from "react-router-dom";
-import { Link, Route } from "react-router-dom";
-import { BoardDetailPage } from "../../components";
+import { Link } from "react-router-dom";
 
 const PostModule = ({ style, title, date, category, id }) => {
   let categoryName = null;
@@ -10,9 +8,14 @@ const PostModule = ({ style, title, date, category, id }) => {
   else if (category === 2) categoryName = "EVENT";
   else if (category === 3) categoryName = "JOB";
   else if (category === 4) categoryName = "LOST&FOUND";
-  console.log(`category name is: ${categoryName}`);
+  else if (category === 5) categoryName = "GRADUATION EXHIBITION";
+  else if (category === 6) categoryName = "WOW FILM FESTIVAL";
+  else if (category === 7) categoryName = "ETC";
+  //   console.log(`category name is: ${categoryName}`);
+  const postId = parseInt(id, 10);
+  const slicedDate = date.slice(0, 10);
   return (
-    <Link to={`/board/${id}/`}>
+    <Link to={`/board/${postId}`}>
       <div className="post" style={style}>
         <div className="post_tag">
           <span>{categoryName}</span>
@@ -21,7 +24,7 @@ const PostModule = ({ style, title, date, category, id }) => {
           <div className="post_content_header">
             {title} <br></br>
           </div>
-          <span className="post_content_date">{date}</span>
+          <span className="post_content_date">{slicedDate}</span>
         </div>
       </div>
     </Link>

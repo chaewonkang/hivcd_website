@@ -68,4 +68,12 @@ body {
   .board_filter_wrapper {
     margin-top: 70px;
   }
+
+  .board_filter_container {
+    display: inline-grid;
+  }
+
+  .board_filter_option {
+    margin-bottom: 10px;
+  }
 }

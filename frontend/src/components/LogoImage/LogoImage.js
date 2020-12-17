@@ -22,8 +22,8 @@ class LogoImage extends Component {
 
   UNSAFE_componentWillMount() {
     const pictureArray = [logoImageA, logoImageB, logoImageC, logoImageD];
-    const columnArray = ["2/3", "2/3", "2/3", "1/2"];
-    const rowArray = ["1/2", "2/3", "4/5", "4/5"];
+    const columnArray = ["1/2"];
+    const rowArray = ["1/2"];
     const randomIdx = Math.floor(Math.random() * pictureArray.length);
     // const selectedImg = pictureArray[randomIdx];
     const selectedColumn = columnArray[randomIdx];

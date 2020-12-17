@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Post, LogoImage, BoardPostWrapper } from "../../components";
 import axios from "axios";
 import "./Board.css";
+import getCookie from "../../utils/getCookie";
 
 class Board extends Component {
   constructor(props) {
@@ -13,6 +14,7 @@ class Board extends Component {
       items: 20,
       preItems: 0,
       boardFilter: 0,
+      token: getCookie("csrftoken"),
     };
   }
 
@@ -22,7 +24,18 @@ class Board extends Component {
 
   _loadPost = async () => {
     axios
-      .get("http://127.0.0.1:8000/api/v1/postings/?format=json")
+      .get(
+        "http://127.0.0.1:8000/api/v1/postings/?format=json",
+        {},
+        {
+          headers: {
+            Authorization: "Bearer " + localStorage.getItem("access_token"),
+            Accept: "application/json",
+            "X-CSRFToken": this.state.token,
+            "Content-type": "application/json",
+          },
+        }
+      )
       .then(({ data }) => {
         this.setState({
           ...this.state,
@@ -126,8 +139,8 @@ class Board extends Component {
           </div>
         </div>
         <BoardPostWrapper>
-          {items}
           <LogoImage></LogoImage>
+          {items}
         </BoardPostWrapper>
       </div>
     );

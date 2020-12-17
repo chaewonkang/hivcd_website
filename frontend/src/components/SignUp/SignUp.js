@@ -1,20 +1,23 @@
 import React, { Component } from "react";
 import Modal from "react-awesome-modal";
-import axios from "axios";
 import { Link, withRouter } from "react-router-dom";
 import "./SignUp.css";
+import axiosInstance from "../../utils/axiosApi";
 
 class SignUp extends Component {
   constructor(props) {
     super(props);
     this.state = {
       visible: true,
-      search: "",
-      id: "",
+      username: "",
       password: "",
+      password2: "",
+      email: "",
       provider: "",
     };
     document.body.style.overflow = "hidden";
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   _openModal = function () {
@@ -34,49 +37,28 @@ class SignUp extends Component {
     document.body.style.overflow = "unset";
   }
 
-  _changeSearch = function () {
-    const searchValue = document.getElementsByName("search")[0].value;
-    console.log(searchValue);
+  handleChange(e) {
+    this.setState({ [e.target.name]: e.target.value });
+  }
 
-    this.setState({
-      ...this.tate,
-      search: searchValue,
-    });
-  };
-
-  _changeId = function () {
-    const idValue = document.getElementsByName("id")[0].value;
-    console.log(idValue);
-
-    this.setState({
-      ...this.state,
-      id: idValue,
-    });
-  };
-
-  _changePW = function () {
-    const pwValue = document.getElementsByName("password")[0].value;
-    console.log(pwValue);
-
-    this.setState({
-      ...this.state,
-      password: pwValue,
-    });
-  };
-
-  _postSignup = async () => {
-    axios
-      .post("http://localhost:8000/api/v1/auth/registration", {
-        email: this.state.id,
+  async handleSubmit(event) {
+    event.preventDefault();
+    try {
+      const response = await axiosInstance.post("/auth/registration/", {
+        ...this.state,
+        username: this.state.username,
+        email: this.state.email,
         password: this.state.password,
-      })
-      .then(function (response) {
-        console.log(response);
-      })
-      .catch(function (error) {
-        console.log(error);
+        password2: this.state.password2,
       });
-  };
+      return response;
+    } catch (error) {
+      this.setState({
+        ...this.state,
+        errors: error.response.data,
+      });
+    }
+  }
 
   render() {
     return (
@@ -91,35 +73,62 @@ class SignUp extends Component {
           effect="fadeInDown"
         >
           <div>
-            <form>
+            <form onSubmit={this.handleSubmit}>
               <div className="navbar_login_modal_container">
-                <input
-                  placeholder="e-mail"
-                  type="text"
-                  name="id"
-                  onChange={() => this._changeId()}
-                ></input>
-                <input
-                  placeholder="username"
-                  type="text"
-                  name="password"
-                  onChange={() => this._changePW()}
-                ></input>
-                <input
-                  placeholder="password"
-                  type="password"
-                  name="password"
-                  onChange={() => this._changePW()}
-                ></input>
-                <input
-                  placeholder="confirm password"
-                  type="password"
-                  name="password"
-                  onChange={() => this._changePW()}
-                ></input>
-                <div className="signup_button" onClick={() => this._Signup()}>
+                <label>
+                  <input
+                    placeholder="e-mail"
+                    type="text"
+                    name="email"
+                    value={this.state.email}
+                    onChange={this.handleChange}
+                  ></input>
+                  {/* {this.state.errors.email ? this.state.errors.email : null} */}
+                </label>
+                <label>
+                  <input
+                    placeholder="username"
+                    type="text"
+                    name="username"
+                    value={this.state.username}
+                    onChange={this.handleChange}
+                  ></input>
+                  {/* {this.state.errors.username
+                    ? this.state.errors.username
+                    : null} */}
+                </label>
+                <label>
+                  <input
+                    placeholder="password"
+                    type="password"
+                    name="password"
+                    value={this.state.password}
+                    onChange={this.handleChange}
+                  ></input>
+                  {/* {this.state.errors.password
+                    ? this.state.errors.password
+                    : null} */}
+                </label>
+                <label>
+                  <input
+                    placeholder="confirm password"
+                    type="password"
+                    name="password2"
+                    value={this.state.password2}
+                    onChange={this.handleChange}
+                  ></input>
+                  {/* {this.state.errors.password2
+                    ? this.state.errors.password2
+                    : null} */}
+                </label>
+                <button
+                  type="submit"
+                  value="submit"
+                  className="signup_button"
+                  onClick={() => this.handleSubmit}
+                >
                   <span>SIGN UP</span>
-                </div>
+                </button>
                 <div className="signup_button">
                   <Link
                     to="/"

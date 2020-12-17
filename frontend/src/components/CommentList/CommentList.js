@@ -1,33 +1,32 @@
 import React from "react";
 import "./CommentList.css";
 import { Comment } from "../../components";
-import { CommentContainer } from "../../containers";
+import CommentInsertForm from "../CommentInsertForm/CommentInsertForm";
 
-const CommentList = ({ comments, style }) => {
-  console.log(`CommentList: ${comments}`);
-  const commentList = comments.map((comment, index) => (
-    <Comment body={comment.text} key={index} />
-  ));
+const CommentList = ({ comments, style, onPostComment, postId }) => {
+  let commentList;
+  if (comments) {
+    commentList = comments.map((comment) => {
+      return (
+        <Comment
+          author={comment.author}
+          body={comment.text}
+          key={comment.id}
+          date={comment.created}
+        />
+      );
+    });
+  }
+
   return (
     <div className="comment_list">
       <ul>{commentList}</ul>
       <hr className="mobile_commentlist_hr_hidden"></hr>
-      <div className="comment_input_container">
-        {" "}
-        <div className="comment_input_username">Chaewon</div>
-        <div>
-          <form>
-            <input
-              type="text"
-              name="comment"
-              placeholder="댓글을 입력하세요."
-              style={{ backgroundColor: style.backgroundColor }}
-            ></input>
-            <button className="comment_input_button">입력</button>
-          </form>
-          <CommentContainer></CommentContainer>
-        </div>
-      </div>
+      <CommentInsertForm
+        style={style}
+        onPostComment={onPostComment}
+        postId={postId}
+      ></CommentInsertForm>
     </div>
   );
 };

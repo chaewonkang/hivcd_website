@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { NavComponent } from "../Navbar/Navbar";
 import "./ResponsiveHeader.css";
 
-const ResponsiveHeader = () => {
+const ResponsiveHeader = ({ handleLogout, handleLogin }) => {
   let [translate, setTranslate] = useState(true);
   if (translate === false) document.body.style.overflow = "hidden";
   else document.body.style.overflow = "unset";
@@ -28,6 +28,8 @@ const ResponsiveHeader = () => {
           linkClassName="nav-small-link"
           onClick={() => setTranslate(true)} //set translate to true to hide the sidebar list
           handleLoginData={handleLoginData}
+          handleLogout={handleLogout}
+          handleLogin={handleLogin}
         />
       </div>
     </div>

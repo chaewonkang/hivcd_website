@@ -1,6 +1,7 @@
 .comment_container {
   display: inline-grid;
-  grid-template-columns: 1.5fr 4fr 1fr;
+  grid-template-columns: 1fr 5fr 1fr;
+  width: 100%;
 }
 
 .comment_container div {

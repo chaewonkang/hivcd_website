@@ -37,7 +37,8 @@
   margin-bottom: 1em;
 }
 
-.attached_file {
+.attached_file a {
+  color: #000;
 }
 
 .each_post_info span {

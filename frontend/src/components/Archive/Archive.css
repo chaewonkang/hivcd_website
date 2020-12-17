@@ -50,6 +50,10 @@
     margin-top: 70px;
     margin-bottom: 20px;
   }
+
+  .archive_container {
+    grid-template-columns: 1fr 1fr;
+  }
 }
 
 /********** Extra small devices only **********/

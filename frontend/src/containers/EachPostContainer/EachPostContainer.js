@@ -1,18 +1,14 @@
 import React, { Component } from "react";
-import {
-  EachPostWrapper,
-  EachPostNavigator,
-  EachPost,
-  BoardListWrapper,
-} from "../../components";
+import { BoardListWrapper } from "../../components";
 import axios from "axios";
+import { Redirect } from "react-router-dom";
 import "./EachPostContainer.css";
+import getCookie from "../../utils/getCookie";
 
 class EachPostContainer extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      postId: this.props.postId,
       fetching: false,
       post: {
         title: null,
@@ -27,22 +23,47 @@ class EachPostContainer extends Component {
         color: null,
         borderColor: null,
       },
+      commentInput: {
+        text: null,
+        author: null,
+        post: 0,
+      },
+      warningVisibility: false,
+      csrftoken: getCookie("csrftoken"),
     };
   }
 
   componentDidMount() {
-    console.log(`EachPostContainer's postId: ${this.state.postId}`);
-    console.log(typeof this.state.postId);
-    this.fetchPostInfo(this.state.postId);
+    this.fetchPostInfo(this.props.match.params.postId);
   }
 
   getList() {
-    return axios.get("http://127.0.0.1:8000/api/v1/postings/?format=json");
+    return axios.get(
+      "http://127.0.0.1:8000/api/v1/postings/?format=json",
+      {},
+      {
+        headers: {
+          Authorization: "Bearer " + localStorage.getItem("access_token"),
+          Accept: "application/json",
+          "X-CSRFToken": this.state.token,
+          "Content-type": "application/json",
+        },
+      }
+    );
   }
 
   getPost(postId) {
     return axios.get(
-      "http://127.0.0.1:8000/api/v1/postings/" + postId + "/?format=json"
+      "http://127.0.0.1:8000/api/v1/postings/" + postId + "/?format=json",
+      {},
+      {
+        headers: {
+          Authorization: "Bearer " + localStorage.getItem("access_token"),
+          Accept: "application/json",
+          "X-CSRFToken": this.state.token,
+          "Content-type": "application/json",
+        },
+      }
     );
   }
 
@@ -50,40 +71,48 @@ class EachPostContainer extends Component {
     this.setState({
       fetching: true,
     });
-    const info = await Promise.all([
-      this.getPost(this.state.postId),
-      this.getList(),
-    ]);
 
-    const { title, text } = info[0].data;
-    const comments = info[0].data.comments;
-    const list = info[1].data;
-    const author = info[0].data.author;
-    const date = info[0].data.created;
-    const dataNum = list.length;
-    const limit = this.state.limit;
-    const pageArray = [];
-    const category = info[0].data.category;
+    try {
+      const info = await Promise.all([
+        this.getPost(this.props.match.params.postId),
+        this.getList(),
+      ]);
 
-    for (let i = 1; i <= Math.ceil(dataNum / limit); i++) {
-      pageArray.push(i);
+      const { title, text } = info[0].data;
+      const comments = info[0].data.comments;
+      const list = info[1].data;
+      const author = info[0].data.author;
+      const date = info[0].data.created;
+      const dataNum = list.length;
+      const limit = this.state.limit;
+      const pageArray = [];
+      const category = info[0].data.category;
+
+      for (let i = 1; i <= Math.ceil(dataNum / limit); i++) {
+        pageArray.push(i);
+      }
+      this.setState({
+        ...this.state,
+
+        fetching: false,
+        post: {
+          title,
+          text,
+          author,
+          date,
+        },
+        comments,
+        list,
+        pageArray,
+        category,
+      });
+    } catch (e) {
+      this.setState({
+        ...this.state,
+        fetching: false,
+      });
+      console.log("error occurred", e);
     }
-    this.setState({
-      ...this.state,
-      postId,
-      fetching: false,
-      post: {
-        title,
-        text,
-        author,
-        date,
-      },
-      comments,
-      list,
-      pageArray,
-      category,
-    });
-    console.log(info);
   };
 
   handleNavigateClick = (type) => {
@@ -146,39 +175,26 @@ class EachPostContainer extends Component {
   }
 
   render() {
-    const {
-      fetching,
-      post,
-      comments,
-      list,
-      pageArray,
-      page,
-      limit,
-      category,
-    } = this.state;
-    const style = {
-      backgroundColor: this.state.style.color,
-      border: `2px solid ${this.state.style.borderColor}`,
-    };
+    const token = localStorage.getItem("access_token");
+    // console.log(token);
+
+    if (token === null) {
+      alert("권한이 없습니다.");
+      return <Redirect to="/" />;
+    }
+    const { list } = this.state;
+
     return (
       <div className="each_post_container">
         <BoardListWrapper
-          list={list.slice(0, limit)}
-          pageArray={pageArray}
-          page={page}
+          list={list}
+          postId={this.props.match.params.postId}
+          handleNavigateClick={this.handleNavigateClick}
+          onPostComment={this.postComment}
+          showWarning={this.showWarning}
+          fetching={this.state.fetching}
         ></BoardListWrapper>
-        <EachPostWrapper>
-          <EachPost
-            title={post.title}
-            body={post.text}
-            comments={comments}
-            handleNavigateClick={this.handleNavigateClick}
-            postId={this.state.postId}
-            category={this.state.category}
-            author={post.author}
-            date={post.date}
-          ></EachPost>
-        </EachPostWrapper>
+        <div>{/* {this.props.match.params.postId} {post.title} */}</div>
       </div>
     );
   }

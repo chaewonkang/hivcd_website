@@ -1,14 +1,23 @@
 import React from "react";
 import { Link, Route } from "react-router-dom";
-import { Login } from "../../components";
 
 import "./Navbar.css";
 
-const Navbar = ({ navClass, linkClassName }) => (
-  <NavComponent navClass={navClass} linkClassName={linkClassName} />
+const Navbar = ({ navClass, linkClassName, handleLogin, handleLogout }) => (
+  <NavComponent
+    navClass={navClass}
+    linkClassName={linkClassName}
+    handleLogin={handleLogin}
+    handleLogout={handleLogout}
+  />
 );
 
-export const NavComponent = ({ onClick, handleLoginData }) => (
+export const NavComponent = ({
+  onClick,
+  handleLoginData,
+  handleLogin,
+  handleLogout,
+}) => (
   <>
     <nav>
       <div className="nav_class_wrapper">
@@ -36,17 +45,27 @@ export const NavComponent = ({ onClick, handleLoginData }) => (
         </div>
         <hr></hr>
         <div>
-          <form onSubmit={() => handleLoginData()}>
-            <input name="mobile_login_id" type="id" placeholder="ID"></input>
-            <input
-              name="mobile_login_pw"
-              type="password"
-              placeholder="password"
-            ></input>
-            <button type="submit" className="mobile_login_input_button">
-              submit
+          {localStorage.getItem("access_token") ? (
+            <button
+              type="submit"
+              className="mobile_login_input_button"
+              onClick={() => handleLogout()}
+            >
+              LOGOUT
             </button>
-          </form>
+          ) : (
+            <form onSubmit={() => handleLogin()}>
+              <input name="mobile_login_id" type="id" placeholder="ID"></input>
+              <input
+                name="mobile_login_pw"
+                type="password"
+                placeholder="password"
+              ></input>
+              <button type="submit" className="mobile_login_input_button">
+                LOGIN
+              </button>
+            </form>
+          )}
           <div className="applebox"></div>
           <Link to="/mobile/signup">
             <p className="become_a_member" onClick={onClick}>
@@ -98,4 +117,5 @@ export const NavComponent = ({ onClick, handleLoginData }) => (
     <Route path="/calandar" />
   </>
 );
+
 export default Navbar;
