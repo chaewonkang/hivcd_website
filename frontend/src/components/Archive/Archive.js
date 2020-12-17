@@ -19,7 +19,7 @@ class Archive extends Component {
 
   getArchiveInfo = async () => {
     axios
-      .get("http://127.0.0.1:8000/api/v1/postings/?format=json")
+      .get("http://13.125.84.10:8000/api/v1/postings/?format=json")
       .then(({ data }) => {
         this.setState({
           ...this.state,
