@@ -10,7 +10,7 @@ from django.utils.encoding import smart_bytes, smart_str, DjangoUnicodeDecodeErr
 from rest_framework import views, generics, status
 from rest_framework.response import Response
 from rest_framework_simplejwt.tokens import RefreshToken
-
+from rest_framework.permissions import IsAuthenticatedOrReadOnly, AllowAny
 from drf_yasg.utils import swagger_auto_schema
 from drf_yasg import openapi
 from .serializers import (
@@ -49,6 +49,7 @@ class RegistrationView(generics.GenericAPIView):
 
     serializer_class = RegistrationSerializer
     renderer_classes = (UserRenderer,)
+    permission_classes = (AllowAny,)
 
     def post(self, request):
         user = request.data
@@ -79,6 +80,7 @@ class RegistrationView(generics.GenericAPIView):
 
 class VerifyEmail(views.APIView):
     serializer_class = EmailVerificationSerializer
+    permission_classes = (AllowAny,)
     token_param_config = openapi.Parameter(
         "token",
         in_=openapi.IN_QUERY,
@@ -110,6 +112,7 @@ class VerifyEmail(views.APIView):
 
 class LoginAPIView(generics.GenericAPIView):
     serializer_class = LoginSerializer
+    permission_classes = (AllowAny,)
 
     def post(self, request):
         serializer = self.serializer_class(data=request.data)
@@ -130,8 +133,9 @@ class LogoutAPIView(generics.GenericAPIView):
 
 
 class RequestPasswordResetEmail(generics.GenericAPIView):
+    permission_classes = (AllowAny,)
     serializer_class = ResetPasswordEmailRequestSerializer
-
+    
     def post(self, request):
         # serializer = self.serializer_class(data=request.data)
         email = request.data.get("email", "")
@@ -168,7 +172,7 @@ class RequestPasswordResetEmail(generics.GenericAPIView):
 
 class SetNewPasswordAPIView(generics.GenericAPIView):
     serializer_class = SetNewPasswordSerializer
-
+    permission_classes = (AllowAny,)
     def patch(self, request):
         serializer = self.serializer_class(data=request.data)
         serializer.is_valid(raise_exception=True)
@@ -180,6 +184,7 @@ class SetNewPasswordAPIView(generics.GenericAPIView):
 
 class PasswordTokenCheckAPI(generics.GenericAPIView):
     serializer_class = SetNewPasswordSerializer
+    permission_classes = (AllowAny,)
 
     def get(self, request, uidb64, token):
 

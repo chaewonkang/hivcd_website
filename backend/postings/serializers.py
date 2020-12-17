@@ -14,7 +14,7 @@ class PhotoSerializer(serializers.ModelSerializer):
 class CommentSerializer(serializers.ModelSerializer):
     class Meta:
         model = Comment
-        fields = "__all__"
+        fields = ("author","text",)
 
 
 class FileSerializer(serializers.ModelSerializer):

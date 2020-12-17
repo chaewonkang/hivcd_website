@@ -48,7 +48,7 @@ class Post(Timestamp):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     text = models.TextField()
-    link = models.URLField(default="")
+    link = models.URLField(default="", blank=True)
 
     class PostCategory(models.IntegerChoices):
         NOTICE = 1
