@@ -30,7 +30,6 @@
 }
 
 .nav_class_copyright {
-  position: absolute;
   bottom: 40px;
   line-height: 1.8em;
   padding-bottom: 20px;
@@ -45,7 +44,7 @@
 }
 
 .nav_class_copyright {
-  width: 80%;
+  width: calc(100% - 20px);
   margin-bottom: 20px;
   font-family: "CenturySchoolbook";
   font-size: 13px;
@@ -88,18 +87,8 @@
   cursor: pointer;
 }
 
-.navbar_login_modal_container {
-  display: grid;
-  grid-template-columns: 370px;
-  grid-template-rows: 70px 70px 70px;
-  row-gap: 20px;
-  padding: 40px;
-  align-content: center;
-  justify-content: center;
-}
-
-input[name="mobile_login_id"],
-input[name="mobile_login_pw"] {
+#mobile_email,
+#mobile_password {
   border-bottom: 1px solid #000;
   border-top: none;
   border-left: none;
@@ -107,6 +96,12 @@ input[name="mobile_login_pw"] {
   background-color: #fff5f5;
   outline: none;
   margin-right: 1em;
+  width: 8em;
+  height: 1em;
+  font-size: 1em;
+  padding-bottom: 1em;
+  padding-left: 0em;
+  padding-right: 0em;
 }
 
 .comment_input_container {
@@ -144,10 +139,21 @@ button.mobile_login_input_button {
 @media (min-width: 577px) and (max-width: 767px) {
 }
 
-@media (max-width: 576px) {
-  input[name="mobile_login_id"],
-  input[name="mobile_login_pw"] {
-    width: 37%;
-    margin-bottom: 10px;
+@media (max-width: 320px) {
+  #mobile_email,
+  #mobile_password {
+    border-bottom: 1px solid #000;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    background-color: #fff5f5;
+    outline: none;
+    margin-right: 1em;
+    width: 6em;
+    height: 1em;
+    font-size: 1em;
+    padding-bottom: 1em;
+    padding-left: 0em;
+    padding-right: 0em;
   }
 }
