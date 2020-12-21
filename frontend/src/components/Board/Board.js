@@ -139,7 +139,7 @@ class Board extends Component {
           </div>
         </div>
         <BoardPostWrapper>
-          <LogoImage></LogoImage>
+          {items ? <LogoImage></LogoImage> : null}
           {items}
         </BoardPostWrapper>
       </div>

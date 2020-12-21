@@ -24,8 +24,6 @@ class EachPost extends Component {
       warningVisibility: true,
     });
 
-    // after 1.5 sec
-
     setTimeout(() => {
       this.setState({
         ...this.state,
@@ -49,13 +47,12 @@ class EachPost extends Component {
         }
       )
       .then(({ data }) => {
-        // console.log(`hellohello: ${data.comments}`);
         this.setState({
           ...this.state,
           loading: true,
           eachPost: data,
-          fileUrl: data.files[0]["files"],
-          fileName: data.files[0]["name"],
+          fileUrl: data.files ? data.files[0]["files"] : null,
+          fileName: data.files ? data.files[0]["name"] : null,
           comments: data.comments,
         });
       })
@@ -73,7 +70,7 @@ class EachPost extends Component {
     this.getEachPost(this.props.postId);
   }
 
-  componentDidUpdate(prevProps, prevState) {
+  componentDidUpdate(prevProps) {
     if (this.props.postId !== prevProps.postId) {
       this.getEachPost(this.props.postId);
     }
@@ -140,7 +137,6 @@ class EachPost extends Component {
     const date = this.state.eachPost.created;
     const attachedfile = this.state.fileUrl;
     const fileName = this.state.fileName;
-    console.log(this.state.token);
 
     const style = {
       backgroundColor: this.state.style.color,

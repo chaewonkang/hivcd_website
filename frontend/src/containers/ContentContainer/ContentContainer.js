@@ -55,11 +55,10 @@ class ContentContainer extends Component {
           data.category === 4
       )
       .slice(0, 20);
-    // console.log(`latestArchiveList: ${latestArchiveList}`);
     return (
       <div className="contentcontainer">
         <PostWrapper>
-          <LogoImage></LogoImage>
+          {latestPostList ? <LogoImage></LogoImage> : null}
           {latestPostList &&
             latestPostList.map((post) => {
               return (
