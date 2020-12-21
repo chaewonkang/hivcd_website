@@ -1,0 +1,53 @@
+.comment_container {
+  display: inline-grid;
+  grid-template-columns: 1fr 5fr 1fr;
+  width: 100%;
+}
+
+.comment_container div {
+  margin-bottom: 1rem;
+}
+
+.comment p b {
+  color: 212529;
+}
+
+.comment_container_username {
+  margin-left: 0;
+  padding: 0;
+  font-weight: bold;
+}
+
+.comment_container_date {
+  text-align: right;
+}
+
+.mobile_comment_hr {
+  display: none;
+}
+
+/********** Large devices only **********/
+@media (min-width: 1200px) {
+}
+
+/********** Medium devices only **********/
+@media (min-width: 992px) and (max-width: 1199px) {
+}
+
+/********** Small devices only **********/
+@media (min-width: 768px) and (max-width: 991px) {
+}
+
+/********** Extra small devices only **********/
+@media (min-width: 577px) and (max-width: 767px) {
+}
+
+/********** Extra Extra small (xxs) devices only **********/
+@media (max-width: 576px) {
+  .comment_container {
+    display: block;
+  }
+  .mobile_comment_hr {
+    display: block;
+  }
+}

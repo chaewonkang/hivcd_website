@@ -1,4 +1,9 @@
-.gitignore
+venv
+priv/
+.vscode
+.idea
+*/.env
+.pre-commit-config.yaml
 # Created by https://www.toptal.com/developers/gitignore/api/django,python,vim
 # Edit at https://www.toptal.com/developers/gitignore?templates=django,python,vim
 
@@ -26,7 +31,6 @@ media
 
 # Distribution / packaging
 .Python
-build/
 develop-eggs/
 dist/
 downloads/
@@ -227,3 +231,9 @@ tags
 [._]*.un~
 
 # End of https://www.toptal.com/developers/gitignore/api/django,python,vim
+.vscode
+
+# Elastic Beanstalk Files
+.elasticbeanstalk/*
+!.elasticbeanstalk/*.cfg.yml
+!.elasticbeanstalk/*.global.yml

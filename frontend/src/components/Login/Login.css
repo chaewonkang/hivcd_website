@@ -3,7 +3,7 @@
 }
 
 .navbar_login_item {
-  font-family: "NewParisSkyline";
+  font-family: "Helvetica";
   padding: 2px 2px 2px 2px;
   font-size: 18px;
   width: fit-content;
@@ -19,4 +19,70 @@
   padding: 40px;
   align-content: center;
   justify-content: center;
+}
+
+input[name="email"] {
+  border: 1px solid #000;
+  font-family: "Helvetica", sans-serif;
+  color: #888888;
+  padding: 16px;
+  font-size: 37px;
+}
+
+input[name="password"] {
+  border: 1px solid #000;
+  font-family: "Helvetica", sans-serif;
+  color: #888888;
+  padding: 16px;
+  font-size: 37px;
+}
+
+input[type="text"]:focus {
+  /* background-color: #ff00ff; */
+}
+
+.login_button {
+  font-family: "Helvetica", sans-serif;
+  font-size: 33px;
+  border: 1px solid #000;
+  background-color: #000;
+  color: #fff;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+  cursor: pointer;
+}
+
+.login_button:hover {
+  color: yellow;
+}
+
+.login_button span {
+  align-self: center;
+  justify-self: center;
+}
+
+.create-account {
+  font-family: "Helvetica";
+  padding: 2px 2px 2px 2px;
+  font-size: 30px;
+  text-align: right;
+  text-decoration: underline;
+}
+
+.create_account_link {
+  text-align: right;
+  text-decoration: none;
+  color: #000;
+  cursor: pointer;
+}
+
+.create_account_link:hover {
+  color: yellow;
+}
+
+@media (max-width: 576px) {
+  Modal {
+    width: 300px;
+  }
 }

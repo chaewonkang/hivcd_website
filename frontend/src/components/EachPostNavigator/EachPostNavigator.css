@@ -1,0 +1,36 @@
+.each_post_navigator_container {
+  position: relative;
+  background-color: #000;
+  margin-top: 2em;
+}
+
+button.navigate_right_button {
+  font-family: "Helvetica", sans-serif;
+  font-size: 25px;
+  border: 1px solid #000;
+  background-color: #000;
+  color: #fff;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+  float: right;
+  bottom: 0;
+}
+
+button.navigate_left_button {
+  font-family: "Helvetica", sans-serif;
+  font-size: 25px;
+  border: 1px solid #000;
+  background-color: #000;
+  color: #fff;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+  float: left;
+  bottom: 0;
+}
+
+button span {
+  align-self: center;
+  justify-self: center;
+}

@@ -1,15 +1,17 @@
 .footer {
   background-color: #fff5f5;
   padding: 15px 20px;
-  /* position: fixed;
   left: 0;
-  bottom: 0; */
+  bottom: 0;
   z-index: 99;
+}
+
+.footer_wrapper {
 }
 
 .footer_container {
   display: inline-grid;
-  width: 100vw;
+  width: 100%;
   grid-template-columns: repeat(6, 1fr);
 }
 
@@ -18,25 +20,39 @@
   font-size: 16px;
   text-decoration: underline;
   margin-bottom: 0.5em;
+  margin-right: 1em;
 }
 
 .footer-item p {
   font-family: "CenturySchoolback";
-  font-size: 16px;
+  font-size: 15px;
+  margin-top: 0.3em;
+}
+
+#subscription_button {
+  margin-top: 0.3em;
+}
+
+#credit {
+  color: #7c7769;
+}
+
+#credit a {
+  color: #7c7769;
 }
 
 .korean_address {
   font-family: "AGChoiJeongHo";
-  font-size: 16px;
+  font-size: 15px;
 }
 
 .english_address {
   font-family: "CenturySchoolback";
-  font-size: 16px;
+  font-size: 15px;
 }
 
 .subscription_button {
-  font-family: "NewParisSkyline";
+  font-family: "Helvetica";
   padding: 2px 2px 2px 2px;
   font-size: 18px;
   width: fit-content;
@@ -59,74 +75,15 @@
 }
 
 /********** Extra small devices only **********/
-@media (max-width: 577px) and (max-width: 767px) {
+@media (min-width: 577px) and (max-width: 767px) {
   .footer {
     display: none;
-  }
-
-  .footer-item {
-    margin-bottom: 20px;
-  }
-
-  .footer-item .footer-item-title {
-    font-family: "CenturySchoolback";
-    font-size: 13px;
-    text-decoration: underline;
-  }
-
-  .footer-item-title {
-    margin-bottom: 20px;
-    line-height: 1.3em;
-  }
-
-  .footer-item p {
-    font-family: "CenturySchoolback";
-    font-size: 13px;
-  }
-
-  .korean_address {
-    font-family: "AGChoiJeongHo";
-    font-size: 13px;
-  }
-
-  .english_address {
-    font-family: "CenturySchoolback";
-    font-size: 13px;
   }
 }
 
 /********** Extra Extra small (xxs) devices only **********/
-@media (max-width: 577px) and (max-width: 767px) {
+@media (max-width: 576px) {
   .footer {
     display: none;
-  }
-  .footer-item {
-    margin-bottom: 20px;
-  }
-
-  .footer-item .footer-item-title {
-    font-family: "CenturySchoolback";
-    font-size: 13px;
-    text-decoration: underline;
-  }
-
-  .footer-item-title {
-    margin-bottom: 20px;
-    line-height: 1.3em;
-  }
-
-  .footer-item p {
-    font-family: "CenturySchoolback";
-    font-size: 13px;
-  }
-
-  .korean_address {
-    font-family: "AGChoiJeongHo";
-    font-size: 13px;
-  }
-
-  .english_address {
-    font-family: "CenturySchoolback";
-    font-size: 13px;
   }
 }

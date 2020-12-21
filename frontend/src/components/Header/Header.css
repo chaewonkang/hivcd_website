@@ -3,18 +3,22 @@ header {
   padding: 15px 20px;
 }
 
+.header_line {
+  display: none;
+}
+
 .header_container_left {
   display: inline-grid;
   width: calc((100vw - 40px) * 0.6);
   grid-template-columns: repeat(4, 1fr);
-  column-gap: 20px;
+  column-gap: 10px;
 }
 
 .header_container_right {
   display: inline-grid;
   width: calc((100vw - 40px) * 0.4);
   grid-template-columns: 3fr 1fr;
-  padding-left: 20px;
+  padding-left: 10px;
 }
 
 .header_container_title {
@@ -37,54 +41,26 @@ header {
   color: #000;
   font-size: 18px;
   margin-right: 20px;
-  text-decoration: underline;
-}
-input[name="id"] {
-  border: 1px solid #000;
-  font-family: "NewParisSkyline", sans-serif;
-  color: #888888;
-  padding: 16px;
-  font-size: 37px;
 }
 
-input[name="password"] {
-  border: 1px solid #000;
-  font-family: "NewParisSkyline", sans-serif;
-  color: #888888;
-  padding: 16px;
-  font-size: 37px;
+.navbar_menu_wrapper_item_title:hover {
+  text-decoration: underline !important;
 }
 
-input[type="text"]:focus {
-  /* background-color: #ff00ff; */
+.navbar_menu_wrapper_item_title:visited {
+  text-decoration: underline !important;
 }
 
-.button {
-  font-family: "NewParisSkyline", sans-serif;
-  font-size: 33px;
-  border: 1px solid #000;
-  background-color: #000;
-  color: #fff;
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: 1fr;
+.navbar_menu_wrapper_item_title:active {
+  text-decoration: underline !important;
 }
 
-.button span {
-  align-self: center;
-  justify-self: center;
-}
-
-.create-account {
-  font-family: "NewParisSkyline";
-  padding: 2px 2px 2px 2px;
-  font-size: 30px;
-  text-align: right;
-  text-decoration: underline;
+.navbar_menu_wrapper_item_title:focus {
+  text-decoration: underline !important;
 }
 
 .navbar_search_item {
-  font-family: "NewParisSkyline";
+  font-family: "Helvetica";
   padding: 2px 2px 2px 2px;
   width: fit-content;
   font-size: 18px;
@@ -113,12 +89,19 @@ input[type="text"]:focus {
 
 /********** Small devices only **********/
 @media (min-width: 768px) and (max-width: 991px) {
+  header {
+    position: fixed;
+    z-index: 2000;
+    left: 0;
+    top: 0;
+  }
+
   .header_container_responsive {
     display: inline-grid;
   }
 
   .hamburger_btn {
-    display: grid;
+    background-color: none;
   }
 
   .header_container_title {
@@ -129,7 +112,8 @@ input[type="text"]:focus {
     display: inline-grid;
     width: calc(100vw - 40px);
     grid-template-columns: 1fr;
-    column-gap: 20px;
+    column-gap: 0;
+    z-index: 1000;
   }
 
   .header_container_login {
@@ -142,22 +126,31 @@ input[type="text"]:focus {
 
 /********** Extra small devices only **********/
 @media (min-width: 577px) and (max-width: 767px) {
+  header {
+    position: fixed;
+    z-index: 2000;
+    left: 0;
+    top: 0;
+  }
+
   .header_container_responsive {
     display: inline-grid;
+  }
+
+  .hamburger_btn {
+    background-color: none;
   }
 
   .header_container_title {
     text-align: center;
   }
 
-  .hamburger_btn {
-    display: grid;
-  }
   .header_container_left {
     display: inline-grid;
     width: calc(100vw - 40px);
     grid-template-columns: 1fr;
-    column-gap: 20px;
+    column-gap: 0;
+    z-index: 1000;
   }
 
   .header_container_login {
@@ -169,9 +162,27 @@ input[type="text"]:focus {
 }
 
 @media (max-width: 576px) {
+  header {
+    position: fixed;
+    z-index: 2000;
+    top: 0;
+  }
+
+  .header_line {
+    display: grid;
+  }
   .header_container_responsive {
     display: inline-grid;
   }
+
+  .header_container_login {
+    display: none;
+  }
+
+  .header_container_title h1 {
+    font-size: 15px;
+  }
+
   .hamburger_btn {
     display: grid;
   }
@@ -179,12 +190,8 @@ input[type="text"]:focus {
     display: inline-grid;
     width: calc(100vw - 40px);
     grid-template-columns: 1fr;
-    column-gap: 20px;
   }
 
-  .header_container_login {
-    display: none;
-  }
   .header_container_right {
     display: none;
   }

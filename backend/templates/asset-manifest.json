@@ -1,0 +1,30 @@
+{
+  "files": {
+    "main.css": "/static/css/main.36d7963c.chunk.css",
+    "main.js": "/static/js/main.c4c35908.chunk.js",
+    "main.js.map": "/static/js/main.c4c35908.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.5ddcebdb.js",
+    "runtime-main.js.map": "/static/js/runtime-main.5ddcebdb.js.map",
+    "static/css/2.5cc7e8f6.chunk.css": "/static/css/2.5cc7e8f6.chunk.css",
+    "static/js/2.02a05178.chunk.js": "/static/js/2.02a05178.chunk.js",
+    "static/js/2.02a05178.chunk.js.map": "/static/js/2.02a05178.chunk.js.map",
+    "index.html": "/index.html",
+    "precache-manifest.e7e4ef1508aaa3bff102d3e0a2ec7179.js": "/precache-manifest.e7e4ef1508aaa3bff102d3e0a2ec7179.js",
+    "service-worker.js": "/service-worker.js",
+    "static/css/2.5cc7e8f6.chunk.css.map": "/static/css/2.5cc7e8f6.chunk.css.map",
+    "static/css/main.36d7963c.chunk.css.map": "/static/css/main.36d7963c.chunk.css.map",
+    "static/js/2.02a05178.chunk.js.LICENSE.txt": "/static/js/2.02a05178.chunk.js.LICENSE.txt",
+    "static/media/index.css": "/static/media/NewParisSkylineTrial-Regular.b233a6ec.otf",
+    "static/media/semantic.min.css": "/static/media/outline-icons.ef60a4f6.woff",
+    "static/media/hivcd_logo.png": "/static/media/hivcd_logo.264851ab.png",
+    "static/media/logoImage_C.png": "/static/media/logoImage_C.8009336f.png",
+    "static/media/SignUp.css": "/static/media/logogif.d54d1617.gif"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.5ddcebdb.js",
+    "static/css/2.5cc7e8f6.chunk.css",
+    "static/js/2.02a05178.chunk.js",
+    "static/css/main.36d7963c.chunk.css",
+    "static/js/main.c4c35908.chunk.js"
+  ]
+}

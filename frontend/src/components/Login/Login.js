@@ -1,98 +1,112 @@
 import React, { Component } from "react";
-import { BrowserRouter as Router } from "react-router-dom";
 import Modal from "react-awesome-modal";
 import "./Login.css";
+import { Link, withRouter } from "react-router-dom";
 
 class Login extends Component {
   constructor(props) {
     super(props);
     this.state = {
       visible: false,
-      search: "",
+      email: "",
+      password: "",
     };
+    this._closeModal = this._closeModal.bind(this);
+    this._openModal = this._openModal.bind(this);
+    this.handleChange = this.handleChange.bind(this);
   }
 
   _openModal = function () {
     this.setState({
       visible: true,
     });
+    document.body.style.overflow = "hidden";
   };
 
   _closeModal = function () {
     this.setState({
       visible: false,
     });
+    document.body.style.overflow = "unset";
   };
 
-  _changeSearch = function () {
-    const searchValue = document.getElementsByName("search")[0].value;
-    console.log(searchValue);
+  handleChange = (e) => {
+    this.setState({ [e.target.name]: e.target.value });
+    console.log(this.state);
+  };
 
-    this.setState({
-      ...this.tate,
-      search: searchValue,
+  handleSubmit = (e) => {
+    const { email, password } = this.state;
+    this.props.handleLogin({
+      email: email,
+      password: password,
     });
-  };
-
-  _changeId = function () {
-    const idValue = document.getElementsByName("id")[0].value;
-    console.log(idValue);
-
     this.setState({
       ...this.state,
-      id: idValue,
+      isLogged: true,
     });
-  };
-
-  _changePW = function () {
-    const pwValue = document.getElementsByName("password")[0].value;
-    console.log(pwValue);
-
-    this.setState({
-      ...this.state,
-      password: pwValue,
-    });
+    this._closeModal();
   };
 
   render() {
     return (
-      <div className="header_container_login">
+      <>
         <Modal
           visible={this.state.visible}
           width="450"
           height="380"
           effect="fadeInDown"
-          onClickAway={() => this._closeModal()}
+          onClickAway={this._closeModal}
         >
           <div>
-            <form>
+            <form onSubmit={(e) => this.handleSubmit(e)}>
               <div className="navbar_login_modal_container">
                 <input
-                  placeholder="ID"
+                  placeholder="email"
                   type="text"
-                  name="id"
-                  onChange={() => this._changeId()}
+                  name="email"
+                  value={this.state.email}
+                  onChange={(e) => this.handleChange(e)}
                 ></input>
                 <input
                   placeholder="password"
-                  type="text"
+                  type="password"
                   name="password"
-                  onChange={() => this._changePW()}
+                  value={this.state.password}
+                  onChange={(e) => this.handleChange(e)}
                 ></input>
-                <div className="button">
+                <div
+                  type="submit"
+                  value="Submit"
+                  className="login_button"
+                  onClick={(e) => this.handleSubmit(e)}
+                >
                   <span>LOGIN</span>
                 </div>
-                <span className="create-account">create account</span>
+                <Link to="/auth/registration" className="create_account_link">
+                  <span className="create-account" onClick={this._closeModal}>
+                    create account
+                  </span>
+                </Link>
               </div>
             </form>
           </div>
         </Modal>
-        <div className="navbar_login_item" onClick={() => this._openModal()}>
-          LOGIN
-        </div>
-      </div>
+        {localStorage.getItem("access_token") || this.state.isLogged ? (
+          <div
+            className="navbar_login_item"
+            onClick={() => this.props.handleLogout()}
+          >
+            LOGOUT
+          </div>
+        ) : (
+          <div className="navbar_login_item" onClick={this._openModal}>
+            LOGIN
+          </div>
+        )}
+      </>
     );
   }
 }
 
-export default Login;
+export default withRouter(Login);

@@ -1,10 +1,46 @@
 .contentcontainer {
-  margin-top: 10px;
   margin-left: 20px;
-  margin-bottom: 20px;
   margin-right: 20px;
   position: relative;
+  height: auto;
 }
 
-@media only screen and (max-width: 576px) {
+@media (min-width: 1440px) and (max-width: 1920px) {
+}
+
+/********** Large devices only **********/
+@media (min-width: 1200px) and (max-width: 1440px) {
+}
+
+/********** Medium devices only **********/
+@media (min-width: 992px) and (max-width: 1199px) {
+}
+
+/********** Small devices only **********/
+@media (min-width: 768px) and (max-width: 991px) {
+  .contentcontainer {
+    margin-top: 50px;
+    margin-left: 20px;
+    margin-right: 20px;
+    position: relative;
+  }
+}
+
+/********** Extra small devices only **********/
+@media (min-width: 577px) and (max-width: 767px) {
+  .contentcontainer {
+    margin-top: 50px;
+    margin-left: 20px;
+    margin-right: 20px;
+    position: relative;
+  }
+}
+
+@media (max-width: 576px) {
+  .contentcontainer {
+    margin-top: 50px;
+    margin-left: 20px;
+    margin-right: 20px;
+    position: relative;
+  }
 }
