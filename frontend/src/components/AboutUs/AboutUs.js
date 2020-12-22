@@ -223,6 +223,38 @@ const AboutUs = () => {
                 <td></td>
               </tr>
             </table>
+            <hr></hr>
+            <hr></hr>
+
+            <hr></hr>
+
+            <table className="aboutus_contact_mobile">
+              <tr>
+                <td>위치</td>
+                <td>R715</td>
+              </tr>
+              <tr>
+                <td>전화</td>
+                <td>02-370-8888</td>
+              </tr>
+              <tr>
+                <td>업무시간</td>
+                <td>
+                  월~금 오전 9:00~오후 5:30 <br></br>(동절기 오전 9:00~오후
+                  5:00)
+                </td>
+              </tr>
+              <tr>
+                <td>팩스</td>
+                <td>02-3145-5792</td>
+              </tr>
+              <tr>
+                <td>홈페이지</td>
+                <td>https://hongiksidi.com</td>
+                <td></td>
+                <td></td>
+              </tr>
+            </table>
           </div>
         </div>
       </div>

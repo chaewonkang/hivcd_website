@@ -4,7 +4,8 @@
 
 .navbar_login_item {
   font-family: "Helvetica";
-  padding: 2px 2px 2px 2px;
+  font-weight: 100;
+  padding: 0.1em 0.75em 0.1em 0.75em;
   font-size: 18px;
   width: fit-content;
   border: 1px solid #000;
@@ -41,20 +42,23 @@ input[type="text"]:focus {
   /* background-color: #ff00ff; */
 }
 
-.login_button {
+div.login_button {
   font-family: "Helvetica", sans-serif;
   font-size: 33px;
   border: 1px solid #000;
-  background-color: #000;
-  color: #fff;
+  color: #000;
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: 1fr;
   cursor: pointer;
+  appearance: auto;
+  -moz-appearance: auto;
+  -webkit-appearance: auto;
 }
 
 .login_button:hover {
-  color: yellow;
+  background-color: #000;
+  color: #fff;
 }
 
 .login_button span {
@@ -65,9 +69,8 @@ input[type="text"]:focus {
 .create-account {
   font-family: "Helvetica";
   padding: 2px 2px 2px 2px;
-  font-size: 30px;
+  font-size: 25px;
   text-align: right;
-  text-decoration: underline;
 }
 
 .create_account_link {
@@ -78,7 +81,8 @@ input[type="text"]:focus {
 }
 
 .create_account_link:hover {
-  color: yellow;
+  color: #000;
+  text-decoration: underline;
 }
 
 @media (max-width: 576px) {

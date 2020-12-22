@@ -82,6 +82,7 @@ class Board extends Component {
         <div className="board_filter_wrapper">
           <div className="board_filter_container">
             <button
+              tabindex="0"
               className="board_filter_option"
               onClick={() =>
                 this.setState({
@@ -139,7 +140,7 @@ class Board extends Component {
           </div>
         </div>
         <BoardPostWrapper>
-          {items ? <LogoImage></LogoImage> : null}
+          <LogoImage></LogoImage>
           {items}
         </BoardPostWrapper>
       </div>

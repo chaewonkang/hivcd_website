@@ -71,8 +71,8 @@ class App extends Component {
       localStorage.setItem("email", response.data.email);
       localStorage.setItem("username", response.data.username);
 
-      console.log(response);
-      console.log(localStorage);
+      //   console.log(response);
+      //   console.log(localStorage);
       return response.tokens;
     } catch (error) {
       throw error;
