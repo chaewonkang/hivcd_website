@@ -13,7 +13,7 @@ class Timestamp(models.Model):
 class Photo(Timestamp):
     caption = models.CharField(max_length=80)
     photo = models.ImageField(blank=True, upload_to="photos/%Y/%m/%d")
-    post = models.ForeignKey("Post", related_name="photos", on_delete=models.CASCADE)
+    post = models.ForeignKey("Post", related_name="photos", on_delete=models.CASCADE, db_column='post_title')
 
     def __str__(self):
         return self.caption
@@ -22,7 +22,7 @@ class Photo(Timestamp):
 class File(Timestamp):
     name = models.CharField(max_length=80, default="", blank=False)
     files = models.FileField(blank=True, upload_to="files/%Y/%m/%d")
-    post = models.ForeignKey("Post", related_name="files", on_delete=models.CASCADE)
+    post = models.ForeignKey("Post", related_name="files", on_delete=models.CASCADE, db_column='post_title')
 
     def __str__(self):
         return self.name
@@ -31,7 +31,8 @@ class File(Timestamp):
 class Comment(Timestamp):
     post = models.ForeignKey("Post", on_delete=models.CASCADE, related_name="comments")
     author = models.ForeignKey(
-        settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name="comments"
+        settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name="comments", db_column='author_username',
+        null=True
     )
     text = models.TextField()
 

@@ -55,7 +55,6 @@ THIRDPARTY_APPS = [
     "drf_yasg",
     "django_seed",
     "storages",
-    "sslserver",
 ]
 
 INSTALLED_APPS = DJANGO_APPS + PROJECT_APPS + THIRDPARTY_APPS
@@ -78,7 +77,7 @@ ROOT_URLCONF = "config.urls"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [os.path.join(BASE_DIR, "templates")],
+        "DIRS": [os.path.join(BASE_DIR, "build")],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
@@ -126,9 +125,9 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATIC_ROOT = os.path.join(BASE_DIR, 'assets')
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, "templates", "static"),
+    os.path.join(BASE_DIR, "build", "static"),
 ]
 
 # Media files
@@ -139,7 +138,10 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'uploads')
 REST_FRAMEWORK = {
     "DEFAULT_AUTHENTICATION_CLASSES": (
         "rest_framework_simplejwt.authentication.JWTAuthentication",
-    )
+    ),
+#    'DEFAULT_PARSER_CLASSES': (
+#        'rest_framework.parsers.JSONParser',
+#    )
 }
 
 # Email Settings
