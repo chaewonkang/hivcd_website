@@ -54,7 +54,7 @@ class Login extends Component {
         <Modal
           visible={this.state.visible}
           width="450"
-          height="380"
+          height="365"
           effect="fadeInDown"
           onClickAway={this._closeModal}
         >
@@ -76,8 +76,7 @@ class Login extends Component {
                   onChange={(e) => this.handleChange(e)}
                 ></input>
                 <div
-                  type="submit"
-                  value="Submit"
+                  value="submit"
                   className="login_button"
                   onClick={(e) => this.handleSubmit(e)}
                 >

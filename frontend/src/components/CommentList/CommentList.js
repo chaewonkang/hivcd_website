@@ -8,12 +8,7 @@ const CommentList = ({ comments, style, onPostComment, postId }) => {
   if (comments) {
     commentList = comments.map((comment) => {
       return (
-        <Comment
-          author={comment.author}
-          body={comment.text}
-          key={comment.id}
-          date={comment.created}
-        />
+        <Comment author={comment.author} body={comment.text} key={comment.id} />
       );
     });
   }

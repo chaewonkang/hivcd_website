@@ -51,9 +51,9 @@ class EachPost extends Component {
           ...this.state,
           loading: true,
           eachPost: data,
-          fileUrl: data.files ? data.files[0]["files"] : null,
-          fileName: data.files ? data.files[0]["name"] : null,
-          comments: data.comments,
+          fileUrl: data.files.length ? data.files[0]["files"] : "",
+          fileName: data.files.length ? data.files[0]["name"] : "",
+          comments: data.comments.length ? data.comments : [],
         });
       })
       .catch((e) => {

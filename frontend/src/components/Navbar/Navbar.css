@@ -102,6 +102,9 @@
   padding-bottom: 1em;
   padding-left: 0em;
   padding-right: 0em;
+  border-radius: 0;
+  -webkit-appearance: none;
+  -webkit-border-radius: 0;
 }
 
 .comment_input_container {
@@ -155,5 +158,8 @@ button.mobile_login_input_button {
     padding-bottom: 1em;
     padding-left: 0em;
     padding-right: 0em;
+    border-radius: 0;
+    -webkit-appearance: none;
+    -webkit-border-radius: 0;
   }
 }

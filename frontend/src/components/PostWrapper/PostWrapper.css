@@ -9,7 +9,6 @@
   grid-row-gap: 10px;
   grid-column-gap: 10px;
   margin-bottom: 20px;
-  margin-top: 20px;
 }
 
 @media (min-width: 1440px) and (max-width: 1920px) {

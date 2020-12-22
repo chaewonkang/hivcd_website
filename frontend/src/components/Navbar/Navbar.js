@@ -92,7 +92,7 @@ export const NavComponent = ({ onClick, handleLogin, handleLogout }) => {
             )}
             <div className="applebox"></div>
             <Link to="/mobile/signup" onClick={onClick}>
-              <p className="become_a_member">Become a member → </p>
+              <span className="become_a_member">Become a member </span>🗝
             </Link>
           </div>
           <hr></hr>

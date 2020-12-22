@@ -19,12 +19,12 @@
   border-bottom: 1px solid black;
 }
 
-th {
+.aboutus_contact th {
   border-bottom: 1px solid black;
   padding: 10px;
 }
 
-td {
+.aboutus_contact td {
   padding: 5px;
 }
 
@@ -147,5 +147,23 @@ td {
     grid-template-rows: repeat(4, 450px);
     column-gap: 20px;
     row-gap: 20px;
+  }
+  .aboutus_item .aboutus_content {
+    font-size: 15px;
+    display: block;
+  }
+
+  .aboutus_contact_mobile tr {
+    border-bottom: 1px solid black;
+  }
+
+  .aboutus_contact_mobile th {
+    border-bottom: 1px solid black;
+    padding: 10px;
+  }
+
+  .aboutus_contact_mobile td {
+    padding: 5px;
+    width: 70%;
   }
 }
