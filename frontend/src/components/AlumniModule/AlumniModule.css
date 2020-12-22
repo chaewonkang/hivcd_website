@@ -5,4 +5,5 @@
   font-size: 15px;
   line-height: 1.5em;
   font-family: "CenturySchoolbook";
+  overflow: auto;
 }

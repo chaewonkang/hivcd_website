@@ -68,7 +68,6 @@ class Header extends Component {
                 <span className="navbar_menu_wrapper_item_title">Calandar</span>
               </Link>
             </div>
-            <Search handleSearchKeyword={this.props.handleSearchKeyword} />
           </div>
           <div className="header_container_responsive">
             <ResponsiveHeader

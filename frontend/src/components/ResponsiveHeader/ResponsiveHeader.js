@@ -7,10 +7,6 @@ const ResponsiveHeader = ({ handleLogout, handleLogin }) => {
   if (translate === false) document.body.style.overflow = "hidden";
   else document.body.style.overflow = "unset";
 
-  function handleLoginData(e) {
-    e.preventDefault();
-  }
-
   return (
     <div className="header_container_responsive">
       <button
@@ -27,7 +23,6 @@ const ResponsiveHeader = ({ handleLogout, handleLogin }) => {
           navClass="nav-small"
           linkClassName="nav-small-link"
           onClick={() => setTranslate(true)} //set translate to true to hide the sidebar list
-          handleLoginData={handleLoginData}
           handleLogout={handleLogout}
           handleLogin={handleLogin}
         />

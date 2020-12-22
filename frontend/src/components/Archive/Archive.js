@@ -54,7 +54,7 @@ class Archive extends Component {
           <ArchiveModule
             key={data.id}
             title={data.title}
-            thumbnailUrl={data.photos[0].photo}
+            thumbnailUrl={data.photos ? data.photos[0].photo : null}
             date={data.created}
             category={data.category}
             link={data.link}
