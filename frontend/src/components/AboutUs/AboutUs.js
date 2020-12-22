@@ -223,11 +223,6 @@ const AboutUs = () => {
                 <td></td>
               </tr>
             </table>
-            <hr></hr>
-            <hr></hr>
-
-            <hr></hr>
-
             <table className="aboutus_contact_mobile">
               <tr>
                 <td>위치</td>
