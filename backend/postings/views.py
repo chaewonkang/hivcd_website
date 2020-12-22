@@ -26,16 +26,11 @@ class CommentListCreateAPIView(generics.ListCreateAPIView):
     queryset = Comment.objects.all()
     serializer_class = CommentSerializer
     permission_classes = (IsAuthenticatedOrReadOnly,)
-    parser_classes = [JSONParser]
 
     def get_queryset(self):
-        queryset = Comment.objects.all()
-        post = self.request.query_params.get("post")
-
-        if post:
-            queryset = queryset.filter(post=post)
-
-        return queryset
+        qs = Comment.objects.filter(post_id=self.kwargs['pk'])
+        return qs
 
     def perform_create(self, serializer):
-        return serializer.save()
+        return serializer.save(author=self.request.user)
+

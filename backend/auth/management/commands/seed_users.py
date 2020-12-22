@@ -29,6 +29,7 @@ class Command(BaseCommand):
             User,
             number,
             {
+                "username": lambda x: seeder.faker.email(),
                 "is_staff": False,
                 "is_superuser": False,
                 "created_at": lambda x: fake.date_between(

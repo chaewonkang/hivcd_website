@@ -32,8 +32,8 @@ class Comment(Timestamp):
     post = models.ForeignKey("Post", on_delete=models.CASCADE, related_name="comments")
     author = models.ForeignKey(
         settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name="comments", db_column='author_username',
-        null=True
     )
+    parent = models.ForeignKey('self', related_name='reply', on_delete=models.CASCADE, null=True, blank=True)
     text = models.TextField()
 
     class Meta:
