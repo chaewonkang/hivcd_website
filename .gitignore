@@ -1,15 +1,9 @@
-.back_venv
-.venv
+venv
+priv/
 .vscode
 .idea
 */.env
 .pre-commit-config.yaml
-*/.azure
-# Elastic Beanstalk Files
-.elasticbeanstalk/*
-!.elasticbeanstalk/*.cfg.yml
-!.elasticbeanstalk/*.global.yml
-
 # Created by https://www.toptal.com/developers/gitignore/api/django,python,vim
 # Edit at https://www.toptal.com/developers/gitignore?templates=django,python,vim
 

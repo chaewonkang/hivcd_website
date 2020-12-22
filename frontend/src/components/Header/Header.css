@@ -19,6 +19,7 @@ header {
   width: calc((100vw - 40px) * 0.4);
   grid-template-columns: 3fr 1fr;
   padding-left: 10px;
+  padding-right: 20px;
 }
 
 .header_container_title {

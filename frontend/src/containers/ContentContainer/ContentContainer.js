@@ -21,7 +21,7 @@ class ContentContainer extends Component {
 
   _loadPost = async () => {
     axios
-      .get("http://127.0.0.1:8000/api/v1/postings")
+      .get("http://13.125.84.10:8000/api/v1/postings/?format=json")
       .then(({ data }) => {
         this.setState({
           ...this.state,
@@ -55,11 +55,10 @@ class ContentContainer extends Component {
           data.category === 4
       )
       .slice(0, 20);
-    // console.log(`latestArchiveList: ${latestArchiveList}`);
     return (
       <div className="contentcontainer">
         <PostWrapper>
-          <LogoImage></LogoImage>
+          {latestPostList ? <LogoImage></LogoImage> : null}
           {latestPostList &&
             latestPostList.map((post) => {
               return (

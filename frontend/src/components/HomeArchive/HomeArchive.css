@@ -6,6 +6,7 @@
   height: 100%;
   padding: 10px 10px 10px 10px;
   line-height: 1.7em;
+  overflow: auto;
 }
 
 .archive h2 {

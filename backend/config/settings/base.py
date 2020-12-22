@@ -172,12 +172,15 @@ EMAIL_HOST_PASSWORD = os.environ.get("EMAIL_HOST_PASSWORD")
 # Cors Policy
 CORS_ORIGIN_WHITELIST = [
     "http://13.125.84.10",
+    "http://13.125.84.10:3000",
     "http://13.125.84.10:8000",
-    "http://127.0.0.1:8000",
-    "http://13.125.84.10:80",
 #   "https://hongiksidi-media.s3.ap-northeast-2.amazonaws.com",
 ]
 
+from datetime import timedelta
 
+SIMPLE_JWT = {
+    'ACCESS_TOKEN_LIFETIME': timedelta(minutes=60),
+}
 # USER Model
 AUTH_USER_MODEL = "my_auth.User"

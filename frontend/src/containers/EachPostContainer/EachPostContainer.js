@@ -39,7 +39,7 @@ class EachPostContainer extends Component {
 
   getList() {
     return axios.get(
-      "http://127.0.0.1:8000/api/v1/postings/?format=json",
+      "http://13.125.84.10:8000/api/v1/postings/?format=json",
       {},
       {
         headers: {
@@ -54,7 +54,7 @@ class EachPostContainer extends Component {
 
   getPost(postId) {
     return axios.get(
-      "http://127.0.0.1:8000/api/v1/postings/" + postId + "/?format=json",
+      "http://13.125.84.10:8000/api/v1/postings/" + postId + "/?format=json",
       {},
       {
         headers: {
