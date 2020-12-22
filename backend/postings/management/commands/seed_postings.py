@@ -61,7 +61,7 @@ class Command(BaseCommand):
                 posting_models.Photo.objects.create(
                     caption=seeder.faker.sentence(),
                     post=post_instance,
-                    photo=f"room_photos/{random.randint(1, 31)}.webp",
+                    photo=f"room_photos/무한도전_로고.jpg",
                     created=lambda x: fake.date_between(
                         start_date=start_date, end_date="+30y"
                     ),
@@ -75,7 +75,7 @@ class Command(BaseCommand):
             for i in range(3):
                 posting_models.Comment.objects.create(
                     post=post_instance,
-                    author=get_random_user(),
+                    author=User.objects.get(email='asap0208@gmail.com'),
                     text=seeder.faker.sentence(),
                     created=lambda x: fake.date_between(
                         start_date=start_date, end_date="+30y"
@@ -91,7 +91,7 @@ class Command(BaseCommand):
                 posting_models.File.objects.create(
                     name=seeder.faker.sentence(),
                     post=post_instance,
-                    files=f"room_photos/{random.randint(1, 31)}.webp",
+                    files=f"room_photos/무한도전_로고.jpg",
                     created=lambda x: fake.date_between(
                         start_date=start_date, end_date="+30y"
                     ),

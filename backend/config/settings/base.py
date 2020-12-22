@@ -125,40 +125,22 @@ USE_TZ = True
 
 
 # Static files (CSS, JavaScript, Images)
-#STATIC_URL = 'https://%s/%s/static/' % (AWS_S3_CUSTOM_DOMAIN, AWS_LOCATION)
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "templates", "static"),
 ]
 
-
-# AWS Access
-#AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
-#AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
-#AWS_STORAGE_BUCKET_NAME = 'hivcdmedia'
-#AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
-#AWS_S3_OBJECT_PARAMETERS = {'CacheControl': 'max-age=86400',}
-#AWS_LOCATION = 'static'
-
-
-
 # Media files
 MEDIA_URL = "/media/"
 MEDIA_ROOT = os.path.join(BASE_DIR, 'uploads')
-#MEDIA_ROOT = 'https://%s/%s/media/' % (AWS_S3_CUSTOM_DOMAIN, AWS_LOCATION)
-
 
 # Rest Framework
 REST_FRAMEWORK = {
     "DEFAULT_AUTHENTICATION_CLASSES": (
         "rest_framework_simplejwt.authentication.JWTAuthentication",
-#        "rest_framework.authentication.BasicAuthentication",
-#        "rest_framework.authentication.SessionAuthentication",
     )
 }
-
-
 
 # Email Settings
 EMAIL_USE_TLS = os.environ.get("EMAIL_USE_TLS")
@@ -167,14 +149,10 @@ EMAIL_PORT = os.environ.get("EMAIL_PORT")
 EMAIL_HOST_USER = os.environ.get("EMAIL_HOST_USER")
 EMAIL_HOST_PASSWORD = os.environ.get("EMAIL_HOST_PASSWORD")
 
-
-
 # Cors Policy
 CORS_ORIGIN_WHITELIST = [
     "http://13.125.84.10",
-    "http://13.125.84.10:3000",
     "http://13.125.84.10:8000",
-#   "https://hongiksidi-media.s3.ap-northeast-2.amazonaws.com",
 ]
 
 from datetime import timedelta
@@ -182,5 +160,6 @@ from datetime import timedelta
 SIMPLE_JWT = {
     'ACCESS_TOKEN_LIFETIME': timedelta(minutes=60),
 }
+
 # USER Model
 AUTH_USER_MODEL = "my_auth.User"
