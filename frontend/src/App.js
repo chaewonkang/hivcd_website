@@ -117,8 +117,6 @@ class App extends Component {
   }
 
   render() {
-    const token = localStorage.getItem("access_token");
-
     return (
       <main>
         <Switch>
@@ -137,9 +135,7 @@ class App extends Component {
             ></Header>
             <Route exact path="/" component={ContentContainer} />
             <Route exact path="/board" component={Board} />
-            {token === null ? null : (
-              <Route path="board/:postId" component={EachPostContainer}></Route>
-            )}
+            <Route path="board/:postId" component={EachPostContainer}></Route>
             <Route path="/aboutus" component={AboutUs} />
             <Route path="/alumni" component={Alumni} />
             <Route path="/archive" component={Archive} />
