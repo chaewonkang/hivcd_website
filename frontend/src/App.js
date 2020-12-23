@@ -135,7 +135,7 @@ class App extends Component {
             ></Header>
             <Route exact path="/" component={ContentContainer} />
             <Route exact path="/board" component={Board} />
-            <Route path="board/:postId" component={EachPostContainer}></Route>
+            <Route path="/board/:postId" component={EachPostContainer}></Route>
             <Route path="/aboutus" component={AboutUs} />
             <Route path="/alumni" component={Alumni} />
             <Route path="/archive" component={Archive} />
