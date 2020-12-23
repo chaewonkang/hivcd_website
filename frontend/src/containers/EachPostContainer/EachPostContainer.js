@@ -1,7 +1,6 @@
 import React, { Component } from "react";
-import { BoardListWrapper, Warning } from "../../components";
+import { BoardListWrapper } from "../../components";
 import axios from "axios";
-import { Redirect } from "react-router-dom";
 import "./EachPostContainer.css";
 import getCookie from "../../utils/getCookie";
 
@@ -28,7 +27,6 @@ class EachPostContainer extends Component {
         author: null,
         post: 0,
       },
-      warningVisibility: false,
       csrftoken: getCookie("csrftoken"),
     };
   }
@@ -36,20 +34,6 @@ class EachPostContainer extends Component {
   componentDidMount() {
     this.fetchPostInfo(this.props.match.params.postId);
   }
-
-  showWarning = () => {
-    this.setState({
-      ...this.state,
-      warningVisibility: true,
-    });
-
-    setTimeout(() => {
-      this.setState({
-        ...this.state,
-        warningVisibility: false,
-      });
-    }, 1500);
-  };
 
   getList() {
     return axios.get(
@@ -189,13 +173,6 @@ class EachPostContainer extends Component {
   }
 
   render() {
-    const token = localStorage.getItem("access_token");
-    // console.log(token);
-
-    if (token === null) {
-      this.showWarning();
-      return <Redirect to="/" />;
-    }
     const { list } = this.state;
 
     return (
@@ -209,10 +186,6 @@ class EachPostContainer extends Component {
           fetching={this.state.fetching}
         ></BoardListWrapper>
         <div>{/* {this.props.match.params.postId} {post.title} */}</div>
-        <Warning
-          visible={this.state.warningVisibility}
-          message="마지막 게시물입니다."
-        />{" "}
       </div>
     );
   }

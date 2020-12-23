@@ -19,20 +19,6 @@ class ContentContainer extends Component {
     this._loadPost();
   }
 
-  showWarning = () => {
-    this.setState({
-      ...this.state,
-      warningVisibility: true,
-    });
-
-    setTimeout(() => {
-      this.setState({
-        ...this.state,
-        warningVisibility: false,
-      });
-    }, 1500);
-  };
-
   _loadPost = async () => {
     axios
       .get("http://13.125.84.10:8000/api/v1/postings/?format=json")
@@ -85,6 +71,13 @@ class ContentContainer extends Component {
                 ></Post>
               );
             })}
+          <Post
+            key={100}
+            title={"Hello!"}
+            date={"202020202020"}
+            category={1}
+            id={100}
+          ></Post>
         </PostWrapper>
         <ArchiveWrapper>
           {latestArchiveList &&

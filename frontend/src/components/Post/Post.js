@@ -1,6 +1,7 @@
 import React, { Component } from "react";
-import { PostModule } from "../../components";
+import { PostModule, Warning } from "../../components";
 import "./Post.css";
+import { Redirect } from "react-router-dom";
 
 class Post extends Component {
   constructor(props) {
@@ -14,8 +15,6 @@ class Post extends Component {
       },
     };
   }
-
-  myRef = null;
 
   UNSAFE_componentWillMount() {
     const colorArray = [
@@ -68,22 +67,46 @@ class Post extends Component {
     });
   }
 
+  componentDidMount() {
+    const token = localStorage.getItem("access_token");
+
+    if (token === null) {
+      this.showWarning();
+      return <Redirect to="/"></Redirect>;
+    }
+  }
+
+  showWarning = () => {
+    this.setState({
+      ...this.state,
+      warningVisibility: true,
+    });
+
+    setTimeout(() => {
+      this.setState({
+        ...this.state,
+        warningVisibility: false,
+      });
+    }, 1500);
+  };
+
   render() {
     const { title, id, category, date } = this.props;
-    // console.log(`post modules's id: ${id} ${title}`);
-    // console.log(typeof id);
+
     const style = {
       backgroundColor: this.state.style.color,
       border: `2px solid ${this.state.style.borderColor}`,
     };
     return (
-      <PostModule
-        style={style}
-        title={title}
-        id={id}
-        category={category}
-        date={date}
-      ></PostModule>
+      <>
+        <PostModule
+          style={style}
+          title={title}
+          id={id}
+          category={category}
+          date={date}
+        ></PostModule>
+      </>
     );
   }
 }
