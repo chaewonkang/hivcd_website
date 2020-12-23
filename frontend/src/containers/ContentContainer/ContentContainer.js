@@ -71,13 +71,6 @@ class ContentContainer extends Component {
                 ></Post>
               );
             })}
-          <Post
-            key={100}
-            title={"Hello!"}
-            date={"202020202020"}
-            category={1}
-            id={100}
-          ></Post>
         </PostWrapper>
         <ArchiveWrapper>
           {latestArchiveList &&
