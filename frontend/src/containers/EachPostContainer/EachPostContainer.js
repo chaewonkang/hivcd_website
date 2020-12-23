@@ -176,23 +176,24 @@ class EachPostContainer extends Component {
 
   render() {
     const { list } = this.state;
-    const token = localStorage.getItem("access_token");
-    const validRet =
-      token === null ? (
-        <NotFoundContainer></NotFoundContainer>
-      ) : (
-        <div className="each_post_container">
-          <BoardListWrapper
-            list={list}
-            postId={this.props.match.params.postId}
-            handleNavigateClick={this.handleNavigateClick}
-            onPostComment={this.postComment}
-            showWarning={this.showWarning}
-            fetching={this.state.fetching}
-          ></BoardListWrapper>
-          <div>{/* {this.props.match.params.postId} {post.title} */}</div>
-        </div>
-      );
+    // const token = localStorage.getItem("access_token");
+    const validRet = (
+      //   token === null ? (
+      //     <NotFoundContainer></NotFoundContainer>
+      //   ) : (
+      //     <div className="each_post_container">
+      <BoardListWrapper
+        list={list}
+        postId={this.props.match.params.postId}
+        handleNavigateClick={this.handleNavigateClick}
+        onPostComment={this.postComment}
+        showWarning={this.showWarning}
+        fetching={this.state.fetching}
+      ></BoardListWrapper>
+    );
+    //   <div>{/* {this.props.match.params.postId} {post.title} */}</div>
+    // </div>
+    //   );
 
     return validRet;
   }

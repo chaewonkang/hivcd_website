@@ -148,10 +148,10 @@ class App extends Component {
                 ></SearchResultContainer>
 			  )}
             /> */}
-            <Route component={NotFoundContainer} />
             <Footer />
           </div>
         </Switch>
+        {/* <Route component={NotFoundContainer} /> */}
       </main>
     );
   }
