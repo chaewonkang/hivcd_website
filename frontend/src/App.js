@@ -11,6 +11,7 @@ import {
   Alumni,
   Archive,
   SignUp,
+  Warning,
 } from "./components";
 import "./App.css";
 import "./components/Header/Header.css";

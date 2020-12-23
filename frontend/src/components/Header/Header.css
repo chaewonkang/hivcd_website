@@ -17,9 +17,12 @@ header {
 .header_container_right {
   display: inline-grid;
   width: calc((100vw - 40px) * 0.4);
-  grid-template-columns: 3fr 1fr;
+  grid-template-columns: 1fr;
   padding-left: 10px;
-  padding-right: 20px;
+
+  position: absolute;
+  right: 0;
+  text-align: right;
 }
 
 .header_container_title {

@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import { Search } from "../../components";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { ResponsiveHeader } from "../../components";
 import "./Header.css";

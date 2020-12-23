@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { BoardListWrapper } from "../../components";
+import { BoardListWrapper, Warning } from "../../components";
 import axios from "axios";
 import { Redirect } from "react-router-dom";
 import "./EachPostContainer.css";
@@ -36,6 +36,20 @@ class EachPostContainer extends Component {
   componentDidMount() {
     this.fetchPostInfo(this.props.match.params.postId);
   }
+
+  showWarning = () => {
+    this.setState({
+      ...this.state,
+      warningVisibility: true,
+    });
+
+    setTimeout(() => {
+      this.setState({
+        ...this.state,
+        warningVisibility: false,
+      });
+    }, 1500);
+  };
 
   getList() {
     return axios.get(
@@ -179,7 +193,7 @@ class EachPostContainer extends Component {
     // console.log(token);
 
     if (token === null) {
-      alert("권한이 없습니다.");
+      this.showWarning();
       return <Redirect to="/" />;
     }
     const { list } = this.state;
@@ -195,6 +209,10 @@ class EachPostContainer extends Component {
           fetching={this.state.fetching}
         ></BoardListWrapper>
         <div>{/* {this.props.match.params.postId} {post.title} */}</div>
+        <Warning
+          visible={this.state.warningVisibility}
+          message="마지막 게시물입니다."
+        />{" "}
       </div>
     );
   }

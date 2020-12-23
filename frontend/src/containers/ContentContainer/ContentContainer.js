@@ -19,6 +19,20 @@ class ContentContainer extends Component {
     this._loadPost();
   }
 
+  showWarning = () => {
+    this.setState({
+      ...this.state,
+      warningVisibility: true,
+    });
+
+    setTimeout(() => {
+      this.setState({
+        ...this.state,
+        warningVisibility: false,
+      });
+    }, 1500);
+  };
+
   _loadPost = async () => {
     axios
       .get("http://13.125.84.10:8000/api/v1/postings/?format=json")
