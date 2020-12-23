@@ -11,12 +11,15 @@ import {
   Alumni,
   Archive,
   SignUp,
-  Warning,
 } from "./components";
 import "./App.css";
 import "./components/Header/Header.css";
 import ContentContainer from "./containers/ContentContainer/ContentContainer";
-import { SearchResultContainer, EachPostContainer } from "./containers";
+import {
+  SearchResultContainer,
+  EachPostContainer,
+  NotFoundContainer,
+} from "./containers";
 import axiosInstance from "./utils/axiosApi";
 import "./Animation.css";
 
@@ -114,6 +117,8 @@ class App extends Component {
   }
 
   render() {
+    const token = localStorage.getItem("access_token");
+
     return (
       <main>
         <Switch>
@@ -132,19 +137,22 @@ class App extends Component {
             ></Header>
             <Route exact path="/" component={ContentContainer} />
             <Route exact path="/board" component={Board} />
-            <Route path="/board/:postId" component={EachPostContainer} />
+            {token === null ? null : (
+              <Route path="board/:postId" component={EachPostContainer}></Route>
+            )}
             <Route path="/aboutus" component={AboutUs} />
             <Route path="/alumni" component={Alumni} />
             <Route path="/archive" component={Archive} />
             <Route path="/calandar" component={CalandarContainer} />
-            <Route
+            {/* <Route
               path="/search"
               render={() => (
                 <SearchResultContainer
                   searchKeyword={this.state.searchKeyword}
                 ></SearchResultContainer>
-              )}
-            />
+			  )}
+            /> */}
+            <Route component={NotFoundContainer} />
             <Footer />
           </div>
         </Switch>

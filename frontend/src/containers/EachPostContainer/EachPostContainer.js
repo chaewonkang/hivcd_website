@@ -3,6 +3,7 @@ import { BoardListWrapper } from "../../components";
 import axios from "axios";
 import "./EachPostContainer.css";
 import getCookie from "../../utils/getCookie";
+import { Redirect } from "react-router-dom";
 
 class EachPostContainer extends Component {
   constructor(props) {
