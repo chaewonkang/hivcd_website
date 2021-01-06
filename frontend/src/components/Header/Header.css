@@ -10,7 +10,7 @@ header {
 .header_container_left {
   display: inline-grid;
   width: calc((100vw - 40px) * 0.6);
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(5, 1fr);
   column-gap: 10px;
 }
 
@@ -19,7 +19,6 @@ header {
   width: calc((100vw - 40px) * 0.4);
   grid-template-columns: 1fr;
   padding-left: 10px;
-
   position: absolute;
   right: 0;
   text-align: right;
@@ -31,6 +30,26 @@ header {
 
 .header_container_login {
   grid-column: 4 / 5;
+  position: relative;
+  right: 0;
+}
+
+.header_container_search {
+  grid-column: 5 / 6;
+  font-family: "Helvetica";
+  padding: 0.1em 0.25em 0.1em 0.25em;
+  width: fit-content;
+  font-size: 18px;
+  text-align: center;
+  border: 1px solid #000;
+  cursor: pointer;
+  font-family: "Helvetica";
+  font-weight: 100;
+  padding: 0.1em 0.75em 0.1em 0.75em;
+  font-size: 18px;
+  width: fit-content;
+  border: 1px solid #000;
+  cursor: pointer;
 }
 
 .header_container_title h1 {

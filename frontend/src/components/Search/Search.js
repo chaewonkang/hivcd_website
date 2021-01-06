@@ -1,59 +1,47 @@
-import React, { Component } from "react";
+import React, { useState } from "react";
 import Modal from "react-awesome-modal";
 import "./Search.css";
 
-class Search extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      visible: false,
-      searchResult: null,
-    };
-  }
+function Search({ handleSearchKeyword }) {
+  const [visible, setVisible] = useState(false);
 
-  _openModal = function () {
-    this.setState({
-      visible: true,
-    });
+  const openModal = () => {
+    setVisible(true);
     document.body.style.overflow = "hidden";
   };
 
-  _closeModal = function () {
-    this.setState({
-      visible: false,
-    });
+  const closeModal = () => {
+    setVisible(false);
     document.body.style.overflow = "unset";
   };
 
-  submitSearch(e) {
+  const submitSearch = (e) => {
     e.preventDefault();
     const searchValue = document.getElementsByName("search")[0].value;
 
-    this.props.handleSearchKeyword(searchValue);
+    handleSearchKeyword(searchValue);
     console.log(`Search Component value is: ${searchValue}`);
-    this._closeModal();
-  }
+    closeModal();
+  };
 
-  render() {
-    return (
-      <div>
-        <Modal
-          visible={this.state.visible}
-          width="815"
-          height="70"
-          effect="fadeInDown"
-          onClickAway={() => this._closeModal()}
-        >
-          <form onSubmit={this.submitSearch.bind(this)}>
-            <input placeholder="SEARCH..." type="text" name="search"></input>
-          </form>
-        </Modal>
-        <div className="navbar_search_item" onClick={() => this._openModal()}>
-          SEARCH
-        </div>
+  return (
+    <>
+      <div className="header_container_search" onClick={() => openModal()}>
+        SEARCH
       </div>
-    );
-  }
+      <Modal
+        visible={visible}
+        width="815"
+        height="70"
+        effect="fadeInDown"
+        onClickAway={() => closeModal()}
+      >
+        <form onSubmit={() => submitSearch()}>
+          <input placeholder="SEARCH..." type="text" name="search"></input>
+        </form>
+      </Modal>
+    </>
+  );
 }
 
 export default Search;

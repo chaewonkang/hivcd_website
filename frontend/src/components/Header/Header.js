@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { ResponsiveHeader } from "../../components";
 import "./Header.css";
-import { Login } from "../../components";
+import { Login, Search } from "../../components";
 
 class Header extends Component {
   constructor(props) {
@@ -48,6 +48,7 @@ class Header extends Component {
                 handleLogin={this.props.handleLogin}
               ></Login>
             </div>
+            <Search></Search>
           </div>
           <div className="header_container_right">
             <div className="header_container_menubar">

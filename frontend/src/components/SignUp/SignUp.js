@@ -69,7 +69,7 @@ class SignUp extends Component {
         <Modal
           visible={this.state.visible}
           width="450"
-          height="640"
+          height="660"
           effect="fadeInDown"
         >
           <div>
@@ -135,7 +135,7 @@ class SignUp extends Component {
                     className="back_to_home"
                     onClick={() => (document.body.style.overflow = "unset")}
                   >
-                    <span>BACK TO HOME</span>
+                    <span id="backtohome">BACK TO HOME</span>
                   </Link>
                 </div>
               </div>

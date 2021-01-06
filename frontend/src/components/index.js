@@ -14,7 +14,6 @@ import LogoImage from "./LogoImage/LogoImage";
 import CalandarContainer from "./CalandarContainer/CalandarContainer";
 import Search from "./Search/Search";
 import BoardPostWrapper from "./BoardPostWrapper/BoardPostWrapper";
-import FilterBox from "./FilterBox/FilterBox";
 import ResponsiveHeader from "./ResponsiveHeader/ResponsiveHeader";
 import Navbar from "./Navbar/Navbar";
 import Login from "./Login/Login";
@@ -50,7 +49,6 @@ export {
   CalandarContainer,
   Search,
   BoardPostWrapper,
-  FilterBox,
   ResponsiveHeader,
   Navbar,
   Login,

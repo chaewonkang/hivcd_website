@@ -21,7 +21,7 @@ import {
   NotFoundContainer,
 } from "./containers";
 import axiosInstance from "./utils/axiosApi";
-import "./Animation.css";
+import "./utils/Animation.css";
 
 class App extends Component {
   constructor(props) {
@@ -121,8 +121,8 @@ class App extends Component {
       <main>
         <Switch>
           <div className="AppBody">
-            <Route path="/mobile/signup" component={MobileSignup}></Route>
             <Route path="/auth/registration" component={SignUp}></Route>
+            <Route path="/mobile/signup" component={MobileSignup}></Route>
             <ResponsiveHeader
               navClass="nav-small"
               linkClassName="nav-small-link"
@@ -140,14 +140,14 @@ class App extends Component {
             <Route path="/alumni" component={Alumni} />
             <Route path="/archive" component={Archive} />
             <Route path="/calandar" component={CalandarContainer} />
-            {/* <Route
+            <Route
               path="/search"
               render={() => (
                 <SearchResultContainer
                   searchKeyword={this.state.searchKeyword}
                 ></SearchResultContainer>
-			  )}
-            /> */}
+              )}
+            />
             <Footer />
           </div>
         </Switch>

@@ -10,6 +10,8 @@
   width: fit-content;
   border: 1px solid #000;
   cursor: pointer;
+  position: absolute;
+  right: 0;
 }
 
 .navbar_login_modal_container {

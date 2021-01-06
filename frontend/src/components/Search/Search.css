@@ -1,15 +1,3 @@
-.navbar_search_item {
-  font-family: "Helvetica";
-  padding: 0.1em 0.25em 0.1em 0.25em;
-  width: fit-content;
-  justify-self: right;
-  font-size: 18px;
-  text-align: center;
-  position: absolute;
-  border: 1px solid #000;
-  cursor: pointer;
-}
-
 input[name="search"] {
   border: 1px solid #000;
   color: #000;

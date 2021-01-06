@@ -13,7 +13,7 @@ class LogoImage extends Component {
       style: {
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
-        backgroundSize: "95%",
+        backgroundSize: "90%",
         gridColumn: null,
         gridRow: null,
       },
