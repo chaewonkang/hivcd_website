@@ -1,110 +1,89 @@
-import React, { Component } from "react";
+import React, { useEffect, useState } from "react";
 import Modal from "react-awesome-modal";
 import "./Login.css";
 import { Link, withRouter } from "react-router-dom";
 
-class Login extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      visible: false,
-      email: "",
-      password: "",
-    };
-    this._closeModal = this._closeModal.bind(this);
-    this._openModal = this._openModal.bind(this);
-    this.handleChange = this.handleChange.bind(this);
-  }
+function Login({ handleLogin, handleLogout }) {
+  const [visible, setVisible] = useState(false);
+  const [userInfo, setUserInfo] = useState({});
+  //   const [isLogged, setIsLogged] = useState(false);
 
-  _openModal = function () {
-    this.setState({
-      visible: true,
-    });
+  const openModal = () => {
+    setVisible(true);
     document.body.style.overflow = "hidden";
   };
 
-  _closeModal = function () {
-    this.setState({
-      visible: false,
-    });
+  const closeModal = () => {
+    setVisible(false);
     document.body.style.overflow = "unset";
   };
 
-  handleChange = (e) => {
-    this.setState({ [e.target.name]: e.target.value });
+  const handleChange = (e) => {
+    setUserInfo({ [e.target.name]: e.target.value });
   };
 
-  handleSubmit = (e) => {
-    const { email, password } = this.state;
-    this.props.handleLogin({
+  const handleSubmit = (e) => {
+    const { email, password } = userInfo;
+    handleLogin({
       email: email,
       password: password,
     });
-    this.setState({
-      ...this.state,
-      isLogged: true,
-    });
-    this._closeModal();
+    closeModal();
   };
 
-  render() {
-    return (
-      <>
-        <Modal
-          visible={this.state.visible}
-          width="450"
-          height="365"
-          effect="fadeInDown"
-          onClickAway={this._closeModal}
-        >
-          <div>
-            <form onSubmit={(e) => this.handleSubmit(e)}>
-              <div className="navbar_login_modal_container">
-                <input
-                  placeholder="email"
-                  type="text"
-                  name="email"
-                  value={this.state.email}
-                  onChange={(e) => this.handleChange(e)}
-                ></input>
-                <input
-                  placeholder="password"
-                  type="password"
-                  name="password"
-                  value={this.state.password}
-                  onChange={(e) => this.handleChange(e)}
-                ></input>
-                <div
-                  value="submit"
-                  className="login_button"
-                  onClick={(e) => this.handleSubmit(e)}
-                >
-                  <span>LOGIN</span>
-                </div>
-                <Link to="/auth/registration" className="create_account_link">
-                  <span className="create-account" onClick={this._closeModal}>
-                    create account
-                  </span>
-                </Link>
+  return (
+    <>
+      <Modal
+        visible={visible}
+        width="450"
+        height="365"
+        effect="fadeInDown"
+        onClickAway={() => closeModal()}
+      >
+        <div>
+          <form onSubmit={(e) => this.handleSubmit(e)}>
+            <div className="navbar_login_modal_container">
+              <input
+                placeholder="email"
+                type="text"
+                name="email"
+                value={userInfo.email}
+                onChange={(e) => handleChange(e)}
+              ></input>
+              <input
+                placeholder="password"
+                type="password"
+                name="password"
+                value={userInfo.password}
+                onChange={(e) => handleChange(e)}
+              ></input>
+              <div
+                value="submit"
+                className="login_button"
+                onClick={(e) => handleSubmit(e)}
+              >
+                <span>LOGIN</span>
               </div>
-            </form>
-          </div>
-        </Modal>
-        {localStorage.getItem("access_token") || this.state.isLogged ? (
-          <div
-            className="navbar_login_item"
-            onClick={() => this.props.handleLogout()}
-          >
-            LOGOUT
-          </div>
-        ) : (
-          <div className="navbar_login_item" onClick={this._openModal}>
-            LOGIN
-          </div>
-        )}
-      </>
-    );
-  }
+              <Link to="/auth/registration" className="create_account_link">
+                <span className="create-account" onClick={() => closeModal()}>
+                  create account
+                </span>
+              </Link>
+            </div>
+          </form>
+        </div>
+      </Modal>
+      {localStorage.getItem("access_token") ? (
+        <div className="navbar_login_item" onClick={() => handleLogout()}>
+          LOGOUT
+        </div>
+      ) : (
+        <div className="navbar_login_item" onClick={() => openModal()}>
+          LOGIN
+        </div>
+      )}
+    </>
+  );
 }
 
-export default withRouter(Login);
+export default Login;

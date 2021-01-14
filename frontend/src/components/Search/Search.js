@@ -26,9 +26,6 @@ function Search({ handleSearchKeyword }) {
 
   return (
     <>
-      <div className="header_container_search" onClick={() => openModal()}>
-        SEARCH
-      </div>
       <Modal
         visible={visible}
         width="815"
@@ -40,6 +37,9 @@ function Search({ handleSearchKeyword }) {
           <input placeholder="SEARCH..." type="text" name="search"></input>
         </form>
       </Modal>
+      <div className="navbar_search_item" onClick={() => openModal()}>
+        SEARCH
+      </div>
     </>
   );
 }

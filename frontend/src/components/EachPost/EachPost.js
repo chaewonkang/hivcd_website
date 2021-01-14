@@ -10,7 +10,7 @@ function EachPost({ postId, handleNavigateClick }) {
     borderColor: null,
   });
   const [eachPost, setEachPost] = useState({});
-  const [token, setToken] = useState(getCookie("csrftoken"));
+  const [token, setToken] = useState("");
   const [warningVisibility, setWarningVisibility] = useState(false);
 
   const showWarning = () => {
@@ -56,7 +56,7 @@ function EachPost({ postId, handleNavigateClick }) {
   };
 
   useEffect(() => {
-    console.log("Hello");
+    setToken(getCookie("csrftoken"));
     return getEachPost(postId);
   }, []);
 
@@ -155,20 +155,7 @@ function EachPost({ postId, handleNavigateClick }) {
           </a>
         </div>
         <hr style={{ marginBottom: 2 + "em" }}></hr>
-        <p>
-          {body}
-          {body}
-          {body}
-          {body}
-          <br></br>
-          {body}
-          {body}
-          {body}
-          {body}
-          <br></br>
-          {body}
-          {body}
-        </p>
+        <p>{body}</p>
         <hr style={{ marginBottom: 2 + "em", marginTop: 2 + "em" }}></hr>
         <CommentList
           comments={eachPost.comments}

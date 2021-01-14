@@ -9,7 +9,6 @@ import Board from "./Board/Board";
 import AboutUs from "./AboutUs/AboutUs";
 import Alumni from "./Alumni/Alumni";
 import Archive from "./Archive/Archive";
-import Calandar from "./Calandar/Calandar";
 import LogoImage from "./LogoImage/LogoImage";
 import CalandarContainer from "./CalandarContainer/CalandarContainer";
 import Search from "./Search/Search";
@@ -44,7 +43,6 @@ export {
   AboutUs,
   Alumni,
   Archive,
-  Calandar,
   LogoImage,
   CalandarContainer,
   Search,

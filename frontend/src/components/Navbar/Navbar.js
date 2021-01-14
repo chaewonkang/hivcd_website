@@ -13,9 +13,7 @@ const Navbar = ({ navClass, linkClassName, handleLogin, handleLogout }) => (
 );
 
 export const NavComponent = ({ onClick, handleLogin, handleLogout }) => {
-  const [userinfo, setUserInfo] = useState({ email: null, password: null }, [
-    userinfo,
-  ]);
+  const [userinfo, setUserInfo] = useState({ email: null, password: null });
   const handleChange = (e) => {
     setUserInfo({
       ...userinfo,
