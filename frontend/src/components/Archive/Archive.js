@@ -1,58 +1,32 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import "./Archive.css";
 import axios from "axios";
 import { ArchiveModule } from "../../components";
+import useAsync from "../../utils/useAsync";
+
+async function getArchiveInfo() {
+  const response = await axios.get(
+    "https://jsonplaceholder.typicode.com/posts",
+    {},
+    {
+      headers: {
+        Authorization: "Bearer " + localStorage.getItem("access_token"),
+        Accept: "application/json",
+        "Content-type": "application/json",
+      },
+    }
+  );
+  return response.data;
+}
 
 function Archive() {
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(null);
-  const [archiveInfo, setArchiveInfo] = useState([]);
   const [archiveFilter, setArchiveFilter] = useState(0);
+  const [state] = useAsync(() => getArchiveInfo(), []);
+  const { loading, data: archive, error } = state;
 
-  useEffect(() => {
-    getArchiveInfo();
-  });
-
-  const getArchiveInfo = async () => {
-    await axios
-      .get("http://13.125.84.10:8000/api/v1/postings/?format=json")
-      .then(({ data }) => {
-        setLoading(true);
-        setArchiveInfo(data);
-      })
-      .catch((e) => {
-        setLoading(false);
-        setError(e);
-        console.log(error);
-      });
-  };
-
-  const items = archiveInfo
-    .filter(
-      (data) =>
-        data.category === 5 || data.category === 6 || data.category === 7
-    )
-    .slice(0, 100)
-    .filter((data) => {
-      if (archiveFilter === null) return data;
-      else if (data.category === archiveFilter) return data;
-      return;
-    })
-    .map((data) => {
-      return (
-        <ArchiveModule
-          key={data.id}
-          title={data.title}
-          thumbnailUrl={data.photos ? data.photos[0].photo : null}
-          date={data.created}
-          category={data.category}
-          link={data.link}
-        ></ArchiveModule>
-      );
-    });
-
-  if (loading) return <div>로딩중...</div>;
   if (error) return <div>에러 발생...</div>;
+  if (loading) return <div>로딩 중...</div>;
+  if (!archive) return null;
 
   return (
     <>
@@ -85,7 +59,34 @@ function Archive() {
             </button>
           </div>
         </div>
-        <div className="archive_container">{items}</div>
+        <div className="archive_container">
+          {archive
+            // .filter(
+            //   (data) =>
+            //     data.category === 5 ||
+            //     data.category === 6 ||
+            //     data.category === 7
+            // )
+            .slice(0, 100)
+            // .filter((data) => {
+            //   if (archiveFilter === null) return data;
+            //   else if (data.category === archiveFilter) return data;
+            //   return;
+            // })
+            .map((data) => {
+              return (
+                <ArchiveModule
+                  key={data.id}
+                  title={data.title}
+                  //   thumbnailUrl={data.photos ? data.photos[0].photo : null}
+                  thumbnailUrl={data.title}
+                  date={data.title}
+                  category={data.title}
+                  link={data.title}
+                ></ArchiveModule>
+              );
+            })}
+        </div>
       </div>
     </>
   );

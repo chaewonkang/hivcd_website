@@ -3,26 +3,11 @@ import "./BoardListWrapper.css";
 import { useHistory } from "react-router-dom";
 import { EachPostWrapper } from "../../components";
 
-const BoardListWrapper = ({
-  list,
-  postId,
-  title,
-  body,
-  comments,
-  handleNavigateClick,
-  category,
-  author,
-  date,
-  onPostComment,
-
-  //   fetchPostInfo,
-}) => {
+function BoardListWrapper({ list, postId, handleNavigateClick }) {
   let history = useHistory();
 
-  //   const [loading, setLoading] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
   const [postsPerPage] = useState(20);
-  //   const [currentPost, setCurrentPost] = useState(0);
   const pageNumber = [];
 
   const indexOfLastPost = currentPage * postsPerPage;
@@ -56,16 +41,16 @@ const BoardListWrapper = ({
                     <div
                       className="list_grid list_data"
                       key={key}
-                      onClick={() => history.push(`/board/${el.pk}`)}
+                      onClick={() => history.push(`/board/${el.id}`)}
                     >
                       <div className="list_tag">
-                        <span>{categoryName.slice(0, 4)}...</span>
+                        {/* <span>{categoryName.slice(0, 4)}...</span> */}
                       </div>
                       <div className="board_list_title">
                         {" "}
                         {el.title.slice(0, 40)}...{" "}
                       </div>
-                      <div className="acenter"> {el.created.slice(2, 10)} </div>
+                      {/* <div className="acenter"> {el.created.slice(2, 10)} </div> */}
                     </div>
                   </React.Fragment>
                 );
@@ -73,8 +58,6 @@ const BoardListWrapper = ({
             : null}
         </div>
         <div className="paging_div">
-          {" "}
-          {/* <div>＜</div> */}
           <div>
             <ul className="pagination">
               {pageNumber.map((pageNum) => (
@@ -88,22 +71,14 @@ const BoardListWrapper = ({
               ))}
             </ul>
           </div>
-          {/* <div>＞</div> */}
         </div>
       </div>
       <EachPostWrapper
-        title={title}
-        body={body}
-        comments={comments}
-        handleNavigateClick={handleNavigateClick}
-        category={category}
-        author={author}
-        date={date}
-        onPostComment={onPostComment}
         postId={postId}
+        handleNavigateClick={handleNavigateClick}
       ></EachPostWrapper>
     </>
   );
-};
+}
 
 export default BoardListWrapper;

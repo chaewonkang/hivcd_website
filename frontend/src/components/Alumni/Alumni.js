@@ -1,80 +1,66 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import "./Alumni.css";
 import axios from "axios";
 import { AlumniModule, AlumniSearch, LogoImage } from "../../components";
+import useAsync from "../../utils/useAsync";
+
+async function getAlumnis() {
+  const response = await axios.get(
+    "https://jsonplaceholder.typicode.com/users",
+    {},
+    {
+      headers: {
+        Authorization: "Bearer " + localStorage.getItem("access_token"),
+        Accept: "application/json",
+        "Content-type": "application/json",
+      },
+    }
+  );
+  return response.data;
+}
 
 function Alumni() {
-  const [alumniInfo, setAlumniInfo] = useState([]);
   const [alumniSearch, setAlumniSearch] = useState(null);
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(null);
-
-  useEffect(() => {
-    getAlumnis();
-  });
+  const [state] = useAsync(() => getAlumnis(), []);
+  const { loading, data: alumnis, error } = state;
 
   const alumniSearchSpace = (e) => {
     let keyword = e.target.value;
     setAlumniSearch(keyword);
   };
 
-  const getAlumnis = () => {
-    axios
-      .get(
-        "http://13.125.84.10:8000/api/v1/alumnis/",
-        {},
-        {
-          headers: {
-            Authorization: "Bearer " + localStorage.getItem("access_token"),
-            Accept: "application/json",
-            "Content-type": "application/json",
-          },
-        }
-      )
-      .then(({ data }) => {
-        setAlumniInfo(data);
-        setLoading(true);
-      })
-      .catch((e) => {
-        setLoading(false);
-        setError(e);
-        console.log(error);
-      });
-  };
-  const items = alumniInfo
-    .filter((data) => {
-      if (alumniSearch === null) return data;
-      else if (
-        data.name.toLowerCase().includes(alumniSearch) ||
-        data.phone.includes(alumniSearch) ||
-        data.website.toLowerCase().includes(alumniSearch) ||
-        data.year.includes(alumniSearch)
-      )
-        return data;
-      return null;
-    })
-    .map((data) => {
-      return (
-        <AlumniModule
-          key={data.id}
-          year={data.year}
-          name={data.name}
-          tel={data.phone}
-          url={data.website}
-        ></AlumniModule>
-      );
-    });
-
   if (error) return <div>에러 발생...</div>;
   if (loading) return <div>로딩 중...</div>;
-  if (!items) return null;
+  if (!alumnis) return null;
 
   return (
     <div className="alumni_wrapper">
       <AlumniSearch onChange={(e) => alumniSearchSpace(e)}></AlumniSearch>
       <div className="alumni_container">
         <LogoImage style={{ gridColumn: 1 / 1, gridRow: 1 / 1 }}></LogoImage>
-        {items}
+        {alumnis
+          .filter((data) => {
+            if (alumniSearch === null) return data;
+            else if (
+              data.name.toLowerCase().includes(alumniSearch) ||
+              data.name.includes(alumniSearch) ||
+              data.name.toLowerCase().includes(alumniSearch) ||
+              data.name.includes(alumniSearch)
+            )
+              return data;
+            return null;
+          })
+          .map((data) => {
+            return (
+              <AlumniModule
+                key={data.name}
+                year={data.name}
+                name={data.name}
+                tel={data.name}
+                url={data.name}
+              ></AlumniModule>
+            );
+          })}
       </div>
     </div>
   );
