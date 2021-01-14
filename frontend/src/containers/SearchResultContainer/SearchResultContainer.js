@@ -8,7 +8,7 @@ function SearchResultContainer({ searchKeyword }) {
   const [postList, setPostList] = useState([]);
   const [token, setToken] = useState("");
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(error);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     setToken(getCookie("csrftoken"));
@@ -31,7 +31,7 @@ function SearchResultContainer({ searchKeyword }) {
       )
       .then(({ data }) => {
         setLoading(true);
-        postList(data);
+        setPostList(data);
       })
       .catch((e) => {
         setError(e);

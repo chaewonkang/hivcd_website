@@ -12,16 +12,11 @@ function Signup() {
   useEffect(() => {
     openModal();
     document.body.style.overflow = "unset";
-  }, []);
+  });
 
   const openModal = () => {
     setVisible(true);
     document.body.style.overflow = "hidden";
-  };
-
-  const closeModal = () => {
-    setVisible(false);
-    document.body.style.overflow = "unset";
   };
 
   const handleChange = (e) => {

@@ -1,9 +1,7 @@
 import React, { useState } from "react";
 import "./BoardListWrapper.css";
 import { useHistory } from "react-router-dom";
-// import { useEffect } from "react";
 import { EachPostWrapper } from "../../components";
-// import axios from "axios";
 
 const BoardListWrapper = ({
   list,

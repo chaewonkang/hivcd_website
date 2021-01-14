@@ -12,20 +12,11 @@ function EachPostContainer({ match }) {
     date: null,
     category: 0,
   });
-  const [comments, setComments] = useState([]);
   const [list, setList] = useState([]);
-  const [page, setPage] = useState(1);
-  const [limit, setLimit] = useState(25);
   const [pageArray, setPageArray] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
-  const [style, setStyle] = useState({ color: null, borderColor: null });
-  const [commentInput, setCommentInput] = useState({
-    text: null,
-    author: null,
-    post: 0,
-  });
-  const [csrfToken, setCsrfToken] = useState(getCookie("csrftoken"));
+  const [token, setToken] = useState("");
 
   const getList = () => {
     return axios.get(
@@ -35,7 +26,7 @@ function EachPostContainer({ match }) {
         headers: {
           Authorization: "Bearer " + localStorage.getItem("access_token"),
           Accept: "application/json",
-          "X-CSRFToken": this.state.token,
+          "X-CSRFToken": token,
           "Content-type": "application/json",
         },
       }
@@ -71,21 +62,18 @@ function EachPostContainer({ match }) {
       const info = await Promise.all([getPost(match.params), getList()]);
 
       const { title, text } = info[0].data;
-      const comments = info[0].data.comments;
       const list = info[1].data;
       const author = info[0].author;
       const date = info[0].data.created;
       const dataNum = list.length;
-      const pageArray = [];
       const category = info[0].data.category;
 
-      for (let i = 1; i <= Math.ceil(dataNum / limit); i++) {
+      for (let i = 1; i <= Math.ceil(dataNum / 25); i++) {
         pageArray.push(i);
       }
 
       setLoading(false);
       setPost({ ...post, title, text, author, date, category });
-      setComments(comments);
       setList(list);
       setPageArray(pageArray);
     } catch (e) {
@@ -96,7 +84,10 @@ function EachPostContainer({ match }) {
     }
   };
 
-  useEffect(() => fetchPostInfo(match.params.postId), [match.params.postId]);
+  useEffect(() => {
+    setToken(getCookie("csrftoken"));
+    fetchPostInfo(match.params.postId);
+  }, [match.params.postId]);
 
   return (
     <div className="each_post_container">

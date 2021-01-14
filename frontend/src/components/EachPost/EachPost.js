@@ -58,7 +58,7 @@ function EachPost({ postId, handleNavigateClick }) {
   useEffect(() => {
     setToken(getCookie("csrftoken"));
     return getEachPost(postId);
-  }, []);
+  });
 
   const colorArray = [
     "#A3B3C4",

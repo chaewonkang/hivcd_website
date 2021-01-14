@@ -9,16 +9,10 @@ import "normalize.css";
 import "semantic-ui-css/semantic.min.css";
 import * as serviceWorker from "./serviceWorker";
 
-// REDUX
-import { Provider } from "react-redux";
-import store from "./store/configure";
-
 ReactDOM.render(
-  <Provider store={store}>
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>
-  </Provider>,
+  <BrowserRouter>
+    <App />
+  </BrowserRouter>,
   document.getElementById("root")
 );
 

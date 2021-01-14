@@ -7,10 +7,11 @@ function Alumni() {
   const [alumniInfo, setAlumniInfo] = useState([]);
   const [alumniSearch, setAlumniSearch] = useState(null);
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     getAlumnis();
-  }, []);
+  });
 
   const alumniSearchSpace = (e) => {
     let keyword = e.target.value;
@@ -36,6 +37,8 @@ function Alumni() {
       })
       .catch((e) => {
         setLoading(false);
+        setError(e);
+        console.log(error);
       });
   };
   const items = alumniInfo
@@ -61,15 +64,16 @@ function Alumni() {
         ></AlumniModule>
       );
     });
+
+  if (error) return <div>에러 발생...</div>;
+  if (loading) return <div>로딩 중...</div>;
+  if (!items) return null;
+
   return (
     <div className="alumni_wrapper">
       <AlumniSearch onChange={(e) => alumniSearchSpace(e)}></AlumniSearch>
       <div className="alumni_container">
         <LogoImage style={{ gridColumn: 1 / 1, gridRow: 1 / 1 }}></LogoImage>
-        {items}
-        {items}
-        {items}
-        {items}
         {items}
       </div>
     </div>

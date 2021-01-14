@@ -39,7 +39,7 @@ function Board() {
   useEffect(() => {
     setToken(getCookie("csrftoken"));
     loadPost();
-  }, []);
+  });
 
   const boardPostList = postList.filter(
     (data) =>

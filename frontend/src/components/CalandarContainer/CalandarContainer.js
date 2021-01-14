@@ -16,7 +16,7 @@ function CalandarContainer() {
         "fc14c30a-1881-4601-9d23-5ce266b746dc"
       );
     }
-  }, []);
+  });
 
   return (
     <div className="calandar_container">

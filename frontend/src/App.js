@@ -24,10 +24,7 @@ function App() {
   const [searchKeyword, setSearchKeyword] = useState("");
 
   const handleSearchKeyword = (keyword) => {
-    this.setState({
-      ...this.state,
-      searchKeyword: keyword,
-    });
+    setSearchKeyword(keyword);
   };
 
   const handleLogin = async (data) => {
@@ -83,7 +80,7 @@ function App() {
     if (localStorage.username) {
       setLogged(true);
     }
-  }, []);
+  });
 
   return (
     <main>

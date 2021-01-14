@@ -30,7 +30,7 @@ const PostModule = ({ style, title, date, category, id }) => {
 
   return (
     <>
-      {/* {token === null ? (
+      {token === null ? (
         <div>
           <div className="post" style={style} onClick={() => showWarning()}>
             <div className="post_tag">
@@ -44,22 +44,21 @@ const PostModule = ({ style, title, date, category, id }) => {
             </div>
           </div>
         </div>
-      ) : ( */}
-      <Link to={`/board/${postId}`}>
-        <div className="post" style={style}>
-          <div className="post_tag">
-            <span>{categoryName}</span>
-          </div>
-          <div className="post_content">
-            <div className="post_content_header">
-              {title} <br></br>
+      ) : (
+        <Link to={`/board/${postId}`}>
+          <div className="post" style={style}>
+            <div className="post_tag">
+              <span>{categoryName}</span>
             </div>
-            <span className="post_content_date">{slicedDate}</span>
+            <div className="post_content">
+              <div className="post_content_header">
+                {title} <br></br>
+              </div>
+              <span className="post_content_date">{slicedDate}</span>
+            </div>
           </div>
-        </div>
-      </Link>
-      {/* )} */}
-
+        </Link>
+      )}
       <Warning visible={warningVisibility} message="권한이 없습니다." />
     </>
   );

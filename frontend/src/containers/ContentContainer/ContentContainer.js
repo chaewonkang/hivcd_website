@@ -11,7 +11,7 @@ function ContentContainer() {
 
   useEffect(() => {
     loadPost();
-  }, []);
+  });
 
   const loadPost = async () => {
     axios
@@ -42,6 +42,10 @@ function ContentContainer() {
         data.category === 4
     )
     .slice(0, 20);
+
+  if (loading) return <div>로딩 중...</div>;
+  if (error) return <div>에러 발생...</div>;
+
   return (
     <div className="contentcontainer">
       <PostWrapper>
@@ -59,35 +63,35 @@ function ContentContainer() {
             );
           })}
         <Post
-          key={100}
+          key={1}
           title="Hello"
           date="20202020202020"
           category={1}
           id={100}
         ></Post>
         <Post
-          key={100}
+          key={2}
           title="Hello"
           date="20202020202020"
           category={1}
           id={100}
         ></Post>
         <Post
-          key={100}
+          key={3}
           title="Hello"
           date="20202020202020"
           category={1}
           id={100}
         ></Post>
         <Post
-          key={100}
+          key={4}
           title="Hello"
           date="20202020202020"
           category={1}
           id={100}
         ></Post>
         <Post
-          key={100}
+          key={5}
           title="Hello"
           date="20202020202020"
           category={1}

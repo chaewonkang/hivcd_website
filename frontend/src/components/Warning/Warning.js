@@ -14,7 +14,7 @@ function Warning({ visible, message }) {
         setClosing(false);
       }, 1000);
     }
-  }, [visible]);
+  });
 
   return !visible && !closing ? null : (
     <div className="Warning-wrapper">

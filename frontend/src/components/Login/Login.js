@@ -1,12 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import Modal from "react-awesome-modal";
 import "./Login.css";
-import { Link, withRouter } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 function Login({ handleLogin, handleLogout }) {
   const [visible, setVisible] = useState(false);
   const [userInfo, setUserInfo] = useState({});
-  //   const [isLogged, setIsLogged] = useState(false);
 
   const openModal = () => {
     setVisible(true);

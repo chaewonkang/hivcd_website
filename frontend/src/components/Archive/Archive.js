@@ -1,12 +1,17 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./Archive.css";
 import axios from "axios";
 import { ArchiveModule } from "../../components";
 
 function Archive() {
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
   const [archiveInfo, setArchiveInfo] = useState([]);
   const [archiveFilter, setArchiveFilter] = useState(0);
+
+  useEffect(() => {
+    getArchiveInfo();
+  });
 
   const getArchiveInfo = async () => {
     await axios
@@ -16,8 +21,9 @@ function Archive() {
         setArchiveInfo(data);
       })
       .catch((e) => {
-        console.error(e);
         setLoading(false);
+        setError(e);
+        console.log(error);
       });
   };
 
@@ -44,6 +50,10 @@ function Archive() {
         ></ArchiveModule>
       );
     });
+
+  if (loading) return <div>로딩중...</div>;
+  if (error) return <div>에러 발생...</div>;
+
   return (
     <>
       <div className="archive_wrapper">
