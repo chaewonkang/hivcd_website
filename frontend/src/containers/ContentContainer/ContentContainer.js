@@ -24,8 +24,8 @@ function ContentContainer() {
   const [state] = useAsync(() => getPosts(), []);
   const { loading, data: posts, error } = state;
 
-  if (loading) return <div className="contentcontainer">로딩 중...</div>;
-  if (error) return <div className="contentcontainer">에러 발생...</div>;
+  if (loading) return <div className="contentcontainer">Loading...</div>;
+  if (error) return <div className="contentcontainer">Error Occurred!</div>;
   if (!posts) return null;
 
   return (
@@ -41,7 +41,6 @@ function ContentContainer() {
             //     data.category === 3 ||
             //     data.category === 4
             // )
-            .slice(0, 20)
             .map((post) => {
               return (
                 <Post
@@ -61,7 +60,6 @@ function ContentContainer() {
             //   (data) =>
             //     data.category === 5 || data.category === 6 || data.category === 7
             // )
-            .slice(0, 6)
             .map((post) => {
               return (
                 <HomeArchive
