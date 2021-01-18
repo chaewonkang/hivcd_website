@@ -44,8 +44,9 @@ function EachPost({ postId, handleNavigateClick }) {
   const [state] = useAsync(() => getEachPost(postId), [postId]);
   const { loading, data: eachPost, error } = state;
 
-  useEffect(() => {
+  useEffect((postId) => {
     setToken(getCookie("csrftoken"));
+    getEachPost(postId);
   });
 
   const colorArray = [
@@ -143,7 +144,7 @@ function EachPost({ postId, handleNavigateClick }) {
         <EachPostNavigator
           postId={postId}
           navDisabled={warningVisibility}
-          handleNavigateClick={handleNavigateClick}
+          handleNavigateClick={() => handleNavigateClick()}
         ></EachPostNavigator>
         <Warning visible={warningVisibility} message="마지막 게시물입니다." />
       </div>

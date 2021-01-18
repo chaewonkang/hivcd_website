@@ -46,8 +46,12 @@ async function getPost({ postId }) {
 function EachPostContainer({ match }) {
   const [state] = useAsync(() => getList(), []);
   const { loading, data: list, error } = state;
-  const [postId] = useState(match.params.postId);
+  const [postId, setPostId] = useState(0);
   const [token, setToken] = useState("");
+
+  useEffect(() => {
+    setPostId(match.params.postId);
+  });
 
   if (error) return <div>에러 발생...</div>;
   if (loading) return <div>로딩 중...</div>;
@@ -60,7 +64,7 @@ function EachPostContainer({ match }) {
       <BoardListWrapper
         list={list}
         postId={postId}
-        handleNavigateClick={handleNavigateClick()}
+        handleNavigateClick={() => handleNavigateClick()}
       ></BoardListWrapper>
     </div>
   );

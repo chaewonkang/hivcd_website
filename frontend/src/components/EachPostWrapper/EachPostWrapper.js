@@ -6,7 +6,7 @@ const EachPostWrapper = ({ handleNavigateClick, postId, style }) => {
   return (
     <div className="temp_EachPostWrapper" style={style}>
       <EachPost
-        handleNavigateClick={handleNavigateClick}
+        handleNavigateClick={() => handleNavigateClick()}
         postId={postId}
       ></EachPost>
     </div>

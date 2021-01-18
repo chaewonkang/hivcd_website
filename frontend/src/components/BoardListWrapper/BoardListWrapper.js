@@ -75,7 +75,7 @@ function BoardListWrapper({ list, postId, handleNavigateClick }) {
       </div>
       <EachPostWrapper
         postId={postId}
-        handleNavigateClick={handleNavigateClick}
+        handleNavigateClick={() => handleNavigateClick()}
       ></EachPostWrapper>
     </>
   );

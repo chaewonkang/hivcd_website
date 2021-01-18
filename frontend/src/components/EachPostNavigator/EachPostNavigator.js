@@ -5,6 +5,7 @@ import { useHistory } from "react-router-dom";
 const EachPostNavigator = ({ postId, handleNavigateClick }) => {
   let history = useHistory();
   let id = parseInt(postId, 10);
+  console.log(id);
   function routeToPrevPost(id) {
     id = id - 1;
     if (id > 0) {
@@ -22,13 +23,13 @@ const EachPostNavigator = ({ postId, handleNavigateClick }) => {
       <div className="each_post_navigator">
         <button
           className="navigate_left_button"
-          onClick={() => routeToPrevPost()}
+          onClick={() => routeToPrevPost(id)}
         >
           ＜
         </button>
         <button
           className="navigate_right_button"
-          onClick={() => routeToNextPost()}
+          onClick={() => routeToNextPost(id)}
         >
           ＞
         </button>
