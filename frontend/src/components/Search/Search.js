@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import Modal from "react-awesome-modal";
 import "./Search.css";
+import { useHistory } from "react-router-dom";
 
 function Search({ handleSearchKeyword }) {
   const [visible, setVisible] = useState(false);
+  let history = useHistory();
 
   const openModal = () => {
     setVisible(true);
@@ -22,6 +24,7 @@ function Search({ handleSearchKeyword }) {
     handleSearchKeyword(searchValue);
     console.log(`Search Component value is: ${searchValue}`);
     closeModal();
+    history.push("/search");
   };
 
   return (
@@ -33,7 +36,7 @@ function Search({ handleSearchKeyword }) {
         effect="fadeInDown"
         onClickAway={() => closeModal()}
       >
-        <form onSubmit={() => submitSearch()}>
+        <form onSubmit={(e) => submitSearch(e)}>
           <input placeholder="SEARCH..." type="text" name="search"></input>
         </form>
       </Modal>

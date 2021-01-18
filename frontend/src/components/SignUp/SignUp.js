@@ -11,7 +11,7 @@ function Signup() {
 
   useEffect(() => {
     openModal();
-    document.body.style.overflow = "unset";
+    document.body.style.overflow = "hidden";
   });
 
   const openModal = () => {

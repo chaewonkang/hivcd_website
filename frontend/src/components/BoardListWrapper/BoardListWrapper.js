@@ -47,8 +47,7 @@ function BoardListWrapper({ list, postId, handleNavigateClick }) {
                         {/* <span>{categoryName.slice(0, 4)}...</span> */}
                       </div>
                       <div className="board_list_title">
-                        {" "}
-                        {el.title.slice(0, 40)}...{" "}
+                        {el.title.slice(0, 40)}...
                       </div>
                       {/* <div className="acenter"> {el.created.slice(2, 10)} </div> */}
                     </div>

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import axios from "axios";
 import { PostWrapper, Post, HomeArchive, LogoImage } from "../../components";
 import { ArchiveWrapper } from "../../components";
@@ -24,8 +24,8 @@ function ContentContainer() {
   const [state] = useAsync(() => getPosts(), []);
   const { loading, data: posts, error } = state;
 
-  if (loading) return <div>로딩 중...</div>;
-  if (error) return <div>에러 발생...</div>;
+  if (loading) return <div className="contentcontainer">로딩 중...</div>;
+  if (error) return <div className="contentcontainer">에러 발생...</div>;
   if (!posts) return null;
 
   return (

@@ -53,11 +53,9 @@ function EachPostContainer({ match }) {
     setPostId(match.params.postId);
   });
 
-  if (error) return <div>에러 발생...</div>;
-  if (loading) return <div>로딩 중...</div>;
+  if (error) return <div className="each_post_container">에러 발생...</div>;
+  if (loading) return <div className="each_post_container">로딩 중...</div>;
   if (!list) return null;
-
-  console.log(list);
 
   return (
     <div className="each_post_container">

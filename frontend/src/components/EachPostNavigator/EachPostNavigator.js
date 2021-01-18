@@ -5,7 +5,6 @@ import { useHistory } from "react-router-dom";
 const EachPostNavigator = ({ postId, handleNavigateClick }) => {
   let history = useHistory();
   let id = parseInt(postId, 10);
-  console.log(id);
   function routeToPrevPost(id) {
     id = id - 1;
     if (id > 0) {

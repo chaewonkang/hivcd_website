@@ -14,19 +14,17 @@ const PostModule = ({ style, title, date, category, id }) => {
   else if (category === 7) categoryName = "ETC";
   const postId = parseInt(id, 10);
   const slicedDate = date.slice(0, 10);
-
-  // 권한 warning
   const [warningVisibility, setWarningVisibility] = useState(false);
-  const token = localStorage.getItem("access_token");
+  //   const token = localStorage.getItem("access_token");
 
-  const showWarning = () => {
-    setWarningVisibility(true);
+  //   const showWarning = () => {
+  //     setWarningVisibility(true);
 
-    setTimeout(() => {
-      setWarningVisibility(false);
-    }, 1500);
-    return <Redirect to="/"></Redirect>;
-  };
+  //     setTimeout(() => {
+  //       setWarningVisibility(false);
+  //     }, 1500);
+  //     return <Redirect to="/"></Redirect>;
+  //   };
 
   return (
     <>

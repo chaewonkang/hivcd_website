@@ -27,6 +27,11 @@ function App() {
     setSearchKeyword(keyword);
   };
 
+  useEffect(() => {
+    console.log(searchKeyword);
+    setSearchKeyword(searchKeyword);
+  }, [searchKeyword]);
+
   const handleLogin = async (data) => {
     const { email, password } = data;
     try {

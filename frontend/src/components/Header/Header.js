@@ -5,7 +5,7 @@ import { ResponsiveHeader } from "../../components";
 import "./Header.css";
 import { Login, Search } from "../../components";
 
-function Header({ handleLogin, handleLogout }) {
+function Header({ handleLogin, handleLogout, handleSearchKeyword }) {
   return (
     <header>
       <div className="header_container">
@@ -25,7 +25,7 @@ function Header({ handleLogin, handleLogout }) {
             ></Login>
           </div>
           <div className="header_container_search">
-            <Search></Search>
+            <Search handleSearchKeyword={handleSearchKeyword}></Search>
           </div>
         </div>
         <div className="header_container_right">

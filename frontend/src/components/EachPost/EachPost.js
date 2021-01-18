@@ -44,11 +44,6 @@ function EachPost({ postId, handleNavigateClick }) {
   const [state] = useAsync(() => getEachPost(postId), [postId]);
   const { loading, data: eachPost, error } = state;
 
-  useEffect((postId) => {
-    setToken(getCookie("csrftoken"));
-    getEachPost(postId);
-  });
-
   const colorArray = [
     "#A3B3C4",
     "#00F5C6",
@@ -103,7 +98,7 @@ function EachPost({ postId, handleNavigateClick }) {
 
   //   const category = setCategoryNumber(eachPost.category);
 
-  if (error) return <div>에러 발생...</div>;
+  if (error) return <div>마지막 게시물입니다.</div>;
   if (loading) return <div>로딩 중...</div>;
   if (!eachPost) return null;
 
@@ -146,7 +141,10 @@ function EachPost({ postId, handleNavigateClick }) {
           navDisabled={warningVisibility}
           handleNavigateClick={() => handleNavigateClick()}
         ></EachPostNavigator>
-        <Warning visible={warningVisibility} message="마지막 게시물입니다." />
+        <Warning
+          visible={warningVisibility}
+          message={"마지막 게시글입니다."}
+        ></Warning>
       </div>
     </div>
   );

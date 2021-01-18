@@ -6,66 +6,66 @@ import getCookie from "../../utils/getCookie";
 
 function SearchResultContainer({ searchKeyword }) {
   const [postList, setPostList] = useState([]);
-  const [token, setToken] = useState("");
-  const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
+  const [loading, setLoading] = useState(false);
 
-  useEffect(() => {
-    setToken(getCookie("csrftoken"));
-    loadPost();
-  });
-
-  const loadPost = async () => {
-    axios
+  async function getSearchResult(searchKeyword) {
+    await axios
       .get(
-        "http://13.125.84.10:8000/api/v1/postings/",
+        "https://jsonplaceholder.typicode.com/posts",
         {},
         {
           headers: {
             Authorization: "Bearer " + localStorage.getItem("access_token"),
             Accept: "application/json",
-            "X-CSRFToken": token,
+            // "X-CSRFToken": token,
             "Content-type": "application/json",
           },
         }
       )
-      .then(({ data }) => {
+      .then((response) => {
         setLoading(true);
-        setPostList(data);
+        setPostList(
+          response.data
+            .filter((result) => {
+              if (searchKeyword === null) return result;
+              else if (result.title.toLowerCase().includes(searchKeyword))
+                return result;
+            })
+            .map((data) => {
+              return (
+                <Post
+                  key={data.id}
+                  title={data.title}
+                  date={data.body}
+                  id={data.id}
+                  category={3}
+                ></Post>
+              );
+            })
+        );
+        setLoading(false);
       })
       .catch((e) => {
         setError(e);
-        console.log(error);
       });
-  };
+  }
 
-  const listed = postList
-    .filter((data) => {
-      if (this.state.searchKeyword === null) return data;
-      else if (data.title.toLowerCase().includes(this.state.searchKeyword))
-        return data;
-    })
-    .map((data) => {
-      return (
-        <Post
-          key={data.pk}
-          title={data.title}
-          body={data.body}
-          id={data.pk}
-          category={data.category}
-        ></Post>
-      );
-    });
+  useEffect(() => {
+    getSearchResult(searchKeyword);
+    console.log(postList);
+  }, [searchKeyword]);
 
-  if (loading) return <div>로딩중</div>;
-  if (error) return <div>에러 발생</div>;
+  if (loading) return <div>로딩 중...</div>;
+  if (error) return <div>에러 발생...</div>;
 
   return (
     <div className="search_result_container">
+      {searchKeyword !== null ? <div>검색어: {searchKeyword}</div> : null}
       <div className="search_result_wrapper">
-        {searchKeyword === "" || listed === null
+        {searchKeyword === "" || searchKeyword === null
           ? "검색어를 입력하세요."
-          : listed}
+          : postList}
       </div>
     </div>
   );
