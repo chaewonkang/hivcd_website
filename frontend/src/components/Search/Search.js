@@ -41,7 +41,7 @@ function Search({ handleSearchKeyword }) {
         </form>
       </Modal>
       <div className="navbar_search_item" onClick={() => openModal()}>
-        SEARCH
+        검색
       </div>
     </>
   );

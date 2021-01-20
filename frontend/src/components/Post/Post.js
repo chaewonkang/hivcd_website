@@ -14,7 +14,6 @@ function Post({ title, id, category, date }) {
     "#93F421",
     "#9452FF",
     "#FDFBC1",
-    "#BC791E",
     "#00C4FF",
     "#FF3333",
     "#FF01FF",

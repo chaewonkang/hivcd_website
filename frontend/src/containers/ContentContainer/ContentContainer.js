@@ -41,6 +41,7 @@ function ContentContainer() {
             //     data.category === 3 ||
             //     data.category === 4
             // )
+            .slice(0, 23)
             .map((post) => {
               return (
                 <Post
@@ -60,6 +61,7 @@ function ContentContainer() {
             //   (data) =>
             //     data.category === 5 || data.category === 6 || data.category === 7
             // )
+            .slice(0, 6)
             .map((post) => {
               return (
                 <HomeArchive

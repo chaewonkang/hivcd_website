@@ -26,8 +26,8 @@ function Board() {
   const [state] = useAsync(() => getPosts(), []);
   const { loading, data: posts, error } = state;
 
-  if (error) return <div>에러 발생...</div>;
-  if (loading) return <div>로딩 중...</div>;
+  if (error) return <div className="contentcontainer">Error Occurred...</div>;
+  if (loading) return <div className="contentcontainer">Loading...</div>;
   if (!posts) return null;
 
   return (
@@ -39,31 +39,31 @@ function Board() {
             className="board_filter_option"
             onClick={() => setBoardFilter(0)}
           >
-            ALL
+            전체보기
           </button>
           <button
             className="board_filter_option"
             onClick={() => setBoardFilter(1)}
           >
-            NOTICE
+            학과 공지
           </button>
           <button
             className="board_filter_option"
             onClick={() => setBoardFilter(2)}
           >
-            EVENT
+            행사
           </button>
           <button
             className="board_filter_option"
             onClick={() => setBoardFilter(3)}
           >
-            JOB
+            구인구직
           </button>
           <button
             className="board_filter_option"
             onClick={() => setBoardFilter(4)}
           >
-            LOST&FOUND
+            분실물
           </button>
         </div>
       </div>
@@ -88,7 +88,7 @@ function Board() {
                 title={data.title}
                 id={data.id}
                 date={"1234567890"}
-                category={data.title}
+                category={2}
               ></Post>
             );
           })}

@@ -24,8 +24,8 @@ function Archive() {
   const [state] = useAsync(() => getArchiveInfo(), []);
   const { loading, data: archive, error } = state;
 
-  if (error) return <div>에러 발생...</div>;
-  if (loading) return <div>로딩 중...</div>;
+  if (error) return <div className="archive_wrapper">Error Occurred!</div>;
+  if (loading) return <div className="archive_wrapper">Loading...</div>;
   if (!archive) return null;
 
   return (
@@ -37,25 +37,25 @@ function Archive() {
               className="archive_filter_option"
               onClick={() => setArchiveFilter(0)}
             >
-              ALL
+              전체보기
             </button>
             <button
               className="archive_filter_option"
               onClick={() => setArchiveFilter(5)}
             >
-              GRADUATION EXHIBITION
+              졸업 주간
             </button>
             <button
               className="archive_filter_option"
               onClick={() => setArchiveFilter(6)}
             >
-              WOW FILM FESTIVAL
+              와우영상제
             </button>
             <button
               className="archive_filter_option"
               onClick={() => setArchiveFilter(7)}
             >
-              ETC
+              기타 전시
             </button>
           </div>
         </div>
@@ -81,7 +81,7 @@ function Archive() {
                   //   thumbnailUrl={data.photos ? data.photos[0].photo : null}
                   thumbnailUrl={data.title}
                   date={data.title}
-                  category={data.title}
+                  category={5}
                   link={data.title}
                 ></ArchiveModule>
               );

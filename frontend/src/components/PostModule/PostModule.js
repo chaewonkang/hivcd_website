@@ -5,13 +5,13 @@ import { Warning } from "../../components";
 
 const PostModule = ({ style, title, date, category, id }) => {
   let categoryName = null;
-  if (category === 1) categoryName = "NOTICE";
-  else if (category === 2) categoryName = "EVENT";
-  else if (category === 3) categoryName = "JOB";
-  else if (category === 4) categoryName = "LOST&FOUND";
-  else if (category === 5) categoryName = "GRADUATION EXHIBITION";
-  else if (category === 6) categoryName = "WOW FILM FESTIVAL";
-  else if (category === 7) categoryName = "ETC";
+  if (category === 1) categoryName = "학과 공지";
+  else if (category === 2) categoryName = "행사";
+  else if (category === 3) categoryName = "구인구직";
+  else if (category === 4) categoryName = "분실물";
+  else if (category === 5) categoryName = "졸업 주간";
+  else if (category === 6) categoryName = "와우영상제";
+  else if (category === 7) categoryName = "기타";
   const postId = parseInt(id, 10);
   const slicedDate = date.slice(0, 10);
   const [warningVisibility, setWarningVisibility] = useState(false);

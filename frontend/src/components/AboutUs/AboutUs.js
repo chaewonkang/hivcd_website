@@ -28,6 +28,8 @@ function NaverMapAPI() {
   );
 }
 
+// HISTORY, FACULTY, MAP, CONTACT, LINK, COLOPHON(다른 이름 있으면 알려주어요.)
+
 const AboutUs = () => {
   return (
     <div className="aboutus_wrapper">
@@ -69,7 +71,7 @@ const AboutUs = () => {
         </div>
         <div id="curriculum" className="aboutus_item">
           <div className="aboutus_item_tag">
-            <span>CURRICULUM</span>
+            <span>FACULTY</span>
           </div>
           <div className="aboutus_content">
             <table className="aboutus_curriculum">
@@ -250,6 +252,47 @@ const AboutUs = () => {
                 <td></td>
               </tr>
             </table>
+          </div>
+        </div>
+        <div id="contact" className="aboutus_item">
+          <div className="aboutus_item_tag">
+            <span>LINK</span>
+          </div>
+          <div className="aboutus_content">
+            홍익대학교 www.hongik.ac.kr 홍익대학교 미술대학 cfa.hongik.ac.kr
+            한글꼴연구회 그린비 드로마픽 힙스 아이레이 에드레날린 하이픈
+          </div>
+        </div>
+        <div id="contact" className="aboutus_item">
+          <div className="aboutus_item_tag">
+            <span>COLOPHON</span>
+          </div>
+          <div className="aboutus_content">
+            <p>
+              Design by{" "}
+              <a
+                href="https://instagram.com/yinyang.fig"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Yinyang,
+              </a>{" "}
+              <a
+                href="https://chaewonkang.com"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Developed by Chaewon Kang
+              </a>{" "}
+              <a
+                href="https://github.com/SeogyuGim"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                and Seogyu Kim
+              </a>{" "}
+              ⓒ2020 HIVCD
+            </p>
           </div>
         </div>
       </div>
