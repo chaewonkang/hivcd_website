@@ -60,7 +60,7 @@ class RegistrationView(generics.GenericAPIView):
         user = User.objects.get(email=user_data["email"])
         token = RefreshToken.for_user(user).access_token
         current_site = get_current_site(request).domain
-        relativeLink = reverse("authentications:email-verify")
+        relativeLink = reverse("api:auth:email-verify")
         absurl = "http://" + current_site + relativeLink + "?token=" + str(token)
         email_body = (
             "Hi "
@@ -135,7 +135,7 @@ class LogoutAPIView(generics.GenericAPIView):
 class RequestPasswordResetEmail(generics.GenericAPIView):
     permission_classes = (AllowAny,)
     serializer_class = ResetPasswordEmailRequestSerializer
-    
+
     def post(self, request):
         # serializer = self.serializer_class(data=request.data)
         email = request.data.get("email", "")
@@ -146,7 +146,7 @@ class RequestPasswordResetEmail(generics.GenericAPIView):
             token = PasswordResetTokenGenerator().make_token(user)
             current_site = get_current_site(request=request).domain
             relativeLink = reverse(
-                "authentications:password-reset-confirm",
+                "api:auth:password-reset-confirm",
                 kwargs={"uidb64": uidb64, "token": token},
             )
 
@@ -173,6 +173,7 @@ class RequestPasswordResetEmail(generics.GenericAPIView):
 class SetNewPasswordAPIView(generics.GenericAPIView):
     serializer_class = SetNewPasswordSerializer
     permission_classes = (AllowAny,)
+
     def patch(self, request):
         serializer = self.serializer_class(data=request.data)
         serializer.is_valid(raise_exception=True)
@@ -217,3 +218,4 @@ class PasswordTokenCheckAPI(generics.GenericAPIView):
         except DjangoUnicodeDecodeError:
             if not PasswordResetTokenGenerator().check_token(user):
                 return CustomRedirect(redirect_url + "?token_valid=False")
+

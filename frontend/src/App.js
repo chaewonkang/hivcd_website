@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { useState, useEffect } from "react";
 import { Switch, Route } from "react-router-dom";
 import {
   Header,
@@ -17,29 +17,22 @@ import "./components/Header/Header.css";
 import ContentContainer from "./containers/ContentContainer/ContentContainer";
 import { SearchResultContainer, EachPostContainer } from "./containers";
 import axiosInstance from "./utils/axiosApi";
-import "./Animation.css";
+import "./utils/Animation.css";
 
-class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      logged: false,
-      onLogin: this.onLogin,
-      onLogout: this.onLogout,
-      searchKeyword: "",
-      isLogged: false,
-    };
-    this.handleLogout = this.handleLogout.bind(this);
-  }
+function App() {
+  const [logged, setLogged] = useState(false);
+  const [searchKeyword, setSearchKeyword] = useState("");
 
-  handleSearchKeyword = (keyword) => {
-    this.setState({
-      ...this.state,
-      searchKeyword: keyword,
-    });
+  const handleSearchKeyword = (keyword) => {
+    setSearchKeyword(keyword);
   };
 
-  async handleLogin(data) {
+  useEffect(() => {
+    console.log(searchKeyword);
+    setSearchKeyword(searchKeyword);
+  }, [searchKeyword]);
+
+  const handleLogin = async (data) => {
     const { email, password } = data;
     try {
       const response = await axiosInstance
@@ -71,15 +64,13 @@ class App extends Component {
       localStorage.setItem("email", response.data.email);
       localStorage.setItem("username", response.data.username);
 
-      console.log(response);
-      console.log(localStorage);
       return response.tokens;
     } catch (error) {
       throw error;
     }
-  }
+  };
 
-  async handleLogout(e) {
+  const handleLogout = async (e) => {
     try {
       localStorage.removeItem("access_token");
       localStorage.removeItem("refresh_token");
@@ -88,68 +79,50 @@ class App extends Component {
     } catch (e) {
       console.log(e);
     }
-  }
-
-  makeCalandarComp = () => {
-    window.eventCalId = 7279;
-    const integrationScript = document.createElement("script");
-    integrationScript.async = 1;
-    integrationScript.setAttribute(
-      "src",
-      "https://api.eventcalendarapp.com/integration-script.js"
-    );
-    document.head.appendChild(integrationScript);
-    if (window.eventCalendarAppUtilities) {
-      window.eventCalendarAppUtilities.init(
-        "025d70f1-3768-4efa-a8db-f98a9ebd3780"
-      );
-    }
   };
 
-  componentDidUpdate() {
+  useEffect(() => {
     if (localStorage.username) {
-      this.setState({ isLogged: true });
+      setLogged(true);
     }
-  }
+  });
 
-  render() {
-    return (
-      <main>
-        <Switch>
-          <div className="AppBody">
-            <Route path="/mobile/signup" component={MobileSignup}></Route>
-            <Route path="/auth/registration" component={SignUp}></Route>
-            <ResponsiveHeader
-              navClass="nav-small"
-              linkClassName="nav-small-link"
-            ></ResponsiveHeader>
-            <Header
-              handleSearchKeyword={this.handleSearchKeyword}
-              handleLogout={this.handleLogout}
-              handleLogin={this.handleLogin}
-              isLogged={this.state.isLogged}
-            ></Header>
-            <Route exact path="/" component={ContentContainer} />
-            <Route exact path="/board" component={Board} />
-            <Route path="/board/:postId" component={EachPostContainer} />
-            <Route path="/aboutus" component={AboutUs} />
-            <Route path="/alumni" component={Alumni} />
-            <Route path="/archive" component={Archive} />
-            <Route path="/calandar" component={CalandarContainer} />
-            <Route
-              path="/search"
-              render={() => (
-                <SearchResultContainer
-                  searchKeyword={this.state.searchKeyword}
-                ></SearchResultContainer>
-              )}
-            />
-            <Footer />
-          </div>
-        </Switch>
-      </main>
-    );
-  }
+  return (
+    <main>
+      <Switch>
+        <div className="AppBody">
+          <Route path="/auth/registration" component={SignUp}></Route>
+          <Route path="/mobile/signup" component={MobileSignup}></Route>
+          <ResponsiveHeader
+            navClass="nav-small"
+            linkClassName="nav-small-link"
+          ></ResponsiveHeader>
+          <Header
+            handleSearchKeyword={handleSearchKeyword}
+            handleLogout={handleLogout}
+            handleLogin={handleLogin}
+            isLogged={logged}
+          ></Header>
+          <Route exact path="/" component={ContentContainer} />
+          <Route exact path="/board" component={Board} />
+          <Route path="/board/:postId" component={EachPostContainer}></Route>
+          <Route path="/aboutus" component={AboutUs} />
+          <Route path="/alumni" component={Alumni} />
+          <Route path="/archive" component={Archive} />
+          <Route path="/calandar" component={CalandarContainer} />
+          <Route
+            path="/search"
+            render={() => (
+              <SearchResultContainer
+                searchKeyword={searchKeyword}
+              ></SearchResultContainer>
+            )}
+          />
+          <Footer />
+        </div>
+      </Switch>
+    </main>
+  );
 }
 
 export default App;

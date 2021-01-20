@@ -9,12 +9,10 @@ import Board from "./Board/Board";
 import AboutUs from "./AboutUs/AboutUs";
 import Alumni from "./Alumni/Alumni";
 import Archive from "./Archive/Archive";
-import Calandar from "./Calandar/Calandar";
 import LogoImage from "./LogoImage/LogoImage";
 import CalandarContainer from "./CalandarContainer/CalandarContainer";
 import Search from "./Search/Search";
 import BoardPostWrapper from "./BoardPostWrapper/BoardPostWrapper";
-import FilterBox from "./FilterBox/FilterBox";
 import ResponsiveHeader from "./ResponsiveHeader/ResponsiveHeader";
 import Navbar from "./Navbar/Navbar";
 import Login from "./Login/Login";
@@ -45,12 +43,10 @@ export {
   AboutUs,
   Alumni,
   Archive,
-  Calandar,
   LogoImage,
   CalandarContainer,
   Search,
   BoardPostWrapper,
-  FilterBox,
   ResponsiveHeader,
   Navbar,
   Login,

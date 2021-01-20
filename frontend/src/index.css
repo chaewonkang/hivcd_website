@@ -2,6 +2,14 @@ body {
   background: #fff5f5;
 }
 
+.element::-webkit-scrollbar {
+  width: 0 !important;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
 @font-face {
   font-family: "AGChoiJeongHo";
   src: local("AGChoiJeongHo"),

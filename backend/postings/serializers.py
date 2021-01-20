@@ -12,9 +12,26 @@ class PhotoSerializer(serializers.ModelSerializer):
 
 
 class CommentSerializer(serializers.ModelSerializer):
+    reply = serializers.SerializerMethodField()
+    author = serializers.SlugRelatedField(read_only=True, slug_field="username")
     class Meta:
         model = Comment
-        fields = ("author","text",)
+        fields = (
+            "post",
+            "id",
+            "author",
+            "text",
+            "parent",
+            "created",
+            "updated",
+            "reply",
+        )
+        read_only_field = ['author']
+
+    def get_reply(self, instance):
+        serializer = self.__class__(instance.reply, many=True)
+        serializer.bind('', self)
+        return serializer.data
 
 
 class FileSerializer(serializers.ModelSerializer):

@@ -1,101 +1,69 @@
-import React, { Component } from "react";
+import React, { useState } from "react";
 import "./Alumni.css";
 import axios from "axios";
 import { AlumniModule, AlumniSearch, LogoImage } from "../../components";
+import useAsync from "../../utils/useAsync";
 
-class Alumni extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      alumniId: 1,
-      fetching: false,
-      alumniInfo: [],
-      alumniSearch: null,
-    };
-  }
+async function getAlumnis() {
+  const response = await axios.get(
+    "https://jsonplaceholder.typicode.com/users",
+    {},
+    {
+      headers: {
+        Authorization: "Bearer " + localStorage.getItem("access_token"),
+        Accept: "application/json",
+        "Content-type": "application/json",
+      },
+    }
+  );
+  return response.data;
+}
 
-  componentDidMount() {
-    this.getAlumnis();
-  }
+function Alumni() {
+  const [alumniSearch, setAlumniSearch] = useState(null);
+  const [state] = useAsync(() => getAlumnis(), []);
+  const { loading, data: alumnis, error } = state;
 
-  alumniSearchSpace = (e) => {
+  const alumniSearchSpace = (e) => {
     let keyword = e.target.value;
-    this.setState({
-      alumniSearch: keyword,
-    });
+    setAlumniSearch(keyword);
   };
 
-  getAlumnis = async () => {
-    axios
-      .get(
-        "http://13.125.84.10:8000/api/v1/alumnis/",
-        {},
-        {
-          headers: {
-            Authorization: "Bearer " + localStorage.getItem("access_token"),
-            Accept: "application/json",
-            "X-CSRFToken": this.state.token,
-            "Content-type": "application/json",
-          },
-        }
-      )
-      .then(({ data }) => {
-        this.setState({
-          ...this.state,
-          loading: true,
-          alumniInfo: data,
-        });
-      })
-      .catch((e) => {
-        console.error(e);
-        this.setState({
-          ...this.state,
-          loading: false,
-        });
-      });
-  };
+  if (error) return <div className="alumni_wrapper">Error Occurred</div>;
+  if (loading) return <div className="alumni_wrapper">Loading...</div>;
+  if (!alumnis) return null;
 
-  render() {
-    const { alumniInfo } = this.state;
-    const items = alumniInfo
-      .filter((data) => {
-        if (this.state.alumniSearch === null) return data;
-        else if (
-          data.name.toLowerCase().includes(this.state.alumniSearch) ||
-          data.phone.includes(this.state.alumniSearch) ||
-          data.website.toLowerCase().includes(this.state.alumniSearch) ||
-          data.year.includes(this.state.alumniSearch)
-        )
-          return data;
-        return;
-      })
-      .map((data) => {
-        return (
-          <AlumniModule
-            key={data.id}
-            year={data.year}
-            name={data.name}
-            tel={data.phone}
-            url={data.website}
-          ></AlumniModule>
-        );
-      });
-    return (
-      <div className="alumni_wrapper">
-        <AlumniSearch
-          onChange={(e) => this.alumniSearchSpace(e)}
-        ></AlumniSearch>
-        <div className="alumni_container">
-          <LogoImage style={{ gridColumn: 1 / 1, gridRow: 1 / 1 }}></LogoImage>
-          {items}
-          {items}
-          {items}
-          {items}
-          {items}
-        </div>
+  return (
+    <div className="alumni_wrapper">
+      <AlumniSearch onChange={(e) => alumniSearchSpace(e)}></AlumniSearch>
+      <div className="alumni_container">
+        <LogoImage style={{ gridColumn: 1 / 1, gridRow: 1 / 1 }}></LogoImage>
+        {alumnis
+          .filter((data) => {
+            if (alumniSearch === null) return data;
+            else if (
+              data.name.toLowerCase().includes(alumniSearch) ||
+              data.name.includes(alumniSearch) ||
+              data.name.toLowerCase().includes(alumniSearch) ||
+              data.name.includes(alumniSearch)
+            )
+              return data;
+            return null;
+          })
+          .map((data) => {
+            return (
+              <AlumniModule
+                key={data.name}
+                year={data.name}
+                name={data.name}
+                tel={data.name}
+                url={data.name}
+              ></AlumniModule>
+            );
+          })}
       </div>
-    );
-  }
+    </div>
+  );
 }
 
 export default Alumni;

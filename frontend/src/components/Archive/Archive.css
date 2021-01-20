@@ -103,6 +103,10 @@
   border-left: none;
   border-right: none;
   border: 1px solid #000;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  -webkit-border-radius: 0;
 }
 
 .archive_filter_option:focus {
@@ -121,6 +125,10 @@
   border-radius: 0;
   border: 1px solid #000;
   outline: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  -webkit-border-radius: 0;
 }
 
 @media (min-width: 1440px) and (max-width: 1920px) {

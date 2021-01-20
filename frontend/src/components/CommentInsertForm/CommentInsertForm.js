@@ -1,9 +1,17 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./CommentInsertForm.css";
 import axios from "axios";
 import getCookie from "../../utils/getCookie";
 
 const CommentInsertForm = ({ style, postId }) => {
+  const [username, setUsername] = useState("");
+  const [comment, setComment] = useState({});
+  const token = getCookie("csrftoken");
+
+  useEffect(() => {
+    setUsername(localStorage.username);
+  }, [username]);
+
   function handleChange(e) {
     setComment({
       author: username,
@@ -32,6 +40,7 @@ const CommentInsertForm = ({ style, postId }) => {
         )
         .then(function () {
           window.location.reload();
+          console.log(response);
         })
         .catch(function (error) {
           if (error.response) {
@@ -49,10 +58,6 @@ const CommentInsertForm = ({ style, postId }) => {
       throw error;
     }
   }
-
-  const [username, setUsername] = useState(localStorage.username);
-  const [comment, setComment] = useState({});
-  const token = getCookie("csrftoken");
 
   return (
     <div className="comment_input_container">

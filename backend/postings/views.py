@@ -3,6 +3,7 @@ from rest_framework import viewsets, generics
 from rest_framework.permissions import IsAuthenticated, IsAuthenticatedOrReadOnly
 from django.http import JsonResponse, HttpResponse
 from rest_framework import status
+from rest_framework.parsers import JSONParser
 from .models import Post, Comment
 from .serializers import PostSerializer, CommentSerializer
 
@@ -27,13 +28,9 @@ class CommentListCreateAPIView(generics.ListCreateAPIView):
     permission_classes = (IsAuthenticatedOrReadOnly,)
 
     def get_queryset(self):
-        queryset = Comment.objects.all()
-        post = self.request.query_params.get("post")
-
-        if post:
-            queryset = queryset.filter(post=post)
-
-        return queryset
+        qs = Comment.objects.filter(post_id=self.kwargs['pk'])
+        return qs
 
     def perform_create(self, serializer):
-        return serializer.save()
+        return serializer.save(author=self.request.user)
+

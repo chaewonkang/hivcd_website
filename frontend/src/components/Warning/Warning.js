@@ -1,46 +1,28 @@
-import React, { Component } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import "./Warning.css";
 
-class Warning extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      closing: false,
-    };
-  }
+function Warning({ visible, message }) {
+  const [closing, setClosing] = useState(false);
+  const isFirstRun = useRef(true);
 
-  componentWillReceiveProps(nextProps) {
-    if (this.props.visible && !nextProps.visible) {
-      // visible props is changing from true -> false
-
-      this.setState({
-        closing: true,
-      });
-
-      // 1 sec after
+  useEffect(() => {
+    if (isFirstRun.current) {
+      isFirstRun.current = false;
+    } else {
+      setClosing(true);
       setTimeout(() => {
-        this.setState({
-          closing: false,
-        });
+        setClosing(false);
       }, 1000);
     }
-  }
+  }, []);
 
-  render() {
-    const { visible, message } = this.props;
-    const { closing } = this.state;
-
-    if (!visible && !closing) return null;
-    return (
-      <div className="Warning-wrapper">
-        <div
-          className={`Warning ${closing ? "bounceOut" : "bounceIn"} animated`}
-        >
-          {message}
-        </div>
+  return !visible && !closing ? null : (
+    <div className="Warning-wrapper">
+      <div className={`Warning ${closing ? "bounceOut" : "bounceIn"} animated`}>
+        {message}
       </div>
-    );
-  }
+    </div>
+  );
 }
 
 export default Warning;

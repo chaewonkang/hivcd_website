@@ -1,92 +1,74 @@
-import React, { Component } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Post } from "../../components";
 import "./SearchResultContainer.css";
 import getCookie from "../../utils/getCookie";
 
-class SearchResultContainer extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      searchKeyword: this.props.searchKeyword,
-      postList: [],
-      archiveList: [],
-      token: getCookie("csrftoken"),
-    };
-  }
+function SearchResultContainer({ searchKeyword }) {
+  const [postList, setPostList] = useState([]);
+  const [error, setError] = useState(null);
+  const [loading, setLoading] = useState(false);
 
-  componentDidMount() {
-    this._loadPost();
-  }
-
-  _loadPost = async () => {
-    axios
+  async function getSearchResult(searchKeyword) {
+    await axios
       .get(
-        "http://13.125.84.10:8000/api/v1/postings/",
+        "https://jsonplaceholder.typicode.com/posts",
         {},
         {
           headers: {
             Authorization: "Bearer " + localStorage.getItem("access_token"),
             Accept: "application/json",
-            "X-CSRFToken": this.state.token,
+            // "X-CSRFToken": token,
             "Content-type": "application/json",
           },
         }
       )
-      .then(({ data }) => {
-        this.setState({
-          ...this.state,
-          loadingPost: true,
-          postList: data,
-        });
+      .then((response) => {
+        setLoading(true);
+        setPostList(
+          response.data
+            .filter((result) => {
+              if (searchKeyword === null) return result;
+              else if (result.title.toLowerCase().includes(searchKeyword))
+                return result;
+            })
+            .map((data) => {
+              return (
+                <Post
+                  key={data.id}
+                  title={data.title}
+                  date={data.body}
+                  id={data.id}
+                  category={3}
+                ></Post>
+              );
+            })
+        );
+        setLoading(false);
       })
       .catch((e) => {
-        console.error(e);
-        this.setState({
-          ...this.state,
-          loadingPost: false,
-        });
+        setError(e);
       });
-  };
-
-  render() {
-    console.log(
-      `searchResultContainer's searchKeyword: ${this.state.searchKeyword}`
-    );
-    const { postList } = this.state;
-
-    let items;
-    if (items) {
-      const items = postList
-        .filter((data) => {
-          if (this.state.searchKeyword === null) return data;
-          else if (data.title.toLowerCase().includes(this.state.searchKeyword))
-            return data;
-          return;
-        })
-        .map((data) => {
-          return (
-            <Post
-              key={data.pk}
-              title={data.title}
-              body={data.body}
-              id={data.pk}
-              category={data.category}
-            ></Post>
-          );
-        });
-    }
-
-    return (
-      <div className="search_result_container">
-        <div className="search_result_wrapper">
-          {this.state.searchKeyword === "" || items === null
-            ? "검색어를 입력하세요."
-            : items}
-        </div>
-      </div>
-    );
   }
+
+  useEffect(() => {
+    getSearchResult(searchKeyword);
+    console.log(postList);
+  }, [searchKeyword]);
+
+  if (loading) return <div>로딩 중...</div>;
+  if (error) return <div>에러 발생...</div>;
+
+  return (
+    <div className="search_result_container">
+      {searchKeyword !== null ? <div>검색어: {searchKeyword}</div> : null}
+      <div className="search_result_wrapper">
+        {searchKeyword === "" || searchKeyword === null
+          ? "검색어를 입력하세요."
+          : postList}
+      </div>
+    </div>
+  );
 }
 
 export default SearchResultContainer;

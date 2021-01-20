@@ -1,0 +1,9 @@
+.notfound {
+  margin-left: 20px;
+  margin-right: 20px;
+  height: 100vh;
+  font-size: 10em;
+  line-height: 1.3em;
+  text-align: left;
+  font-weight: bold;
+}

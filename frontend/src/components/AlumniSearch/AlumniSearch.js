@@ -7,7 +7,7 @@ const AlumniSearch = ({ onChange }) => {
       <input
         type="text"
         name="alumniSearch"
-        placeholder="Enter item to be searched..."
+        placeholder="키워드를 입력하세요."
         onChange={onChange}
       ></input>
     </div>

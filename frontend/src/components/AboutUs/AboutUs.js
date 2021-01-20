@@ -1,32 +1,34 @@
 import React from "react";
 import "./AboutUs.css";
-// import { RenderAfterNavermapsLoaded, NaverMap, Marker } from "react-naver-maps";
+import { RenderAfterNavermapsLoaded, NaverMap, Marker } from "react-naver-maps";
 
-// function NaverMapAPI() {
-//   const navermaps = window.naver.maps;
-//   return (
-//     <NaverMap
-//       mapDivId={"react-naver-map"}
-//       style={{
-//         width: "90%",
-//         height: "400px",
-//         overflow: "auto",
-//         margin: "auto",
-//       }}
-//       defaultCenter={{ lat: 37.5526276, lng: 126.9243904 }}
-//       defaultZoom={13}
-//     >
-//       <Marker
-//         key={1}
-//         position={new navermaps.LatLng(37.5526276, 126.9243904)}
-//         animation={2}
-//         onClick={() => {
-//           alert("홍익대학교 홍문관 7층!");
-//         }}
-//       />
-//     </NaverMap>
-//   );
-// }
+function NaverMapAPI() {
+  const navermaps = window.naver.maps;
+  return (
+    <NaverMap
+      mapDivId={"react-naver-map"}
+      style={{
+        width: "90%",
+        height: "400px",
+        overflow: "auto",
+        margin: "auto",
+      }}
+      defaultCenter={{ lat: 37.5526276, lng: 126.9243904 }}
+      defaultZoom={13}
+    >
+      <Marker
+        key={1}
+        position={new navermaps.LatLng(37.5526276, 126.9243904)}
+        animation={2}
+        onClick={() => {
+          alert("홍익대학교 홍문관 7층!");
+        }}
+      />
+    </NaverMap>
+  );
+}
+
+// HISTORY, FACULTY, MAP, CONTACT, LINK, COLOPHON(다른 이름 있으면 알려주어요.)
 
 const AboutUs = () => {
   return (
@@ -69,7 +71,7 @@ const AboutUs = () => {
         </div>
         <div id="curriculum" className="aboutus_item">
           <div className="aboutus_item_tag">
-            <span>CURRICULUM</span>
+            <span>FACULTY</span>
           </div>
           <div className="aboutus_content">
             <table className="aboutus_curriculum">
@@ -185,7 +187,7 @@ const AboutUs = () => {
           <div className="aboutus_item_tag">
             <span>MAP</span>
           </div>
-          {/* <div id="naver_map" className="aboutus_content">
+          <div id="naver_map" className="aboutus_content">
             <RenderAfterNavermapsLoaded
               ncpClientId={"copdkbfrqt"}
               error={<p>Maps Load Error</p>}
@@ -193,7 +195,7 @@ const AboutUs = () => {
             >
               <NaverMapAPI />
             </RenderAfterNavermapsLoaded>
-          </div> */}
+          </div>
         </div>
         <div id="contact" className="aboutus_item">
           <div className="aboutus_item_tag">
@@ -223,6 +225,74 @@ const AboutUs = () => {
                 <td></td>
               </tr>
             </table>
+            <table className="aboutus_contact_mobile">
+              <tr>
+                <td>위치</td>
+                <td>R715</td>
+              </tr>
+              <tr>
+                <td>전화</td>
+                <td>02-370-8888</td>
+              </tr>
+              <tr>
+                <td>업무시간</td>
+                <td>
+                  월~금 오전 9:00~오후 5:30 <br></br>(동절기 오전 9:00~오후
+                  5:00)
+                </td>
+              </tr>
+              <tr>
+                <td>팩스</td>
+                <td>02-3145-5792</td>
+              </tr>
+              <tr>
+                <td>홈페이지</td>
+                <td>https://hongiksidi.com</td>
+                <td></td>
+                <td></td>
+              </tr>
+            </table>
+          </div>
+        </div>
+        <div id="contact" className="aboutus_item">
+          <div className="aboutus_item_tag">
+            <span>LINK</span>
+          </div>
+          <div className="aboutus_content">
+            홍익대학교 www.hongik.ac.kr 홍익대학교 미술대학 cfa.hongik.ac.kr
+            한글꼴연구회 그린비 드로마픽 힙스 아이레이 에드레날린 하이픈
+          </div>
+        </div>
+        <div id="contact" className="aboutus_item">
+          <div className="aboutus_item_tag">
+            <span>COLOPHON</span>
+          </div>
+          <div className="aboutus_content">
+            <p>
+              Design by{" "}
+              <a
+                href="https://instagram.com/yinyang.fig"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Yinyang,
+              </a>{" "}
+              <a
+                href="https://chaewonkang.com"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Developed by Chaewon Kang
+              </a>{" "}
+              <a
+                href="https://github.com/SeogyuGim"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                and Seogyu Kim
+              </a>{" "}
+              ⓒ2020 HIVCD
+            </p>
           </div>
         </div>
       </div>

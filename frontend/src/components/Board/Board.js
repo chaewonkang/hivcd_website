@@ -1,150 +1,100 @@
-import React, { Component } from "react";
+import React, { useState } from "react";
 import { Post, LogoImage, BoardPostWrapper } from "../../components";
 import axios from "axios";
 import "./Board.css";
 import getCookie from "../../utils/getCookie";
+import useAsync from "../../utils/useAsync";
 
-class Board extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      postId: 1,
-      loading: false,
-      postList: [],
-      items: 20,
-      preItems: 0,
-      boardFilter: 0,
-      token: getCookie("csrftoken"),
-    };
-  }
+async function getPosts() {
+  const response = await axios.get(
+    "https://jsonplaceholder.typicode.com/posts",
+    {},
+    {
+      headers: {
+        Authorization: "Bearer " + localStorage.getItem("access_token"),
+        Accept: "application/json",
+        "Content-type": "application/json",
+      },
+    }
+  );
+  return response.data;
+}
 
-  componentDidMount() {
-    this._loadPost();
-  }
+function Board() {
+  const [boardFilter, setBoardFilter] = useState(0);
+  const [token, setToken] = useState("");
+  const [state] = useAsync(() => getPosts(), []);
+  const { loading, data: posts, error } = state;
 
-  _loadPost = async () => {
-    axios
-      .get(
-        "http://13.125.84.10:8000/api/v1/postings/?format=json",
-        {},
-        {
-          headers: {
-            Authorization: "Bearer " + localStorage.getItem("access_token"),
-            Accept: "application/json",
-            "X-CSRFToken": this.state.token,
-            "Content-type": "application/json",
-          },
-        }
-      )
-      .then(({ data }) => {
-        this.setState({
-          ...this.state,
-          loading: true,
-          postList: data,
-        });
-      })
-      .catch((e) => {
-        console.error(e);
-        this.setState({
-          ...this.state,
-          loading: false,
-        });
-      });
-  };
-  render() {
-    const { postList } = this.state;
-    const boardPostList = postList.filter(
-      (data) =>
-        data.category === 1 ||
-        data.category === 2 ||
-        data.category === 3 ||
-        data.category === 4
-    );
-    const items = boardPostList
-      .filter((data) => {
-        if (this.state.boardFilter === 0) return data;
-        else if (data.category === this.state.boardFilter) return data;
-        return;
-      })
-      .map((data) => {
-        return (
-          <Post
-            key={data.pk}
-            title={data.title}
-            id={data.pk}
-            date={data.created}
-            category={data.category}
-          ></Post>
-        );
-      });
-    return (
-      <div className="contentcontainer">
-        <div className="board_filter_wrapper">
-          <div className="board_filter_container">
-            <button
-              className="board_filter_option"
-              onClick={() =>
-                this.setState({
-                  ...this.state,
-                  boardFilter: 0,
-                })
-              }
-            >
-              ALL
-            </button>
-            <button
-              className="board_filter_option"
-              onClick={() =>
-                this.setState({
-                  ...this.state,
-                  boardFilter: 1,
-                })
-              }
-            >
-              NOTICE
-            </button>
-            <button
-              className="board_filter_option"
-              onClick={() =>
-                this.setState({
-                  ...this.state,
-                  boardFilter: 2,
-                })
-              }
-            >
-              EVENT
-            </button>
-            <button
-              className="board_filter_option"
-              onClick={() =>
-                this.setState({
-                  ...this.state,
-                  boardFilter: 3,
-                })
-              }
-            >
-              JOB
-            </button>
-            <button
-              className="board_filter_option"
-              onClick={() =>
-                this.setState({
-                  ...this.state,
-                  boardFilter: 4,
-                })
-              }
-            >
-              LOST&FOUND
-            </button>
-          </div>
+  if (error) return <div className="contentcontainer">Error Occurred...</div>;
+  if (loading) return <div className="contentcontainer">Loading...</div>;
+  if (!posts) return null;
+
+  return (
+    <div className="contentcontainer">
+      <div className="board_filter_wrapper">
+        <div className="board_filter_container">
+          <button
+            tabIndex="0"
+            className="board_filter_option"
+            onClick={() => setBoardFilter(0)}
+          >
+            전체보기
+          </button>
+          <button
+            className="board_filter_option"
+            onClick={() => setBoardFilter(1)}
+          >
+            학과 공지
+          </button>
+          <button
+            className="board_filter_option"
+            onClick={() => setBoardFilter(2)}
+          >
+            행사
+          </button>
+          <button
+            className="board_filter_option"
+            onClick={() => setBoardFilter(3)}
+          >
+            구인구직
+          </button>
+          <button
+            className="board_filter_option"
+            onClick={() => setBoardFilter(4)}
+          >
+            분실물
+          </button>
         </div>
-        <BoardPostWrapper>
-          <LogoImage></LogoImage>
-          {items}
-        </BoardPostWrapper>
       </div>
-    );
-  }
+      <BoardPostWrapper>
+        <LogoImage></LogoImage>
+        {posts
+          // .filter(
+          //     (data) =>
+          //       data.category === 1 ||
+          //       data.category === 2 ||
+          //       data.category === 3 ||
+          //       data.category === 4
+          //   );
+          .filter((data) => {
+            if (boardFilter === 0) return data;
+            else if (data.category === boardFilter) return data;
+          })
+          .map((data) => {
+            return (
+              <Post
+                key={data.id}
+                title={data.title}
+                id={data.id}
+                date={"1234567890"}
+                category={2}
+              ></Post>
+            );
+          })}
+      </BoardPostWrapper>
+    </div>
+  );
 }
 
 export default Board;

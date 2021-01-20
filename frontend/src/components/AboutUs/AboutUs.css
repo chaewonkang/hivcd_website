@@ -19,25 +19,23 @@
   border-bottom: 1px solid black;
 }
 
-th {
+.aboutus_contact th {
   border-bottom: 1px solid black;
   padding: 10px;
 }
 
-td {
+.aboutus_contact td {
   padding: 5px;
 }
 
 .aboutus_container {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-template-rows: repeat(2, 50vh);
+  grid-template-rows: repeat(3, 33vh);
   column-gap: 10px;
   row-gap: 10px;
 }
 
-#naver_map {
-}
 .aboutus_item {
   overflow: auto;
 }
@@ -101,6 +99,10 @@ td {
   border: 2px solid #19a300;
 }
 
+.aboutus_contact_mobile {
+  display: none;
+}
+
 @media (min-width: 1440px) and (max-width: 1920px) {
 }
 
@@ -147,5 +149,32 @@ td {
     grid-template-rows: repeat(4, 450px);
     column-gap: 20px;
     row-gap: 20px;
+  }
+  .aboutus_item .aboutus_content {
+    font-size: 15px;
+    display: block;
+  }
+
+  .aboutus_contact {
+    display: none;
+  }
+
+  .aboutus_contact_mobile {
+    display: block;
+  }
+
+  table.aboutus_contact_mobile {
+    width: 100%;
+  }
+
+  .aboutus_contact_mobile {
+    width: 100%;
+  }
+
+  .aboutus_contact_mobile td {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    width: 100%;
+    border-bottom: 1px solid black;
   }
 }

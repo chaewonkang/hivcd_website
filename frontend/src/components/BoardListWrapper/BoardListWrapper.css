@@ -24,8 +24,9 @@
 
 .board_list_title:hover,
 .board_list_title:target,
-.board_list_title:focus {
-  font-weight: bold;
+.board_list_title:focus,
+.board_list_title:active {
+  font-weight: bold !important;
   cursor: pointer;
 }
 

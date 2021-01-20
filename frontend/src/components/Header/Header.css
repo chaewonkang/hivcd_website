@@ -10,15 +10,18 @@ header {
 .header_container_left {
   display: inline-grid;
   width: calc((100vw - 40px) * 0.6);
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(5, 1fr);
   column-gap: 10px;
 }
 
 .header_container_right {
   display: inline-grid;
   width: calc((100vw - 40px) * 0.4);
-  grid-template-columns: 3fr 1fr;
+  grid-template-columns: 1fr;
   padding-left: 10px;
+  position: absolute;
+  right: 0;
+  text-align: right;
 }
 
 .header_container_title {
@@ -27,17 +30,24 @@ header {
 
 .header_container_login {
   grid-column: 4 / 5;
+  position: relative;
+  right: 0;
 }
 
+.header_container_search {
+  grid-column: 5 / 6;
+  position: relative;
+  left: 0;
+}
 .header_container_title h1 {
-  font-family: "CenturySchoolbook";
-  font-weight: 400;
+  font-family: "Helvetica";
+  font-weight: 100;
   color: #000;
   font-size: 18px;
 }
 .navbar_menu_wrapper_item_title {
-  font-family: "CenturySchoolbook";
-  font-weight: 400;
+  font-family: "Helvetica";
+  font-weight: 100;
   color: #000;
   font-size: 18px;
   margin-right: 20px;
@@ -57,19 +67,6 @@ header {
 
 .navbar_menu_wrapper_item_title:focus {
   text-decoration: underline !important;
-}
-
-.navbar_search_item {
-  font-family: "Helvetica";
-  padding: 2px 2px 2px 2px;
-  width: fit-content;
-  font-size: 18px;
-  text-align: center;
-  position: absolute;
-  border: 1px solid #000;
-  cursor: pointer;
-  position: absolute;
-  right: 20px;
 }
 
 .header_container_responsive {
@@ -116,9 +113,8 @@ header {
     z-index: 1000;
   }
 
-  .header_container_login {
-    display: none;
-  }
+  .header_container_login,
+  .header_container_search,
   .header_container_right {
     display: none;
   }
@@ -153,9 +149,8 @@ header {
     z-index: 1000;
   }
 
-  .header_container_login {
-    display: none;
-  }
+  .header_container_login,
+  .header_container_search,
   .header_container_right {
     display: none;
   }
@@ -175,10 +170,6 @@ header {
     display: inline-grid;
   }
 
-  .header_container_login {
-    display: none;
-  }
-
   .header_container_title h1 {
     font-size: 15px;
   }
@@ -192,6 +183,8 @@ header {
     grid-template-columns: 1fr;
   }
 
+  .header_container_login,
+  .header_container_search,
   .header_container_right {
     display: none;
   }

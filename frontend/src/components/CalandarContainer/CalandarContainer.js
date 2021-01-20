@@ -1,10 +1,10 @@
-import React, { Component } from "react";
+import React, { useEffect } from "react";
 import "./CalandarContainer.css";
 
-class CalandarContainer extends Component {
-  componentDidMount() {
-    window.eventCalId = 7279;
-    const integrationScript = document.createElement("script");
+function CalandarContainer() {
+  useEffect(() => {
+    window.eventCalId = 7353;
+    var integrationScript = document.createElement("script");
     integrationScript.async = 1;
     integrationScript.setAttribute(
       "src",
@@ -13,22 +13,21 @@ class CalandarContainer extends Component {
     document.head.appendChild(integrationScript);
     if (window.eventCalendarAppUtilities) {
       window.eventCalendarAppUtilities.init(
-        "025d70f1-3768-4efa-a8db-f98a9ebd3780"
+        "fc14c30a-1881-4601-9d23-5ce266b746dc"
       );
     }
-  }
-  render() {
-    return (
-      <div className="calandar_container">
-        <div className="calandar_wrapper">
-          <div
-            className="eca-app-container"
-            data-widgetuuid="025d70f1-3768-4efa-a8db-f98a9ebd3780"
-          ></div>
-        </div>
+  });
+
+  return (
+    <div className="calandar_container">
+      <div className="calandar_wrapper">
+        <div
+          class="eca-app-container"
+          data-widgetuuid="fc14c30a-1881-4601-9d23-5ce266b746dc"
+        ></div>
       </div>
-    );
-  }
+    </div>
+  );
 }
 
 export default CalandarContainer;

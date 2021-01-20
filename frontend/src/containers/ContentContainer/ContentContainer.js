@@ -1,97 +1,83 @@
-import React, { Component } from "react";
+import React from "react";
 import axios from "axios";
 import { PostWrapper, Post, HomeArchive, LogoImage } from "../../components";
 import { ArchiveWrapper } from "../../components";
 import "./ContentContainer.css";
+import useAsync from "../../utils/useAsync";
 
-class ContentContainer extends Component {
-  state = {
-    postId: 1,
-    loadingPost: false,
-    loadingArchive: false,
-    postList: [],
-    archiveList: [],
-    items: 20,
-    preItems: 0,
-  };
+async function getPosts() {
+  const response = await axios.get(
+    "https://jsonplaceholder.typicode.com/posts",
+    {},
+    {
+      headers: {
+        Authorization: "Bearer " + localStorage.getItem("access_token"),
+        Accept: "application/json",
+        "Content-type": "application/json",
+      },
+    }
+  );
+  return response.data;
+}
 
-  componentDidMount() {
-    this._loadPost();
-  }
+function ContentContainer() {
+  const [state] = useAsync(() => getPosts(), []);
+  const { loading, data: posts, error } = state;
 
-  _loadPost = async () => {
-    axios
-      .get("http://13.125.84.10:8000/api/v1/postings/?format=json")
-      .then(({ data }) => {
-        this.setState({
-          ...this.state,
-          loadingPost: true,
-          postList: data.reverse(),
-        });
-      })
-      .catch((e) => {
-        console.error(e);
-        this.setState({
-          ...this.state,
-          loadingPost: false,
-        });
-      });
-  };
+  if (loading) return <div className="contentcontainer">Loading...</div>;
+  if (error) return <div className="contentcontainer">Error Occurred!</div>;
+  if (!posts) return null;
 
-  render() {
-    const { postList } = this.state;
-    const latestArchiveList = postList
-      .filter(
-        (data) =>
-          data.category === 5 || data.category === 6 || data.category === 7
-      )
-      .slice(0, 6);
-    const latestPostList = postList
-      .filter(
-        (data) =>
-          data.category === 1 ||
-          data.category === 2 ||
-          data.category === 3 ||
-          data.category === 4
-      )
-      .slice(0, 20);
-    // console.log(`latestArchiveList: ${latestArchiveList}`);
-    return (
-      <div className="contentcontainer">
-        <PostWrapper>
-          <LogoImage></LogoImage>
-          {latestPostList &&
-            latestPostList.map((post) => {
+  return (
+    <div className="contentcontainer">
+      <PostWrapper>
+        {posts ? <LogoImage></LogoImage> : null}
+        {posts &&
+          posts
+            // .filter(
+            //   (data) =>
+            //     data.category === 1 ||
+            //     data.category === 2 ||
+            //     data.category === 3 ||
+            //     data.category === 4
+            // )
+            .slice(0, 23)
+            .map((post) => {
               return (
                 <Post
-                  key={post.pk}
+                  key={post.id}
                   title={post.title}
-                  date={post.created}
-                  category={post.category}
-                  id={post.pk}
+                  date={post.title}
+                  category={1}
+                  id={post.id}
                 ></Post>
               );
             })}
-        </PostWrapper>
-        <ArchiveWrapper>
-          {latestArchiveList &&
-            latestArchiveList.map((post) => {
+      </PostWrapper>
+      <ArchiveWrapper>
+        {posts &&
+          posts
+            // .filter(
+            //   (data) =>
+            //     data.category === 5 || data.category === 6 || data.category === 7
+            // )
+            .slice(0, 6)
+            .map((post) => {
               return (
                 <HomeArchive
                   key={post.id}
                   title={post.title}
                   id={post.id}
-                  date={post.created}
-                  category={post.category}
-                  thumbnailUrl={post.photos[0].photo}
-                  link={post.link}
+                  date={post.title}
+                  category={6}
+                  thumbnailUrl="https://www.google.com"
+                  link="https://www.google.com"
                 ></HomeArchive>
               );
             })}
-        </ArchiveWrapper>
-      </div>
-    );
-  }
+      </ArchiveWrapper>
+    </div>
+  );
 }
 
 export default ContentContainer;

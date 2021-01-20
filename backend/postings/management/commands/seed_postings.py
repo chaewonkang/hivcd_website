@@ -2,6 +2,7 @@ import pytz
 import datetime
 import random
 from faker import Faker
+from django.db.models import Max
 from django.core.management.base import BaseCommand
 from django.contrib.admin.utils import flatten
 from django_seed import Seed
@@ -14,6 +15,10 @@ NAME = "postings"
 fake = Faker()
 start_date = datetime.date(year=2015, month=1, day=1)
 fake.date_between(start_date=start_date, end_date="+30y")
+
+def get_random_user():
+    max_id = User.objects.all().aggregate(max_id=Max("id"))["max_id"]
+    return User.objects.get(pk=random.randint(1,max_id))
 
 
 class Command(BaseCommand):
@@ -56,7 +61,7 @@ class Command(BaseCommand):
                 posting_models.Photo.objects.create(
                     caption=seeder.faker.sentence(),
                     post=post_instance,
-                    photo=f"room_photos/{random.randint(1, 31)}.webp",
+                    photo=f"room_photos/무한도전_로고.jpg",
                     created=lambda x: fake.date_between(
                         start_date=start_date, end_date="+30y"
                     ),
@@ -70,7 +75,7 @@ class Command(BaseCommand):
             for i in range(3):
                 posting_models.Comment.objects.create(
                     post=post_instance,
-                    author=User.objects.get(pk=random.randint(1, number)),
+                    author=random.choice(all_users),
                     text=seeder.faker.sentence(),
                     created=lambda x: fake.date_between(
                         start_date=start_date, end_date="+30y"
@@ -86,7 +91,7 @@ class Command(BaseCommand):
                 posting_models.File.objects.create(
                     name=seeder.faker.sentence(),
                     post=post_instance,
-                    files=f"room_photos/{random.randint(1, 31)}.webp",
+                    files=f"room_photos/무한도전_로고.jpg",
                     created=lambda x: fake.date_between(
                         start_date=start_date, end_date="+30y"
                     ),
@@ -95,3 +100,4 @@ class Command(BaseCommand):
                     ),
                 )
         self.stdout.write(self.style.SUCCESS(f"{number} {NAME} Created"))
+
