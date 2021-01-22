@@ -31,7 +31,7 @@ async function getList(token) {
 
 async function getPost({ postId, token }) {
   return axios.get(
-    `http://13.125.84.10:8000/api/v1/postings/${postId}/?format=json`,
+    `http://13.125.84.10:8000/api/v1/postings/${postId}`,
     {},
     {
       headers: {
