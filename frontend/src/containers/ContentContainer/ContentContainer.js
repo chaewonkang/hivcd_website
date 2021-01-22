@@ -31,6 +31,20 @@ function ContentContainer() {
   return (
     <div className="contentcontainer">
       <PostWrapper>
+        <Post
+          key={111}
+          title={"정정서 입력에 관한 안내"}
+          date={"2020.10.10."}
+          category={1}
+          id={111}
+        ></Post>
+        <Post
+          key={111}
+          title={"홍익대학교 시각디자인과 졸업 주간 어쩌구"}
+          date={"2020.10.10."}
+          category={1}
+          id={111}
+        ></Post>
         {posts ? <LogoImage></LogoImage> : null}
         {posts &&
           posts
