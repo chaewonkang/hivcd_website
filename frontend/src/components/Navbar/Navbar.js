@@ -126,7 +126,7 @@ export const NavComponent = ({ onClick, handleLogin, handleLogout }) => {
               <a
                 href="https://www.facebook.com/HIVCD.GW"
                 target="_blank"
-                class="fa fa-facebook"
+                gclass="fa fa-facebook"
               ></a>
               <a href="#" class="fa fa-twitter"></a>
               <a href="#" class="fa fa-instagram"></a>
