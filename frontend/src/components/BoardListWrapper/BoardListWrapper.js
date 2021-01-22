@@ -41,7 +41,7 @@ function BoardListWrapper({ list, postId, handleNavigateClick }) {
                     <div
                       className="list_grid list_data"
                       key={key}
-                      onClick={() => history.push(`/board/${el.id}`)}
+                      onClick={() => history.push(`/board/${el.pk}`)}
                     >
                       <div className="list_tag">
                         <span>{categoryName.slice(0, 4)}...</span>

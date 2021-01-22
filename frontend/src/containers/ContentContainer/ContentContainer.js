@@ -75,7 +75,7 @@ function ContentContainer() {
                   id={post.pk}
                   date={post.created}
                   category={post.category}
-                  thumbnailUrl={post.link}
+                  thumbnailUrl={data.photos ? data.photos[0].photo : null}
                   link={post.link}
                 ></HomeArchive>
               );
