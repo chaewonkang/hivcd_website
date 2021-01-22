@@ -23,13 +23,13 @@ async function getEachPost(postId, token) {
 
 function setCategoryNumber(category) {
   let categoryName = null;
-  if (category === 1) categoryName = "BOARD / NOTICE";
-  else if (category === 2) categoryName = "BOARD / EVENT";
-  else if (category === 3) categoryName = "BOARD / JOB";
-  else if (category === 4) categoryName = "BOARD / LOST&FOUND";
-  else if (category === 5) categoryName = "EXHIBITION / GRADUATION EXHIBITION";
-  else if (category === 6) categoryName = "EXHIBITION / WOW FILM FESTIVAL";
-  else if (category === 7) categoryName = "EXHIBITION / ETC";
+  if (category === 1) categoryName = "학과 공지";
+  else if (category === 2) categoryName = "행사";
+  else if (category === 3) categoryName = "구인구직";
+  else if (category === 4) categoryName = "분실물";
+  else if (category === 5) categoryName = "졸업 주간";
+  else if (category === 6) categoryName = "와우영상제";
+  else if (category === 7) categoryName = "기타";
 
   return categoryName;
 }
@@ -96,7 +96,7 @@ function EachPost({ postId, handleNavigateClick }) {
 
   willMount.current = false;
 
-  //   const category = setCategoryNumber(eachPost.category);
+  const category = setCategoryNumber(eachPost.category);
 
   if (error) return <div>마지막 게시물입니다.</div>;
   if (loading) return <div>로딩 중...</div>;
@@ -105,8 +105,7 @@ function EachPost({ postId, handleNavigateClick }) {
   return (
     <div className="each_post_wrapper" style={style}>
       <div className="each_post">
-        {" "}
-        {/* <div className="each_post_tag">{category}</div> */}
+        <div className="each_post_tag">{category}</div>
         <h1>{eachPost.title}</h1>
         <hr style={{ marginBottom: 1 + "em" }}></hr>
         <div className="each_post_info">
@@ -117,7 +116,7 @@ function EachPost({ postId, handleNavigateClick }) {
         <hr></hr>
         <div className="each_post_files">
           <span className="attached_file">
-            {/* 첨부파일 ▪︎ {eachPost.files[0].name} */}
+            첨부파일 ▪︎ {eachPost.files[0].name}
           </span>
           <a
             href={"www.www.www"}
@@ -129,7 +128,7 @@ function EachPost({ postId, handleNavigateClick }) {
           </a>
         </div>
         <hr style={{ marginBottom: 2 + "em" }}></hr>
-        <p>{eachPost.body}</p>
+        <p>{eachPost.text}</p>
         <hr style={{ marginBottom: 2 + "em", marginTop: 2 + "em" }}></hr>
         <CommentList
           comments={eachPost.comments}
