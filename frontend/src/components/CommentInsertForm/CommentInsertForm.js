@@ -26,7 +26,7 @@ const CommentInsertForm = ({ style, postId }) => {
     try {
       const response = await axios
         .post(
-          "http://13.125.84.10:8000/api/v1/postings/" + p + "/comments/",
+          "http://18.219.73.211/api/v1/postings/" + p + "/comments/",
           {
             ...data,
           },
