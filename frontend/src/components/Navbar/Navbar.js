@@ -35,14 +35,14 @@ export const NavComponent = ({ onClick, handleLogin, handleLogout }) => {
         <div className="nav_class_wrapper">
           <div className="nav_class_boilerplate ">
             <div className="nav_class_bp_address">
-              <span>Address</span>
+              <span>주소</span>
               <p>
                 04066 서울특별시<br></br>마포구 와우산로 94<br></br>홍익대학교
                 R715
               </p>
             </div>
             <div className="nav_class_bp_tel">
-              <span>Tel/Fax</span>
+              <span>연락처</span>
               <p>
                 (02)320-1214<br></br>(02)3142-5792
               </p>
@@ -50,9 +50,9 @@ export const NavComponent = ({ onClick, handleLogin, handleLogout }) => {
           </div>
           <hr></hr>
           <div className="nav_class_openhours">
-            <span>Open Hours</span>
+            <span>학과사무실</span>
             <div>
-              Mon-Fri 9:00 am - 5:30 pm <br></br>(Winter) 9:00 am - 5:00 pm
+              월-금 9:00 am - 5:30 pm <br></br>(동절기) 9:00 am - 5:00 pm
             </div>
           </div>
           <hr></hr>
@@ -63,7 +63,7 @@ export const NavComponent = ({ onClick, handleLogin, handleLogout }) => {
                 className="mobile_login_input_button"
                 onClick={() => handleLogout()}
               >
-                LOGOUT
+                로그아웃
               </button>
             ) : (
               <form onSubmit={(e) => handleSubmit(e)}>
@@ -84,47 +84,52 @@ export const NavComponent = ({ onClick, handleLogin, handleLogout }) => {
                   onChange={(e) => handleChange(e)}
                 ></input>
                 <button type="submit" className="mobile_login_input_button">
-                  LOGIN
+                  로그인
                 </button>
               </form>
             )}
             <div className="applebox"></div>
             <Link to="/mobile/signup" onClick={onClick}>
-              <span className="become_a_member">Become a member </span>🗝
+              <span className="become_a_member">회원가입</span>
             </Link>
           </div>
           <hr></hr>
           <div className="nav_class_menubar">
             <ul>
               <Link to="/">
-                <li onClick={onClick}>Home</li>{" "}
+                <li onClick={onClick}>홈</li>{" "}
               </Link>
               <Link to="/aboutus">
-                <li onClick={onClick}>About</li>{" "}
+                <li onClick={onClick}>정보</li>{" "}
               </Link>
               <Link to="/board">
-                <li onClick={onClick}>Board</li>{" "}
+                <li onClick={onClick}>게시판</li>{" "}
               </Link>
               <Link to="/alumni">
-                <li onClick={onClick}>Alumni</li>{" "}
+                <li onClick={onClick}>동문연락망</li>{" "}
               </Link>
               <Link to="/archive">
-                <li onClick={onClick}>Archive</li>{" "}
+                <li onClick={onClick}>아카이브</li>{" "}
               </Link>
               <Link to="/calandar">
-                <li onClick={onClick}>Calandar</li>{" "}
+                <li onClick={onClick}>일정</li>{" "}
               </Link>
             </ul>
           </div>
           <hr></hr>
           <div className="nav_class_newsletter">
-            <span onClick={onClick}>Subscribe Newsletter</span> 💌
+            <span onClick={onClick}>뉴스레터 구독하기</span>
           </div>
           <div className="nav_class_copyright">
             <hr className="bottomline"></hr>
             <p>
-              Website Designed by Yinyang, <br></br>Developed by Chaewon Kang,
-              Seokyu Kim<br></br>Ⓒ 2020 HIVCD
+              <a
+                href="https://www.facebook.com/HIVCD.GW"
+                target="_blank"
+                gclass="fa fa-facebook"
+              ></a>
+              <a href="#" class="fa fa-twitter"></a>
+              <a href="#" class="fa fa-instagram"></a>
             </p>
           </div>
         </div>

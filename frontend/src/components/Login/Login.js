@@ -61,7 +61,7 @@ function Login({ handleLogin, handleLogout }) {
                 className="login_button"
                 onClick={(e) => handleSubmit(e)}
               >
-                <span>LOGIN</span>
+                <span>로그인</span>
               </div>
               <Link to="/auth/registration" className="create_account_link">
                 <span className="create-account" onClick={() => closeModal()}>
@@ -74,11 +74,11 @@ function Login({ handleLogin, handleLogout }) {
       </Modal>
       {localStorage.getItem("access_token") ? (
         <div className="navbar_login_item" onClick={() => handleLogout()}>
-          LOGOUT
+          로그아웃
         </div>
       ) : (
         <div className="navbar_login_item" onClick={() => openModal()}>
-          LOGIN
+          로그인
         </div>
       )}
     </>

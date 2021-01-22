@@ -11,7 +11,7 @@ const Footer = () => {
             <img src={logo} width="70" height="70" alt="HIVCD Logo"></img>
           </div>
           <div className="footer-item">
-            <span className="footer-item-title">Address</span>
+            <span className="footer-item-title">주소</span>
             <p>
               <span className="english_address">04066 </span>
               <span className="korean_address">
@@ -23,50 +23,31 @@ const Footer = () => {
             </p>
           </div>
           <div className="footer-item">
-            <span className="footer-item-title">Contact</span>
+            <span className="footer-item-title">연락처</span>
             <p>
-              Tel 02-320-1214<br></br>
-              Fax 02-3142-5792
+              전화 02-320-1214<br></br>
+              팩스 02-3142-5792
             </p>
           </div>
           <div className="footer-item">
-            <span className="footer-item-title">Open Hours</span>
+            <span className="footer-item-title">학과사무실</span>
             <p>
-              Mon - Fri 9 am - 5.30 pm <br></br>
-              Winter 9 am - 5 pm
+              월 ~ 금 9:00 ~ 17:30 <br></br>
+              동절기 9:00 ~ 17:00
             </p>
           </div>
           <div className="footer-item">
-            <span className="footer-item-title">Newsletter</span>
+            <span className="footer-item-title">뉴스레터</span>
             <div id="subscription_button" class="subscription_button">
-              SUBSCRIBE
+              구독하기
             </div>
           </div>
-          <div id="credit" className="footer-item">
+          <div className="footer-item">
+            <span className="footer-item-title">바로가기</span>
             <p>
-              Design by{" "}
-              <a
-                href="https://instagram.com/yinyang.fig"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Yinyang,
-              </a>{" "}
-              <a
-                href="https://chaewonkang.com"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Developed by Chaewon Kang
-              </a>{" "}
-              <a
-                href="https://github.com/SeogyuGim"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                and Seogyu Kim
-              </a>{" "}
-              ⓒ2020 HIVCD
+              <a href="#" class="fa fa-facebook"></a>
+              <a href="#" class="fa fa-twitter"></a>
+              <a href="#" class="fa fa-instagram"></a>
             </p>
           </div>
         </div>

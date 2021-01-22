@@ -13,8 +13,8 @@ function Header({ handleLogin, handleLogout, handleSearchKeyword }) {
           <div className="header_container_title">
             <Link to="/">
               <h1>
-                Hongik University <br className="header_line"></br>Visual
-                Communication Design
+                홍익대학교 <br className="header_line"></br>
+                미술대학 시각디자인과
               </h1>
             </Link>
           </div>
@@ -31,19 +31,19 @@ function Header({ handleLogin, handleLogout, handleSearchKeyword }) {
         <div className="header_container_right">
           <div className="header_container_menubar">
             <Link to="/aboutus">
-              <span className="navbar_menu_wrapper_item_title">About</span>
+              <span className="navbar_menu_wrapper_item_title">정보</span>
             </Link>
             <Link to="/board">
-              <span className="navbar_menu_wrapper_item_title">Board</span>
+              <span className="navbar_menu_wrapper_item_title">게시판</span>
             </Link>
             <Link to="/alumni">
-              <span className="navbar_menu_wrapper_item_title">Alumni</span>
+              <span className="navbar_menu_wrapper_item_title">동문연락망</span>
             </Link>
             <Link to="/archive">
-              <span className="navbar_menu_wrapper_item_title">Archive</span>
+              <span className="navbar_menu_wrapper_item_title">아카이브</span>
             </Link>
             <Link to="/calandar">
-              <span className="navbar_menu_wrapper_item_title">Calandar</span>
+              <span className="navbar_menu_wrapper_item_title">일정</span>
             </Link>
           </div>
         </div>

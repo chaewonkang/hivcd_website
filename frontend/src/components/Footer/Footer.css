@@ -1,10 +1,9 @@
 .footer {
   background-color: #fff5f5;
   padding: 15px 20px;
-  left: 0;
   bottom: 0;
-  z-index: 99;
-  position: fixed;
+  left: 0;
+  position: relative;
 }
 
 .footer_wrapper {
@@ -17,7 +16,7 @@
 }
 
 .footer-item .footer-item-title {
-  font-family: "CenturySchoolback";
+  font-family: "Helvetica";
   font-size: 16px;
   text-decoration: underline;
   margin-bottom: 0.5em;
@@ -25,9 +24,18 @@
 }
 
 .footer-item p {
-  font-family: "CenturySchoolback";
+  font-family: "Helvetica";
   font-size: 15px;
   margin-top: 0.3em;
+}
+
+.fa-facebook,
+.fa-instagram,
+.fa-twitter {
+  font-size: 20px;
+  margin-right: 0.75em;
+  margin-top: 0.25em;
+  color: #000;
 }
 
 #subscription_button {
@@ -43,7 +51,7 @@
 }
 
 .korean_address {
-  font-family: "AGChoiJeongHo";
+  font-family: "Helvetica";
   font-size: 15px;
 }
 

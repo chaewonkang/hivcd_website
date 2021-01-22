@@ -3,15 +3,17 @@ import "./Alumni.css";
 import axios from "axios";
 import { AlumniModule, AlumniSearch, LogoImage } from "../../components";
 import useAsync from "../../utils/useAsync";
+import getCookie from "../../utils/getCookie";
 
-async function getAlumnis() {
+async function getAlumnis(token) {
   const response = await axios.get(
-    "https://jsonplaceholder.typicode.com/users",
+    "http://18.219.73.211/api/v1/alumnis",
     {},
     {
       headers: {
         Authorization: "Bearer " + localStorage.getItem("access_token"),
         Accept: "application/json",
+        "X-CSRFToken": token,
         "Content-type": "application/json",
       },
     }
@@ -21,7 +23,8 @@ async function getAlumnis() {
 
 function Alumni() {
   const [alumniSearch, setAlumniSearch] = useState(null);
-  const [state] = useAsync(() => getAlumnis(), []);
+  const [token, setToken] = useState(getCookie("csrftoken"));
+  const [state] = useAsync(() => getAlumnis(token), [token]);
   const { loading, data: alumnis, error } = state;
 
   const alumniSearchSpace = (e) => {
@@ -29,7 +32,7 @@ function Alumni() {
     setAlumniSearch(keyword);
   };
 
-  if (error) return <div className="alumni_wrapper">Error Occurred!</div>;
+  if (error) return <div className="alumni_wrapper">Error Occurred</div>;
   if (loading) return <div className="alumni_wrapper">Loading...</div>;
   if (!alumnis) return null;
 
@@ -43,9 +46,9 @@ function Alumni() {
             if (alumniSearch === null) return data;
             else if (
               data.name.toLowerCase().includes(alumniSearch) ||
-              data.name.includes(alumniSearch) ||
-              data.name.toLowerCase().includes(alumniSearch) ||
-              data.name.includes(alumniSearch)
+              data.year.includes(alumniSearch) ||
+              data.website.toLowerCase().includes(alumniSearch) ||
+              data.phone.includes(alumniSearch)
             )
               return data;
             return null;
@@ -53,11 +56,11 @@ function Alumni() {
           .map((data) => {
             return (
               <AlumniModule
-                key={data.name}
-                year={data.name}
+                key={data.id}
+                year={data.year}
                 name={data.name}
-                tel={data.name}
-                url={data.name}
+                tel={data.phone}
+                url={data.website}
               ></AlumniModule>
             );
           })}

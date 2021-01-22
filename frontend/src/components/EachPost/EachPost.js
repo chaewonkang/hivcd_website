@@ -5,7 +5,7 @@ import axios from "axios";
 import getCookie from "../../utils/getCookie";
 import useAsync from "../../utils/useAsync";
 
-async function getEachPost(postId) {
+async function getEachPost(postId, token) {
   const response = await axios.get(
     `https://jsonplaceholder.typicode.com/posts/${postId}`,
     {},
@@ -13,7 +13,7 @@ async function getEachPost(postId) {
       headers: {
         Authorization: "Bearer " + localStorage.getItem("access_token"),
         Accept: "application/json",
-        // "X-CSRFToken": token,
+        "X-CSRFToken": token,
         "Content-type": "application/json",
       },
     }
@@ -40,7 +40,7 @@ function EachPost({ postId, handleNavigateClick }) {
     borderColor: null,
   });
   const [warningVisibility, setWarningVisibility] = useState(false);
-  const [token, setToken] = useState("");
+  const [token, setToken] = useState(getCookie("csrftoken"));
   const [state] = useAsync(() => getEachPost(postId), [postId]);
   const { loading, data: eachPost, error } = state;
 

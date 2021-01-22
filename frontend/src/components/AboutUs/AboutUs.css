@@ -31,7 +31,7 @@
 .aboutus_container {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-template-rows: repeat(2, 50vh);
+  grid-template-rows: repeat(3, 33vh);
   column-gap: 10px;
   row-gap: 10px;
 }
