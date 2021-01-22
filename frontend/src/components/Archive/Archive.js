@@ -71,6 +71,10 @@ function Archive() {
                 data.category === 6 ||
                 data.category === 7
             )
+            .filter((data) => {
+              if (boardFilter === 0) return data;
+              else if (data.category === boardFilter) return data;
+            })
             .slice(0, 100)
             .filter((data) => {
               if (archiveFilter === null) return data;
