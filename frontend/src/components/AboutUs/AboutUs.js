@@ -28,8 +28,6 @@ function NaverMapAPI() {
   );
 }
 
-// HISTORY, FACULTY, MAP, CONTACT, LINK, COLOPHON(다른 이름 있으면 알려주어요.)
-
 const AboutUs = () => {
   return (
     <div className="aboutus_wrapper">
