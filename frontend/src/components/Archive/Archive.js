@@ -3,15 +3,17 @@ import "./Archive.css";
 import axios from "axios";
 import { ArchiveModule } from "../../components";
 import useAsync from "../../utils/useAsync";
+import getCookie from "../../utils/getCookie";
 
-async function getArchiveInfo() {
+async function getArchiveInfo(token) {
   const response = await axios.get(
-    "https://jsonplaceholder.typicode.com/posts",
+    "http://18.219.73.211/api/v1/postings",
     {},
     {
       headers: {
         Authorization: "Bearer " + localStorage.getItem("access_token"),
         Accept: "application/json",
+        "X-CSRFToken": token,
         "Content-type": "application/json",
       },
     }
@@ -21,7 +23,9 @@ async function getArchiveInfo() {
 
 function Archive() {
   const [archiveFilter, setArchiveFilter] = useState(0);
-  const [state] = useAsync(() => getArchiveInfo(), []);
+  const [token, setToken] = useState(getCookie("csrftoken"));
+
+  const [state] = useAsync(() => getArchiveInfo(token), [token]);
   const { loading, data: archive, error } = state;
 
   if (error) return <div className="archive_wrapper">Error Occurred!</div>;
@@ -61,28 +65,27 @@ function Archive() {
         </div>
         <div className="archive_container">
           {archive
-            // .filter(
-            //   (data) =>
-            //     data.category === 5 ||
-            //     data.category === 6 ||
-            //     data.category === 7
-            // )
+            .filter(
+              (data) =>
+                data.category === 5 ||
+                data.category === 6 ||
+                data.category === 7
+            )
             .slice(0, 100)
-            // .filter((data) => {
-            //   if (archiveFilter === null) return data;
-            //   else if (data.category === archiveFilter) return data;
-            //   return;
-            // })
+            .filter((data) => {
+              if (archiveFilter === null) return data;
+              else if (data.category === archiveFilter) return data;
+              return;
+            })
             .map((data) => {
               return (
                 <ArchiveModule
-                  key={data.id}
+                  key={data.pk}
                   title={data.title}
-                  //   thumbnailUrl={data.photos ? data.photos[0].photo : null}
-                  thumbnailUrl={data.title}
-                  date={data.title}
-                  category={5}
-                  link={data.title}
+                  thumbnailUrl={data.photos ? data.photos[0].photo : null}
+                  date={data.created}
+                  category={data.category}
+                  link={data.link}
                 ></ArchiveModule>
               );
             })}

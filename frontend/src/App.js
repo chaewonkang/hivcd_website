@@ -28,7 +28,6 @@ function App() {
   };
 
   useEffect(() => {
-    console.log(searchKeyword);
     setSearchKeyword(searchKeyword);
   }, [searchKeyword]);
 
