@@ -26,8 +26,8 @@ function Board() {
   const [state] = useAsync(() => getPosts(), []);
   const { loading, data: posts, error } = state;
 
-  if (error) return <div>에러 발생...</div>;
-  if (loading) return <div>로딩 중...</div>;
+  if (error) return <div className="contentcontainer">Error Occurred!</div>;
+  if (loading) return <div className="contentcontainer">Loading...</div>;
   if (!posts) return null;
 
   return (

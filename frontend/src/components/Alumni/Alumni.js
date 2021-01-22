@@ -29,8 +29,8 @@ function Alumni() {
     setAlumniSearch(keyword);
   };
 
-  if (error) return <div>에러 발생...</div>;
-  if (loading) return <div>로딩 중...</div>;
+  if (error) return <div className="alumni_wrapper">Error Occurred!</div>;
+  if (loading) return <div className="alumni_wrapper">Loading...</div>;
   if (!alumnis) return null;
 
   return (

@@ -24,8 +24,8 @@ function Archive() {
   const [state] = useAsync(() => getArchiveInfo(), []);
   const { loading, data: archive, error } = state;
 
-  if (error) return <div>에러 발생...</div>;
-  if (loading) return <div>로딩 중...</div>;
+  if (error) return <div className="archive_wrapper">Error Occurred!</div>;
+  if (loading) return <div className="archive_wrapper">Loading...</div>;
   if (!archive) return null;
 
   return (
