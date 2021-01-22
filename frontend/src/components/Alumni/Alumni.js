@@ -7,7 +7,7 @@ import getCookie from "../../utils/getCookie";
 
 async function getAlumnis(token) {
   const response = await axios.get(
-    "http://18.219.73.211/api/v1/alumnis",
+    "http://18.219.73.211/api/v1/alumnis/",
     {},
     {
       headers: {
