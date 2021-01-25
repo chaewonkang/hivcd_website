@@ -83,7 +83,7 @@ function Archive() {
                   key={data.pk}
                   title={data.title}
                   thumbnailUrl={data.photos ? data.photos[0].photo : null}
-                  date={data.created}
+                  date={data.updated}
                   category={data.category}
                   link={data.link}
                 ></ArchiveModule>

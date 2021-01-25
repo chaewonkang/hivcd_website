@@ -110,7 +110,7 @@ function EachPost({ postId, handleNavigateClick }) {
         <hr style={{ marginBottom: 1 + "em" }}></hr>
         <div className="each_post_info">
           <span>작성자 ▪︎ {eachPost.author}</span>
-          <span>작성일 ▪︎ {eachPost.created.slice(0, 10)}</span>
+          <span>작성일 ▪︎ {eachPost.updated.slice(0, 10)}</span>
         </div>
         <hr></hr>
         <div className="each_post_files">

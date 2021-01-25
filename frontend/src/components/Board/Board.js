@@ -88,7 +88,7 @@ function Board() {
                 key={data.pk}
                 title={data.title}
                 id={data.pk}
-                date={data.created}
+                date={data.updated}
                 category={data.category}
               ></Post>
             );

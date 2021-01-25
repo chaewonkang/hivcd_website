@@ -38,7 +38,7 @@ function SearchResultContainer({ searchKeyword }) {
                 <Post
                   key={data.pk}
                   title={data.title}
-                  date={data.created}
+                  date={data.updated}
                   id={data.pk}
                   category={data.category}
                 ></Post>

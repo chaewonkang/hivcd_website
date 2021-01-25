@@ -48,7 +48,7 @@ function BoardListWrapper({ list, postId, handleNavigateClick }) {
                       <div className="board_list_title">
                         {el.title.slice(0, 40)}...
                       </div>
-                      <div className="acenter"> {el.created.slice(2, 10)} </div>
+                      <div className="acenter"> {el.updated.slice(2, 10)} </div>
                     </div>
                   </React.Fragment>
                 );
