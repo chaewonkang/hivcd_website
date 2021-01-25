@@ -71,13 +71,9 @@ function Archive() {
                 data.category === 6 ||
                 data.category === 7
             )
-            .filter((data) => {
-              if (archiveFilter === 0) return data;
-              else if (data.category === archiveFilter) return data;
-            })
             .slice(0, 100)
             .filter((data) => {
-              if (archiveFilter === null) return data;
+              if (archiveFilter === null || archiveFilter === 0) return data;
               else if (data.category === archiveFilter) return data;
               return;
             })

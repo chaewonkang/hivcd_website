@@ -9,17 +9,24 @@ header {
 
 .header_container_left {
   display: inline-grid;
-  width: calc((100vw - 40px) * 0.5);
+  width: calc((100vw - 40px) * 0.3);
   column-gap: 10px;
 }
 
 .header_container_right {
   display: inline-grid;
-  width: calc((100vw - 40px) * 0.5);
-  grid-template-columns: 2fr 1fr;
+  width: calc((100vw - 40px) * 0.7);
+  grid-template-columns: 6fr 1fr;
+  column-gap: 30px;
   padding-left: 10px;
   font-size: 17px;
   text-align: right;
+  position: absolute;
+  right: 0;
+}
+
+.header_container_menubar {
+  margin-right: 20px;
 }
 
 .header_container_title h1 {
@@ -35,6 +42,14 @@ header {
   column-gap: 10px;
   text-align: center;
   font-size: 15px;
+  width: fit-content;
+  position: absolute;
+  right: 0;
+  margin-right: 20px;
+}
+
+.header_container_login,
+.header_container_search {
 }
 
 .navbar_menu_wrapper_item_title {

@@ -96,8 +96,6 @@ function EachPost({ postId, handleNavigateClick }) {
 
   willMount.current = false;
 
-  const category = setCategoryNumber(eachPost.category);
-
   if (error) return <div>마지막 게시물입니다.</div>;
   if (loading) return <div>로딩 중...</div>;
   if (!eachPost) return null;
@@ -105,13 +103,14 @@ function EachPost({ postId, handleNavigateClick }) {
   return (
     <div className="each_post_wrapper" style={style}>
       <div className="each_post">
-        <div className="each_post_tag">{category}</div>
+        <div className="each_post_tag">
+          {setCategoryNumber(eachPost.category)}
+        </div>
         <h1>{eachPost.title}</h1>
         <hr style={{ marginBottom: 1 + "em" }}></hr>
         <div className="each_post_info">
           <span>작성자 ▪︎ {eachPost.title}</span>
           <span>작성일 ▪︎ {eachPost.title}</span>
-          <span>조회 ▪︎ 362</span>
         </div>
         <hr></hr>
         <div className="each_post_files">
