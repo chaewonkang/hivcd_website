@@ -31,11 +31,10 @@ function BoardListWrapper({ list, postId, handleNavigateClick }) {
                 if (el.category === 1) categoryName = "학과 공지";
                 else if (el.category === 2) categoryName = "행사";
                 else if (el.category === 3) categoryName = "구인구직";
-                else if (el.category === 4) categoryName = "LOST&FOUND";
-                else if (el.category === 5)
-                  categoryName = "GRADUATION EXHIBITION";
-                else if (el.category === 6) categoryName = "WOW FILM FESTIVAL";
-                else if (el.category === 7) categoryName = "ETC";
+                else if (el.category === 4) categoryName = "분실물";
+                else if (el.category === 5) categoryName = "졸업 주간";
+                else if (el.category === 6) categoryName = "와우영상제";
+                else if (el.category === 7) categoryName = "기타";
                 return (
                   <React.Fragment key={key}>
                     <div
