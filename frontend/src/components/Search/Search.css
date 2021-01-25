@@ -2,11 +2,9 @@
   font-family: "Helvetica";
   font-weight: 100;
   padding: 0.1em 0.75em 0.1em 0.75em;
-  font-size: 18px;
+  font-size: 15px;
   border: 1px solid #000;
   cursor: pointer;
-  position: absolute;
-  left: 0;
 }
 
 input[name="search"] {

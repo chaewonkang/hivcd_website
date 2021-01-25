@@ -5,6 +5,7 @@
   margin-bottom: 20px;
   position: relative;
   height: auto;
+  height: 100vh;
 }
 
 .search_result_wrapper {

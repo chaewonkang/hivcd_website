@@ -15,7 +15,11 @@ import {
 import "./App.css";
 import "./components/Header/Header.css";
 import ContentContainer from "./containers/ContentContainer/ContentContainer";
-import { SearchResultContainer, EachPostContainer } from "./containers";
+import {
+  SearchResultContainer,
+  EachPostContainer,
+  ReservationContainer,
+} from "./containers";
 import axiosInstance from "./utils/axiosApi";
 import "./utils/Animation.css";
 
@@ -109,6 +113,7 @@ function App() {
           <Route path="/alumni" component={Alumni} />
           <Route path="/archive" component={Archive} />
           <Route path="/calandar" component={CalandarContainer} />
+          <Route path="/reservation" component={ReservationContainer} />
           <Route
             path="/search"
             render={() => (

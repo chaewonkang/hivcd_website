@@ -34,7 +34,7 @@ const AboutUs = () => {
       <div className="aboutus_container">
         <div id="history" className="aboutus_item">
           <div className="aboutus_item_tag">
-            <span>HISTORY</span>
+            <span>역사</span>
           </div>
           <div className="aboutus_content">
             오늘날 매체의 발달로 시각디자인의 영역은 계속 넓어지고 있다. 따라서
@@ -67,9 +67,9 @@ const AboutUs = () => {
             하고 있다.
           </div>
         </div>
-        <div id="curriculum" className="aboutus_item">
+        <div id="faculty" className="aboutus_item">
           <div className="aboutus_item_tag">
-            <span>FACULTY</span>
+            <span>교수진</span>
           </div>
           <div className="aboutus_content">
             <table className="aboutus_curriculum">
@@ -183,7 +183,7 @@ const AboutUs = () => {
         </div>
         <div id="map" className="aboutus_item">
           <div className="aboutus_item_tag">
-            <span>MAP</span>
+            <span>지도</span>
           </div>
           <div id="naver_map" className="aboutus_content">
             <RenderAfterNavermapsLoaded
@@ -197,7 +197,7 @@ const AboutUs = () => {
         </div>
         <div id="contact" className="aboutus_item">
           <div className="aboutus_item_tag">
-            <span>CONTACT</span>
+            <span>연락처</span>
           </div>
           <div className="aboutus_content">
             <table className="aboutus_contact">
@@ -252,45 +252,51 @@ const AboutUs = () => {
             </table>
           </div>
         </div>
-        <div id="contact" className="aboutus_item">
+        <div id="link" className="aboutus_item">
           <div className="aboutus_item_tag">
-            <span>LINK</span>
+            <span>링크</span>
           </div>
           <div className="aboutus_content">
             홍익대학교 www.hongik.ac.kr 홍익대학교 미술대학 cfa.hongik.ac.kr
             한글꼴연구회 그린비 드로마픽 힙스 아이레이 에드레날린 하이픈
           </div>
         </div>
-        <div id="contact" className="aboutus_item">
+        <div id="colophon" className="aboutus_item">
           <div className="aboutus_item_tag">
-            <span>COLOPHON</span>
+            <span>콜로폰</span>
           </div>
           <div className="aboutus_content">
-            <p>
-              Design by{" "}
-              <a
-                href="https://instagram.com/yinyang.fig"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Yinyang,
-              </a>{" "}
-              <a
-                href="https://chaewonkang.com"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Developed by Chaewon Kang
-              </a>{" "}
-              <a
-                href="https://github.com/SeogyuGim"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                and Seogyu Kim
-              </a>{" "}
-              ⓒ2020 HIVCD
-            </p>
+            <table className="colophon_table">
+              <tr>
+                <th>웹사이트 디자인</th>
+                <tb>Yinyang</tb>
+                <tb>
+                  <a>yinyang.company</a>
+                </tb>
+              </tr>
+              <tr>
+                <th>웹사이트 개발</th>
+                <tb>강채원yinyang.company</tb>
+                <br></br>
+                <tb>김서규yinyang.company</tb>
+              </tr>
+              <tr>
+                <th>웹사이트 구축 도움</th>
+                <tb>심윤서, 나혜린</tb>
+              </tr>
+              <tr>
+                <th>2021년 1월 00일</th>
+                <tb>구축 완료</tb>
+              </tr>
+              <tr>
+                <th>2021년 1월 00일</th>
+                <tb>v1.0 배포</tb>
+              </tr>
+              <tr>
+                <th>2021년 1월 00일</th>
+                <tb>v2.0 배포 - 무슨 무슨 기능 추가</tb>
+              </tr>
+            </table>
           </div>
         </div>
       </div>
