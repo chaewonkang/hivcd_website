@@ -13,18 +13,18 @@
 }
 
 .nav_class_boilerplate div span {
-  font-family: "CenturySchoolbook";
+  font-family: "Helvetica";
   font-size: 13px;
 }
 
 .nav_class_boilerplate div p {
-  font-family: "KoPubBatangMedium";
+  font-family: "Helvetica";
   font-size: 12px;
   line-height: 20px;
 }
 
 .nav_class_openhours {
-  font-family: "CenturySchoolbook";
+  font-family: "Helvetica";
   font-size: 13px;
   margin-bottom: 1em;
 }
@@ -38,7 +38,7 @@
 
 .become_a_member,
 .nav_class_newsletter {
-  font-family: "CenturySchoolbook";
+  font-family: "Helvetica";
   font-size: 15px;
   margin-bottom: 1em;
 }
@@ -46,7 +46,7 @@
 .nav_class_copyright {
   width: calc(100% - 20px);
   margin-bottom: 20px;
-  font-family: "CenturySchoolbook";
+  font-family: "Helvetica";
   font-size: 13px;
 }
 
@@ -67,7 +67,7 @@
 }
 
 .nav_class_menubar ul li {
-  font-family: "CenturySchoolbook";
+  font-family: "Helvetica";
   font-size: 15px;
   color: #000;
   cursor: pointer;

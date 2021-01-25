@@ -28,9 +28,9 @@ function BoardListWrapper({ list, postId, handleNavigateClick }) {
           {currentsPosts
             ? currentsPosts.map((el, key) => {
                 let categoryName = null;
-                if (el.category === 1) categoryName = "NOTICE";
-                else if (el.category === 2) categoryName = "EVENT";
-                else if (el.category === 3) categoryName = "JOB";
+                if (el.category === 1) categoryName = "학과 공지";
+                else if (el.category === 2) categoryName = "행사";
+                else if (el.category === 3) categoryName = "구인구직";
                 else if (el.category === 4) categoryName = "LOST&FOUND";
                 else if (el.category === 5)
                   categoryName = "GRADUATION EXHIBITION";
