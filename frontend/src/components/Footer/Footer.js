@@ -39,7 +39,13 @@ const Footer = () => {
           <div className="footer-item">
             <span className="footer-item-title">뉴스레터</span>
             <div id="subscription_button" class="subscription_button">
-              구독하기
+              <a
+                href="http://eepurl.com/hk_U8n"
+                target="_blank"
+                style={{ color: "#000" }}
+              >
+                구독하기
+              </a>
             </div>
           </div>
           <div className="footer-item">
