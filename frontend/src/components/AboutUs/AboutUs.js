@@ -72,111 +72,69 @@ const AboutUs = () => {
             <span>교수진</span>
           </div>
           <div className="aboutus_content">
-            <table className="aboutus_curriculum">
+            <table className="faculty">
               <tr>
-                <th>학년/학기</th>
-                <th>이수구분</th>
-                <th>교과목</th>
-                <th>학수번호</th>
-                <th>학점/시수</th>
+                <th>직위</th>
+                <th>이름</th>
+                <th>전공</th>
+                <th>학위</th>
+                <th>학위취득학교</th>
               </tr>
               <tr>
-                <td>1/1</td>
-                <td>전공선택</td>
-                <td>드로잉(1)</td>
-                <td>410113</td>
-                <td>3/3</td>
+                <td>교수</td>
+                <td>이철영</td>
+                <td>광고커뮤니케이션</td>
+                <td>커뮤니케이션박사</td>
+                <td>Univ. of Illinois, Urbana Champaign</td>
               </tr>
               <tr>
-                <td>1/1</td>
-                <td>전공선택</td>
-                <td>드로잉(1)</td>
-                <td>410113</td>
-                <td>3/3</td>
+                <td>부교수</td>
+                <td>Christopher J.Ro</td>
+                <td>광고커뮤니케이션</td>
+                <td>커뮤니케이션박사</td>
+                <td>Univ. of Illinois, Urbana Champaign</td>
               </tr>
               <tr>
-                <td>1/1</td>
-                <td>전공선택</td>
-                <td>드로잉(1)</td>
-                <td>410113</td>
-                <td>3/3</td>
+                <td>교수</td>
+                <td>이철영</td>
+                <td>광고커뮤니케이션</td>
+                <td>커뮤니케이션박사</td>
+                <td>홍익대학교</td>
               </tr>
               <tr>
-                <td>1/1</td>
-                <td>전공선택</td>
-                <td>드로잉(1)</td>
-                <td>410113</td>
-                <td>3/3</td>
+                <td>교수</td>
+                <td>이철영</td>
+                <td>광고커뮤니케이션</td>
+                <td>커뮤니케이션박사</td>
+                <td>홍익대학교</td>
               </tr>
               <tr>
-                <td>1/1</td>
-                <td>전공선택</td>
-                <td>드로잉(1)</td>
-                <td>410113</td>
-                <td>3/3</td>
+                <td>교수</td>
+                <td>이철영</td>
+                <td>광고커뮤니케이션</td>
+                <td>커뮤니케이션박사</td>
+                <td>홍익대학교</td>
               </tr>
               <tr>
-                <td>1/1</td>
-                <td>전공선택</td>
-                <td>드로잉(1)</td>
-                <td>410113</td>
-                <td>3/3</td>
+                <td>교수</td>
+                <td>이철영</td>
+                <td>광고커뮤니케이션</td>
+                <td>커뮤니케이션박사</td>
+                <td>홍익대학교</td>
               </tr>
               <tr>
-                <td>1/1</td>
-                <td>전공선택</td>
-                <td>드로잉(1)</td>
-                <td>410113</td>
-                <td>3/3</td>
+                <td>교수</td>
+                <td>이철영</td>
+                <td>광고커뮤니케이션</td>
+                <td>커뮤니케이션박사</td>
+                <td>홍익대학교</td>
               </tr>
               <tr>
-                <td>1/1</td>
-                <td>전공선택</td>
-                <td>드로잉(1)</td>
-                <td>410113</td>
-                <td>3/3</td>
-              </tr>
-              <tr>
-                <td>1/1</td>
-                <td>전공선택</td>
-                <td>드로잉(1)</td>
-                <td>410113</td>
-                <td>3/3</td>
-              </tr>
-              <tr>
-                <td>1/1</td>
-                <td>전공선택</td>
-                <td>드로잉(1)</td>
-                <td>410113</td>
-                <td>3/3</td>
-              </tr>
-              <tr>
-                <td>1/1</td>
-                <td>전공선택</td>
-                <td>드로잉(1)</td>
-                <td>410113</td>
-                <td>3/3</td>
-              </tr>
-              <tr>
-                <td>1/1</td>
-                <td>전공선택</td>
-                <td>드로잉(1)</td>
-                <td>410113</td>
-                <td>3/3</td>
-              </tr>
-              <tr>
-                <td>1/1</td>
-                <td>전공선택</td>
-                <td>드로잉(1)</td>
-                <td>410113</td>
-                <td>3/3</td>
-              </tr>
-              <tr>
-                <td>1/1</td>
-                <td>전공선택</td>
-                <td>드로잉(1)</td>
-                <td>410113</td>
-                <td>3/3</td>
+                <td>교수</td>
+                <td>이철영</td>
+                <td>광고커뮤니케이션</td>
+                <td>커뮤니케이션박사</td>
+                <td>홍익대학교</td>
               </tr>
             </table>
           </div>
@@ -257,8 +215,48 @@ const AboutUs = () => {
             <span>링크</span>
           </div>
           <div className="aboutus_content">
-            홍익대학교 www.hongik.ac.kr 홍익대학교 미술대학 cfa.hongik.ac.kr
-            한글꼴연구회 그린비 드로마픽 힙스 아이레이 에드레날린 하이픈
+            <table className="colophon_table">
+              <tr>
+                <th>
+                  홍익대학교 <a>www.hongik.ac.kr</a>
+                </th>
+              </tr>
+              <tr>
+                <th>
+                  홍익대학교 미술대학 <a>www.hongik.ac.kr</a>
+                </th>
+              </tr>
+              <tr>
+                <th>
+                  한글꼴연구회 <a>www.hongik.ac.kr</a>
+                </th>
+              </tr>
+              <tr>
+                <th>
+                  그린비 <a>www.hongik.ac.kr</a>
+                </th>
+              </tr>
+              <tr>
+                <th>
+                  드로마픽 <a>www.hongik.ac.kr</a>
+                </th>
+              </tr>
+              <tr>
+                <th>
+                  힙스 <a>www.hongik.ac.kr</a>
+                </th>
+              </tr>
+              <tr>
+                <th>
+                  아이레이 <a>www.hongik.ac.kr</a>
+                </th>
+              </tr>
+              <tr>
+                <th>
+                  애드레날린 <a>www.hongik.ac.kr</a>
+                </th>
+              </tr>
+            </table>
           </div>
         </div>
         <div id="colophon" className="aboutus_item">
@@ -269,32 +267,29 @@ const AboutUs = () => {
             <table className="colophon_table">
               <tr>
                 <th>웹사이트 디자인</th>
-                <tb>Yinyang</tb>
-                <tb>
-                  <a>yinyang.company</a>
-                </tb>
+                <td>Yinyang yinyang.company</td>
               </tr>
               <tr>
                 <th>웹사이트 개발</th>
-                <tb>강채원yinyang.company</tb>
-                <br></br>
-                <tb>김서규yinyang.company</tb>
+                <td>
+                  강채원 yinyang.company<br></br>김서규 yinyang.company
+                </td>
               </tr>
               <tr>
                 <th>웹사이트 구축 도움</th>
-                <tb>심윤서, 나혜린</tb>
+                <td>심윤서, 나혜린</td>
               </tr>
               <tr>
                 <th>2021년 1월 00일</th>
-                <tb>구축 완료</tb>
+                <td>구축 완료</td>
               </tr>
               <tr>
                 <th>2021년 1월 00일</th>
-                <tb>v1.0 배포</tb>
+                <td>v1.0 배포</td>
               </tr>
               <tr>
                 <th>2021년 1월 00일</th>
-                <tb>v2.0 배포 - 무슨 무슨 기능 추가</tb>
+                <td>v2.0 배포 - 무슨 무슨 기능 추가</td>
               </tr>
             </table>
           </div>

@@ -2,7 +2,6 @@
   margin: 20px;
   margin-bottom: 40px;
   position: relative;
-  height: 100vh;
 }
 
 .aboutus_curriculum {
@@ -26,6 +25,18 @@
 .aboutus_contact th {
   border-bottom: 1px solid black;
   padding: 10px;
+}
+
+.faculty {
+  font-size: 14px;
+  width: 100%;
+  text-align: center;
+}
+
+.faculty th {
+  border-bottom: 1px solid black;
+  padding: 2px;
+  font-weight: 400;
 }
 
 .aboutus_contact td {
