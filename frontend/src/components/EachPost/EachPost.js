@@ -109,8 +109,8 @@ function EachPost({ postId, handleNavigateClick }) {
         <h1>{eachPost.title}</h1>
         <hr style={{ marginBottom: 1 + "em" }}></hr>
         <div className="each_post_info">
-          <span>작성자 ▪︎ {eachPost.title}</span>
-          <span>작성일 ▪︎ {eachPost.title}</span>
+          <span>작성자 ▪︎ {eachPost.author}</span>
+          <span>작성일 ▪︎ {eachPost.created.slice(0, 10)}</span>
         </div>
         <hr></hr>
         <div className="each_post_files">
@@ -123,7 +123,7 @@ function EachPost({ postId, handleNavigateClick }) {
             download={"www.www.www"}
             rel="noopener noreferrer"
           >
-            <button className="download_button">DOWNLOAD</button>
+            <button className="download_button">다운로드</button>
           </a>
         </div>
         <hr style={{ marginBottom: 2 + "em" }}></hr>
