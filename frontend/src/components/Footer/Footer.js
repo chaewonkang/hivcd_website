@@ -32,7 +32,7 @@ const Footer = () => {
           <div className="footer-item">
             <span className="footer-item-title">학과사무실</span>
             <p>
-              월 ~ 금 9:00 ~ 17:30 <br></br>
+              월 - 금 9:00 ~ 17:30 <br></br>
               동절기 9:00 ~ 17:00
             </p>
           </div>
