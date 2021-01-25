@@ -118,9 +118,9 @@ function EachPost({ postId, handleNavigateClick }) {
             첨부파일 ▪︎ {eachPost.files[0].name}
           </span>
           <a
-            href={"www.www.www"}
+            href={eachPost.files[0].file}
             target="_blank"
-            download={"www.www.www"}
+            download={eachPost.files[0].file}
             rel="noopener noreferrer"
           >
             <button className="download_button">다운로드</button>
