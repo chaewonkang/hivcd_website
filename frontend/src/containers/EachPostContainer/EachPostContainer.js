@@ -61,7 +61,13 @@ function EachPostContainer({ match }) {
   return (
     <div className="each_post_container">
       <BoardListWrapper
-        list={list}
+        list={list.filter(
+          (data) =>
+            data.category === 1 ||
+            data.category === 2 ||
+            data.category === 3 ||
+            data.category === 4
+        )}
         postId={postId}
         handleNavigateClick={() => handleNavigateClick()}
       ></BoardListWrapper>
