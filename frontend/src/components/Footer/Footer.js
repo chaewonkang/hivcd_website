@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import logo from "../../img/hivcd_logo.png";
 import "./Footer.css";
 
