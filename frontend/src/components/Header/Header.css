@@ -9,42 +9,34 @@ header {
 
 .header_container_left {
   display: inline-grid;
-  width: calc((100vw - 40px) * 0.6);
-  grid-template-columns: repeat(5, 1fr);
+  width: calc((100vw - 40px) * 0.5);
   column-gap: 10px;
 }
 
 .header_container_right {
   display: inline-grid;
-  width: calc((100vw - 40px) * 0.4);
-  grid-template-columns: 1fr;
+  width: calc((100vw - 40px) * 0.5);
+  grid-template-columns: 2fr 1fr;
   padding-left: 10px;
-  position: absolute;
-  right: 0;
+  font-size: 17px;
   text-align: right;
 }
 
-.header_container_title {
-  grid-column: 1 / 4;
-}
-
-.header_container_login {
-  grid-column: 4 / 5;
-  position: relative;
-  right: 0;
-}
-
-.header_container_search {
-  grid-column: 5 / 6;
-  position: relative;
-  left: 0;
-}
 .header_container_title h1 {
   font-family: "Helvetica";
   font-weight: 100;
   color: #000;
   font-size: 18px;
 }
+
+.header_container_system {
+  display: inline-grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 10px;
+  text-align: center;
+  font-size: 15px;
+}
+
 .navbar_menu_wrapper_item_title {
   font-family: "Helvetica";
   font-weight: 100;

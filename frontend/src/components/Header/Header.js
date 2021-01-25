@@ -18,15 +18,6 @@ function Header({ handleLogin, handleLogout, handleSearchKeyword }) {
               </h1>
             </Link>
           </div>
-          <div className="header_container_login">
-            <Login
-              handleLogout={handleLogout}
-              handleLogin={handleLogin}
-            ></Login>
-          </div>
-          <div className="header_container_search">
-            <Search handleSearchKeyword={handleSearchKeyword}></Search>
-          </div>
         </div>
         <div className="header_container_right">
           <div className="header_container_menubar">
@@ -45,6 +36,20 @@ function Header({ handleLogin, handleLogout, handleSearchKeyword }) {
             <Link to="/calandar">
               <span className="navbar_menu_wrapper_item_title">일정</span>
             </Link>
+            <Link to="/reservation">
+              <span className="navbar_menu_wrapper_item_title">예약</span>
+            </Link>
+          </div>
+          <div className="header_container_system">
+            <div className="header_container_login">
+              <Login
+                handleLogout={handleLogout}
+                handleLogin={handleLogin}
+              ></Login>
+            </div>
+            <div className="header_container_search">
+              <Search handleSearchKeyword={handleSearchKeyword}></Search>
+            </div>
           </div>
         </div>
         <div className="header_container_responsive">
