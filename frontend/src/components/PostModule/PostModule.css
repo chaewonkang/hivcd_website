@@ -63,4 +63,7 @@
 }
 
 @media only screen and (max-width: 576px) {
+  .post .post_content {
+    font-size: 15px;
+  }
 }
