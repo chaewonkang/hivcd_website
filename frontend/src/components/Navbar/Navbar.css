@@ -1,11 +1,11 @@
 .nav_class_wrapper {
-  padding: 20px;
+  padding: 20px 20px;
 }
 
 .nav_class_boilerplate {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  font-size: 13px;
+  font-size: 15px;
 }
 
 .nav_class_wrapper span {
@@ -14,26 +14,26 @@
 
 .nav_class_boilerplate div span {
   font-family: "Helvetica";
-  font-size: 13px;
+  font-size: 15px;
 }
 
 .nav_class_boilerplate div p {
   font-family: "Helvetica";
-  font-size: 12px;
-  line-height: 20px;
+  font-size: 15px;
+  line-height: 23px;
 }
 
 .nav_class_openhours {
   font-family: "Helvetica";
-  font-size: 13px;
+  font-size: 15px;
   margin-bottom: 1em;
+  line-height: 23px;
 }
 
 .nav_class_copyright {
   bottom: 40px;
   line-height: 1.8em;
   padding-bottom: 20px;
-  padding-right: 20px;
 }
 
 .become_a_member,
@@ -44,7 +44,6 @@
 }
 
 .nav_class_copyright {
-  width: calc(100% - 20px);
   margin-bottom: 20px;
   font-family: "Helvetica";
   font-size: 13px;

@@ -11,13 +11,13 @@
   border: none;
 }
 
-.hamburget-btn:focus {
+.hamburger-btn:focus,
+.hamburget-btn:active {
   border-bottom: none;
   border-top: none;
   border-left: none;
   border-right: none;
   border-radius: 0;
-  border: 2px solid #000;
   outline: none;
 }
 
