@@ -92,7 +92,7 @@
   .archive .archive_content_image {
     float: none;
     width: 100%;
-    height: 100%;
+    height: 80%;
     border: 2px solid #ffba00;
     margin-top: 10px;
   }
