@@ -50,5 +50,6 @@
   .archivewrapper {
     width: calc((100vw - 40px) * 0.5);
     grid-template-columns: 1fr;
+    grid-template-rows: repeat(6, 210px);
   }
 }

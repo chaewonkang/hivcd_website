@@ -89,6 +89,15 @@
   }
 
   .archive_content_image {
-    display: none;
+    display: block;
+    height: 50%;
+    position: relative;
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  .archive .archive_content {
+    width: 100%;
+    font-size: 15px;
   }
 }
