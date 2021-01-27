@@ -35,5 +35,7 @@
   .postwrapper {
     width: calc((100vw - 40px) * 0.5);
     grid-template-columns: 1fr;
+    grid-template-rows: repeat(12, 100px);
+    grid-auto-rows: 100px;
   }
 }
