@@ -69,7 +69,7 @@ export const NavComponent = ({ onClick, handleLogin, handleLogout }) => {
               <form onSubmit={(e) => handleSubmit(e)}>
                 <input
                   id="mobile_email"
-                  placeholder="email"
+                  placeholder="이메일"
                   type="text"
                   name="email"
                   value={userinfo.email}
@@ -77,7 +77,7 @@ export const NavComponent = ({ onClick, handleLogin, handleLogout }) => {
                 ></input>
                 <input
                   id="mobile_password"
-                  placeholder="password"
+                  placeholder="패스워드"
                   type="password"
                   name="password"
                   value={userinfo.password}
@@ -89,9 +89,6 @@ export const NavComponent = ({ onClick, handleLogin, handleLogout }) => {
               </form>
             )}
             <div className="applebox"></div>
-            <Link to="/mobile/signup" onClick={onClick}>
-              <span className="become_a_member">회원가입</span>
-            </Link>
           </div>
           <hr></hr>
           <div className="nav_class_menubar">
@@ -118,7 +115,15 @@ export const NavComponent = ({ onClick, handleLogin, handleLogout }) => {
           </div>
           <hr></hr>
           <div className="nav_class_newsletter">
-            <span onClick={onClick}>뉴스레터 구독하기</span>
+            <span onClick={onClick}>
+              <a
+                href="http://eepurl.com/hk_U8n"
+                target="_blank"
+                style={{ color: "#000" }}
+              >
+                뉴스레터 구독하기
+              </a>
+            </span>
           </div>
           <div className="nav_class_copyright">
             <hr className="bottomline"></hr>
