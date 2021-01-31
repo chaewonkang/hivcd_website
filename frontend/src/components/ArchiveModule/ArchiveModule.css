@@ -88,7 +88,7 @@
     margin-bottom: 20px;
   }
 
-  .archive_content_image {
+  .archive_module .archive_module_content_image {
     display: block;
     height: 50%;
     position: relative;
@@ -96,8 +96,17 @@
     margin-bottom: 10px;
   }
 
+  .archive_module .archive_module_content {
+    width: 50%;
+    font-size: 15px;
+  }
+
   .archive .archive_content {
     width: 100%;
     font-size: 15px;
+  }
+
+  .archive_filter_option:active {
+    font-size: 11px;
   }
 }
