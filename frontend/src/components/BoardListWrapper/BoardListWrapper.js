@@ -43,7 +43,7 @@ function BoardListWrapper({ list, postId, handleNavigateClick }) {
                       onClick={() => history.push(`/board/${el.pk}`)}
                     >
                       <div className="list_tag">
-                        <span>{categoryName.slice(0, 4)}...</span>
+                        <span>{categoryName}</span>
                       </div>
                       <div className="board_list_title">
                         {el.title.slice(0, 40)}...

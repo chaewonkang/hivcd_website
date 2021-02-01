@@ -27,3 +27,13 @@ input[name="text"] {
   width: 90%;
   outline: none;
 }
+
+@media (max-width: 576px) {
+  input[name="text"] {
+    width: 80%;
+  }
+
+  button.comment_input_button {
+    font-size: 12px;
+  }
+}
