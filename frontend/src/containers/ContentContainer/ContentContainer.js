@@ -73,7 +73,7 @@ function ContentContainer() {
                   key={post.pk}
                   title={post.title}
                   id={post.pk}
-                  date={post.updated}
+                  body={post.text}
                   category={post.category}
                   thumbnailUrl={post.photos ? post.photos[0].photo : null}
                   link={post.link}

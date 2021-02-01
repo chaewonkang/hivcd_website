@@ -86,11 +86,11 @@
 /********** Small devices only **********/
 @media (min-width: 768px) and (max-width: 991px) {
   .archive_filter_wrapper {
-    margin-top: 70px;
+    margin-top: 60px;
   }
 
   .archive_wrapper {
-    margin-top: 70px;
+    margin-top: 60px;
     margin-bottom: 20px;
   }
 

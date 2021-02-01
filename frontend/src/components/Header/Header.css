@@ -1,6 +1,7 @@
 header {
   background-color: #fff5f5;
   padding: 15px 20px;
+  width: 100%;
 }
 
 .header_line {
@@ -109,7 +110,7 @@ header {
   }
 
   .header_container_title {
-    text-align: center;
+    text-align: left;
   }
 
   .header_container_left {

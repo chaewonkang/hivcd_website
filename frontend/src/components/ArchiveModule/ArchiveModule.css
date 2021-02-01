@@ -38,7 +38,7 @@
   font-family: "Helvetica";
   font-size: 18px;
   display: inline-grid;
-  width: 65%;
+  width: 60%;
   position: sticky;
   top: 0;
   padding-right: 0.5em;
@@ -51,7 +51,7 @@
 
 .archive_module .archive_module_content_image {
   float: right;
-  width: 35%;
+  width: 40%;
   height: 100%;
   border: 2px solid #ffba00;
 }

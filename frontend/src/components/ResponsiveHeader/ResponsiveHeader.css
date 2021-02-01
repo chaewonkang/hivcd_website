@@ -1,10 +1,10 @@
 .hamburger-btn {
-  font-size: 1.3rem;
+  font-size: 1.5rem;
   width: 40px;
   height: 35px;
   position: absolute;
-  top: 10px;
-  right: 20px;
+  top: 9px;
+  right: 10px;
   outline: none;
   background-color: #fff5f5;
   color: #000;
@@ -103,5 +103,18 @@
     z-index: 2000;
     left: 0;
     top: 0;
+  }
+
+  .hamburger-btn {
+    font-size: 1.5rem;
+    width: 40px;
+    height: 35px;
+    position: absolute;
+    top: 8px;
+    right: 4px;
+    outline: none;
+    background-color: #fff5f5;
+    color: #000;
+    border: none;
   }
 }
