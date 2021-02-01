@@ -100,4 +100,15 @@
     display: block;
     margin-bottom: 0.5em;
   }
+
+  .each_post {
+    padding: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    overflow: auto;
+  }
+
+  .each_post_tag {
+    position: relative;
+  }
 }

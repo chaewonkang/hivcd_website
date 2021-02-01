@@ -106,8 +106,8 @@ li.page_num:target {
 
 @media (max-width: 576px) {
   .board_list_container {
-    margin-top: 20px;
-    margin-bottom: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
     order: 2;
   }
 
