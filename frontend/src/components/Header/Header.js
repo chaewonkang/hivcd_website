@@ -33,11 +33,11 @@ function Header({ handleLogin, handleLogout, handleSearchKeyword }) {
             <Link to="/archive">
               <span className="navbar_menu_wrapper_item_title">아카이브</span>
             </Link>
+            <Link to="/exhibition">
+              <span className="navbar_menu_wrapper_item_title">전시</span>
+            </Link>
             <Link to="/calandar">
               <span className="navbar_menu_wrapper_item_title">일정</span>
-            </Link>
-            <Link to="/reservation">
-              <span className="navbar_menu_wrapper_item_title">예약</span>
             </Link>
           </div>
           <div className="header_container_system">

@@ -11,6 +11,7 @@ import {
   Alumni,
   Archive,
   SignUp,
+  Exhibition,
 } from "./components";
 import "./App.css";
 import "./components/Header/Header.css";
@@ -111,9 +112,10 @@ function App() {
           <Route path="/board/:postId" component={EachPostContainer}></Route>
           <Route path="/aboutus" component={AboutUs} />
           <Route path="/alumni" component={Alumni} />
-          <Route path="/archive" component={Archive} />
+          <Route path="/exhibition" component={Exhibition} />
           <Route path="/calandar" component={CalandarContainer} />
           <Route path="/reservation" component={ReservationContainer} />
+          <Route path="/archive" component={Archive} />
           <Route
             path="/search"
             render={() => (
