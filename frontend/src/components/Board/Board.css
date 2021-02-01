@@ -93,4 +93,15 @@ body {
   .board_filter_option {
     margin-bottom: 10px;
   }
+
+  .board_filter_container {
+    display: inline;
+  }
+
+  .board_filter_option {
+    margin-bottom: 0px;
+    font-size: 12px;
+    padding: 0.4em 0.7em;
+    margin-right: 7.5px;
+  }
 }

@@ -31,6 +31,7 @@
   text-transform: uppercase;
   font-size: 11px;
   font-weight: 100;
+  z-index: 2;
 }
 
 .archive_module .archive_module_content {
@@ -106,7 +107,9 @@
     font-size: 15px;
   }
 
-  .archive_filter_option:active {
-    font-size: 11px;
+  .archive_filter_option:active,
+  .archive_filter_option:focus {
+    font-size: 12px;
+    padding: 0.4em 0.7em;
   }
 }

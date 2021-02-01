@@ -108,6 +108,9 @@ export const NavComponent = ({ onClick, handleLogin, handleLogout }) => {
               <Link to="/archive">
                 <li onClick={onClick}>아카이브</li>{" "}
               </Link>
+              <Link to="/exhibition">
+                <li onClick={onClick}>전시</li>{" "}
+              </Link>
               <Link to="/calandar">
                 <li onClick={onClick}>일정</li>{" "}
               </Link>
