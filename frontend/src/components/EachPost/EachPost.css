@@ -111,4 +111,13 @@
   .each_post_tag {
     position: relative;
   }
+
+  .each_post h1 {
+    font-size: 25px;
+  }
+
+  .each_post p {
+    font-size: 16px;
+    line-height: 23px;
+  }
 }
