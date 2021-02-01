@@ -168,6 +168,7 @@ header {
     position: fixed;
     z-index: 2000;
     top: 0;
+    padding: 15px 10px;
   }
 
   .header_line {

@@ -97,10 +97,6 @@ function App() {
         <div className="AppBody">
           <Route path="/auth/registration" component={SignUp}></Route>
           <Route path="/mobile/signup" component={MobileSignup}></Route>
-          <ResponsiveHeader
-            navClass="nav-small"
-            linkClassName="nav-small-link"
-          ></ResponsiveHeader>
           <Header
             handleSearchKeyword={handleSearchKeyword}
             handleLogout={handleLogout}
