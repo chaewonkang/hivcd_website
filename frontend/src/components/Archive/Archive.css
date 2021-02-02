@@ -118,8 +118,10 @@
 
 @media (max-width: 576px) {
   .archive_wrapper {
-    margin-top: 50px;
+    margin-top: 70px;
     margin-bottom: 20px;
+    margin-left: 10px;
+    margin-right: 10px;
   }
 
   .archive_filter_wrapper {
@@ -151,7 +153,7 @@
     margin-bottom: 20px;
   }
   .archive_container {
-    width: calc(100vw - 40px);
+    width: calc(100vw - 20px);
     grid-template-columns: 1fr;
     margin-bottom: 20px;
   }
