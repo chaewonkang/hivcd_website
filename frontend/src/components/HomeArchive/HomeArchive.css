@@ -81,9 +81,6 @@
 @media (min-width: 577px) and (max-width: 767px) {
 }
 
-@media (max-width: 576px) {
-}
-
 @media only screen and (max-width: 576px) {
   .archive_content_image {
     display: block;
@@ -99,5 +96,9 @@
 
   .archive .archive_content {
     position: relative;
+  }
+
+  .archive_content_body {
+    display: none;
   }
 }

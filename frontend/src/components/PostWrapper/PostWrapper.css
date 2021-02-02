@@ -33,7 +33,7 @@
 
 @media (max-width: 576px) {
   .postwrapper {
-    width: calc((100vw - 40px) * 0.5);
+    width: calc(50vw - 10px);
     grid-template-columns: 1fr;
     grid-template-rows: repeat(12, 100px);
     grid-auto-rows: 100px;

@@ -15,8 +15,8 @@ const HomeArchive = ({ title, thumbnailUrl, body, category, link }) => {
         <div className="archive_content_header">
           <a href={link} target="_blank" rel="noopener noreferrer">
             {title} <br></br>
-            {body.slice(0, 40)}...
           </a>
+          <p className="archive_content_body"> {body}...</p>
         </div>
       </div>
       <div
