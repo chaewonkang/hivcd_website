@@ -5,7 +5,6 @@ import {
   Footer,
   MobileSignup,
   CalandarContainer,
-  ResponsiveHeader,
   AboutUs,
   Board,
   Alumni,

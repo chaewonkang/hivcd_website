@@ -80,14 +80,14 @@ function Exhibition() {
             })
             .map((data) => {
               return (
-                <exhibitionModule
+                <ArchiveModule
                   key={data.pk}
                   title={data.title}
                   thumbnailUrl={data.photos ? data.photos[0].photo : null}
                   date={data.updated}
                   category={data.category}
                   link={data.link}
-                ></exhibitionModule>
+                ></ArchiveModule>
               );
             })}
         </div>

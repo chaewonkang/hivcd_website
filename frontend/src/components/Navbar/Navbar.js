@@ -122,6 +122,7 @@ export const NavComponent = ({ onClick, handleLogin, handleLogout }) => {
               <a
                 href="http://eepurl.com/hk_U8n"
                 target="_blank"
+                rel="noopener noreferrer"
                 style={{ color: "#000" }}
               >
                 뉴스레터 구독하기
@@ -133,11 +134,28 @@ export const NavComponent = ({ onClick, handleLogin, handleLogout }) => {
             <p>
               <a
                 href="https://www.facebook.com/HIVCD.GW"
+                className="fa fa-facebook"
                 target="_blank"
-                gclass="fa fa-facebook"
-              ></a>
-              <a href="#" class="fa fa-twitter"></a>
-              <a href="#" class="fa fa-instagram"></a>
+                rel="noopener noreferrer"
+              >
+                {""}
+              </a>
+              <a
+                href="https://www.facebook.com/HIVCD.GW"
+                className="fa fa-twitter"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {""}
+              </a>
+              <a
+                href="https://www.facebook.com/HIVCD.GW"
+                className="fa fa-instagram"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {""}
+              </a>
             </p>
           </div>
         </div>

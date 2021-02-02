@@ -23,8 +23,8 @@ async function getPosts(token) {
 
 function Board() {
   const [boardFilter, setBoardFilter] = useState(0);
-  const [token, setToken] = useState(getCookie("csrftoken"));
-  const [state] = useAsync(() => getPosts(), []);
+  const [token] = useState(getCookie("csrftoken"));
+  const [state] = useAsync(() => getPosts(token), [token]);
   const { loading, data: posts, error } = state;
 
   if (error) return <div className="contentcontainer">Error Occurred...</div>;

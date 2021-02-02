@@ -7,7 +7,7 @@ import getCookie from "../../utils/getCookie";
 function SearchResultContainer({ searchKeyword }) {
   const [postList, setPostList] = useState([]);
   const [error, setError] = useState(null);
-  const [token, setToken] = useState(getCookie("csrftoken"));
+  const [token] = useState(getCookie("csrftoken"));
   const [loading, setLoading] = useState(false);
 
   async function getSearchResult(searchKeyword, token) {
@@ -53,9 +53,9 @@ function SearchResultContainer({ searchKeyword }) {
   }
 
   useEffect(() => {
-    getSearchResult(searchKeyword);
+    getSearchResult(searchKeyword, token);
     console.log(postList);
-  }, [searchKeyword]);
+  }, [searchKeyword, token]);
 
   if (loading) return <div>로딩 중...</div>;
   if (error) return <div>에러 발생...</div>;
