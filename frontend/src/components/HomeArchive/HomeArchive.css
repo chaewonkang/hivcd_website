@@ -15,10 +15,6 @@
   padding-top: 0.5rem;
 }
 
-.archive p {
-  font-size: 2rem;
-}
-
 .archive .archive_tag {
   position: absolute;
   top: 0;
@@ -64,8 +60,11 @@
 }
 
 .archive_content_body {
-  font-size: 18px;
+  font-size: 15px;
+  margin-top: 0.25em;
+  word-break: keep-all;
 }
+
 @media (min-width: 1440px) and (max-width: 1920px) {
 }
 
