@@ -34,63 +34,7 @@ function Archive() {
 
   return (
     <>
-      <div className="archive_wrapper">
-        <div className="archive_filter_wrapper">
-          <div className="archive_filter_container">
-            <button
-              className="archive_filter_option"
-              onClick={() => setArchiveFilter(0)}
-            >
-              전체보기
-            </button>
-            <button
-              className="archive_filter_option"
-              onClick={() => setArchiveFilter(5)}
-            >
-              졸업 주간
-            </button>
-            <button
-              className="archive_filter_option"
-              onClick={() => setArchiveFilter(6)}
-            >
-              와우영상제
-            </button>
-            <button
-              className="archive_filter_option"
-              onClick={() => setArchiveFilter(7)}
-            >
-              기타 전시
-            </button>
-          </div>
-        </div>
-        <div className="archive_container">
-          {archive
-            .filter(
-              (data) =>
-                data.category === 5 ||
-                data.category === 6 ||
-                data.category === 7
-            )
-            .slice(0, 100)
-            .filter((data) => {
-              if (archiveFilter === null || archiveFilter === 0) return data;
-              else if (data.category === archiveFilter) return data;
-              return;
-            })
-            .map((data) => {
-              return (
-                <ArchiveModule
-                  key={data.pk}
-                  title={data.title}
-                  thumbnailUrl={data.photos ? data.photos[0].photo : null}
-                  date={data.updated}
-                  category={data.category}
-                  link={data.link}
-                ></ArchiveModule>
-              );
-            })}
-        </div>
-      </div>
+      <div className="archive_wrapper">페이지 준비중입니다.</div>
     </>
   );
 }
