@@ -15,6 +15,7 @@ button.navigate_right_button {
   grid-template-rows: 1fr;
   float: right;
   bottom: 0;
+  background-image: url("../../img/arrow_r.png");
 }
 
 button.navigate_left_button {
@@ -28,6 +29,7 @@ button.navigate_left_button {
   grid-template-rows: 1fr;
   float: left;
   bottom: 0;
+  background-image: url("../../img/arrow_l.png");
 }
 
 button span {

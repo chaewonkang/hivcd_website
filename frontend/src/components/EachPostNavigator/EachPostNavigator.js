@@ -23,15 +23,11 @@ const EachPostNavigator = ({ postId, handleNavigateClick }) => {
         <button
           className="navigate_left_button"
           onClick={() => routeToPrevPost(id)}
-        >
-          ＜
-        </button>
+        ></button>
         <button
           className="navigate_right_button"
           onClick={() => routeToNextPost(id)}
-        >
-          ＞
-        </button>
+        ></button>
       </div>
     </div>
   );
