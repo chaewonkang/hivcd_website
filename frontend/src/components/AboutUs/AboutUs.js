@@ -145,13 +145,13 @@ const AboutUs = () => {
               <span>지도</span>
             </div>
             <div id="naver_map" className="aboutus_content">
-              {/* <RenderAfterNavermapsLoaded
-              ncpClientId={"copdkbfrqt"}
-              error={<p>Maps Load Error</p>}
-              loading={<p>Maps Loading...</p>}
-            >
-              <NaverMapAPI />
-            </RenderAfterNavermapsLoaded> */}
+              <RenderAfterNavermapsLoaded
+                ncpClientId={"copdkbfrqt"}
+                error={<p>Maps Load Error</p>}
+                loading={<p>Maps Loading...</p>}
+              >
+                <NaverMapAPI />
+              </RenderAfterNavermapsLoaded>
             </div>
           </div>
           <div id="contact" className="aboutus_item">
@@ -218,42 +218,48 @@ const AboutUs = () => {
               <table className="colophon_table">
                 <tr>
                   <th>
-                    홍익대학교 <a>www.hongik.ac.kr</a>
+                    홍익대학교{" "}
+                    <a href="https://hongiksidi.com">www.hongik.ac.kr</a>
                   </th>
                 </tr>
                 <tr>
                   <th>
-                    홍익대학교 미술대학 <a>www.hongik.ac.kr</a>
+                    홍익대학교 미술대학{" "}
+                    <a href="https://hongiksidi.com">www.hongik.ac.kr</a>
                   </th>
                 </tr>
                 <tr>
                   <th>
-                    한글꼴연구회 <a>www.hongik.ac.kr</a>
+                    한글꼴연구회{" "}
+                    <a href="https://hongiksidi.com">www.hongik.ac.kr</a>
                   </th>
                 </tr>
                 <tr>
                   <th>
-                    그린비 <a>www.hongik.ac.kr</a>
+                    그린비 <a href="https://hongiksidi.com">www.hongik.ac.kr</a>
                   </th>
                 </tr>
                 <tr>
                   <th>
-                    드로마픽 <a>www.hongik.ac.kr</a>
+                    드로마픽{" "}
+                    <a href="https://hongiksidi.com">www.hongik.ac.kr</a>
                   </th>
                 </tr>
                 <tr>
                   <th>
-                    힙스 <a>www.hongik.ac.kr</a>
+                    힙스 <a href="https://hongiksidi.com">www.hongik.ac.kr</a>
                   </th>
                 </tr>
                 <tr>
                   <th>
-                    아이레이 <a>www.hongik.ac.kr</a>
+                    아이레이{" "}
+                    <a href="https://hongiksidi.com">www.hongik.ac.kr</a>
                   </th>
                 </tr>
                 <tr>
                   <th>
-                    애드레날린 <a>www.hongik.ac.kr</a>
+                    애드레날린{" "}
+                    <a href="https://hongiksidi.com">www.hongik.ac.kr</a>
                   </th>
                 </tr>
               </table>

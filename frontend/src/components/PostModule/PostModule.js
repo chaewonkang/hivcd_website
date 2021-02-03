@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./PostModule.css";
-import { Link, Redirect } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { Warning } from "../../components";
 
 const PostModule = ({ style, title, date, category, id }) => {
@@ -14,7 +14,7 @@ const PostModule = ({ style, title, date, category, id }) => {
   else if (category === 7) categoryName = "기타";
   const postId = parseInt(id, 10);
   const slicedDate = date.slice(0, 10);
-  const [warningVisibility, setWarningVisibility] = useState(false);
+  const [warningVisibility] = useState(false);
   //   const token = localStorage.getItem("access_token");
 
   //   const showWarning = () => {

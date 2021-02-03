@@ -8,7 +8,6 @@ button.navigate_right_button {
   font-family: "Helvetica", sans-serif;
   font-size: 25px;
   border: 1px solid #000;
-  background-color: #000;
   color: #fff;
   display: grid;
   grid-template-columns: 1fr;
@@ -25,7 +24,6 @@ button.navigate_left_button {
   font-family: "Helvetica", sans-serif;
   font-size: 25px;
   border: 1px solid #000;
-  background-color: #000;
   color: #fff;
   display: grid;
   grid-template-columns: 1fr;

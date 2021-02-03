@@ -23,7 +23,7 @@ async function getExhibitionInfo(token) {
 
 function Exhibition() {
   const [exhibitionFilter, setExhibitionFilter] = useState(0);
-  const [token, setToken] = useState(getCookie("csrftoken"));
+  const [token] = useState(getCookie("csrftoken"));
 
   const [state] = useAsync(() => getExhibitionInfo(token), [token]);
   const { loading, data: exhibition, error } = state;

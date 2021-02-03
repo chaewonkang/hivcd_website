@@ -23,7 +23,7 @@ async function getAlumnis(token) {
 
 function Alumni() {
   const [alumniSearch, setAlumniSearch] = useState(null);
-  const [token, setToken] = useState(getCookie("csrftoken"));
+  const [token] = useState(getCookie("csrftoken"));
   const [state] = useAsync(() => getAlumnis(token), [token]);
   const { loading, data: alumnis, error } = state;
 
