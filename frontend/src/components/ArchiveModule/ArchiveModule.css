@@ -87,9 +87,8 @@
 
   .archive_module .archive_module_content_image {
     display: block;
-    height: 50%;
+    width: 50%;
     position: relative;
-    width: 100%;
     margin-bottom: 10px;
   }
 

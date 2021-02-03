@@ -103,17 +103,19 @@
 
   .each_post {
     padding: 10px;
-    margin-top: 10px;
+    margin-top: 0;
     margin-bottom: 10px;
     overflow: auto;
   }
 
   .each_post_tag {
     position: relative;
+    top: 0;
   }
 
   .each_post h1 {
     font-size: 25px;
+    margin-top: 10px;
   }
 
   .each_post p {

@@ -104,7 +104,7 @@ li.page_num:target {
   }
 }
 
-@media (max-width: 576px) {
+@media (min-width: 321px) and (max-width: 576px) {
   .board_list_container {
     margin-top: 10px;
     margin-bottom: 10px;
@@ -120,5 +120,16 @@ li.page_num:target {
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;
+  }
+}
+
+@media (max-width: 320px) {
+  .board_list_container {
+    padding: 10px;
+    font-size: 11px;
+  }
+
+  .list_tag span {
+    font-size: 9px;
   }
 }

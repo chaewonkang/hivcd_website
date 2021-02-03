@@ -157,4 +157,8 @@
     grid-template-columns: 1fr;
     margin-bottom: 20px;
   }
+
+  .exhibition_filter_option:active {
+    font-size: 12px;
+  }
 }

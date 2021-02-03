@@ -104,4 +104,8 @@ body {
     padding: 0.4em 0.7em;
     margin-right: 7.5px;
   }
+
+  .board_filter_option:active {
+    font-size: 12px;
+  }
 }
