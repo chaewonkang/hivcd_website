@@ -96,8 +96,9 @@ function EachPost({ postId, handleNavigateClick }) {
 
   willMount.current = false;
 
-  if (error) return <div>마지막 게시물입니다.</div>;
-  if (loading) return <div>로딩 중...</div>;
+  if (error)
+    return <div className="each_post_wrapper">마지막 게시물입니다.</div>;
+  if (loading) return <div className="each_post_wrapper">로딩 중...</div>;
   if (!eachPost) return null;
 
   return (

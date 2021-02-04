@@ -6,8 +6,8 @@
   margin-bottom: 20px;
   background: #fff5f5;
   grid-template-columns: 1fr 2fr;
-
   height: fit-content;
+  font-family: Helvetica, sans-serif;
 }
 
 @media (min-width: 1440px) and (max-width: 1920px) {

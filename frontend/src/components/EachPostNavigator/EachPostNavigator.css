@@ -14,7 +14,7 @@ button.navigate_right_button {
   grid-template-rows: 1fr;
   float: right;
   bottom: 0;
-  background: url("../../img/arrow_r.png") no-repeat scroll #000;
+  background: url("../../img/right.png") no-repeat scroll #000;
   width: 35px;
   height: 35px;
   background-size: 100%;
@@ -30,7 +30,7 @@ button.navigate_left_button {
   grid-template-rows: 1fr;
   float: left;
   bottom: 0;
-  background: url("../../img/arrow_l.png") no-repeat scroll #000;
+  background: url("../../img/left.png") no-repeat scroll #000;
   width: 35px;
   height: 35px;
   background-size: 100%;
