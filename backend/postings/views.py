@@ -20,9 +20,10 @@ class PostListAPIView(generics.ListAPIView):
     permission_classes = (IsAuthenticatedOrReadOnly,)
 
     @method_decorator(vary_on_cookie)
-    @method_decorator(cache_page(60*60))
+    @method_decorator(cache_page(60 * 60))
     def dispatch(self, *args, **kwargs):
         return super(PostListAPIView, self).dispatch(*args, **kwargs)
+
 
 class PostRetrieveAPIView(generics.RetrieveAPIView):
     queryset = Post.objects.all()
@@ -31,28 +32,29 @@ class PostRetrieveAPIView(generics.RetrieveAPIView):
     permission_classes = (IsAuthenticatedOrReadOnly,)
 
     @method_decorator(vary_on_cookie)
-    @method_decorator(cache_page(60*60))
+    @method_decorator(cache_page(60 * 60))
     def dispatch(self, *args, **kwargs):
-        return super(PostRetrieveAPIView, self).dispatch(*args, **kwargs)    
+        return super(PostRetrieveAPIView, self).dispatch(*args, **kwargs)
+
 
 class CommentListCreateAPIView(generics.ListCreateAPIView):
-    
-    queryset = cache.get('comments')
-    if not queryset:
+
+    try:
+        queryset = cache.get("comments")
+    except:
         queryset = Comment.objects.all()
-        cache.set('comments', queryset)
+        cache.set("comments", queryset)
     serializer_class = CommentSerializer
     permission_classes = (IsAuthenticatedOrReadOnly,)
 
     @method_decorator(vary_on_cookie)
-    @method_decorator(cache_page(60*60))
+    @method_decorator(cache_page(60 * 60))
     def dispatch(self, *args, **kwargs):
-       return super(ListCreateAPIView, self).dispatch(*args, **kwargs)
+        return super(ListCreateAPIView, self).dispatch(*args, **kwargs)
 
     def get_queryset(self):
-        qs = Comment.objects.filter(post_id=self.kwargs['pk'])
+        qs = Comment.objects.filter(post_id=self.kwargs["pk"])
         return qs
 
     def perform_create(self, serializer):
         return serializer.save(author=self.request.user)
-

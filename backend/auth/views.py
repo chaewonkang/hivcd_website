@@ -10,7 +10,7 @@ from django.utils.encoding import smart_bytes, smart_str, DjangoUnicodeDecodeErr
 from rest_framework import views, generics, status
 from rest_framework.response import Response
 from rest_framework_simplejwt.tokens import RefreshToken
-from rest_framework.permissions import IsAuthenticatedOrReadOnly, AllowAny
+from rest_framework.permissions import AllowAny
 from drf_yasg.utils import swagger_auto_schema
 from drf_yasg import openapi
 from .serializers import (
@@ -218,4 +218,3 @@ class PasswordTokenCheckAPI(generics.GenericAPIView):
         except DjangoUnicodeDecodeError:
             if not PasswordResetTokenGenerator().check_token(user):
                 return CustomRedirect(redirect_url + "?token_valid=False")
-
