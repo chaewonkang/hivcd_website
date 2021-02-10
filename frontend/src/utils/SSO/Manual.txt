@@ -1,0 +1,57 @@
+현재 SSO에서 인증하는 방법
+SUSER_ID와 SUSER_NAME 값이 있는지 없는지를 판단
+
+인증 방법 변경
+SUSER_AUTHKEY 라는 COOKIE 값을 추가하여 인증유무를 판단함
+SUSER_AUTHKEY 값은 암호화 안된 사용자 ID에 클라이언트 IP 값을 합친 string의 sha1 값
+
+인증루틴에 다음의 내용(php)을 추가하여 인증유무를 판단
+
+// 암호화된 사용자 ID를 푼다.
+  $get_userid = decrypt_md5($_COOKIE['SUSER_ID'],$key);
+
+  // 인증 키값을 가져온다.
+  $get_authkey = $_COOKIE['SUSER_AUTHKEY'];
+
+  // 클라이언트 IP를 가져온다.
+  $remote_ip = $_SERVER['REMOTE_ADDR'];
+
+  // sha1 hash 값을 만든다.
+  $sha_str = sha1($get_userid.$remote_ip);
+
+  // 만들어진 hash값과 클라이언트 쿠키값이 일치하는 확인
+  if ($sha_str == $get_authkey) return true;
+  else return false;
+
+모든 인증은 SUSER_AUTHKEY 값의 확인을 통해야만 함
+SUSER_ID,SUSER_NAME 의 값의 유무만으로는 cookie 복사에 의한 보안문제가 있으므로 SUSER_AUTHKEY 값을 꼭 확인
+hongik_abeek_sso 의 사용은 절대 금지. 아이디가 암호화 되어 있지 않아 쉽게 복사 및 변조가 가능하므로 사용 금지
+
+SUSER_AUTHKEY 쿠기값의 복제 가능성 여부
+- 암호화된 SUSER_ID 값을 풀어야 함
+- 원격지 IP 주소가 같아야 함
+
+위의 2개 조건으로 sha1 함수를 이용해서 인증값 생성 가능
+
+동일 사용자가 다른 IP로 로그인 했을경우 아래와 같은 cookie 값을 가짐.
+SUSER_AUTHKEY를 제외한 인증에 필요한 모든 cookie 값이 동일하므로 쿠키 복사에 의한 사용자 로그인이 가능
+SUSER_AUTHKEY를 복사하여 사용하는경우에 IP 주소가 다른 경우 값이 달라지므로 복사 사용 불가능
+
+------------------------------------------------------------
+hongik_abeek_sso=MjAyODQ%3D;
+SUSER_ID=H4eJ6tg%253D;
+SUSER_NAME=7WR6bCyu;
+SUSER_GUBUN=3;
+SUSER_AUTH=0e8bf8ff58e40e70aff38712469afa25;
+SUSER_AUTHKEY=13119fa977a17f6d234a8d0aa0edc55007cdde30;
+SUSER_LIMIT=1211423146
+
+hongik_abeek_sso=MjAyODQ%3D;
+SUSER_ID=H4eJ6tg%253D;
+SUSER_NAME=7WR6bCyu;
+
+SUSER_GUBUN=3;
+SUSER_AUTH=0e8bf8ff58e40e70aff38712469afa25;
+SUSER_AUTHKEY=4758bb2e2c90ca42b4dcbe7b14a7526d8e62ad4d;
+SUSER_LIMIT=12114230
+
