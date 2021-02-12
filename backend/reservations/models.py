@@ -1,12 +1,5 @@
 from django.db import models
-
-
-class Room(models.Model):
-    pass
-
-
-class Tool(models.Model):
-    pass
+from django.conf import settings
 
 
 class Reservation(models.Model):
@@ -19,5 +12,6 @@ class Reservation(models.Model):
 
     startday = models.DateTimeField()
     endday = models.DateTimeField()
-    rooms = models.ForeignKey("Room", on_delete=models.CASCADE, default="", null=True)
-    tools = models.ForeignKey("Tool", on_delete=models.CASCADE)
+    user = models.ForeignKey(
+        settings.AUTH_USER_MODEL, related_name="reservations", db_column="user_snumber"
+    )
