@@ -1,0 +1,133 @@
+로그인 페이지
+http://www.hongik.ac.kr/login.do
+
+Refer 에 로그인 후 돌아올 페이지 URL을 적어서 보내면 로그인 후 Refer에 지정된 페이지로 이동
+http://www.hongik.ac.kr/login.do?Refer=
+
+로그인은 domain(hongik.ac.kr) cookie 를 이용하며
+SUSER_ID
+SUSER_NAME
+SUSER_GUBUN
+SUSER_AUTH
+SUSER_LIMIT
+5개의 쿠키값을 사용하여 인증 확인을 합니다.
+
+SUSER_ID - 사용자 아이디  (암호화)
+SUSER_NAME - 사용자 이름  (암호화)
+SUSER_GUBUN - 사용자 구분 (평문)
+SUSER_AUTH - 쿠키값 인증 코드 (암호화)
+SUSER_LIMIT - 로그인 시간(unix timestamp) (평문)
+
+사용자 구분
+
+1    학부생
+2     대학원생
+3    직원
+4     조교
+5    교수
+6     학과
+7    T/A
+8    산업체
+9     고교생
+10    고교교사
+11    학부모
+12    부서
+13    강사
+14    부속기관 직원
+
+
+
+복호화 function
+$key = "oRaclePhpLiNux"; (노출되지 않도록 주의 바랍니다.)
+
+----------------
+
+
+function bytexor($a,$b,$ilimit) {
+  $c="";
+
+  for($i=0;$i<$ilimit;$i++) {
+    $c .= $a{$i}^$b{$i};
+  }
+
+
+
+  return $c;
+
+}
+
+
+
+//$msg를 $key를 이용하여 복호화
+
+function decrypt_md5($msg,$key)
+{
+
+        $string="";
+
+        $buffer="";
+
+        $key2="";
+
+
+
+        $msg = urldecode($msg);
+
+        $msg = base64_decode($msg);
+
+
+
+        while($msg)
+
+        {
+
+                $key2=pack("H*",md5($key.$key2.$buffer));
+
+                $dec_limit=strlen(substr($msg,0,16));
+
+                $buffer=bytexor(substr($msg,0,16),$key2,$dec_limit);
+
+                $string.=$buffer;
+
+                $msg=substr($msg,16);
+
+        }
+
+
+
+        return($string);
+
+}
+
+-------------------
+
+
+
+//로그인 확인
+
+function checkAuth($key) {
+  global $_COOKIE;
+
+
+
+  $get_userid = decrypt_md5($_COOKIE['SUSER_ID'],$key);
+
+  $get_suser_id = $_COOKIE['SUSER_AUTH'];
+
+
+
+  if (!$get_userid) return false;
+  if (!$get_suser_id) return false;
+
+  $real_suser_id = convert_crypt($get_userid);
+
+  if ($get_suser_id == $real_suser_id) return true;
+  else return false;
+
+}
+
+//salt로 id암호화
+function convert_crypt($id) {
+  $salt = "chEkchsUm";
+  return md5(crypt($id,$salt));
+}

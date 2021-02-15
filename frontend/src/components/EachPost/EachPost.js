@@ -7,7 +7,7 @@ import useAsync from "../../utils/useAsync";
 
 async function getEachPost(postId, token) {
   const response = await axios.get(
-    `http://18.219.73.211/api/v1/postings/${postId}`,
+    `http://devsidi.hongik.ac.kr/api/v1/postings/${postId}`,
     {},
     {
       headers: {
