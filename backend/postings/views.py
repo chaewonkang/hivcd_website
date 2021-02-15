@@ -51,7 +51,7 @@ class CommentListCreateAPIView(generics.ListCreateAPIView):
     @method_decorator(vary_on_cookie)
     @method_decorator(cache_page(60 * 60))
     def dispatch(self, *args, **kwargs):
-        return super(ListCreateAPIView, self).dispatch(*args, **kwargs)
+        return super(CommentListCreateAPIView, self).dispatch(*args, **kwargs)
 
     def get_queryset(self):
         qs = Comment.objects.filter(post_id=self.kwargs["pk"])
