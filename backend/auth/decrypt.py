@@ -37,7 +37,7 @@ key = os.getenv("AUTH_KEY")
 salt = os.getenv("SALT")
 
 
-def decrypt_md5(msg, key):
+def decrypt_md5(msg):
     string = ""
     buff = ""
     key2 = ""
@@ -53,7 +53,7 @@ def decrypt_md5(msg, key):
     return string
 
 
-def decrypt(string, key):
+def decrypt(string):
     if not string or len(string) == 0:
         return ""
     string = unquote(string=string)
