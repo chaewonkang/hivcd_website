@@ -22,7 +22,7 @@ APP_SCHEME = os.environ.get("APP_SCHEME")
 DEBUG = os.environ.get("DEBUG", True)
 
 if DEBUG == False:
-    ALLOWED_HOSTS = ["13.125.84.10", "127.0.0.1", "localhost"]
+    ALLOWED_HOSTS = ["127.0.0.1", "localhost"]
 else:
     ALLOWED_HOSTS = ["*"]
 
@@ -165,7 +165,7 @@ SIMPLE_JWT = {
 }
 
 # USER Model
-AUTH_USER_MODEL = "my_auth.User"
+AUTH_USER_MODEL = "my_auth.Account"
 
 
 SWAGGER_SETTINGS = {

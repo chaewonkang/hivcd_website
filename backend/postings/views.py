@@ -11,6 +11,7 @@ import json
 from django.utils.decorators import method_decorator
 from django.views.decorators.cache import cache_page
 from django.views.decorators.vary import vary_on_cookie
+from rest_framework.decorators import api_view, permission_classes
 
 
 class PostListAPIView(generics.ListAPIView):
@@ -50,7 +51,7 @@ class CommentListCreateAPIView(generics.ListCreateAPIView):
     @method_decorator(vary_on_cookie)
     @method_decorator(cache_page(60 * 60))
     def dispatch(self, *args, **kwargs):
-        return super(ListCreateAPIView, self).dispatch(*args, **kwargs)
+        return super(CommentListCreateAPIView, self).dispatch(*args, **kwargs)
 
     def get_queryset(self):
         qs = Comment.objects.filter(post_id=self.kwargs["pk"])
