@@ -12,7 +12,8 @@ DOMAIN = "hongik.ac.kr"
 
 @api_view(["GET"])
 def login_view(request):
-    cookies = request.cookies
+    cookies = request.COOKIES
+
     if Account.objects.get(suser_id=decrypt(cookies["SUSER_ID"])):
         pass
     else:
