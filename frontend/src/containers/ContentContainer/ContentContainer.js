@@ -8,7 +8,7 @@ import getCookie from "../../utils/getCookie";
 
 async function getPosts(token) {
   const response = await axios.get(
-    "http://18.219.73.211/api/v1/postings/",
+    "http://devsidi.hongik.ac.kr/api/v1/postings/",
     {},
     {
       headers: {

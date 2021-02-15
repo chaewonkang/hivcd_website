@@ -15,8 +15,8 @@ button.navigate_right_button {
   float: right;
   bottom: 0;
   background: url("../../img/right.png") no-repeat scroll #000;
-  width: 35px;
-  height: 35px;
+  width: 30px;
+  height: 30px;
   background-size: 100%;
 }
 
@@ -31,8 +31,8 @@ button.navigate_left_button {
   float: left;
   bottom: 0;
   background: url("../../img/left.png") no-repeat scroll #000;
-  width: 35px;
-  height: 35px;
+  width: 30px;
+  height: 30px;
   background-size: 100%;
 }
 

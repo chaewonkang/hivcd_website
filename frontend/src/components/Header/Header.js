@@ -42,10 +42,12 @@ function Header({ handleLogin, handleLogout, handleSearchKeyword }) {
           </div>
           <div className="header_container_system">
             <div className="header_container_login">
-              <Login
-                handleLogout={handleLogout}
-                handleLogin={handleLogin}
-              ></Login>
+              <a href="http://www.hongik.ac.kr/login.do?Refer=http://devsidi.hongik.ac.kr">
+                <Login
+                  handleLogout={handleLogout}
+                  handleLogin={handleLogin}
+                ></Login>
+              </a>
             </div>
             <div className="header_container_search">
               <Search handleSearchKeyword={handleSearchKeyword}></Search>
