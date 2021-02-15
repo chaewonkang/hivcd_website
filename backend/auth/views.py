@@ -1,6 +1,6 @@
-import os
+import os, json
 from django.shortcuts import redirect
-from django.http import HttpResponse
+from django.http import HttpResponse, JsonResponse
 from rest_framework.decorators import api_view
 from .decrypt import decrypt, bytexor
 from .models import Account
@@ -41,5 +41,10 @@ def logout_view(request):
     return response
 
 
-def check_auth(request):
-    get_userid = decrypt
+@api_view(["GET"])
+def user_list(request):
+    try:
+        accounts = Account.objects.all()
+        return JsonResponse(data=json.dumps(accounts), safe=False)
+    except:
+        return JsonResponse(data={}, safe=False)
