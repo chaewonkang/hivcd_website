@@ -6,7 +6,7 @@ from .decrypt import decrypt, bytexor
 
 
 LOGIN_URL = "https://www.hongik.ac.kr/login.do"
-REFER = "?Refer='http://localhost:8000/api/v1/'"
+REFER = "?Refer='http://devsidi.hongik.ac.kr/'"
 DOMAIN = "hongik.ac.kr"
 
 
