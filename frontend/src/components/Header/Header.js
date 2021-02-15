@@ -4,6 +4,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { ResponsiveHeader } from "../../components";
 import "./Header.css";
 import { Login, Search } from "../../components";
+import axios from "axios";
 
 function Header({ handleLogin, handleLogout, handleSearchKeyword }) {
   return (
@@ -42,10 +43,12 @@ function Header({ handleLogin, handleLogout, handleSearchKeyword }) {
           </div>
           <div className="header_container_system">
             <div className="header_container_login">
-              <Login
-                handleLogout={handleLogout}
-                handleLogin={handleLogin}
-              ></Login>
+              <a href="http://hongik.ac.kr/login.do?Refer=http://devsidi.hongik.ac.kr/api/v1/auth/login">
+                <Login
+                  handleLogout={handleLogout}
+                  handleLogin={handleLogin}
+                ></Login>
+              </a>
             </div>
             <div className="header_container_search">
               <Search handleSearchKeyword={handleSearchKeyword}></Search>
