@@ -1,38 +1,8 @@
-"""
-function decrypt_md5($msg,$key)
-{
-        $string="";
-        $buffer="";
-        $key2="";
-        $msg = urldecode($msg);
-        $msg = base64_decode($msg);
-        while($msg)
-        {
-                $key2=pack("H*",md5($key.$key2.$buffer));
-                $dec_limit=strlen(substr($msg,0,16));
-                $buffer=bytexor(substr($msg,0,16),$key2,$dec_limit);
-                $string.=$buffer;
-                $msg=substr($msg,16);
-        }
-        return($string);
-}
-
-function convert_crypt($id) {
-
-  $salt = "chEkchsUm";
-
-  return md5(crypt($id,$salt));
-
-}
-function convert_crypt($id) {
-  return md5(crypt($id,$salt));
-}
-"""
-
 import os, hashlib, base64, binascii, crypt, urllib.parse
-from .utils import get_client_ip
 
-key = os.getenv("AUTH_KEY").encode('utf-8')
+# from .utils import get_client_ip
+
+key = os.getenv("AUTH_KEY").encode("utf-8")
 salt = os.getenv("SALT")
 
 
@@ -54,33 +24,27 @@ def decrypt_md5(msg):
     return string
 
 
-def decrypt(string):
-    global key 
-
-    if not string or len(string) == 0:
+def decrypt(s, key):
+    if not s or len(s) == 0:
         return ""
-    string = urllib.parse.unquote_plus(string=string)
-    resultStr = ""
-    try:
-        md5 = hashlib.md5()
-        md5.update(key)
-        digest = md5.digest()
-        inputBytes = string.encode()
-        decLimit = len(inputBytes)
-        resultStr = bytexor(inputBytes, digest, decLimit)[:decLimit]
-    except Exception as e:
-        raise e
-    return string
+
+    s = urllib.parse.unquote_plus(s)
+    ret = ""
+
+    md5 = hashlib.md5()
+    md5.update(key.encode("utf-8"))
+    digest = md5.digest()  # bytes
+    i_bytes = base64.b64decode(s.encode())
+    length = len(i_bytes)
+    ret = bytexor(i_bytes, digest, length)[:length]
+
+    return ret
 
 
 def bytexor(aByte, bByte, ilimit):
     c = ""
-
-    try:
-        for i in range(ilimit):
-            c = c + str(ord(aByte[i]) ^ ord(bByte[i]))
-    except:
-        pass
+    for i in range(ilimit):
+        c += chr(aByte[i] ^ bByte[i])
     return c
 
 
