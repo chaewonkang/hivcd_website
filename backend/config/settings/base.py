@@ -22,7 +22,7 @@ APP_SCHEME = os.environ.get("APP_SCHEME")
 DEBUG = os.environ.get("DEBUG", True)
 
 if DEBUG == False:
-    ALLOWED_HOSTS = ['13.125.84.10', '127.0.0.1', 'localhost']
+    ALLOWED_HOSTS = ['devsidi.hongiksidi.ac.kr', '18.219.73.211', '127.0.0.1', 'localhost']
 else:
     ALLOWED_HOSTS = ['*']
 
