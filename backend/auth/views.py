@@ -16,11 +16,11 @@ DOMAIN = "hongik.ac.kr"
 def login_view(request):
     cookies = request.COOKIES
     try:
-        Account.objects.get(suser_id=decrypt(cookies["SUSER_ID"]))
+        Account.objects.get(suser_id=(cookies["SUSER_ID"]))
     except:
         account = Account.objects.create_user(
-            username=decrypt(cookies["SUSER_NAME"]),
-            suser_id=decrypt(cookies["SUSER_ID"]),
+            username=(cookies["SUSER_NAME"]),
+            suser_id=(cookies["SUSER_ID"]),
         )
     return redirect(MAIN_PAGE)
 
