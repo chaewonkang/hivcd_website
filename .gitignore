@@ -1,6 +1,7 @@
 */.env
 frontend/build
 backend/build
+backend/assets
 venv
 priv/
 .vscode
