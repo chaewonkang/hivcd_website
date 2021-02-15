@@ -2,6 +2,7 @@ import os, json
 from django.shortcuts import redirect
 from django.http import HttpResponse, JsonResponse
 from rest_framework.decorators import api_view
+from .serializers import AccountSerializer
 from .decrypt import decrypt, bytexor
 from .models import Account
 
@@ -12,10 +13,10 @@ DOMAIN = "hongik.ac.kr"
 
 @api_view(["GET"])
 def login_view(request):
-    cookies = request.cookies
-    if Account.objects.get(suser_id=decrypt(cookies["SUSER_ID"])):
-        pass
-    else:
+    cookies = request.COOKIES
+    try:
+        Account.objects.get(suser_id=decrypt(cookies["SUSER_ID"]))
+    except:
         account = Account.objects.create_user(
             username=decrypt(cookies["SUSER_NAME"]),
             suser_id=decrypt(cookies["SUSER_ID"]),
@@ -43,8 +44,6 @@ def logout_view(request):
 
 @api_view(["GET"])
 def user_list(request):
-    try:
-        accounts = Account.objects.all()
-        return JsonResponse(data=json.dumps(accounts), safe=False)
-    except:
-        return JsonResponse(data={}, safe=False)
+    qs = Account.objects.all()
+    serializer = AccountSerializer(qs)
+    return JsonResponse(serializer.data)

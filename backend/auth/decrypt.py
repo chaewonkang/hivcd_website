@@ -29,11 +29,10 @@ function convert_crypt($id) {
 }
 """
 
-import os, hashlib, base64, binascii, crypt
-from urllib.parse import unquote
+import os, hashlib, base64, binascii, crypt, urllib.parse
 from .utils import get_client_ip
 
-key = os.getenv("AUTH_KEY")
+key = os.getenv("AUTH_KEY").encode('utf-8')
 salt = os.getenv("SALT")
 
 
@@ -41,8 +40,10 @@ def decrypt_md5(msg):
     string = ""
     buff = ""
     key2 = ""
-    msg = unquote(msg)
+    msg = urllib.parse.unquote_plus(msg)
     msg = base64.b64decode(msg)
+    global key
+
     while msg:
         key2 = binascii.unhexlify(hashlib.md5(key + key2 + buff))
         dec_limit = len(msg[:16])
@@ -54,15 +55,17 @@ def decrypt_md5(msg):
 
 
 def decrypt(string):
+    global key 
+
     if not string or len(string) == 0:
         return ""
-    string = unquote(string=string)
+    string = urllib.parse.unquote_plus(string=string)
     resultStr = ""
     try:
         md5 = hashlib.md5()
         md5.update(key)
         digest = md5.digest()
-        inputBytes = base64.b64decode(string)
+        inputBytes = string.encode()
         decLimit = len(inputBytes)
         resultStr = bytexor(inputBytes, digest, decLimit)[:decLimit]
     except Exception as e:

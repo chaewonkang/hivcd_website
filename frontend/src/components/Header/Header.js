@@ -43,7 +43,7 @@ function Header({ handleLogin, handleLogout, handleSearchKeyword }) {
           </div>
           <div className="header_container_system">
             <div className="header_container_login">
-              <a href="http://hongik.ac.kr/login.do?Refer=http://devsidi.hongik.ac.kr/api/v1/auth/login">
+              <a href="http://www.hongik.ac.kr/login.do?Refer=http://devsidi.hongik.ac.kr/api/v1/auth/login">
                 <Login
                   handleLogout={handleLogout}
                   handleLogin={handleLogin}
