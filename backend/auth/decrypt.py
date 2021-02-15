@@ -1,32 +1,56 @@
 """
-String decrypt(String str, String key) {
-
-        if(str == null || str.length() == 0) {
-                return "";
-        }
-
-        str = URLDecoder.decode(str);
-        String resultstr = "";
-        try {
-        java.security.MessageDigest md5 = java.security.MessageDigest.getInstance("MD5");
-        md5.update(key.getBytes());
-        byte[] digest = md5.digest();
-
-                BASE64Decoder decoder = new BASE64Decoder();
-                byte[] inputBytes = decoder.decodeBuffer(str);
-
-                int decLimit = inputBytes.length;
-                resultstr = (bytexor(inputBytes, digest, decLimit)).substring(0, decLimit);
-        } catch(Exception e) {
-                e.printStackTrace();
-        }
-        return resultstr;
+function decrypt_md5($msg,$key)
+{
+        $string="";
+        $buffer="";
+        $key2="";
+        $msg = urldecode($msg);
+        $msg = base64_decode($msg);
+        while($msg)
+        {
+                $key2=pack("H*",md5($key.$key2.$buffer));
+                $dec_limit=strlen(substr($msg,0,16));
+                $buffer=bytexor(substr($msg,0,16),$key2,$dec_limit);
+                $string.=$buffer;
+                $msg=substr($msg,16);
+        }
+        return($string);
 }
-String CommonCryptKey = "oRaclePhpLiNux";
+
+function convert_crypt($id) {
+
+  $salt = "chEkchsUm";
+
+  return md5(crypt($id,$salt));
+
+}
+function convert_crypt($id) {
+  return md5(crypt($id,$salt));
+}
 """
 
+import os, hashlib, base64, binascii, crypt
 from urllib.parse import unquote
-import hashlib, base64
+from .utils import get_client_ip
+
+key = os.getenv("AUTH_KEY")
+salt = os.getenv("SALT")
+
+
+def decrypt_md5(msg, key):
+    string = ""
+    buff = ""
+    key2 = ""
+    msg = unquote(msg)
+    msg = base64.b64decode(msg)
+    while msg:
+        key2 = binascii.unhexlify(hashlib.md5(key + key2 + buff))
+        dec_limit = len(msg[:16])
+        buff = bytexor(msg[:16], key2, dec_limit)
+        string += buff
+        msg = msg[:16]
+
+    return string
 
 
 def decrypt(string, key):
@@ -46,11 +70,6 @@ def decrypt(string, key):
     return string
 
 
-CommonCryptKey = b"oRaclePhpLiNux"
-url = "example.com?title=%D0%BF%D1%80%D0%B0%D0%B2%D0%BE%D0%B2%D0%B0%D1%8F+%D0%B7%D0%B0%D1%89%D0%B8%D1%82%D0%B0"
-print(decrypt(url, CommonCryptKey))
-
-
 def bytexor(aByte, bByte, ilimit):
     c = ""
 
@@ -60,3 +79,30 @@ def bytexor(aByte, bByte, ilimit):
     except:
         pass
     return c
+
+
+def convert_crypt(r_id):
+    salt = "chEkchsUm"
+    return hashlib.md5(crypt.crypt(r_id, salt))
+
+
+def check_auth(request):  # login
+    cookies = request.cookies
+    get_userid = decrypt(cookies["SUSER_ID"], key)
+    get_suser_id = cookies["SUSER_AUTH"]
+
+    if not get_userid or not get_suser_id:
+        return False
+
+    real_suser_id = convert_crypt(get_userid)
+
+    return get_userid == real_suser_id
+
+
+def check_authkey(request):  # authkey가 유효한지 확인하는 함수
+    get_userid = decrypt_md5(request.cookies["SUSER_ID"], key)
+    get_authkey = request.cookies["SUSER_AUTHKEY"]
+    remote_ip = get_client_ip(request)
+    sha_str = hashlib.sha1(get_userid + remote_ip)
+
+    return sha_str == get_authkey

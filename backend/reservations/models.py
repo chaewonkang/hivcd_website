@@ -12,6 +12,9 @@ class Reservation(models.Model):
 
     startday = models.DateTimeField()
     endday = models.DateTimeField()
-    user = models.ForeignKey(
-        settings.AUTH_USER_MODEL, related_name="reservations", db_column="user_snumber"
-    )
+    # user = models.ForeignKey(
+    #     settings.AUTH_USER_MODEL,
+    #     related_name="reservations",
+    #     db_column="user_snumber",
+    #     on_delete=models.CASCADE,
+    # )
