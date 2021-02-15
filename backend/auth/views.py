@@ -1,10 +1,10 @@
-import os, json
+import os
 from django.shortcuts import redirect
 from django.http import HttpResponse, JsonResponse
 from rest_framework.decorators import api_view
 from rest_framework import generics
 from .serializers import AccountSerializer
-from .decrypt import decrypt, bytexor
+from .decrypt import decrypt
 from .models import Account
 
 LOGIN_URL = "https://www.hongik.ac.kr/login.do"
@@ -15,12 +15,13 @@ DOMAIN = "hongik.ac.kr"
 @api_view(["GET"])
 def login_view(request):
     cookies = request.COOKIES
+    key = os.getenv("AUTH_KEY")
     try:
-        Account.objects.get(suser_id=decrypt(cookies["SUSER_ID"]))
+        Account.objects.get(suser_id=(cookies["SUSER_ID"]))
     except:
         account = Account.objects.create_user(
-            username=decrypt(cookies["SUSER_NAME"]),
-            suser_id=decrypt(cookies["SUSER_ID"]),
+            username=(cookies["SUSER_NAME"]),
+            suser_id=(cookies["SUSER_ID"]),
         )
     return redirect(MAIN_PAGE)
 
@@ -52,4 +53,4 @@ def user_list(request):
 
 class AccountListAPIView(generics.ListAPIView):
     queryset = Account.objects.all()
-    serializer = AccountSerializer
+    serializer_class = AccountSerializer
