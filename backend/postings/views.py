@@ -14,6 +14,52 @@ from django.views.decorators.vary import vary_on_cookie
 from rest_framework.decorators import api_view, permission_classes
 
 
+@api_view(["GET"])
+def post_list(request):
+    if request.method == "GET":
+        try:
+            qs = cache.get("postings")
+        except:
+            qs = cache.set("postings", Post.objects.all())
+        serializer = PostSerializer(qs, context={"request": request})
+        return JsonResponse(serializer.data)
+
+
+@api_view(["GET"])
+def post_detail(request, pk):
+    if request.method == "POST":
+        qs = cache.get("postings")
+        try:
+            post = qs.filter(pk=pk)
+        except:
+            return HttpResponse(status=404)
+        serializer = PostSerializer(post, context={"request": request})
+        return JsonResponse(serializer.data)
+
+
+@api_view(["GET", "POST"])
+def post_comment(request, pk):
+    try:
+        qs = cache.get("postings")
+        comment_set = qs.filter(pk=pk).comments.all()
+    except Post.DoesNotExist:
+        return HttpResponse(status=404)
+    except Comment.DoesNotExist:
+        return HttpResponse(status=404)
+
+    if request.method == "GET":
+        if len(comment_set) == 0:
+            return HttpResponse(status=404)
+        serializer = CommentSerializer(comment_set, many=True)
+        return JsonResponse(serializer.data, safe=False)
+
+    elif request.method == "POST":
+        serializer = CommentSerializer(data=request.data)
+        if serializer.is_valid(raise_exception=True):
+            serializer.save(pk=pk)
+            return JsonResponse(serializer.data)
+
+
 class PostListAPIView(generics.ListAPIView):
     queryset = Post.objects.all()
     serializer_class = PostSerializer
