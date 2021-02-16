@@ -131,7 +131,7 @@ function EachPost({ postId, handleNavigateClick }) {
         </div>
         <hr style={{ marginBottom: 2 + "em" }}></hr>
         <p>{eachPost.text}</p>
-        {eachPost.photos[0].photo ? (
+        {eachPost.photos.length ? (
           <div>
             <img
               src={eachPost.photos[0].photo}
