@@ -132,10 +132,16 @@ function EachPost({ postId, handleNavigateClick }) {
         <hr style={{ marginBottom: 2 + "em" }}></hr>
         <p>{eachPost.text}</p>
         {eachPost.photos[0].photo ? (
-          <img
-            src={eachPost.photos[0].photo}
-            alt={eachPost.photos[0].alt}
-          ></img>
+          <div>
+            <img
+              src={eachPost.photos[0].photo}
+              alt={eachPost.photos[0].alt}
+              style={{
+                width: 100 + "%",
+                border: `2px solid ${selectedBorderColor}`,
+              }}
+            ></img>
+          </div>
         ) : null}
         <hr style={{ marginBottom: 2 + "em", marginTop: 2 + "em" }}></hr>
         <CommentList
