@@ -1,13 +1,8 @@
-from django.conf import settings
 from rest_framework import viewsets, generics
-from rest_framework.permissions import IsAuthenticated, IsAuthenticatedOrReadOnly
-from django.http import JsonResponse, HttpResponse
-from rest_framework import status
-from rest_framework.parsers import JSONParser
+from .permissions import CookiePermission
 from .models import Post, Comment
 from .serializers import PostSerializer, CommentSerializer
 from django.core.cache import cache
-import json
 from django.utils.decorators import method_decorator
 from django.views.decorators.cache import cache_page
 from django.views.decorators.vary import vary_on_cookie
@@ -18,7 +13,7 @@ class PostListCreateAPIView(generics.ListCreateAPIView):
     queryset = Post.objects.all()
     serializer_class = PostSerializer
 
-    permission_classes = (IsAuthenticatedOrReadOnly,)
+    permission_classes = (CookiePermission,)
 
     @method_decorator(vary_on_cookie)
     @method_decorator(cache_page(60 * 60))
@@ -30,7 +25,7 @@ class PostRetrieveAPIView(generics.RetrieveAPIView):
     queryset = Post.objects.all()
     serializer_class = PostSerializer
 
-    permission_classes = (IsAuthenticatedOrReadOnly,)
+    permission_classes = (CookiePermission,)
 
     @method_decorator(vary_on_cookie)
     @method_decorator(cache_page(60 * 60))
@@ -46,7 +41,7 @@ class CommentListCreateAPIView(generics.ListCreateAPIView):
         queryset = Comment.objects.all()
         cache.set("comments", queryset)
     serializer_class = CommentSerializer
-    permission_classes = (IsAuthenticatedOrReadOnly,)
+    permission_classes = (CookiePermission,)
 
     @method_decorator(vary_on_cookie)
     @method_decorator(cache_page(60 * 60))
