@@ -14,7 +14,7 @@ from django.views.decorators.vary import vary_on_cookie
 from rest_framework.decorators import api_view, permission_classes
 
 
-class PostListAPIView(generics.ListAPIView):
+class PostListCreateAPIView(generics.ListCreateAPIView):
     queryset = Post.objects.all()
     serializer_class = PostSerializer
 
@@ -23,7 +23,7 @@ class PostListAPIView(generics.ListAPIView):
     @method_decorator(vary_on_cookie)
     @method_decorator(cache_page(60 * 60))
     def dispatch(self, *args, **kwargs):
-        return super(PostListAPIView, self).dispatch(*args, **kwargs)
+        return super(PostListCreateAPIView, self).dispatch(*args, **kwargs)
 
 
 class PostRetrieveAPIView(generics.RetrieveAPIView):

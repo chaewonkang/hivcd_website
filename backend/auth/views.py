@@ -1,23 +1,34 @@
 import os
 from django.shortcuts import redirect
-from django.http import HttpResponse
+from django.http import HttpResponse, JsonResponse
 from rest_framework.decorators import api_view
-from .decrypt import decrypt, bytexor
-
+from rest_framework import generics
+from .serializers import AccountSerializer
+from .decrypt import decrypt
+from .models import Account
 
 LOGIN_URL = "https://www.hongik.ac.kr/login.do"
-REFER = "?Refer='http://devsidi.hongik.ac.kr/'"
+MAIN_PAGE = "http://devsidi.hongik.ac.kr/"
 DOMAIN = "hongik.ac.kr"
 
 
 @api_view(["GET"])
 def login_view(request):
-    return redirect(LOGIN_URL + REFER)
+    cookies = request.COOKIES
+    key = os.getenv("AUTH_KEY")
+    try:
+        Account.objects.get(suser_id=(cookies["SUSER_ID"]))
+    except:
+        account = Account.objects.create_user(
+            username=(cookies["SUSER_NAME"]),
+            suser_id=(cookies["SUSER_ID"]),
+        )
+    return redirect(MAIN_PAGE)
 
 
 @api_view(["GET"])
 def logout_view(request):
-    response = HttpResponse(content={"status": 200})
+    response = HttpResponse(content="success")
     response.delete_cookie(key="SUSER_ID", domain=DOMAIN)
     response.delete_cookie(key="SUSER_NAME", domain=DOMAIN)
     response.delete_cookie(key="SUSER_GUBUN", domain=DOMAIN)
@@ -33,5 +44,13 @@ def logout_view(request):
     return response
 
 
-def check_auth(request):
-    get_userid = decrypt
+@api_view(["GET"])
+def user_list(request):
+    qs = Account.objects.all()
+    serializer = AccountSerializer(qs)
+    return JsonResponse(serializer.data)
+
+
+class AccountListAPIView(generics.ListAPIView):
+    queryset = Account.objects.all()
+    serializer_class = AccountSerializer
