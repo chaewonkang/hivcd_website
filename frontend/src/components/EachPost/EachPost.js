@@ -116,7 +116,7 @@ function EachPost({ postId, handleNavigateClick }) {
         <hr></hr>
         <div className="each_post_files">
           <span className="attached_file">
-            첨부파일 {eachPost.files[0] ? eachPost.files[0].name : 없음}
+            첨부파일 {eachPost.files[0] ? eachPost.files[0].name : "없음"}
           </span>
           <a
             href={eachPost.files[0] ? eachPost.files[0].name : ""}
