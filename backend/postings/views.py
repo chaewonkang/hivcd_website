@@ -14,15 +14,20 @@ from django.views.decorators.vary import vary_on_cookie
 from rest_framework.decorators import api_view, permission_classes
 
 
-@api_view(["GET"])
+@api_view(["GET", "POST"])
 def post_list(request):
+    try:
+        qs = cache.get("postings")
+    except:
+        qs = cache.set("postings", Post.objects.all())
     if request.method == "GET":
-        try:
-            qs = cache.get("postings")
-        except:
-            qs = cache.set("postings", Post.objects.all())
         serializer = PostSerializer(qs, context={"request": request})
         return JsonResponse(serializer.data)
+    elif request.method == "POST":
+        serializer = PostSerializer(data=request.data)
+        if serializer.is_valid(raise_exception=True):
+            serializer.save()
+            return JsonResponse(serializer.data)
 
 
 @api_view(["GET"])
