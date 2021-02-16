@@ -118,17 +118,25 @@ function EachPost({ postId, handleNavigateClick }) {
           <span className="attached_file">
             첨부파일 {eachPost.files[0] ? eachPost.files[0].name : "없음"}
           </span>
-          <a
-            href={eachPost.files[0] ? eachPost.files[0].name : ""}
-            target="_blank"
-            download={eachPost.files[0] ? eachPost.files[0].name : ""}
-            rel="noopener noreferrer"
-          >
-            <button className="download_button">다운로드</button>
-          </a>
+          {eachPost.files[0] ? (
+            <a
+              href={eachPost.files[0].files}
+              target="_blank"
+              download={eachPost.files[0].files}
+              rel="noopener noreferrer"
+            >
+              <button className="download_button">다운로드</button>
+            </a>
+          ) : null}
         </div>
         <hr style={{ marginBottom: 2 + "em" }}></hr>
         <p>{eachPost.text}</p>
+        {eachPost.photos[0].photo ? (
+          <img
+            src={eachPost.photos[0].photo}
+            alt={eachPost.photos[0].alt}
+          ></img>
+        ) : null}
         <hr style={{ marginBottom: 2 + "em", marginTop: 2 + "em" }}></hr>
         <CommentList
           comments={eachPost.comments}
