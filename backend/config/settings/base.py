@@ -10,7 +10,12 @@ APP_SCHEME = os.environ.get("APP_SCHEME")
 DEBUG = os.environ.get("DEBUG", True)
 
 if DEBUG == False:
-    ALLOWED_HOSTS = ['devsidi.hongiksidi.ac.kr', '18.219.73.211', '127.0.0.1', 'localhost']
+    ALLOWED_HOSTS = [
+        "devsidi.hongiksidi.ac.kr",
+        "18.219.73.211",
+        "127.0.0.1",
+        "localhost",
+    ]
 else:
     ALLOWED_HOSTS = ["*"]
 
@@ -28,11 +33,11 @@ DJANGO_APPS = [
 ]
 
 PROJECT_APPS = [
-    "auth.apps.AuthConfig",
-    "postings.apps.PostingsConfig",
-    "api_v1.apps.Api_v1Config",
-    "alumnis.apps.AlumnisConfig",
-    "reservations.apps.ReservationsConfig",
+    "auth",
+    "postings",
+    "api_v1",
+    "alumnis",
+    "reservations",
 ]
 
 THIRDPARTY_APPS = [

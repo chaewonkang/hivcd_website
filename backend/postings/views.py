@@ -1,4 +1,4 @@
-from rest_framework import viewsets, generics
+from rest_framework import generics
 from .permissions import CookiePermission
 from .models import Post, Comment
 from .serializers import PostSerializer, CommentSerializer
@@ -6,7 +6,6 @@ from django.core.cache import cache
 from django.utils.decorators import method_decorator
 from django.views.decorators.cache import cache_page
 from django.views.decorators.vary import vary_on_cookie
-from rest_framework.decorators import api_view, permission_classes
 
 
 class PostListCreateAPIView(generics.ListCreateAPIView):

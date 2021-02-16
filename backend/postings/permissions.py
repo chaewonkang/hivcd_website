@@ -1,5 +1,5 @@
-from auth.models import Account
 from rest_framework.permissions import BasePermission
+from auth.models import Account
 
 
 class CookiePermission(BasePermission):
