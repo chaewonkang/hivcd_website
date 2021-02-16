@@ -14,58 +14,7 @@ from django.views.decorators.vary import vary_on_cookie
 from rest_framework.decorators import api_view, permission_classes
 
 
-@api_view(["GET", "POST"])
-def post_list(request):
-    try:
-        qs = cache.get("postings")
-    except:
-        qs = cache.set("postings", Post.objects.all())
-    if request.method == "GET":
-        serializer = PostSerializer(qs, context={"request": request})
-        return JsonResponse(serializer.data)
-    elif request.method == "POST":
-        serializer = PostSerializer(data=request.data)
-        if serializer.is_valid(raise_exception=True):
-            serializer.save()
-            return JsonResponse(serializer.data)
-
-
-@api_view(["GET"])
-def post_detail(request, pk):
-    if request.method == "POST":
-        qs = cache.get("postings")
-        try:
-            post = qs.filter(pk=pk)
-        except:
-            return HttpResponse(status=404)
-        serializer = PostSerializer(post, context={"request": request})
-        return JsonResponse(serializer.data)
-
-
-@api_view(["GET", "POST"])
-def post_comment(request, pk):
-    try:
-        qs = cache.get("postings")
-        comment_set = qs.filter(pk=pk).comments.all()
-    except Post.DoesNotExist:
-        return HttpResponse(status=404)
-    except Comment.DoesNotExist:
-        return HttpResponse(status=404)
-
-    if request.method == "GET":
-        if len(comment_set) == 0:
-            return HttpResponse(status=404)
-        serializer = CommentSerializer(comment_set, many=True)
-        return JsonResponse(serializer.data, safe=False)
-
-    elif request.method == "POST":
-        serializer = CommentSerializer(data=request.data)
-        if serializer.is_valid(raise_exception=True):
-            serializer.save(pk=pk)
-            return JsonResponse(serializer.data)
-
-
-class PostListAPIView(generics.ListAPIView):
+class PostListCreateAPIView(generics.ListCreateAPIView):
     queryset = Post.objects.all()
     serializer_class = PostSerializer
 
@@ -74,7 +23,7 @@ class PostListAPIView(generics.ListAPIView):
     @method_decorator(vary_on_cookie)
     @method_decorator(cache_page(60 * 60))
     def dispatch(self, *args, **kwargs):
-        return super(PostListAPIView, self).dispatch(*args, **kwargs)
+        return super(PostListCreateAPIView, self).dispatch(*args, **kwargs)
 
 
 class PostRetrieveAPIView(generics.RetrieveAPIView):
