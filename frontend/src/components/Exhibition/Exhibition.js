@@ -7,7 +7,7 @@ import getCookie from "../../utils/getCookie";
 
 async function getExhibitionInfo(token) {
   const response = await axios.get(
-    "http://www.devsidi.hongik.ac.kr/api/v1/postings/",
+    "http://devsidi.hongik.ac.kr/api/v1/postings/",
     {},
     {
       headers: {

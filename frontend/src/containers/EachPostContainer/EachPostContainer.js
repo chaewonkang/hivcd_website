@@ -15,7 +15,7 @@ function handleNavigateClick(type, postId) {
 
 async function getList(token) {
   const response = await axios.get(
-    "http://www.devsidi.hongik.ac.kr/api/v1/postings/",
+    "http://devsidi.hongik.ac.kr/api/v1/postings/",
     {},
     {
       headers: {
@@ -31,7 +31,7 @@ async function getList(token) {
 
 async function getPost({ postId, token }) {
   return axios.get(
-    `http://13.125.84.10:8000/api/v1/postings/${postId}`,
+    `http://devsidi.hongik.ac.kr/api/v1/postings/${postId}`,
     {},
     {
       headers: {
