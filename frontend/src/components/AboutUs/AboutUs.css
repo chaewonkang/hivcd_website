@@ -30,13 +30,19 @@
 .faculty {
   font-size: 14px;
   width: 100%;
-  text-align: center;
+  text-align: left;
 }
 
 .faculty th {
   border-bottom: 1px solid black;
   padding: 2px;
   font-weight: 400;
+}
+
+.subfaculty {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  text-align: left;
 }
 
 .aboutus_contact td {
@@ -155,6 +161,13 @@
 
 /********** Medium devices only **********/
 @media (min-width: 992px) and (max-width: 1199px) {
+  .aboutus_contact {
+    font-size: 14px;
+  }
+
+  .faculty {
+    font-size: 12px;
+  }
 }
 
 /********** Small devices only **********/
@@ -202,8 +215,13 @@
     display: none;
   }
 
+  .aboutus_container .aboutus_item {
+    padding: 1rem;
+  }
+
   .aboutus_contact_mobile {
     display: block;
+    font-size: 12px;
   }
 
   table.aboutus_contact_mobile {
