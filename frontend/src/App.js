@@ -9,7 +9,6 @@ import {
   Board,
   Alumni,
   Archive,
-  SignUp,
   Exhibition,
 } from "./components";
 import "./App.css";
@@ -25,7 +24,6 @@ import "./utils/Animation.css";
 import { useCookies } from "react-cookie";
 
 function App() {
-  const [logged, setLogged] = useState(false);
   const [searchKeyword, setSearchKeyword] = useState("");
   const [removeCookie] = useCookies(["SUSER_ID"]);
 
@@ -45,23 +43,14 @@ function App() {
     }
   };
 
-  useEffect(() => {
-    if (localStorage.username) {
-      setLogged(true);
-    }
-  });
-
   return (
     <main>
       <Switch>
         <div className="AppBody">
-          <Route path="/auth/registration" component={SignUp}></Route>
           <Route path="/mobile/signup" component={MobileSignup}></Route>
           <Header
             handleSearchKeyword={handleSearchKeyword}
             handleLogout={handleLogout}
-            handleLogin={handleLogin}
-            isLogged={logged}
           ></Header>
           <Route exact path="/" component={ContentContainer} />
           <Route exact path="/board" component={Board} />
