@@ -60,7 +60,8 @@ export const NavComponent = ({ onClick, handleLogin, handleLogout }) => {
             {getCookie("SUSER_ID") !== null ? (
               <a href="http://devsidi.hongik.ac.kr">
                 <div
-                  className="navbar_login_item"
+                  type="submit"
+                  className="mobile_login_input_button"
                   onClick={() => handleLogout()}
                 >
                   로그아웃

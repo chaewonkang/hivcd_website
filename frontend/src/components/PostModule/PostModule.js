@@ -18,6 +18,7 @@ const PostModule = ({ style, title, date, category, id }) => {
   const [warningVisibility, setWarningVisibility] = useState(false);
 
   const isLogged = getCookie("SUSER_ID") === null ? false : true;
+  console.log(`isLogged: isLogged`);
 
   const showWarning = () => {
     setWarningVisibility(true);
