@@ -59,13 +59,13 @@ export const NavComponent = ({ onClick, handleLogin, handleLogout }) => {
           <div>
             {getCookie("SUSER_ID") !== null ? (
               <a href="http://devsidi.hongik.ac.kr">
-                <div
+                <button
                   type="submit"
                   className="mobile_login_input_button"
                   onClick={() => handleLogout()}
                 >
                   로그아웃
-                </div>
+                </button>
               </a>
             ) : (
               <a href="http://www.hongik.ac.kr/login.do?Refer=http://devsidi.hongik.ac.kr/api/v1/auth/login">

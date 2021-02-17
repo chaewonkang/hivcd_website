@@ -96,7 +96,12 @@ function EachPost({ postId, handleNavigateClick }) {
 
   willMount.current = false;
 
-  if (error) return <div className="each_post_wrapper">권한이 없습니다.</div>;
+  if (error)
+    return (
+      <div className="each_post_wrapper">
+        아직 권한이 부여되지 않았습니다. 조교실에 문의해 주세요.
+      </div>
+    );
   if (loading) return <div className="each_post_wrapper">로딩 중...</div>;
   if (!eachPost) return null;
 
