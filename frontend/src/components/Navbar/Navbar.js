@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 import { Link, Route } from "react-router-dom";
+import getCookie from "../../utils/getCookie";
 
 import "./Navbar.css";
 
-const Navbar = ({ navClass, linkClassName, handleLogin, handleLogout }) => (
+const Navbar = ({ navClass, linkClassName, handleLogout }) => (
   <NavComponent
     navClass={navClass}
     linkClassName={linkClassName}
-    handleLogin={handleLogin}
     handleLogout={handleLogout}
   />
 );
@@ -57,37 +57,23 @@ export const NavComponent = ({ onClick, handleLogin, handleLogout }) => {
           </div>
           <hr></hr>
           <div>
-            {localStorage.getItem("access_token") ? (
-              <button
-                type="submit"
-                className="mobile_login_input_button"
-                onClick={() => handleLogout()}
-              >
-                로그아웃
-              </button>
+            {getCookie("SUSER_ID") !== null ? (
+              <a href="http://devsidi.hongik.ac.kr">
+                <div
+                  className="navbar_login_item"
+                  onClick={() => handleLogout()}
+                >
+                  로그아웃
+                </div>
+              </a>
             ) : (
-              <form onSubmit={(e) => handleSubmit(e)}>
-                <input
-                  id="mobile_email"
-                  placeholder="이메일"
-                  type="text"
-                  name="email"
-                  value={userinfo.email}
-                  onChange={(e) => handleChange(e)}
-                ></input>
-                <input
-                  id="mobile_password"
-                  placeholder="패스워드"
-                  type="password"
-                  name="password"
-                  value={userinfo.password}
-                  onChange={(e) => handleChange(e)}
-                ></input>
+              <a href="http://www.hongik.ac.kr/login.do?Refer=http://devsidi.hongik.ac.kr/api/v1/auth/login">
                 <button type="submit" className="mobile_login_input_button">
                   로그인
                 </button>
-              </form>
+              </a>
             )}
+
             <div className="applebox"></div>
           </div>
           <hr></hr>

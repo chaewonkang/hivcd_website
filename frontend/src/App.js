@@ -38,8 +38,10 @@ function App() {
 
   const handleLogout = async (e) => {
     try {
+      console.log("handleLogout enter");
       removeCookie("SUSER_ID");
       removeCookie("SUSER_NAME");
+      console.log("handleLogout out");
     } catch (e) {
       console.log(e);
     }
@@ -49,7 +51,6 @@ function App() {
     <main>
       <Switch>
         <div className="AppBody">
-          <Route path="/mobile/signup" component={MobileSignup}></Route>
           <Header
             handleSearchKeyword={handleSearchKeyword}
             handleLogout={handleLogout}

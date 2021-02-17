@@ -5,7 +5,7 @@ import getCookie from "../../utils/getCookie";
 function Login({ handleLogout }) {
   return (
     <>
-      {getCookie("SUSER_ID") ? (
+      {getCookie("SUSER_ID") !== null ? (
         <a href="http://devsidi.hongik.ac.kr">
           <div className="navbar_login_item" onClick={() => handleLogout()}>
             로그아웃
