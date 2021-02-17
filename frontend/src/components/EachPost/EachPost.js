@@ -39,9 +39,9 @@ function EachPost({ postId, handleNavigateClick }) {
     color: null,
     borderColor: null,
   });
-  const [warningVisibility, setWarningVisibility] = useState(false);
-  const [token, setToken] = useState(getCookie("csrftoken"));
-  const [state] = useAsync(() => getEachPost(postId), [postId]);
+  const [warningVisibility] = useState(false);
+  const [token] = useState(getCookie("csrftoken"));
+  const [state] = useAsync(() => getEachPost(postId, token), [postId, token]);
   const { loading, data: eachPost, error } = state;
 
   const colorArray = [

@@ -19,13 +19,9 @@ import {
   EachPostContainer,
   ReservationContainer,
 } from "./containers";
-import axiosInstance from "./utils/axiosApi";
-import "./utils/Animation.css";
-import { useCookies } from "react-cookie";
 
 function App() {
   const [searchKeyword, setSearchKeyword] = useState("");
-  const [removeCookie] = useCookies(["SUSER_ID"]);
 
   const handleSearchKeyword = (keyword) => {
     setSearchKeyword(keyword);
@@ -37,7 +33,8 @@ function App() {
 
   const handleLogout = async (e) => {
     try {
-      removeCookie("SUSER_ID");
+      document.cookie =
+        "SUSER_ID=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
     } catch (e) {
       console.log(e);
     }

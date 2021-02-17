@@ -1,11 +1,8 @@
-import React, { useState } from "react";
+import React from "react";
 import "./Login.css";
 import getCookie from "../../utils/getCookie";
 
 function Login({ handleLogout }) {
-  const [visible, setVisible] = useState(false);
-  const [userInfo, setUserInfo] = useState({});
-
   return (
     <>
       {getCookie("SUSER_ID") ? (

@@ -45,7 +45,7 @@ async function getPost({ postId, token }) {
 }
 
 function EachPostContainer({ match }) {
-  const [token, setToken] = useState(getCookie("csrftoken"));
+  const [token] = useState(getCookie("csrftoken"));
   const [state] = useAsync(() => getList(token), [token]);
   const { loading, data: list, error } = state;
   const [postId, setPostId] = useState(0);
