@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./PostModule.css";
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 import { Warning } from "../../components";
 import getCookie from "../../utils/getCookie";
 
@@ -15,9 +15,9 @@ const PostModule = ({ style, title, date, category, id }) => {
   else if (category === 7) categoryName = "기타";
   const postId = parseInt(id, 10);
   const slicedDate = date.slice(0, 10);
-  const [warningVisibility] = useState(false);
+  const [warningVisibility, setWarningVisibility] = useState(false);
 
-  const isLogged = getCookie("SUSER_ID") !== null ? true : false;
+  const isLogged = getCookie("SUSER_ID") === null ? false : true;
 
   const showWarning = () => {
     setWarningVisibility(true);
@@ -30,7 +30,7 @@ const PostModule = ({ style, title, date, category, id }) => {
 
   return (
     <>
-      {isLogged ? (
+      {isLogged === false ? (
         <div>
           <div className="post" style={style} onClick={() => showWarning()}>
             <div className="post_tag">
