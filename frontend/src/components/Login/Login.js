@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./Login.css";
+import getCookie from "../../utils/getCookie";
 
 function Login({ handleLogin, handleLogout }) {
   const [visible, setVisible] = useState(false);
@@ -7,7 +8,7 @@ function Login({ handleLogin, handleLogout }) {
 
   return (
     <>
-      {localStorage.getItem("access_token") ? (
+      {getCookie("SUSER_ID") ? (
         <div className="navbar_login_item" onClick={() => handleLogout()}>
           로그아웃
         </div>

@@ -14,7 +14,6 @@ const CommentInsertForm = ({ style, postId }) => {
 
   function handleChange(e) {
     setComment({
-      author: getCookie("SUSER_ID"),
       [e.target.name]: e.target.value,
       post: postId,
     });

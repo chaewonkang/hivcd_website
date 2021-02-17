@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./PostModule.css";
 import { Link } from "react-router-dom";
 import { Warning } from "../../components";
+import getCookie from "../../utils/getCookie";
 
 const PostModule = ({ style, title, date, category, id }) => {
   let categoryName = null;
@@ -15,20 +16,21 @@ const PostModule = ({ style, title, date, category, id }) => {
   const postId = parseInt(id, 10);
   const slicedDate = date.slice(0, 10);
   const [warningVisibility] = useState(false);
-  //   const token = localStorage.getItem("access_token");
 
-  //   const showWarning = () => {
-  //     setWarningVisibility(true);
+  const isLogged = getCookie("SUSER_ID") !== null ? true : false;
 
-  //     setTimeout(() => {
-  //       setWarningVisibility(false);
-  //     }, 1500);
-  //     return <Redirect to="/"></Redirect>;
-  //   };
+  const showWarning = () => {
+    setWarningVisibility(true);
+
+    setTimeout(() => {
+      setWarningVisibility(false);
+    }, 1500);
+    return <Redirect to="/"></Redirect>;
+  };
 
   return (
     <>
-      {/* {token === null ? (
+      {isLogged ? (
         <div>
           <div className="post" style={style} onClick={() => showWarning()}>
             <div className="post_tag">
@@ -42,21 +44,21 @@ const PostModule = ({ style, title, date, category, id }) => {
             </div>
           </div>
         </div>
-      ) : ( */}
-      <Link to={`/board/${postId}`}>
-        <div className="post" style={style}>
-          <div className="post_tag">
-            <span>{categoryName}</span>
-          </div>
-          <div className="post_content">
-            <div className="post_content_header">
-              {title} <br></br>
+      ) : (
+        <Link to={`/board/${postId}`}>
+          <div className="post" style={style}>
+            <div className="post_tag">
+              <span>{categoryName}</span>
             </div>
-            <span className="post_content_date">{slicedDate}</span>
+            <div className="post_content">
+              <div className="post_content_header">
+                {title} <br></br>
+              </div>
+              <span className="post_content_date">{slicedDate}</span>
+            </div>
           </div>
-        </div>
-      </Link>
-      {/* )} */}
+        </Link>
+      )}
       <Warning visible={warningVisibility} message="권한이 없습니다." />
     </>
   );
