@@ -41,6 +41,10 @@ function App() {
       console.log("handleLogout enter");
       removeCookie("SUSER_ID");
       removeCookie("SUSER_NAME");
+      document.cookie =
+        "SUSER_ID=; domain=.hongik.ac.kr; expires= Wed, 20 Mar 1970 04:54:09 GMT";
+      document.cookie =
+        "SUSER_NAME=; domain=.hongik.ac.kr; expires= Wed, 20 Mar 1970 04:54:09 GMT";
       console.log("handleLogout out");
     } catch (e) {
       console.log(e);
