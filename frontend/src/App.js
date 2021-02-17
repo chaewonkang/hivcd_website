@@ -22,10 +22,12 @@ import {
 } from "./containers";
 import axiosInstance from "./utils/axiosApi";
 import "./utils/Animation.css";
+import { useCookies } from "react-cookie";
 
 function App() {
   const [logged, setLogged] = useState(false);
   const [searchKeyword, setSearchKeyword] = useState("");
+  const [removeCookie] = useCookies(["SUSER_ID"]);
 
   const handleSearchKeyword = (keyword) => {
     setSearchKeyword(keyword);
@@ -35,50 +37,9 @@ function App() {
     setSearchKeyword(searchKeyword);
   }, [searchKeyword]);
 
-  const handleLogin = async (data) => {
-    const { email, password } = data;
-    try {
-      const response = await axiosInstance
-        .post("/auth/login/", {
-          email: email,
-          password: password,
-        })
-        .catch(function (error) {
-          if (error.response) {
-            console.log(error.response.data);
-            console.log(error.response.status);
-            console.log(error.response.headers);
-          } else if (error.request) {
-            console.log(error.request);
-          } else {
-            console.log("Error", error.message);
-          }
-          console.log(error.config);
-        });
-
-      axiosInstance.defaults.headers["Authorization"] =
-        "JWT " + response.data.tokens;
-
-      let tokens = response.data.tokens;
-      const evalTokens = eval(`tokens = ${tokens}`);
-
-      localStorage.setItem("access_token", evalTokens.access);
-      localStorage.setItem("refresh_token", evalTokens.refresh);
-      localStorage.setItem("email", response.data.email);
-      localStorage.setItem("username", response.data.username);
-
-      return response.tokens;
-    } catch (error) {
-      throw error;
-    }
-  };
-
   const handleLogout = async (e) => {
     try {
-      localStorage.removeItem("access_token");
-      localStorage.removeItem("refresh_token");
-      axiosInstance.defaults.headers["Authorization"] = null;
-      window.location.reload();
+      removeCookie("SUSER_ID");
     } catch (e) {
       console.log(e);
     }

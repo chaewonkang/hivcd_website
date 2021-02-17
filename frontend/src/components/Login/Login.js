@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./Login.css";
 import getCookie from "../../utils/getCookie";
 
-function Login({ handleLogin, handleLogout }) {
+function Login({ handleLogout }) {
   const [visible, setVisible] = useState(false);
   const [userInfo, setUserInfo] = useState({});
 
