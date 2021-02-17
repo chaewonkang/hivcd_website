@@ -19,9 +19,14 @@ import {
   EachPostContainer,
   ReservationContainer,
 } from "./containers";
+import { useCookies } from "react-cookie";
 
 function App() {
   const [searchKeyword, setSearchKeyword] = useState("");
+  const [cookies, setCookie, removeCookie] = useCookies([
+    "SUSER_ID",
+    "SUSER_NAME",
+  ]);
 
   const handleSearchKeyword = (keyword) => {
     setSearchKeyword(keyword);
@@ -33,8 +38,8 @@ function App() {
 
   const handleLogout = async (e) => {
     try {
-      document.cookie =
-        "SUSER_ID=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+      removeCookie("SUSER_ID");
+      removeCookie("SUSER_NAME");
     } catch (e) {
       console.log(e);
     }

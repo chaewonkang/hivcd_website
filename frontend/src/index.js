@@ -8,10 +8,13 @@ import "./index.css";
 import "normalize.css";
 import "semantic-ui-css/semantic.min.css";
 import * as serviceWorker from "./serviceWorker";
+import { CookiesProvider } from "react-cookie";
 
 ReactDOM.render(
   <BrowserRouter>
-    <App />
+    <CookiesProvider>
+      <App />
+    </CookiesProvider>
   </BrowserRouter>,
   document.getElementById("root")
 );
