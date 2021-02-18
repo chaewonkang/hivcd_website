@@ -7,6 +7,5 @@ class AccountSerializer(serializers.ModelSerializer):
         model = Account
         fields = (
             "suser_id",
-            "username",
             "is_sidi",
         )

@@ -14,15 +14,14 @@ DOMAIN = "hongik.ac.kr"
 
 @api_view(["GET"])
 def login_view(request):
-    cookies = request.COOKIES
-    key = os.getenv("AUTH_KEY")
+    suser_id = decrypt(request.COOKIES["SUSER_ID"], os.getenv("AUTH_KEY"))
+    suser_id = suser_id[:8]
+
     try:
-        Account.objects.get(suser_id=(cookies["SUSER_ID"]))
+        Account.objects.get(suser_id=suser_id)
     except:
-        account = Account.objects.create_user(
-            username=(cookies["SUSER_NAME"]),
-            suser_id=(cookies["SUSER_ID"]),
-        )
+        account = Account.objects.create_user(suser_id=suser_id)
+
     return redirect(MAIN_PAGE)
 
 
