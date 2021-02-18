@@ -13,7 +13,7 @@ class PhotoSerializer(serializers.ModelSerializer):
 
 class CommentSerializer(serializers.ModelSerializer):
     reply = serializers.SerializerMethodField()
-    author = serializers.SlugRelatedField(read_only=True, slug_field="userid")
+    author = serializers.SlugRelatedField(read_only=True, slug_field="suser_id")
 
     class Meta:
         model = Comment
@@ -45,7 +45,7 @@ class FileSerializer(serializers.ModelSerializer):
 
 
 class PostSerializer(serializers.ModelSerializer):
-    author = serializers.SlugRelatedField(read_only=True, slug_field="userid")
+    author = serializers.SlugRelatedField(read_only=True, slug_field="suser_id")
     photos = PhotoSerializer(many=True, required=False)
     comments = CommentSerializer(many=True, required=False)
     files = FileSerializer(many=True, required=False)

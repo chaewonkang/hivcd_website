@@ -49,6 +49,7 @@ THIRDPARTY_APPS = [
     "drf_yasg",
     "django_seed",
     "storages",
+    'cacheops',
 ]
 
 INSTALLED_APPS = DJANGO_APPS + PROJECT_APPS + THIRDPARTY_APPS
@@ -128,15 +129,6 @@ STATICFILES_DIRS = [
 MEDIA_URL = "/media/"
 MEDIA_ROOT = os.path.join(BASE_DIR, "uploads")
 
-# Rest Framework
-REST_FRAMEWORK = {
-    "DEFAULT_AUTHENTICATION_CLASSES": (
-        "rest_framework_simplejwt.authentication.JWTAuthentication",
-    ),
-    #    'DEFAULT_PARSER_CLASSES': (
-    #        'rest_framework.parsers.JSONParser',
-    #    )
-}
 
 # Email Settings
 EMAIL_USE_TLS = os.environ.get("EMAIL_USE_TLS")
@@ -147,8 +139,8 @@ EMAIL_HOST_PASSWORD = os.environ.get("EMAIL_HOST_PASSWORD")
 
 # Cors Policy
 CORS_ORIGIN_WHITELIST = [
-    "http://13.125.84.10",
-    "http://13.125.84.10:8000",
+    "http://devsidi.hongik.ac.kr",
+    "http://localhost:8000",
 ]
 
 from datetime import timedelta
@@ -167,16 +159,19 @@ SWAGGER_SETTINGS = {
     }
 }
 
-CACHES = {
-    "default": {
-        "BACKEND": "django_redis.cache.RedisCache",
-        "LOCATION": "redis://127.0.0.1:6379/1",  # 1번 DB
-        "OPTIONS": {
-            "CLIENT_CLASS": "django_redis.client.DefaultClient",
-        },
-    }
+CACHEOPS_LRU = True
+CACHEOPS_DEGRADE_ON_FAILURE = True
+CACHEOPS_DEFAULTS = {
+    'timeout': 60*5,
+    'cache_on_save': True,
+    'local_get': False,
 }
-CACHE_TTL = 60 * 1
-
-SESSION_ENGINE = "django.contrib.sessions.backends.cache"
-SESSION_CACHE_ALIAS = "default"
+CACHEOPS_REDIS = {
+    'host': 'localhost',# CACHEOPS_REDIS_HOST,
+    'port': '6379', #CACHEOPS_REDIS_PORT,
+    'db': 1,
+    'socket_timeout': 0.5
+}
+CACHEOPS = {
+    'postings.Post': {'ops': 'get'},
+}

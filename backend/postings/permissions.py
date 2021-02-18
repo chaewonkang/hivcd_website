@@ -9,6 +9,9 @@ class CookiePermission(BasePermission):
 
     def has_permission(self, request, view):
         cookies = request.COOKIES
-        user = request.user
-
-        return Account.objects.get(pk=user.pk).is_sidi == True
+        try:
+            sid = cookies['SUSER_ID']
+            account = Account.objects.get(suser_id=sid)
+        except:
+            return False
+        return account.is_sidi == True
