@@ -1,11 +1,14 @@
-from rest_framework import generics
-from .permissions import CookiePermission
-from .models import Post, Comment
-from .serializers import PostSerializer, CommentSerializer
+import os
 from django.core.cache import cache
 from django.utils.decorators import method_decorator
 from django.views.decorators.cache import cache_page
 from django.views.decorators.vary import vary_on_cookie
+from rest_framework import generics
+from auth.decrypt import decrypt
+from auth.models import Account
+from .permissions import CookiePermission
+from .models import Post, Comment
+from .serializers import PostSerializer, CommentSerializer
 
 
 class PostListCreateAPIView(generics.ListCreateAPIView):
@@ -52,4 +55,6 @@ class CommentListCreateAPIView(generics.ListCreateAPIView):
         return qs
 
     def perform_create(self, serializer):
-        return serializer.save(author=self.request.user)
+        user_id = decrypt(s=self.request.COOKIE["SUSER_ID"], key=os.getenv("AUTH_KEY"))
+        user = Account.objects.get(username=user_id)
+        return serializer.save(author=user)
