@@ -24,7 +24,7 @@ class CommentListCreateAPIView(generics.ListCreateAPIView):
 
     queryset = Comment.objects.all()
     serializer_class = CommentSerializer
-    permission_classes = (CookiePermission,)
+#    permission_classes = (CookiePermission,)
 
     def get_queryset(self):
         qs = Comment.objects.filter(post_id=self.kwargs["pk"])

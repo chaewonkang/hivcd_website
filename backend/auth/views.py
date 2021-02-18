@@ -14,7 +14,7 @@ DOMAIN = "hongik.ac.kr"
 
 @api_view(["GET"])
 def login_view(request):
-    suser_id = decrypt(request.COOKIES["SUSER_ID"], os.getenv("AUTH_KEY"))
+    suser_id = decrypt(s=request.COOKIES["SUSER_ID"], key=os.getenv("AUTH_KEY"))
     suser_id = suser_id[:7]
 
     try:
