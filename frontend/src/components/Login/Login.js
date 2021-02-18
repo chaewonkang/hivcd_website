@@ -1,30 +1,20 @@
-import React, { useState } from "react";
+import React from "react";
 import "./Login.css";
+import getCookie from "../../utils/getCookie";
 
-function Login({ handleLogin, handleLogout }) {
-  const [visible, setVisible] = useState(false);
-  const [userInfo, setUserInfo] = useState({});
-
-  const openModal = () => {
-    setVisible(true);
-    document.body.style.overflow = "hidden";
-  };
-
-  const closeModal = () => {
-    setVisible(false);
-    document.body.style.overflow = "unset";
-  };
-
+function Login({ handleLogout }) {
   return (
     <>
-      {localStorage.getItem("access_token") ? (
-        <div className="navbar_login_item" onClick={() => handleLogout()}>
-          로그아웃
-        </div>
+      {getCookie("SUSER_ID") !== null ? (
+        <a href="http://devsidi.hongik.ac.kr">
+          <div className="navbar_login_item" onClick={() => handleLogout()}>
+            로그아웃
+          </div>
+        </a>
       ) : (
-        <div className="navbar_login_item" onClick={() => openModal()}>
-          로그인
-        </div>
+        <a href="http://www.hongik.ac.kr/login.do?Refer=http://devsidi.hongik.ac.kr/api/v1/auth/login">
+          <div className="navbar_login_item">로그인</div>
+        </a>
       )}
     </>
   );

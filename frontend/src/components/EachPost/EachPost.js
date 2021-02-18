@@ -39,9 +39,9 @@ function EachPost({ postId, handleNavigateClick }) {
     color: null,
     borderColor: null,
   });
-  const [warningVisibility, setWarningVisibility] = useState(false);
-  const [token, setToken] = useState(getCookie("csrftoken"));
-  const [state] = useAsync(() => getEachPost(postId), [postId]);
+  const [warningVisibility] = useState(false);
+  const [token] = useState(getCookie("csrftoken"));
+  const [state] = useAsync(() => getEachPost(postId, token), [postId, token]);
   const { loading, data: eachPost, error } = state;
 
   const colorArray = [
@@ -97,7 +97,11 @@ function EachPost({ postId, handleNavigateClick }) {
   willMount.current = false;
 
   if (error)
-    return <div className="each_post_wrapper">마지막 게시물입니다.</div>;
+    return (
+      <div className="each_post_wrapper">
+        아직 권한이 부여되지 않았습니다. 조교실에 문의해 주세요.
+      </div>
+    );
   if (loading) return <div className="each_post_wrapper">로딩 중...</div>;
   if (!eachPost) return null;
 
@@ -116,19 +120,33 @@ function EachPost({ postId, handleNavigateClick }) {
         <hr></hr>
         <div className="each_post_files">
           <span className="attached_file">
-            첨부파일 {eachPost.files[0].name}
+            첨부파일 {eachPost.files[0] ? eachPost.files[0].name : "없음"}
           </span>
-          <a
-            href={eachPost.files[0].files}
-            target="_blank"
-            download={eachPost.files[0].files}
-            rel="noopener noreferrer"
-          >
-            <button className="download_button">다운로드</button>
-          </a>
+          {eachPost.files[0] ? (
+            <a
+              href={eachPost.files[0].files}
+              target="_blank"
+              download={eachPost.files[0].files}
+              rel="noopener noreferrer"
+            >
+              <button className="download_button">다운로드</button>
+            </a>
+          ) : null}
         </div>
         <hr style={{ marginBottom: 2 + "em" }}></hr>
         <p>{eachPost.text}</p>
+        {eachPost.photos.length ? (
+          <div>
+            <img
+              src={eachPost.photos[0].photo}
+              alt={eachPost.photos[0].alt}
+              style={{
+                width: 100 + "%",
+                border: `2px solid ${selectedBorderColor}`,
+              }}
+            ></img>
+          </div>
+        ) : null}
         <hr style={{ marginBottom: 2 + "em", marginTop: 2 + "em" }}></hr>
         <CommentList
           comments={eachPost.comments}

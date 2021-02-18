@@ -75,7 +75,9 @@ function ContentContainer() {
                   id={post.pk}
                   body={post.text}
                   category={post.category}
-                  thumbnailUrl={post.photos ? post.photos[0].photo : null}
+                  thumbnailUrl={
+                    post.photos.length ? post.photos[0].photo : null
+                  }
                   link={post.link}
                 ></HomeArchive>
               );

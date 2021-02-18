@@ -14,9 +14,8 @@ const CommentInsertForm = ({ style, postId }) => {
 
   function handleChange(e) {
     setComment({
-      author: username,
       [e.target.name]: e.target.value,
-      post: postId,
+      post: parseInt(postId, 10),
     });
   }
 
@@ -61,7 +60,6 @@ const CommentInsertForm = ({ style, postId }) => {
 
   return (
     <div className="comment_input_container">
-      {/* <div className="comment_input_username">{localStorage.username}</div> */}
       <div className="comment_insert_form_container">
         <form>
           <input

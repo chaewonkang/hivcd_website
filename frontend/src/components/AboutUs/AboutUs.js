@@ -533,29 +533,29 @@ const AboutUs = () => {
             <div className="aboutus_content">
               <table className="aboutus_contact">
                 <tr>
-                  <th>웹사이트 디자인</th>
+                  <td>웹사이트 디자인</td>
                   <td>Yinyang yinyang.company</td>
                 </tr>
                 <tr>
-                  <th>웹사이트 개발</th>
+                  <td>웹사이트 개발</td>
                   <td>
                     강채원 yinyang.company<br></br>김서규 yinyang.company
                   </td>
                 </tr>
                 <tr>
-                  <th>웹사이트 구축 도움</th>
+                  <td>웹사이트 구축 도움</td>
                   <td>심윤서, 나혜린</td>
                 </tr>
                 <tr>
-                  <th>2021년 1월 00일</th>
+                  <td>2021년 1월 00일</td>
                   <td>구축 완료</td>
                 </tr>
                 <tr>
-                  <th>2021년 1월 00일</th>
+                  <td>2021년 1월 00일</td>
                   <td>v1.0 배포</td>
                 </tr>
                 <tr>
-                  <th>2021년 1월 00일</th>
+                  <td>2021년 1월 00일</td>
                   <td>v2.0 배포 - 무슨 무슨 기능 추가</td>
                 </tr>
               </table>

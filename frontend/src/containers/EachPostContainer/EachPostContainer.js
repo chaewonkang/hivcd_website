@@ -31,7 +31,7 @@ async function getList(token) {
 
 async function getPost({ postId, token }) {
   return axios.get(
-    `http://13.125.84.10:8000/api/v1/postings/${postId}`,
+    `http://devsidi.hongik.ac.kr/api/v1/postings/${postId}`,
     {},
     {
       headers: {
@@ -45,7 +45,7 @@ async function getPost({ postId, token }) {
 }
 
 function EachPostContainer({ match }) {
-  const [token, setToken] = useState(getCookie("csrftoken"));
+  const [token] = useState(getCookie("csrftoken"));
   const [state] = useAsync(() => getList(token), [token]);
   const { loading, data: list, error } = state;
   const [postId, setPostId] = useState(0);
