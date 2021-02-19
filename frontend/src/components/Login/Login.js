@@ -3,9 +3,10 @@ import "./Login.css";
 import useAsync from "../../utils/useAsync";
 import getCookie from "../../utils/getCookie";
 import axiosInstance from "../../utils/axiosApi";
+import axios from "axios";
 
 async function handleLogout(token) {
-  const response = await axiosInstance.get(
+  const response = await axios.get(
     "http://devsidi.hongik.ac.kr/api/v1/auth/logout",
     {},
     {
