@@ -7,16 +7,16 @@ import useAsync from "../../utils/useAsync";
 
 async function getPosts(token) {
   const response = await axios.get(
-    "http://devsidi.hongik.ac.kr/api/v1/postings/",
-    {},
-    {
-      headers: {
-        Authorization: "Bearer " + localStorage.getItem("access_token"),
-        Accept: "application/json",
-        "X-CSRFToken": token,
-        "Content-type": "application/json",
-      },
-    }
+    "http://devsidi.hongik.ac.kr/api/v1/postings/"
+    // {},
+    // {
+    //   headers: {
+    //     Authorization: "Bearer " + localStorage.getItem("access_token"),
+    //     Accept: "application/json",
+    //     "X-CSRFToken": token,
+    //     "Content-type": "application/json",
+    //   },
+    // }
   );
   return response.data;
 }
