@@ -13,10 +13,9 @@ class CookiePermission(BasePermission):
         cookie_id = request.COOKIES["SUSER_ID"]
         key = os.environ.get("AUTH_KEY")
         s_id = decrypt(s=cookie_id, key=key)
-        s_id = s_id[:7]
-
+        sid = s_id[:7]
         try:
-            account = Account.objects.get(suser_id=s_id).cache()
+            account = Account.objects.get(suser_id=sid)
         except:
             return False
 
