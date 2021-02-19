@@ -1,12 +1,16 @@
-from rest_framework import generics
-from rest_framework.permissions import IsAuthenticatedOrReadOnly
-from .permissions import CookiePermission
-from .models import Post, Comment
-from .serializers import PostSerializer, CommentSerializer
+import os
+from django.http import HttpResponse
 from django.core.cache import cache
 from django.utils.decorators import method_decorator
 from django.views.decorators.cache import cache_page
 from django.views.decorators.vary import vary_on_cookie
+from rest_framework import generics
+from rest_framework.permissions import IsAuthenticatedOrReadOnly
+from auth.decrypt import decrypt
+from auth.models import Account
+from .permissions import CookiePermission
+from .models import Post, Comment
+from .serializers import PostSerializer, CommentSerializer
 
 
 class PostListCreateAPIView(generics.ListAPIView):
@@ -31,4 +35,10 @@ class CommentListCreateAPIView(generics.ListCreateAPIView):
         return qs
 
     def perform_create(self, serializer):
-        return serializer.save(author=self.request.user)
+        user_id = decrypt(s=self.request.COOKIES["SUSER_ID"], key=os.getenv("AUTH_KEY"))
+        user_id = user_id[:7]
+        try:
+            user = Account.objects.get(suser_id=user_id)
+        except Exception as e:
+            return HttpResponse(e)
+        return serializer.save(author=user)
