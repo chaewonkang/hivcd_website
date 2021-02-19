@@ -177,3 +177,6 @@ CACHEOPS = {
     'postings.Post': {'ops': 'get'},
     'postings.Comment': {'ops': 'get'},
 }
+
+SESSION_COOKIE_AGE = 1200
+SESSION_SAVE_EVERY_REQUEST = True
