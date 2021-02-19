@@ -10,7 +10,7 @@ class CookiePermission(BasePermission):
     """
 
     def has_permission(self, request, view):
-        get_user_id(request.COOKIES)
+        sid = get_user_id(request.COOKIES)
         try:
             account = Account.objects.get(suser_id=sid)
         except:
