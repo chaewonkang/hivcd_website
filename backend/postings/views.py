@@ -1,14 +1,12 @@
 import os
 from django.http import HttpResponse
-from django.core.cache import cache
-from django.utils.decorators import method_decorator
-from django.views.decorators.cache import cache_page
-from django.views.decorators.vary import vary_on_cookie
+from django.shortcuts import get_object_or_404
 from rest_framework import generics
 from rest_framework.permissions import IsAuthenticatedOrReadOnly
+from rest_framework.decorators import api_view, permission_classes
 from auth.decrypt import decrypt
 from auth.models import Account
-from .permissions import CookiePermission
+from .permissions import CookiePermission, get_user_id
 from .models import Post, Comment
 from .serializers import PostSerializer, CommentSerializer
 
@@ -35,10 +33,21 @@ class CommentListCreateAPIView(generics.ListCreateAPIView):
         return qs
 
     def perform_create(self, serializer):
-        user_id = decrypt(s=self.request.COOKIES["SUSER_ID"], key=os.getenv("AUTH_KEY"))
-        user_id = user_id[:7]
+        user_id = get_user_id(self.request.COOKIES)
         try:
             user = Account.objects.get(suser_id=user_id)
         except Exception as e:
             return HttpResponse(e)
         return serializer.save(author=user)
+
+
+@api_view(["POST"])
+@permission_classes([CookiePermission])
+def delete_comment(request, pk):
+    comment = get_object_or_404(Comment, pk=pk)
+    user_id = get_user_id(request.COOKIES)
+    if comment.author.suser_id == user_id:
+        comment.delete()
+        return HttpResponse(status=200)
+    else:
+        return HttpResponse(status=404)

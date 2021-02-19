@@ -10,13 +10,17 @@ class CookiePermission(BasePermission):
     """
 
     def has_permission(self, request, view):
-        cookie_id = request.COOKIES["SUSER_ID"]
-        key = os.environ.get("AUTH_KEY")
-        s_id = decrypt(s=cookie_id, key=key)
-        sid = s_id[:7]
+        get_user_id(request.COOKIES)
         try:
             account = Account.objects.get(suser_id=sid)
         except:
             return False
 
         return account.is_sidi == True
+
+
+def get_user_id(cookies):
+    cookie_id = cookies["SUSER_ID"]
+    key = os.getenv("AUTH_KEY")
+    decrypt_id = decrypt(s=cookie_id, key=key)
+    return decrypt_id[:7]
