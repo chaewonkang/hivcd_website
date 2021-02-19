@@ -30,6 +30,7 @@ import SignUp from "./SignUp/SignUp";
 import MobileSignup from "./MobileSignup/MobileSignup";
 import CommentInsertForm from "./CommentInsertForm/CommentInsertForm";
 import Warning from "./Warning/Warning";
+import Exhibition from "./Exhibition/Exhibition";
 
 export {
   Header,
@@ -64,4 +65,5 @@ export {
   MobileSignup,
   CommentInsertForm,
   Warning,
+  Exhibition,
 };

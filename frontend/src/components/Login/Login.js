@@ -45,14 +45,14 @@ function Login({ handleLogin, handleLogout }) {
               <input
                 placeholder="email"
                 type="text"
-                name="email"
+                name="이메일"
                 value={userInfo.email}
                 onChange={(e) => handleChange(e)}
               ></input>
               <input
                 placeholder="password"
                 type="password"
-                name="password"
+                name="비밀번호"
                 value={userInfo.password}
                 onChange={(e) => handleChange(e)}
               ></input>
@@ -65,7 +65,7 @@ function Login({ handleLogin, handleLogout }) {
               </div>
               <Link to="/auth/registration" className="create_account_link">
                 <span className="create-account" onClick={() => closeModal()}>
-                  create account
+                  회원가입
                 </span>
               </Link>
             </div>

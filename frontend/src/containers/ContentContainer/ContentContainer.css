@@ -19,7 +19,7 @@
 /********** Small devices only **********/
 @media (min-width: 768px) and (max-width: 991px) {
   .contentcontainer {
-    margin-top: 50px;
+    margin-top: 60px;
     margin-left: 20px;
     margin-right: 20px;
     position: relative;
@@ -38,9 +38,9 @@
 
 @media (max-width: 576px) {
   .contentcontainer {
-    margin-top: 50px;
-    margin-left: 20px;
-    margin-right: 20px;
+    margin-top: 70px;
+    margin-left: 10px;
+    margin-right: 10px;
     position: relative;
   }
 }

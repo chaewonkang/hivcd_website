@@ -22,9 +22,9 @@ APP_SCHEME = os.environ.get("APP_SCHEME")
 DEBUG = os.environ.get("DEBUG", True)
 
 if DEBUG == False:
-    ALLOWED_HOSTS = ['13.125.84.10', '127.0.0.1', 'localhost']
+    ALLOWED_HOSTS = ["13.125.84.10", "127.0.0.1", "localhost"]
 else:
-    ALLOWED_HOSTS = ['*']
+    ALLOWED_HOSTS = ["*"]
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.environ.get("SECRET_KEY")
@@ -44,6 +44,7 @@ PROJECT_APPS = [
     "postings.apps.PostingsConfig",
     "api_v1.apps.Api_v1Config",
     "alumnis.apps.AlumnisConfig",
+    "reservations.apps.ReservationsConfig",
 ]
 
 THIRDPARTY_APPS = [
@@ -119,29 +120,29 @@ USE_L10N = True
 USE_TZ = True
 
 # S3 Strorage
-#DEFAULT_FILE_STORAGE = 'config.storage_backends.MediaStorage'
-#STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+# DEFAULT_FILE_STORAGE = 'config.storage_backends.MediaStorage'
+# STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 
 
 # Static files (CSS, JavaScript, Images)
-STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'assets')
+STATIC_URL = "/static/"
+STATIC_ROOT = os.path.join(BASE_DIR, "assets")
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "build", "static"),
 ]
 
 # Media files
 MEDIA_URL = "/media/"
-MEDIA_ROOT = os.path.join(BASE_DIR, 'uploads')
+MEDIA_ROOT = os.path.join(BASE_DIR, "uploads")
 
 # Rest Framework
 REST_FRAMEWORK = {
     "DEFAULT_AUTHENTICATION_CLASSES": (
         "rest_framework_simplejwt.authentication.JWTAuthentication",
     ),
-#    'DEFAULT_PARSER_CLASSES': (
-#        'rest_framework.parsers.JSONParser',
-#    )
+    #    'DEFAULT_PARSER_CLASSES': (
+    #        'rest_framework.parsers.JSONParser',
+    #    )
 }
 
 # Email Settings
@@ -160,7 +161,7 @@ CORS_ORIGIN_WHITELIST = [
 from datetime import timedelta
 
 SIMPLE_JWT = {
-    'ACCESS_TOKEN_LIFETIME': timedelta(minutes=60),
+    "ACCESS_TOKEN_LIFETIME": timedelta(minutes=60),
 }
 
 # USER Model
@@ -168,11 +169,21 @@ AUTH_USER_MODEL = "my_auth.User"
 
 
 SWAGGER_SETTINGS = {
-   'SECURITY_DEFINITIONS': {
-        'Bearer': {
-            'type': 'apiKey',
-            'name': 'Authorization',
-            'in': 'header'
-        }
+    "SECURITY_DEFINITIONS": {
+        "Bearer": {"type": "apiKey", "name": "Authorization", "in": "header"}
     }
 }
+
+CACHES = {
+    "default": {
+        "BACKEND": "django_redis.cache.RedisCache",
+        "LOCATION": "redis://127.0.0.1:6379/1",  # 1번 DB
+        "OPTIONS": {
+            "CLIENT_CLASS": "django_redis.client.DefaultClient",
+        },
+    }
+}
+CACHE_TTL = 60 * 1
+
+SESSION_ENGINE = "django.contrib.sessions.backends.cache"
+SESSION_CACHE_ALIAS = "default"

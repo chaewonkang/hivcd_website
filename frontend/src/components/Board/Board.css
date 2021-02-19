@@ -70,7 +70,7 @@ body {
 /********** Small devices only **********/
 @media (min-width: 768px) and (max-width: 991px) {
   .board_filter_wrapper {
-    margin-top: 70px;
+    margin-top: 60px;
   }
 }
 
@@ -92,5 +92,20 @@ body {
 
   .board_filter_option {
     margin-bottom: 10px;
+  }
+
+  .board_filter_container {
+    display: inline;
+  }
+
+  .board_filter_option {
+    margin-bottom: 0px;
+    font-size: 12px;
+    padding: 0.4em 0.7em;
+    margin-right: 7.5px;
+  }
+
+  .board_filter_option:active {
+    font-size: 12px;
   }
 }

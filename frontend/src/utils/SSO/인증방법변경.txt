@@ -12,13 +12,11 @@ SUSER_AUTH
 SUSER_LIMIT
 5개의 쿠키값을 사용하여 인증 확인을 합니다.
 
-
 SUSER_ID - 사용자 아이디  (암호화)
 SUSER_NAME - 사용자 이름  (암호화)
 SUSER_GUBUN - 사용자 구분 (평문)
 SUSER_AUTH - 쿠키값 인증 코드 (암호화)
 SUSER_LIMIT - 로그인 시간(unix timestamp) (평문)
-
 
 사용자 구분
 

@@ -5,17 +5,21 @@ import {
   Footer,
   MobileSignup,
   CalandarContainer,
-  ResponsiveHeader,
   AboutUs,
   Board,
   Alumni,
   Archive,
   SignUp,
+  Exhibition,
 } from "./components";
 import "./App.css";
 import "./components/Header/Header.css";
 import ContentContainer from "./containers/ContentContainer/ContentContainer";
-import { SearchResultContainer, EachPostContainer } from "./containers";
+import {
+  SearchResultContainer,
+  EachPostContainer,
+  ReservationContainer,
+} from "./containers";
 import axiosInstance from "./utils/axiosApi";
 import "./utils/Animation.css";
 
@@ -28,7 +32,6 @@ function App() {
   };
 
   useEffect(() => {
-    console.log(searchKeyword);
     setSearchKeyword(searchKeyword);
   }, [searchKeyword]);
 
@@ -93,10 +96,6 @@ function App() {
         <div className="AppBody">
           <Route path="/auth/registration" component={SignUp}></Route>
           <Route path="/mobile/signup" component={MobileSignup}></Route>
-          <ResponsiveHeader
-            navClass="nav-small"
-            linkClassName="nav-small-link"
-          ></ResponsiveHeader>
           <Header
             handleSearchKeyword={handleSearchKeyword}
             handleLogout={handleLogout}
@@ -108,8 +107,10 @@ function App() {
           <Route path="/board/:postId" component={EachPostContainer}></Route>
           <Route path="/aboutus" component={AboutUs} />
           <Route path="/alumni" component={Alumni} />
-          <Route path="/archive" component={Archive} />
+          <Route path="/exhibition" component={Exhibition} />
           <Route path="/calandar" component={CalandarContainer} />
+          <Route path="/reservation" component={ReservationContainer} />
+          <Route path="/archive" component={Archive} />
           <Route
             path="/search"
             render={() => (

@@ -7,18 +7,19 @@ import getCookie from "../../utils/getCookie";
 function SearchResultContainer({ searchKeyword }) {
   const [postList, setPostList] = useState([]);
   const [error, setError] = useState(null);
+  const [token] = useState(getCookie("csrftoken"));
   const [loading, setLoading] = useState(false);
 
-  async function getSearchResult(searchKeyword) {
+  async function getSearchResult(searchKeyword, token) {
     await axios
       .get(
-        "https://jsonplaceholder.typicode.com/posts",
+        "http://18.219.73.211/api/v1/postings/",
         {},
         {
           headers: {
             Authorization: "Bearer " + localStorage.getItem("access_token"),
             Accept: "application/json",
-            // "X-CSRFToken": token,
+            "X-CSRFToken": token,
             "Content-type": "application/json",
           },
         }
@@ -35,11 +36,11 @@ function SearchResultContainer({ searchKeyword }) {
             .map((data) => {
               return (
                 <Post
-                  key={data.id}
+                  key={data.pk}
                   title={data.title}
-                  date={data.body}
-                  id={data.id}
-                  category={3}
+                  date={data.updated}
+                  id={data.pk}
+                  category={data.category}
                 ></Post>
               );
             })
@@ -52,9 +53,9 @@ function SearchResultContainer({ searchKeyword }) {
   }
 
   useEffect(() => {
-    getSearchResult(searchKeyword);
+    getSearchResult(searchKeyword, token);
     console.log(postList);
-  }, [searchKeyword]);
+  }, [searchKeyword, token]);
 
   if (loading) return <div>로딩 중...</div>;
   if (error) return <div>에러 발생...</div>;

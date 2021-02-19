@@ -10,13 +10,9 @@
 }
 
 .archive h2 {
-  font-family: "AGChoiJeongHo";
+  font-family: "Helvetica";
   font-size: 18px;
   padding-top: 0.5rem;
-}
-
-.archive p {
-  font-size: 2rem;
 }
 
 .archive_module_tag {
@@ -31,13 +27,14 @@
   text-transform: uppercase;
   font-size: 11px;
   font-weight: 100;
+  z-index: 2;
 }
 
 .archive_module .archive_module_content {
-  font-family: "CenturySchoolbook";
+  font-family: "Helvetica";
   font-size: 18px;
   display: inline-grid;
-  width: 65%;
+  width: 60%;
   position: sticky;
   top: 0;
   padding-right: 0.5em;
@@ -50,7 +47,7 @@
 
 .archive_module .archive_module_content_image {
   float: right;
-  width: 35%;
+  width: 40%;
   height: 100%;
   border: 2px solid #ffba00;
 }
@@ -88,7 +85,26 @@
     margin-bottom: 20px;
   }
 
-  .archive_content_image {
-    display: none;
+  .archive_module .archive_module_content_image {
+    display: block;
+    width: 50%;
+    position: relative;
+    margin-bottom: 10px;
+  }
+
+  .archive_module .archive_module_content {
+    width: 50%;
+    font-size: 15px;
+  }
+
+  .archive .archive_content {
+    width: 100%;
+    font-size: 15px;
+  }
+
+  .archive_filter_option:active,
+  .archive_filter_option:focus {
+    font-size: 12px;
+    padding: 0.4em 0.7em;
   }
 }

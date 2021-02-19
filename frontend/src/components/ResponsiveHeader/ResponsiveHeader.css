@@ -1,23 +1,23 @@
 .hamburger-btn {
-  font-size: 1.3rem;
+  font-size: 1.5rem;
   width: 40px;
   height: 35px;
   position: absolute;
-  top: 10px;
-  right: 20px;
+  top: 9px;
+  right: 10px;
   outline: none;
   background-color: #fff5f5;
   color: #000;
   border: none;
 }
 
-.hamburget-btn:focus {
+.hamburger-btn:focus,
+.hamburget-btn:active {
   border-bottom: none;
   border-top: none;
   border-left: none;
   border-right: none;
   border-radius: 0;
-  border: 2px solid #000;
   outline: none;
 }
 
@@ -103,5 +103,18 @@
     z-index: 2000;
     left: 0;
     top: 0;
+  }
+
+  .hamburger-btn {
+    font-size: 1.5rem;
+    width: 40px;
+    height: 35px;
+    position: absolute;
+    top: 8px;
+    right: 4px;
+    outline: none;
+    background-color: #fff5f5;
+    color: #000;
+    border: none;
   }
 }

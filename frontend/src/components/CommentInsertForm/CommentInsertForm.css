@@ -1,22 +1,21 @@
 .comment_input_container {
   display: inline-grid;
-  grid-template-columns: 1fr 6fr;
+  grid-template-columns: 1fr;
   width: 100%;
-}
-
-.comment_insert_form_container {
-  text-align: right;
 }
 
 button.comment_input_button {
   font-family: "Helvetica", sans-serif;
-  font-size: 15px;
+  font-weight: 100;
+  font-size: 12px;
   border: 1px solid #000;
   background-color: #000;
   color: #fff;
   justify-self: right;
   margin-left: 10px;
   right: 0;
+  padding: 0.15em 0.75em;
+  width: calc(10% - 10px);
 }
 
 input[name="text"] {
@@ -26,4 +25,32 @@ input[name="text"] {
   border-right: none;
   width: 90%;
   outline: none;
+}
+
+input[name="text"]::placeholder {
+  /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: #000;
+  opacity: 1; /* Firefox */
+}
+
+input[name="text"]:-ms-input-placeholder {
+  /* Internet Explorer 10-11 */
+  color: #000;
+}
+
+input[name="text"]::-ms-input-placeholder {
+  /* Microsoft Edge */
+  color: #000;
+}
+
+@media (max-width: 576px) {
+  input[name="text"] {
+    width: 80%;
+  }
+
+  button.comment_input_button {
+    font-size: 12px;
+    padding: 0.3em 0.2em;
+    width: calc(20% - 10px);
+  }
 }

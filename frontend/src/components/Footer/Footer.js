@@ -32,22 +32,50 @@ const Footer = () => {
           <div className="footer-item">
             <span className="footer-item-title">학과사무실</span>
             <p>
-              월 ~ 금 9:00 ~ 17:30 <br></br>
-              동절기 9:00 ~ 17:00
+              월 - 금 9:00 - 17:30 <br></br>
+              동절기 9:00 - 17:00
             </p>
           </div>
           <div className="footer-item">
             <span className="footer-item-title">뉴스레터</span>
             <div id="subscription_button" class="subscription_button">
-              구독하기
+              <a
+                href="http://eepurl.com/hk_U8n"
+                rel="noopener noreferrer"
+                target="_blank"
+                style={{ color: "#000" }}
+              >
+                구독하기
+              </a>
             </div>
           </div>
           <div className="footer-item">
             <span className="footer-item-title">바로가기</span>
             <p>
-              <a href="#" class="fa fa-facebook"></a>
-              <a href="#" class="fa fa-twitter"></a>
-              <a href="#" class="fa fa-instagram"></a>
+              <a
+                href="https://www.hongik.ac.kr"
+                rel="noopener noreferrer"
+                target="_blank"
+                class="fa fa-facebook"
+              >
+                {""}
+              </a>
+              <a
+                href="https://www.hongik.ac.kr"
+                rel="noopener noreferrer"
+                target="_blank"
+                class="fa fa-twitter"
+              >
+                {""}
+              </a>
+              <a
+                href="https://www.hongik.ac.kr"
+                rel="noopener noreferrer"
+                target="_blank"
+                class="fa fa-instagram"
+              >
+                {""}
+              </a>
             </p>
           </div>
         </div>

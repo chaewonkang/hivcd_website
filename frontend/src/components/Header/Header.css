@@ -1,6 +1,7 @@
 header {
   background-color: #fff5f5;
   padding: 15px 20px;
+  width: 100%;
 }
 
 .header_line {
@@ -9,64 +10,71 @@ header {
 
 .header_container_left {
   display: inline-grid;
-  width: calc((100vw - 40px) * 0.6);
-  grid-template-columns: repeat(5, 1fr);
+  width: calc((100vw - 40px) * 0.3);
   column-gap: 10px;
 }
 
 .header_container_right {
   display: inline-grid;
-  width: calc((100vw - 40px) * 0.4);
-  grid-template-columns: 1fr;
+  width: calc((100vw - 40px) * 0.7);
+  grid-template-columns: 6fr 1fr;
+  column-gap: 30px;
   padding-left: 10px;
+  font-size: 17px;
+  text-align: right;
   position: absolute;
   right: 0;
-  text-align: right;
 }
 
-.header_container_title {
-  grid-column: 1 / 4;
-}
-
-.header_container_login {
-  grid-column: 4 / 5;
-  position: relative;
-  right: 0;
-}
-
-.header_container_search {
-  grid-column: 5 / 6;
-  position: relative;
-  left: 0;
-}
-.header_container_title h1 {
-  font-family: "Helvetica";
-  font-weight: 100;
-  color: #000;
-  font-size: 18px;
-}
-.navbar_menu_wrapper_item_title {
-  font-family: "Helvetica";
-  font-weight: 100;
-  color: #000;
-  font-size: 18px;
+.header_container_menubar {
   margin-right: 20px;
 }
 
-.navbar_menu_wrapper_item_title:hover {
-  text-decoration: underline !important;
+.header_container_title h1 {
+  font-family: "Helvetica";
+  font-weight: 400;
+  color: #000;
+  font-size: 18px;
 }
 
-.navbar_menu_wrapper_item_title:visited {
-  text-decoration: underline !important;
+.navbar_menu_wrapper_item_title a {
+  text-decoration: none !important;
+  color: #000;
+  position: relative;
+  right: 0;
+  top: 3px;
 }
 
-.navbar_menu_wrapper_item_title:active {
-  text-decoration: underline !important;
+.navbar_menu_wrapper_item_title a:active,
+.navbar_menu_wrapper_item_title a:focus,
+.navbar_menu_wrapper_item_title a:hover {
+  border-bottom: 1px solid #000;
+  color: #000;
 }
 
-.navbar_menu_wrapper_item_title:focus {
-  text-decoration: underline !important;
+.header_container_system {
+  display: inline-grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 10px;
+  text-align: center;
+  font-size: 15px;
+  width: fit-content;
+  position: absolute;
+  right: 0;
+  top: 0.5px;
+  margin-right: 20px;
+}
+
+.header_container_login,
+.header_container_search {
+}
+
+.navbar_menu_wrapper_item_title {
+  font-family: "Helvetica";
+  font-weight: 400;
+  color: #000;
+  font-size: 18px;
+  margin-right: 20px;
 }
 
 .header_container_responsive {
@@ -102,7 +110,7 @@ header {
   }
 
   .header_container_title {
-    text-align: center;
+    text-align: left;
   }
 
   .header_container_left {
@@ -161,6 +169,7 @@ header {
     position: fixed;
     z-index: 2000;
     top: 0;
+    padding: 15px 10px;
   }
 
   .header_line {

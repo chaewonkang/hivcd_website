@@ -8,26 +8,32 @@ button.navigate_right_button {
   font-family: "Helvetica", sans-serif;
   font-size: 25px;
   border: 1px solid #000;
-  background-color: #000;
   color: #fff;
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: 1fr;
   float: right;
   bottom: 0;
+  background: url("../../img/right.png") no-repeat scroll #000;
+  width: 35px;
+  height: 35px;
+  background-size: 100%;
 }
 
 button.navigate_left_button {
   font-family: "Helvetica", sans-serif;
   font-size: 25px;
   border: 1px solid #000;
-  background-color: #000;
   color: #fff;
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: 1fr;
   float: left;
   bottom: 0;
+  background: url("../../img/left.png") no-repeat scroll #000;
+  width: 35px;
+  height: 35px;
+  background-size: 100%;
 }
 
 button span {

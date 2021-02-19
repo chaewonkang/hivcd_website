@@ -7,7 +7,7 @@ const Comment = ({ author, body, date }) => {
     <li className="comment">
       <div className="comment_container">
         <div className="comment_container_username">
-          <span>{author}</span>
+          <span>{author.slice(0, 7)}</span>
         </div>
         <div className="comment_container_content">{body}</div>
         <div className="comment_container_date">{createdSliced}</div>

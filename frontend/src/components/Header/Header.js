@@ -18,33 +18,38 @@ function Header({ handleLogin, handleLogout, handleSearchKeyword }) {
               </h1>
             </Link>
           </div>
-          <div className="header_container_login">
-            <Login
-              handleLogout={handleLogout}
-              handleLogin={handleLogin}
-            ></Login>
-          </div>
-          <div className="header_container_search">
-            <Search handleSearchKeyword={handleSearchKeyword}></Search>
-          </div>
         </div>
         <div className="header_container_right">
           <div className="header_container_menubar">
-            <Link to="/aboutus">
-              <span className="navbar_menu_wrapper_item_title">정보</span>
-            </Link>
-            <Link to="/board">
-              <span className="navbar_menu_wrapper_item_title">게시판</span>
-            </Link>
-            <Link to="/alumni">
-              <span className="navbar_menu_wrapper_item_title">동문연락망</span>
-            </Link>
-            <Link to="/archive">
-              <span className="navbar_menu_wrapper_item_title">아카이브</span>
-            </Link>
-            <Link to="/calandar">
-              <span className="navbar_menu_wrapper_item_title">일정</span>
-            </Link>
+            <span className="navbar_menu_wrapper_item_title">
+              <Link to="/aboutus">정보</Link>
+            </span>
+            <span className="navbar_menu_wrapper_item_title">
+              <Link to="/board">게시판</Link>
+            </span>
+            <span className="navbar_menu_wrapper_item_title">
+              <Link to="/alumni">동문연락망</Link>
+            </span>
+            <span className="navbar_menu_wrapper_item_title">
+              <Link to="/archive">아카이브</Link>
+            </span>
+            <span className="navbar_menu_wrapper_item_title">
+              <Link to="/exhibition">전시</Link>
+            </span>
+            <span className="navbar_menu_wrapper_item_title">
+              <Link to="/calandar">일정</Link>
+            </span>
+          </div>
+          <div className="header_container_system">
+            <div className="header_container_login">
+              <Login
+                handleLogout={handleLogout}
+                handleLogin={handleLogin}
+              ></Login>
+            </div>
+            <div className="header_container_search">
+              <Search handleSearchKeyword={handleSearchKeyword}></Search>
+            </div>
           </div>
         </div>
         <div className="header_container_responsive">

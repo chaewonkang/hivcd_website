@@ -2,7 +2,6 @@
   margin: 20px;
   margin-bottom: 40px;
   position: relative;
-  height: 100vh;
 }
 
 .aboutus_curriculum {
@@ -15,6 +14,10 @@
   text-align: left;
 }
 
+.aboutus_content p {
+  font-size: 18px;
+}
+
 .aboutus_contact tr {
   border-bottom: 1px solid black;
 }
@@ -24,8 +27,38 @@
   padding: 10px;
 }
 
+.faculty {
+  font-size: 14px;
+  width: 100%;
+  text-align: center;
+}
+
+.faculty th {
+  border-bottom: 1px solid black;
+  padding: 2px;
+  font-weight: 400;
+}
+
 .aboutus_contact td {
   padding: 5px;
+}
+
+.aboutus_content p,
+.credit a {
+  font-size: 18px;
+}
+
+.colophon_table {
+  width: 100%;
+}
+
+.colophon_table tr {
+  border-bottom: 1px solid black;
+}
+
+.colophon_table tr th {
+  font-weight: 400;
+  padding: 10px 0px 10px 0px;
 }
 
 .aboutus_container {
@@ -63,7 +96,7 @@
 .aboutus_item .aboutus_content {
   position: absolute;
   margin-top: 20px;
-  font-family: "KoPubBatangMedium";
+  font-family: "Helvetica";
   line-height: 30px;
   font-size: 18px;
   position: sticky;
@@ -80,23 +113,33 @@
 }
 
 #history {
-  background-color: #9099ff;
-  border: 2px solid #6f55ff;
+  background-color: #deadf0;
+  border: 2px solid #bb12d8;
 }
 
 #map {
-  background-color: #ffcc99;
-  border: 2px solid #ff9191;
+  background-color: #93f421;
+  border: 2px solid #64cb0c;
 }
 
-#curriculum {
-  background-color: #ff01ff;
-  border: 2px solid #e3001f;
+#faculty {
+  background-color: #fdfbc1;
+  border: 2px solid #cfd372;
 }
 
 #contact {
-  background-color: #729b00;
-  border: 2px solid #19a300;
+  background-color: #cdcc33;
+  border: 2px solid #a8b419;
+}
+
+#link {
+  background-color: #fecc99;
+  border: 2px solid #fd9191;
+}
+
+#colophon {
+  background-color: #a3b3c4;
+  border: 2px solid #78a4b7;
 }
 
 .aboutus_contact_mobile {
@@ -117,7 +160,7 @@
 /********** Small devices only **********/
 @media (min-width: 768px) and (max-width: 991px) {
   .aboutus_wrapper {
-    margin-top: 70px;
+    margin-top: 60px;
   }
   .aboutus_container {
     grid-template-columns: 1fr;

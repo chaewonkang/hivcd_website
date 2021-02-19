@@ -13,14 +13,15 @@ function handleNavigateClick(type, postId) {
   }
 }
 
-async function getList() {
+async function getList(token) {
   const response = await axios.get(
-    "https://jsonplaceholder.typicode.com/posts",
+    "http://18.219.73.211/api/v1/postings/",
     {},
     {
       headers: {
         Authorization: "Bearer " + localStorage.getItem("access_token"),
         Accept: "application/json",
+        "X-CSRFToken": token,
         "Content-type": "application/json",
       },
     }
@@ -28,15 +29,15 @@ async function getList() {
   return response.data;
 }
 
-async function getPost({ postId }) {
+async function getPost({ postId, token }) {
   return axios.get(
-    `http://13.125.84.10:8000/api/v1/postings/${postId}/?format=json`,
+    `http://13.125.84.10:8000/api/v1/postings/${postId}`,
     {},
     {
       headers: {
         Authorization: "Bearer " + localStorage.getItem("access_token"),
         Accept: "application/json",
-        // "X-CSRFToken": token,
+        "X-CSRFToken": token,
         "Content-type": "application/json",
       },
     }
@@ -44,10 +45,10 @@ async function getPost({ postId }) {
 }
 
 function EachPostContainer({ match }) {
-  const [state] = useAsync(() => getList(), []);
+  const [token, setToken] = useState(getCookie("csrftoken"));
+  const [state] = useAsync(() => getList(token), [token]);
   const { loading, data: list, error } = state;
   const [postId, setPostId] = useState(0);
-  const [token, setToken] = useState("");
 
   useEffect(() => {
     setPostId(match.params.postId);
@@ -60,7 +61,13 @@ function EachPostContainer({ match }) {
   return (
     <div className="each_post_container">
       <BoardListWrapper
-        list={list}
+        list={list.filter(
+          (data) =>
+            data.category === 1 ||
+            data.category === 2 ||
+            data.category === 3 ||
+            data.category === 4
+        )}
         postId={postId}
         handleNavigateClick={() => handleNavigateClick()}
       ></BoardListWrapper>

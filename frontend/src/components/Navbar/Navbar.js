@@ -69,7 +69,7 @@ export const NavComponent = ({ onClick, handleLogin, handleLogout }) => {
               <form onSubmit={(e) => handleSubmit(e)}>
                 <input
                   id="mobile_email"
-                  placeholder="email"
+                  placeholder="이메일"
                   type="text"
                   name="email"
                   value={userinfo.email}
@@ -77,7 +77,7 @@ export const NavComponent = ({ onClick, handleLogin, handleLogout }) => {
                 ></input>
                 <input
                   id="mobile_password"
-                  placeholder="password"
+                  placeholder="패스워드"
                   type="password"
                   name="password"
                   value={userinfo.password}
@@ -89,9 +89,6 @@ export const NavComponent = ({ onClick, handleLogin, handleLogout }) => {
               </form>
             )}
             <div className="applebox"></div>
-            <Link to="/mobile/signup" onClick={onClick}>
-              <span className="become_a_member">회원가입</span>
-            </Link>
           </div>
           <hr></hr>
           <div className="nav_class_menubar">
@@ -111,6 +108,9 @@ export const NavComponent = ({ onClick, handleLogin, handleLogout }) => {
               <Link to="/archive">
                 <li onClick={onClick}>아카이브</li>{" "}
               </Link>
+              <Link to="/exhibition">
+                <li onClick={onClick}>전시</li>{" "}
+              </Link>
               <Link to="/calandar">
                 <li onClick={onClick}>일정</li>{" "}
               </Link>
@@ -118,18 +118,44 @@ export const NavComponent = ({ onClick, handleLogin, handleLogout }) => {
           </div>
           <hr></hr>
           <div className="nav_class_newsletter">
-            <span onClick={onClick}>뉴스레터 구독하기</span>
+            <span onClick={onClick}>
+              <a
+                href="http://eepurl.com/hk_U8n"
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{ color: "#000" }}
+              >
+                뉴스레터 구독하기
+              </a>
+            </span>
           </div>
           <div className="nav_class_copyright">
             <hr className="bottomline"></hr>
             <p>
               <a
                 href="https://www.facebook.com/HIVCD.GW"
+                className="fa fa-facebook"
                 target="_blank"
-                gclass="fa fa-facebook"
-              ></a>
-              <a href="#" class="fa fa-twitter"></a>
-              <a href="#" class="fa fa-instagram"></a>
+                rel="noopener noreferrer"
+              >
+                {""}
+              </a>
+              <a
+                href="https://www.facebook.com/HIVCD.GW"
+                className="fa fa-twitter"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {""}
+              </a>
+              <a
+                href="https://www.facebook.com/HIVCD.GW"
+                className="fa fa-instagram"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {""}
+              </a>
             </p>
           </div>
         </div>
