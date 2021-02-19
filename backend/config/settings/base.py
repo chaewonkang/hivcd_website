@@ -173,5 +173,7 @@ CACHEOPS_REDIS = {
     'socket_timeout': 0.5
 }
 CACHEOPS = {
+    'auth.Account': {'ops': 'get'},
     'postings.Post': {'ops': 'get'},
+    'postings.Comment': {'ops': 'get'},
 }

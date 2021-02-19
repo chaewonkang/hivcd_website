@@ -1,6 +1,7 @@
+import os
 from rest_framework.permissions import BasePermission
 from auth.models import Account
-
+from auth.decrypt import decrypt
 
 class CookiePermission(BasePermission):
     """
@@ -8,10 +9,16 @@ class CookiePermission(BasePermission):
     """
 
     def has_permission(self, request, view):
-        cookies = request.COOKIES
+        cookie_id = request.COOKIES['SUSER_ID']
+        key = os.environ.get("AUTH_KEY")
+        s_id = decrypt(s=cookie_id, key=key)
+
         try:
-            sid = cookies['SUSER_ID']
-            account = Account.objects.get(suser_id=sid)
+            account = Account.objects.get(suser_id=s_id).cache()
         except:
             return False
-        return account.is_sidi == True
+
+        if account.is_sidi == True:
+            return True
+        else:
+            return False

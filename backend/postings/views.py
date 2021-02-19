@@ -14,21 +14,21 @@ from .serializers import PostSerializer, CommentSerializer
 
 
 class PostListCreateAPIView(generics.ListAPIView):
-    queryset = Post.objects.cache().all()
+    queryset = Post.objects.all().cache()
     serializer_class = PostSerializer
     permission_classes = (IsAuthenticatedOrReadOnly,)
 
-class PostRetrieveAPIView(generics.RetrieveAPIView):
-    queryset = Post.objects.all()
-    serializer_class = PostSerializer
 
+class PostRetrieveAPIView(generics.RetrieveAPIView):
+    queryset = Post.objects.all().cache()
+    serializer_class = PostSerializer
     permission_classes = (CookiePermission,)
 
-class CommentListCreateAPIView(generics.ListCreateAPIView):
 
-    queryset = Comment.objects.all()
+class CommentListCreateAPIView(generics.ListCreateAPIView):
+    queryset = Comment.objects.all().cache()
     serializer_class = CommentSerializer
-#    permission_classes = (CookiePermission,)
+    permission_classes = (CookiePermission,)
 
     def get_queryset(self):
         qs = Comment.objects.filter(post_id=self.kwargs["pk"])
