@@ -10,7 +10,7 @@ function LogoImage() {
   const [style, setStyle] = useState({
     backgroundPosition: "center",
     backgroundRepeat: "no-repeat",
-    backgroundSize: "90%",
+    backgroundSize: "70%",
     gridColumn: null,
     gridRow: null,
   });
@@ -19,7 +19,6 @@ function LogoImage() {
   const columnArray = ["1/2"];
   const rowArray = ["1/2"];
   const randomIdx = Math.floor(Math.random() * pictureArray.length);
-  // const selectedImg = pictureArray[randomIdx];
   const selectedColumn = columnArray[randomIdx];
   const selectedRow = rowArray[randomIdx];
   const willMount = useRef(true);

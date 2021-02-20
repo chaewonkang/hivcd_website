@@ -32,6 +32,10 @@
   text-align: right;
 }
 
+.comment_delete_button {
+  cursor: pointer;
+}
+
 /********** Large devices only **********/
 @media (min-width: 1200px) {
 }

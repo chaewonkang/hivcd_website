@@ -134,7 +134,16 @@ function EachPost({ postId, handleNavigateClick }) {
           ) : null}
         </div>
         <hr style={{ marginBottom: 2 + "em" }}></hr>
-        <p>{eachPost.text}</p>
+        <p>
+          {eachPost.text.split("\n").map((line) => {
+            return (
+              <span>
+                {line}
+                <br />
+              </span>
+            );
+          })}
+        </p>
         {eachPost.photos.length ? (
           <div>
             <img

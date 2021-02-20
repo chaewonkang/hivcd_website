@@ -17,8 +17,7 @@ header {
 .header_container_right {
   display: inline-grid;
   width: calc((100vw - 40px) * 0.7);
-  grid-template-columns: 6fr 1fr;
-  column-gap: 30px;
+  grid-template-columns: 9fr 2fr;
   padding-left: 10px;
   font-size: 17px;
   text-align: right;
@@ -27,7 +26,7 @@ header {
 }
 
 .header_container_menubar {
-  margin-right: 20px;
+  margin-right: 40px;
 }
 
 .header_container_title h1 {

@@ -24,6 +24,9 @@ const Comment = ({ author, body, date, id }) => {
       .then(function () {
         window.location.reload();
         console.log(response);
+      })
+      .catch(function (e) {
+        console.log(e);
       });
     return response;
   }
