@@ -44,7 +44,7 @@ async function getPost({ postId, token }) {
   );
 }
 
-function EachPostContainer({ match }) {
+function EachPostContainer({ match, location }) {
   const [token] = useState(getCookie("csrftoken"));
   const [state] = useAsync(() => getList(token), [token]);
   const { loading, data: list, error } = state;
@@ -60,7 +60,7 @@ function EachPostContainer({ match }) {
 
   return (
     <div className="each_post_container">
-      {this.props.location.pathname.includes("board") ? (
+      {location.pathname.includes("board") ? (
         <BoardListWrapper
           list={list.filter(
             (data) =>
