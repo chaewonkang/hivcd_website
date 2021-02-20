@@ -3,7 +3,6 @@ import { Switch, Route } from "react-router-dom";
 import {
   Header,
   Footer,
-  MobileSignup,
   CalandarContainer,
   AboutUs,
   Board,
@@ -19,14 +18,9 @@ import {
   EachPostContainer,
   ReservationContainer,
 } from "./containers";
-import { useCookies } from "react-cookie";
 
 function App() {
   const [searchKeyword, setSearchKeyword] = useState("");
-  const [cookies, setCookie, removeCookie] = useCookies([
-    "SUSER_ID",
-    "SUSER_NAME",
-  ]);
 
   const handleSearchKeyword = (keyword) => {
     setSearchKeyword(keyword);
@@ -35,21 +29,6 @@ function App() {
   useEffect(() => {
     setSearchKeyword(searchKeyword);
   }, [searchKeyword]);
-
-  //   const handleLogout = async (e) => {
-  //     try {
-  //       console.log("handleLogout enter");
-  //       removeCookie("SUSER_ID");
-  //       removeCookie("SUSER_NAME");
-  //       document.cookie =
-  //         "SUSER_ID=; domain=.hongik.ac.kr; expires= Wed, 20 Mar 1970 04:54:09 GMT";
-  //       document.cookie =
-  //         "SUSER_NAME=; domain=.hongik.ac.kr; expires= Wed, 20 Mar 1970 04:54:09 GMT";
-  //       console.log("handleLogout out");
-  //     } catch (e) {
-  //       console.log(e);
-  //     }
-  //   };
 
   return (
     <main>
@@ -61,7 +40,11 @@ function App() {
           <Route path="/board/:postId" component={EachPostContainer}></Route>
           <Route path="/aboutus" component={AboutUs} />
           <Route path="/alumni" component={Alumni} />
-          <Route path="/exhibition" component={Exhibition} />
+          <Route exact path="/exhibition" component={Exhibition} />
+          <Route
+            path="/exhibition/:postId"
+            component={EachPostContainer}
+          ></Route>
           <Route path="/calandar" component={CalandarContainer} />
           <Route path="/reservation" component={ReservationContainer} />
           <Route path="/archive" component={Archive} />
@@ -73,6 +56,7 @@ function App() {
               ></SearchResultContainer>
             )}
           />
+
           <Footer />
         </div>
       </Switch>

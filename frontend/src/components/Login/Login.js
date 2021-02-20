@@ -1,8 +1,6 @@
 import React, { useState } from "react";
 import "./Login.css";
-import useAsync from "../../utils/useAsync";
 import getCookie from "../../utils/getCookie";
-import axiosInstance from "../../utils/axiosApi";
 import axios from "axios";
 
 async function handleLogout(token) {
@@ -29,7 +27,7 @@ function Login() {
         <a href="http://devsidi.hongik.ac.kr">
           <div
             className="navbar_login_item"
-            onClick={(token) => handleLogout(token)}
+            onClick={(t = token) => handleLogout((t = token))}
           >
             로그아웃
           </div>

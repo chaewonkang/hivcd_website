@@ -44,7 +44,7 @@ async function getPost({ postId, token }) {
   );
 }
 
-function EachPostContainer({ match }) {
+function EachPostContainer({ match, location }) {
   const [token] = useState(getCookie("csrftoken"));
   const [state] = useAsync(() => getList(token), [token]);
   const { loading, data: list, error } = state;
@@ -60,17 +60,28 @@ function EachPostContainer({ match }) {
 
   return (
     <div className="each_post_container">
-      <BoardListWrapper
-        list={list.filter(
-          (data) =>
-            data.category === 1 ||
-            data.category === 2 ||
-            data.category === 3 ||
-            data.category === 4
-        )}
-        postId={postId}
-        handleNavigateClick={() => handleNavigateClick()}
-      ></BoardListWrapper>
+      {location.pathname.includes("board") ? (
+        <BoardListWrapper
+          list={list.filter(
+            (data) =>
+              data.category === 1 ||
+              data.category === 2 ||
+              data.category === 3 ||
+              data.category === 4
+          )}
+          postId={postId}
+          handleNavigateClick={() => handleNavigateClick()}
+        ></BoardListWrapper>
+      ) : (
+        <BoardListWrapper
+          list={list.filter(
+            (data) =>
+              data.category === 5 || data.category === 6 || data.category === 7
+          )}
+          postId={postId}
+          handleNavigateClick={() => handleNavigateClick()}
+        ></BoardListWrapper>
+      )}
     </div>
   );
 }

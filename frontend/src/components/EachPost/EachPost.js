@@ -8,15 +8,6 @@ import useAsync from "../../utils/useAsync";
 async function getEachPost(postId, token) {
   const response = await axios.get(
     `http://devsidi.hongik.ac.kr/api/v1/postings/${postId}`
-    // {},
-    // {
-    //   headers: {
-    //     Authorization: "Bearer " + localStorage.getItem("access_token"),
-    //     Accept: "application/json",
-    //     "X-CSRFToken": token,
-    //     "Content-type": "application/json",
-    //   },
-    // }
   );
   return response.data;
 }
@@ -122,7 +113,7 @@ function EachPost({ postId, handleNavigateClick }) {
           <span className="attached_file">
             첨부파일 {eachPost.files[0] ? eachPost.files[0].name : "없음"}
           </span>
-          {eachPost.files[0] ? (
+          {eachPost.files.length ? (
             <a
               href={eachPost.files[0].files}
               target="_blank"
@@ -134,19 +125,33 @@ function EachPost({ postId, handleNavigateClick }) {
           ) : null}
         </div>
         <hr style={{ marginBottom: 2 + "em" }}></hr>
-        <p>{eachPost.text}</p>
-        {eachPost.photos.length ? (
-          <div>
-            <img
-              src={eachPost.photos[0].photo}
-              alt={eachPost.photos[0].alt}
-              style={{
-                width: 100 + "%",
-                border: `2px solid ${selectedBorderColor}`,
-              }}
-            ></img>
-          </div>
-        ) : null}
+        <p>
+          {eachPost.text.split("\n").map((line) => {
+            return (
+              <span>
+                {line}
+                <br />
+              </span>
+            );
+          })}
+        </p>
+        {eachPost.photos.length
+          ? eachPost.photos.map((photo) => {
+              return (
+                <div>
+                  <img
+                    src={photo.photo}
+                    alt={photo.alt}
+                    style={{
+                      width: 100 + "%",
+                      border: `1px solid rgb(0, 0, 0, 0.1)`,
+                    }}
+                  ></img>
+                  <br />
+                </div>
+              );
+            })
+          : null}
         <hr style={{ marginBottom: 2 + "em", marginTop: 2 + "em" }}></hr>
         <CommentList
           comments={eachPost.comments}

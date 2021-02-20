@@ -85,26 +85,6 @@
   cursor: pointer;
 }
 
-#mobile_email,
-#mobile_password {
-  border-bottom: 1px solid #000;
-  border-top: none;
-  border-left: none;
-  border-right: none;
-  background-color: #fff5f5;
-  outline: none;
-  margin-right: 1em;
-  width: 8em;
-  height: 1em;
-  font-size: 1em;
-  padding-bottom: 1em;
-  padding-left: 0em;
-  padding-right: 0em;
-  border-radius: 0;
-  -webkit-appearance: none;
-  -webkit-border-radius: 0;
-}
-
 .comment_input_container {
   display: inline-grid;
   grid-template-columns: 1fr 6fr;
@@ -138,26 +118,13 @@ button.mobile_login_input_button {
 
 /********** Extra small devices only **********/
 @media (min-width: 577px) and (max-width: 767px) {
+  .nav_class_wrapper {
+    padding-left: 10px;
+  }
 }
 
-@media (max-width: 320px) {
-  #mobile_email,
-  #mobile_password {
-    border-bottom: 1px solid #000;
-    border-top: none;
-    border-left: none;
-    border-right: none;
-    background-color: #fff5f5;
-    outline: none;
-    margin-right: 1em;
-    width: 6em;
-    height: 1em;
-    font-size: 1em;
-    padding-bottom: 1em;
-    padding-left: 0em;
-    padding-right: 0em;
-    border-radius: 0;
-    -webkit-appearance: none;
-    -webkit-border-radius: 0;
+@media (max-width: 576px) {
+  .nav_class_wrapper {
+    padding-left: 10px;
   }
 }

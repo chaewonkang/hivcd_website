@@ -1,34 +1,21 @@
-import React, { useState } from "react";
+import React from "react";
 import { Link, Route } from "react-router-dom";
 import getCookie from "../../utils/getCookie";
-
+import axios from "axios";
 import "./Navbar.css";
 
-const Navbar = ({ navClass, linkClassName, handleLogout }) => (
-  <NavComponent
-    navClass={navClass}
-    linkClassName={linkClassName}
-    handleLogout={handleLogout}
-  />
+async function handleLogout() {
+  const response = await axios.get(
+    "http://devsidi.hongik.ac.kr/api/v1/auth/logout"
+  );
+  return response;
+}
+
+const Navbar = ({ navClass, linkClassName }) => (
+  <NavComponent navClass={navClass} linkClassName={linkClassName} />
 );
 
-export const NavComponent = ({ onClick, handleLogin, handleLogout }) => {
-  const [userinfo, setUserInfo] = useState({ email: null, password: null });
-  const handleChange = (e) => {
-    setUserInfo({
-      ...userinfo,
-      [e.target.name]: e.target.value,
-    });
-    console.log(userinfo);
-  };
-
-  const handleSubmit = (e) => {
-    const { email, password } = userinfo;
-    handleLogin({
-      email: email,
-      password: password,
-    });
-  };
+export const NavComponent = ({ onClick, handleLogin }) => {
   return (
     <>
       <nav>

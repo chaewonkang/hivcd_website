@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import "./Exhibition.css";
 import axios from "axios";
 import { ArchiveModule } from "../../components";
@@ -80,14 +81,16 @@ function Exhibition() {
             })
             .map((data) => {
               return (
-                <ArchiveModule
-                  key={data.pk}
-                  title={data.title}
-                  thumbnailUrl={data.photos ? data.photos[0].photo : null}
-                  date={data.updated}
-                  category={data.category}
-                  link={data.link}
-                ></ArchiveModule>
+                <Link to={`/exhibition/${data.id}`}>
+                  <ArchiveModule
+                    key={data.pk}
+                    title={data.title}
+                    thumbnailUrl={data.photos ? data.photos[0].photo : null}
+                    date={data.updated}
+                    category={data.category}
+                    link={data.link}
+                  ></ArchiveModule>
+                </Link>
               );
             })}
         </div>

@@ -29,7 +29,7 @@
 /********** Extra small devices only **********/
 @media (min-width: 577px) and (max-width: 767px) {
   .contentcontainer {
-    margin-top: 50px;
+    margin-top: 70px;
     margin-left: 20px;
     margin-right: 20px;
     position: relative;

@@ -12,6 +12,7 @@ const CommentList = ({ comments, style, onPostComment, postId }) => {
           author={comment.author}
           body={comment.text}
           key={comment.id}
+          id={comment.id}
           date={comment.created}
         />
       );

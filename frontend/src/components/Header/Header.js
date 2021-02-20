@@ -4,7 +4,6 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { ResponsiveHeader } from "../../components";
 import "./Header.css";
 import { Login, Search } from "../../components";
-import axios from "axios";
 
 function Header({ handleLogout, handleSearchKeyword }) {
   return (
@@ -31,9 +30,9 @@ function Header({ handleLogout, handleSearchKeyword }) {
             <span className="navbar_menu_wrapper_item_title">
               <Link to="/alumni">동문연락망</Link>
             </span>
-            <span className="navbar_menu_wrapper_item_title">
+            {/* <span className="navbar_menu_wrapper_item_title">
               <Link to="/archive">아카이브</Link>
-            </span>
+            </span> */}
             <span className="navbar_menu_wrapper_item_title">
               <Link to="/exhibition">전시</Link>
             </span>
