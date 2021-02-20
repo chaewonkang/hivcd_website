@@ -4,8 +4,9 @@ import axios from "axios";
 import getCookie from "../../utils/getCookie";
 
 const Comment = ({ author, body, date, key }) => {
-  const createdSliced = date.slice(3, 10);
+  const createdSliced = date.slice(2, 10);
   const token = getCookie("csrftoken");
+  const commentKey = key;
 
   async function handleCommentDelete(id, token) {
     const response = await axios
@@ -33,12 +34,13 @@ const Comment = ({ author, body, date, key }) => {
           <span>{author.slice(0, 7)}</span>
         </div>
         <div className="comment_container_content">{body}</div>
-        <div className="comment_container_date">
-          {createdSliced}
+        <div>
+          <div className="comment_container_date">{createdSliced}</div>
+
           <div
             className="comment_delete_button"
-            onClick={(k = key, t = token) =>
-              handleCommentDelete((k = key), (t = token))
+            onClick={(k = commentKey, t = token) =>
+              handleCommentDelete((k = commentKey), (t = token))
             }
           >
             ✕
