@@ -4,7 +4,6 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { ResponsiveHeader } from "../../components";
 import "./Header.css";
 import { Login, Search } from "../../components";
-import axios from "axios";
 
 function Header({ handleLogout, handleSearchKeyword }) {
   return (

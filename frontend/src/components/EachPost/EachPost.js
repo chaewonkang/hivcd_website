@@ -144,18 +144,22 @@ function EachPost({ postId, handleNavigateClick }) {
             );
           })}
         </p>
-        {eachPost.photos.length ? (
-          <div>
-            <img
-              src={eachPost.photos[0].photo}
-              alt={eachPost.photos[0].alt}
-              style={{
-                width: 100 + "%",
-                border: `2px solid ${selectedBorderColor}`,
-              }}
-            ></img>
-          </div>
-        ) : null}
+        {eachPost.photos.length
+          ? eachPost.photos.map((photo) => {
+              return (
+                <div>
+                  <img
+                    src={photo.photo}
+                    alt={photo.alt}
+                    style={{
+                      width: 100 + "%",
+                      border: `2px solid ${selectedBorderColor}`,
+                    }}
+                  ></img>
+                </div>
+              );
+            })
+          : null}
         <hr style={{ marginBottom: 2 + "em", marginTop: 2 + "em" }}></hr>
         <CommentList
           comments={eachPost.comments}

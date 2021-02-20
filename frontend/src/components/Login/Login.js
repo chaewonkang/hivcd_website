@@ -27,7 +27,7 @@ function Login() {
         <a href="http://devsidi.hongik.ac.kr">
           <div
             className="navbar_login_item"
-            onClick={(token) => handleLogout(token)}
+            onClick={(t = token) => handleLogout((t = token))}
           >
             로그아웃
           </div>
