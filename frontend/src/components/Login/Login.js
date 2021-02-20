@@ -1,8 +1,6 @@
 import React, { useState } from "react";
 import "./Login.css";
-import useAsync from "../../utils/useAsync";
 import getCookie from "../../utils/getCookie";
-import axiosInstance from "../../utils/axiosApi";
 import axios from "axios";
 
 async function handleLogout(token) {

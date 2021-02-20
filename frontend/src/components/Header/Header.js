@@ -31,9 +31,9 @@ function Header({ handleLogout, handleSearchKeyword }) {
             <span className="navbar_menu_wrapper_item_title">
               <Link to="/alumni">동문연락망</Link>
             </span>
-            <span className="navbar_menu_wrapper_item_title">
+            {/* <span className="navbar_menu_wrapper_item_title">
               <Link to="/archive">아카이브</Link>
-            </span>
+            </span> */}
             <span className="navbar_menu_wrapper_item_title">
               <Link to="/exhibition">전시</Link>
             </span>

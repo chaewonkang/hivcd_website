@@ -3,10 +3,10 @@ import "./Comment.css";
 import axios from "axios";
 import getCookie from "../../utils/getCookie";
 
-const Comment = ({ author, body, date, key }) => {
+const Comment = ({ author, body, date, id }) => {
   const createdSliced = date.slice(2, 10);
   const token = getCookie("csrftoken");
-  const commentKey = key;
+  const commentKey = id;
   console.log(`commentKey is ${commentKey}`);
 
   async function handleCommentDelete(id, token) {

@@ -1,8 +1,24 @@
 import React, { useState } from "react";
 import { Link, Route } from "react-router-dom";
 import getCookie from "../../utils/getCookie";
-
+import axios from "axios";
 import "./Navbar.css";
+
+async function handleLogout(token) {
+  const response = await axios.get(
+    "http://devsidi.hongik.ac.kr/api/v1/auth/logout",
+    {},
+    {
+      headers: {
+        Authorization: "Bearer " + localStorage.getItem("access_token"),
+        Accept: "application/json",
+        "X-CSRFToken": token,
+        "Content-type": "application/json",
+      },
+    }
+  );
+  return response;
+}
 
 const Navbar = ({ navClass, linkClassName, handleLogout }) => (
   <NavComponent
