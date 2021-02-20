@@ -8,15 +8,6 @@ import useAsync from "../../utils/useAsync";
 async function getEachPost(postId, token) {
   const response = await axios.get(
     `http://devsidi.hongik.ac.kr/api/v1/postings/${postId}`
-    // {},
-    // {
-    //   headers: {
-    //     Authorization: "Bearer " + localStorage.getItem("access_token"),
-    //     Accept: "application/json",
-    //     "X-CSRFToken": token,
-    //     "Content-type": "application/json",
-    //   },
-    // }
   );
   return response.data;
 }
@@ -122,7 +113,7 @@ function EachPost({ postId, handleNavigateClick }) {
           <span className="attached_file">
             첨부파일 {eachPost.files[0] ? eachPost.files[0].name : "없음"}
           </span>
-          {eachPost.files[0] ? (
+          {eachPost.files.length ? (
             <a
               href={eachPost.files[0].files}
               target="_blank"
@@ -153,9 +144,10 @@ function EachPost({ postId, handleNavigateClick }) {
                     alt={photo.alt}
                     style={{
                       width: 100 + "%",
-                      border: `2px solid ${selectedBorderColor}`,
+                      border: `1px solid rgb(0, 0, 0, 0.1)`,
                     }}
                   ></img>
+                  <br></br>
                 </div>
               );
             })

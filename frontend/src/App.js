@@ -41,10 +41,14 @@ function App() {
           <Route path="/aboutus" component={AboutUs} />
           <Route path="/alumni" component={Alumni} />
           <Route path="/exhibition" component={Exhibition} />
+          <Route
+            path="/exhibition/:postId"
+            component={EachPostContainer}
+          ></Route>
           <Route path="/calandar" component={CalandarContainer} />
           <Route path="/reservation" component={ReservationContainer} />
           <Route path="/archive" component={Archive} />
-          <Route path="/archive/:postId" component={EachPostContainer}></Route>
+
           <Route
             path="/search"
             render={() => (
