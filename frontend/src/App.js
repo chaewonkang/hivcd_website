@@ -44,6 +44,7 @@ function App() {
           <Route path="/calandar" component={CalandarContainer} />
           <Route path="/reservation" component={ReservationContainer} />
           <Route path="/archive" component={Archive} />
+          <Route path="/archive/:postId" component={EachPostContainer}></Route>
           <Route
             path="/search"
             render={() => (
