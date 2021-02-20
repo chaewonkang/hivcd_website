@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "./HomeArchive.css";
 
-const HomeArchive = ({ title, thumbnailUrl, body, category, link, id }) => {
+const HomeArchive = ({ title, thumbnailUrl, body, category, id }) => {
   let categoryName = null;
   if (category === 5) categoryName = "졸업 주간";
   else if (category === 6) categoryName = "와우영상제";
