@@ -5,8 +5,6 @@ import getCookie from "../../utils/getCookie";
 
 const Comment = ({ author, body, date, key }) => {
   const createdSliced = date.slice(0, 10);
-  const token = getCookie("csrftoken");
-  const commentId = key;
 
   async function handleCommentDelete(id, token) {
     const response = await axios
@@ -38,9 +36,7 @@ const Comment = ({ author, body, date, key }) => {
           {createdSliced}
           <div
             className="comment_delete_button"
-            onClick={(commentId, token) =>
-              handleCommentDelete(commentId, token)
-            }
+            onClick={() => handleCommentDelete(key, getCookie("csrftoken"))}
           >
             X
           </div>
