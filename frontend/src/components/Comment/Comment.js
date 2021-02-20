@@ -4,7 +4,8 @@ import axios from "axios";
 import getCookie from "../../utils/getCookie";
 
 const Comment = ({ author, body, date, key }) => {
-  const createdSliced = date.slice(0, 10);
+  const createdSliced = date.slice(3, 10);
+  const token = getCookie("csrftoken");
 
   async function handleCommentDelete(id, token) {
     const response = await axios
@@ -36,9 +37,11 @@ const Comment = ({ author, body, date, key }) => {
           {createdSliced}
           <div
             className="comment_delete_button"
-            onClick={() => handleCommentDelete(key, getCookie("csrftoken"))}
+            onClick={(k = key, t = token) =>
+              handleCommentDelete((k = key), (t = token))
+            }
           >
-            X
+            ✕
           </div>
         </div>
         <hr className="mobile_comment_hr"></hr>
