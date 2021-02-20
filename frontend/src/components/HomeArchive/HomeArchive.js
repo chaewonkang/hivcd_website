@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, Redirect } from "react-router-dom";
+import { Link } from "react-router-dom";
 import "./HomeArchive.css";
 
 const HomeArchive = ({ title, thumbnailUrl, body, category, link, id }) => {
@@ -9,7 +9,7 @@ const HomeArchive = ({ title, thumbnailUrl, body, category, link, id }) => {
   else if (category === 7) categoryName = "기타";
   const postId = parseInt(id, 10);
   return (
-    <Link to={`/archive/${postId}`}>
+    <Link to={`/exhibition/${postId}`}>
       <div className="archive">
         <div className="archive_tag">
           <span>{categoryName}</span>

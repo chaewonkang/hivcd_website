@@ -147,7 +147,7 @@ function EachPost({ postId, handleNavigateClick }) {
                       border: `1px solid rgb(0, 0, 0, 0.1)`,
                     }}
                   ></img>
-                  <br></br>
+                  <br />
                 </div>
               );
             })
