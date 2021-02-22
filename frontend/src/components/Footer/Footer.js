@@ -19,7 +19,7 @@ const Footer = () => {
               </span>
               <span className="english_address">94 </span>
               <span className="korean_address">홍익대학교 </span>
-              <span className="english_address">R715</span>
+              <span className="english_address">R712</span>
             </p>
           </div>
           <div className="footer-item">
