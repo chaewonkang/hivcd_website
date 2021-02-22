@@ -81,7 +81,7 @@ function Exhibition() {
             })
             .map((data) => {
               return (
-                <Link to={`/exhibition/${data.id}`}>
+                <Link to={`/exhibition/${data.pk}`}>
                   <ArchiveModule
                     key={data.pk}
                     title={data.title}
