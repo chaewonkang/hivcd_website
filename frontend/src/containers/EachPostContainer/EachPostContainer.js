@@ -49,9 +49,11 @@ function EachPostContainer({ match, location }) {
   const [state] = useAsync(() => getList(token), [token]);
   const { loading, data: list, error } = state;
   const [postId, setPostId] = useState(0);
+  const [isBoard, setIsBoard] = useState(true);
 
   useEffect(() => {
     setPostId(match.params.postId);
+    setIsBoard(true);
   });
 
   if (error) return <div className="each_post_container">Error Occurred!</div>;
@@ -71,6 +73,7 @@ function EachPostContainer({ match, location }) {
           )}
           postId={postId}
           handleNavigateClick={() => handleNavigateClick()}
+          IsBoard={isBoard}
         ></BoardListWrapper>
       ) : (
         <BoardListWrapper
@@ -80,6 +83,7 @@ function EachPostContainer({ match, location }) {
           )}
           postId={postId}
           handleNavigateClick={() => handleNavigateClick()}
+          IsBoard={!isBoard}
         ></BoardListWrapper>
       )}
     </div>

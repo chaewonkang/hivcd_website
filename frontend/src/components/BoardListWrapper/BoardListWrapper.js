@@ -3,7 +3,7 @@ import "./BoardListWrapper.css";
 import { useHistory } from "react-router-dom";
 import { EachPostWrapper } from "../../components";
 
-function BoardListWrapper({ list, postId, handleNavigateClick, location }) {
+function BoardListWrapper({ list, postId, handleNavigateClick, isBoard }) {
   let history = useHistory();
 
   const [currentPage, setCurrentPage] = useState(1);
@@ -25,7 +25,7 @@ function BoardListWrapper({ list, postId, handleNavigateClick, location }) {
     <>
       <div className="board_list_container">
         <div>
-          {location.pathname.includes("board")
+          {isBoard
             ? currentsPosts.map((el, key) => {
                 let categoryName = null;
                 if (el.category === 1) categoryName = "학과 공지";
