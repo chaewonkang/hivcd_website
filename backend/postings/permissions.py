@@ -2,6 +2,7 @@ import os
 from rest_framework.permissions import BasePermission
 from auth.models import Account
 from auth.decrypt import decrypt
+from api_v1.utils import get_user_id
 
 
 class CookiePermission(BasePermission):
@@ -17,10 +18,3 @@ class CookiePermission(BasePermission):
             return False
 
         return account.is_sidi == True
-
-
-def get_user_id(cookies):
-    cookie_id = cookies["SUSER_ID"]
-    key = os.getenv("AUTH_KEY")
-    decrypt_id = decrypt(s=cookie_id, key=key)
-    return decrypt_id[:7]

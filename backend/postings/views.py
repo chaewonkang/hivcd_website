@@ -6,7 +6,8 @@ from rest_framework.permissions import IsAuthenticatedOrReadOnly
 from rest_framework.decorators import api_view, permission_classes
 from auth.decrypt import decrypt
 from auth.models import Account
-from .permissions import CookiePermission, get_user_id
+from api_v1.utils import get_user_id
+from .permissions import CookiePermission
 from .models import Post, Comment
 from .serializers import PostSerializer, CommentSerializer
 

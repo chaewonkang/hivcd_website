@@ -1,8 +1,10 @@
 import os
 from django.shortcuts import redirect
 from django.http import HttpResponse, JsonResponse
+from django.contrib.auth import logout
 from rest_framework.decorators import api_view
 from rest_framework import generics
+from api_v1.utils import get_user_id
 from .serializers import AccountSerializer
 from .decrypt import decrypt
 from .models import Account
@@ -14,8 +16,7 @@ DOMAIN = "hongik.ac.kr"
 
 @api_view(["GET"])
 def login_view(request):
-    suser_id = decrypt(s=request.COOKIES["SUSER_ID"], key=os.getenv("AUTH_KEY"))
-    suser_id = suser_id[:7]
+    suser_id = get_user_id(request.COOKIES)
 
     try:
         Account.objects.get(suser_id=suser_id)
@@ -27,7 +28,9 @@ def login_view(request):
 
 @api_view(["GET"])
 def logout_view(request):
+    logout(request)
     response = HttpResponse(content="success")
+
     response.delete_cookie(key="SUSER_ID", domain=DOMAIN)
     response.delete_cookie(key="SUSER_NAME", domain=DOMAIN)
     response.delete_cookie(key="SUSER_GUBUN", domain=DOMAIN)
