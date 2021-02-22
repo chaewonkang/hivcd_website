@@ -3,7 +3,7 @@ import "./BoardListWrapper.css";
 import { useHistory } from "react-router-dom";
 import { EachPostWrapper } from "../../components";
 
-function BoardListWrapper({ list, postId, handleNavigateClick }) {
+function BoardListWrapper({ list, postId, handleNavigateClick, location }) {
   let history = useHistory();
 
   const [currentPage, setCurrentPage] = useState(1);
@@ -40,7 +40,11 @@ function BoardListWrapper({ list, postId, handleNavigateClick }) {
                     <div
                       className="list_grid list_data"
                       key={key}
-                      onClick={() => history.push(`/board/${el.pk}`)}
+                      onClick={() =>
+                        location.pathname.includes("board")
+                          ? history.push(`/board/${el.pk}`)
+                          : history.push(`/exhibition/${el.pk}`)
+                      }
                     >
                       <div className="list_tag">
                         <span>{categoryName}</span>

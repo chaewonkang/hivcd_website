@@ -30,7 +30,7 @@ function EachPost({ postId, handleNavigateClick }) {
     color: null,
     borderColor: null,
   });
-  const [warningVisibility] = useState(false);
+  const [warningVisibility, setWarningVisibility] = useState(false);
   const [token] = useState(getCookie("csrftoken"));
   const [state] = useAsync(() => getEachPost(postId, token), [postId, token]);
   const { loading, data: eachPost, error } = state;
