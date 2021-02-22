@@ -40,7 +40,7 @@ function BoardListWrapper({ list, postId, handleNavigateClick, location }) {
                     <div
                       className="list_grid list_data"
                       key={key}
-                      onClick={() =>
+                      onClick={(location) =>
                         location.pathname.includes("board")
                           ? history.push(`/board/${el.pk}`)
                           : history.push(`/exhibition/${el.pk}`)
