@@ -31,6 +31,15 @@
   font-family: "Helvetica", sans-serif;
 }
 
+.attached_link {
+  color: #000;
+}
+
+.attached_link:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
 .each_post p {
   font-size: 17px;
   word-break: keep-all;

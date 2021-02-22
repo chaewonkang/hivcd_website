@@ -159,13 +159,19 @@ function EachPost({ postId, handleNavigateClick }) {
           : null}
         {eachPost.link.length ? (
           <>
-            <hr style={{ marginBottom: 2 + "em", marginTop: 2 + "em" }}></hr>
-            <a href={eachPost.link} target="_blank" rel="noopener noreferrer">
+            <hr style={{ marginBottom: 1 + "em", marginTop: 1 + "em" }}></hr>
+            <a
+              href={eachPost.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              alt="링크"
+              className="attached_link"
+            >
               첨부 링크
             </a>
           </>
         ) : null}
-        <hr style={{ marginBottom: 2 + "em", marginTop: 2 + "em" }}></hr>
+        <hr style={{ marginBottom: 1 + "em", marginTop: 1 + "em" }}></hr>
         <CommentList
           comments={eachPost.comments}
           style={style}
