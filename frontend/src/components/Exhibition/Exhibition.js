@@ -85,9 +85,12 @@ function Exhibition() {
                   <ArchiveModule
                     key={data.pk}
                     title={data.title}
-                    thumbnailUrl={data.photos ? data.photos[0].photo : null}
-                    date={data.updated}
+                    id={data.pk}
+                    body={data.text}
                     category={data.category}
+                    thumbnailUrl={
+                      data.photos.length ? data.photos[0].photo : null
+                    }
                     link={data.link}
                   ></ArchiveModule>
                 </Link>

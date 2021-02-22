@@ -89,11 +89,16 @@ function EachPost({ postId, handleNavigateClick }) {
 
   if (error)
     return (
-      <div className="each_post_wrapper">
+      <div className="each_post_wrapper" style={style}>
         아직 권한이 부여되지 않았습니다. 조교실에 문의해 주세요.
       </div>
     );
-  if (loading) return <div className="each_post_wrapper">로딩 중...</div>;
+  if (loading)
+    return (
+      <div className="each_post_wrapper" style={style}>
+        로딩 중...
+      </div>
+    );
   if (!eachPost) return null;
 
   return (
