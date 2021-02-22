@@ -199,6 +199,8 @@
 @media (max-width: 576px) {
   .aboutus_wrapper {
     margin-top: 70px;
+    margin-right: 10px;
+    margin-left: 10px;
   }
   .aboutus_container {
     grid-template-columns: 1fr;

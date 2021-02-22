@@ -80,5 +80,7 @@ div[data-widgetuuid="025d70f1-3768-4efa-a8db-f98a9ebd3780"]
 @media (max-width: 576px) {
   .calandar_container {
     margin-top: 70px;
+    margin-right: 10px;
+    margin-left: 10px;
   }
 }
