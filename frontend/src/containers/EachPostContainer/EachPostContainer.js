@@ -53,8 +53,8 @@ function EachPostContainer({ match, location }) {
 
   useEffect(() => {
     setPostId(match.params.postId);
-    setIsBoard(true);
-  });
+    location.pathname.includes("board") ? setIsBoard(true) : setIsBoard(false);
+  }, [isBoard]);
 
   if (error) return <div className="each_post_container">Error Occurred!</div>;
   if (loading) return <div className="each_post_container">Loading...</div>;
@@ -73,7 +73,7 @@ function EachPostContainer({ match, location }) {
           )}
           postId={postId}
           handleNavigateClick={() => handleNavigateClick()}
-          IsBoard={isBoard}
+          isBoard={isBoard}
         ></BoardListWrapper>
       ) : (
         <BoardListWrapper
@@ -83,7 +83,7 @@ function EachPostContainer({ match, location }) {
           )}
           postId={postId}
           handleNavigateClick={() => handleNavigateClick()}
-          IsBoard={!isBoard}
+          isBoard={isBoard}
         ></BoardListWrapper>
       )}
     </div>
