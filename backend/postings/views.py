@@ -1,6 +1,7 @@
 import os
 from django.http import HttpResponse
 from django.shortcuts import get_object_or_404
+from django.db.models import Q
 from rest_framework import generics
 from rest_framework.permissions import IsAuthenticatedOrReadOnly
 from rest_framework.decorators import api_view, permission_classes
@@ -14,6 +15,12 @@ from .serializers import PostSerializer, CommentSerializer
 
 class PostListCreateAPIView(generics.ListAPIView):
     queryset = Post.objects.all().cache()
+    serializer_class = PostSerializer
+    permission_classes = (IsAuthenticatedOrReadOnly,)
+
+
+class ArchiveListAPIView(generics.ListAPIView):
+    queryset = Post.objects.filter(Q(category=5) | Q(category=6) | Q(category=7))
     serializer_class = PostSerializer
     permission_classes = (IsAuthenticatedOrReadOnly,)
 

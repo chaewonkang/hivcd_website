@@ -49,7 +49,7 @@ THIRDPARTY_APPS = [
     "drf_yasg",
     "django_seed",
     "storages",
-    'cacheops',
+    "cacheops",
 ]
 
 INSTALLED_APPS = DJANGO_APPS + PROJECT_APPS + THIRDPARTY_APPS
@@ -162,20 +162,23 @@ SWAGGER_SETTINGS = {
 CACHEOPS_LRU = True
 CACHEOPS_DEGRADE_ON_FAILURE = True
 CACHEOPS_DEFAULTS = {
-    'timeout': 60*5,
-    'cache_on_save': True,
-    'local_get': False,
+    "timeout": 60 * 5,
+    "cache_on_save": True,
+    "local_get": False,
 }
 CACHEOPS_REDIS = {
-    'host': 'localhost',# CACHEOPS_REDIS_HOST,
-    'port': '6379', #CACHEOPS_REDIS_PORT,
-    'db': 1,
-    'socket_timeout': 0.5
+    "host": "localhost",  # CACHEOPS_REDIS_HOST,
+    "port": "6379",  # CACHEOPS_REDIS_PORT,
+    "db": 1,
+    "socket_timeout": 0.5,
 }
 CACHEOPS = {
-    'auth.Account': {'ops': 'get'},
-    'postings.Post': {'ops': 'get'},
-    'postings.Comment': {'ops': 'get'},
+    "auth.Account": {"ops": "get"},
+    "postings.Post": {"ops": "get"},
+    "postings.Comment": {"ops": "get"},
+    "auth.Account": {"ops": "all"},
+    "postings.Post": {"ops": "all"},
+    "postings.Comment": {"ops": "all"},
 }
 
 SESSION_COOKIE_AGE = 1200
