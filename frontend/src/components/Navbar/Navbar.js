@@ -1,21 +1,31 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link, Route } from "react-router-dom";
 import getCookie from "../../utils/getCookie";
 import axios from "axios";
 import "./Navbar.css";
 
-async function handleLogout() {
+async function handleLogout(token) {
   const response = await axios.get(
-    "http://devsidi.hongik.ac.kr/api/v1/auth/logout"
+    "http://devsidi.hongik.ac.kr/api/v1/auth/logout",
+    {},
+    {
+      headers: {
+        Authorization: "Bearer " + localStorage.getItem("access_token"),
+        Accept: "application/json",
+        "X-CSRFToken": token,
+        "Content-type": "application/json",
+      },
+    }
   );
   return response;
 }
-
 const Navbar = ({ navClass, linkClassName }) => (
   <NavComponent navClass={navClass} linkClassName={linkClassName} />
 );
 
-export const NavComponent = ({ onClick, handleLogin }) => {
+export const NavComponent = ({ onClick }) => {
+  const [token] = useState(getCookie("csrftoken"));
+
   return (
     <>
       <nav>
@@ -49,7 +59,7 @@ export const NavComponent = ({ onClick, handleLogin }) => {
                 <button
                   type="submit"
                   className="mobile_login_input_button"
-                  onClick={() => handleLogout()}
+                  onClick={(t = token) => handleLogout((t = token))}
                 >
                   로그아웃
                 </button>

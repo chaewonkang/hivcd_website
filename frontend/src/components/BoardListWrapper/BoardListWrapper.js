@@ -3,7 +3,7 @@ import "./BoardListWrapper.css";
 import { useHistory } from "react-router-dom";
 import { EachPostWrapper } from "../../components";
 
-function BoardListWrapper({ list, postId, handleNavigateClick }) {
+function BoardListWrapper({ list, postId, handleNavigateClick, isBoard }) {
   let history = useHistory();
 
   const [currentPage, setCurrentPage] = useState(1);
@@ -25,16 +25,13 @@ function BoardListWrapper({ list, postId, handleNavigateClick }) {
     <>
       <div className="board_list_container">
         <div>
-          {currentsPosts
+          {isBoard
             ? currentsPosts.map((el, key) => {
                 let categoryName = null;
                 if (el.category === 1) categoryName = "학과 공지";
                 else if (el.category === 2) categoryName = "행사";
                 else if (el.category === 3) categoryName = "구인구직";
                 else if (el.category === 4) categoryName = "분실물";
-                else if (el.category === 5) categoryName = "졸업 주간";
-                else if (el.category === 6) categoryName = "와우영상제";
-                else if (el.category === 7) categoryName = "기타";
                 return (
                   <React.Fragment key={key}>
                     <div
@@ -53,7 +50,29 @@ function BoardListWrapper({ list, postId, handleNavigateClick }) {
                   </React.Fragment>
                 );
               })
-            : null}
+            : currentsPosts.map((el, key) => {
+                let categoryName = null;
+                if (el.category === 5) categoryName = "졸업 주간";
+                else if (el.category === 6) categoryName = "와우영상제";
+                else if (el.category === 7) categoryName = "기타";
+                return (
+                  <React.Fragment key={key}>
+                    <div
+                      className="list_grid list_data"
+                      key={key}
+                      onClick={() => history.push(`/exhibition/${el.pk}`)}
+                    >
+                      <div className="list_tag">
+                        <span>{categoryName}</span>
+                      </div>
+                      <div className="board_list_title">
+                        {el.title.slice(0, 40)}...
+                      </div>
+                      <div className="acenter"> {el.updated.slice(2, 10)} </div>
+                    </div>
+                  </React.Fragment>
+                );
+              })}
         </div>
         <div className="paging_div">
           <div>

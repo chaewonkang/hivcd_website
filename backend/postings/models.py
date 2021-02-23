@@ -41,9 +41,6 @@ class Comment(Timestamp):
         related_name="comments",
         db_column="author_username",
     )
-    parent = models.ForeignKey(
-        "self", related_name="reply", on_delete=models.CASCADE, null=True, blank=True
-    )
     text = models.TextField()
 
     class Meta:

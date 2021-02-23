@@ -30,7 +30,7 @@ function EachPost({ postId, handleNavigateClick }) {
     color: null,
     borderColor: null,
   });
-  const [warningVisibility] = useState(false);
+  const [warningVisibility, setWarningVisibility] = useState(false);
   const [token] = useState(getCookie("csrftoken"));
   const [state] = useAsync(() => getEachPost(postId, token), [postId, token]);
   const { loading, data: eachPost, error } = state;
@@ -89,11 +89,16 @@ function EachPost({ postId, handleNavigateClick }) {
 
   if (error)
     return (
-      <div className="each_post_wrapper">
+      <div className="each_post_wrapper" style={style}>
         아직 권한이 부여되지 않았습니다. 조교실에 문의해 주세요.
       </div>
     );
-  if (loading) return <div className="each_post_wrapper">로딩 중...</div>;
+  if (loading)
+    return (
+      <div className="each_post_wrapper" style={style}>
+        로딩 중...
+      </div>
+    );
   if (!eachPost) return null;
 
   return (
@@ -152,7 +157,21 @@ function EachPost({ postId, handleNavigateClick }) {
               );
             })
           : null}
-        <hr style={{ marginBottom: 2 + "em", marginTop: 2 + "em" }}></hr>
+        {eachPost.link.length ? (
+          <>
+            <hr style={{ marginBottom: 1 + "em", marginTop: 1 + "em" }}></hr>
+            <a
+              href={eachPost.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              alt="링크"
+              className="attached_link"
+            >
+              첨부 링크
+            </a>
+          </>
+        ) : null}
+        <hr style={{ marginBottom: 1 + "em", marginTop: 1 + "em" }}></hr>
         <CommentList
           comments={eachPost.comments}
           style={style}

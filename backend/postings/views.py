@@ -37,7 +37,7 @@ class CommentListCreateAPIView(generics.ListCreateAPIView):
     permission_classes = (CookiePermission,)
 
     def get_queryset(self):
-        qs = Comment.objects.filter(post_id=self.kwargs["pk"])
+        qs = Comment.objects.filter(post_id=self.kwargs["pk"]).cache()
         return qs
 
     def perform_create(self, serializer):

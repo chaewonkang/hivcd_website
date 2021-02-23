@@ -10,7 +10,15 @@ const AlumniModule = ({ year, name, tel, url }) => {
       <br></br>
       {tel}
       <br></br>
-      {url}
+      <a
+        href={url}
+        target="_blank"
+        rel="noopener noreferrer"
+        alt="alumni_url"
+        className="alumni_url"
+      >
+        {url}
+      </a>
     </div>
   );
 };

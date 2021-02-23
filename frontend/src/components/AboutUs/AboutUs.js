@@ -362,7 +362,7 @@ const AboutUs = () => {
                 <tr>
                   <td>주소</td>
                   <td>
-                    04066 서울특별시 마포구 와우산로 94<br></br> 홍익대학교 R715
+                    04066 서울특별시 마포구 와우산로 94<br></br> 홍익대학교 R712
                   </td>
                   <td></td>
                   <td></td>
@@ -371,7 +371,7 @@ const AboutUs = () => {
               <table className="aboutus_contact_mobile">
                 <tr>
                   <td>위치</td>
-                  <td>R715</td>
+                  <td>R712</td>
                 </tr>
                 <tr>
                   <td>전화</td>
@@ -534,12 +534,13 @@ const AboutUs = () => {
               <table className="aboutus_contact">
                 <tr>
                   <td>웹사이트 디자인</td>
-                  <td>Yinyang yinyang.company</td>
+                  <td>Yinyang @yinyang.company</td>
                 </tr>
                 <tr>
                   <td>웹사이트 개발</td>
                   <td>
-                    강채원 yinyang.company<br></br>김서규 yinyang.company
+                    강채원 www.chaewonkang.com<br></br>
+                    김서규 github.com/SeogyuGim
                   </td>
                 </tr>
                 <tr>

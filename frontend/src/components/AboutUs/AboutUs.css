@@ -47,8 +47,13 @@
 
 .aboutus_contact td {
   padding: 5px;
+  font-weight: 400;
 }
 
+.aboutus_contact td a {
+  color: #000;
+  font-weight: 400;
+}
 .aboutus_content p,
 .credit a {
   font-size: 18px;
@@ -199,6 +204,8 @@
 @media (max-width: 576px) {
   .aboutus_wrapper {
     margin-top: 70px;
+    margin-right: 10px;
+    margin-left: 10px;
   }
   .aboutus_container {
     grid-template-columns: 1fr;

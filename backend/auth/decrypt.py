@@ -27,11 +27,3 @@ def bytexor(aByte, bByte, ilimit):
     for i in range(ilimit):
         c += chr(aByte[i] ^ bByte[i])
     return c
-
-
-SUSER_ID = "H4eJ6tg%253D"
-sid = "b4SO4NwvkA%253D%253DZ"
-p_ = decrypt(SUSER_ID, key)
-print(p_)
-# d_sid = decrypt(sid, key)
-# print(d_sid)

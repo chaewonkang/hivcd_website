@@ -8,6 +8,11 @@ header {
   display: none;
 }
 
+.header_container {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+}
+
 .header_container_left {
   display: inline-grid;
   width: calc((100vw - 40px) * 0.3);
@@ -17,16 +22,26 @@ header {
 .header_container_right {
   display: inline-grid;
   width: calc((100vw - 40px) * 0.7);
-  grid-template-columns: 9fr 2fr;
-  padding-left: 10px;
+  grid-template-columns: 1fr auto;
   font-size: 17px;
   text-align: right;
-  position: absolute;
-  right: 0;
 }
 
 .header_container_menubar {
-  margin-right: 40px;
+  position: relative;
+  right: 0;
+}
+
+.header_container_system {
+  display: inline-grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 10px;
+  text-align: center;
+  font-size: 15px;
+  width: fit-content;
+  top: 0.5px;
+  position: relative;
+  right: 0;
 }
 
 .header_container_title h1 {
@@ -49,19 +64,6 @@ header {
 .navbar_menu_wrapper_item_title a:hover {
   border-bottom: 1px solid #000;
   color: #000;
-}
-
-.header_container_system {
-  display: inline-grid;
-  grid-template-columns: 1fr 1fr;
-  column-gap: 10px;
-  text-align: center;
-  font-size: 15px;
-  width: fit-content;
-  position: absolute;
-  right: 0;
-  top: 0.5px;
-  margin-right: 20px;
 }
 
 .header_container_login,

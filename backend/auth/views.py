@@ -48,11 +48,11 @@ def logout_view(request):
 
 @api_view(["GET"])
 def user_list(request):
-    qs = Account.objects.all()
+    qs = Account.objects.all().cache()
     serializer = AccountSerializer(qs)
     return JsonResponse(serializer.data)
 
 
 class AccountListAPIView(generics.ListAPIView):
-    queryset = Account.objects.all()
+    queryset = Account.objects.all().cache()
     serializer_class = AccountSerializer
