@@ -1,7 +1,5 @@
 import os, hashlib, base64, binascii, crypt, urllib.parse
 
-# from .utils import get_client_ip
-
 key = os.getenv("AUTH_KEY").encode("utf-8")
 
 
@@ -13,7 +11,7 @@ def decrypt(s, key):
     ret = ""
 
     md5 = hashlib.md5()
-    md5.update(key)
+    md5.update(key.encode())
     digest = md5.digest()  # bytes
     i_bytes = base64.b64decode(s)
     length = len(i_bytes)
