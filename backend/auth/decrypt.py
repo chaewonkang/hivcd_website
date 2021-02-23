@@ -11,7 +11,7 @@ def decrypt(s, key):
     ret = ""
 
     md5 = hashlib.md5()
-    md5.update(key.encode())
+    md5.update(key.encode("utf-8"))
     digest = md5.digest()  # bytes
     i_bytes = base64.b64decode(s)
     length = len(i_bytes)
