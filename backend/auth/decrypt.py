@@ -28,8 +28,7 @@ def decrypt(s, key):
     if not s or len(s) == 0:
         return ""
 
-    s = urllib.parse.unquote_plus(s)
-    s += "=" * (len(s) % 4)
+    s = urllib.parse.unquote_plus(s) + "===" 
     ret = ""
 
     md5 = hashlib.md5()

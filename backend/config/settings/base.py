@@ -173,10 +173,12 @@ CACHEOPS_REDIS = {
     'socket_timeout': 0.5
 }
 CACHEOPS = {
-    'auth.Account': {'ops': 'get'},
-    'postings.Post': {'ops': 'get'},
-    'postings.Comment': {'ops': 'get'},
+    "my_auth.Account": {"ops": "get"},
+    "postings.Post": {"ops": "get"},
+    "postings.Comment": {"ops": "get"},
+    "my_auth.Account": {"ops": "all"},
+    "postings.Post": {"ops": "all"},
+    "postings.Comment": {"ops": "all"},
 }
-
 SESSION_COOKIE_AGE = 1200
 SESSION_SAVE_EVERY_REQUEST = True
