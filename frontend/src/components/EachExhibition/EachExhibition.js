@@ -126,14 +126,14 @@ function EachExhibition({ postId, handleNavigateClick }) {
                 </>
               ) : null}
               <hr style={{ marginBottom: 1 + "em", marginTop: 1 + "em" }}></hr>
-              <CommentList
+              {/* <CommentList
                 comments={data.comments}
                 postId={postId}
-              ></CommentList>
-              <Warning
+              ></CommentList> */}
+              {/* <Warning
                 visible={warningVisibility}
                 message={"마지막 게시글입니다."}
-              ></Warning>
+              ></Warning> */}
             </div>
           );
         })}
