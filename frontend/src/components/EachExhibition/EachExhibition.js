@@ -5,13 +5,19 @@ import axios from "axios";
 import useAsync from "../../utils/useAsync";
 import getCookie from "../../utils/getCookie";
 
-async function getEachExhibition() {
-  const response = await axios
-    .get("http://devsidi.hongik.ac.kr/api/v1/postings/archive")
-    .then((response) => {
-      console.log(response);
-      console.log(response.data);
-    });
+async function getExhibitionInfo(token) {
+  const response = await axios.get(
+    "http://devsidi.hongik.ac.kr/api/v1/postings/archive",
+    {},
+    {
+      headers: {
+        Authorization: "Bearer " + localStorage.getItem("access_token"),
+        Accept: "application/json",
+        "X-CSRFToken": token,
+        "Content-type": "application/json",
+      },
+    }
+  );
   return response.data;
 }
 
@@ -31,24 +37,22 @@ function setCategoryNumber(category) {
 function EachExhibition({ postId, handleNavigateClick }) {
   const [token] = useState(getCookie("csrftoken"));
   const [warningVisibility, setWarningVisibility] = useState(false);
-  //   const [state] = useAsync(() => getEachExhibition(postId), [postId]);
-  //   const { loading, data, error } = state;
-  const data = getEachExhibition();
-  const post = data.filter((p) => p.pk === postId);
+  const [state] = useAsync(() => getExhibitionInfo(token), [token]);
+  const { loading, data: exhibition, error } = state;
 
-  //   if (error)
-  //     return (
-  //       <div className="each_post_wrapper">
-  //         아직 권한이 부여되지 않았습니다. 조교실에 문의해 주세요.
-  //       </div>
-  //     );
-  //   if (loading) return <div className="each_post_wrapper">로딩 중...</div>;
-  if (!data) return null;
-  if (!post) return null;
+  if (error)
+    return (
+      <div className="each_post_wrapper">
+        아직 권한이 부여되지 않았습니다. 조교실에 문의해 주세요.
+      </div>
+    );
+  if (loading) return <div className="each_post_wrapper">로딩 중...</div>;
+  if (!exhibition) return null;
 
   return (
     <div className="each_post_wrapper">
-      <div className="each_post">
+      {exhibition}
+      {/* <div className="each_post">
         <div className="each_post_tag">{setCategoryNumber(post.category)}</div>
         <h1>{post.title}</h1>
         <hr style={{ marginBottom: 1 + "em" }}></hr>
@@ -120,7 +124,7 @@ function EachExhibition({ postId, handleNavigateClick }) {
           visible={warningVisibility}
           message={"마지막 게시글입니다."}
         ></Warning>
-      </div>
+      </div> */}
     </div>
   );
 }
