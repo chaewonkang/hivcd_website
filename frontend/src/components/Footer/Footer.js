@@ -53,10 +53,10 @@ const Footer = () => {
             <span className="footer-item-title">바로가기</span>
             <p>
               <a
-                href="http://hongik.ac.kr"
+                href="https://www.hongik.ac.kr/index.do"
                 target="_blank"
                 rel="noopener noreferrer"
-                class="fa fa-facebook"
+                class="fa fa-home"
               >
                 {""}
               </a>
@@ -69,7 +69,7 @@ const Footer = () => {
                 {""}
               </a>
               <a
-                href="http://hongik.ac.kr"
+                href="https://www.instagram.com/hivcd2021/"
                 target="_blank"
                 rel="noopener noreferrer"
                 class="fa fa-instagram"

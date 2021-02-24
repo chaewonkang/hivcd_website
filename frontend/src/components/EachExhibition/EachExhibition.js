@@ -55,18 +55,18 @@ function EachExhibition({ postId, handleNavigateClick }) {
         .filter((data) => data.pk === parseInt(postId, 10))
         .map((data) => {
           return (
-            <div className="each_post">
-              <div className="each_post_tag">
+            <div className="each_exhibition">
+              <div className="each_exhibition_tag">
                 {setCategoryNumber(data.category)}
               </div>
               <h1>{data.title}</h1>
               <hr style={{ marginBottom: 1 + "em" }}></hr>
-              <div className="each_post_info">
+              <div className="each_exhibition_info">
                 <span>작성자 {data.author}</span>
                 <span>작성일 {data.updated.slice(0, 10)}</span>
               </div>
               <hr></hr>
-              <div className="each_post_files">
+              <div className="each_exhibition_files">
                 <span className="attached_file">
                   첨부파일 {data.files[0] ? data.files[0].name : "없음"}
                 </span>
@@ -126,14 +126,6 @@ function EachExhibition({ postId, handleNavigateClick }) {
                 </>
               ) : null}
               <hr style={{ marginBottom: 1 + "em", marginTop: 1 + "em" }}></hr>
-              {/* <CommentList
-                comments={data.comments}
-                postId={postId}
-              ></CommentList> */}
-              {/* <Warning
-                visible={warningVisibility}
-                message={"마지막 게시글입니다."}
-              ></Warning> */}
             </div>
           );
         })}
