@@ -114,10 +114,25 @@ header {
     text-align: left;
   }
 
+  .header_container_title h1 {
+    font-size: 15px;
+  }
+
+  .navbar_menu_wrapper_item_title {
+    font-size: 15px;
+  }
+
+  .navbar_menu_wrapper_item_title a {
+    top: -1px;
+  }
+
+  .header_container_system {
+    top: -3px;
+  }
+
   .header_container_left {
     display: inline-grid;
-    grid-template-columns: 1fr;
-    column-gap: 0;
+    grid-template-columns: 1.5fr;
     z-index: 1000;
   }
 }
@@ -125,10 +140,9 @@ header {
 /********** Extra small devices only **********/
 @media (min-width: 577px) and (max-width: 767px) {
   header {
-    position: fixed;
-    z-index: 2000;
-    left: 0;
-    top: 0;
+    background-color: #fff5f5;
+    padding: 15px 10px;
+    width: 100%;
   }
 
   .header_container_responsive {
@@ -141,7 +155,7 @@ header {
 
   .header_container_left {
     display: inline-grid;
-    width: calc(100vw - 40px);
+    width: 90%;
     grid-template-columns: 1fr;
     column-gap: 0;
     z-index: 1000;
