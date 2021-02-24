@@ -33,9 +33,9 @@ function EachExhibition({ postId, handleNavigateClick }) {
   const [warningVisibility, setWarningVisibility] = useState(false);
   const [state] = useAsync(() => getEachExhibition(), []);
   const { loading, data: posts, error } = state;
-  const [ret, setRet] = useState(null);
-
-  useEffect(console.log(posts));
+  const [ret, setRet] = useState(getEachExhibition());
+  const newVal = ret.filter((post) => post.pk === postId);
+  console.log(newVal);
 
   if (error)
     return (
