@@ -40,7 +40,6 @@ function Alumni() {
     <div className="alumni_wrapper">
       <AlumniSearch onChange={(e) => alumniSearchSpace(e)}></AlumniSearch>
       <div className="alumni_container">
-        <LogoImage style={{ gridColumn: 1 / 1, gridRow: 1 / 1 }}></LogoImage>
         {alumnis
           .filter((data) => {
             if (alumniSearch === null) return data;

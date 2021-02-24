@@ -35,7 +35,7 @@ export const NavComponent = ({ onClick }) => {
               <span>주소</span>
               <p>
                 04066 서울특별시<br></br>마포구 와우산로 94<br></br>홍익대학교
-                R715
+                R712
               </p>
             </div>
             <div className="nav_class_bp_tel">
@@ -89,9 +89,9 @@ export const NavComponent = ({ onClick }) => {
               <Link to="/alumni">
                 <li onClick={onClick}>동문연락망</li>{" "}
               </Link>
-              <Link to="/archive">
+              {/* <Link to="/archive">
                 <li onClick={onClick}>아카이브</li>{" "}
-              </Link>
+              </Link> */}
               <Link to="/exhibition">
                 <li onClick={onClick}>전시</li>{" "}
               </Link>

@@ -69,7 +69,6 @@ function Board() {
         </div>
       </div>
       <BoardPostWrapper>
-        <LogoImage></LogoImage>
         {posts
           .filter(
             (data) =>
