@@ -26,10 +26,6 @@ function setCategoryNumber(category) {
 }
 
 function EachExhibition({ postId, handleNavigateClick }) {
-  const [style, setStyle] = useState({
-    color: null,
-    borderColor: null,
-  });
   const [warningVisibility, setWarningVisibility] = useState(false);
   const [token] = useState(getCookie("csrftoken"));
   const [state] = useAsync(() => getEachExhibition(postId, token), [
@@ -38,74 +34,17 @@ function EachExhibition({ postId, handleNavigateClick }) {
   ]);
   const { loading, data: EachExhibition, error } = state;
 
-  const colorArray = [
-    "#A3B3C4",
-    "#00F5C6",
-    "#93F421",
-    "#9452FF",
-    "#FDFBC1",
-    "#BC791E",
-    "#00C4FF",
-    "#FF3333",
-    "#FF01FF",
-    "#DEADF0",
-    "#9099FF",
-    "#3EA455",
-    "#FECC99",
-    "#959B01",
-    "#CDCC33",
-  ];
-
-  const borderColorArray = [
-    "#78A4B7",
-    "#47D2DD",
-    "#64CB0C",
-    "#6E12D6",
-    "#CFD372",
-    "#935B0F",
-    "#094EFF",
-    "#B74A6C",
-    "#E00000",
-    "#BB12D8",
-    "#6F55FF",
-    "#0F7946",
-    "#FD9191",
-    "#495B1D",
-    "#A8B419",
-  ];
-
-  const randomIndex = Math.floor(Math.random() * 15);
-
-  const selectedColor = colorArray[randomIndex];
-  const selectedBorderColor = borderColorArray[randomIndex];
-
-  const willMount = useRef(true);
-
-  if (willMount.current) {
-    setStyle({
-      backgroundColor: selectedColor,
-      border: `2px solid ${selectedBorderColor}`,
-    });
-  }
-
-  willMount.current = false;
-
   if (error)
     return (
-      <div className="each_post_wrapper" style={style}>
+      <div className="each_post_wrapper">
         아직 권한이 부여되지 않았습니다. 조교실에 문의해 주세요.
       </div>
     );
-  if (loading)
-    return (
-      <div className="each_post_wrapper" style={style}>
-        로딩 중...
-      </div>
-    );
+  if (loading) return <div className="each_post_wrapper">로딩 중...</div>;
   if (!EachExhibition) return null;
 
   return (
-    <div className="each_post_wrapper" style={style}>
+    <div className="each_post_wrapper">
       <div className="each_post">
         <div className="each_post_tag">
           {setCategoryNumber(EachExhibition.category)}
@@ -178,7 +117,6 @@ function EachExhibition({ postId, handleNavigateClick }) {
         <hr style={{ marginBottom: 1 + "em", marginTop: 1 + "em" }}></hr>
         <CommentList
           comments={EachExhibition.comments}
-          style={style}
           postId={postId}
         ></CommentList>
         <Warning

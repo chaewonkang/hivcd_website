@@ -53,6 +53,7 @@ function EachExhibitionContainer({ match, location }) {
 
   useEffect(() => {
     setPostId(match.params.postId);
+    location.pathname.includes("board") ? setIsBoard(true) : setIsBoard(false);
   });
 
   if (error) return <div className="each_post_container">Error Occurred!</div>;

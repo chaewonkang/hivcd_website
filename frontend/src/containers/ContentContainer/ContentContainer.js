@@ -22,22 +22,6 @@ async function getPosts(token) {
   return response.data;
 }
 
-async function getArchives(token) {
-  const response = await axios.get(
-    "http://devsidi.hongik.ac.kr/api/v1/postings/archive",
-    {},
-    {
-      headers: {
-        Authorization: "Bearer " + localStorage.getItem("access_token"),
-        Accept: "application/json",
-        "X-CSRFToken": token,
-        "Content-type": "application/json",
-      },
-    }
-  );
-  return response.data;
-}
-
 function ContentContainer() {
   const [token] = useState(getCookie("csrftoken"));
   const [state] = useAsync(() => getPosts(token), [token]);

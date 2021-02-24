@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "./ArchiveModule.css";
 
-const ArchiveModule = ({ title, thumbnailUrl, category, id, body, link }) => {
+const ArchiveModule = ({ title, thumbnailUrl, category, id, body }) => {
   let categoryName = null;
   if (category === 5) categoryName = "졸업 주간";
   else if (category === 6) categoryName = "와우영상제";
