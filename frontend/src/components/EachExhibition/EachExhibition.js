@@ -1,13 +1,13 @@
 import React, { useState, useRef } from "react";
-import "./EachPost.css";
-import { EachPostNavigator, CommentList, Warning } from "../../components";
+import "./EachExhibition.css";
+import { CommentList, Warning } from "../../components";
 import axios from "axios";
 import getCookie from "../../utils/getCookie";
 import useAsync from "../../utils/useAsync";
 
-async function getEachPost(postId) {
+async function getEachExhibition(postId) {
   const response = await axios.get(
-    `http://devsidi.hongik.ac.kr/api/v1/postings/${postId}`
+    `http://devsidi.hongik.ac.kr/api/v1/postings/archive/${postId}`
   );
   return response.data;
 }
@@ -25,15 +25,18 @@ function setCategoryNumber(category) {
   return categoryName;
 }
 
-function EachPost({ postId, handleNavigateClick }) {
+function EachExhibition({ postId, handleNavigateClick }) {
   const [style, setStyle] = useState({
     color: null,
     borderColor: null,
   });
   const [warningVisibility, setWarningVisibility] = useState(false);
   const [token] = useState(getCookie("csrftoken"));
-  const [state] = useAsync(() => getEachPost(postId, token), [postId, token]);
-  const { loading, data: eachPost, error } = state;
+  const [state] = useAsync(() => getEachExhibition(postId, token), [
+    postId,
+    token,
+  ]);
+  const { loading, data: EachExhibition, error } = state;
 
   const colorArray = [
     "#A3B3C4",
@@ -99,30 +102,31 @@ function EachPost({ postId, handleNavigateClick }) {
         로딩 중...
       </div>
     );
-  if (!eachPost) return null;
+  if (!EachExhibition) return null;
 
   return (
     <div className="each_post_wrapper" style={style}>
       <div className="each_post">
         <div className="each_post_tag">
-          {setCategoryNumber(eachPost.category)}
+          {setCategoryNumber(EachExhibition.category)}
         </div>
-        <h1>{eachPost.title}</h1>
+        <h1>{EachExhibition.title}</h1>
         <hr style={{ marginBottom: 1 + "em" }}></hr>
         <div className="each_post_info">
-          <span>작성자 {eachPost.author}</span>
-          <span>작성일 {eachPost.updated.slice(0, 10)}</span>
+          <span>작성자 {EachExhibition.author}</span>
+          <span>작성일 {EachExhibition.updated.slice(0, 10)}</span>
         </div>
         <hr></hr>
         <div className="each_post_files">
           <span className="attached_file">
-            첨부파일 {eachPost.files[0] ? eachPost.files[0].name : "없음"}
+            첨부파일{" "}
+            {EachExhibition.files[0] ? EachExhibition.files[0].name : "없음"}
           </span>
-          {eachPost.files.length ? (
+          {EachExhibition.files.length ? (
             <a
-              href={eachPost.files[0].files}
+              href={EachExhibition.files[0].files}
               target="_blank"
-              download={eachPost.files[0].files}
+              download={EachExhibition.files[0].files}
               rel="noopener noreferrer"
             >
               <button className="download_button">다운로드</button>
@@ -131,7 +135,7 @@ function EachPost({ postId, handleNavigateClick }) {
         </div>
         <hr style={{ marginBottom: 2 + "em" }}></hr>
         <p>
-          {eachPost.text.split("\n").map((line) => {
+          {EachExhibition.text.split("\n").map((line) => {
             return (
               <span>
                 {line}
@@ -140,8 +144,8 @@ function EachPost({ postId, handleNavigateClick }) {
             );
           })}
         </p>
-        {eachPost.photos.length
-          ? eachPost.photos.map((photo) => {
+        {EachExhibition.photos.length
+          ? EachExhibition.photos.map((photo) => {
               return (
                 <div>
                   <img
@@ -157,11 +161,11 @@ function EachPost({ postId, handleNavigateClick }) {
               );
             })
           : null}
-        {eachPost.link.length ? (
+        {EachExhibition.link.length ? (
           <>
             <hr style={{ marginBottom: 1 + "em", marginTop: 1 + "em" }}></hr>
             <a
-              href={eachPost.link}
+              href={EachExhibition.link}
               target="_blank"
               rel="noopener noreferrer"
               alt="링크"
@@ -173,15 +177,10 @@ function EachPost({ postId, handleNavigateClick }) {
         ) : null}
         <hr style={{ marginBottom: 1 + "em", marginTop: 1 + "em" }}></hr>
         <CommentList
-          comments={eachPost.comments}
+          comments={EachExhibition.comments}
           style={style}
           postId={postId}
         ></CommentList>
-        <EachPostNavigator
-          postId={postId}
-          navDisabled={warningVisibility}
-          handleNavigateClick={() => handleNavigateClick()}
-        ></EachPostNavigator>
         <Warning
           visible={warningVisibility}
           message={"마지막 게시글입니다."}
@@ -191,4 +190,4 @@ function EachPost({ postId, handleNavigateClick }) {
   );
 }
 
-export default EachPost;
+export default EachExhibition;

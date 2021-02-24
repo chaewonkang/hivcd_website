@@ -26,11 +26,10 @@ import ArchiveModule from "./ArchiveModule/ArchiveModule";
 import AlumniModule from "./AlumniModule/AlumniModule";
 import AlumniSearch from "./AlumniSearch/AlumniSearch";
 import PostModule from "./PostModule/PostModule";
-import SignUp from "./SignUp/SignUp";
-import MobileSignup from "./MobileSignup/MobileSignup";
 import CommentInsertForm from "./CommentInsertForm/CommentInsertForm";
 import Warning from "./Warning/Warning";
 import Exhibition from "./Exhibition/Exhibition";
+import EachExhibition from "./EachExhibition/EachExhibition";
 
 export {
   Header,
@@ -61,9 +60,8 @@ export {
   AlumniModule,
   AlumniSearch,
   PostModule,
-  SignUp,
-  MobileSignup,
   CommentInsertForm,
   Warning,
   Exhibition,
+  EachExhibition,
 };
