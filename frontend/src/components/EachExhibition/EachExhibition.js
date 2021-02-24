@@ -52,7 +52,7 @@ function EachExhibition({ postId, handleNavigateClick }) {
   return (
     <div className="each_post_wrapper">
       {exhibition
-        .filter((data) => data.pk === postId)
+        .filter((data) => data.pk === parseInt(postId, 10))
         .map((data) => {
           return data.title;
         })}
