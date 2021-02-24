@@ -1,14 +1,21 @@
-import React from "react";
-import { EachPost } from "../../components";
+import React, { useState } from "react";
+import { EachPost, EachExhibition } from "../../components";
 import "./EachPostWrapper.css";
 
-const EachPostWrapper = ({ handleNavigateClick, postId, style }) => {
+const EachPostWrapper = ({ handleNavigateClick, postId, style, isBoard }) => {
   return (
     <div className="temp_EachPostWrapper" style={style}>
-      <EachPost
-        handleNavigateClick={() => handleNavigateClick()}
-        postId={postId}
-      ></EachPost>
+      {isBoard ? (
+        <EachPost
+          handleNavigateClick={() => handleNavigateClick()}
+          postId={postId}
+        ></EachPost>
+      ) : (
+        <EachExhibition
+          handleNavigateClick={() => handleNavigateClick()}
+          postId={postId}
+        ></EachExhibition>
+      )}
     </div>
   );
 };

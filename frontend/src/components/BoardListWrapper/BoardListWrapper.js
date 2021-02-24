@@ -93,6 +93,7 @@ function BoardListWrapper({ list, postId, handleNavigateClick, isBoard }) {
       <EachPostWrapper
         postId={postId}
         handleNavigateClick={() => handleNavigateClick()}
+        isBoard={isBoard}
       ></EachPostWrapper>
     </>
   );

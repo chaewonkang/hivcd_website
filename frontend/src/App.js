@@ -12,11 +12,12 @@ import {
 } from "./components";
 import "./App.css";
 import "./components/Header/Header.css";
-import ContentContainer from "./containers/ContentContainer/ContentContainer";
 import {
   SearchResultContainer,
   EachPostContainer,
   ReservationContainer,
+  ContentContainer,
+  EachExhibitionContainer,
 } from "./containers";
 
 function App() {
@@ -43,7 +44,7 @@ function App() {
           <Route exact path="/exhibition" component={Exhibition} />
           <Route
             path="/exhibition/:postId"
-            component={EachPostContainer}
+            component={EachExhibitionContainer}
           ></Route>
           <Route path="/calandar" component={CalandarContainer} />
           <Route path="/reservation" component={ReservationContainer} />
