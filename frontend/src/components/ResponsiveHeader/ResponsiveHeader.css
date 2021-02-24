@@ -83,11 +83,28 @@
 
 /********** Extra small devices only **********/
 @media (min-width: 577px) and (max-width: 767px) {
+  #sidebar-list {
+    background-color: #fff5f5;
+    height: 100vh;
+    width: 100vw;
+    position: fixed;
+    z-index: 1000000;
+    left: 0;
+    top: 0;
+  }
+  .addTransiton {
+    transform: translateX(-100vw) translateY(49px);
+    transition: transform 0.5s ease-in-out;
+  }
+  .removeTransition {
+    transform: translateX(0px) translateY(49px);
+    transition: transform 0.5s ease-in-out;
+  }
 }
 
 @media (min-width: 320px) and (max-width: 576px) {
   .addTransiton {
-    transform: translateX(-700px) translateY(49px);
+    transform: translateX(-100vw) translateY(49px);
     transition: transform 0.5s ease-in-out;
   }
   .removeTransition {

@@ -103,7 +103,7 @@ header {
   }
 
   .header_container_responsive {
-    display: inline-grid;
+    display: none;
   }
 
   .hamburger_btn {
@@ -116,16 +116,9 @@ header {
 
   .header_container_left {
     display: inline-grid;
-    width: calc(100vw - 40px);
     grid-template-columns: 1fr;
     column-gap: 0;
     z-index: 1000;
-  }
-
-  .header_container_login,
-  .header_container_search,
-  .header_container_right {
-    display: none;
   }
 }
 
@@ -144,10 +137,6 @@ header {
 
   .hamburger_btn {
     background-color: none;
-  }
-
-  .header_container_title {
-    text-align: center;
   }
 
   .header_container_left {
