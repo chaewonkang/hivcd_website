@@ -51,7 +51,11 @@ function EachExhibition({ postId, handleNavigateClick }) {
 
   return (
     <div className="each_post_wrapper">
-      {exhibition}
+      {exhibition
+        .filter((data) => data.pk === postId)
+        .map((data) => {
+          return data.title;
+        })}
       {/* <div className="each_post">
         <div className="each_post_tag">{setCategoryNumber(post.category)}</div>
         <h1>{post.title}</h1>
