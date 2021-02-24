@@ -42,93 +42,101 @@ function EachExhibition({ postId, handleNavigateClick }) {
 
   if (error)
     return (
-      <div className="each_post_wrapper">
+      <div className="each_exhibition_wrapper">
         아직 권한이 부여되지 않았습니다. 조교실에 문의해 주세요.
       </div>
     );
-  if (loading) return <div className="each_post_wrapper">로딩 중...</div>;
+  if (loading) return <div className="each_exhibition_wrapper">로딩 중...</div>;
   if (!exhibition) return null;
 
   return (
-    <div className="each_post_wrapper">
+    <div className="each_exhibition_wrapper">
       {exhibition
         .filter((data) => data.pk === parseInt(postId, 10))
         .map((data) => {
-          return data.title;
+          return (
+            <div className="each_post">
+              <div className="each_post_tag">
+                {setCategoryNumber(data.category)}
+              </div>
+              <h1>{data.title}</h1>
+              <hr style={{ marginBottom: 1 + "em" }}></hr>
+              <div className="each_post_info">
+                <span>작성자 {data.author}</span>
+                <span>작성일 {data.updated.slice(0, 10)}</span>
+              </div>
+              <hr></hr>
+              <div className="each_post_files">
+                <span className="attached_file">
+                  첨부파일 {data.files[0] ? data.files[0].name : "없음"}
+                </span>
+                {data.files.length ? (
+                  <a
+                    href={data.files[0].files}
+                    target="_blank"
+                    download={data.files[0].files}
+                    rel="noopener noreferrer"
+                  >
+                    <button className="download_button">다운로드</button>
+                  </a>
+                ) : null}
+              </div>
+              <hr style={{ marginBottom: 2 + "em" }}></hr>
+              <p>
+                {data.text.split("\n").map((line) => {
+                  return (
+                    <span>
+                      {line}
+                      <br />
+                    </span>
+                  );
+                })}
+              </p>
+              {data.photos.length
+                ? data.photos.map((photo) => {
+                    return (
+                      <div>
+                        <img
+                          src={photo.photo}
+                          alt={photo.alt}
+                          style={{
+                            width: 100 + "%",
+                            border: `1px solid rgb(0, 0, 0, 0.1)`,
+                          }}
+                        ></img>
+                        <br />
+                      </div>
+                    );
+                  })
+                : null}
+              {data.link.length ? (
+                <>
+                  <hr
+                    style={{ marginBottom: 1 + "em", marginTop: 1 + "em" }}
+                  ></hr>
+                  <a
+                    href={data.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    alt="링크"
+                    className="attached_link"
+                  >
+                    첨부 링크
+                  </a>
+                </>
+              ) : null}
+              <hr style={{ marginBottom: 1 + "em", marginTop: 1 + "em" }}></hr>
+              <CommentList
+                comments={data.comments}
+                postId={postId}
+              ></CommentList>
+              <Warning
+                visible={warningVisibility}
+                message={"마지막 게시글입니다."}
+              ></Warning>
+            </div>
+          );
         })}
-      {/* <div className="each_post">
-        <div className="each_post_tag">{setCategoryNumber(post.category)}</div>
-        <h1>{post.title}</h1>
-        <hr style={{ marginBottom: 1 + "em" }}></hr>
-        <div className="each_post_info">
-          <span>작성자 {post.author}</span>
-          <span>작성일 {post.updated.slice(0, 10)}</span>
-        </div>
-        <hr></hr>
-        <div className="each_post_files">
-          <span className="attached_file">
-            첨부파일 {post.files[0] ? post.files[0].name : "없음"}
-          </span>
-          {post.files.length ? (
-            <a
-              href={post.files[0].files}
-              target="_blank"
-              download={post.files[0].files}
-              rel="noopener noreferrer"
-            >
-              <button className="download_button">다운로드</button>
-            </a>
-          ) : null}
-        </div>
-        <hr style={{ marginBottom: 2 + "em" }}></hr>
-        <p>
-          {post.text.split("\n").map((line) => {
-            return (
-              <span>
-                {line}
-                <br />
-              </span>
-            );
-          })}
-        </p>
-        {post.photos.length
-          ? post.photos.map((photo) => {
-              return (
-                <div>
-                  <img
-                    src={photo.photo}
-                    alt={photo.alt}
-                    style={{
-                      width: 100 + "%",
-                      border: `1px solid rgb(0, 0, 0, 0.1)`,
-                    }}
-                  ></img>
-                  <br />
-                </div>
-              );
-            })
-          : null}
-        {post.link.length ? (
-          <>
-            <hr style={{ marginBottom: 1 + "em", marginTop: 1 + "em" }}></hr>
-            <a
-              href={post.link}
-              target="_blank"
-              rel="noopener noreferrer"
-              alt="링크"
-              className="attached_link"
-            >
-              첨부 링크
-            </a>
-          </>
-        ) : null}
-        <hr style={{ marginBottom: 1 + "em", marginTop: 1 + "em" }}></hr>
-        <CommentList comments={post.comments} postId={postId}></CommentList>
-        <Warning
-          visible={warningVisibility}
-          message={"마지막 게시글입니다."}
-        ></Warning>
-      </div> */}
     </div>
   );
 }
