@@ -57,7 +57,6 @@ function App() {
               ></SearchResultContainer>
             )}
           />
-
           <Footer />
         </div>
       </Switch>

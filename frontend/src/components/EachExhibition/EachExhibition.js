@@ -3,10 +3,20 @@ import "./EachExhibition.css";
 import { CommentList, Warning } from "../../components";
 import axios from "axios";
 import useAsync from "../../utils/useAsync";
+import getCookie from "../../utils/getCookie";
 
-async function getEachExhibition() {
+async function getEachExhibition(token) {
   const response = await axios.get(
-    "http://devsidi.hongik.ac.kr/api/v1/postings/archive"
+    "http://devsidi.hongik.ac.kr/api/v1/postings/archive",
+    {},
+    {
+      headers: {
+        Authorization: "Bearer " + localStorage.getItem("access_token"),
+        Accept: "application/json",
+        "X-CSRFToken": token,
+        "Content-type": "application/json",
+      },
+    }
   );
   return response.data;
 }
@@ -25,18 +35,19 @@ function setCategoryNumber(category) {
 }
 
 function EachExhibition({ postId, handleNavigateClick }) {
+  const [token] = useState(getCookie("csrftoken"));
   const [warningVisibility, setWarningVisibility] = useState(false);
-  const [state] = useAsync(() => getEachExhibition(), []);
-  const { loading, data: EachExhibition, error } = state;
-  console.log(EachExhibition);
+  const [state] = useAsync(() => getEachExhibition(token), [token]);
+  const { loading, data: posts, error } = state;
+  console.log(posts);
   const [ret, setRet] = useState(null);
 
-  useEffect(
-    setRet(
-      EachExhibition.filter((exhibition) => exhibition.pk === postId),
-      [postId]
-    )
-  );
+  //   useEffect(
+  //     setRet(
+  //       posts.filter((exhibition) => exhibition.pk === postId),
+  //       [postId]
+  //     )
+  //   );
 
   if (error)
     return (
