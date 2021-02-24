@@ -8,7 +8,7 @@ import getCookie from "../../utils/getCookie";
 async function getEachExhibition(token) {
   const response = await axios
     .get(
-      "http://devsidi.hongik.ac.kr/api/v1/postings/archive",
+      "http://devsidi.hongik.ac.kr/api/v1/postings/archive/",
       {},
       {
         headers: {
@@ -39,23 +39,25 @@ function setCategoryNumber(category) {
 function EachExhibition({ postId, handleNavigateClick }) {
   const [token] = useState(getCookie("csrftoken"));
   const [warningVisibility, setWarningVisibility] = useState(false);
-
+  const [state] = useAsync(() => getEachExhibition(token), [token]);
+  const { loading, data: posts, error } = state;
+  console.log(posts);
   const [ret, setRet] = useState(null);
 
   useEffect(
     setRet(
-      getEachExhibition.filter((exhibition) => exhibition.pk === postId),
+      posts.filter((exhibition) => exhibition.pk === postId),
       [postId]
     )
   );
 
-  //   if (error)
-  //     return (
-  //       <div className="each_post_wrapper">
-  //         아직 권한이 부여되지 않았습니다. 조교실에 문의해 주세요.
-  //       </div>
-  //     );
-  //   if (loading) return <div className="each_post_wrapper">로딩 중...</div>;
+  if (error)
+    return (
+      <div className="each_post_wrapper">
+        아직 권한이 부여되지 않았습니다. 조교실에 문의해 주세요.
+      </div>
+    );
+  if (loading) return <div className="each_post_wrapper">로딩 중...</div>;
   if (!EachExhibition) return null;
 
   return (
