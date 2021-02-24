@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import "./EachExhibition.css";
 import { CommentList, Warning } from "../../components";
 import axios from "axios";
@@ -6,9 +6,8 @@ import useAsync from "../../utils/useAsync";
 
 async function getEachExhibition() {
   const response = await axios.get(
-    `http://devsidi.hongik.ac.kr/api/v1/postings/archive`
+    "http://devsidi.hongik.ac.kr/api/v1/postings/archive"
   );
-
   return response.data;
 }
 
@@ -29,9 +28,13 @@ function EachExhibition({ postId, handleNavigateClick }) {
   const [warningVisibility, setWarningVisibility] = useState(false);
   const [state] = useAsync(() => getEachExhibition(), []);
   const { loading, data: EachExhibition, error } = state;
+  const [ret, setRet] = useState(null);
 
-  const EachRet = EachExhibition.filter(
-    (exhibition) => exhibition.pk === postId
+  useEffect(
+    setRet(
+      EachExhibition.filter((exhibition) => exhibition.pk === postId),
+      [postId]
+    )
   );
 
   if (error)
@@ -46,25 +49,23 @@ function EachExhibition({ postId, handleNavigateClick }) {
   return (
     <div className="each_post_wrapper">
       <div className="each_post">
-        <div className="each_post_tag">
-          {setCategoryNumber(EachRet.category)}
-        </div>
-        <h1>{EachRet.title}</h1>
+        <div className="each_post_tag">{setCategoryNumber(ret.category)}</div>
+        <h1>{ret.title}</h1>
         <hr style={{ marginBottom: 1 + "em" }}></hr>
         <div className="each_post_info">
-          <span>작성자 {EachRet.author}</span>
-          <span>작성일 {EachRet.updated.slice(0, 10)}</span>
+          <span>작성자 {ret.author}</span>
+          <span>작성일 {ret.updated.slice(0, 10)}</span>
         </div>
         <hr></hr>
         <div className="each_post_files">
           <span className="attached_file">
-            첨부파일 {EachRet.files[0] ? EachRet.files[0].name : "없음"}
+            첨부파일 {ret.files[0] ? ret.files[0].name : "없음"}
           </span>
-          {EachRet.files.length ? (
+          {ret.files.length ? (
             <a
-              href={EachRet.files[0].files}
+              href={ret.files[0].files}
               target="_blank"
-              download={EachRet.files[0].files}
+              download={ret.files[0].files}
               rel="noopener noreferrer"
             >
               <button className="download_button">다운로드</button>
@@ -73,7 +74,7 @@ function EachExhibition({ postId, handleNavigateClick }) {
         </div>
         <hr style={{ marginBottom: 2 + "em" }}></hr>
         <p>
-          {EachRet.text.split("\n").map((line) => {
+          {ret.text.split("\n").map((line) => {
             return (
               <span>
                 {line}
@@ -82,8 +83,8 @@ function EachExhibition({ postId, handleNavigateClick }) {
             );
           })}
         </p>
-        {EachRet.photos.length
-          ? EachRet.photos.map((photo) => {
+        {ret.photos.length
+          ? ret.photos.map((photo) => {
               return (
                 <div>
                   <img
@@ -99,11 +100,11 @@ function EachExhibition({ postId, handleNavigateClick }) {
               );
             })
           : null}
-        {EachRet.link.length ? (
+        {ret.link.length ? (
           <>
             <hr style={{ marginBottom: 1 + "em", marginTop: 1 + "em" }}></hr>
             <a
-              href={EachRet.link}
+              href={ret.link}
               target="_blank"
               rel="noopener noreferrer"
               alt="링크"
@@ -114,7 +115,7 @@ function EachExhibition({ postId, handleNavigateClick }) {
           </>
         ) : null}
         <hr style={{ marginBottom: 1 + "em", marginTop: 1 + "em" }}></hr>
-        <CommentList comments={EachRet.comments} postId={postId}></CommentList>
+        <CommentList comments={ret.comments} postId={postId}></CommentList>
         <Warning
           visible={warningVisibility}
           message={"마지막 게시글입니다."}
