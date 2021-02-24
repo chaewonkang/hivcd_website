@@ -182,6 +182,7 @@ header {
 
   .header_container_title h1 {
     font-size: 15px;
+    top: 1.5px;
   }
 
   .hamburger_btn {

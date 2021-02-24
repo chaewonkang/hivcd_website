@@ -12,10 +12,7 @@ function Header({ handleLogout, handleSearchKeyword }) {
         <div className="header_container_left">
           <div className="header_container_title">
             <Link to="/">
-              <h1>
-                홍익대학교 <br className="header_line"></br>
-                미술대학 시각디자인과
-              </h1>
+              <h1>홍익대학교 미술대학 시각디자인과</h1>
             </Link>
           </div>
         </div>

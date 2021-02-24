@@ -6,18 +6,20 @@ import useAsync from "../../utils/useAsync";
 import getCookie from "../../utils/getCookie";
 
 async function getEachExhibition(token) {
-  const response = await axios.get(
-    "http://devsidi.hongik.ac.kr/api/v1/postings/archive",
-    {},
-    {
-      headers: {
-        Authorization: "Bearer " + localStorage.getItem("access_token"),
-        Accept: "application/json",
-        "X-CSRFToken": token,
-        "Content-type": "application/json",
-      },
-    }
-  );
+  const response = await axios
+    .get(
+      "http://devsidi.hongik.ac.kr/api/v1/postings/archive",
+      {},
+      {
+        headers: {
+          Authorization: "Bearer " + localStorage.getItem("access_token"),
+          Accept: "application/json",
+          "X-CSRFToken": token,
+          "Content-type": "application/json",
+        },
+      }
+    )
+    .then(console.log(response.data));
   return response.data;
 }
 
