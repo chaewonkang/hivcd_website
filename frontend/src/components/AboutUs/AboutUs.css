@@ -203,7 +203,7 @@
 
 @media (max-width: 576px) {
   .aboutus_wrapper {
-    margin-top: 70px;
+    margin-top: 50px;
     margin-right: 10px;
     margin-left: 10px;
   }
@@ -243,5 +243,9 @@
 
   .subfaculty td {
     width: 50%;
+  }
+
+  .aboutus_item .aboutus_item_tag {
+    padding: 10px;
   }
 }

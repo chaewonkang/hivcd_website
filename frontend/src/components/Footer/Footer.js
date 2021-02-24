@@ -61,10 +61,10 @@ const Footer = () => {
                 {""}
               </a>
               <a
-                href="http://hongik.ac.kr"
+                href="https://www.facebook.com/HIVCD.GW"
                 target="_blank"
                 rel="noopener noreferrer"
-                class="fa fa-twitter"
+                class="fa fa-facebook"
               >
                 {""}
               </a>

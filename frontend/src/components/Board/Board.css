@@ -83,7 +83,7 @@ body {
 
 @media (max-width: 576px) {
   .board_filter_wrapper {
-    margin-top: 70px;
+    margin-top: 50px;
   }
 
   .board_filter_container {

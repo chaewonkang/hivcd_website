@@ -39,14 +39,14 @@
 /********** Extra small devices only **********/
 @media (min-width: 577px) and (max-width: 767px) {
   .each_post_container {
-    margin-top: 70px;
+    margin-top: 50px;
     grid-template-columns: 1fr;
   }
 }
 
 @media (max-width: 576px) {
   .each_post_container {
-    margin-top: 70px;
+    margin-top: 50px;
     grid-template-columns: 1fr;
     width: calc(100%-20px);
     margin-left: 10px;

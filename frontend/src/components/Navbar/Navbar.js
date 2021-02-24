@@ -117,6 +117,14 @@ export const NavComponent = ({ onClick }) => {
             <hr className="bottomline"></hr>
             <p>
               <a
+                href="https://www.hongik.ac.kr/index.do"
+                className="fa fa-home"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {""}
+              </a>
+              <a
                 href="https://www.facebook.com/HIVCD.GW"
                 className="fa fa-facebook"
                 target="_blank"
@@ -125,15 +133,7 @@ export const NavComponent = ({ onClick }) => {
                 {""}
               </a>
               <a
-                href="https://www.facebook.com/HIVCD.GW"
-                className="fa fa-twitter"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                {""}
-              </a>
-              <a
-                href="https://www.facebook.com/HIVCD.GW"
+                href="https://www.instagram.com/hivcd2021/"
                 className="fa fa-instagram"
                 target="_blank"
                 rel="noopener noreferrer"

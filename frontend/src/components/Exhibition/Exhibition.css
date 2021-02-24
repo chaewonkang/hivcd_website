@@ -102,7 +102,7 @@
 /********** Extra small devices only **********/
 @media (min-width: 577px) and (max-width: 767px) {
   .exhibition_filter_wrapper {
-    margin-top: 70px;
+    margin-top: 50px;
   }
 
   .exhibition_wrapper {

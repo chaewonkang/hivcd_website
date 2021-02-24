@@ -61,27 +61,6 @@ function EachExhibition({ postId, handleNavigateClick }) {
               </div>
               <h1>{data.title}</h1>
               <hr style={{ marginBottom: 1 + "em" }}></hr>
-              <div className="each_exhibition_info">
-                <span>작성자 {data.author}</span>
-                <span>작성일 {data.updated.slice(0, 10)}</span>
-              </div>
-              <hr></hr>
-              <div className="each_exhibition_files">
-                <span className="attached_file">
-                  첨부파일 {data.files[0] ? data.files[0].name : "없음"}
-                </span>
-                {data.files.length ? (
-                  <a
-                    href={data.files[0].files}
-                    target="_blank"
-                    download={data.files[0].files}
-                    rel="noopener noreferrer"
-                  >
-                    <button className="download_button">다운로드</button>
-                  </a>
-                ) : null}
-              </div>
-              <hr style={{ marginBottom: 2 + "em" }}></hr>
               <p>
                 {data.text.split("\n").map((line) => {
                   return (
