@@ -182,6 +182,7 @@ header {
 
   .header_container_title h1 {
     font-size: 15px;
+    position: relative;
     top: 1.5px;
   }
 

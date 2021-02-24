@@ -19,7 +19,10 @@ async function getEachExhibition(token) {
         },
       }
     )
-    .then(console.log(response.data));
+    .then((response) => {
+      console.log(response);
+      console.log(response.data);
+    });
   return response.data;
 }
 
@@ -44,12 +47,9 @@ function EachExhibition({ postId, handleNavigateClick }) {
   console.log(posts);
   const [ret, setRet] = useState(null);
 
-  useEffect(
-    setRet(
-      posts.filter((exhibition) => exhibition.pk === postId),
-      [postId]
-    )
-  );
+  useEffect(setRet(posts.filter((exhibition) => exhibition.pk === postId)), [
+    postId,
+  ]);
 
   if (error)
     return (

@@ -87,11 +87,11 @@
 
 @media (min-width: 320px) and (max-width: 576px) {
   .addTransiton {
-    transform: translateX(-700px) translateY(60px);
+    transform: translateX(-700px) translateY(49px);
     transition: transform 0.5s ease-in-out;
   }
   .removeTransition {
-    transform: translateX(0px) translateY(60px);
+    transform: translateX(0px) translateY(49px);
     transition: transform 0.5s ease-in-out;
   }
 
