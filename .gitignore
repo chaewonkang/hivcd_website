@@ -1,3 +1,5 @@
+backend/assets
+backend/uploads
 */.env
 frontend/build
 backend/build

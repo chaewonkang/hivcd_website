@@ -16,14 +16,18 @@ DOMAIN = "hongik.ac.kr"
 
 @api_view(["GET"])
 def login_view(request):
-    suser_id = get_user_id(request.COOKIES)
-
+    response = redirect(MAIN_PAGE)
     try:
-        Account.objects.get(suser_id=suser_id)
-    except:
-        account = Account.objects.create_user(suser_id=suser_id, username=suser_id)
+        suser_id = get_user_id(request.COOKIES)
+        try:
+            Account.objects.get(suser_id=suser_id)
+        except:
+            account = Account.objects.create_user(suser_id=suser_id, username=suser_id)
 
-    return redirect(MAIN_PAGE)
+    except:
+        response.set_cookie("IS_PROFESSOR_OR_WORKER", "True")
+
+    return response
 
 
 @api_view(["GET"])
@@ -43,16 +47,17 @@ def logout_view(request):
     response.delete_cookie(key="SUSER_LOGID", domain=DOMAIN)
     response.delete_cookie(key="SUSER_LOGKEY", domain=DOMAIN)
     response.delete_cookie(key="hongik_abeek_sso", domain=DOMAIN)
+    response.delete_cookie(key="IS_PROFESSOR_OR_WORKER", domain=DOMAIN)
     return response
 
 
 @api_view(["GET"])
 def user_list(request):
-    qs = Account.objects.all()
+    qs = Account.objects.all().cache()
     serializer = AccountSerializer(qs)
     return JsonResponse(serializer.data)
 
 
 class AccountListAPIView(generics.ListAPIView):
-    queryset = Account.objects.all()
+    queryset = Account.objects.all().cache()
     serializer_class = AccountSerializer
