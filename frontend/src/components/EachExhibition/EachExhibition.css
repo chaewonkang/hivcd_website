@@ -1,4 +1,8 @@
 .each_exhibition_wrapper {
   background-color: #ffeb00;
   border: 2px solid #ffba00;
+  padding: 20px;
+  position: relative;
+  overflow: auto;
+  height: 100%;
 }
