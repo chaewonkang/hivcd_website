@@ -209,40 +209,39 @@
   }
   .aboutus_container {
     grid-template-columns: 1fr;
-    grid-template-rows: repeat(4, 450px);
+    grid-template-rows: repeat(4, 400px);
     column-gap: 20px;
     row-gap: 20px;
   }
   .aboutus_item .aboutus_content {
-    font-size: 15px;
+    font-size: 10px;
     display: block;
-  }
-
-  .aboutus_contact {
-    display: none;
+    line-height: 2.5em;
   }
 
   .aboutus_container .aboutus_item {
-    padding: 1rem;
+    padding: 0.5rem;
   }
 
-  .aboutus_contact_mobile {
-    display: block;
-    font-size: 12px;
-  }
-
-  table.aboutus_contact_mobile {
-    width: 100%;
-  }
-
-  .aboutus_contact_mobile {
-    width: 100%;
-  }
-
-  .aboutus_contact_mobile td {
-    padding-top: 5px;
-    padding-bottom: 5px;
-    width: 100%;
+  .aboutus_contact td {
+    padding: 0;
+    padding-top: 1px;
+    padding-bottom: 1px;
+    padding-right: 10px;
     border-bottom: 1px solid black;
+  }
+
+  .faculty tr td {
+    padding-right: 5px;
+    font-size: 9px;
+  }
+
+  .subfaculty {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .subfaculty td {
+    width: 50%;
   }
 }

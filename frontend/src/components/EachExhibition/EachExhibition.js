@@ -28,6 +28,7 @@ function EachExhibition({ postId, handleNavigateClick }) {
   const [warningVisibility, setWarningVisibility] = useState(false);
   const [state] = useAsync(() => getEachExhibition(), []);
   const { loading, data: EachExhibition, error } = state;
+  console.log(EachExhibition);
   const [ret, setRet] = useState(null);
 
   useEffect(
