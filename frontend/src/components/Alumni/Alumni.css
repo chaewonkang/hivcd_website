@@ -56,7 +56,9 @@
 /********** Extra small devices only **********/
 @media (min-width: 577px) and (max-width: 767px) {
   .alumni_wrapper {
-    margin-top: 50px;
+    margin-top: 20px;
+    margin-left: 10px;
+    margin-right: 10px;
   }
 }
 

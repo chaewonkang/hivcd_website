@@ -191,7 +191,9 @@
 /********** Extra small devices only **********/
 @media (min-width: 577px) and (max-width: 767px) {
   .aboutus_wrapper {
-    margin-top: 70px;
+    margin-top: 10px;
+    margin-right: 10px;
+    margin-left: 10px;
   }
   .aboutus_container {
     grid-template-columns: 1fr;

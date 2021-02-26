@@ -1,4 +1,12 @@
 input[name="alumniSearch"] {
+  /* 삭제한 후 */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+
+  /* 둥근 테두리 삭제 */
+  -webkit-border-radius: 0;
+
   border-bottom: 1px solid #000;
   border-top: none;
   border-left: none;
@@ -44,12 +52,12 @@ input[name="alumniSearch"] {
 /********** Extra small devices only **********/
 @media (min-width: 577px) and (max-width: 767px) {
   .alumni_search_container {
-    margin-top: 50px;
+    margin-top: 20px;
   }
 }
 
 @media (max-width: 576px) {
   .alumni_search_container {
-    margin-top: 70px;
+    margin-top: 50px;
   }
 }
