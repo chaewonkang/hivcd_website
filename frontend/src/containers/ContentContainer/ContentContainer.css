@@ -8,6 +8,8 @@
 .welcome_modal {
   padding: 2rem;
   font-size: 18px;
+  background-color: #ffeb00;
+  border: 2px solid #ffba00;
 }
 
 span.title {
@@ -59,5 +61,22 @@ span.title {
     margin-left: 10px;
     margin-right: 10px;
     position: relative;
+  }
+
+  .welcome_modal {
+    padding: 1.5rem;
+    font-size: 18px;
+  }
+
+  span.title {
+    font-size: 15px;
+    font-weight: 400;
+  }
+
+  .paragraph {
+    margin-top: 10px;
+    width: 70vw;
+    word-break: keep-all;
+    line-height: 1.5em;
   }
 }
