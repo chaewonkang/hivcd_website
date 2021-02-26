@@ -14,7 +14,6 @@
 }
 
 .each_post_tag {
-  position: absolute;
   top: 20px;
   background-color: #000;
   color: #fff;

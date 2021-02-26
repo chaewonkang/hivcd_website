@@ -233,6 +233,14 @@
     border-bottom: 1px solid black;
   }
 
+  .faculty {
+    font-size: 9px;
+  }
+
+  .mobile_hide {
+    display: none;
+  }
+
   .faculty tr td {
     padding-right: 5px;
     font-size: 9px;
@@ -248,6 +256,7 @@
   }
 
   .aboutus_item .aboutus_item_tag {
-    padding: 10px;
+    padding: 5px;
+    font-size: 18px;
   }
 }

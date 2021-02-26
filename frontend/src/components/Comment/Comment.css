@@ -57,6 +57,12 @@
 
 /********** Extra Extra small (xxs) devices only **********/
 @media (max-width: 576px) {
+  .comment_contaienr_date_delete {
+    grid-template-columns: 1fr 1fr;
+  }
+  .comment_container_date {
+    text-align: left;
+  }
   .comment_container {
     display: block;
   }

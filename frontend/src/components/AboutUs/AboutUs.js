@@ -279,7 +279,7 @@ const AboutUs = () => {
                   </tr>
                 </table>
                 <table className="faculty">
-                  <tr>
+                  <tr className="mobile_hide">
                     <th>이름</th>
                     <th>소속</th>
                   </tr>
@@ -534,13 +534,45 @@ const AboutUs = () => {
               <table className="aboutus_contact">
                 <tr>
                   <td>웹사이트 디자인</td>
-                  <td>Yinyang @yinyang.company</td>
+                  <td>
+                    YinYang{" "}
+                    <a
+                      href="https://www.instagram.com/yinyang.fig"
+                      alt="instagram"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      @yinyang.fig
+                    </a>
+                  </td>
                 </tr>
                 <tr>
                   <td>웹사이트 개발</td>
                   <td>
-                    강채원 www.chaewonkang.com<br></br>
-                    김서규 github.com/SeogyuGim
+                    강채원{" "}
+                    <a
+                      href="https://www.chaewonkang.com"
+                      alt="instagram"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      www.chaewonkang.com
+                    </a>
+                    <br></br>
+                  </td>
+                </tr>
+                <tr>
+                  <td>서버 API 구축 및 배포</td>
+                  <td>
+                    김서규{" "}
+                    <a
+                      href="https://www.github.com/SeogyuGim"
+                      alt="instagram"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      github.com/SeogyuGim
+                    </a>
                   </td>
                 </tr>
                 <tr>
@@ -548,16 +580,8 @@ const AboutUs = () => {
                   <td>심윤서, 나혜린</td>
                 </tr>
                 <tr>
-                  <td>2021년 1월 00일</td>
-                  <td>구축 완료</td>
-                </tr>
-                <tr>
-                  <td>2021년 1월 00일</td>
-                  <td>v1.0 배포</td>
-                </tr>
-                <tr>
-                  <td>2021년 1월 00일</td>
-                  <td>v2.0 배포 - 무슨 무슨 기능 추가</td>
+                  <td>2021년 3월 2일</td>
+                  <td>구축 완료, 1.0 배포</td>
                 </tr>
               </table>
             </div>
