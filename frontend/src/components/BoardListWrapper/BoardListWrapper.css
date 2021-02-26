@@ -109,6 +109,7 @@ li.page_num:target {
     margin-top: 10px;
     margin-bottom: 10px;
     order: 2;
+    padding: 10px;
   }
 
   .list_grid {
