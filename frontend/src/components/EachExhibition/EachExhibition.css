@@ -113,7 +113,8 @@
   }
 
   .each_exhibition {
-    padding: 10px;
+    padding: 0px;
+    padding-top: 10px;
     margin-top: 0;
     margin-bottom: 10px;
     overflow: auto;
@@ -127,6 +128,8 @@
   .each_exhibition h1 {
     font-size: 25px;
     margin-top: 10px;
+    word-break: keep-all;
+    line-height: 1.5em;
   }
 
   .each_exhibition p {

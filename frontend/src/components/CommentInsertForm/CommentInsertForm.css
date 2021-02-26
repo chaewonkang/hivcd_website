@@ -19,6 +19,14 @@ button.comment_input_button {
 }
 
 input[name="text"] {
+  /* 삭제한 후 */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+
+  /* 둥근 테두리 삭제 */
+  -webkit-border-radius: 0;
+
   border-bottom: 1px solid #000;
   border-top: none;
   border-left: none;

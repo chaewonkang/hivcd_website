@@ -562,7 +562,7 @@ const AboutUs = () => {
                   </td>
                 </tr>
                 <tr>
-                  <td>서버 API 구축 및 배포</td>
+                  <td>서버 API 개발 및 배포</td>
                   <td>
                     김서규{" "}
                     <a
