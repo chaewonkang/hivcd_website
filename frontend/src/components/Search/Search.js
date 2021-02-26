@@ -22,7 +22,6 @@ function Search({ handleSearchKeyword }) {
     const searchValue = document.getElementsByName("search")[0].value;
 
     handleSearchKeyword(searchValue);
-    console.log(`Search Component value is: ${searchValue}`);
     closeModal();
     history.push("/search");
   };

@@ -7,7 +7,6 @@ const Comment = ({ author, body, date, id }) => {
   const createdSliced = date.slice(2, 10);
   const token = getCookie("csrftoken");
   const commentKey = id;
-  console.log(`commentKey is ${commentKey}`);
 
   async function handleCommentDelete(id, token) {
     const response = await axios

@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { PostWrapper, Post, HomeArchive, LogoImage } from "../../components";
 import { ArchiveWrapper } from "../../components";
 import "./ContentContainer.css";
 import useAsync from "../../utils/useAsync";
 import getCookie from "../../utils/getCookie";
+import Modal from "react-awesome-modal";
 
 async function getPosts(token) {
   const response = await axios.get(
@@ -27,12 +28,45 @@ function ContentContainer() {
   const [state] = useAsync(() => getPosts(token), [token]);
   const { loading, data: posts, error } = state;
 
+  const [showModal, setShowModal] = useState(false);
+  const HAS_VISITED_BEFORE = localStorage.getItem("hasVisitedBefore");
+
+  useEffect(() => {
+    const handleShowModal = () => {
+      if (HAS_VISITED_BEFORE && HAS_VISITED_BEFORE > new Date()) {
+        return;
+      }
+
+      if (!HAS_VISITED_BEFORE) {
+        setShowModal(true);
+        let expires = new Date();
+        expires = expires.setHours(expires.getHours() + 24);
+        localStorage.setItem("hasVisitedBefore", expires);
+      }
+    };
+
+    window.setTimeout(handleShowModal, 2000);
+  }, [HAS_VISITED_BEFORE]);
+
+  const handleClose = () => setShowModal(false);
+
   if (loading) return <div className="contentcontainer">Loading...</div>;
   if (error) return <div className="contentcontainer">Error Occurred!</div>;
   if (!posts) return null;
 
   return (
     <div className="contentcontainer">
+      {showModal && (
+        <Modal
+          visible={showModal}
+          width="815"
+          height="70"
+          effect="fadeInDown"
+          onClickAway={() => handleClose()}
+        >
+          웹사이트 사용 안내
+        </Modal>
+      )}
       <PostWrapper>
         {posts ? <LogoImage></LogoImage> : null}
         {posts &&

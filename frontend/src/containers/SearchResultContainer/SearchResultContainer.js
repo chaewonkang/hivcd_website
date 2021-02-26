@@ -54,7 +54,6 @@ function SearchResultContainer({ searchKeyword }) {
 
   useEffect(() => {
     getSearchResult(searchKeyword, token);
-    console.log(postList);
   }, [searchKeyword, token]);
 
   if (loading) return <div>로딩 중...</div>;

@@ -1,5 +1,5 @@
 .calandar_container {
-  margin-top: 20px;
+  margin-top: 0px;
   margin-left: 20px;
   margin-right: 20px;
   margin-bottom: 40px;
@@ -30,17 +30,22 @@ div[data-widgetuuid="025d70f1-3768-4efa-a8db-f98a9ebd3780"]
 div[data-widgetuuid="025d70f1-3768-4efa-a8db-f98a9ebd3780"]
   #event-calendar-app
   .event-subcribe-to-calendar,
-div[data-widgetuuid="025d70f1-3768-4efa-a8db-f98a9ebd3780"]
+div[data-widgetuuid="fc14c30a-1881-4601-9d23-5ce266b746dc"]
   #event-calendar-app
   .event-summary {
   border-radius: 0px !important;
 }
 
-.calendar-list-view__navigate-button.calendar-list-view__navigate-button--left {
+div[data-widgetuuid="fc14c30a-1881-4601-9d23-5ce266b746dc"]
+  #event-calendar-app
+  .calendar-list-view__navigate-button--left {
   border-radius: 0px !important;
 }
 
-.subcribe-to-calendar__inverse {
+div[data-widgetuuid="fc14c30a-1881-4601-9d23-5ce266b746dc"]
+  #event-calendar-app
+  .subcribe-to-calendar__inverse,
+#event-calendar-app .subcribe-to-calendar__inverse {
   border-radius: 0px !important;
 }
 
