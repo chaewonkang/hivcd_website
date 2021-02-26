@@ -79,20 +79,23 @@
 /********** Small devices only **********/
 @media (min-width: 768px) and (max-width: 991px) {
   .footer_wrapper {
-    display: none;
+    height: 0;
+    overflow: hidden;
   }
 }
 
 /********** Extra small devices only **********/
 @media (min-width: 577px) and (max-width: 767px) {
   .footer_wrapper {
-    display: none;
+    height: 0;
+    overflow: hidden;
   }
 }
 
 /********** Extra Extra small (xxs) devices only **********/
 @media (max-width: 576px) {
   .footer_wrapper {
-    display: none;
+    height: 0;
+    overflow: hidden;
   }
 }

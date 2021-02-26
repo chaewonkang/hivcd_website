@@ -194,6 +194,7 @@
     margin-top: 10px;
     margin-right: 10px;
     margin-left: 10px;
+    margin-bottom: 10px;
   }
   .aboutus_container {
     grid-template-columns: 1fr;
@@ -208,12 +209,13 @@
     margin-top: 50px;
     margin-right: 10px;
     margin-left: 10px;
+    margin-bottom: 10px;
   }
   .aboutus_container {
     grid-template-columns: 1fr;
     grid-template-rows: repeat(4, 400px);
-    column-gap: 20px;
-    row-gap: 20px;
+    column-gap: 10px;
+    row-gap: 10px;
   }
   .aboutus_item .aboutus_content {
     font-size: 10px;

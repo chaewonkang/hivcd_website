@@ -32,4 +32,9 @@
 }
 
 @media (max-width: 576px) {
+  .board_post_wrapper {
+    grid-template-rows: repeat(6, fit-content);
+    grid-auto-rows: none;
+    margin-top: 10px;
+  }
 }
