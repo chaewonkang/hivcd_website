@@ -30,52 +30,8 @@ export const NavComponent = ({ onClick }) => {
     <>
       <nav>
         <div className="nav_class_wrapper">
-          <div className="nav_class_boilerplate ">
-            <div className="nav_class_bp_address">
-              <span>주소</span>
-              <p>
-                04066 서울특별시<br></br>마포구 와우산로 94<br></br>홍익대학교
-                R712
-              </p>
-            </div>
-            <div className="nav_class_bp_tel">
-              <span>연락처</span>
-              <p>
-                (02)320-1214<br></br>(02)3142-5792
-              </p>
-            </div>
-          </div>
-          <hr></hr>
-          <div className="nav_class_openhours">
-            <span>학과사무실</span>
-            <div>
-              월-금 9:00 am - 5:30 pm <br></br>(동절기) 9:00 am - 5:00 pm
-            </div>
-          </div>
-          <hr></hr>
-          <div>
-            {getCookie("SUSER_ID") !== null ? (
-              <a href="http://devsidi.hongik.ac.kr">
-                <button
-                  type="submit"
-                  className="mobile_login_input_button"
-                  onClick={(t = token) => handleLogout((t = token))}
-                >
-                  로그아웃
-                </button>
-              </a>
-            ) : (
-              <a href="http://www.hongik.ac.kr/login.do?Refer=http://devsidi.hongik.ac.kr/api/v1/auth/login">
-                <button type="submit" className="mobile_login_input_button">
-                  로그인
-                </button>
-              </a>
-            )}
-
-            <div className="applebox"></div>
-          </div>
-          <hr></hr>
           <div className="nav_class_menubar">
+            <hr className="first_line"></hr>
             <ul>
               <Link to="/">
                 <li onClick={onClick}>홈</li>{" "}
@@ -101,6 +57,27 @@ export const NavComponent = ({ onClick }) => {
             </ul>
           </div>
           <hr></hr>
+          <div>
+            {getCookie("SUSER_ID") !== null ? (
+              <a href="http://devsidi.hongik.ac.kr">
+                <button
+                  type="submit"
+                  className="mobile_login_input_button"
+                  onClick={(t = token) => handleLogout((t = token))}
+                >
+                  로그아웃
+                </button>
+              </a>
+            ) : (
+              <a href="http://www.hongik.ac.kr/login.do?Refer=http://devsidi.hongik.ac.kr/api/v1/auth/login">
+                <button type="submit" className="mobile_login_input_button">
+                  로그인
+                </button>
+              </a>
+            )}
+          </div>
+          <hr></hr>
+
           <div className="nav_class_newsletter">
             <span onClick={onClick}>
               <a
@@ -113,6 +90,31 @@ export const NavComponent = ({ onClick }) => {
               </a>
             </span>
           </div>
+          <hr></hr>
+
+          <div className="nav_class_boilerplate ">
+            <div className="nav_class_bp_address">
+              <span>주소</span>
+              <p>
+                04066 서울특별시<br></br>마포구 와우산로 94<br></br>홍익대학교
+                R712
+              </p>
+            </div>
+            <div className="nav_class_bp_tel">
+              <span>연락처</span>
+              <p>
+                (02)320-1214<br></br>(02)3142-5792
+              </p>
+            </div>
+          </div>
+          <hr></hr>
+          <div className="nav_class_openhours">
+            <span>학과사무실</span>
+            <div>
+              월-금 9:00 am - 5:30 pm <br></br>(동절기) 9:00 am - 5:00 pm
+            </div>
+          </div>
+
           <div className="nav_class_copyright">
             <hr className="bottomline"></hr>
             <p>

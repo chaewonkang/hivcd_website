@@ -126,5 +126,10 @@ button.mobile_login_input_button {
 @media (max-width: 576px) {
   .nav_class_wrapper {
     padding-left: 10px;
+    padding-top: 0px;
+  }
+
+  .first_line {
+    margin-top: 0px;
   }
 }
