@@ -5,6 +5,23 @@
   height: auto;
 }
 
+.welcome_modal {
+  padding: 2rem;
+  font-size: 18px;
+}
+
+span.title {
+  font-size: 25px;
+  font-weight: 400;
+}
+
+.paragraph {
+  margin-top: 20px;
+  width: 50vw;
+  word-break: keep-all;
+  line-height: 1.8em;
+}
+
 @media (min-width: 1440px) and (max-width: 1920px) {
 }
 
