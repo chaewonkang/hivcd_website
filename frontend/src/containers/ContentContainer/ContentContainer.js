@@ -65,9 +65,6 @@ function ContentContainer() {
           onClickAway={() => handleClose()}
         >
           <div className="welcome_modal">
-            <span className="title">
-              홍익대학교 시각디자인과 웹사이트 사용 안내
-            </span>
             <p className="paragraph">
               홍익시디의 웹사이트가 오픈되었습니다. 🎊<br></br>
               <br></br>

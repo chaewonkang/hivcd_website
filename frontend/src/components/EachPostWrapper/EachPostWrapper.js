@@ -11,10 +11,7 @@ const EachPostWrapper = ({ handleNavigateClick, postId, style, isBoard }) => {
           postId={postId}
         ></EachPost>
       ) : (
-        <EachExhibition
-          handleNavigateClick={() => handleNavigateClick()}
-          postId={postId}
-        ></EachExhibition>
+        <EachExhibition postId={postId}></EachExhibition>
       )}
     </div>
   );
