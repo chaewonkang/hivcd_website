@@ -1,8 +1,8 @@
 .calandar_container {
-  margin-top: 0px;
+  margin-top: -10px;
   margin-left: 20px;
   margin-right: 20px;
-  margin-bottom: 40px;
+  margin-bottom: 10px;
 }
 
 div[data-widgetuuid="025d70f1-3768-4efa-a8db-f98a9ebd3780"]
@@ -32,7 +32,23 @@ div[data-widgetuuid="025d70f1-3768-4efa-a8db-f98a9ebd3780"]
   .event-subcribe-to-calendar,
 div[data-widgetuuid="fc14c30a-1881-4601-9d23-5ce266b746dc"]
   #event-calendar-app
-  .event-summary {
+  .event-summary,
+div[data-widgetuuid="fc14c30a-1881-4601-9d23-5ce266b746dc"]
+  #event-calendar-app
+  .md
+  .filters-mobile-button,
+div[data-widgetuuid="fc14c30a-1881-4601-9d23-5ce266b746dc"]
+  #event-calendar-app
+  .md
+  .search-toggle,
+div[data-widgetuuid="fc14c30a-1881-4601-9d23-5ce266b746dc"]
+  #event-calendar-app
+  .event-summary,
+div[data-widgetuuid="fc14c30a-1881-4601-9d23-5ce266b746dc"]
+  #event-calendar-app
+  .view-mode
+  ul
+  li {
   border-radius: 0px !important;
 }
 
@@ -55,6 +71,14 @@ div[data-widgetuuid="fc14c30a-1881-4601-9d23-5ce266b746dc"]
 
 #event-calendar-app .view-mode ul li:first-child {
   border-radius: 0px !important;
+}
+
+#event-calendar-app .sm .subcribe-to-calendar,
+div[data-widgetuuid="fc14c30a-1881-4601-9d23-5ce266b746dc"]
+  #event-calendar-app
+  .subcribe-to-calendar {
+  box-shadow: none !important;
+  border-radius: 0 !important;
 }
 
 @media (min-width: 1440px) and (max-width: 1920px) {

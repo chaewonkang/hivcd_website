@@ -34,6 +34,7 @@ function ContentContainer() {
   useEffect(() => {
     const handleShowModal = () => {
       if (HAS_VISITED_BEFORE && HAS_VISITED_BEFORE > new Date()) {
+        setShowModal(false);
         return;
       }
 
