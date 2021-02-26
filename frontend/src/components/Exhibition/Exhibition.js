@@ -37,7 +37,7 @@ function Exhibition() {
     <>
       <div className="exhibition_wrapper">
         <div className="exhibition_filter_wrapper">
-          <div className="exhibition_filter_container">
+          <div className="exhibition_filter_container" onTouchStart>
             <button
               className="exhibition_filter_option"
               onClick={() => setExhibitionFilter(0)}

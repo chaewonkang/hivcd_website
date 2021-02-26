@@ -105,7 +105,12 @@ body {
     margin-right: 7.5px;
   }
 
-  .board_filter_option:active {
+  .board_filter_option:active,
+  .board_filter_option:focus,
+  .board_filter_option:visited {
+    margin-bottom: 0px;
     font-size: 12px;
+    padding: 0.4em 0.7em;
+    margin-right: 7.5px;
   }
 }

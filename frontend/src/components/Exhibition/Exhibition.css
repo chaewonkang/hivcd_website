@@ -120,7 +120,7 @@
 
 @media (max-width: 576px) {
   .exhibition_wrapper {
-    margin-top: 70px;
+    margin-top: 50px;
     margin-bottom: 20px;
     margin-left: 10px;
     margin-right: 10px;
@@ -150,17 +150,18 @@
     height: 100%;
   }
 
-  .exhibition_wrapper {
-    margin-top: 70px;
-    margin-bottom: 20px;
-  }
   .exhibition_container {
     width: calc(100vw - 20px);
     grid-template-columns: 1fr;
     margin-bottom: 20px;
   }
 
-  .exhibition_filter_option:active {
+  .exhibition_filter_option:active,
+  .exhibition_filter_option:focus,
+  .exhibition_filter_option:visited {
+    margin-bottom: 0px;
     font-size: 12px;
+    padding: 0.4em 0.7em;
+    margin-right: 7.5px;
   }
 }
