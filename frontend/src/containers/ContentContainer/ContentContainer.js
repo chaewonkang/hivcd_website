@@ -6,6 +6,7 @@ import "./ContentContainer.css";
 import useAsync from "../../utils/useAsync";
 import getCookie from "../../utils/getCookie";
 import Modal from "react-awesome-modal";
+import logogif from "../../img/logogif.gif";
 
 async function getPosts(token) {
   const response = await axios.get(
@@ -50,8 +51,18 @@ function ContentContainer() {
 
   const handleClose = () => setShowModal(false);
 
-  if (loading) return <div className="contentcontainer">Loading...</div>;
-  if (error) return <div className="contentcontainer">Error Occurred!</div>;
+  if (loading)
+    return (
+      <div className="contentcontainer_loading">
+        <img className="loading_status" src={logogif}></img>
+      </div>
+    );
+  if (error)
+    return (
+      <div className="contentcontainer_loading">
+        <img className="loading_status" src={logogif}></img>
+      </div>
+    );
   if (!posts) return null;
 
   return (

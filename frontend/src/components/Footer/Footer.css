@@ -3,7 +3,8 @@
   padding: 15px 20px;
   bottom: 0;
   left: 0;
-  position: relative;
+  position: absolute;
+  width: 100%;
 }
 
 .footer_wrapper {
@@ -81,6 +82,7 @@
   .footer_wrapper {
     height: 0;
     overflow: hidden;
+    position: relative;
   }
 }
 
@@ -89,6 +91,7 @@
   .footer_wrapper {
     height: 0;
     overflow: hidden;
+    position: relative;
   }
 }
 
@@ -97,5 +100,6 @@
   .footer_wrapper {
     height: 0;
     overflow: hidden;
+    position: relative;
   }
 }
