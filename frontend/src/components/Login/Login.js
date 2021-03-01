@@ -5,7 +5,7 @@ import axios from "axios";
 
 async function handleLogout(token) {
   const response = await axios.get(
-    "http://devsidi.hongik.ac.kr/api/v1/auth/logout",
+    "http://sidi.hongik.ac.kr/api/v1/auth/logout",
     {},
     {
       headers: {
@@ -24,7 +24,7 @@ function Login() {
   return (
     <>
       {getCookie("SUSER_ID") !== null ? (
-        <a href="http://devsidi.hongik.ac.kr">
+        <a href="http://sidi.hongik.ac.kr">
           <div
             className="navbar_login_item"
             onClick={(t = token) => handleLogout((t = token))}
@@ -33,7 +33,7 @@ function Login() {
           </div>
         </a>
       ) : (
-        <a href="http://www.hongik.ac.kr/login.do?Refer=http://devsidi.hongik.ac.kr/api/v1/auth/login">
+        <a href="http://www.hongik.ac.kr/login.do?Refer=http://sidi.hongik.ac.kr/api/v1/auth/login">
           <div className="navbar_login_item">로그인</div>
         </a>
       )}

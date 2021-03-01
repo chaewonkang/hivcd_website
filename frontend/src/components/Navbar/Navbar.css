@@ -8,7 +8,7 @@
   font-size: 15px;
 }
 
-.nav_class_wrapper span {
+.nav_class_wrapper span a {
   text-decoration: underline;
 }
 

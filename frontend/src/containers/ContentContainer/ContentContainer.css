@@ -25,9 +25,9 @@ span.title {
   line-height: 1.8em;
 }
 
-.contentcontainer_loading {
+.container_loading {
   display: flex;
-  height: 80vh;
+  height: calc(100vh - 160px);
   justify-content: center;
   align-items: center;
 }

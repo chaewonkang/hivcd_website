@@ -4,11 +4,10 @@ import axios from "axios";
 import "./Board.css";
 import getCookie from "../../utils/getCookie";
 import useAsync from "../../utils/useAsync";
+import logogif from "../../img/logogif.gif";
 
 async function getPosts(token) {
-  const response = await axios.get(
-    "http://devsidi.hongik.ac.kr/api/v1/postings/"
-  );
+  const response = await axios.get("http://sidi.hongik.ac.kr/api/v1/postings/");
   return response.data;
 }
 
@@ -18,8 +17,18 @@ function Board() {
   const [state] = useAsync(() => getPosts(token), [token]);
   const { loading, data: posts, error } = state;
 
-  if (error) return <div className="contentcontainer">Error Occurred...</div>;
-  if (loading) return <div className="contentcontainer">Loading...</div>;
+  if (loading)
+    return (
+      <div className="container_loading">
+        <img className="loading_status" src={logogif}></img>
+      </div>
+    );
+  if (error)
+    return (
+      <div className="container_loading">
+        <img className="loading_status" src={logogif}></img>
+      </div>
+    );
   if (!posts) return null;
 
   return (

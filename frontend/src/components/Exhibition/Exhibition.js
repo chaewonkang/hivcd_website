@@ -5,10 +5,11 @@ import axios from "axios";
 import { ArchiveModule } from "../../components";
 import useAsync from "../../utils/useAsync";
 import getCookie from "../../utils/getCookie";
+import logogif from "../../img/logogif.gif";
 
 async function getExhibitionInfo(token) {
   const response = await axios.get(
-    "http://devsidi.hongik.ac.kr/api/v1/postings/archive",
+    "http://sidi.hongik.ac.kr/api/v1/postings/archive",
     {},
     {
       headers: {
@@ -29,8 +30,18 @@ function Exhibition() {
   const [state] = useAsync(() => getExhibitionInfo(token), [token]);
   const { loading, data: exhibition, error } = state;
 
-  if (error) return <div className="exhibition_wrapper">Error Occurred!</div>;
-  if (loading) return <div className="exhibition_wrapper">Loading...</div>;
+  if (loading)
+    return (
+      <div className="container_loading">
+        <img className="loading_status" src={logogif}></img>
+      </div>
+    );
+  if (error)
+    return (
+      <div className="container_loading">
+        <img className="loading_status" src={logogif}></img>
+      </div>
+    );
   if (!exhibition) return null;
 
   return (

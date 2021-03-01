@@ -10,7 +10,7 @@ import logogif from "../../img/logogif.gif";
 
 async function getPosts(token) {
   const response = await axios.get(
-    "http://devsidi.hongik.ac.kr/api/v1/postings",
+    "http://sidi.hongik.ac.kr/api/v1/postings",
     {},
     {
       headers: {
@@ -53,13 +53,13 @@ function ContentContainer() {
 
   if (loading)
     return (
-      <div className="contentcontainer_loading">
+      <div className="container_loading">
         <img className="loading_status" src={logogif}></img>
       </div>
     );
   if (error)
     return (
-      <div className="contentcontainer_loading">
+      <div className="container_loading">
         <img className="loading_status" src={logogif}></img>
       </div>
     );

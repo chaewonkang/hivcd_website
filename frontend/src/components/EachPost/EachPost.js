@@ -7,7 +7,7 @@ import useAsync from "../../utils/useAsync";
 
 async function getEachPost(postId) {
   const response = await axios.get(
-    `http://devsidi.hongik.ac.kr/api/v1/postings/${postId}`
+    `http://sidi.hongik.ac.kr/api/v1/postings/${postId}`
   );
   return response.data;
 }

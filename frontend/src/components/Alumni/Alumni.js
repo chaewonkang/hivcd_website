@@ -4,10 +4,11 @@ import axios from "axios";
 import { AlumniModule, AlumniSearch, LogoImage } from "../../components";
 import useAsync from "../../utils/useAsync";
 import getCookie from "../../utils/getCookie";
+import logogif from "../../img/logogif.gif";
 
 async function getAlumnis(token) {
   const response = await axios.get(
-    "http://devsidi.hongik.ac.kr/api/v1/alumnis/",
+    "http://sidi.hongik.ac.kr/api/v1/alumnis/",
     {},
     {
       headers: {
@@ -32,8 +33,18 @@ function Alumni() {
     setAlumniSearch(keyword);
   };
 
-  if (error) return <div className="alumni_wrapper">Error Occurred</div>;
-  if (loading) return <div className="alumni_wrapper">Loading...</div>;
+  if (loading)
+    return (
+      <div className="container_loading">
+        <img className="loading_status" src={logogif}></img>
+      </div>
+    );
+  if (error)
+    return (
+      <div className="container_loading">
+        <img className="loading_status" src={logogif}></img>
+      </div>
+    );
   if (!alumnis) return null;
 
   return (
