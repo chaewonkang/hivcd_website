@@ -3,6 +3,7 @@ import "./EachExhibition.css";
 import axios from "axios";
 import useAsync from "../../utils/useAsync";
 import getCookie from "../../utils/getCookie";
+import logogif from "../../img/logogif.gif";
 
 async function getExhibitionInfo(token) {
   const response = await axios.get(
@@ -39,13 +40,18 @@ function EachExhibition({ postId, handleNavigateClick }) {
   const [state] = useAsync(() => getExhibitionInfo(token), [token]);
   const { loading, data: exhibition, error } = state;
 
-  if (error)
+  if (loading)
     return (
-      <div className="each_exhibition_wrapper">
-        아직 권한이 부여되지 않았습니다. 조교실에 문의해 주세요.
+      <div className="container_loading">
+        <img className="loading_status" src={logogif}></img>
       </div>
     );
-  if (loading) return <div className="each_exhibition_wrapper">로딩 중...</div>;
+  if (error)
+    return (
+      <div className="container_loading">
+        <img className="loading_status" src={logogif}></img>
+      </div>
+    );
   if (!exhibition) return null;
 
   return (

@@ -43,13 +43,9 @@
     width: calc(50vw - 10px);
     grid-template-columns: 1fr;
     margin-bottom: 0px;
-    grid-template-rows: repeat(6, 210px);
-  }
-}
-
-@media (max-width: 320px) {
-  .archivewrapper {
-    width: calc(50vw - 10px);
-    grid-template-columns: 1fr;
+    grid-template-rows: none;
+    height: 100%;
+    grid-auto-rows: auto;
+    padding-bottom: 10px;
   }
 }

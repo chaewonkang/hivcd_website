@@ -1,6 +1,6 @@
 .footer_wrapper {
   position: relative;
-  z-index: 10000;
+  z-index: 1000;
   bottom: 0;
   left: 0;
   width: 100%;
