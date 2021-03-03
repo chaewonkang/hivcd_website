@@ -12,7 +12,6 @@ from .permissions import CookiePermission
 from .models import Post, Comment
 from .serializers import PostSerializer, CommentSerializer
 
-
 class PostListCreateAPIView(generics.ListAPIView):
     queryset = Post.objects.all().cache()
     serializer_class = PostSerializer
@@ -20,7 +19,13 @@ class PostListCreateAPIView(generics.ListAPIView):
 
 
 class ArchiveListAPIView(generics.ListAPIView):
-    queryset = Post.objects.filter(Q(category=5) | Q(category=6) | Q(category=7))
+    queryset = Post.objects.filter(Q(category=5) | Q(category=6) | Q(category=7)).cache()
+    serializer_class = PostSerializer
+    permission_classes = (IsAuthenticatedOrReadOnly,)
+
+
+class ArchiveRetrieveAPIView(generics.RetrieveAPIView):
+    queryset = Post.objects.all().cache()
     serializer_class = PostSerializer
     permission_classes = (IsAuthenticatedOrReadOnly,)
 

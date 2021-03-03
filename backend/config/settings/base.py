@@ -11,8 +11,8 @@ DEBUG = os.environ.get("DEBUG", True)
 
 if DEBUG == False:
     ALLOWED_HOSTS = [
-        "devsidi.hongiksidi.ac.kr",
-        "18.219.73.211",
+        "sidi.hongiksidi.ac.kr",
+        "3.16.38.220",
         "127.0.0.1",
         "localhost",
     ]
@@ -139,7 +139,8 @@ EMAIL_HOST_PASSWORD = os.environ.get("EMAIL_HOST_PASSWORD")
 
 # Cors Policy
 CORS_ORIGIN_WHITELIST = [
-    "http://devsidi.hongik.ac.kr",
+    "http://sidi.hongik.ac.kr",
+    "http://3.16.38.220",
     "http://localhost:8000",
 ]
 

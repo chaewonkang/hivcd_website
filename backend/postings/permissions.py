@@ -11,10 +11,17 @@ class CookiePermission(BasePermission):
     """
 
     def has_permission(self, request, view):
-        sid = get_user_id(request.COOKIES)
         try:
-            account = Account.objects.get(suser_id=sid)
+            sid = get_user_id(request.COOKIES)
+            try:
+                account = Account.objects.get(suser_id=sid)
+            except:
+                return False
+            return account.is_sidi == True
         except:
-            return False
+            is_allowed = request.COOKIES['IS_PROFESSOR_OR_WORKER']
+            if is_allowed == 'True':
+                return True 
+            else:
+                return False
 
-        return account.is_sidi == True
