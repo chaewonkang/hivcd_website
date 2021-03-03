@@ -4,6 +4,7 @@ import { Post } from "../../components";
 import "./SearchResultContainer.css";
 import getCookie from "../../utils/getCookie";
 import { Link } from "react-router-dom";
+import logogif from "../../img/logogif.gif";
 
 function SearchResultContainer({ searchKeyword }) {
   const [postList, setPostList] = useState([]);
@@ -39,13 +40,13 @@ function SearchResultContainer({ searchKeyword }) {
             })
             .map((data) => {
               return (
-                <div className="each_result">
-                  <Link to={`board/${data.pk}`}>
-                    <h1>
-                      {data.title} / {data.updated}
-                    </h1>
-                  </Link>
-                </div>
+                <Post
+                  key={data.pk}
+                  title={data.title}
+                  id={data.pk}
+                  date={data.updated}
+                  category={data.category}
+                ></Post>
               );
             })
         );
@@ -60,8 +61,18 @@ function SearchResultContainer({ searchKeyword }) {
     getSearchResult(searchKeyword, token);
   }, [searchKeyword, token]);
 
-  if (loading) return <div>로딩 중...</div>;
-  if (error) return <div>에러 발생...</div>;
+  if (loading)
+    return (
+      <div className="container_loading">
+        <img className="loading_status" src={logogif}></img>
+      </div>
+    );
+  if (error)
+    return (
+      <div className="container_loading">
+        <img className="loading_status" src={logogif}></img>
+      </div>
+    );
 
   return (
     <div className="search_result_container">
