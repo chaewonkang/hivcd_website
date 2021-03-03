@@ -36,7 +36,14 @@ function SearchResultContainer({ searchKeyword }) {
                 return result;
             })
             .filter((result) => {
-              if (0 < result.category < 6) return result;
+              if (
+                result.category === 0 ||
+                result.category === 1 ||
+                result.category === 2 ||
+                result.category === 3 ||
+                result.category === 4
+              )
+                return result;
             })
             .map((data) => {
               return (
@@ -76,7 +83,6 @@ function SearchResultContainer({ searchKeyword }) {
 
   return (
     <div className="search_result_container">
-      {searchKeyword !== null ? <h1>검색어: {searchKeyword}</h1> : null}
       <div className="search_result_wrapper">
         {searchKeyword === "" || searchKeyword === null
           ? "검색어를 입력하세요."
