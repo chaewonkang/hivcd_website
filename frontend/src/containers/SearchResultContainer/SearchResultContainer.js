@@ -3,6 +3,7 @@ import axios from "axios";
 import { Post } from "../../components";
 import "./SearchResultContainer.css";
 import getCookie from "../../utils/getCookie";
+import { Link } from "react-router-dom";
 
 function SearchResultContainer({ searchKeyword }) {
   const [postList, setPostList] = useState([]);
@@ -35,13 +36,11 @@ function SearchResultContainer({ searchKeyword }) {
             })
             .map((data) => {
               return (
-                <Post
-                  key={data.pk}
-                  title={data.title}
-                  date={data.updated}
-                  id={data.pk}
-                  category={data.category}
-                ></Post>
+                <div>
+                  <Link to={`board/${data.pk}`}>
+                    <h1>{data.title}</h1>
+                  </Link>
+                </div>
               );
             })
         );
