@@ -34,11 +34,16 @@ function SearchResultContainer({ searchKeyword }) {
               else if (result.title.toLowerCase().includes(searchKeyword))
                 return result;
             })
+            .filter((result) => {
+              if (0 < result.category < 6) return result;
+            })
             .map((data) => {
               return (
-                <div>
+                <div className="each_result">
                   <Link to={`board/${data.pk}`}>
-                    <h1>{data.title}</h1>
+                    <h1>
+                      {data.title} / {data.updated}
+                    </h1>
                   </Link>
                 </div>
               );
@@ -60,7 +65,7 @@ function SearchResultContainer({ searchKeyword }) {
 
   return (
     <div className="search_result_container">
-      {searchKeyword !== null ? <div>검색어: {searchKeyword}</div> : null}
+      {searchKeyword !== null ? <h1>검색어: {searchKeyword}</h1> : null}
       <div className="search_result_wrapper">
         {searchKeyword === "" || searchKeyword === null
           ? "검색어를 입력하세요."
