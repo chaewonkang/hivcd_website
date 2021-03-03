@@ -411,7 +411,7 @@ const AboutUs = () => {
                       target="_blank"
                       rel="noopener noreferrer"
                     >
-                      www.hongik.ac.kr
+                      hongik.ac.kr
                     </a>
                   </td>
                 </tr>
@@ -419,11 +419,11 @@ const AboutUs = () => {
                   <td>홍익대학교 미술대학</td>
                   <td>
                     <a
-                      href="https://hongik.ac.kr"
+                      href="https://cfa.hongik.ac.kr"
                       target="_blank"
                       rel="noopener noreferrer"
                     >
-                      www.hongik.ac.kr
+                      cfa.hongik.ac.kr
                     </a>
                   </td>
                 </tr>
@@ -431,11 +431,11 @@ const AboutUs = () => {
                   <td>홍익대학교 시각디자인과</td>
                   <td>
                     <a
-                      href="https://hongik.ac.kr"
+                      href="https://www.hongiksidi.com"
                       target="_blank"
                       rel="noopener noreferrer"
                     >
-                      www.hongik.ac.kr
+                      hongiksidi.com
                     </a>
                   </td>
                 </tr>
@@ -443,11 +443,11 @@ const AboutUs = () => {
                   <td>한글꼴연구회</td>
                   <td>
                     <a
-                      href="https://hongik.ac.kr"
+                      href="https://www.instagram.com/hangeulggol_hivcd/"
                       target="_blank"
                       rel="noopener noreferrer"
                     >
-                      www.hongik.ac.kr
+                      @hangeulggol_hivcd
                     </a>
                   </td>
                 </tr>
@@ -455,11 +455,11 @@ const AboutUs = () => {
                   <td>그린비</td>
                   <td>
                     <a
-                      href="https://hongik.ac.kr"
+                      href="https://www.instagram.com/greenbee.hivcd/"
                       target="_blank"
                       rel="noopener noreferrer"
                     >
-                      www.hongik.ac.kr
+                      @greenbee.hivcd
                     </a>
                   </td>
                 </tr>
@@ -467,11 +467,11 @@ const AboutUs = () => {
                   <td>드로마픽</td>
                   <td>
                     <a
-                      href="https://hongik.ac.kr"
+                      href="https://www.instagram.com/dromapic/"
                       target="_blank"
                       rel="noopener noreferrer"
                     >
-                      www.hongik.ac.kr
+                      @dromapic
                     </a>
                   </td>
                 </tr>
@@ -479,11 +479,11 @@ const AboutUs = () => {
                   <td>힙스</td>
                   <td>
                     <a
-                      href="https://hongik.ac.kr"
+                      href="http://ilovehips.kr/index.html"
                       target="_blank"
                       rel="noopener noreferrer"
                     >
-                      www.hongik.ac.kr
+                      ilovehips.kr
                     </a>
                   </td>
                 </tr>
@@ -491,11 +491,11 @@ const AboutUs = () => {
                   <td>아이레이</td>
                   <td>
                     <a
-                      href="https://hongik.ac.kr"
+                      href="https://www.instagram.com/iray_hivcd/"
                       target="_blank"
                       rel="noopener noreferrer"
                     >
-                      www.hongik.ac.kr
+                      @iray_hivcd
                     </a>
                   </td>
                 </tr>
@@ -503,11 +503,11 @@ const AboutUs = () => {
                   <td>애드레날린</td>
                   <td>
                     <a
-                      href="https://hongik.ac.kr"
+                      href="https://www.instagram.com/ad_re_nalin/"
                       target="_blank"
                       rel="noopener noreferrer"
                     >
-                      www.hongik.ac.kr
+                      @ad_re_nalin
                     </a>
                   </td>
                 </tr>
@@ -515,11 +515,11 @@ const AboutUs = () => {
                   <td>하이픈</td>
                   <td>
                     <a
-                      href="https://hongik.ac.kr"
+                      href="https://www.instagram.com/hyphen_hivcd/"
                       target="_blank"
                       rel="noopener noreferrer"
                     >
-                      www.hongik.ac.kr
+                      @hyphen_hivcd
                     </a>
                   </td>
                 </tr>
