@@ -11,7 +11,7 @@ DEBUG = os.environ.get("DEBUG", True)
 
 if DEBUG == False:
     ALLOWED_HOSTS = [
-        "devsidi.hongiksidi.ac.kr",
+        "sidi.hongiksidi.ac.kr",
         "18.219.73.211",
         "127.0.0.1",
         "localhost",
@@ -123,6 +123,8 @@ STATIC_URL = "/static/"
 STATIC_ROOT = os.path.join(BASE_DIR, "assets")
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "build", "static"),
+    os.path.join(BASE_DIR, 'assets/static'),
+    os.path.join(BASE_DIR, "assets"),
 ]
 
 # Media files
@@ -139,7 +141,7 @@ EMAIL_HOST_PASSWORD = os.environ.get("EMAIL_HOST_PASSWORD")
 
 # Cors Policy
 CORS_ORIGIN_WHITELIST = [
-    "http://devsidi.hongik.ac.kr",
+    "http://sidi.hongik.ac.kr",
     "http://localhost:8000",
 ]
 
