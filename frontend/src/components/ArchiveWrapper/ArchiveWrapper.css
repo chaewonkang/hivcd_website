@@ -42,8 +42,8 @@
     width: calc(50vw - 10px);
     height: 100%;
     grid-template-columns: 1fr;
-    grid-template-rows: none !important;
-    grid-auto-rows: auto;
+    grid-template-rows: unset;
+    grid-auto-rows: unset;
     margin-bottom: 0px;
     padding-bottom: 10px;
   }
