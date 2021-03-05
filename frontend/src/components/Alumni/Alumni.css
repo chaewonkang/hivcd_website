@@ -41,6 +41,9 @@
 .alumni_module {
   padding: 15px;
   border: 1px solid #000;
+}
+
+.alumni_module_container {
   animation: 1s ease-out 0s 1 fadeIn;
 }
 
@@ -90,7 +93,7 @@
     margin-right: 10px;
   }
 
-  .alumni_module {
+  .alumni_module_container {
     animation: 1s ease-out 0s 1 slideIn;
   }
 }

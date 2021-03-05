@@ -4,6 +4,7 @@ import { EachPostNavigator, CommentList, Warning } from "../../components";
 import axios from "axios";
 import getCookie from "../../utils/getCookie";
 import useAsync from "../../utils/useAsync";
+import logogif from "../../img/logogif.gif";
 
 async function getEachPost(postId) {
   const response = await axios.get(
@@ -87,16 +88,16 @@ function EachPost({ postId, handleNavigateClick }) {
 
   willMount.current = false;
 
-  if (error)
-    return (
-      <div className="each_post_wrapper" style={style}>
-        아직 권한이 부여되지 않았습니다. 조교실에 문의해 주세요.
-      </div>
-    );
   if (loading)
     return (
-      <div className="each_post_wrapper" style={style}>
-        로딩 중...
+      <div className="container_loading">
+        <img className="loading_status" src={logogif}></img>
+      </div>
+    );
+  if (error)
+    return (
+      <div className="container_loading">
+        <img className="loading_status" src={logogif}></img>
       </div>
     );
   if (!eachPost) return null;
