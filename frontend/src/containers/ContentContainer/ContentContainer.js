@@ -61,13 +61,6 @@ function ContentContainer() {
     return (
       <div className="container_loading">
         <img className="loading_status" src={logogif}></img>
-        <Post
-          key={100}
-          title={"안녕하세요. 샘플입니다"}
-          date={"20201010"}
-          category={"3"}
-          id={100}
-        ></Post>
       </div>
     );
   if (!posts) return null;
