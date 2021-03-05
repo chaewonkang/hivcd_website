@@ -149,9 +149,11 @@ li.page_num:target {
   .board_list_container {
     padding: 10px;
     font-size: 11px;
+    animation: 1s ease-out 0s 1 slideIn;
   }
 
   .list_tag span {
     font-size: 9px;
+    animation: 1s ease-out 0s 1 slideIn;
   }
 }

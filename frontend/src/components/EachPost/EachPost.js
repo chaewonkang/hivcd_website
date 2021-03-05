@@ -88,12 +88,7 @@ function EachPost({ postId, handleNavigateClick }) {
 
   willMount.current = false;
 
-  if (loading)
-    return (
-      <div className="each_post">
-        <img className="loading_status" src={logogif}></img>
-      </div>
-    );
+  if (loading) return <div className="each_post"></div>;
   if (error)
     return (
       <div className="each_post">
