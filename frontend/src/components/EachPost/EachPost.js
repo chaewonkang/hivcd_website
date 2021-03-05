@@ -90,13 +90,13 @@ function EachPost({ postId, handleNavigateClick }) {
 
   if (loading)
     return (
-      <div className="container_loading">
+      <div className="each_post">
         <img className="loading_status" src={logogif}></img>
       </div>
     );
   if (error)
     return (
-      <div className="container_loading">
+      <div className="each_post">
         <img className="loading_status" src={logogif}></img>
       </div>
     );
