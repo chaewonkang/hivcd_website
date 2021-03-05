@@ -1,8 +1,29 @@
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes slideIn {
+  0% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
 .calandar_container {
   margin-top: -10px;
   margin-left: 20px;
   margin-right: 20px;
   margin-bottom: 10px;
+  animation: 1s ease-out 0s 1 fadeIn;
 }
 
 div[data-widgetuuid="fc14c30a-1881-4601-9d23-5ce266b746dc"]
@@ -93,5 +114,6 @@ div[data-widgetuuid="fc14c30a-1881-4601-9d23-5ce266b746dc"]
     margin-top: 50px;
     margin-right: 10px;
     margin-left: 10px;
+    animation: 1s ease-out 0s 1 slideIn;
   }
 }
