@@ -533,7 +533,7 @@ const AboutUs = () => {
             <div className="aboutus_content">
               <table className="aboutus_contact">
                 <tr>
-                  <td>웹사이트 디자인</td>
+                  <td>디자인, 설계 및 개발</td>
                   <td>
                     YinYang{" "}
                     <a
@@ -544,21 +544,6 @@ const AboutUs = () => {
                     >
                       @yinyang.fig
                     </a>
-                  </td>
-                </tr>
-                <tr>
-                  <td>웹사이트 설계 및 개발</td>
-                  <td>
-                    강채원{" "}
-                    <a
-                      href="https://www.chaewonkang.com"
-                      alt="instagram"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      www.chaewonkang.com
-                    </a>
-                    <br></br>
                   </td>
                 </tr>
                 <tr>
