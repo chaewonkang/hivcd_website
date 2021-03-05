@@ -61,6 +61,13 @@ function ContentContainer() {
     return (
       <div className="container_loading">
         <img className="loading_status" src={logogif}></img>
+        {/* <Post
+          key={100}
+          title={"Hello"}
+          date={"20202020"}
+          category={3}
+          id={100}
+        ></Post> */}
       </div>
     );
   if (!posts) return null;
@@ -115,7 +122,7 @@ function ContentContainer() {
               );
             })}
       </PostWrapper>
-      <ArchiveWrapper>
+      <ArchiveWrapper style={{}}>
         {posts &&
           posts
             .filter(
