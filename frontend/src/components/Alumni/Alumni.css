@@ -1,3 +1,23 @@
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes slideIn {
+  0% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
 .alumni_wrapper {
   margin-left: 20px;
   margin-right: 20px;
@@ -21,6 +41,7 @@
 .alumni_module {
   padding: 15px;
   border: 1px solid #000;
+  animation: 1s ease-out 0s 1 fadeIn;
 }
 
 .alumni_module_text {
@@ -67,5 +88,9 @@
     width: calc(100vw - 20px);
     margin-left: 10px;
     margin-right: 10px;
+  }
+
+  .alumni_module {
+    animation: 1s ease-out 0s 1 slideIn;
   }
 }
