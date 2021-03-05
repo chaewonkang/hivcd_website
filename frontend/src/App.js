@@ -34,7 +34,7 @@ function App() {
   return (
     <main>
       <Switch>
-        <div className="AppBody">
+        <div className="body">
           <Header handleSearchKeyword={handleSearchKeyword}></Header>
           <Route exact path="/" component={ContentContainer} />
           <Route exact path="/board" component={Board} />

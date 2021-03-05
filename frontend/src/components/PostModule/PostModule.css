@@ -1,3 +1,14 @@
+@keyframes fadeIn {
+  0% {
+    /* transform: translateY(-100%); */
+    opacity: 0;
+  }
+  100% {
+    /* transform: translateY(0); */
+    opacity: 1;
+  }
+}
+
 @keyframes slideIn {
   0% {
     transform: translateY(-100%);
@@ -18,7 +29,7 @@
   line-height: 1.7em;
   overflow: auto;
   word-break: keep-all;
-  animation: 1s ease-out 0s 1 slideIn;
+  animation: 1s ease-out 0s 1 fadeIn;
 }
 
 .post h2 {
@@ -76,6 +87,10 @@
 }
 
 @media only screen and (max-width: 576px) {
+  .post {
+    animation: 1s ease-out 0s 1 slideIn;
+  }
+
   .post .post_content {
     font-size: 15px;
   }
