@@ -122,7 +122,7 @@ function ContentContainer() {
               );
             })}
       </PostWrapper>
-      <ArchiveWrapper style={{}}>
+      <ArchiveWrapper>
         {posts &&
           posts
             .filter(

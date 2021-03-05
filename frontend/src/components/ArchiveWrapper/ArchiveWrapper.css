@@ -1,7 +1,7 @@
 .archivewrapper {
   display: inline-grid;
   width: 40%;
-  height: 100vh;
+  height: 100%;
   grid-template-columns: 1fr;
   grid-auto-rows: 200px;
   grid-auto-columns: auto;

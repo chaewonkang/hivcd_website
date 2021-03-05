@@ -1,3 +1,12 @@
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
 @keyframes slideIn {
   0% {
     transform: translateY(-100%);
@@ -18,7 +27,7 @@
   padding: 10px 10px 10px 10px;
   line-height: 1.7em;
   overflow-wrap: break-word;
-  animation: 1s ease-out 0s 1 slideIn;
+  animation: 1s ease-out 0s 1 fadeIn;
 }
 
 .archive h2 {
@@ -93,6 +102,10 @@
 }
 
 @media only screen and (max-width: 576px) {
+  .archive_module {
+    animation: 1s ease-out 0s 1 slideIn;
+  }
+
   .archive_module_container {
     margin-bottom: 20px;
   }
