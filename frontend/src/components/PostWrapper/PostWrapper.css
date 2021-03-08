@@ -35,6 +35,6 @@
     grid-template-columns: 1fr;
     grid-template-rows: none;
     grid-auto-rows: min-content;
-    overflow: hidden;
+    overflow: scroll;
   }
 }
