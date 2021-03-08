@@ -6,7 +6,6 @@
   grid-row-gap: 10px;
   grid-column-gap: 10px;
   margin-bottom: 10px;
-  grid-auto-flow: row dense;
   overflow: hidden;
 }
 
@@ -31,9 +30,11 @@
 
 @media (max-width: 576px) {
   .postwrapper {
-    width: calc(50vw - 10px);
+    width: calc(50vw - 10px) !important;
+    height: calc(100vh - 50px) !important;
     grid-template-columns: 1fr;
     grid-template-rows: none;
     grid-auto-rows: min-content;
+    overflow: hidden;
   }
 }
