@@ -20,14 +20,14 @@ const HomeArchive = ({ title, thumbnailUrl, body, category, id }) => {
               {title} <br></br>
             </span>
             <p className="archive_content_body">
-              {/* {body.split("\n").map((line) => {
+              {body.split("\n").map((line) => {
                 return (
                   <span>
                     {line}
                     <br />
                   </span>
                 );
-              })} */}
+              })}
             </p>
           </div>
         </div>

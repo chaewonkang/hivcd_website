@@ -5,8 +5,7 @@
   grid-auto-columns: auto;
   grid-row-gap: 10px;
   grid-column-gap: 10px;
-  margin-bottom: 10px;
-  overflow: hidden;
+  overflow: scroll;
 }
 
 @media (min-width: 1440px) and (max-width: 1920px) {
