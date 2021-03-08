@@ -40,6 +40,7 @@ function ContentContainer() {
   const [state] = useAsync(() => getPosts(token), [token]);
   const { loading, data: posts, error } = state;
   console.log(posts);
+  console.log(posts.length);
   //   const arr = [
   //     posts.map((data) => {
   //       return data.pk;
@@ -137,28 +138,15 @@ function ContentContainer() {
                 data.category === 3 ||
                 data.category === 4
             )
-            .map((post) =>
-              post.pk === arr[Math.floor(Math.random() * arr.length)] ? (
-                <>
-                  <LogoImage></LogoImage>
-                  <Post
-                    key={post.pk}
-                    title={post.title}
-                    date={post.updated}
-                    category={post.category}
-                    id={post.pk}
-                  ></Post>
-                </>
-              ) : (
-                <Post
-                  key={post.pk}
-                  title={post.title}
-                  date={post.updated}
-                  category={post.category}
-                  id={post.pk}
-                ></Post>
-              )
-            )}
+            .map((post) => (
+              <Post
+                key={post.pk}
+                title={post.title}
+                date={post.updated}
+                category={post.category}
+                id={post.pk}
+              ></Post>
+            ))}
       </PostWrapper>
       <ArchiveWrapper dimensions={dimensions}>
         {posts &&
