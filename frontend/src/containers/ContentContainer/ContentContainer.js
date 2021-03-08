@@ -86,7 +86,7 @@ function ContentContainer() {
       setPkArray(posts.map((data) => data.pk));
       setRandInt(randomItem(pkArray));
     }
-  }, [HAS_VISITED_BEFORE, posts, pkArray]);
+  }, [HAS_VISITED_BEFORE]);
 
   const handleClose = () => setShowModal(false);
 
