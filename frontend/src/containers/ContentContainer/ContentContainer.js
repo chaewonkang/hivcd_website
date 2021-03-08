@@ -82,10 +82,6 @@ function ContentContainer() {
     };
 
     window.setTimeout(handleShowModal, 2000);
-    if (posts) {
-      setPkArray(posts.map((data) => data.pk));
-      setRandInt(randomItem(pkArray));
-    }
   }, [HAS_VISITED_BEFORE]);
 
   const handleClose = () => setShowModal(false);
@@ -103,7 +99,10 @@ function ContentContainer() {
       </div>
     );
   if (!posts) return null;
-
+  if (posts) {
+    setPkArray(posts.map((data) => data.pk));
+    setRandInt(randomItem(pkArray));
+  }
   return (
     <div className="contentcontainer">
       {showModal && (
