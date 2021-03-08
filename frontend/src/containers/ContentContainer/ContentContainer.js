@@ -46,17 +46,6 @@ function ContentContainer() {
   const [state] = useAsync(() => getPosts(token), [token]);
   const { loading, data: posts, error } = state;
 
-  if (posts) {
-    setPkArray(
-      posts
-        ? posts.map((data) => {
-            return data.pk;
-          })
-        : []
-    );
-    setRandInt(randomItem(pkArray));
-  }
-
   const [dimensions, setDimensions] = useState({
     height: window.innerHeight,
     width: window.innerWidth,
@@ -94,6 +83,17 @@ function ContentContainer() {
     };
 
     window.setTimeout(handleShowModal, 2000);
+
+    if (posts) {
+      setPkArray(
+        posts
+          ? posts.map((data) => {
+              return data.pk;
+            })
+          : []
+      );
+      setRandInt(randomItem(pkArray));
+    }
   }, [HAS_VISITED_BEFORE]);
 
   const handleClose = () => setShowModal(false);
