@@ -41,14 +41,16 @@ function randomItem(arr) {
 
 function ContentContainer() {
   const [token] = useState(getCookie("csrftoken"));
+  const [randInt, setRandInt] = useState(0);
+  const [pkArray, setPkArray] = useState([]);
   const [state] = useAsync(() => getPosts(token), [token]);
+  setPkArray(posts.map((data) => data.pk));
+  setRandInt(randomItem(pkArray));
   const { loading, data: posts, error } = state;
   const [dimensions, setDimensions] = useState({
     height: window.innerHeight,
     width: window.innerWidth,
   });
-  const [randInt, setRandInt] = useState(0);
-  const [pkArray, setPkArray] = useState([]);
 
   const [showModal, setShowModal] = useState(true);
   const HAS_VISITED_BEFORE = localStorage.getItem("hasVisitedBefore");
@@ -99,10 +101,7 @@ function ContentContainer() {
       </div>
     );
   if (!posts) return null;
-  if (posts) {
-    setPkArray(posts.map((data) => data.pk));
-    setRandInt(randomItem(pkArray));
-  }
+
   return (
     <div className="contentcontainer">
       {showModal && (
