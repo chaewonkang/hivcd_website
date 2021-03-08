@@ -35,6 +35,10 @@ function debounce(fn, ms) {
   };
 }
 
+function randomItem(arr) {
+  return arr[Math.floor(Math.random() * arr.length)];
+}
+
 function ContentContainer() {
   const [token] = useState(getCookie("csrftoken"));
   const [state] = useAsync(() => getPosts(token), [token]);
@@ -43,6 +47,8 @@ function ContentContainer() {
     height: window.innerHeight,
     width: window.innerWidth,
   });
+  const [randInt, setRandInt] = useState(0);
+  const [pkArray, setPkArray] = useState([]);
 
   const [showModal, setShowModal] = useState(true);
   const HAS_VISITED_BEFORE = localStorage.getItem("hasVisitedBefore");
@@ -76,6 +82,9 @@ function ContentContainer() {
     };
 
     window.setTimeout(handleShowModal, 2000);
+
+    setPkArray(posts.map((data) => data.pk));
+    setRandInt(randomItem(pkArray));
   }, [HAS_VISITED_BEFORE]);
 
   const handleClose = () => setShowModal(false);
@@ -121,7 +130,6 @@ function ContentContainer() {
         </Modal>
       )}
       <PostWrapper dimensions={dimensions}>
-        {posts ? <LogoImage></LogoImage> : null}
         {posts &&
           posts
             .filter(
@@ -131,8 +139,19 @@ function ContentContainer() {
                 data.category === 3 ||
                 data.category === 4
             )
-            .map((post) => {
-              return (
+            .map((post) =>
+              post.pk === randInt ? (
+                <>
+                  <LogoImage></LogoImage>{" "}
+                  <Post
+                    key={post.pk}
+                    title={post.title}
+                    date={post.updated}
+                    category={post.category}
+                    id={post.pk}
+                  ></Post>
+                </>
+              ) : (
                 <Post
                   key={post.pk}
                   title={post.title}
@@ -140,8 +159,8 @@ function ContentContainer() {
                   category={post.category}
                   id={post.pk}
                 ></Post>
-              );
-            })}
+              )
+            )}
       </PostWrapper>
       <ArchiveWrapper dimensions={dimensions}>
         {posts &&
