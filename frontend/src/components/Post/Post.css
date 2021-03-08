@@ -1,7 +1,7 @@
-
 .post {
   position: relative;
   padding: 1rem;
+  overflow-x: hidden; /* Hide horizontal scrollbar */
 }
 
 .post h2 {

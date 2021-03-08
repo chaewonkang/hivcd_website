@@ -29,6 +29,7 @@
   overflow: auto;
   word-break: keep-all;
   animation: 1s ease-out 0s 1 fadeIn;
+  overflow-x: hidden; /* Hide horizontal scrollbar */
 }
 
 .archive h2 {
