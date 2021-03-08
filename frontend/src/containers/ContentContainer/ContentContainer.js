@@ -46,7 +46,13 @@ function ContentContainer() {
   const [state] = useAsync(() => getPosts(token), [token]);
   const { loading, data: posts, error } = state;
 
-  setPkArray(posts.map((data) => data.pk));
+  setPkArray(
+    posts
+      ? posts.map((data) => {
+          return data.pk;
+        })
+      : []
+  );
   setRandInt(randomItem(pkArray));
   const [dimensions, setDimensions] = useState({
     height: window.innerHeight,
