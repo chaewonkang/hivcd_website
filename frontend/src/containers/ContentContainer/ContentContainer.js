@@ -44,6 +44,12 @@ function ContentContainer() {
         expires = expires.setHours(expires.getHours() + 24);
         localStorage.setItem("hasVisitedBefore", expires);
       }
+
+      const handleResize = () => {
+        console.log("resize to", window.innerWidth, "x", window.innerHeight);
+      };
+
+      window.addEventListener("resize", handleResize);
     };
 
     window.setTimeout(handleShowModal, 2000);
