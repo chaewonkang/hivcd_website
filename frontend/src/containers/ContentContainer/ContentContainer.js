@@ -84,16 +84,8 @@ function ContentContainer() {
 
     window.setTimeout(handleShowModal, 2000);
 
-    if (posts) {
-      setPkArray(
-        posts
-          ? posts.map((data) => {
-              return data.pk;
-            })
-          : []
-      );
-      setRandInt(randomItem(pkArray));
-    }
+    setPkArray([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16]);
+    setRandInt(randomItem(pkArray));
   }, [HAS_VISITED_BEFORE]);
 
   const handleClose = () => setShowModal(false);
@@ -151,7 +143,7 @@ function ContentContainer() {
             .map((post) =>
               post.pk === randInt ? (
                 <>
-                  <LogoImage></LogoImage>{" "}
+                  <LogoImage></LogoImage>
                   <Post
                     key={post.pk}
                     title={post.title}
