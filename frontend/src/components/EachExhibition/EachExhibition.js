@@ -40,18 +40,8 @@ function EachExhibition({ postId, handleNavigateClick }) {
   const [state] = useAsync(() => getExhibitionInfo(token), [token]);
   const { loading, data: exhibition, error } = state;
 
-  if (loading)
-    return (
-      <div className="container_loading">
-        <img className="loading_status" src={logogif}></img>
-      </div>
-    );
-  if (error)
-    return (
-      <div className="container_loading">
-        <img className="loading_status" src={logogif}></img>
-      </div>
-    );
+  if (loading) return <div className="container_loading"></div>;
+  if (error) return <div className="container_loading"></div>;
   if (!exhibition) return null;
 
   return (
