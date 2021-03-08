@@ -39,11 +39,13 @@ function ContentContainer() {
   const [token] = useState(getCookie("csrftoken"));
   const [state] = useAsync(() => getPosts(token), [token]);
   const { loading, data: posts, error } = state;
-  const arr = [
-    posts.map((data) => {
-      return data.pk;
-    }),
-  ];
+  console.log(posts);
+  console.log(posts.length);
+  //   const arr = [
+  //     posts.map((data) => {
+  //       return data.pk;
+  //     }),
+  //   ];
 
   const [dimensions, setDimensions] = useState({
     height: window.innerHeight,
@@ -136,28 +138,15 @@ function ContentContainer() {
                 data.category === 3 ||
                 data.category === 4
             )
-            .map((post) =>
-              post.pk === arr[Math.floor(Math.random() * arr.length)] ? (
-                <>
-                  <LogoImage></LogoImage>
-                  <Post
-                    key={post.pk}
-                    title={post.title}
-                    date={post.updated}
-                    category={post.category}
-                    id={post.pk}
-                  ></Post>
-                </>
-              ) : (
-                <Post
-                  key={post.pk}
-                  title={post.title}
-                  date={post.updated}
-                  category={post.category}
-                  id={post.pk}
-                ></Post>
-              )
-            )}
+            .map((post) => (
+              <Post
+                key={post.pk}
+                title={post.title}
+                date={post.updated}
+                category={post.category}
+                id={post.pk}
+              ></Post>
+            ))}
       </PostWrapper>
       <ArchiveWrapper dimensions={dimensions}>
         {posts &&
