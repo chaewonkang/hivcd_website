@@ -39,13 +39,6 @@ function ContentContainer() {
   const [token] = useState(getCookie("csrftoken"));
   const [state] = useAsync(() => getPosts(token), [token]);
   const { loading, data: posts, error } = state;
-  console.log(posts);
-  console.log(posts.length);
-  //   const arr = [
-  //     posts.map((data) => {
-  //       return data.pk;
-  //     }),
-  //   ];
 
   const [dimensions, setDimensions] = useState({
     height: window.innerHeight,

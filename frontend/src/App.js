@@ -27,10 +27,6 @@ function App() {
     setSearchKeyword(keyword);
   };
 
-  useEffect(() => {
-    setSearchKeyword(searchKeyword);
-  }, [searchKeyword]);
-
   return (
     <main>
       <Switch>
