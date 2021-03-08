@@ -49,8 +49,6 @@ function ContentContainer() {
   });
   const [randInt, setRandInt] = useState(0);
   const [pkArray, setPkArray] = useState([]);
-  setPkArray(posts.map((data) => data.pk));
-  setRandInt(randomItem(pkArray));
 
   const [showModal, setShowModal] = useState(true);
   const HAS_VISITED_BEFORE = localStorage.getItem("hasVisitedBefore");
@@ -84,7 +82,11 @@ function ContentContainer() {
     };
 
     window.setTimeout(handleShowModal, 2000);
-  }, [HAS_VISITED_BEFORE]);
+    if (posts) {
+      setPkArray(posts.map((data) => data.pk));
+      setRandInt(randomItem(pkArray));
+    }
+  }, [HAS_VISITED_BEFORE, posts, pkArray]);
 
   const handleClose = () => setShowModal(false);
 
