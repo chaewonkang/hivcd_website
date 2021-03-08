@@ -24,10 +24,25 @@ async function getPosts(token) {
   return response.data;
 }
 
+function debounce(fn, ms) {
+  let timer;
+  return () => {
+    clearTimeout(timer);
+    timer = setTimeout(() => {
+      timer = null;
+      fn.apply(this, arguments);
+    }, ms);
+  };
+}
+
 function ContentContainer() {
   const [token] = useState(getCookie("csrftoken"));
   const [state] = useAsync(() => getPosts(token), [token]);
   const { loading, data: posts, error } = state;
+  const [dimensions, setDimensions] = useState({
+    height: window.innerHeight,
+    width: window.innerWidth,
+  });
 
   const [showModal, setShowModal] = useState(true);
   const HAS_VISITED_BEFORE = localStorage.getItem("hasVisitedBefore");
@@ -45,11 +60,18 @@ function ContentContainer() {
         localStorage.setItem("hasVisitedBefore", expires);
       }
 
-      const handleResize = () => {
-        console.log("resize to", window.innerWidth, "x", window.innerHeight);
-      };
+      const debouncedHandleResize = debounce(function handleResize() {
+        setDimensions({
+          height: window.innerHeight,
+          width: window.innerWIdth,
+        });
+      }, 1000);
 
-      window.addEventListener("resize", handleResize);
+      window.addEventListener("resize", debouncedHandleResize);
+
+      return () => {
+        window.removeEventListener("resize", debouncedHandleResize);
+      };
     };
 
     window.setTimeout(handleShowModal, 2000);
@@ -80,7 +102,7 @@ function ContentContainer() {
 
   return (
     <div className="contentcontainer">
-      {showModal && (
+      {/* {showModal && (
         <Modal
           visible={showModal}
           width="fit-content"
@@ -103,8 +125,8 @@ function ContentContainer() {
             </p>
           </div>
         </Modal>
-      )}
-      <PostWrapper>
+      )} */}
+      <PostWrapper dimensions={dimensions}>
         {posts ? <LogoImage></LogoImage> : null}
         {posts &&
           posts
@@ -115,7 +137,6 @@ function ContentContainer() {
                 data.category === 3 ||
                 data.category === 4
             )
-            .slice(0, 23)
             .map((post) => {
               return (
                 <Post
@@ -128,7 +149,7 @@ function ContentContainer() {
               );
             })}
       </PostWrapper>
-      <ArchiveWrapper>
+      <ArchiveWrapper dimensions={dimensions}>
         {posts &&
           posts
             .filter(
