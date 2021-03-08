@@ -35,16 +35,11 @@ function debounce(fn, ms) {
   };
 }
 
-function randomItem(arr) {
-  return arr[Math.floor(Math.random() * arr.length)];
-}
-
 function ContentContainer() {
   const [token] = useState(getCookie("csrftoken"));
-  const [randInt, setRandInt] = useState(0);
-  const [pkArray, setPkArray] = useState([]);
   const [state] = useAsync(() => getPosts(token), [token]);
   const { loading, data: posts, error } = state;
+  const randIdx = Math.floor(Math.random() * posts.length);
 
   const [dimensions, setDimensions] = useState({
     height: window.innerHeight,
@@ -83,39 +78,6 @@ function ContentContainer() {
     };
 
     window.setTimeout(handleShowModal, 2000);
-
-    setPkArray([
-      12,
-      13,
-      14,
-      15,
-      16,
-      17,
-      18,
-      19,
-      20,
-      21,
-      22,
-      23,
-      24,
-      29,
-      30,
-      31,
-      32,
-      33,
-      34,
-      35,
-      36,
-      37,
-      38,
-      39,
-      40,
-      41,
-      42,
-      43,
-      44,
-    ]);
-    setRandInt(randomItem(pkArray));
   }, [HAS_VISITED_BEFORE]);
 
   const handleClose = () => setShowModal(false);
@@ -171,7 +133,7 @@ function ContentContainer() {
                 data.category === 4
             )
             .map((post) =>
-              post.pk === randInt ? (
+              post.pk === randIdx ? (
                 <>
                   <LogoImage></LogoImage>
                   <Post
