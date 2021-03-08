@@ -2,10 +2,10 @@ import React, { useState } from "react";
 import "./PostWrapper.css";
 
 const PostWrapper = ({ children, dimensions }) => {
-	const [widthAndHeight, setWidthAndHeight] = useState({
-		width: dimensions.width * 0.6;
-		height: dimensions.height
-	})
+  const [widthAndHeight, setWidthAndHeight] = useState({
+    width: dimensions.width * 0.6,
+    height: dimensions.height,
+  });
   return (
     <div
       className="postwrapper"
