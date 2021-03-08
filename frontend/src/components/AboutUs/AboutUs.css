@@ -181,7 +181,7 @@
   }
   .aboutus_container {
     grid-template-columns: 1fr;
-    grid-template-rows: repeat(4, 450px);
+    grid-template-rows: repeat(6, 33vh);
     column-gap: 20px;
     row-gap: 20px;
   }
