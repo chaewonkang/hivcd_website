@@ -64,6 +64,7 @@ function ContentContainer() {
         setDimensions({
           height: window.innerHeight,
           width: window.innerWidth,
+          row: window.innerHeight / 210,
         });
       }, 1);
 
