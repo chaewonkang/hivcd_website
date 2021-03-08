@@ -13,7 +13,7 @@ function LogoImage() {
     backgroundSize: "70%",
   });
 
-  const pictureArray = [logoImageA, logoImageB, logoImageC, logoImageD];
+  //   const pictureArray = [logoImageA, logoImageB, logoImageC, logoImageD];
   //   const columnArray = ["1/2"];
   //   const rowArray = ["1/2"];
   //   const randomIdx = Math.floor(Math.random() * pictureArray.length);
