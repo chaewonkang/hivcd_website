@@ -95,8 +95,8 @@ function ContentContainer() {
     );
   if (posts) {
     const arr = [];
-    posts.map((post) => arr.concat(post.pk));
-    console.log(arr);
+    const hello = posts.map((post) => arr.concat(post.pk));
+    console.log(hello);
   }
   if (!posts) return null;
 
