@@ -40,7 +40,6 @@ function ContentContainer() {
   const [state] = useAsync(() => getPosts(token), [token]);
   const [postPk, setPostPk] = useState({});
   const { loading, data: posts, error } = state;
-  const randRet = Math.floor(Math.random() * posts.length);
 
   const [dimensions, setDimensions] = useState({
     height: window.innerHeight,
@@ -138,28 +137,15 @@ function ContentContainer() {
                 data.category === 3 ||
                 data.category === 4
             )
-            .map((post) =>
-              randRet < posts.length ? (
-                <Post
-                  key={post.pk}
-                  title={post.title}
-                  date={post.updated}
-                  category={post.category}
-                  id={post.pk}
-                ></Post>
-              ) : (
-                <>
-                  <LogoImage></LogoImage>
-                  <Post
-                    key={post.pk}
-                    title={post.title}
-                    date={post.updated}
-                    category={post.category}
-                    id={post.pk}
-                  ></Post>
-                </>
-              )
-            )}
+            .map((post) => (
+              <Post
+                key={post.pk}
+                title={post.title}
+                date={post.updated}
+                category={post.category}
+                id={post.pk}
+              ></Post>
+            ))}
       </PostWrapper>
       <ArchiveWrapper dimensions={dimensions}>
         {posts &&
