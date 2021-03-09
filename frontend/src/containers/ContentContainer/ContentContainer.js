@@ -44,18 +44,28 @@ function ContentContainer() {
   const [state] = useAsync(() => getPosts(token), [token]);
 
   const { loading, data: posts, error } = state;
-  let pkArray = [];
+  let postsLen = [];
   let idxArray = [];
+  let pkArray = [];
+  let randomPk = [];
   if (posts) {
-    pkArray = posts.map((data) => pkArray.push(data[0]));
+    postsLen = posts.map((data) => pkArray.push(data));
+    for (let i = 0; i <= postsLen.length; i++) {
+      pkArray.push(posts[i].pk);
+    }
     for (let i = 0; i < 5; i++) {
       let rand = Math.floor(Math.random() * pkArray.length);
       idxArray[i] = rand;
     }
+    for (let i = 0; i <= idxArray.length; i++) {
+      randomPk.push(pkArray[idxArray[i]]);
+    }
   }
+
   console.log(posts);
   console.log(idxArray);
   console.log(pkArray);
+  console.log(randomPk);
 
   const [dimensions, setDimensions] = useState({
     height: window.innerHeight,
