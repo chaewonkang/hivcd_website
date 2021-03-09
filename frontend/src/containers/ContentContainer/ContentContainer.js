@@ -144,53 +144,25 @@ function ContentContainer() {
             )
             .map((post) => (
               <>
-                {post.pk === 43 ? (
+                {post.pk === 43 ||
+                post.pk === 39 ||
+                post.pk === 29 ||
+                post.pk === 22 ? (
                   <img
-                    src={imgArray[0]}
+                    src={imgArray[Math.random * imgArray.length]}
                     alt="randomImage"
                     style={{ width: 195 + "px" }}
                     id="imgRef1"
                   ></img>
                 ) : (
-                  setStop(true)
+                  <Post
+                    key={post.pk}
+                    title={post.title}
+                    date={post.updated}
+                    category={post.category}
+                    id={post.pk}
+                  ></Post>
                 )}
-                {post.pk === 39 ? (
-                  <img
-                    src={imgArray[1]}
-                    alt="randomImage"
-                    style={{ width: 195 + "px" }}
-                    id="imgRef2"
-                  ></img>
-                ) : (
-                  setStop(true)
-                )}
-                {post.pk === 34 ? (
-                  <img
-                    src={imgArray[2]}
-                    alt="randomImage"
-                    style={{ width: 195 + "px" }}
-                    id="imgRef3"
-                  ></img>
-                ) : (
-                  setStop(true)
-                )}
-                {post.pk === 27 ? (
-                  <img
-                    src={imgArray[3]}
-                    alt="randomImage"
-                    style={{ width: 195 + "px" }}
-                    id="imgRef4"
-                  ></img>
-                ) : (
-                  setStop(true)
-                )}
-                <Post
-                  key={post.pk}
-                  title={post.title}
-                  date={post.updated}
-                  category={post.category}
-                  id={post.pk}
-                ></Post>
               </>
             ))}
       </PostWrapper>
