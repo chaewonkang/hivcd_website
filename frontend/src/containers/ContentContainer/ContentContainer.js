@@ -145,11 +145,11 @@ function ContentContainer() {
             .map((post) => (
               <>
                 {post.pk === 43 ||
-                post.pk === 39 ||
+                post.pk === 33 ||
                 post.pk === 29 ||
-                post.pk === 22 ? (
+                post.pk === 12 ? (
                   <img
-                    src={imgArray[Math.random * imgArray.length]}
+                    src={imgArray[Math.random() * imgArray.length]}
                     alt="randomImage"
                     style={{ width: 195 + "px" }}
                     id="imgRef1"
