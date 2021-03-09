@@ -20,13 +20,13 @@ function Board() {
   if (loading)
     return (
       <div className="container_loading">
-        <img className="loading_status" src={logogif}></img>
+        <img className="loading_status" src={logogif} alt="logogif"></img>
       </div>
     );
   if (error)
     return (
       <div className="container_loading">
-        <img className="loading_status" src={logogif}></img>
+        <img className="loading_status" src={logogif} alt="logogif"></img>
       </div>
     );
   if (!posts) return null;
@@ -80,6 +80,7 @@ function Board() {
           .filter((data) => {
             if (boardFilter === 0) return data;
             else if (data.category === boardFilter) return data;
+            return null;
           })
           .map((data) => {
             return (

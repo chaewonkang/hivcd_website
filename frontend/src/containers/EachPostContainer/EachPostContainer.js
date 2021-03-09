@@ -60,13 +60,13 @@ function EachPostContainer({ match, location }) {
   if (loading)
     return (
       <div className="container_loading">
-        <img className="loading_status" src={logogif}></img>
+        <img className="loading_status" src={logogif} alt="logogif"></img>
       </div>
     );
   if (error)
     return (
       <div className="container_loading">
-        <img className="loading_status" src={logogif}></img>
+        <img className="loading_status" src={logogif} alt="logogif"></img>
       </div>
     );
   if (!list) return null;

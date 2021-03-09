@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { PostWrapper, Post, HomeArchive, LogoImage } from "../../components";
+import { PostWrapper, Post, HomeArchive } from "../../components";
 import { ArchiveWrapper } from "../../components";
 import "./ContentContainer.css";
 import useAsync from "../../utils/useAsync";
@@ -84,13 +84,13 @@ function ContentContainer() {
   if (loading)
     return (
       <div className="container_loading">
-        <img className="loading_status" src={logogif}></img>
+        <img className="loading_status" src={logogif} alt="logogif"></img>
       </div>
     );
   if (error)
     return (
       <div className="container_loading">
-        <img className="loading_status" src={logogif}></img>
+        <img className="loading_status" src={logogif} alt="logogif"></img>
       </div>
     );
   if (!posts) return null;
@@ -107,7 +107,11 @@ function ContentContainer() {
         >
           <div className="welcome_modal">
             <p className="paragraph">
-              홍익시디 웹사이트가 오픈되었습니다. 🎊<br></br>
+              홍익시디 웹사이트가 오픈되었습니다.{" "}
+              <span role="img" aria-label="emoji">
+                🎊
+              </span>
+              <br></br>
               <br></br>
               상단 메뉴바의 로그인 버튼을 통해 학번으로 로그인해 주세요. 로그인
               후 학과사무실에서 승인이 완료되면 전체 게시물을 열람 가능합니다.

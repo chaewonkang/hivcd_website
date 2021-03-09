@@ -3,7 +3,6 @@ import "./EachExhibition.css";
 import axios from "axios";
 import useAsync from "../../utils/useAsync";
 import getCookie from "../../utils/getCookie";
-import logogif from "../../img/logogif.gif";
 
 async function getExhibitionInfo(token) {
   const response = await axios.get(
@@ -36,7 +35,6 @@ function setCategoryNumber(category) {
 
 function EachExhibition({ postId, handleNavigateClick }) {
   const [token] = useState(getCookie("csrftoken"));
-  const [warningVisibility, setWarningVisibility] = useState(false);
   const [state] = useAsync(() => getExhibitionInfo(token), [token]);
   const { loading, data: exhibition, error } = state;
 

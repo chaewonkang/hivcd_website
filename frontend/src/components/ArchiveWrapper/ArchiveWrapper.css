@@ -41,8 +41,8 @@
     width: calc(50vw - 10px) !important;
     height: calc(100vh - 50px) !important;
     grid-template-columns: 1fr;
-    grid-template-rows: auto;
-    grid-auto-rows: unset;
+    grid-template-rows: 320px;
+    grid-auto-rows: 320px;
     margin-bottom: 0px;
     padding-bottom: 10px;
     overflow: scroll;

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./Alumni.css";
 import axios from "axios";
-import { AlumniModule, AlumniSearch, LogoImage } from "../../components";
+import { AlumniModule, AlumniSearch } from "../../components";
 import useAsync from "../../utils/useAsync";
 import getCookie from "../../utils/getCookie";
 import logogif from "../../img/logogif.gif";
@@ -36,13 +36,13 @@ function Alumni() {
   if (loading)
     return (
       <div className="container_loading">
-        <img className="loading_status" src={logogif}></img>
+        <img className="loading_status" src={logogif} alt="logogif"></img>
       </div>
     );
   if (error)
     return (
       <div className="container_loading">
-        <img className="loading_status" src={logogif}></img>
+        <img className="loading_status" src={logogif} alt="logogif"></img>
       </div>
     );
   if (!alumnis) return null;

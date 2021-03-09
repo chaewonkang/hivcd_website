@@ -4,6 +4,7 @@ import axios from "axios";
 import "./EachExhibitionContainer.css";
 import getCookie from "../../utils/getCookie";
 import useAsync from "../../utils/useAsync";
+import logogif from "../../img/logogif.gif";
 
 function handleNavigateClick(type, postId) {
   if (type === "NEXT") {
@@ -56,8 +57,18 @@ function EachExhibitionContainer({ match, location }) {
     location.pathname.includes("board") ? setIsBoard(true) : setIsBoard(false);
   });
 
-  if (error) return <div className="each_post_container">Error Occurred!</div>;
-  if (loading) return <div className="each_post_container">Loading...</div>;
+  if (loading)
+    return (
+      <div className="container_loading">
+        <img className="loading_status" src={logogif} alt="logogif"></img>
+      </div>
+    );
+  if (error)
+    return (
+      <div className="container_loading">
+        <img className="loading_status" src={logogif} alt="logogif"></img>
+      </div>
+    );
   if (!list) return null;
 
   return (

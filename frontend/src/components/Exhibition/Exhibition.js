@@ -33,13 +33,13 @@ function Exhibition() {
   if (loading)
     return (
       <div className="container_loading">
-        <img className="loading_status" src={logogif}></img>
+        <img className="loading_status" src={logogif} alt="logogif"></img>
       </div>
     );
   if (error)
     return (
       <div className="container_loading">
-        <img className="loading_status" src={logogif}></img>
+        <img className="loading_status" src={logogif} alt="logogif"></img>
       </div>
     );
   if (!exhibition) return null;
@@ -88,7 +88,7 @@ function Exhibition() {
               if (exhibitionFilter === null || exhibitionFilter === 0)
                 return data;
               else if (data.category === exhibitionFilter) return data;
-              return;
+              return null;
             })
             .map((data) => {
               return (
