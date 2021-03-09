@@ -93,6 +93,11 @@ function ContentContainer() {
         <img className="loading_status" src={logogif} alt="logogif"></img>
       </div>
     );
+  if (posts) {
+    const arr = [];
+    posts.map((post) => arr.concat(post.pk));
+    console.log(arr);
+  }
   if (!posts) return null;
 
   return (
