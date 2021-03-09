@@ -110,10 +110,16 @@
 
 /********** Medium devices only **********/
 @media (min-width: 992px) and (max-width: 1199px) {
+  .each_exhibition {
+    padding: 0;
+  }
 }
 
 /********** Small devices only **********/
 @media (min-width: 768px) and (max-width: 991px) {
+  .each_exhibition {
+    padding: 0;
+  }
 }
 
 /********** Extra small devices only **********/
