@@ -45,9 +45,16 @@ function ContentContainer() {
 
   const { loading, data: posts, error } = state;
   let pkArray = [];
+  let idxArray = [];
   if (posts) {
-    pkArray = posts.map((data) => pkArray.push(data.pk));
+    pkArray = posts.map((data) => pkArray.push(data.title));
+    for (let i = 0; i < 5; i++) {
+      let rand = Math.floor(Math.random() * pkArray.length);
+      idxArray[i] = rand;
+    }
   }
+  console.log(posts);
+  console.log(idxArray);
   console.log(pkArray);
 
   const [dimensions, setDimensions] = useState({
