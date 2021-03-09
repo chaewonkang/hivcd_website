@@ -19,13 +19,43 @@ import {
   ContentContainer,
   EachExhibitionContainer,
 } from "./containers";
+import axios from "axios";
+import { useEffect } from "react";
+import getCookie from "./utils/getCookie";
+
+async function getPostPk(t) {
+  const response = await axios
+    .get(
+      "http://sidi.hongik.ac.kr/api/v1/postings",
+      {},
+      {
+        headers: {
+          Authorization: "Bearer " + localStorage.getItem("access_token"),
+          Accept: "application/json",
+          "X-CSRFToken": t,
+          "Content-type": "application/json",
+        },
+      }
+    )
+    .then((response) => {
+      console.log(response.data);
+    });
+  return response.data;
+}
 
 function App() {
   const [searchKeyword, setSearchKeyword] = useState("");
+  const [postPk, setPostPk] = useState([]);
+  const [token] = useState(getCookie("csrftoken"));
 
   const handleSearchKeyword = (keyword) => {
     setSearchKeyword(keyword);
   };
+
+  useEffect(() => {
+    setPostPk(getPostPk(token));
+    console.log(postPk);
+  }, []);
 
   return (
     <main>
