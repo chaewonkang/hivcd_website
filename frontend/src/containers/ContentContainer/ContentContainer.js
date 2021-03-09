@@ -148,12 +148,23 @@ function ContentContainer() {
                 post.pk === 33 ||
                 post.pk === 29 ||
                 post.pk === 12 ? (
-                  <img
-                    src={imgArray[Math.random() * imgArray.length]}
-                    alt="randomImage"
-                    style={{ width: 195 + "px" }}
-                    id="imgRef1"
-                  ></img>
+                  <>
+                    <img
+                      src={
+                        imgArray[Math.floor(Math.random() * imgArray.length)]
+                      }
+                      alt="randomImage"
+                      style={{ width: 195 + "px" }}
+                      id="imgRef1"
+                    ></img>
+                    <Post
+                      key={post.pk}
+                      title={post.title}
+                      date={post.updated}
+                      category={post.category}
+                      id={post.pk}
+                    ></Post>
+                  </>
                 ) : (
                   <Post
                     key={post.pk}
