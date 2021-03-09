@@ -1,6 +1,6 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { PostWrapper, Post, HomeArchive, LogoImage } from "../../components";
+import { PostWrapper, Post, HomeArchive } from "../../components";
 import { ArchiveWrapper } from "../../components";
 import "./ContentContainer.css";
 import useAsync from "../../utils/useAsync";
@@ -44,6 +44,11 @@ function ContentContainer() {
   const [state] = useAsync(() => getPosts(token), [token]);
 
   const { loading, data: posts, error } = state;
+  let pkArray = [];
+  if (posts) {
+    pkArray = posts.map((data) => pkArray.push(data.pk));
+  }
+  console.log(pkArray);
 
   const [dimensions, setDimensions] = useState({
     height: window.innerHeight,
@@ -51,7 +56,6 @@ function ContentContainer() {
   });
 
   const [showModal, setShowModal] = useState(true);
-  const [postCount, setPostCount] = useState(0);
   const [imgArray] = useState([H_1, I_1, S_1, D_1]);
   const HAS_VISITED_BEFORE = localStorage.getItem("hasVisitedBefore");
 
@@ -145,7 +149,7 @@ function ContentContainer() {
             )
             .map((post) => (
               <>
-                {post.pk < Object.keys(posts).length / 1 ? (
+                {pkArray && post.pk < pkArray(0, 20) / 1 ? (
                   <img
                     src={imgArray[1]}
                     alt="randomImage"

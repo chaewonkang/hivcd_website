@@ -91,4 +91,11 @@ span.title {
     word-break: keep-all;
     line-height: 1.5em;
   }
+
+  #imgRef1,
+  #imgRef2,
+  #imgRef3,
+  #imgRef4 {
+    display: none;
+  }
 }
