@@ -149,7 +149,7 @@ function ContentContainer() {
             )
             .map((post) => (
               <>
-                {pkArray && post.pk < pkArray(0, 20) / 1 ? (
+                {pkArray && post.pk < pkArray.length / 1 ? (
                   <img
                     src={imgArray[1]}
                     alt="randomImage"
