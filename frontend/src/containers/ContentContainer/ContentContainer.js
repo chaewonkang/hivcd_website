@@ -101,18 +101,6 @@ function ContentContainer() {
     const count = Object.keys(posts).length;
     setPostCount(count);
     console.log(postCount);
-    let randArr = [];
-    for (let i = 0; i < 5; i++) {
-      let idx = Math.floor(Math.random() * postCount);
-      for (let j = 0; j < 5; j++) {
-        if (idx !== randArr[j]) randArr.push(idx);
-        j++;
-        return;
-      }
-      i++;
-      return randArr;
-    }
-    console.log(randArr);
     return (
       <div className="contentcontainer">
         {showModal && (
@@ -155,13 +143,16 @@ function ContentContainer() {
                   data.category === 4
               )
               .map((post) => (
-                <Post
-                  key={post.pk}
-                  title={post.title}
-                  date={post.updated}
-                  category={post.category}
-                  id={post.pk}
-                ></Post>
+                <>
+                  <LogoImage postCount={postCount}></LogoImage>
+                  <Post
+                    key={post.pk}
+                    title={post.title}
+                    date={post.updated}
+                    category={post.category}
+                    id={post.pk}
+                  ></Post>
+                </>
               ))}
         </PostWrapper>
         <ArchiveWrapper dimensions={dimensions}>
