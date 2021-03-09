@@ -96,4 +96,10 @@
   .alumni_module_container {
     animation: 1s ease-out 0s 1 slideIn;
   }
+
+  .alumni_container {
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    grid-auto-rows: 100px;
+    grid-auto-columns: 100px;
+  }
 }

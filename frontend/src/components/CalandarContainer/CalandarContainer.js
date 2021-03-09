@@ -1,10 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import "./CalandarContainer.css";
-import logogif from "../../img/logogif.gif";
 
 function CalandarContainer() {
-  const [calDiv, setCalDiv] = useState(true);
-
   useEffect(() => {
     window.eventCalId = 7353;
     var integrationScript = document.createElement("script");
@@ -19,7 +16,7 @@ function CalandarContainer() {
         "fc14c30a-1881-4601-9d23-5ce266b746dc"
       );
     }
-  }, [calDiv]);
+  });
 
   return (
     <div className="calandar_container">

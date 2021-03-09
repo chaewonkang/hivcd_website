@@ -31,7 +31,7 @@ function EachPost({ postId, handleNavigateClick }) {
     color: null,
     borderColor: null,
   });
-  const [warningVisibility, setWarningVisibility] = useState(false);
+  const [warningVisibility] = useState(false);
   const [token] = useState(getCookie("csrftoken"));
   const [state] = useAsync(() => getEachPost(postId, token), [postId, token]);
   const { loading, data: eachPost, error } = state;
@@ -92,7 +92,7 @@ function EachPost({ postId, handleNavigateClick }) {
   if (error)
     return (
       <div className="each_post">
-        <img className="loading_status" src={logogif}></img>
+        <img className="loading_status" src={logogif} alt="logogif"></img>
       </div>
     );
   if (!eachPost) return null;

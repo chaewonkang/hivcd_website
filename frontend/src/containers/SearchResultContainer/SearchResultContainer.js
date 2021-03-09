@@ -3,7 +3,6 @@ import axios from "axios";
 import { Post } from "../../components";
 import "./SearchResultContainer.css";
 import getCookie from "../../utils/getCookie";
-import { Link } from "react-router-dom";
 import logogif from "../../img/logogif.gif";
 
 function SearchResultContainer({ searchKeyword }) {
@@ -34,6 +33,7 @@ function SearchResultContainer({ searchKeyword }) {
               if (searchKeyword === null) return result;
               else if (result.title.toLowerCase().includes(searchKeyword))
                 return result;
+              return null;
             })
             .filter((result) => {
               if (
@@ -44,6 +44,7 @@ function SearchResultContainer({ searchKeyword }) {
                 result.category === 4
               )
                 return result;
+              return null;
             })
             .map((data) => {
               return (
@@ -71,13 +72,13 @@ function SearchResultContainer({ searchKeyword }) {
   if (loading)
     return (
       <div className="container_loading">
-        <img className="loading_status" src={logogif}></img>
+        <img className="loading_status" src={logogif} alt="logogif"></img>
       </div>
     );
   if (error)
     return (
       <div className="container_loading">
-        <img className="loading_status" src={logogif}></img>
+        <img className="loading_status" src={logogif} alt="logogif"></img>
       </div>
     );
 
