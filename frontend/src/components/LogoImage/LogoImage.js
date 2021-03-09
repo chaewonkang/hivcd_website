@@ -17,32 +17,22 @@ function LogoImage({ postCount }) {
     backgroundSize: "70%",
   });
 
-  let indexArray = [];
-  for (let i = 0; i < 5; i++) {
-    let randomIndex = Math.floor(Math.random() * postCount);
-    for (let j = 0; j < indexArray.length; j++) {
-      if (indexArray[j] !== randomIndex) indexArray.push(randomIndex);
-    }
-    return indexArray;
+  const pictureArray = [H_1, I_1, S_1, D_1];
+  const columnArray = ["1/2"];
+  const rowArray = ["1/2"];
+  const randomIdx = Math.floor(Math.random() * pictureArray.length);
+  const selectedColumn = columnArray[randomIdx];
+  const selectedRow = rowArray[randomIdx];
+  const willMount = useRef(true);
+
+  if (willMount.current) {
+    setStyle({
+      ...style,
+      backgroundImage: `url(${logogif})`,
+    });
   }
-  console.log(indexArray);
 
-  //   const pictureArray = [logoImageA, logoImageB, logoImageC, logoImageD];
-  //   const columnArray = ["1/2"];
-  //   const rowArray = ["1/2"];
-  //   const randomIdx = Math.floor(Math.random() * pictureArray.length);
-  //   const selectedColumn = columnArray[randomIdx];
-  //   const selectedRow = rowArray[randomIdx];
-  //   const willMount = useRef(true);
-
-  //   if (willMount.current) {
-  //     setStyle({
-  //       ...style,
-  //       backgroundImage: `url(${logogif})`,
-  //     });
-  //   }
-
-  //   willMount.current = false;
+  willMount.current = false;
 
   return <div style={style} className="logoImage"></div>;
 }
