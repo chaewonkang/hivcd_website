@@ -95,7 +95,7 @@ function ContentContainer() {
       </div>
     );
   if (posts) {
-    const arr = null;
+    const arr = [];
     const hello = posts.map((post) => arr.concat(post.pk));
     setPostPk(hello);
   }
