@@ -145,17 +145,37 @@ function ContentContainer() {
             )
             .map((post) => (
               <>
-                {post.pk < 40 ? (
-                  <img src={imgArray[1]} alt="randomImage"></img>
+                {Math.random * Object.keys(posts).length <
+                Object.keys(posts) / 4 ? (
+                  <img
+                    src={imgArray[1]}
+                    alt="randomImage"
+                    style={{ width: 195 + "px" }}
+                  ></img>
                 ) : null}
-                {post.pk < 30 ? (
-                  <img src={imgArray[2]} alt="randomImage"></img>
+                {Math.random * Object.keys(posts).length <
+                Object.keys(posts) / 3 ? (
+                  <img
+                    src={imgArray[2]}
+                    alt="randomImage"
+                    style={{ width: 195 + "px" }}
+                  ></img>
                 ) : null}
-                {post.pk < 20 ? (
-                  <img src={imgArray[3]} alt="randomImage"></img>
+                {Math.random * Object.keys(posts).length <
+                Object.keys(posts) / 2 ? (
+                  <img
+                    src={imgArray[3]}
+                    alt="randomImage"
+                    style={{ width: 195 + "px" }}
+                  ></img>
                 ) : null}
-                {post.pk < 10 ? (
-                  <img src={imgArray[3]} alt="randomImage"></img>
+                {Math.random * Object.keys(posts).length <
+                Object.keys(posts) / 1 ? (
+                  <img
+                    src={imgArray[3]}
+                    alt="randomImage"
+                    style={{ width: 195 + "px" }}
+                  ></img>
                 ) : null}
                 <Post
                   key={post.pk}
