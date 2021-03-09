@@ -27,6 +27,14 @@ input[name="search"] {
 
 /********** Small devices only **********/
 @media (min-width: 768px) and (max-width: 991px) {
+  .modal_div div div {
+    top: 50vh !important;
+    left: 0px !important;
+    right: 0px !important;
+    margin: 0 auto;
+    width: 700px;
+    height: 70px;
+  }
 }
 
 /********** Extra small devices only **********/

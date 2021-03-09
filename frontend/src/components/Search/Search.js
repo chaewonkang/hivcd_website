@@ -27,7 +27,7 @@ function Search({ handleSearchKeyword }) {
   };
 
   return (
-    <>
+    <div className="modal_div">
       <Modal
         visible={visible}
         width="815"
@@ -42,7 +42,7 @@ function Search({ handleSearchKeyword }) {
       <div className="navbar_search_item" onClick={() => openModal()}>
         검색
       </div>
-    </>
+    </div>
   );
 }
 
