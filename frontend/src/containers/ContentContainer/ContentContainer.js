@@ -43,6 +43,7 @@ function ContentContainer() {
   const [token] = useState(getCookie("csrftoken"));
   const [state] = useAsync(() => getPosts(token), [token]);
   const { loading, data: posts, error } = state;
+  const [stop, setStop] = useState(false);
 
   const [dimensions, setDimensions] = useState({
     height: window.innerHeight,
@@ -143,53 +144,35 @@ function ContentContainer() {
             )
             .map((post) => (
               <>
-                {post.pk === 42 ? (
+                {post.pk === 43 ? (
                   <img
-                    src={imgArray[1]}
+                    src={imgArray[0]}
                     alt="randomImage"
                     style={{ width: 195 + "px" }}
                     id="imgRef1"
                   ></img>
                 ) : (
-                  <Post
-                    key={post.pk}
-                    title={post.title}
-                    date={post.updated}
-                    category={post.category}
-                    id={post.pk}
-                  ></Post>
+                  setStop(true)
                 )}
                 {post.pk === 39 ? (
                   <img
-                    src={imgArray[2]}
+                    src={imgArray[1]}
                     alt="randomImage"
                     style={{ width: 195 + "px" }}
                     id="imgRef2"
                   ></img>
                 ) : (
-                  <Post
-                    key={post.pk}
-                    title={post.title}
-                    date={post.updated}
-                    category={post.category}
-                    id={post.pk}
-                  ></Post>
+                  setStop(true)
                 )}
                 {post.pk === 34 ? (
                   <img
-                    src={imgArray[3]}
+                    src={imgArray[2]}
                     alt="randomImage"
                     style={{ width: 195 + "px" }}
                     id="imgRef3"
                   ></img>
                 ) : (
-                  <Post
-                    key={post.pk}
-                    title={post.title}
-                    date={post.updated}
-                    category={post.category}
-                    id={post.pk}
-                  ></Post>
+                  setStop(true)
                 )}
                 {post.pk === 27 ? (
                   <img
@@ -199,14 +182,15 @@ function ContentContainer() {
                     id="imgRef4"
                   ></img>
                 ) : (
-                  <Post
-                    key={post.pk}
-                    title={post.title}
-                    date={post.updated}
-                    category={post.category}
-                    id={post.pk}
-                  ></Post>
+                  setStop(true)
                 )}
+                <Post
+                  key={post.pk}
+                  title={post.title}
+                  date={post.updated}
+                  category={post.category}
+                  id={post.pk}
+                ></Post>
               </>
             ))}
       </PostWrapper>
