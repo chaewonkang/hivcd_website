@@ -145,8 +145,7 @@ function ContentContainer() {
             )
             .map((post) => (
               <>
-                {post.pk < Object.keys(posts).length / 1 &&
-                !document.getElementById("imgRef1") ? (
+                {post.pk < Object.keys(posts).length / 1 ? (
                   <img
                     src={imgArray[1]}
                     alt="randomImage"
@@ -154,8 +153,7 @@ function ContentContainer() {
                     id="imgRef1"
                   ></img>
                 ) : null}
-                {post.pk < Object.keys(posts).length / 2 &&
-                !document.getElementById("imgRef2") ? (
+                {post.pk < Object.keys(posts).length / 2 ? (
                   <img
                     src={imgArray[2]}
                     alt="randomImage"
@@ -163,8 +161,7 @@ function ContentContainer() {
                     id="imgRef2"
                   ></img>
                 ) : null}
-                {post.pk < Object.keys(posts).length / 3 &&
-                !document.getElementById("imgRef3") ? (
+                {post.pk < Object.keys(posts).length / 3 ? (
                   <img
                     src={imgArray[3]}
                     alt="randomImage"
@@ -172,8 +169,7 @@ function ContentContainer() {
                     id="imgRef3"
                   ></img>
                 ) : null}
-                {post.pk < Object.keys(posts).length / 4 &&
-                !document.getElementById("imgRef4") ? (
+                {post.pk < Object.keys(posts).length / 4 ? (
                   <img
                     src={imgArray[3]}
                     alt="randomImage"
