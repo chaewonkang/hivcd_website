@@ -38,6 +38,7 @@ function debounce(fn, ms) {
 function ContentContainer() {
   const [token] = useState(getCookie("csrftoken"));
   const [state] = useAsync(() => getPosts(token), [token]);
+  const [postPk, setPostPk] = useState([]);
   const { loading, data: posts, error } = state;
 
   const [dimensions, setDimensions] = useState({
@@ -94,9 +95,9 @@ function ContentContainer() {
       </div>
     );
   if (posts) {
-    const arr = [];
+    const arr = null;
     const hello = posts.map((post) => arr.concat(post.pk));
-    console.log(hello);
+    setPostPk(hello);
   }
   if (!posts) return null;
 
