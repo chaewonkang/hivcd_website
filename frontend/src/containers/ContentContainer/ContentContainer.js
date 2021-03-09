@@ -47,6 +47,7 @@ function ContentContainer() {
   });
 
   const [showModal, setShowModal] = useState(true);
+  const [postCount, setPostCount] = useState(0);
   const HAS_VISITED_BEFORE = localStorage.getItem("hasVisitedBefore");
 
   useEffect(() => {
@@ -94,6 +95,11 @@ function ContentContainer() {
         <img className="loading_status" src={logogif} alt="logogif"></img>
       </div>
     );
+  if (posts) {
+    const count = Object.keys(posts).length;
+    console.log(count);
+    setPostCount(count);
+  }
 
   if (!posts) return null;
 
