@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { PostWrapper, Post, HomeArchive } from "../../components";
+import { PostWrapper, Post, HomeArchive, LogoImage } from "../../components";
 import { ArchiveWrapper } from "../../components";
 import "./ContentContainer.css";
 import useAsync from "../../utils/useAsync";
@@ -38,8 +38,9 @@ function debounce(fn, ms) {
 function ContentContainer() {
   const [token] = useState(getCookie("csrftoken"));
   const [state] = useAsync(() => getPosts(token), [token]);
-  const [postPk, setPostPk] = useState([]);
+  const [postPk, setPostPk] = useState({});
   const { loading, data: posts, error } = state;
+  const randRet = Math.floor(Math.random() * posts.length);
 
   const [dimensions, setDimensions] = useState({
     height: window.innerHeight,
@@ -94,10 +95,7 @@ function ContentContainer() {
         <img className="loading_status" src={logogif} alt="logogif"></img>
       </div>
     );
-  if (posts) {
-    const hello = posts.map((post) => hello.concat(post.pk));
-    console.log(hello);
-  }
+
   if (!posts) return null;
 
   return (
@@ -140,15 +138,28 @@ function ContentContainer() {
                 data.category === 3 ||
                 data.category === 4
             )
-            .map((post) => (
-              <Post
-                key={post.pk}
-                title={post.title}
-                date={post.updated}
-                category={post.category}
-                id={post.pk}
-              ></Post>
-            ))}
+            .map((post) =>
+              randRet < posts.length ? (
+                <Post
+                  key={post.pk}
+                  title={post.title}
+                  date={post.updated}
+                  category={post.category}
+                  id={post.pk}
+                ></Post>
+              ) : (
+                <>
+                  <LogoImage></LogoImage>
+                  <Post
+                    key={post.pk}
+                    title={post.title}
+                    date={post.updated}
+                    category={post.category}
+                    id={post.pk}
+                  ></Post>
+                </>
+              )
+            )}
       </PostWrapper>
       <ArchiveWrapper dimensions={dimensions}>
         {posts &&
