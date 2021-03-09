@@ -47,7 +47,7 @@ function ContentContainer() {
   let pkArray = [];
   let idxArray = [];
   if (posts) {
-    pkArray = posts.map((data) => pkArray.push(data.title));
+    pkArray = posts.map((data) => pkArray.push(data[0]));
     for (let i = 0; i < 5; i++) {
       let rand = Math.floor(Math.random() * pkArray.length);
       idxArray[i] = rand;
