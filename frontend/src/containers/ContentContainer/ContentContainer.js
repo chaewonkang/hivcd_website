@@ -95,8 +95,7 @@ function ContentContainer() {
       </div>
     );
   if (posts) {
-    const arr = [];
-    const hello = posts.map((post) => arr.concat(post.pk));
+    const hello = posts.map((post) => hello.concat(post.pk));
     console.log(hello);
   }
   if (!posts) return null;
