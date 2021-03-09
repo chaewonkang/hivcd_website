@@ -139,7 +139,7 @@ function ContentContainer() {
                 data.category === 4
             )
             .map((post) =>
-              randRet === 1 ? (
+              randRet < posts.length ? (
                 <Post
                   key={post.pk}
                   title={post.title}
