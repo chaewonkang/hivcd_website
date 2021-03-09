@@ -7,6 +7,10 @@ import useAsync from "../../utils/useAsync";
 import getCookie from "../../utils/getCookie";
 import Modal from "react-awesome-modal";
 import logogif from "../../img/logogif.gif";
+import H_1 from "../../img/ㅎ_1.gif";
+import I_1 from "../../img/ㅇ_1.gif";
+import S_1 from "../../img/ㅅ_1.gif";
+import D_1 from "../../img/ㄷ_1.gif";
 
 async function getPosts(token) {
   const response = await axios.get(
@@ -48,14 +52,10 @@ function ContentContainer() {
 
   const [showModal, setShowModal] = useState(true);
   const [postCount, setPostCount] = useState(0);
+  const [imgArray] = useState([H_1, I_1, S_1, D_1]);
   const HAS_VISITED_BEFORE = localStorage.getItem("hasVisitedBefore");
 
   useEffect(() => {
-    if (posts) {
-      const count = Object.keys(posts).length;
-      setPostCount(count);
-      console.log(postCount);
-    }
     const handleShowModal = () => {
       if (HAS_VISITED_BEFORE && HAS_VISITED_BEFORE > new Date()) {
         return;
@@ -145,7 +145,18 @@ function ContentContainer() {
             )
             .map((post) => (
               <>
-                <LogoImage postCount={postCount}></LogoImage>
+                {post.pk < 40 ? (
+                  <img src={imgArray[1]} alt="randomImage"></img>
+                ) : null}
+                {post.pk < 30 ? (
+                  <img src={imgArray[2]} alt="randomImage"></img>
+                ) : null}
+                {post.pk < 20 ? (
+                  <img src={imgArray[3]} alt="randomImage"></img>
+                ) : null}
+                {post.pk < 10 ? (
+                  <img src={imgArray[3]} alt="randomImage"></img>
+                ) : null}
                 <Post
                   key={post.pk}
                   title={post.title}
