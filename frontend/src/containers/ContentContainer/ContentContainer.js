@@ -42,30 +42,7 @@ function debounce(fn, ms) {
 function ContentContainer() {
   const [token] = useState(getCookie("csrftoken"));
   const [state] = useAsync(() => getPosts(token), [token]);
-
   const { loading, data: posts, error } = state;
-  let postsLen = [];
-  let idxArray = [];
-  let pkArray = [];
-  let randomPk = [];
-  if (posts) {
-    postsLen = posts.map((data) => pkArray.push(data));
-    for (let i = 0; i <= postsLen.length; i++) {
-      pkArray.push(posts[i].pk);
-    }
-    for (let i = 0; i < 5; i++) {
-      let rand = Math.floor(Math.random() * pkArray.length);
-      idxArray[i] = rand;
-    }
-    for (let i = 0; i <= idxArray.length; i++) {
-      randomPk.push(pkArray[idxArray[i]]);
-    }
-  }
-
-  console.log(posts);
-  console.log(idxArray);
-  console.log(pkArray);
-  console.log(randomPk);
 
   const [dimensions, setDimensions] = useState({
     height: window.innerHeight,
@@ -166,45 +143,70 @@ function ContentContainer() {
             )
             .map((post) => (
               <>
-                {pkArray && post.pk < pkArray.length / 1 ? (
+                {post.pk === 42 ? (
                   <img
                     src={imgArray[1]}
                     alt="randomImage"
                     style={{ width: 195 + "px" }}
                     id="imgRef1"
                   ></img>
-                ) : null}
-                {post.pk < Object.keys(posts).length / 2 ? (
+                ) : (
+                  <Post
+                    key={post.pk}
+                    title={post.title}
+                    date={post.updated}
+                    category={post.category}
+                    id={post.pk}
+                  ></Post>
+                )}
+                {post.pk === 39 ? (
                   <img
                     src={imgArray[2]}
                     alt="randomImage"
                     style={{ width: 195 + "px" }}
                     id="imgRef2"
                   ></img>
-                ) : null}
-                {post.pk < Object.keys(posts).length / 3 ? (
+                ) : (
+                  <Post
+                    key={post.pk}
+                    title={post.title}
+                    date={post.updated}
+                    category={post.category}
+                    id={post.pk}
+                  ></Post>
+                )}
+                {post.pk === 34 ? (
                   <img
                     src={imgArray[3]}
                     alt="randomImage"
                     style={{ width: 195 + "px" }}
                     id="imgRef3"
                   ></img>
-                ) : null}
-                {post.pk < Object.keys(posts).length / 4 ? (
+                ) : (
+                  <Post
+                    key={post.pk}
+                    title={post.title}
+                    date={post.updated}
+                    category={post.category}
+                    id={post.pk}
+                  ></Post>
+                )}
+                {post.pk === 27 ? (
                   <img
                     src={imgArray[3]}
                     alt="randomImage"
                     style={{ width: 195 + "px" }}
                     id="imgRef4"
                   ></img>
-                ) : null}
-                <Post
-                  key={post.pk}
-                  title={post.title}
-                  date={post.updated}
-                  category={post.category}
-                  id={post.pk}
-                ></Post>
+                ) : (
+                  <Post
+                    key={post.pk}
+                    title={post.title}
+                    date={post.updated}
+                    category={post.category}
+                    id={post.pk}
+                  ></Post>
+                )}
               </>
             ))}
       </PostWrapper>
