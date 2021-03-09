@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import axios from "axios";
 import { PostWrapper, Post, HomeArchive, LogoImage } from "../../components";
 import { ArchiveWrapper } from "../../components";
@@ -42,7 +42,7 @@ function debounce(fn, ms) {
 function ContentContainer() {
   const [token] = useState(getCookie("csrftoken"));
   const [state] = useAsync(() => getPosts(token), [token]);
-  const [postPk, setPostPk] = useState({});
+
   const { loading, data: posts, error } = state;
 
   const [dimensions, setDimensions] = useState({
@@ -145,36 +145,40 @@ function ContentContainer() {
             )
             .map((post) => (
               <>
-                {Math.random * Object.keys(posts).length <
-                Object.keys(posts) / 4 ? (
+                {post.pk < Object.keys(posts) / 1 &&
+                !document.getElementById("imgRef1") ? (
                   <img
                     src={imgArray[1]}
                     alt="randomImage"
                     style={{ width: 195 + "px" }}
+                    id="imgRef1"
                   ></img>
                 ) : null}
-                {Math.random * Object.keys(posts).length <
-                Object.keys(posts) / 3 ? (
+                {post.pk < Object.keys(posts) / 2 &&
+                !document.getElementById("imgRef2") ? (
                   <img
                     src={imgArray[2]}
                     alt="randomImage"
                     style={{ width: 195 + "px" }}
+                    id="imgRef2"
                   ></img>
                 ) : null}
-                {Math.random * Object.keys(posts).length <
-                Object.keys(posts) / 2 ? (
+                {post.pk < Object.keys(posts) / 3 &&
+                !document.getElementById("imgRef3") ? (
                   <img
                     src={imgArray[3]}
                     alt="randomImage"
                     style={{ width: 195 + "px" }}
+                    id="imgRef3"
                   ></img>
                 ) : null}
-                {Math.random * Object.keys(posts).length <
-                Object.keys(posts) / 1 ? (
+                {post.pk < Object.keys(posts) / 4 &&
+                !document.getElementById("imgRef4") ? (
                   <img
                     src={imgArray[3]}
                     alt="randomImage"
                     style={{ width: 195 + "px" }}
+                    id="imgRef4"
                   ></img>
                 ) : null}
                 <Post
