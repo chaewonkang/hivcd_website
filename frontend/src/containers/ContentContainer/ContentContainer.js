@@ -104,8 +104,13 @@ function ContentContainer() {
     let randArr = [];
     for (let i = 0; i < 5; i++) {
       let idx = Math.floor(Math.random() * postCount);
-      randArr.push(idx);
+      for (let j = 0; j < 5; j++) {
+        if (idx !== randArr[j]) randArr.push(idx);
+        j++;
+        return;
+      }
       i++;
+      return randArr;
     }
     console.log(randArr);
     return (
