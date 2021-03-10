@@ -2,9 +2,9 @@ import React, { useState, useRef } from "react";
 import "./EachPost.css";
 import { EachPostNavigator, CommentList, Warning } from "../../components";
 import axios from "axios";
-import getCookie from "../../utils/getCookie";
 import useAsync from "../../utils/useAsync";
 import logogif from "../../img/logogif.gif";
+import Exhibition from "../Exhibition/Exhibition";
 
 async function getEachPost(postId) {
   const response = await axios.get(
@@ -19,10 +19,6 @@ function setCategoryNumber(category) {
   else if (category === 2) categoryName = "행사";
   else if (category === 3) categoryName = "구인구직";
   else if (category === 4) categoryName = "분실물";
-  else if (category === 5) categoryName = "졸업 주간";
-  else if (category === 6) categoryName = "와우영상제";
-  else if (category === 7) categoryName = "기타";
-
   return categoryName;
 }
 
@@ -32,8 +28,7 @@ function EachPost({ postId, handleNavigateClick }) {
     borderColor: null,
   });
   const [warningVisibility] = useState(false);
-  const [token] = useState(getCookie("csrftoken"));
-  const [state] = useAsync(() => getEachPost(postId, token), [postId, token]);
+  const [state] = useAsync(() => getEachPost(postId), [postId]);
   const { loading, data: eachPost, error } = state;
 
   const colorArray = [
@@ -163,7 +158,7 @@ function EachPost({ postId, handleNavigateClick }) {
               alt="링크"
               className="attached_link"
             >
-              URL 바로가기
+              URL 바로가기 {eachPost.link}
             </a>
           </>
         ) : null}
