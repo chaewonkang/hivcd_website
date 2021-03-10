@@ -1,5 +1,6 @@
 import React from "react";
 import "./AlumniModule.css";
+import getCookie from "../../utils/getCookie";
 
 const AlumniModule = ({ year, name, tel, url }) => {
   return (
@@ -8,8 +9,11 @@ const AlumniModule = ({ year, name, tel, url }) => {
       <br></br>
       {name}
       <br></br>
-      {tel}
-      <br></br>
+      {getCookie("SUSER_ID") !== null ? (
+        <>
+          {tel} <br></br>
+        </>
+      ) : null}
       <a
         href={url}
         target="_blank"
