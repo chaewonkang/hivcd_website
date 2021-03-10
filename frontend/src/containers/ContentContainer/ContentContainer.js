@@ -28,6 +28,22 @@ async function getPosts(token) {
   return response.data;
 }
 
+async function getArchives(token) {
+  const response = await axios.get(
+    "http://sidi.hongik.ac.kr/api/v1/postings/archive",
+    {},
+    {
+      headers: {
+        Authorization: "Bearer " + localStorage.getItem("access_token"),
+        Accept: "application/json",
+        "X-CSRFToken": token,
+        "Content-type": "application/json",
+      },
+    }
+  );
+  return response.data;
+}
+
 function debounce(fn, ms) {
   let timer;
   return () => {
@@ -42,7 +58,9 @@ function debounce(fn, ms) {
 function ContentContainer() {
   const [token] = useState(getCookie("csrftoken"));
   const [state] = useAsync(() => getPosts(token), [token]);
+  const [archiveState] = useAsync(() => getArchives(token), [token]);
   const { loading, data: posts, error } = state;
+  const { loading: aLoading, data: archives, error: aError } = archiveState;
   const [stop, setStop] = useState(false);
 
   const [dimensions, setDimensions] = useState({
@@ -134,38 +152,19 @@ function ContentContainer() {
       )}
       <PostWrapper dimensions={dimensions}>
         {posts &&
-          posts
-            .filter(
-              (data) =>
-                data.category === 1 ||
-                data.category === 2 ||
-                data.category === 3 ||
-                data.category === 4
-            )
-            .map((post) => (
-              <>
-                {post.pk === 43 ||
-                post.pk === 33 ||
-                post.pk === 29 ||
-                post.pk === 12 ? (
-                  <>
-                    <img
-                      src={
-                        imgArray[Math.floor(Math.random() * imgArray.length)]
-                      }
-                      alt="randomImage"
-                      style={{ width: 195 + "px" }}
-                      id="imgRef1"
-                    ></img>
-                    <Post
-                      key={post.pk}
-                      title={post.title}
-                      date={post.updated}
-                      category={post.category}
-                      id={post.pk}
-                    ></Post>
-                  </>
-                ) : (
+          posts.map((post) => (
+            <>
+              {post.pk === 43 ||
+              post.pk === 33 ||
+              post.pk === 29 ||
+              post.pk === 12 ? (
+                <>
+                  <img
+                    src={imgArray[Math.floor(Math.random() * imgArray.length)]}
+                    alt="randomImage"
+                    style={{ width: 195 + "px" }}
+                    id="imgRef1"
+                  ></img>
                   <Post
                     key={post.pk}
                     title={post.title}
@@ -173,35 +172,34 @@ function ContentContainer() {
                     category={post.category}
                     id={post.pk}
                   ></Post>
-                )}
-              </>
-            ))}
-      </PostWrapper>
-      <ArchiveWrapper dimensions={dimensions}>
-        {posts &&
-          posts
-            .filter(
-              (data) =>
-                data.category === 5 ||
-                data.category === 6 ||
-                data.category === 7
-            )
-            .slice(0, 6)
-            .map((post) => {
-              return (
-                <HomeArchive
+                </>
+              ) : (
+                <Post
                   key={post.pk}
                   title={post.title}
-                  id={post.pk}
-                  body={post.text}
+                  date={post.updated}
                   category={post.category}
-                  thumbnailUrl={
-                    post.photos.length ? post.photos[0].photo : null
-                  }
-                  link={post.link}
-                ></HomeArchive>
-              );
-            })}
+                  id={post.pk}
+                ></Post>
+              )}
+            </>
+          ))}
+      </PostWrapper>
+      <ArchiveWrapper dimensions={dimensions}>
+        {archives &&
+          archives.slice(0, 6).map((post) => {
+            return (
+              <HomeArchive
+                key={post.pk}
+                title={post.title}
+                id={post.pk}
+                body={post.text}
+                category={post.category}
+                thumbnailUrl={post.photos.length ? post.photos[0].photo : null}
+                link={post.link}
+              ></HomeArchive>
+            );
+          })}
       </ArchiveWrapper>
     </div>
   );
