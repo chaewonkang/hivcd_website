@@ -4,7 +4,6 @@ import { EachPostNavigator, CommentList, Warning } from "../../components";
 import axios from "axios";
 import useAsync from "../../utils/useAsync";
 import logogif from "../../img/logogif.gif";
-import Exhibition from "../Exhibition/Exhibition";
 
 async function getEachPost(postId) {
   const response = await axios.get(

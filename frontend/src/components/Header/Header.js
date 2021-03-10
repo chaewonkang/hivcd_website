@@ -19,13 +19,13 @@ function Header({ handleLogout, handleSearchKeyword }) {
         <div className="header_container_right">
           <div className="header_container_menubar">
             <span className="navbar_menu_wrapper_item_title">
-              <Link to="/aboutus">정보</Link>
+              <Link to="/aboutus">소개</Link>
             </span>
             <span className="navbar_menu_wrapper_item_title">
-              <Link to="/board">게시판</Link>
+              <Link to="/board">소식</Link>
             </span>
             <span className="navbar_menu_wrapper_item_title">
-              <Link to="/alumni">동문연락망</Link>
+              <Link to="/alumni">동문</Link>
             </span>
             {/* <span className="navbar_menu_wrapper_item_title">
               <Link to="/archive">아카이브</Link>
