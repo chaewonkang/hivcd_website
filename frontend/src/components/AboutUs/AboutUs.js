@@ -1,32 +1,5 @@
 import React from "react";
 import "./AboutUs.css";
-import { RenderAfterNavermapsLoaded, NaverMap, Marker } from "react-naver-maps";
-
-function NaverMapAPI() {
-  const navermaps = window.naver.maps;
-  return (
-    <NaverMap
-      mapDivId={"react-naver-map"}
-      style={{
-        width: "90%",
-        height: "400px",
-        overflow: "auto",
-        margin: "auto",
-      }}
-      defaultCenter={{ lat: 37.5526276, lng: 126.9243904 }}
-      defaultZoom={13}
-    >
-      <Marker
-        key={1}
-        position={new navermaps.LatLng(37.5526276, 126.9243904)}
-        animation={2}
-        onClick={() => {
-          alert("홍익대학교 홍문관 7층!");
-        }}
-      />
-    </NaverMap>
-  );
-}
 
 const AboutUs = () => {
   return (
@@ -122,215 +95,370 @@ const AboutUs = () => {
                 <tr>
                   <th>직위</th>
                   <th>이름</th>
-                  <th>소속</th>
                   <th>분야</th>
                 </tr>
                 <tr>
                   <td>교수</td>
-                  <td>김대수</td>
-                  <td>홍익대학교 시각디자인과</td>
-                  <td>사진</td>
-                </tr>
-                <tr>
-                  <td>교수</td>
                   <td>김현석</td>
-                  <td>홍익대학교 시각디자인과</td>
                   <td>디지털미디어디자인</td>
                 </tr>
                 <tr>
                   <td>교수</td>
                   <td>장동련</td>
-                  <td>홍익대학교 시각디자인과</td>
                   <td>브랜딩디자인</td>
                 </tr>
                 <tr>
                   <td>부교수</td>
-                  <td>Ro, Chris</td>
-                  <td>홍익대학교 시각디자인과</td>
-                  <td>타이포그래피/그래픽디자인</td>
+                  <td>Griem, Oliver</td>
+                  <td>디지털미디어디자인</td>
                 </tr>
                 <tr>
                   <td>부교수</td>
-                  <td>Griem, Oliver</td>
-                  <td>홍익대학교 시각디자인과</td>
-                  <td>디지털미디어디자인</td>
+                  <td>Ro, Chris</td>
+                  <td>타이포그래피/그래픽디자인</td>
                 </tr>
                 <tr>
                   <td>조교수</td>
                   <td>김예니</td>
-                  <td>홍익대학교 시각디자인과</td>
                   <td>일러스트레이션</td>
                 </tr>
                 <tr>
                   <td>조교수</td>
+                  <td>Lee, Marvin Jin</td>
+                  <td>그래픽디자인</td>
+                </tr>
+                <tr>
+                  <td>조교수</td>
                   <td>민본</td>
-                  <td>홍익대학교 시각디자인과</td>
                   <td>타이포그래피/타입디자인</td>
                 </tr>
                 <tr>
                   <td>조교수</td>
                   <td>백승우</td>
-                  <td>홍익대학교 시각디자인과</td>
                   <td>사진</td>
                 </tr>
                 <tr>
                   <td>조교수</td>
+                  <td>Beckett, Stephen J.</td>
+                  <td>디자인이론</td>
+                </tr>
+                <tr>
+                  <td>조교수</td>
                   <td>석재원</td>
-                  <td>홍익대학교 시각디자인과</td>
-                  <td>그래픽디자인</td>
+                  <td>타이포그래피/그래픽디자인</td>
                 </tr>
                 <tr>
                   <td>조교수</td>
                   <td>안병학</td>
-                  <td>홍익대학교 시각디자인과</td>
                   <td>타이포그래피</td>
                 </tr>
                 <tr>
                   <td>조교수</td>
                   <td>윤재영</td>
-                  <td>홍익대학교 시각디자인과</td>
                   <td>UX, UI디자인</td>
                 </tr>
                 <tr>
                   <td>조교수</td>
                   <td>이연준</td>
-                  <td>홍익대학교 시각디자인과</td>
                   <td>브랜딩디자인</td>
                 </tr>
                 <tr>
                   <td>조교수</td>
                   <td>전재운</td>
-                  <td>홍익대학교 시각디자인과</td>
                   <td>그래픽디자인</td>
                 </tr>
                 <tr>
                   <td>조교수</td>
                   <td>정다희</td>
-                  <td>홍익대학교 시각디자인과</td>
                   <td>일러스트레이션/애니메이션</td>
                 </tr>
                 <tr>
                   <td>조교수</td>
                   <td>허민재</td>
-                  <td>홍익대학교 시각디자인과</td>
                   <td>그래픽디자인</td>
                 </tr>
                 <tr>
                   <td>조교수</td>
                   <td>Cooppoolse, Anneke</td>
-                  <td>홍익대학교 시각디자인과</td>
                   <td>시각디자인</td>
                 </tr>
                 <tr>
-                  <td>조교수</td>
-                  <td>Lee, Marvin Jin</td>
-                  <td>홍익대학교 시각디자인과</td>
-                  <td>그래픽디자인</td>
+                  <td>산학일체 교수</td>
+                  <td>박현주</td>
+                  <td>브랜딩디자인</td>
                 </tr>
                 <tr>
-                  <td>조교수</td>
-                  <td>Beckett, Stephen J.</td>
-                  <td>홍익대학교 시각디자인과</td>
-                  <td>디자인이론</td>
+                  <td>겸임교수</td>
+                  <td>심대기</td>
+                  <td>그래픽디자인</td>
                 </tr>
               </table>
-              <hr></hr>
-              <div className="subfaculty">
-                <table className="faculty">
-                  <tr>
-                    <th>이름</th>
-                    <th>소속</th>
-                  </tr>
-                  <tr>
-                    <td>김승인</td>
-                    <td>국제디자인전문대학원 교수</td>
-                  </tr>
-                  <tr>
-                    <td>김현선</td>
-                    <td>국제디자인전문대학원 부교수</td>
-                  </tr>
-                  <tr>
-                    <td>성열흥</td>
-                    <td>광고홍보대학원 부교수</td>
-                  </tr>
-                  <tr>
-                    <td>이나미</td>
-                    <td>산업미술대학원 부교수</td>
-                  </tr>
-                  <tr>
-                    <td>구유리</td>
-                    <td>산업미술대학원 조교수</td>
-                  </tr>
-                  <tr>
-                    <td>김보연</td>
-                    <td>국제디자인전문대학원 조교수</td>
-                  </tr>
-                  <tr>
-                    <td>정재희</td>
-                    <td>산업미술대학원 조교수</td>
-                  </tr>
-                  <tr>
-                    <td>Hall, David</td>
-                    <td>국제디자인전문대학원 조교수</td>
-                  </tr>
-                  <tr>
-                    <td>최문경</td>
-                    <td>시각디자인과 겸임교수</td>
-                  </tr>
-                </table>
-                <table className="faculty">
-                  <tr className="mobile_hide">
-                    <th>이름</th>
-                    <th>소속</th>
-                  </tr>
-                  <tr>
-                    <td>이철영</td>
-                    <td>광고홍보대학원 교수</td>
-                  </tr>
-                  <tr>
-                    <td>박현주</td>
-                    <td>시각디자인과 부교수(산학일체)</td>
-                  </tr>
-                  <tr>
-                    <td>오명열</td>
-                    <td>광고홍보대학원 부교수</td>
-                  </tr>
-                  <tr>
-                    <td>최백</td>
-                    <td>국제디자인전문대학원 부교수</td>
-                  </tr>
-                  <tr>
-                    <td>김거수</td>
-                    <td>산업미술대학원 조교수</td>
-                  </tr>
-                  <tr>
-                    <td>박보람</td>
-                    <td>국제디자인전문대학원 조교수</td>
-                  </tr>
-                  <tr>
-                    <td>한정엽</td>
-                    <td>영상대학원 조교수</td>
-                  </tr>
-                  <tr>
-                    <td>심대기</td>
-                    <td>시각디자인과 겸임교수</td>
-                  </tr>
-                </table>
-              </div>
             </div>
           </div>
           <div id="map" className="aboutus_item">
             <div className="aboutus_item_tag">
-              <span>지도</span>
+              <span>시설</span>
             </div>
-            <div id="naver_map" className="aboutus_content">
-              <RenderAfterNavermapsLoaded
-                ncpClientId={"copdkbfrqt"}
-                error={<p>Maps Load Error</p>}
-                loading={<p>Maps Loading...</p>}
-              >
-                <NaverMapAPI />
-              </RenderAfterNavermapsLoaded>
+            <div className="aboutus_content">
+              <table className="aboutus_contact">
+                <tbody>
+                  <tr>
+                    <td>학과사무실</td>
+                    <td>홍문관</td>
+                    <td>R712</td>
+                  </tr>
+                  <tr>
+                    <td>장비대여실 HEXA</td>
+                    <td>홍문관</td>
+                    <td>R711-1</td>
+                  </tr>
+                  <tr>
+                    <td>학생회실</td>
+                    <td>홍문관</td>
+                    <td>R711-2</td>
+                  </tr>
+                  <tr>
+                    <td>프린팅실</td>
+                    <td>홍문관</td>
+                    <td>R713</td>
+                  </tr>
+                  <tr>
+                    <td>컴퓨터실1</td>
+                    <td>홍문관</td>
+                    <td>R714</td>
+                  </tr>
+                  <tr>
+                    <td>컴퓨터실2 / 모듈대여실</td>
+                    <td>홍문관</td>
+                    <td>R715</td>
+                  </tr>
+                  <tr>
+                    <td>3학년 실기실</td>
+                    <td>홍문관</td>
+                    <td>R719</td>
+                  </tr>
+                  <tr>
+                    <td>4학년 실기실</td>
+                    <td>홍문관</td>
+                    <td>R720</td>
+                  </tr>
+                  <tr>
+                    <td>강의실</td>
+                    <td>홍문관</td>
+                    <td>R716</td>
+                  </tr>
+                  <tr>
+                    <td>강의실</td>
+                    <td>홍문관</td>
+                    <td>R717</td>
+                  </tr>
+                  <tr>
+                    <td>강의실</td>
+                    <td>홍문관</td>
+                    <td>R718</td>
+                  </tr>
+                  <tr>
+                    <td>강의실</td>
+                    <td>홍문관</td>
+                    <td>R721</td>
+                  </tr>
+                  <tr>
+                    <td>강의실</td>
+                    <td>홍문관</td>
+                    <td>R722</td>
+                  </tr>
+                  <tr>
+                    <td>강의실</td>
+                    <td>홍문관</td>
+                    <td>R723</td>
+                  </tr>
+                  <tr>
+                    <td>강의실</td>
+                    <td>홍문관</td>
+                    <td>R724</td>
+                  </tr>
+                  <tr>
+                    <td>강의실</td>
+                    <td>홍문관</td>
+                    <td>R725</td>
+                  </tr>
+                  <tr>
+                    <td>강의실</td>
+                    <td>홍문관</td>
+                    <td>R726</td>
+                  </tr>
+                  <tr>
+                    <td>강의실</td>
+                    <td>홍문관</td>
+                    <td>R727</td>
+                  </tr>
+                  <tr>
+                    <td>실크스크린실</td>
+                    <td>홍문관</td>
+                    <td>R624</td>
+                  </tr>
+                  <tr>
+                    <td>세미나실</td>
+                    <td>홍문관</td>
+                    <td>R625</td>
+                  </tr>
+                  <tr>
+                    <td>사용자 테스트실</td>
+                    <td>홍문관</td>
+                    <td>R626-1</td>
+                  </tr>
+                  <tr>
+                    <td>사물함실</td>
+                    <td>홍문관</td>
+                    <td>R626-2</td>
+                  </tr>
+                  <tr>
+                    <td>컴퓨터실3</td>
+                    <td>홍문관</td>
+                    <td>R927</td>
+                  </tr>
+                  <tr>
+                    <td>암실</td>
+                    <td>문헌관</td>
+                    <td>MH-B105</td>
+                  </tr>
+                  <tr>
+                    <td>특수영상촬영실</td>
+                    <td>문헌관</td>
+                    <td>MH-B108</td>
+                  </tr>
+                </tbody>
+              </table>
+              <br></br>
+              <table className="aboutus_contact">
+                <tbody>
+                  <tr>
+                    <td>Department Office</td>
+                    <td></td>
+                    <td>R712</td>
+                  </tr>
+                  <tr>
+                    <td>Equipment Room HEXA</td>
+                    <td></td>
+                    <td>R711-1</td>
+                  </tr>
+                  <tr>
+                    <td>Student Council</td>
+                    <td></td>
+                    <td>R711-2</td>
+                  </tr>
+                  <tr>
+                    <td>Print Shop</td>
+                    <td></td>
+                    <td>R713</td>
+                  </tr>
+                  <tr>
+                    <td>Computer Lab 1</td>
+                    <td></td>
+                    <td>R714</td>
+                  </tr>
+                  <tr>
+                    <td>Computer Lab 2 / Module Rental Room</td>
+                    <td></td>
+                    <td>R715</td>
+                  </tr>
+                  <tr>
+                    <td>Junior Studio</td>
+                    <td></td>
+                    <td>R719</td>
+                  </tr>
+                  <tr>
+                    <td>Senior Studio</td>
+                    <td></td>
+                    <td>R720</td>
+                  </tr>
+                  <tr>
+                    <td>Studio</td>
+                    <td></td>
+                    <td>R716</td>
+                  </tr>
+                  <tr>
+                    <td>Studio</td>
+                    <td></td>
+                    <td>R717</td>
+                  </tr>
+                  <tr>
+                    <td>Studio</td>
+                    <td></td>
+                    <td>R718</td>
+                  </tr>
+                  <tr>
+                    <td>Studio</td>
+                    <td></td>
+                    <td>R721</td>
+                  </tr>
+                  <tr>
+                    <td>Studio</td>
+                    <td></td>
+                    <td>R722</td>
+                  </tr>
+                  <tr>
+                    <td>Studio</td>
+                    <td></td>
+                    <td>R723</td>
+                  </tr>
+                  <tr>
+                    <td>Studio</td>
+                    <td></td>
+                    <td>R724</td>
+                  </tr>
+                  <tr>
+                    <td>Studio</td>
+                    <td></td>
+                    <td>R725</td>
+                  </tr>
+                  <tr>
+                    <td>Studio</td>
+                    <td></td>
+                    <td>R726</td>
+                  </tr>
+                  <tr>
+                    <td>Studio</td>
+                    <td></td>
+                    <td>R727</td>
+                  </tr>
+                  <tr>
+                    <td>Silk Screen Shop</td>
+                    <td></td>
+                    <td>R624</td>
+                  </tr>
+                  <tr>
+                    <td>Seminar Room</td>
+                    <td></td>
+                    <td>R625</td>
+                  </tr>
+                  <tr>
+                    <td>Usability Testing Lab</td>
+                    <td></td>
+                    <td>R626-1</td>
+                  </tr>
+                  <tr>
+                    <td>Locker Room</td>
+                    <td></td>
+                    <td>R626-2</td>
+                  </tr>
+                  <tr>
+                    <td>Computer Lab 3</td>
+                    <td></td>
+                    <td>R927</td>
+                  </tr>
+                  <tr>
+                    <td>Dark Room</td>
+                    <td></td>
+                    <td>MH-B105</td>
+                  </tr>
+                  <tr>
+                    <td>Film Production Studio</td>
+                    <td></td>
+                    <td>MH-B108</td>
+                  </tr>
+                </tbody>
+              </table>
             </div>
           </div>
           <div id="contact" className="aboutus_item">
@@ -340,31 +468,74 @@ const AboutUs = () => {
             <div className="aboutus_content">
               <table className="aboutus_contact">
                 <tr>
-                  <td>위치</td>
-                  <td>R715</td>
+                  <td>주소</td>
+                  <td>
+                    04066 서울특별시 마포구 와우산로 94<br></br>
+                    홍익대학교 홍문관 R712 미술대학 시각디자인과 학과사무실
+                  </td>
+                  <td></td>
+                </tr>
+                <tr>
                   <td>전화</td>
                   <td>02-370-8888</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>팩스</td>
+                  <td>02-3145-5792</td>
+                  <td></td>
                 </tr>
                 <tr>
                   <td>업무시간</td>
                   <td>
-                    월 - 금 9:00 - 17:30 <br></br>(동절기 9:00 - 17:00)
+                    월 - 금 9:00 - 17:30 / 점심시간 12:00-1:00<br></br>
+                    동절기 월 - 금 9:00 - 17:00 / 점심시간 12:00-1:00
                   </td>
-                  <td>팩스</td>
-                  <td>02-3145-5792</td>
-                </tr>
-                <tr>
-                  <td>홈페이지</td>
-                  <td>sidi.hongik.ac.kr </td>
-                  <td></td>
                   <td></td>
                 </tr>
                 <tr>
-                  <td>주소</td>
+                  <td>웹사이트</td>
                   <td>
-                    04066 서울특별시 마포구 와우산로 94<br></br> 홍익대학교 R712
+                    홍익대학교
+                    <a
+                      href="https://hongik.ac.kr"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      {" "}
+                      hongik.ac.kr
+                    </a>
                   </td>
                   <td></td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>
+                    홍익대학교 미술대학
+                    <a
+                      href="https://hongik.ac.kr"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      {" "}
+                      cfa.hongik.ac.kr
+                    </a>
+                  </td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>
+                    홍익대학교 시각디자인과{" "}
+                    <a
+                      href="http://sidi.hongik.ac.kr"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      {" "}
+                      sidi.hongik.ac.kr
+                    </a>
+                  </td>
                   <td></td>
                 </tr>
               </table>
@@ -399,46 +570,10 @@ const AboutUs = () => {
           </div>
           <div id="link" className="aboutus_item">
             <div className="aboutus_item_tag">
-              <span>링크</span>
+              <span>소모임</span>
             </div>
             <div className="aboutus_content">
               <table className="aboutus_contact">
-                <tr>
-                  <td>홍익대학교</td>
-                  <td>
-                    <a
-                      href="https://hongik.ac.kr"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      hongik.ac.kr
-                    </a>
-                  </td>
-                </tr>
-                <tr>
-                  <td>홍익대학교 미술대학</td>
-                  <td>
-                    <a
-                      href="https://cfa.hongik.ac.kr"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      cfa.hongik.ac.kr
-                    </a>
-                  </td>
-                </tr>
-                <tr>
-                  <td>홍익대학교 시각디자인과</td>
-                  <td>
-                    <a
-                      href="https://www.hongiksidi.com"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      hongiksidi.com
-                    </a>
-                  </td>
-                </tr>
                 <tr>
                   <td>한글꼴연구회</td>
                   <td>
@@ -528,7 +663,7 @@ const AboutUs = () => {
           </div>
           <div id="colophon" className="aboutus_item">
             <div className="aboutus_item_tag">
-              <span>콜로폰</span>
+              <span>개발</span>
             </div>
             <div className="aboutus_content">
               <table className="aboutus_contact">
