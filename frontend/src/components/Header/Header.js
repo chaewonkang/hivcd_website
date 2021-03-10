@@ -19,24 +19,22 @@ function Header({ handleLogout, handleSearchKeyword }) {
         <div className="header_container_right">
           <div className="header_container_menubar">
             <span className="navbar_menu_wrapper_item_title">
-              <a href="/aboutus">정보</a>
+              <Link to="/aboutus">소개</Link>
             </span>
             <span className="navbar_menu_wrapper_item_title">
-              <a href="/board">게시판</a>
+              <Link to="/board">소식</Link>
             </span>
             <span className="navbar_menu_wrapper_item_title">
-              <a href to="/alumni">
-                동문연락망
-              </a>
+              <Link to="/alumni">동문</Link>
             </span>
             {/* <span className="navbar_menu_wrapper_item_title">
               <Link to="/archive">아카이브</Link>
             </span> */}
             <span className="navbar_menu_wrapper_item_title">
-              <a href="/exhibition">전시</a>
+              <Link to="/exhibition">전시</Link>
             </span>
             <span className="navbar_menu_wrapper_item_title">
-              <a href="/calandar">일정</a>
+              <Link to="/calandar">일정</Link>
             </span>
           </div>
           <div className="header_container_system">

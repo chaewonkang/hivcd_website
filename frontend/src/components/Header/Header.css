@@ -62,7 +62,7 @@ header {
 .navbar_menu_wrapper_item_title a:active,
 .navbar_menu_wrapper_item_title a:focus,
 .navbar_menu_wrapper_item_title a:hover {
-  border-bottom: 1px solid #000;
+  border-bottom: 1px solid #000 !important;
   color: #000;
 }
 
