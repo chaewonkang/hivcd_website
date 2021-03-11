@@ -107,21 +107,6 @@ function ContentContainer() {
 
   const handleClose = () => setShowModal(false);
 
-  if (posts) {
-    posts.map((post) => pkArray.push(post.pk));
-    for (let i = 0; i < 15; i++) {
-      if (randPost[i - 1] && randPost[i] !== randPost[i - 1])
-        randPost.push(Math.floor(Math.random() * pkArray.length));
-    }
-    randImg = [
-      [pkArray[randPost[0]]],
-      [pkArray[randPost[1]]],
-      [pkArray[randPost[2]]],
-      [pkArray[randPost[3]]],
-    ];
-    return randImg;
-  }
-
   if (loading)
     return (
       <div className="container_loading">
@@ -137,48 +122,73 @@ function ContentContainer() {
 
   if (!posts) return null;
 
-  return (
-    <div className="contentcontainer">
-      {showModal && (
-        <Modal
-          visible={showModal}
-          width="fit-content"
-          height="fit-content"
-          effect="fadeInDown"
-          onClickAway={() => handleClose()}
-        >
-          <div className="welcome_modal">
-            <p className="paragraph">
-              홍익시디 웹사이트가 오픈되었습니다.{" "}
-              <span role="img" aria-label="emoji">
-                🎊
-              </span>
-              <br></br>
-              <br></br>
-              상단 메뉴바의 로그인 버튼을 통해 학번으로 로그인해 주세요. 로그인
-              후 학과사무실에서 승인이 완료되면 전체 게시물을 열람 가능합니다.
-              <br></br>
-              모바일 브라우저에서 로그아웃이 제대로 안될 경우에는 브라우저
-              쿠키를 삭제 후 재시도 해 주세요.<br></br>
-              <br></br>
-              기타 다른 문제가 있을 경우에는 yinyang.fig@gmail.com으로 연락
-              바랍니다.
-            </p>
-          </div>
-        </Modal>
-      )}
-      <PostWrapper dimensions={dimensions}>
-        {posts &&
-          posts.map((post) => (
-            <>
-              {randImg.includes(post.pk) ? (
-                <>
-                  <img
-                    src={imgArray[Math.floor(Math.random() * imgArray.length)]}
-                    alt="randomImage"
-                    style={{ width: 195 + "px" }}
-                    id="imgRef1"
-                  ></img>
+  if (posts) {
+    posts.map((post) => pkArray.push(post.pk));
+    for (let i = 0; i < 15; i++) {
+      if (randPost[i - 1] && randPost[i] !== randPost[i - 1])
+        randPost.push(Math.floor(Math.random() * pkArray.length));
+    }
+    randImg = [
+      [pkArray[randPost[0]]],
+      [pkArray[randPost[1]]],
+      [pkArray[randPost[2]]],
+      [pkArray[randPost[3]]],
+    ];
+
+    return (
+      <div className="contentcontainer">
+        {showModal && (
+          <Modal
+            visible={showModal}
+            width="fit-content"
+            height="fit-content"
+            effect="fadeInDown"
+            onClickAway={() => handleClose()}
+          >
+            <div className="welcome_modal">
+              <p className="paragraph">
+                홍익시디 웹사이트가 오픈되었습니다.{" "}
+                <span role="img" aria-label="emoji">
+                  🎊
+                </span>
+                <br></br>
+                <br></br>
+                상단 메뉴바의 로그인 버튼을 통해 학번으로 로그인해 주세요.
+                로그인 후 학과사무실에서 승인이 완료되면 전체 게시물을 열람
+                가능합니다.
+                <br></br>
+                모바일 브라우저에서 로그아웃이 제대로 안될 경우에는 브라우저
+                쿠키를 삭제 후 재시도 해 주세요.<br></br>
+                <br></br>
+                기타 다른 문제가 있을 경우에는 yinyang.fig@gmail.com으로 연락
+                바랍니다.
+              </p>
+            </div>
+          </Modal>
+        )}
+        <PostWrapper dimensions={dimensions}>
+          {posts &&
+            posts.map((post) => (
+              <>
+                {randImg.includes(post.pk) ? (
+                  <>
+                    <img
+                      src={
+                        imgArray[Math.floor(Math.random() * imgArray.length)]
+                      }
+                      alt="randomImage"
+                      style={{ width: 195 + "px" }}
+                      id="imgRef1"
+                    ></img>
+                    <Post
+                      key={post.pk}
+                      title={post.title}
+                      date={post.updated}
+                      category={post.category}
+                      id={post.pk}
+                    ></Post>
+                  </>
+                ) : (
                   <Post
                     key={post.pk}
                     title={post.title}
@@ -186,37 +196,31 @@ function ContentContainer() {
                     category={post.category}
                     id={post.pk}
                   ></Post>
-                </>
-              ) : (
-                <Post
+                )}
+              </>
+            ))}
+        </PostWrapper>
+        <ArchiveWrapper dimensions={dimensions}>
+          {archives &&
+            archives.map((post) => {
+              return (
+                <HomeArchive
                   key={post.pk}
                   title={post.title}
-                  date={post.updated}
-                  category={post.category}
                   id={post.pk}
-                ></Post>
-              )}
-            </>
-          ))}
-      </PostWrapper>
-      <ArchiveWrapper dimensions={dimensions}>
-        {archives &&
-          archives.map((post) => {
-            return (
-              <HomeArchive
-                key={post.pk}
-                title={post.title}
-                id={post.pk}
-                body={post.text}
-                category={post.category}
-                thumbnailUrl={post.photos.length ? post.photos[0].photo : null}
-                link={post.link}
-              ></HomeArchive>
-            );
-          })}
-      </ArchiveWrapper>
-    </div>
-  );
+                  body={post.text}
+                  category={post.category}
+                  thumbnailUrl={
+                    post.photos.length ? post.photos[0].photo : null
+                  }
+                  link={post.link}
+                ></HomeArchive>
+              );
+            })}
+        </ArchiveWrapper>
+      </div>
+    );
+  }
 }
 
 export default ContentContainer;
