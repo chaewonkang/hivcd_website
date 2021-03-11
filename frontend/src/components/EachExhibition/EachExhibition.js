@@ -78,7 +78,6 @@ function EachExhibition({ postId, handleNavigateClick }) {
         ) : null}
         <hr style={{ marginBottom: 1 + "em", marginTop: 1 + "em" }}></hr>
       </div>
-      );
     </div>
   );
 }
