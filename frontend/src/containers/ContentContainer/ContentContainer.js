@@ -61,6 +61,9 @@ function ContentContainer() {
   const [archiveState] = useAsync(() => getArchives(token), [token]);
   const { loading, data: posts, error } = state;
   const { loading: aLoading, data: archives, error: aError } = archiveState;
+  let pkArray = [];
+  let randPost = [];
+  let randImg = [];
 
   const [dimensions, setDimensions] = useState({
     height: window.innerHeight,
@@ -70,8 +73,6 @@ function ContentContainer() {
   const [showModal, setShowModal] = useState(true);
   const [imgArray] = useState([H_1, I_1, S_1, D_1]);
   const HAS_VISITED_BEFORE = localStorage.getItem("hasVisitedBefore");
-  const [postsPk, setPostsPk] = useState([]);
-  const [randPost, setRandPost] = useState([]);
 
   useEffect(() => {
     const handleShowModal = () => {
@@ -102,26 +103,23 @@ function ContentContainer() {
     };
 
     window.setTimeout(handleShowModal, 2000);
-
-    if (posts) {
-      setPostsPk(posts.map((post) => post.pk));
-      let randArr = [];
-      for (let i = 0; i < 5; i++) {
-        randArr.push(Math.floor(Math.random() * postsPk.length));
-      }
-      setRandPost(
-        postsPk[randArr[0]],
-        postsPk[randArr[1]],
-        postsPk[randArr[2]],
-        postsPk[randArr[3]]
-      );
-      console.log(postsPk);
-      console.log(randPost);
-      return null;
-    }
-  }, [HAS_VISITED_BEFORE, posts]);
+  }, [HAS_VISITED_BEFORE]);
 
   const handleClose = () => setShowModal(false);
+
+  if (posts) {
+    posts.map((post) => pkArray.push(post.pk));
+    for (let i = 0; i < 5; i++) {
+      randPost.push(Math.floor(Math.random() * pkArray.length));
+    }
+    randImg = [
+      [pkArray[randPost[0]]],
+      [pkArray[randPost[1]]],
+      [pkArray[randPost[2]]],
+      [pkArray[randPost[3]]],
+    ];
+    return randImg;
+  }
 
   if (loading)
     return (
@@ -170,10 +168,10 @@ function ContentContainer() {
       )}
       <PostWrapper dimensions={dimensions}>
         {posts &&
-          randPost &&
+          randImg &&
           posts.map((post) => (
             <>
-              {randPost.includes(post.pk) ? (
+              {randImg.includes(post.pk) ? (
                 <>
                   <img
                     src={imgArray[Math.floor(Math.random() * imgArray.length)]}
