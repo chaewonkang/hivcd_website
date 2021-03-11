@@ -126,7 +126,6 @@ function ContentContainer() {
     posts.map((post) => pkArray.push(post.pk));
     for (let i = 0; i < 15; i++) {
       if (randPost) randPost.push(Math.floor(Math.random() * pkArray.length));
-
       if (randPost[i - 1] && randPost[i] !== randPost[i - 1])
         randPost.push(Math.floor(Math.random() * pkArray.length));
     }
@@ -136,6 +135,9 @@ function ContentContainer() {
       [pkArray[randPost[2]]],
       [pkArray[randPost[3]]],
     ];
+    console.log(pkArray);
+    console.log(randPost);
+    console.log(randImg);
     return (
       <div className="contentcontainer">
         {showModal && (
