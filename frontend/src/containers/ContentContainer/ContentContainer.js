@@ -14,7 +14,7 @@ import D_1 from "../../img/ㄷ_1.gif";
 
 async function getPosts(token) {
   const response = await axios.get(
-    "https://jsonplaceholder.typicode.com/posts",
+    "http://sidi.hongik.ac.kr/api/v1/postings",
     {},
     {
       headers: {
@@ -123,7 +123,7 @@ function ContentContainer() {
   if (!posts) return null;
 
   if (posts) {
-    posts.map((post) => pkArray.push(post.pk));
+    pkArray = posts.map((post) => pkArray.push(post.pk));
     for (let i = 0; i < 4; i++) {
       if (randPost.length === 0 || randPost.length === 1)
         randPost[i] = Math.floor(Math.random() * pkArray.length);
@@ -137,9 +137,11 @@ function ContentContainer() {
       pkArray[randPost[3]],
     ];
     randImg = randImg.sort();
+
     console.log(pkArray);
     console.log(randPost);
     console.log(randImg);
+
     return (
       <div className="contentcontainer">
         {showModal && (
