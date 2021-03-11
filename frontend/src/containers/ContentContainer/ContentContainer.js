@@ -201,7 +201,7 @@ function ContentContainer() {
       </PostWrapper>
       <ArchiveWrapper dimensions={dimensions}>
         {archives &&
-          archives.slice(0, 6).map((post) => {
+          archives.map((post) => {
             return (
               <HomeArchive
                 key={post.pk}
