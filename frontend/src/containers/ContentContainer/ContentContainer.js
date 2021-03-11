@@ -61,7 +61,6 @@ function ContentContainer() {
   const [archiveState] = useAsync(() => getArchives(token), [token]);
   const { loading, data: posts, error } = state;
   const { loading: aLoading, data: archives, error: aError } = archiveState;
-  const [stop, setStop] = useState(false);
 
   const [dimensions, setDimensions] = useState({
     height: window.innerHeight,
