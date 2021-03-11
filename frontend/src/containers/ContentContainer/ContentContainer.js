@@ -183,10 +183,7 @@ function ContentContainer() {
                 {randImg.includes(post.pk) ? (
                   <>
                     <img
-                      src={randImg[0] === post.pk ? imgArray[0] : null}
-                      src={randImg[1] === post.pk ? imgArray[1] : null}
-                      src={randImg[2] === post.pk ? imgArray[2] : null}
-                      src={randImg[3] === post.pk ? imgArray[3] : null}
+                      src={imgArray[randImg.indexOf(post.pk)]}
                       alt="randomImage"
                       style={{ width: 195 + "px" }}
                       id="imgRef1"
