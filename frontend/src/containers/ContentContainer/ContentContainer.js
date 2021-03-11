@@ -134,7 +134,6 @@ function ContentContainer() {
       [pkArray[randPost[2]]],
       [pkArray[randPost[3]]],
     ];
-
     return (
       <div className="contentcontainer">
         {showModal && (
@@ -167,7 +166,8 @@ function ContentContainer() {
           </Modal>
         )}
         <PostWrapper dimensions={dimensions}>
-          {posts &&
+          {randImg &&
+            posts &&
             posts.map((post) => (
               <>
                 {randImg.includes(post.pk) ? (
