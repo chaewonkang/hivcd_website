@@ -102,25 +102,26 @@ function ContentContainer() {
     };
 
     window.setTimeout(handleShowModal, 2000);
-  }, [HAS_VISITED_BEFORE]);
+
+    if (posts) {
+      setPostsPk(posts.map((post) => post.pk));
+      let randArr = [];
+      for (let i = 0; i < 5; i++) {
+        randArr.push(Math.floor(Math.random() * postsPk.length));
+      }
+      setRandPost(
+        postsPk[randArr[0]],
+        postsPk[randArr[1]],
+        postsPk[randArr[2]],
+        postsPk[randArr[3]]
+      );
+      console.log(postsPk);
+      console.log(randPost);
+      return null;
+    }
+  }, [HAS_VISITED_BEFORE, posts]);
 
   const handleClose = () => setShowModal(false);
-
-  if (posts) {
-    setPostsPk(posts.map((post) => post.pk));
-    let randArr = [];
-    for (let i = 0; i < 5; i++) {
-      randArr.push(Math.floor(Math.random() * postsPk.length));
-    }
-    setRandPost(
-      postsPk[randArr[0]],
-      postsPk[randArr[1]],
-      postsPk[randArr[2]],
-      postsPk[randArr[3]]
-    );
-    console.log(postsPk);
-    return null;
-  }
 
   if (loading)
     return (
