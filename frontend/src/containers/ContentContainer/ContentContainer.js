@@ -109,8 +109,9 @@ function ContentContainer() {
 
   if (posts) {
     posts.map((post) => pkArray.push(post.pk));
-    for (let i = 0; i < 5; i++) {
-      randPost.push(Math.floor(Math.random() * pkArray.length));
+    for (let i = 0; i < 15; i++) {
+      if (randPost[i - 1] && randPost[i] !== randPost[i - 1])
+        randPost.push(Math.floor(Math.random() * pkArray.length));
     }
     randImg = [
       [pkArray[randPost[0]]],
@@ -168,7 +169,6 @@ function ContentContainer() {
       )}
       <PostWrapper dimensions={dimensions}>
         {posts &&
-          randImg &&
           posts.map((post) => (
             <>
               {randImg.includes(post.pk) ? (
@@ -201,7 +201,7 @@ function ContentContainer() {
       </PostWrapper>
       <ArchiveWrapper dimensions={dimensions}>
         {archives &&
-          archives.slice(0, 6).map((post) => {
+          archives.map((post) => {
             return (
               <HomeArchive
                 key={post.pk}
