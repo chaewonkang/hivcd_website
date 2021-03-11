@@ -24,7 +24,7 @@ const AlumniModule = ({ year, name, tel, url }) => {
           {tel} <br></br>
         </>
       ) : (
-        <img src={randomImg[randomIdx]} style={{width: 10 + "%"}}
+        <img src={randomImg[randomIdx]} style={{ width: 10 + "%" }}></img>
       )}
       <a
         href={url}
