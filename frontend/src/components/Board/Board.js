@@ -52,7 +52,7 @@ function Board() {
             className="board_filter_option"
             onClick={() => setBoardFilter(2)}
           >
-            행사
+            행사/홍보
           </button>
           <button
             className="board_filter_option"
@@ -64,7 +64,7 @@ function Board() {
             className="board_filter_option"
             onClick={() => setBoardFilter(4)}
           >
-            분실물
+            소모임
           </button>
         </div>
       </div>

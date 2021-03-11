@@ -14,7 +14,7 @@ function setCategoryNumber(category) {
   let categoryName = null;
   if (category === 5) categoryName = "졸업 주간";
   else if (category === 6) categoryName = "와우영상제";
-  else if (category === 7) categoryName = "기타";
+  else if (category === 7) categoryName = "소모임";
 
   return categoryName;
 }

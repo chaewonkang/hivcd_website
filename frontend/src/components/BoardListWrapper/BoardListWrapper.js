@@ -52,7 +52,7 @@ function BoardListWrapper({ list, postId, handleNavigateClick, isBoard }) {
                 let categoryName = null;
                 if (el.category === 5) categoryName = "졸업 주간";
                 else if (el.category === 6) categoryName = "와우영상제";
-                else if (el.category === 7) categoryName = "기타";
+                else if (el.category === 7) categoryName = "소모임";
                 return (
                   <React.Fragment key={key}>
                     <div

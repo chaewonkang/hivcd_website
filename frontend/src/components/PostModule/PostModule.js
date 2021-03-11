@@ -12,7 +12,7 @@ const PostModule = ({ style, title, date, category, id }) => {
   else if (category === 4) categoryName = "소모임";
   else if (category === 5) categoryName = "졸업 주간";
   else if (category === 6) categoryName = "와우영상제";
-  else if (category === 7) categoryName = "기타";
+  else if (category === 7) categoryName = "소모임";
   const postId = parseInt(id, 10);
   const slicedDate = date.slice(0, 10);
   const [warningVisibility, setWarningVisibility] = useState(false);
