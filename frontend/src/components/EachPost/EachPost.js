@@ -15,9 +15,9 @@ async function getEachPost(postId) {
 function setCategoryNumber(category) {
   let categoryName = null;
   if (category === 1) categoryName = "학과 공지";
-  else if (category === 2) categoryName = "행사";
+  else if (category === 2) categoryName = "행사/홍보";
   else if (category === 3) categoryName = "구인구직";
-  else if (category === 4) categoryName = "분실물";
+  else if (category === 4) categoryName = "소모임";
   return categoryName;
 }
 
