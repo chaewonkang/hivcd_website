@@ -125,6 +125,8 @@ function ContentContainer() {
   if (posts) {
     posts.map((post) => pkArray.push(post.pk));
     for (let i = 0; i < 15; i++) {
+      if (randPost) randPost.push(Math.floor(Math.random() * pkArray.length));
+
       if (randPost[i - 1] && randPost[i] !== randPost[i - 1])
         randPost.push(Math.floor(Math.random() * pkArray.length));
     }
