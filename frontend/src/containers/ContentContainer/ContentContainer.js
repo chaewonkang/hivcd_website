@@ -127,7 +127,6 @@ function ContentContainer() {
 
     posts.map((post) => {
       pkArray.push(post.pk);
-      console.log(post.pk);
     });
     for (let i = 0; i < 4; i++) {
       if (randPost.length === 0 || randPost.length === 1)
@@ -144,10 +143,6 @@ function ContentContainer() {
     randImg = randImg.sort(function (a, b) {
       return a - b;
     });
-
-    console.log(pkArray);
-    console.log(randPost);
-    console.log(randImg);
 
     return (
       <div className="contentcontainer">
@@ -188,9 +183,10 @@ function ContentContainer() {
                 {randImg.includes(post.pk) ? (
                   <>
                     <img
-                      src={
-                        imgArray[Math.floor(Math.random() * imgArray.length)]
-                      }
+                      src={randImg[0] === post.pk ? imgArray[0] : null}
+                      src={randImg[1] === post.pk ? imgArray[1] : null}
+                      src={randImg[2] === post.pk ? imgArray[2] : null}
+                      src={randImg[3] === post.pk ? imgArray[3] : null}
                       alt="randomImage"
                       style={{ width: 195 + "px" }}
                       id="imgRef1"
