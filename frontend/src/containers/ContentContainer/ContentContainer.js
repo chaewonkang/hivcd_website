@@ -123,8 +123,6 @@ function ContentContainer() {
   if (!posts) return null;
 
   if (posts) {
-    console.log(posts);
-
     posts.map((post) => {
       pkArray.push(post.pk);
     });

@@ -71,7 +71,7 @@ function Exhibition() {
               className="exhibition_filter_option"
               onClick={() => setExhibitionFilter(7)}
             >
-              기타 전시
+              소모임
             </button>
           </div>
         </div>
