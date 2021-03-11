@@ -125,7 +125,7 @@ function ContentContainer() {
   if (posts) {
     console.log(posts);
 
-    pkArray = posts.map((post) => {
+    posts.map((post) => {
       pkArray.push(post.pk);
       console.log(post.pk);
     });
@@ -141,7 +141,9 @@ function ContentContainer() {
       pkArray[randPost[2]],
       pkArray[randPost[3]],
     ];
-    randImg = randImg.sort();
+    randImg = randImg.sort(function (a, b) {
+      return a - b;
+    });
 
     console.log(pkArray);
     console.log(randPost);
