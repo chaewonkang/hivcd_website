@@ -71,6 +71,7 @@ function ContentContainer() {
   const [imgArray] = useState([H_1, I_1, S_1, D_1]);
   const HAS_VISITED_BEFORE = localStorage.getItem("hasVisitedBefore");
   const [postsPk, setPostsPk] = useState([]);
+  const [randPost, setRandPost] = useState([]);
 
   useEffect(() => {
     const handleShowModal = () => {
@@ -107,7 +108,18 @@ function ContentContainer() {
 
   if (posts) {
     setPostsPk(posts.map((post) => post.pk));
+    let randArr = [];
+    for (let i = 0; i < 5; i++) {
+      randArr.push(Math.floor(Math.random() * postsPk.length));
+    }
+    setRandPost(
+      postsPk[randArr[0]],
+      postsPk[randArr[1]],
+      postsPk[randArr[2]],
+      postsPk[randArr[3]]
+    );
     console.log(postsPk);
+    return null;
   }
 
   if (loading)
@@ -157,12 +169,10 @@ function ContentContainer() {
       )}
       <PostWrapper dimensions={dimensions}>
         {posts &&
+          randPost &&
           posts.map((post) => (
             <>
-              {post.pk === 43 ||
-              post.pk === 33 ||
-              post.pk === 29 ||
-              post.pk === 12 ? (
+              {randPost.includes(post.pk) ? (
                 <>
                   <img
                     src={imgArray[Math.floor(Math.random() * imgArray.length)]}
