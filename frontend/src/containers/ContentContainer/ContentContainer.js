@@ -123,7 +123,12 @@ function ContentContainer() {
   if (!posts) return null;
 
   if (posts) {
-    pkArray = posts.map((post) => pkArray.push(post.pk));
+    console.log(posts);
+
+    pkArray = posts.map((post) => {
+      pkArray.push(post.pk);
+      console.log(post.pk);
+    });
     for (let i = 0; i < 4; i++) {
       if (randPost.length === 0 || randPost.length === 1)
         randPost[i] = Math.floor(Math.random() * pkArray.length);
