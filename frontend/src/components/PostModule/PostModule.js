@@ -7,9 +7,9 @@ import getCookie from "../../utils/getCookie";
 const PostModule = ({ style, title, date, category, id }) => {
   let categoryName = null;
   if (category === 1) categoryName = "학과 공지";
-  else if (category === 2) categoryName = "행사";
+  else if (category === 2) categoryName = "행사/홍보";
   else if (category === 3) categoryName = "구인구직";
-  else if (category === 4) categoryName = "분실물";
+  else if (category === 4) categoryName = "소모임";
   else if (category === 5) categoryName = "졸업 주간";
   else if (category === 6) categoryName = "와우영상제";
   else if (category === 7) categoryName = "기타";

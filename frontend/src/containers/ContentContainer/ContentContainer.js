@@ -70,6 +70,7 @@ function ContentContainer() {
   const [showModal, setShowModal] = useState(true);
   const [imgArray] = useState([H_1, I_1, S_1, D_1]);
   const HAS_VISITED_BEFORE = localStorage.getItem("hasVisitedBefore");
+  const [postsPk, setPostsPk] = useState([]);
 
   useEffect(() => {
     const handleShowModal = () => {
@@ -103,6 +104,11 @@ function ContentContainer() {
   }, [HAS_VISITED_BEFORE]);
 
   const handleClose = () => setShowModal(false);
+
+  if (posts) {
+    setPostsPk(posts.map((post) => post.pk));
+    console.log(postsPk);
+  }
 
   if (loading)
     return (

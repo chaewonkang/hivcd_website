@@ -12,7 +12,10 @@ import a8 from "../../img/alumni_8.png";
 
 const AlumniModule = ({ year, name, tel, url }) => {
   const randomImg = [a1, a2, a3, a4, a5, a6, a7, a8];
-  const randomIdx = Math.floor(Math.random() * randomImg.length);
+  const randomIdx1 = Math.floor(Math.random() * randomImg.length);
+  const randomIdx2 = Math.floor(Math.random() * randomImg.length);
+  const randomIdx3 = Math.floor(Math.random() * randomImg.length);
+
   return (
     <div className="alumni_module_container">
       {year}
@@ -24,7 +27,12 @@ const AlumniModule = ({ year, name, tel, url }) => {
           {tel} <br></br>
         </>
       ) : (
-        <img src={randomImg[randomIdx]} style={{ width: 10 + "%" }}></img>
+        <>
+          <img src={randomImg[randomIdx1]} style={{ width: 10 + "%" }}></img>
+          <img src={randomImg[randomIdx2]} style={{ width: 10 + "%" }}></img>
+          <img src={randomImg[randomIdx3]} style={{ width: 10 + "%" }}></img>
+          <br></br>
+        </>
       )}
       <a
         href={url}
