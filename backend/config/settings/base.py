@@ -113,11 +113,6 @@ USE_L10N = True
 
 USE_TZ = True
 
-# S3 Strorage
-# DEFAULT_FILE_STORAGE = 'config.storage_backends.MediaStorage'
-# STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
-
-
 # Static files (CSS, JavaScript, Images)
 STATIC_URL = "/static/"
 STATIC_ROOT = os.path.join(BASE_DIR, "assets")
@@ -128,7 +123,6 @@ STATICFILES_DIRS = [
 # Media files
 MEDIA_URL = "/media/"
 MEDIA_ROOT = os.path.join(BASE_DIR, "uploads")
-
 
 # Email Settings
 EMAIL_USE_TLS = os.environ.get("EMAIL_USE_TLS")
@@ -144,6 +138,7 @@ CORS_ORIGIN_WHITELIST = [
     "http://localhost:8000",
     "http://127.0.0.1:8000",
 ]
+
 
 from datetime import timedelta
 
