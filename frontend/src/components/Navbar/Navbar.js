@@ -6,7 +6,7 @@ import "./Navbar.css";
 
 async function handleLogout(token) {
   const response = await axios.get(
-    "http://127.0.0.1/api/v1/auth/logout",
+    "https://sidi.hongik.ac.kr/api/v1/auth/logout",
     {},
     {
       headers: {
@@ -69,7 +69,7 @@ export const NavComponent = ({ onClick }) => {
                 </button>
               </a>
             ) : (
-                <a href="http://www.hongik.ac.kr/login.do?Refer=http://127.0.0.1/api/v1/auth/login">
+                <a href="http://www.hongik.ac.kr/login.do?Refer=https://sidi.hongik.ac.kr/api/v1/auth/login">
                   <button type="submit" className="mobile_login_input_button">
                     로그인
                 </button>

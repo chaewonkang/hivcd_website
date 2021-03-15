@@ -14,7 +14,7 @@ function SearchResultContainer({ searchKeyword }) {
   async function getSearchResult(searchKeyword, token) {
     await axios
       .get(
-        "http://127.0.0.1/api/v1/postings/",
+        "https://sidi.hongik.ac.kr/api/v1/postings/",
         {},
         {
           headers: {

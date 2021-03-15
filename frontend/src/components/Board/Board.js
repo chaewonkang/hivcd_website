@@ -7,7 +7,7 @@ import useAsync from "../../utils/useAsync";
 import logogif from "../../img/logogif.gif";
 
 async function getPosts(token) {
-  const response = await axios.get("http://127.0.0.1/api/v1/postings/");
+  const response = await axios.get("https://sidi.hongik.ac.kr/api/v1/postings/");
   return response.data;
 }
 

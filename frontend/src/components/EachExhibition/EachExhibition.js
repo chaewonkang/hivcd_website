@@ -5,7 +5,7 @@ import useAsync from "../../utils/useAsync";
 
 async function getExhibitionInfo(postId) {
   const response = await axios.get(
-    `http://127.0.0.1/api/v1/postings/archive/${postId}`
+    `https://sidi.hongik.ac.kr/api/v1/postings/archive/${postId}`
   );
   return response.data;
 }
