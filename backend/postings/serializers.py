@@ -56,4 +56,5 @@ class PostSerializer(serializers.ModelSerializer):
             "created",
             "updated",
             "link",
+            "sidi_only",
         ]

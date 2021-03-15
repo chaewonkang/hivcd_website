@@ -19,7 +19,7 @@ class CookiePermission(BasePermission):
                 return False
             return account.is_sidi == True
         except:
-            is_allowed = request.COOKIES['IS_PROFESSOR_OR_WORKER']
+            is_allowed = request.COOKIES.get('IS_PROFESSOR_OR_WORKER', 'False')
             if is_allowed == 'True':
                 return True 
             else:

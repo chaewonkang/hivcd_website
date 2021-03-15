@@ -12,11 +12,7 @@ DEBUG = os.environ.get("DEBUG", True)
 if DEBUG == False:
     ALLOWED_HOSTS = [
         "sidi.hongiksidi.ac.kr",
-<<<<<<< HEAD
         "3.16.38.220",
-=======
-        "18.219.73.211",
->>>>>>> 90e6a0e4a878a49e979ea9f66601439d4e2f8015
         "127.0.0.1",
         "localhost",
     ]
