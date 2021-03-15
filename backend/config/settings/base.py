@@ -142,6 +142,7 @@ CORS_ORIGIN_WHITELIST = [
     "http://sidi.hongik.ac.kr",
     "http://3.16.38.220",
     "http://localhost:8000",
+    "http://127.0.0.1:8000",
 ]
 
 from datetime import timedelta
