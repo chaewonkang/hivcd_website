@@ -9,7 +9,7 @@ import logogif from "../../img/logogif.gif";
 
 async function getExhibitionInfo(token) {
   const response = await axios.get(
-    "http://sidi.hongik.ac.kr/api/v1/postings/archive",
+    "http://127.0.0.1/api/v1/postings/archive",
     {},
     {
       headers: {
