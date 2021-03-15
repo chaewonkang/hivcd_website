@@ -16,7 +16,7 @@ function handleNavigateClick(type, postId) {
 
 async function getList(token) {
   const response = await axios.get(
-    "http://127.0.0.1/api/v1/postings/archive",
+    "http://127.0.0.1/api/v1/postings/archive/",
     {},
     {
       headers: {
