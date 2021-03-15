@@ -528,7 +528,7 @@ const AboutUs = () => {
                   <td>
                     홍익대학교 시각디자인과{" "}
                     <a
-                      href="http://sidi.hongik.ac.kr"
+                      href="https://sidi.hongik.ac.kr"
                       target="_blank"
                       rel="noopener noreferrer"
                     >
@@ -614,7 +614,7 @@ const AboutUs = () => {
                   <td>힙스</td>
                   <td>
                     <a
-                      href="http://ilovehips.kr/index.html"
+                      href="https://ilovehips.kr/index.html"
                       target="_blank"
                       rel="noopener noreferrer"
                     >

@@ -5,7 +5,7 @@ import axios from "axios";
 
 async function handleLogout(token) {
   const response = await axios.get(
-    "http://127.0.0.1/api/v1/auth/logout",
+    "https://sidi.hongik.ac.kr/api/v1/auth/logout",
     {},
     {
       headers: {
@@ -33,7 +33,7 @@ function Login() {
           </div>
         </a>
       ) : (
-          <a href="http://www.hongik.ac.kr/login.do?Refer=http://127.0.0.1/api/v1/auth/login">
+          <a href="http://www.hongik.ac.kr/login.do?Refer=https://sidi.hongik.ac.kr/api/v1/auth/login">
             <div className="navbar_login_item">로그인</div>
           </a>
         )}

@@ -10,7 +10,7 @@ from .decrypt import decrypt
 from .models import Account
 
 LOGIN_URL = "https://www.hongik.ac.kr/login.do"
-MAIN_PAGE = "http://sidi.hongik.ac.kr/"
+MAIN_PAGE = "https://sidi.hongik.ac.kr/"
 DOMAIN = "hongik.ac.kr"
 
 
