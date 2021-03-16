@@ -37,6 +37,15 @@ span.title {
   margin: 0 auto;
 }
 
+#imgRef1,
+#imgRef2,
+#imgRef3,
+#imgRef4 {
+  display: flex;
+  align-self: center;
+  justify-self: center;
+}
+
 @media (min-width: 1440px) and (max-width: 1920px) {
 }
 
