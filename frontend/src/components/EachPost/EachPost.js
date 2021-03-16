@@ -132,20 +132,20 @@ function EachPost({ postId, handleNavigateClick }) {
         </p>
         {eachPost.photos.length
           ? eachPost.photos.map((photo) => {
-            return (
-              <div>
-                <img
-                  src={photo.photo}
-                  alt={photo.alt}
-                  style={{
-                    width: 100 + "%",
-                    border: `1px solid rgb(0, 0, 0, 0.1)`,
-                  }}
-                ></img>
-                <br />
-              </div>
-            );
-          })
+              return (
+                <div>
+                  <img
+                    src={photo.photo}
+                    alt={photo.alt}
+                    style={{
+                      width: 100 + "%",
+                      border: `1px solid rgb(0, 0, 0, 0.1)`,
+                    }}
+                  ></img>
+                  <br />
+                </div>
+              );
+            })
           : null}
         {eachPost.link.length ? (
           <>
