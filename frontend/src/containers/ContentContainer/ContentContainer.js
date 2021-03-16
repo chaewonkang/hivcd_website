@@ -178,7 +178,7 @@ function ContentContainer() {
             posts &&
             posts.map((post) => (
               <>
-                {randImg.includes(post.pk) ? (
+                {randImg.includes(post.id) ? (
                   <>
                     <img
                       src={imgArray[randImg.indexOf(post.pk)]}
@@ -195,14 +195,14 @@ function ContentContainer() {
                     ></Post>
                   </>
                 ) : (
-                    <Post
-                      key={post.pk}
-                      title={post.title}
-                      date={post.updated}
-                      category={post.category}
-                      id={post.pk}
-                    ></Post>
-                  )}
+                  <Post
+                    key={post.pk}
+                    title={post.title}
+                    date={post.updated}
+                    category={post.category}
+                    id={post.pk}
+                  ></Post>
+                )}
               </>
             ))}
         </PostWrapper>
