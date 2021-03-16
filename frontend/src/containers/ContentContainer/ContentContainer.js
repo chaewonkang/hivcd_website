@@ -178,7 +178,7 @@ function ContentContainer() {
             posts &&
             posts.map((post) => (
               <>
-                {randImg.includes(post.id) ? (
+                {randImg.includes(post.pk) ? (
                   <>
                     <img
                       src={imgArray[randImg.indexOf(post.pk)]}
