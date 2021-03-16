@@ -31,6 +31,10 @@
 
 /********** Extra small devices only **********/
 @media (min-width: 577px) and (max-width: 767px) {
+  .archivewrapper {
+    width: calc(40vw - 10px) !important;
+    grid-auto-rows: 175px;
+  }
 }
 
 @media (max-width: 576px) {

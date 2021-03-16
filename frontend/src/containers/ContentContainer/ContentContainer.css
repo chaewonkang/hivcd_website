@@ -60,7 +60,7 @@ span.title {
 /********** Extra small devices only **********/
 @media (min-width: 577px) and (max-width: 767px) {
   .contentcontainer {
-    margin-top: 10px;
+    margin-top: 0px;
     margin-left: 10px;
     margin-right: 10px;
     position: relative;

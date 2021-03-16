@@ -39,7 +39,7 @@
 /********** Extra small devices only **********/
 @media (min-width: 577px) and (max-width: 767px) {
   .each_post_container {
-    margin-top: 50px;
+    margin-top: 0;
     grid-template-columns: 1fr;
   }
 }
