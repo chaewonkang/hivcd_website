@@ -8,7 +8,7 @@ import logogif from "../../img/logogif.gif";
 
 async function getAlumnis(token) {
   const response = await axios.get(
-    "http://sidi.hongik.ac.kr/api/v1/alumnis/",
+    "https://sidi.hongik.ac.kr/api/v1/alumnis/",
     {},
     {
       headers: {

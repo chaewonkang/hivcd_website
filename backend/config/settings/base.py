@@ -12,7 +12,7 @@ DEBUG = os.environ.get("DEBUG", True)
 if DEBUG == False:
     ALLOWED_HOSTS = [
         "sidi.hongiksidi.ac.kr",
-        "18.219.73.211",
+        "3.16.38.220",
         "127.0.0.1",
         "localhost",
     ]
@@ -113,11 +113,6 @@ USE_L10N = True
 
 USE_TZ = True
 
-# S3 Strorage
-# DEFAULT_FILE_STORAGE = 'config.storage_backends.MediaStorage'
-# STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
-
-
 # Static files (CSS, JavaScript, Images)
 STATIC_URL = "/static/"
 STATIC_ROOT = os.path.join(BASE_DIR, "assets")
@@ -129,7 +124,6 @@ STATICFILES_DIRS = [
 MEDIA_URL = "/media/"
 MEDIA_ROOT = os.path.join(BASE_DIR, "uploads")
 
-
 # Email Settings
 EMAIL_USE_TLS = os.environ.get("EMAIL_USE_TLS")
 EMAIL_HOST = os.environ.get("EMAIL_HOST")
@@ -139,9 +133,12 @@ EMAIL_HOST_PASSWORD = os.environ.get("EMAIL_HOST_PASSWORD")
 
 # Cors Policy
 CORS_ORIGIN_WHITELIST = [
-    "http://sidi.hongik.ac.kr",
+    "https://sidi.hongik.ac.kr",
+    "http://3.16.38.220",
     "http://localhost:8000",
+    "http://127.0.0.1:8000",
 ]
+
 
 from datetime import timedelta
 

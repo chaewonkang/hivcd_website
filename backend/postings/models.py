@@ -65,12 +65,13 @@ class Post(Timestamp):
     updated_at = models.DateTimeField(auto_now=True)
     text = models.TextField()
     link = models.URLField(default="", blank=True)
+    sidi_only = models.BooleanField(default=False)
 
     class PostCategory(models.IntegerChoices):
         NOTICE = 1
-        EVENT = 2
+        PROMOTIONANDEVENT = 2
         JOB = 3
-        LOSTANDFOUND = 4
+        SOMOIM = 4
         GW = 5
         WFF = 6
         AETC = 7

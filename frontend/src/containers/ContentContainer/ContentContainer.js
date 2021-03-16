@@ -14,7 +14,7 @@ import D_1 from "../../img/ㄷ_1.gif";
 
 async function getPosts(token) {
   const response = await axios.get(
-    "http://sidi.hongik.ac.kr/api/v1/postings",
+    "https://sidi.hongik.ac.kr/api/v1/postings/",
     {},
     {
       headers: {
@@ -30,7 +30,7 @@ async function getPosts(token) {
 
 async function getArchives(token) {
   const response = await axios.get(
-    "http://sidi.hongik.ac.kr/api/v1/postings/archive",
+    "https://sidi.hongik.ac.kr/api/v1/postings/archive/",
     {},
     {
       headers: {
@@ -195,14 +195,14 @@ function ContentContainer() {
                     ></Post>
                   </>
                 ) : (
-                  <Post
-                    key={post.pk}
-                    title={post.title}
-                    date={post.updated}
-                    category={post.category}
-                    id={post.pk}
-                  ></Post>
-                )}
+                    <Post
+                      key={post.pk}
+                      title={post.title}
+                      date={post.updated}
+                      category={post.category}
+                      id={post.pk}
+                    ></Post>
+                  )}
               </>
             ))}
         </PostWrapper>

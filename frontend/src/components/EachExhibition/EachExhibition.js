@@ -5,7 +5,7 @@ import useAsync from "../../utils/useAsync";
 
 async function getExhibitionInfo(postId) {
   const response = await axios.get(
-    `http://sidi.hongik.ac.kr/api/v1/postings/archive/${postId}`
+    `https://sidi.hongik.ac.kr/api/v1/postings/archive/${postId}`
   );
   return response.data;
 }
@@ -47,20 +47,20 @@ function EachExhibition({ postId, handleNavigateClick }) {
         </p>
         {exhibition.photos.length
           ? exhibition.photos.map((photo) => {
-              return (
-                <div>
-                  <img
-                    src={photo.photo}
-                    alt={photo.alt}
-                    style={{
-                      width: 100 + "%",
-                      border: `1px solid rgb(0, 0, 0, 0.1)`,
-                    }}
-                  ></img>
-                  <br />
-                </div>
-              );
-            })
+            return (
+              <div>
+                <img
+                  src={photo.photo}
+                  alt={photo.alt}
+                  style={{
+                    width: 100 + "%",
+                    border: `1px solid rgb(0, 0, 0, 0.1)`,
+                  }}
+                ></img>
+                <br />
+              </div>
+            );
+          })
           : null}
         {exhibition.link.length ? (
           <>
