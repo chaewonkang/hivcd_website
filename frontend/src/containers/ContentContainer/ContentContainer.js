@@ -86,23 +86,23 @@ function ContentContainer() {
         expires = expires.setHours(expires.getHours() + 24);
         localStorage.setItem("hasVisitedBefore", expires);
       }
-
-      const debouncedHandleResize = debounce(function handleResize() {
-        setDimensions({
-          height: window.innerHeight,
-          width: window.innerWidth,
-          row: window.innerHeight / 210,
-        });
-      }, 1);
-
-      window.addEventListener("resize", debouncedHandleResize);
-
-      return () => {
-        window.removeEventListener("resize", debouncedHandleResize);
-      };
     };
 
     window.setTimeout(handleShowModal, 2000);
+
+    const debouncedHandleResize = debounce(function handleResize() {
+      setDimensions({
+        height: window.innerHeight,
+        width: window.innerWidth,
+        row: window.innerHeight / 210,
+      });
+    }, 1);
+
+    window.addEventListener("resize", debouncedHandleResize);
+
+    return () => {
+      window.removeEventListener("resize", debouncedHandleResize);
+    };
   }, [HAS_VISITED_BEFORE]);
 
   const handleClose = () => setShowModal(false);
