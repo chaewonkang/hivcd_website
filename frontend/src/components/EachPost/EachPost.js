@@ -157,7 +157,7 @@ function EachPost({ postId, handleNavigateClick }) {
               alt="링크"
               className="attached_link"
             >
-              URL 바로가기 {eachPost.link}
+              웹사이트 바로가기 {eachPost.link}
             </a>
           </>
         ) : null}

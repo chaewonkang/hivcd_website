@@ -31,9 +31,6 @@
 
 /********** Extra small devices only **********/
 @media (min-width: 577px) and (max-width: 767px) {
-  .archivewrapper {
-    margin-bottom: 0px;
-  }
 }
 
 @media (max-width: 576px) {
