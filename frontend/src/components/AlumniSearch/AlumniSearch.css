@@ -41,7 +41,7 @@ input[name="alumniSearch"] {
 /********** Small devices only **********/
 @media (min-width: 768px) and (max-width: 991px) {
   .alumni_search_container {
-    margin-top: 60px;
+    margin-top: 0px;
   }
 
   input[name="alumniSearch"] {

@@ -37,13 +37,10 @@ span.title {
   margin: 0 auto;
 }
 
-#imgRef1,
-#imgRef2,
-#imgRef3,
-#imgRef4 {
-  display: flex;
-  align-self: center;
-  justify-self: center;
+.imgRef {
+  display: flex !important;
+  align-self: center !important;
+  justify-self: center !important;
 }
 
 @media (min-width: 1440px) and (max-width: 1920px) {
@@ -60,7 +57,7 @@ span.title {
 /********** Small devices only **********/
 @media (min-width: 768px) and (max-width: 991px) {
   .contentcontainer {
-    margin-top: 55px;
+    margin-top: 0px;
     margin-left: 20px;
     margin-right: 20px;
   }
@@ -101,10 +98,7 @@ span.title {
     line-height: 1.5em;
   }
 
-  #imgRef1,
-  #imgRef2,
-  #imgRef3,
-  #imgRef4 {
+  .imgRef {
     display: none;
   }
 }

@@ -185,11 +185,8 @@ function ContentContainer() {
                       alt="randomImage"
                       style={{
                         width: 195 + "px",
-                        display: "flex",
-                        justifySelf: "center",
-                        alignSelf: "center",
                       }}
-                      id="imgRef1"
+                      className="imgRef"
                     ></img>
                     <Post
                       key={post.pk}
