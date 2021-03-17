@@ -7,6 +7,5 @@ app_name = "postings"
 router = SimpleRouter()
 router.register(r'', views.PostViewSet)
 
-urlpatterns = router.urls + [
-    path('postings/<int:pk>/comments', views.delete_comments),
-]
+urlpatterns = router.urls
+
