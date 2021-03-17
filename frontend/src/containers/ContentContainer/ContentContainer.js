@@ -183,7 +183,12 @@ function ContentContainer() {
                     <img
                       src={imgArray[randImg.indexOf(post.pk)]}
                       alt="randomImage"
-                      style={{ width: 195 + "px" }}
+                      style={{
+                        width: 195 + "px",
+                        display: "flex",
+                        justifySelf: "center",
+                        alignSelf: "center",
+                      }}
                       id="imgRef1"
                     ></img>
                     <Post

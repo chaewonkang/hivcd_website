@@ -28,9 +28,21 @@ const AlumniModule = ({ year, name, tel, url }) => {
         </>
       ) : (
         <>
-          <img src={randomImg[randomIdx1]} style={{ width: 10 + "%" }}></img>
-          <img src={randomImg[randomIdx2]} style={{ width: 10 + "%" }}></img>
-          <img src={randomImg[randomIdx3]} style={{ width: 10 + "%" }}></img>
+          <img
+            src={randomImg[randomIdx1]}
+            style={{ width: 10 + "%" }}
+            alt="randomImage"
+          ></img>
+          <img
+            src={randomImg[randomIdx2]}
+            style={{ width: 10 + "%" }}
+            alt="randomImage"
+          ></img>
+          <img
+            src={randomImg[randomIdx3]}
+            style={{ width: 10 + "%" }}
+            alt="randomImage"
+          ></img>
           <br></br>
         </>
       )}
