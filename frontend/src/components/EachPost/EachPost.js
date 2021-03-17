@@ -82,11 +82,12 @@ function EachPost({ postId, handleNavigateClick }) {
 
   willMount.current = false;
 
-  if (loading) return <div className="each_post_wrapper"></div>;
+  if (loading) return <div className="each_post_wrapper" style={style}></div>;
   if (error)
     return (
-      <div className="each_post_wrapper">
-        아직 조교실에서 승인되지 않았습니다. 조금만 기다려 주세요.
+      <div className="each_post_wrapper" style={style}>
+        학과사무실에서 회원 권한을 확인 중입니다. 권한 승인 뒤 모든 게시물을
+        열람할 수 있습니다.
       </div>
     );
   if (!eachPost) return null;
