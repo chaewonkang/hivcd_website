@@ -99,6 +99,6 @@ span.title {
   }
 
   .imgRef {
-    display: none;
+    display: none !important;
   }
 }
