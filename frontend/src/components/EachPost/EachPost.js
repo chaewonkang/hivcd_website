@@ -82,11 +82,11 @@ function EachPost({ postId, handleNavigateClick }) {
 
   willMount.current = false;
 
-  if (loading) return <div className="each_post"></div>;
+  if (loading) return <div className="each_post_wrapper"></div>;
   if (error)
     return (
-      <div className="each_post">
-        <img className="loading_status" src={logogif} alt="logogif"></img>
+      <div className="each_post_wrapper">
+        아직 조교실에서 승인되지 않았습니다. 조금만 기다려 주세요.
       </div>
     );
   if (!eachPost) return null;
