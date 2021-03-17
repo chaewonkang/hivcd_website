@@ -72,7 +72,7 @@
 /********** Small devices only **********/
 @media (min-width: 768px) and (max-width: 991px) {
   .alumni_wrapper {
-    margin-top: 50px;
+    margin-top: 0px;
   }
 }
 
