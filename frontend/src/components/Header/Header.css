@@ -92,44 +92,31 @@ header {
 /********** Small devices only **********/
 @media (min-width: 768px) and (max-width: 991px) {
   header {
-    position: fixed;
-    z-index: 2000;
-    left: 0;
-    top: 0;
+    background-color: #fff5f5;
+    padding: 15px 10px;
+    width: 100%;
   }
 
   .header_container_responsive {
-    display: none;
+    display: inline-grid;
   }
 
   .hamburger_btn {
     background-color: none;
   }
 
-  .header_container_title {
-    text-align: left;
-  }
-
-  .header_container_title h1 {
-    font-size: 15px;
-  }
-
-  .navbar_menu_wrapper_item_title {
-    font-size: 15px;
-  }
-
-  .navbar_menu_wrapper_item_title a {
-    top: -1px;
-  }
-
-  .header_container_system {
-    top: -3px;
-  }
-
   .header_container_left {
     display: inline-grid;
-    grid-template-columns: 1.5fr;
+    width: 90%;
+    grid-template-columns: 1fr;
+    column-gap: 0;
     z-index: 1000;
+  }
+
+  .header_container_login,
+  .header_container_search,
+  .header_container_right {
+    display: none;
   }
 }
 

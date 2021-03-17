@@ -114,6 +114,10 @@ button.mobile_login_input_button {
 
 /********** Small devices only **********/
 @media (min-width: 768px) and (max-width: 991px) {
+  .nav_class_wrapper {
+    padding-left: 10px;
+    padding-top: 0px;
+  }
 }
 
 /********** Extra small devices only **********/

@@ -85,8 +85,8 @@ function SearchResultContainer({ searchKeyword }) {
   return (
     <div className="search_result_container">
       <div className="search_result_wrapper">
-        {searchKeyword === "" || searchKeyword === null
-          ? "검색어를 입력하세요."
+        {searchKeyword === "" || searchKeyword === null || !postList
+          ? "정확한 검색어를 입력하세요."
           : postList}
       </div>
     </div>

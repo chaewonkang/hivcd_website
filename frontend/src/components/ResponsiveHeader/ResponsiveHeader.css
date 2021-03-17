@@ -70,6 +70,36 @@
 
 /********** Small devices only **********/
 @media (min-width: 768px) and (max-width: 991px) {
+  .hamburger-btn {
+    font-size: 1.5rem;
+    width: 40px;
+    height: 35px;
+    position: absolute;
+    top: 8px;
+    right: 4px;
+    outline: none;
+    background-color: #fff5f5;
+    color: #000;
+    border: none;
+  }
+
+  #sidebar-list {
+    background-color: #fff5f5;
+    height: 100vh;
+    width: 100vw;
+    position: fixed;
+    z-index: 1000000;
+    left: 0;
+    top: 0;
+  }
+  .addTransiton {
+    transform: translateX(-100vw) translateY(49px);
+    transition: transform 0.5s ease-in-out;
+  }
+  .removeTransition {
+    transform: translateX(0px) translateY(49px);
+    transition: transform 0.5s ease-in-out;
+  }
 }
 
 /********** Extra small devices only **********/
