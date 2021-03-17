@@ -68,13 +68,18 @@ class Post(Timestamp):
     sidi_only = models.BooleanField(default=False)
 
     class PostCategory(models.IntegerChoices):
-        NOTICE = 1
-        PROMOTIONANDEVENT = 2
-        JOB = 3
-        SOMOIM = 4
-        GW = 5
-        WFF = 6
-        AETC = 7
+        News = 1
+        Notice = 2
+        Promotionandevent = 3
+        Job = 4
+        LostAndFound = 5
+        Gw = 6
+        Wff = 7
+        Aetc = 8
+        Life = 9
+        Informations = 10
+        Statute = 11
+        Archive = 12
 
     category = models.IntegerField(choices=PostCategory.choices)
 

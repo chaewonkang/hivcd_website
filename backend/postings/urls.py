@@ -1,13 +1,16 @@
-from django.urls import path, include
+from django.urls import include, path
+from rest_framework.routers import SimpleRouter
 from . import views
 
 app_name = "postings"
 
-urlpatterns = [
-    path("", views.PostListCreateAPIView.as_view()),
-    path("archive/", views.ArchiveListAPIView.as_view()),
-    path("archive/<int:pk>", views.ArchiveRetrieveAPIView.as_view()),
-    path("<int:pk>/", views.PostRetrieveAPIView.as_view()),
-    path("<int:pk>/comments/", views.CommentListCreateAPIView.as_view()),
-    path("delete_comment/<int:pk>", views.delete_comment),
-]
+router = SimpleRouter()
+# router.register(r'', views.PostViewSet)
+router.register(r'board', views.BoardViewSet)
+router.register(r'exhibition', views.ExhibitionViewSet)
+router.register(r'announce', views.AnnounceViewSet)
+router.register(r'archive', views.ArchiveViewSet)
+router.register(r'comment', views.CommentViewSet)
+
+
+urlpatterns = router.urls
