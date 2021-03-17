@@ -21,8 +21,23 @@ schema_view = get_schema_view(
     public=True,
     permission_classes=(permissions.AllowAny,),
 )
+from django.urls import include, path
+from rest_framework.routers import SimpleRouter
+from . import views
 
-urlpatterns = [
+app_name = "postings"
+
+router = SimpleRouter()
+router.register(r'board', views.BoardViewSet)
+router.register(r'exhibition', views.ExhibitionViewSet)
+router.register(r'announce', views.AnnounceViewSet)
+router.register(r'archive', views.ArchiveViewSet)
+router.register(r'comment', views.CommentViewSet)
+
+
+urlpatterns = router.urls
+
+urlpatterns += [
     # API Settings
     path("postings/", include("postings.urls", namespace="postings")),
     path("auth/", include("auth.urls", namespace="auth")),
