@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404
 
 from rest_framework import viewsets
+from rest_framework.response import Response
 
 from api_v1.utils import get_user_id
 from auth.models import Account
@@ -47,7 +48,9 @@ class CommentViewSet(viewsets.ModelViewSet):
     permission_classes = (CookiePermission,)
 
     def retrieve(self, request, *args, **kwargs):
-        return Comment.objects.filter(post_id=self.kwargs["pk"])
+        instance = get_object_or_404(Post, post_id=self.kwargs['pk'])
+        serializer = self.get_serializer(instance.comments)
+        return Response(serializer.data)
 
     def perform_create(self, serializer):
         user_id = get_user_id(self.request.COOKIES)
