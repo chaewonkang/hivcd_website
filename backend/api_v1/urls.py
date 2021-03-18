@@ -1,11 +1,7 @@
-from django.conf import settings
-from django.contrib import admin
-from django.urls import path, include
-from django.conf.urls.static import static
-from django.views.generic import TemplateView
 from rest_framework import permissions
 from drf_yasg.views import get_schema_view
 from drf_yasg import openapi
+from django.urls import include, path
 
 app_name = "api"
 
@@ -21,23 +17,8 @@ schema_view = get_schema_view(
     public=True,
     permission_classes=(permissions.AllowAny,),
 )
-from django.urls import include, path
-from rest_framework.routers import SimpleRouter
-from . import views
 
-app_name = "postings"
-
-router = SimpleRouter()
-router.register(r'board', views.BoardViewSet)
-router.register(r'exhibition', views.ExhibitionViewSet)
-router.register(r'announce', views.AnnounceViewSet)
-router.register(r'archive', views.ArchiveViewSet)
-router.register(r'comment', views.CommentViewSet)
-
-
-urlpatterns = router.urls
-
-urlpatterns += [
+urlpatterns = [
     # API Settings
     path("postings/", include("postings.urls", namespace="postings")),
     path("auth/", include("auth.urls", namespace="auth")),
