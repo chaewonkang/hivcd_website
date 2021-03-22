@@ -37,13 +37,16 @@ export const NavComponent = ({ onClick }) => {
                 <li onClick={onClick}>홈</li>{" "}
               </Link>
               <Link to="/aboutus">
-                <li onClick={onClick}>정보</li>{" "}
+                <li onClick={onClick}>소개</li>{" "}
               </Link>
               <Link to="/board">
-                <li onClick={onClick}>게시판</li>{" "}
+                <li onClick={onClick}>소식</li>{" "}
+              </Link>
+              <Link to="/announce">
+                <li onClick={onClick}>안내</li>{" "}
               </Link>
               <Link to="/alumni">
-                <li onClick={onClick}>동문연락망</li>{" "}
+                <li onClick={onClick}>동문</li>{" "}
               </Link>
               {/* <Link to="/archive">
                 <li onClick={onClick}>아카이브</li>{" "}
