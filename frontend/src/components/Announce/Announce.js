@@ -42,17 +42,23 @@ function Announce() {
             className="board_filter_option"
             onClick={() => setBoardFilter(0)}
           >
-            학과생활
+            전체보기
           </button>
           <button
             className="board_filter_option"
-            onClick={() => setBoardFilter(1)}
+            onClick={() => setBoardFilter(9)}
           >
             학사정보
           </button>
           <button
             className="board_filter_option"
-            onClick={() => setBoardFilter(2)}
+            onClick={() => setBoardFilter(10)}
+          >
+            학사내규
+          </button>
+          <button
+            className="board_filter_option"
+            onClick={() => setBoardFilter(11)}
           >
             학사내규
           </button>

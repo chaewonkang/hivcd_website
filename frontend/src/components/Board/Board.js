@@ -48,25 +48,25 @@ function Board() {
             className="board_filter_option"
             onClick={() => setBoardFilter(1)}
           >
-            학과 공지
+            소식
           </button>
           <button
             className="board_filter_option"
             onClick={() => setBoardFilter(2)}
           >
-            행사/홍보
+            학과 공지
           </button>
           <button
             className="board_filter_option"
             onClick={() => setBoardFilter(3)}
           >
-            구인구직
+            행사/홍보
           </button>
           <button
             className="board_filter_option"
             onClick={() => setBoardFilter(4)}
           >
-            소모임
+            구인구직
           </button>
         </div>
       </div>
