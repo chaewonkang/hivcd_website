@@ -7,7 +7,7 @@ import logogif from "../../img/logogif.gif";
 
 async function getEachPost(postId) {
   const response = await axios.get(
-    `https://sidi.hongik.ac.kr/api/v1/postings/${postId}`
+    `https://sidi.hongik.ac.kr/api/v1/postings/board/${postId}`
   );
   return response.data;
 }

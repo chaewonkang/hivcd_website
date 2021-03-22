@@ -16,7 +16,7 @@ function handleNavigateClick(type, postId) {
 
 async function getList(token) {
   const response = await axios.get(
-    "https://sidi.hongik.ac.kr/api/v1/postings/",
+    "https://sidi.hongik.ac.kr/api/v1/postings/board",
     {},
     {
       headers: {
@@ -32,7 +32,7 @@ async function getList(token) {
 
 async function getPost({ postId, token }) {
   return axios.get(
-    `https://sidi.hongik.ac.kr/api/v1/postings/${postId}`,
+    `https://sidi.hongik.ac.kr/api/v1/postings/board/${postId}`,
     {},
     {
       headers: {
@@ -87,16 +87,16 @@ function EachPostContainer({ match, location }) {
           isBoard={isBoard}
         ></BoardListWrapper>
       ) : (
-          <BoardListWrapper
-            list={list.filter(
-              (data) =>
-                data.category === 5 || data.category === 6 || data.category === 7
-            )}
-            postId={postId}
-            handleNavigateClick={() => handleNavigateClick()}
-            isBoard={isBoard}
-          ></BoardListWrapper>
-        )}
+        <BoardListWrapper
+          list={list.filter(
+            (data) =>
+              data.category === 5 || data.category === 6 || data.category === 7
+          )}
+          postId={postId}
+          handleNavigateClick={() => handleNavigateClick()}
+          isBoard={isBoard}
+        ></BoardListWrapper>
+      )}
     </div>
   );
 }
