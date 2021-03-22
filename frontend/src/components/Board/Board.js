@@ -40,30 +40,35 @@ function Board() {
           <button
             tabIndex="0"
             className="board_filter_option"
+            activaClassName="filter_option_active"
             onClick={() => setBoardFilter(0)}
           >
             전체보기
           </button>
           <button
             className="board_filter_option"
+            activaClassName="filter_option_active"
             onClick={() => setBoardFilter(1)}
           >
             소식
           </button>
           <button
             className="board_filter_option"
+            activaClassName="filter_option_active"
             onClick={() => setBoardFilter(2)}
           >
             학과 공지
           </button>
           <button
             className="board_filter_option"
+            activaClassName="filter_option_active"
             onClick={() => setBoardFilter(3)}
           >
             행사/홍보
           </button>
           <button
             className="board_filter_option"
+            activaClassName="filter_option_active"
             onClick={() => setBoardFilter(4)}
           >
             구인구직

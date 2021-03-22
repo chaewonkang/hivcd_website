@@ -74,10 +74,7 @@ function EachExhibitionContainer({ match, location }) {
   return (
     <div className="each_post_container">
       <BoardListWrapper
-        list={list.filter(
-          (data) =>
-            data.category === 5 || data.category === 6 || data.category === 7
-        )}
+        list={list}
         postId={postId}
         handleNavigateClick={() => handleNavigateClick()}
         isBoard={isBoard}
