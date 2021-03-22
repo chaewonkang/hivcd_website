@@ -14,7 +14,7 @@ import D_1 from "../../img/ㄷ_1.gif";
 
 async function getPosts(token) {
   const response = await axios.get(
-    "https://sidi.hongik.ac.kr/api/v1/postings/board",
+    "https://sidi.hongik.ac.kr/api/v1/postings/board/",
     {},
     {
       headers: {

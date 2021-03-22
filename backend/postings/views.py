@@ -1,15 +1,23 @@
+import json
 from django.shortcuts import get_object_or_404
 
 from rest_framework import viewsets, status
+from rest_framework.generics import GenericAPIView
 from rest_framework.mixins import (ListModelMixin, CreateModelMixin,
                                    RetrieveModelMixin, DestroyModelMixin)
 from rest_framework.response import Response
+from rest_framework.viewsets import ViewSetMixin
 
 from api_v1.utils import get_user_id
 from auth.models import Account
 from postings.models import Post, Comment
 from postings.permissions import CookiePermission
 from postings.serializers import PostSerializer, CommentSerializer
+
+
+class PostViewSet(ViewSetMixin, ListModelMixin, GenericAPIView):
+    queryset = Post.objects.all()
+    serializer_class = PostSerializer
 
 
 class BoardViewSet(viewsets.ReadOnlyModelViewSet):
@@ -61,7 +69,11 @@ class CommentViewSet(viewsets.GenericViewSet, ListModelMixin,
         serializer.save(author=user)
         return Response(status=status.HTTP_201_CREATED, data=serializer.data)
 
-    def perform_destroy(self, instance):
-        instance = self.get_object()
-        self.perform_destroy(instance)
-        return Response(status=status.HTTP_204_NO_CONTENT)
+    def perform_destroy(self, instance, *args, **kwargs):
+        pk = kwargs.pop('comment_id', None)
+        if pk is not None:
+            instance = get_object_or_404(Comment, pk=pk)
+            instance.delete()
+            return Response(status=status.HTTP_204_NO_CONTENT)
+        return Response(status=status.HTTP_404_NOT_FOUND,
+                        data=json.dumps({'detail': 'Can\'t find comment_id'}))
