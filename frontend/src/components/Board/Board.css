@@ -22,7 +22,9 @@ body {
   border: 1px solid #000;
 }
 
-.filter_option_active {
+.board_filter_option:active,
+.board_filter_option:focus,
+.board_filter_option:visited {
   font-size: 15px;
   color: #fff;
   font-weight: 100;
