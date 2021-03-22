@@ -9,6 +9,7 @@ import {
   Alumni,
   Archive,
   Exhibition,
+  Announce,
 } from "./components";
 import "./App.css";
 import "./components/Header/Header.css";
@@ -38,7 +39,7 @@ function App() {
           <Route path="/aboutus" component={AboutUs} />
           <Route path="/alumni" component={Alumni} />
           <Route exact path="/exhibition" component={Exhibition} />
-          <Route exact path="/announce" component={Board} />
+          <Route exact path="/announce" component={Announce} />
           <Route
             path="/exhibition/:postId"
             component={EachExhibitionContainer}
