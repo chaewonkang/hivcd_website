@@ -1,7 +1,5 @@
 from .base import *
 
-DEBUG = os.getenv("DEBUG", False)
-
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql",
