@@ -12,3 +12,4 @@ router.register(r'archive', views.ArchiveViewSet)
 router.register(r'comment', views.CommentViewSet)
 
 urlpatterns = router.urls
+
