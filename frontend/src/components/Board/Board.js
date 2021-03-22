@@ -7,7 +7,9 @@ import useAsync from "../../utils/useAsync";
 import logogif from "../../img/logogif.gif";
 
 async function getPosts(token) {
-  const response = await axios.get("https://sidi.hongik.ac.kr/api/v1/postings/");
+  const response = await axios.get(
+    "https://sidi.hongik.ac.kr/api/v1/postings/board"
+  );
   return response.data;
 }
 
@@ -70,13 +72,6 @@ function Board() {
       </div>
       <BoardPostWrapper>
         {posts
-          .filter(
-            (data) =>
-              data.category === 1 ||
-              data.category === 2 ||
-              data.category === 3 ||
-              data.category === 4
-          )
           .filter((data) => {
             if (boardFilter === 0) return data;
             else if (data.category === boardFilter) return data;
