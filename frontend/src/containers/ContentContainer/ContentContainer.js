@@ -176,18 +176,39 @@ function ContentContainer() {
         <PostWrapper dimensions={dimensions}>
           {randImg &&
             posts &&
-            posts.map((post) => (
-              <>
-                {randImg.includes(post.pk) ? (
-                  <>
-                    <img
-                      src={imgArray[randImg.indexOf(post.pk)]}
-                      alt="randomImage"
-                      style={{
-                        width: 195 + "px",
-                      }}
-                      className="imgRef"
-                    ></img>
+            posts
+              .filter(
+                (post) =>
+                  post.category === 1 ||
+                  post.category === 2 ||
+                  post.category === 3 ||
+                  post.category === 4 ||
+                  post.category === 5 ||
+                  post.category === 9 ||
+                  post.category === 10 ||
+                  post.category === 11
+              )
+              .map((post) => (
+                <>
+                  {randImg.includes(post.pk) ? (
+                    <>
+                      <img
+                        src={imgArray[randImg.indexOf(post.pk)]}
+                        alt="randomImage"
+                        style={{
+                          width: 195 + "px",
+                        }}
+                        className="imgRef"
+                      ></img>
+                      <Post
+                        key={post.pk}
+                        title={post.title}
+                        date={post.updated}
+                        category={post.category}
+                        id={post.pk}
+                      ></Post>
+                    </>
+                  ) : (
                     <Post
                       key={post.pk}
                       title={post.title}
@@ -195,18 +216,9 @@ function ContentContainer() {
                       category={post.category}
                       id={post.pk}
                     ></Post>
-                  </>
-                ) : (
-                  <Post
-                    key={post.pk}
-                    title={post.title}
-                    date={post.updated}
-                    category={post.category}
-                    id={post.pk}
-                  ></Post>
-                )}
-              </>
-            ))}
+                  )}
+                </>
+              ))}
         </PostWrapper>
         <ArchiveWrapper dimensions={dimensions}>
           {archives &&
