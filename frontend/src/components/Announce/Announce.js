@@ -48,13 +48,13 @@ function Announce() {
             className="board_filter_option"
             onClick={() => setBoardFilter(9)}
           >
-            학사정보
+            학과생활
           </button>
           <button
             className="board_filter_option"
             onClick={() => setBoardFilter(10)}
           >
-            학사내규
+            학사정보
           </button>
           <button
             className="board_filter_option"

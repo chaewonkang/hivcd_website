@@ -59,7 +59,7 @@ export const NavComponent = ({ onClick }) => {
           <hr></hr>
           <div>
             {getCookie("SUSER_ID") !== null ? (
-              <a href="http://sidi.hongik.ac.kr">
+              <a href="https://sidi.hongik.ac.kr">
                 <button
                   type="submit"
                   className="mobile_login_input_button"
@@ -69,19 +69,19 @@ export const NavComponent = ({ onClick }) => {
                 </button>
               </a>
             ) : (
-                <a href="http://www.hongik.ac.kr/login.do?Refer=https://sidi.hongik.ac.kr/api/v1/auth/login">
-                  <button type="submit" className="mobile_login_input_button">
-                    로그인
+              <a href="https://www.hongik.ac.kr/login.do?Refer=https://sidi.hongik.ac.kr/api/v1/auth/login">
+                <button type="submit" className="mobile_login_input_button">
+                  로그인
                 </button>
-                </a>
-              )}
+              </a>
+            )}
           </div>
           <hr></hr>
 
           <div className="nav_class_newsletter">
             <span onClick={onClick}>
               <a
-                href="http://eepurl.com/hk_U8n"
+                href="https://eepurl.com/hk_U8n"
                 target="_blank"
                 rel="noopener noreferrer"
                 style={{ color: "#000" }}

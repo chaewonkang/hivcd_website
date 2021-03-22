@@ -57,19 +57,19 @@ function Exhibition() {
             </button>
             <button
               className="exhibition_filter_option"
-              onClick={() => setExhibitionFilter(5)}
+              onClick={() => setExhibitionFilter(6)}
             >
               졸업 주간
             </button>
             <button
               className="exhibition_filter_option"
-              onClick={() => setExhibitionFilter(6)}
+              onClick={() => setExhibitionFilter(7)}
             >
               와우영상제
             </button>
             <button
               className="exhibition_filter_option"
-              onClick={() => setExhibitionFilter(7)}
+              onClick={() => setExhibitionFilter(8)}
             >
               소모임
             </button>
