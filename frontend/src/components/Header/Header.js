@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { ResponsiveHeader } from "../../components";
 import "./Header.css";
@@ -19,25 +19,41 @@ function Header({ handleLogout, handleSearchKeyword }) {
         <div className="header_container_right">
           <div className="header_container_menubar">
             <span className="navbar_menu_wrapper_item_title">
-              <Link to="/aboutus">소개</Link>
+              <NavLink className="link" activeClassName="active" to="/aboutus">
+                소개
+              </NavLink>
             </span>
             <span className="navbar_menu_wrapper_item_title">
-              <Link to="/board">소식</Link>
+              <NavLink className="link" activeClassName="active" to="/board">
+                소식
+              </NavLink>
             </span>
             <span className="navbar_menu_wrapper_item_title">
-              <Link to="/announce">안내</Link>
+              <NavLink className="link" activeClassName="active" to="/announce">
+                안내
+              </NavLink>
             </span>
             <span className="navbar_menu_wrapper_item_title">
-              <Link to="/alumni">동문</Link>
+              <NavLink className="link" activeClassName="active" to="/alumni">
+                동문
+              </NavLink>
             </span>
             {/* <span className="navbar_menu_wrapper_item_title">
               <Link to="/archive">아카이브</Link>
             </span> */}
             <span className="navbar_menu_wrapper_item_title">
-              <Link to="/exhibition">전시</Link>
+              <NavLink
+                className="link"
+                activeClassName="active"
+                to="/exhibition"
+              >
+                전시
+              </NavLink>
             </span>
             <span className="navbar_menu_wrapper_item_title">
-              <Link to="/calandar">일정</Link>
+              <NavLink className="link" activeClassName="active" to="/calandar">
+                일정
+              </NavLink>
             </span>
           </div>
           <div className="header_container_system">

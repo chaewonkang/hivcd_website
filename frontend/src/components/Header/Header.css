@@ -51,7 +51,7 @@ header {
   font-size: 18px;
 }
 
-.navbar_menu_wrapper_item_title a {
+.link {
   text-decoration: none !important;
   color: #000;
   position: relative;
@@ -59,9 +59,8 @@ header {
   top: 3px;
 }
 
-.navbar_menu_wrapper_item_title a:active,
-.navbar_menu_wrapper_item_title a:focus,
-.navbar_menu_wrapper_item_title a:hover {
+.active,
+.link:hover {
   border-bottom: 1px solid #000 !important;
   color: #000;
 }
