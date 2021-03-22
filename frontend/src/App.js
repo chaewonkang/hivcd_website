@@ -38,6 +38,7 @@ function App() {
           <Route path="/aboutus" component={AboutUs} />
           <Route path="/alumni" component={Alumni} />
           <Route exact path="/exhibition" component={Exhibition} />
+          <Route exact path="/announce" component={Board} />
           <Route
             path="/exhibition/:postId"
             component={EachExhibitionContainer}

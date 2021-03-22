@@ -77,13 +77,6 @@ function Exhibition() {
         </div>
         <div className="exhibition_container">
           {exhibition
-            .filter(
-              (data) =>
-                data.category === 5 ||
-                data.category === 6 ||
-                data.category === 7
-            )
-            .slice(0, 100)
             .filter((data) => {
               if (exhibitionFilter === null || exhibitionFilter === 0)
                 return data;

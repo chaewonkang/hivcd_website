@@ -25,6 +25,9 @@ function Header({ handleLogout, handleSearchKeyword }) {
               <Link to="/board">소식</Link>
             </span>
             <span className="navbar_menu_wrapper_item_title">
+              <Link to="/announce">안내</Link>
+            </span>
+            <span className="navbar_menu_wrapper_item_title">
               <Link to="/alumni">동문</Link>
             </span>
             {/* <span className="navbar_menu_wrapper_item_title">
