@@ -14,6 +14,13 @@ function handleNavigateClick(type, postId) {
   }
 }
 
+async function getAnnounces() {
+  const response = await axios.get(
+    `https://sidi.hongik.ac.kr/api/v1/postings/announce`
+  );
+  return response.data;
+}
+
 async function getEachAnnounce(postId) {
   const response = await axios.get(
     `https://sidi.hongik.ac.kr/api/v1/postings/announce/${postId}`
@@ -36,8 +43,16 @@ function EachAnnounce({ postId }) {
   });
   const [warningVisibility] = useState(false);
   const [postState] = useAsync(() => getEachAnnounce(postId), [postId]);
-  const { loading, data: eachAnnounce, error } = postState;
+  const [announces] = useAsync(() => getAnnounces());
 
+  const { loading, data: eachAnnounce, error } = postState;
+  const {
+    loading: announceLoading,
+    data: announceList,
+    error: announceError,
+  } = announces;
+
+  let pkArray = [];
   let history = useHistory();
   let id = parseInt(postId, 10);
 
