@@ -19,7 +19,7 @@ const CommentInsertForm = ({ style, postId }) => {
     });
   }
 
-  async function handleSubmit(e, t, data, p) {
+  async function handleSubmit(e, t, data) {
     e.preventDefault();
 
     try {
@@ -71,8 +71,8 @@ const CommentInsertForm = ({ style, postId }) => {
           ></input>
           <button
             className="comment_input_button"
-            onClick={(e, t = token, data = comment, p = postId) =>
-              handleSubmit(e, (t = token), (data = comment), (p = postId))
+            onClick={(e, t = token, data = comment) =>
+              handleSubmit(e, (t = token), (data = comment))
             }
           >
             입력

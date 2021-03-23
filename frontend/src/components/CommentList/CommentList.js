@@ -14,6 +14,7 @@ const CommentList = ({ comments, style, onPostComment, postId }) => {
           key={comment.id}
           id={comment.id}
           date={comment.created}
+          postId={postId}
         />
       );
     });

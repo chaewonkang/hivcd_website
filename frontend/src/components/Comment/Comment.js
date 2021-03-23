@@ -3,15 +3,15 @@ import "./Comment.css";
 import axios from "axios";
 import getCookie from "../../utils/getCookie";
 
-const Comment = ({ author, body, date, id }) => {
+const Comment = ({ author, body, date, id, postId }) => {
   const createdSliced = date.slice(2, 10);
   const token = getCookie("csrftoken");
   const commentKey = id;
 
-  async function handleCommentDelete(id, token) {
+  async function handleCommentDelete(id, token, postId) {
     const response = await axios
       .delete(
-        `https://sidi.hongik.ac.kr/api/v1/postings/comment/${id}/`,
+        `https://sidi.hongik.ac.kr/api/v1/postings/comment/${postId}/`,
         {},
         {
           headers: {
@@ -41,8 +41,8 @@ const Comment = ({ author, body, date, id }) => {
           <div className="comment_container_date">{createdSliced}</div>
           <div
             className="comment_delete_button"
-            onClick={(k = commentKey, t = token) =>
-              handleCommentDelete((k = commentKey), (t = token))
+            onClick={(k = postId, t = token) =>
+              handleCommentDelete((k = postId), (t = token))
             }
           >
             ✕
