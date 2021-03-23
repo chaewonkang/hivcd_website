@@ -35,7 +35,7 @@ const PostModule = ({ style, title, date, category, id }) => {
 
   return (
     <>
-      {category === 1 ||
+      {(isLogged && category === 1) ||
       category === 2 ||
       category === 3 ||
       category === 4 ||
@@ -54,7 +54,7 @@ const PostModule = ({ style, title, date, category, id }) => {
           </div>
         </Link>
       ) : null}
-      {category === 6 || category === 7 || category === 8 ? (
+      {(isLogged && category === 6) || category === 7 || category === 8 ? (
         <Link to={`/exhibition/${postId}`}>
           <div className="post" style={style} onClick={() => showWarning()}>
             <div className="post_tag">
@@ -69,7 +69,7 @@ const PostModule = ({ style, title, date, category, id }) => {
           </div>
         </Link>
       ) : null}
-      {category === 9 || category === 10 || category === 11 ? (
+      {(isLogged && category === 9) || category === 10 || category === 11 ? (
         <Link to={`/announce/${postId}`}>
           <div className="post" style={style}>
             <div className="post_tag">
