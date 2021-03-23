@@ -35,7 +35,7 @@ const PostModule = ({ style, title, date, category, id }) => {
 
   return (
     <>
-      {(isLogged && category === 1) ||
+      {category === 1 ||
       category === 2 ||
       category === 3 ||
       category === 4 ||
@@ -53,20 +53,8 @@ const PostModule = ({ style, title, date, category, id }) => {
             </div>
           </div>
         </Link>
-      ) : (
-        <div className="post" style={style} onClick={() => showWarning()}>
-          <div className="post_tag">
-            <span>{categoryName}</span>
-          </div>
-          <div className="post_content">
-            <div className="post_content_header">
-              {title} <br></br>
-            </div>
-            <span className="post_content_date">{slicedDate}</span>
-          </div>
-        </div>
-      )}
-      {(isLogged && category === 6) || category === 7 || category === 8 ? (
+      ) : null}
+      {category === 6 || category === 7 || category === 8 ? (
         <Link to={`/exhibition/${postId}`}>
           <div className="post" style={style} onClick={() => showWarning()}>
             <div className="post_tag">
@@ -80,20 +68,8 @@ const PostModule = ({ style, title, date, category, id }) => {
             </div>
           </div>
         </Link>
-      ) : (
-        <div className="post" style={style} onClick={() => showWarning()}>
-          <div className="post_tag">
-            <span>{categoryName}</span>
-          </div>
-          <div className="post_content">
-            <div className="post_content_header">
-              {title} <br></br>
-            </div>
-            <span className="post_content_date">{slicedDate}</span>
-          </div>
-        </div>
-      )}
-      {(isLogged && category === 9) || category === 10 || category === 11 ? (
+      ) : null}
+      {category === 9 || category === 10 || category === 11 ? (
         <Link to={`/announce/${postId}`}>
           <div className="post" style={style}>
             <div className="post_tag">
@@ -107,19 +83,7 @@ const PostModule = ({ style, title, date, category, id }) => {
             </div>
           </div>
         </Link>
-      ) : (
-        <div className="post" style={style}>
-          <div className="post_tag">
-            <span>{categoryName}</span>
-          </div>
-          <div className="post_content">
-            <div className="post_content_header">
-              {title} <br></br>
-            </div>
-            <span className="post_content_date">{slicedDate}</span>
-          </div>
-        </div>
-      )}
+      ) : null}
       <Warning visible={warningVisibility} message="권한이 없습니다." />
     </>
   );
