@@ -1,9 +1,9 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useRef } from "react";
 import "./EachPost.css";
-import { EachPostNavigator, CommentList, Warning } from "../../components";
+import { CommentList, Warning } from "../../components";
 import axios from "axios";
+import getCookie from "../../utils/getCookie";
 import useAsync from "../../utils/useAsync";
-import logogif from "../../img/logogif.gif";
 import { useHistory } from "react-router-dom";
 
 async function getPosts() {
@@ -38,15 +38,15 @@ function EachPost({ postId }) {
     borderColor: null,
   });
   const [warningVisibility] = useState(false);
-  const [current, setCurrent] = useState("");
   const [postState] = useAsync(() => getEachPost(postId), [postId]);
   const [posts] = useAsync(() => getPosts());
+  const isLogged = getCookie("SUSER_ID") === null ? false : true;
   const { loading, data: eachPost, error } = postState;
   const { loading: postLoading, data: postList, error: postError } = posts;
   let history = useHistory();
 
   function routeToPrevPost(id, arr) {
-    if (id > 0) {
+    if (arr.indexOf(parseInt(id)) > 0) {
       history.push(`/board/${arr[arr.indexOf(parseInt(id)) - 1]}`);
     }
   }
@@ -117,7 +117,7 @@ function EachPost({ postId }) {
     );
   if (!eachPost) return null;
 
-  if (eachPost && eachPost.sidi_only)
+  if (isLogged === null && eachPost && eachPost.sidi_only)
     return (
       <div className="each_post_wrapper" style={style}>
         시각디자인과 학생에게만 공개된 게시물입니다.
