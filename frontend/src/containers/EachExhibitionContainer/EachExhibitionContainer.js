@@ -50,11 +50,11 @@ function EachExhibitionContainer({ match, location }) {
   const [state] = useAsync(() => getList(token), [token]);
   const { loading, data: list, error } = state;
   const [postId, setPostId] = useState(0);
-  const [isBoard, setIsBoard] = useState(true);
+  const [curLoc, setCurLoc] = useState("");
 
   useEffect(() => {
     setPostId(match.params.postId);
-    location.pathname.includes("board") ? setIsBoard(true) : setIsBoard(false);
+    setCurLoc(location.pathname);
   });
 
   if (loading)
@@ -77,7 +77,7 @@ function EachExhibitionContainer({ match, location }) {
         list={list}
         postId={postId}
         handleNavigateClick={() => handleNavigateClick()}
-        isBoard={isBoard}
+        curLoc={curLoc}
       ></BoardListWrapper>
     </div>
   );

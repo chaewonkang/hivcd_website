@@ -74,13 +74,7 @@ function EachPostContainer({ match, location }) {
   return (
     <div className="each_post_container">
       <BoardListWrapper
-        list={list.filter(
-          (data) =>
-            data.category === 1 ||
-            data.category === 2 ||
-            data.category === 3 ||
-            data.category === 4
-        )}
+        list={list}
         postId={postId}
         handleNavigateClick={() => handleNavigateClick()}
         curLoc={curLoc}
