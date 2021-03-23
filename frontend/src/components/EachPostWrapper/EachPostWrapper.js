@@ -5,7 +5,7 @@ import "./EachPostWrapper.css";
 const EachPostWrapper = ({ handleNavigateClick, postId, style, curLoc }) => {
   return (
     <div className="temp_EachPostWrapper" style={style}>
-      {curLoc === "board" || curLoc === "announce" ? (
+      {curLoc.includes("board") || curLoc.includes("announce") ? (
         <EachPost
           handleNavigateClick={() => handleNavigateClick()}
           postId={postId}
