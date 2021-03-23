@@ -1,9 +1,18 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useRef } from "react";
 import "./EachAnnounce.css";
 import { EachPostNavigator, CommentList, Warning } from "..";
 import axios from "axios";
 import useAsync from "../../utils/useAsync";
 import logogif from "../../img/logogif.gif";
+import { useHistory } from "react-router-dom";
+
+function handleNavigateClick(type, postId) {
+  if (type === "NEXT") {
+    getEachAnnounce(parseInt(postId) + 1);
+  } else {
+    getEachAnnounce(parseInt(postId) - 1);
+  }
+}
 
 async function getEachAnnounce(postId) {
   const response = await axios.get(
@@ -20,7 +29,7 @@ function setCategoryNumber(category) {
   return categoryName;
 }
 
-function EachAnnounce({ postId, handleNavigateClick }) {
+function EachAnnounce({ postId }) {
   const [style, setStyle] = useState({
     color: null,
     borderColor: null,
@@ -28,6 +37,22 @@ function EachAnnounce({ postId, handleNavigateClick }) {
   const [warningVisibility] = useState(false);
   const [postState] = useAsync(() => getEachAnnounce(postId), [postId]);
   const { loading, data: eachAnnounce, error } = postState;
+
+  let history = useHistory();
+  let id = parseInt(postId, 10);
+
+  function routeToPrevPost(id) {
+    id = id - 1;
+    if (id > 0) {
+      history.push(`/announce/${id}`);
+    }
+    handleNavigateClick("PREV", postId);
+  }
+  function routeToNextPost(id) {
+    id = id + 1;
+    history.push(`/announce/${id}`);
+    handleNavigateClick("NEXT", postId);
+  }
 
   const colorArray = [
     "#A3B3C4",
@@ -175,11 +200,18 @@ function EachAnnounce({ postId, handleNavigateClick }) {
           style={style}
           postId={postId}
         ></CommentList>
-        <EachPostNavigator
-          postId={postId}
-          navDisabled={warningVisibility}
-          handleNavigateClick={() => handleNavigateClick()}
-        ></EachPostNavigator>
+        <div className="each_post_navigator_container">
+          <div className="each_post_navigator">
+            <button
+              className="navigate_left_button"
+              onClick={() => routeToPrevPost(id)}
+            ></button>
+            <button
+              className="navigate_right_button"
+              onClick={() => routeToNextPost(id)}
+            ></button>
+          </div>
+        </div>
         <Warning
           visible={warningVisibility}
           message={"마지막 게시글입니다."}

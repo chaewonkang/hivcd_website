@@ -3,7 +3,7 @@ import "./BoardListWrapper.css";
 import { useHistory } from "react-router-dom";
 import { EachPostWrapper } from "../../components";
 
-function BoardListWrapper({ list, postId, handleNavigateClick, curLoc }) {
+function BoardListWrapper({ list, postId, curLoc }) {
   let history = useHistory();
 
   const [currentPage, setCurrentPage] = useState(1);
@@ -113,11 +113,7 @@ function BoardListWrapper({ list, postId, handleNavigateClick, curLoc }) {
           </div>
         </div>
       </div>
-      <EachPostWrapper
-        postId={postId}
-        handleNavigateClick={() => handleNavigateClick()}
-        curLoc={curLoc}
-      ></EachPostWrapper>
+      <EachPostWrapper postId={postId} curLoc={curLoc}></EachPostWrapper>
     </>
   );
 }

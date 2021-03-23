@@ -5,6 +5,14 @@ import axios from "axios";
 import useAsync from "../../utils/useAsync";
 import logogif from "../../img/logogif.gif";
 
+function handleNavigateClick(type, postId) {
+  if (type === "NEXT") {
+    getEachPost(parseInt(postId) + 1);
+  } else {
+    getEachPost(parseInt(postId) - 1);
+  }
+}
+
 async function getEachPost(postId) {
   const response = await axios.get(
     `https://sidi.hongik.ac.kr/api/v1/postings/board/${postId}`
@@ -24,7 +32,7 @@ function setCategoryNumber(category) {
   return categoryName;
 }
 
-function EachPost({ postId, handleNavigateClick }) {
+function EachPost({ postId }) {
   const [style, setStyle] = useState({
     color: null,
     borderColor: null,

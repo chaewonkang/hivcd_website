@@ -3,6 +3,14 @@ import "./EachExhibition.css";
 import axios from "axios";
 import useAsync from "../../utils/useAsync";
 
+function handleNavigateClick(type, postId) {
+  if (type === "NEXT") {
+    getExhibitionInfo(parseInt(postId) + 1);
+  } else {
+    getExhibitionInfo(parseInt(postId) - 1);
+  }
+}
+
 async function getExhibitionInfo(postId) {
   const response = await axios.get(
     `https://sidi.hongik.ac.kr/api/v1/postings/exhibition/${postId}`
@@ -19,7 +27,7 @@ function setCategoryNumber(category) {
   return categoryName;
 }
 
-function EachExhibition({ postId, handleNavigateClick }) {
+function EachExhibition({ postId }) {
   const [state] = useAsync(() => getExhibitionInfo(postId), [postId]);
   const { loading, data: exhibition, error } = state;
 

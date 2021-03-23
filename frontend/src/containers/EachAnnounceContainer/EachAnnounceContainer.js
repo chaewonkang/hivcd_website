@@ -6,14 +6,6 @@ import getCookie from "../../utils/getCookie";
 import useAsync from "../../utils/useAsync";
 import logogif from "../../img/logogif.gif";
 
-function handleNavigateClick(type, postId) {
-  if (type === "NEXT") {
-    getPost(parseInt(postId) + 1);
-  } else {
-    getPost(parseInt(postId) - 1);
-  }
-}
-
 async function getList(token) {
   const response = await axios.get(
     "https://sidi.hongik.ac.kr/api/v1/postings/announce",
@@ -83,7 +75,6 @@ function EachAnnounceContainer({ match, location }) {
                 data.category === 11
             )}
             postId={postId}
-            handleNavigateClick={() => handleNavigateClick()}
             curLoc={curLoc}
           ></BoardListWrapper>
         ) : null}

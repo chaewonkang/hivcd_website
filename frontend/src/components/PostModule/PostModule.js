@@ -53,7 +53,19 @@ const PostModule = ({ style, title, date, category, id }) => {
             </div>
           </div>
         </Link>
-      ) : null}
+      ) : (
+        <div className="post" style={style} onClick={() => showWarning()}>
+          <div className="post_tag">
+            <span>{categoryName}</span>
+          </div>
+          <div className="post_content">
+            <div className="post_content_header">
+              {title} <br></br>
+            </div>
+            <span className="post_content_date">{slicedDate}</span>
+          </div>
+        </div>
+      )}
       {(isLogged && category === 6) || category === 7 || category === 8 ? (
         <Link to={`/exhibition/${postId}`}>
           <div className="post" style={style} onClick={() => showWarning()}>
@@ -68,7 +80,19 @@ const PostModule = ({ style, title, date, category, id }) => {
             </div>
           </div>
         </Link>
-      ) : null}
+      ) : (
+        <div className="post" style={style} onClick={() => showWarning()}>
+          <div className="post_tag">
+            <span>{categoryName}</span>
+          </div>
+          <div className="post_content">
+            <div className="post_content_header">
+              {title} <br></br>
+            </div>
+            <span className="post_content_date">{slicedDate}</span>
+          </div>
+        </div>
+      )}
       {(isLogged && category === 9) || category === 10 || category === 11 ? (
         <Link to={`/announce/${postId}`}>
           <div className="post" style={style}>
@@ -83,7 +107,19 @@ const PostModule = ({ style, title, date, category, id }) => {
             </div>
           </div>
         </Link>
-      ) : null}
+      ) : (
+        <div className="post" style={style}>
+          <div className="post_tag">
+            <span>{categoryName}</span>
+          </div>
+          <div className="post_content">
+            <div className="post_content_header">
+              {title} <br></br>
+            </div>
+            <span className="post_content_date">{slicedDate}</span>
+          </div>
+        </div>
+      )}
       <Warning visible={warningVisibility} message="권한이 없습니다." />
     </>
   );
