@@ -219,11 +219,19 @@ function EachPost({ postId }) {
             <div className="each_post_navigator">
               <button
                 className="navigate_left_button"
-                onClick={() => routeToPrevPost(id)}
+                onClick={(id) =>
+                  history.push(
+                    `/board/${pkArray[pkArray.indexOf[parseInt(id)] - 1]}`
+                  )
+                }
               ></button>
               <button
                 className="navigate_right_button"
-                onClick={() => routeToNextPost(id)}
+                onClick={(id) =>
+                  history.push(
+                    `/board/${pkArray[pkArray.indexOf[parseInt(id)] + 1]}`
+                  )
+                }
               ></button>
             </div>
           </div>
