@@ -19,6 +19,7 @@ import {
   ReservationContainer,
   ContentContainer,
   EachExhibitionContainer,
+  EachAnnounceContainer,
 } from "./containers";
 
 function App() {
@@ -39,11 +40,16 @@ function App() {
           <Route path="/aboutus" component={AboutUs} />
           <Route path="/alumni" component={Alumni} />
           <Route exact path="/exhibition" component={Exhibition} />
-          <Route exact path="/announce" component={Announce} />
           <Route
             path="/exhibition/:postId"
             component={EachExhibitionContainer}
           ></Route>
+          <Route exact path="/announce" component={Announce} />
+          <Route
+            exact
+            path="/announce:postId"
+            component={EachAnnounceContainer}
+          />
           <Route path="/calandar" component={CalandarContainer} />
           <Route path="/reservation" component={ReservationContainer} />
           <Route path="/archive" component={Archive} />

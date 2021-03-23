@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { BoardListWrapper } from "../../components";
 import axios from "axios";
-import "./EachPostContainer.css";
+import "./EachAnnounceContainer.css";
 import getCookie from "../../utils/getCookie";
 import useAsync from "../../utils/useAsync";
 import logogif from "../../img/logogif.gif";
@@ -16,7 +16,7 @@ function handleNavigateClick(type, postId) {
 
 async function getList(token) {
   const response = await axios.get(
-    "https://sidi.hongik.ac.kr/api/v1/postings/board",
+    "https://sidi.hongik.ac.kr/api/v1/postings/announce",
     {},
     {
       headers: {
@@ -32,7 +32,7 @@ async function getList(token) {
 
 async function getPost({ postId, token }) {
   return axios.get(
-    `https://sidi.hongik.ac.kr/api/v1/postings/board/${postId}`,
+    `https://sidi.hongik.ac.kr/api/v1/postings/announce/${postId}`,
     {},
     {
       headers: {
@@ -45,7 +45,7 @@ async function getPost({ postId, token }) {
   );
 }
 
-function EachPostContainer({ match, location }) {
+function EachAnnounceContainer({ match, location }) {
   const [token] = useState(getCookie("csrftoken"));
   const [state] = useAsync(() => getList(token), [token]);
   const { loading, data: list, error } = state;
@@ -73,20 +73,6 @@ function EachPostContainer({ match, location }) {
 
   return (
     <div className="each_post_container">
-      {location.pathname.includes("board") ? (
-        <BoardListWrapper
-          list={list.filter(
-            (data) =>
-              data.category === 1 ||
-              data.category === 2 ||
-              data.category === 3 ||
-              data.category === 4
-          )}
-          postId={postId}
-          handleNavigateClick={() => handleNavigateClick()}
-          isBoard={isBoard}
-        ></BoardListWrapper>
-      ) : null}
       {location.pathname.includes("announce") ? (
         <BoardListWrapper
           list={list.filter(
@@ -100,29 +86,8 @@ function EachPostContainer({ match, location }) {
           isBoard={isBoard}
         ></BoardListWrapper>
       ) : null}
-      {location.pathname.includes("exhibition") ? (
-        <BoardListWrapper
-          list={list.filter(
-            (data) =>
-              data.category === 5 || data.category === 6 || data.category === 7
-          )}
-          postId={postId}
-          handleNavigateClick={() => handleNavigateClick()}
-          isBoard={isBoard}
-        ></BoardListWrapper>
-      ) : (
-        <BoardListWrapper
-          list={list.filter(
-            (data) =>
-              data.category === 5 || data.category === 6 || data.category === 7
-          )}
-          postId={postId}
-          handleNavigateClick={() => handleNavigateClick()}
-          isBoard={isBoard}
-        ></BoardListWrapper>
-      )}
     </div>
   );
 }
 
-export default EachPostContainer;
+export default EachAnnounceContainer;
