@@ -8,7 +8,7 @@ const Footer = () => {
       <div className="footer">
         <div className="footer_container">
           <div className="footer-item">
-            <img src={logo} width="40" height="40" alt="HIVCD Logo"></img>
+            <img src={logo} width="35" height="35" alt="HIVCD Logo"></img>
           </div>
           <div className="footer-item">
             <p>
