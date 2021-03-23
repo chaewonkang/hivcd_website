@@ -77,14 +77,6 @@
   position: relative;
 }
 
-.navbar_login_item {
-  font-family: "Helvetica";
-  padding: 2px 2px 2px 2px;
-  font-size: 18px;
-  border: 1px solid #000;
-  cursor: pointer;
-}
-
 .comment_input_container {
   display: inline-grid;
   grid-template-columns: 1fr 6fr;

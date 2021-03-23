@@ -15,13 +15,13 @@ header {
 
 .header_container_left {
   display: inline-grid;
-  width: calc((100vw - 40px) * 0.3);
+  width: calc((100vw - 40px) * 0.5);
   column-gap: 10px;
 }
 
 .header_container_right {
   display: inline-grid;
-  width: calc((100vw - 40px) * 0.7);
+  width: calc((100vw - 40px) * 0.5);
   grid-template-columns: 1fr auto;
   font-size: 17px;
   text-align: right;
@@ -30,6 +30,14 @@ header {
 .header_container_menubar {
   position: relative;
   right: 0;
+}
+
+.navber_menu_wrapper_item_title a:link {
+  text-decoration: none !important;
+}
+
+.navber_menu_wrapper_item_title a:link:hover:before {
+  text-decoration: none !important;
 }
 
 .header_container_system {
@@ -44,11 +52,95 @@ header {
   right: 0;
 }
 
-.header_container_title h1 {
+.title {
   font-family: "Helvetica";
   font-weight: 400;
   color: #000;
   font-size: 18px;
+  display: inline-block;
+}
+
+.title:hover {
+  font-size: 0px;
+}
+
+.title:hover:before {
+  content: "Hongik University Visual Communication Design";
+  font-size: 18px;
+  font-family: "Helvetica";
+  font-weight: 400;
+  color: #000;
+  display: inline-block;
+  top: 0.5px;
+  position: relative;
+  right: 0;
+}
+
+#about:link,
+#news:link,
+#alumni:link,
+#announce:link,
+#show:link,
+#calandar:link {
+  display: inline-block;
+  text-decoration: none !important;
+  color: #000;
+}
+
+#about:hover,
+#news:hover,
+#alumni:hover,
+#announce:hover,
+#show:hover,
+#calandar:hover {
+  display: inline-block;
+  font-size: 0px;
+  text-decoration: none !important;
+  top: 3px;
+  position: relative;
+  right: 0;
+}
+
+#about:hover:before {
+  content: "About";
+  font-size: 18px;
+  border-bottom: 1px solid #000 !important;
+  text-decoration: none !important;
+}
+
+#news:hover:before {
+  content: "News";
+  font-size: 18px;
+  text-decoration: none !important;
+  border-bottom: 1px solid #000 !important;
+}
+
+#alumni:hover:before {
+  content: "Alumni";
+  font-size: 18px;
+  text-decoration: none !important;
+  border-bottom: 1px solid #000 !important;
+}
+
+#announce:hover:before {
+  content: "Announce";
+  font-size: 18px;
+  text-decoration: none !important;
+  border-bottom: 1px solid #000 !important;
+}
+
+#show:hover:before {
+  content: "Show";
+  font-size: 18px;
+  text-decoration: none !important;
+  border-bottom: 1px solid #000 !important;
+}
+
+#calandar:hover:before {
+  content: "Calandar";
+  font-size: 18px;
+  text-decoration: none !important;
+  border-bottom: 1px solid #000 !important;
 }
 
 .link {
@@ -61,12 +153,13 @@ header {
 
 .active,
 .link:hover {
-  border-bottom: 1px solid #000 !important;
+  text-decoration: none !important;
   color: #000;
 }
 
 .navbar_menu_wrapper_item_title {
   font-family: "Helvetica";
+  text-decoration: none !important;
   font-weight: 400;
   color: #000;
   font-size: 18px;

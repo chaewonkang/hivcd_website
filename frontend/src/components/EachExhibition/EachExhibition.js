@@ -72,7 +72,7 @@ function EachExhibition({ postId, handleNavigateClick }) {
               alt="링크"
               className="attached_link"
             >
-              웹사이트 바로가기 {exhibition.link}
+              링크 {exhibition.link}
             </a>
           </>
         ) : null}

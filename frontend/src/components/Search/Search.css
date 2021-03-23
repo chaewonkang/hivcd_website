@@ -7,6 +7,15 @@
   cursor: pointer;
 }
 
+.navbar_search_item:hover {
+  font-size: 0px;
+}
+
+.navbar_search_item:hover:before {
+  font-size: 15px;
+  content: "Search";
+}
+
 input[name="search"] {
   border: 1px solid #000;
   color: #000;
@@ -51,15 +60,6 @@ input[name="search"] {
     text-decoration: underline;
   }
 
-  .navbar_login_item {
-    font-family: "Helvetica";
-    padding: 2px 2px 2px 2px;
-    font-size: 16px;
-    text-align: center;
-    border: 1px solid #000;
-    width: 80%;
-  }
-
   .navbar_search_item {
     font-family: "Helvetica";
     padding: 2px 2px 2px 2px;
@@ -85,31 +85,5 @@ input[name="search"] {
 
   .navbar_search {
     margin-bottom: 40px;
-  }
-
-  .navbar_menu_wrapper_item_title {
-    font-family: "Helvetica";
-    font-weight: 400;
-    color: #000;
-    font-size: 18px;
-    text-decoration: underline;
-  }
-
-  .navbar_login_item {
-    font-family: "Helvetica";
-    padding: 2px 2px 2px 2px;
-    font-size: 16px;
-    text-align: center;
-    border: 1px solid #000;
-    margin-bottom: 20px;
-  }
-
-  .navbar_search_item {
-    font-family: "Helvetica";
-    padding: 2px 2px 2px 2px;
-    font-size: 16px;
-    text-align: center;
-    border: 1px solid #000;
-    width: 80%;
   }
 }

@@ -8,7 +8,7 @@ const AboutUs = () => {
         <div className="aboutus_container">
           <div id="history" className="aboutus_item">
             <div className="aboutus_item_tag">
-              <span>연혁</span>
+              <span>연혁 History</span>
             </div>
             <div className="aboutus_content">
               <table className="aboutus_contact">
@@ -50,26 +50,39 @@ const AboutUs = () => {
                   <td>1968</td>
                   <td>학과 재편성: 공예과, 공업도안과 → 응용미술과</td>
                 </tr>
-                <tr>
+                <tr style={{ borderBottom: "none" }}>
                   <td>1972</td>
-                  <td>
-                    홍익대학교가 종합대학교로 승격, 미술대학 편성, <br></br>
-                    미술대학 ＞ 공예학부 ＞ 공업도안과
-                  </td>
+                  <td>홍익대학교가 종합대학교로 승격, 미술대학 편성, </td>
                 </tr>
                 <tr>
+                  <td></td>
+                  <td>미술대학 ＞ 공예학부 ＞ 공업도안과</td>
+                </tr>
+                <tr style={{ borderBottom: "none" }}>
                   <td>1976</td>
+                  <td>실험대학 실시,</td>
+                </tr>
+                <tr style={{ borderBottom: "none" }}>
+                  <td></td>
+                  <td>미술대학 ＞ 공업도안과 ＞ 산업도안과</td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>＞ 공업디자인전공, 산업디자인전공</td>
+                </tr>
+                <tr style={{ borderBottom: "none" }}>
+                  <td>1982</td>
+                  <td>학과 재편성: 산업도안과, 도안과</td>
+                </tr>
+                <tr style={{ borderBottom: "none" }}>
+                  <td></td>
                   <td>
-                    실험대학 실시, <br></br>미술대학 ＞ 공업도안과 ＞ 산업도안과
-                    <br></br>＞ 공업디자인전공, 산업디자인전공
+                    → 산업도안과 (산업도안전공, 산업디자인전공, 공간디자인전공)
                   </td>
                 </tr>
                 <tr>
-                  <td>1982</td>
-                  <td>
-                    학과 재편성: 산업도안과, 도안과 → 산업도안과 <br></br>
-                    (산업도안전공, 산업디자인전공, 공간디자인전공)
-                  </td>
+                  <td></td>
+                  <td>(산업도안전공, 산업디자인전공, 공간디자인전공)</td>
                 </tr>
                 <tr>
                   <td>1987</td>
@@ -88,116 +101,111 @@ const AboutUs = () => {
           </div>
           <div id="faculty" className="aboutus_item">
             <div className="aboutus_item_tag">
-              <span>교수진</span>
+              <span>교수진 Faculty</span>
             </div>
             <div className="aboutus_content">
-              <table className="faculty">
+              <table className="aboutus_contact">
                 <tr>
-                  <th>직위</th>
-                  <th>이름</th>
-                  <th>분야</th>
-                </tr>
-                <tr>
-                  <td>교수</td>
-                  <td>김현석</td>
-                  <td>디지털미디어디자인</td>
-                </tr>
-                <tr>
-                  <td>교수</td>
-                  <td>장동련</td>
-                  <td>브랜딩디자인</td>
-                </tr>
-                <tr>
-                  <td>부교수</td>
+                  <td>그림, 올리버</td>
                   <td>Griem, Oliver</td>
-                  <td>디지털미디어디자인</td>
-                </tr>
-                <tr>
                   <td>부교수</td>
-                  <td>Ro, Chris</td>
-                  <td>타이포그래피/그래픽디자인</td>
                 </tr>
                 <tr>
-                  <td>조교수</td>
                   <td>김예니</td>
-                  <td>일러스트레이션</td>
+                  <td>Kim, Yeni</td>
+                  <td>조교수</td>
                 </tr>
                 <tr>
+                  <td>김현석</td>
+                  <td>Kim, Hyunsuk</td>
+                  <td>교수</td>
+                </tr>
+                <tr>
+                  <td>로, 크리스</td>
+                  <td>Ro, Chris</td>
                   <td>조교수</td>
+                </tr>
+                <tr>
+                  <td>리, 마빈</td>
                   <td>Lee, Marvin Jin</td>
-                  <td>그래픽디자인</td>
+                  <td>조교수</td>
                 </tr>
                 <tr>
-                  <td>조교수</td>
                   <td>민본</td>
-                  <td>타이포그래피/타입디자인</td>
-                </tr>
-                <tr>
+                  <td>Bon Min</td>
                   <td>조교수</td>
-                  <td>백승우</td>
-                  <td>사진</td>
                 </tr>
                 <tr>
-                  <td>조교수</td>
-                  <td>Beckett, Stephen J.</td>
-                  <td>디자인이론</td>
-                </tr>
-                <tr>
-                  <td>조교수</td>
-                  <td>석재원</td>
-                  <td>타이포그래피/그래픽디자인</td>
-                </tr>
-                <tr>
-                  <td>조교수</td>
-                  <td>안병학</td>
-                  <td>타이포그래피</td>
-                </tr>
-                <tr>
-                  <td>조교수</td>
-                  <td>윤재영</td>
-                  <td>UX, UI디자인</td>
-                </tr>
-                <tr>
-                  <td>조교수</td>
-                  <td>이연준</td>
-                  <td>브랜딩디자인</td>
-                </tr>
-                <tr>
-                  <td>조교수</td>
-                  <td>전재운</td>
-                  <td>그래픽디자인</td>
-                </tr>
-                <tr>
-                  <td>조교수</td>
-                  <td>정다희</td>
-                  <td>일러스트레이션/애니메이션</td>
-                </tr>
-                <tr>
-                  <td>조교수</td>
-                  <td>허민재</td>
-                  <td>그래픽디자인</td>
-                </tr>
-                <tr>
-                  <td>조교수</td>
-                  <td>Cooppoolse, Anneke</td>
-                  <td>시각디자인</td>
-                </tr>
-                <tr>
-                  <td>산학일체 교수</td>
                   <td>박현주</td>
-                  <td>브랜딩디자인</td>
+                  <td>Park, Hyun Joo</td>
+                  <td>산학일체 교수</td>
                 </tr>
                 <tr>
-                  <td>겸임교수</td>
+                  <td>백승우</td>
+                  <td>Back, Seung woo</td>
+                  <td>조교수</td>
+                </tr>
+                <tr>
+                  <td>베켓, 스티븐</td>
+                  <td>Beckett, Stephen J.</td>
+                  <td>조교수</td>
+                </tr>
+                <tr>
+                  <td>석재원</td>
+                  <td>Seok, Jaewon</td>
+                  <td>조교수</td>
+                </tr>
+                <tr>
                   <td>심대기</td>
-                  <td>그래픽디자인</td>
+                  <td>Shim, Dae Ki</td>
+                  <td>겸임교수</td>
+                </tr>
+                <tr>
+                  <td>아나케, 코풀스</td>
+                  <td>Cooppoolse, Anneke</td>
+                  <td>조교수</td>
+                </tr>
+                <tr>
+                  <td>안병학</td>
+                  <td>Ahn, Byunghak</td>
+                  <td>조교수</td>
+                </tr>
+                <tr>
+                  <td>윤재영</td>
+                  <td>Yun, Jae Young</td>
+                  <td>윤재영</td>
+                </tr>
+                <tr>
+                  <td>이연준</td>
+                  <td>Lee, Youn Joon</td>
+                  <td>조교수</td>
+                </tr>
+                <tr>
+                  <td>장동련</td>
+                  <td>Chang, Dong Ryun</td>
+                  <td>교수</td>
+                </tr>
+                <tr>
+                  <td>전재운</td>
+                  <td>Jeon, Jae Un</td>
+                  <td>조교수</td>
+                </tr>
+                <tr>
+                  <td>정다희</td>
+                  <td>Jeong, Da Hee</td>
+                  <td>조교수</td>
+                </tr>
+                <tr>
+                  <td>허민재</td>
+                  <td>Huh, Minjae</td>
+                  <td>조교수</td>
                 </tr>
               </table>
             </div>
           </div>
           <div id="map" className="aboutus_item">
             <div className="aboutus_item_tag">
-              <span>시설</span>
+              <span>시설 Facility</span>
             </div>
             <div className="aboutus_content">
               <table className="aboutus_contact">
@@ -463,14 +471,20 @@ const AboutUs = () => {
           </div>
           <div id="contact" className="aboutus_item">
             <div className="aboutus_item_tag">
-              <span>연락처</span>
+              <span>연락처 Contact</span>
             </div>
             <div className="aboutus_content">
               <table className="aboutus_contact">
-                <tr>
+                <tr style={{ borderBottom: "none" }}>
                   <td>주소</td>
                   <td>
                     04066 서울특별시 마포구 와우산로 94<br></br>
+                  </td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>
                     홍익대학교 홍문관 R712 미술대학 시각디자인과 학과사무실
                   </td>
                   <td></td>
@@ -485,15 +499,17 @@ const AboutUs = () => {
                   <td>02-3145-5792</td>
                   <td></td>
                 </tr>
-                <tr>
+                <tr style={{ borderBottom: "none" }}>
                   <td>업무시간</td>
-                  <td>
-                    월 - 금 9:00 - 17:30 / 점심시간 12:00-1:00<br></br>
-                    동절기 월 - 금 9:00 - 17:00 / 점심시간 12:00-1:00
-                  </td>
+                  <td>월 - 금 9:00 - 17:30 / 점심시간 12:00-1:00</td>
                   <td></td>
                 </tr>
                 <tr>
+                  <td></td>
+                  <td>동절기 월 - 금 9:00 - 17:00 / 점심시간 12:00-1:00</td>
+                  <td></td>
+                </tr>
+                <tr style={{ borderBottom: "none" }}>
                   <td>웹사이트</td>
                   <td>
                     홍익대학교
@@ -508,7 +524,7 @@ const AboutUs = () => {
                   </td>
                   <td></td>
                 </tr>
-                <tr>
+                <tr style={{ borderBottom: "none" }}>
                   <td></td>
                   <td>
                     홍익대학교 미술대학
@@ -570,7 +586,7 @@ const AboutUs = () => {
           </div>
           <div id="link" className="aboutus_item">
             <div className="aboutus_item_tag">
-              <span>소모임</span>
+              <span>소모임 Club</span>
             </div>
             <div className="aboutus_content">
               <table className="aboutus_contact">
@@ -663,7 +679,7 @@ const AboutUs = () => {
           </div>
           <div id="colophon" className="aboutus_item">
             <div className="aboutus_item_tag">
-              <span>개발</span>
+              <span>개발 Credit</span>
             </div>
             <div className="aboutus_content">
               <table className="aboutus_contact">
