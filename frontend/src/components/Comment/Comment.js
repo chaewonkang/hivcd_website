@@ -8,7 +8,7 @@ const Comment = ({ author, body, date, id, postId }) => {
   const token = getCookie("csrftoken");
   const commentKey = id;
 
-  async function handleCommentDelete(id, token, postId) {
+  async function handleCommentDelete(postId, token) {
     const response = await axios
       .delete(
         `https://sidi.hongik.ac.kr/api/v1/postings/comment/${postId}/`,
