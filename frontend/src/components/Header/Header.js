@@ -11,9 +11,9 @@ function Header({ handleLogout, handleSearchKeyword }) {
       <div className="header_container">
         <div className="header_container_left">
           <div className="header_container_title">
-            <NavLink to="/">
+            <Link to="/">
               <h1 className="title">홍익대학교 미술대학 시각디자인과</h1>
-            </NavLink>
+            </Link>
           </div>
         </div>
         <div className="header_container_right">
