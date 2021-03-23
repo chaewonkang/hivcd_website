@@ -29,14 +29,14 @@ function Login() {
             className="navbar_login_item"
             onClick={(t = token) => handleLogout((t = token))}
           >
-            로그아웃
+            Logout
           </div>
         </a>
       ) : (
-          <a href="http://www.hongik.ac.kr/login.do?Refer=https://sidi.hongik.ac.kr/api/v1/auth/login">
-            <div className="navbar_login_item">로그인</div>
-          </a>
-        )}
+        <a href="http://www.hongik.ac.kr/login.do?Refer=https://sidi.hongik.ac.kr/api/v1/auth/login">
+          <div className="navbar_login_item">Login</div>
+        </a>
+      )}
     </>
   );
 }

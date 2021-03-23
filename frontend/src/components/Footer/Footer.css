@@ -48,31 +48,6 @@
   border: 1px solid #000;
 }
 
-.subscription_button:hover {
-  padding: 0.1em 0.75em 0.1em 0.75em;
-  width: fit-content;
-}
-
-.subscription_button:hover:before {
-  padding: 0.1em 0.75em 0.1em 0.75em;
-  width: fit-content;
-}
-
-.subscribe {
-  padding: 0;
-  width: fit-content;
-}
-.subscribe:hover {
-  font-size: 0px;
-  width: fit-content;
-}
-
-.subscribe:hover:before {
-  font-size: 15px;
-  content: "Subscribe";
-  width: fit-content;
-}
-
 /********** Large devices only **********/
 @media (min-width: 1200px) {
 }

@@ -63,7 +63,7 @@ const Footer = () => {
                 style={{ color: "#000" }}
                 className="subscribe"
               >
-                구독하기
+                Subscribe
               </a>
             </div>
           </div>

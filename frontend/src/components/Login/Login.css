@@ -7,12 +7,3 @@
   cursor: pointer;
   color: #000;
 }
-
-.navbar_login_item:hover {
-  font-size: 0px;
-}
-
-.navbar_login_item:hover:before {
-  content: "Login";
-  font-size: 15px;
-}

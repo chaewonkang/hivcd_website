@@ -7,15 +7,6 @@
   cursor: pointer;
 }
 
-.navbar_search_item:hover {
-  font-size: 0px;
-}
-
-.navbar_search_item:hover:before {
-  font-size: 15px;
-  content: "Search";
-}
-
 input[name="search"] {
   border: 1px solid #000;
   color: #000;
