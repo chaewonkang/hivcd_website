@@ -47,7 +47,7 @@ function App() {
           <Route exact path="/announce" component={Announce} />
           <Route
             exact
-            path="/announce:postId"
+            path="/announce/:postId"
             component={EachAnnounceContainer}
           />
           <Route path="/calandar" component={CalandarContainer} />

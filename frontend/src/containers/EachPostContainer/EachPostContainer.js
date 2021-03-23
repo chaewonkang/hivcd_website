@@ -73,54 +73,18 @@ function EachPostContainer({ match, location }) {
 
   return (
     <div className="each_post_container">
-      {location.pathname.includes("board") ? (
-        <BoardListWrapper
-          list={list.filter(
-            (data) =>
-              data.category === 1 ||
-              data.category === 2 ||
-              data.category === 3 ||
-              data.category === 4
-          )}
-          postId={postId}
-          handleNavigateClick={() => handleNavigateClick()}
-          isBoard={isBoard}
-        ></BoardListWrapper>
-      ) : null}
-      {location.pathname.includes("announce") ? (
-        <BoardListWrapper
-          list={list.filter(
-            (data) =>
-              data.category === 9 ||
-              data.category === 10 ||
-              data.category === 11
-          )}
-          postId={postId}
-          handleNavigateClick={() => handleNavigateClick()}
-          isBoard={isBoard}
-        ></BoardListWrapper>
-      ) : null}
-      {location.pathname.includes("exhibition") ? (
-        <BoardListWrapper
-          list={list.filter(
-            (data) =>
-              data.category === 5 || data.category === 6 || data.category === 7
-          )}
-          postId={postId}
-          handleNavigateClick={() => handleNavigateClick()}
-          isBoard={isBoard}
-        ></BoardListWrapper>
-      ) : (
-        <BoardListWrapper
-          list={list.filter(
-            (data) =>
-              data.category === 5 || data.category === 6 || data.category === 7
-          )}
-          postId={postId}
-          handleNavigateClick={() => handleNavigateClick()}
-          isBoard={isBoard}
-        ></BoardListWrapper>
-      )}
+      <BoardListWrapper
+        list={list.filter(
+          (data) =>
+            data.category === 1 ||
+            data.category === 2 ||
+            data.category === 3 ||
+            data.category === 4
+        )}
+        postId={postId}
+        handleNavigateClick={() => handleNavigateClick()}
+        isBoard={isBoard}
+      ></BoardListWrapper>
     </div>
   );
 }
