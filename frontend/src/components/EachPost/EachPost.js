@@ -6,14 +6,6 @@ import useAsync from "../../utils/useAsync";
 import logogif from "../../img/logogif.gif";
 import { useHistory } from "react-router-dom";
 
-// function handleNavigateClick(type, postId, pkArray) {
-//   if (type === "NEXT") {
-//     getEachPost(pkArray[pkArray.indexOf[parseInt(postId)] + 1]);
-//   } else {
-//     getEachPost(pkArray[pkArray.indexOf[parseInt(postId)] - 1]);
-//   }
-// }
-
 async function getPosts() {
   const response = await axios.get(
     `https://sidi.hongik.ac.kr/api/v1/postings/board`
@@ -218,19 +210,19 @@ function EachPost({ postId }) {
             <div className="each_post_navigator">
               <button
                 className="navigate_left_button"
-                onClick={(postId, pkArray) =>
+                onClick={(postId, pkArray) => {
                   history.push(
                     `/board/${pkArray[pkArray.indexOf[parseInt(postId)] - 1]}`
-                  )
-                }
+                  );
+                }}
               ></button>
               <button
                 className="navigate_right_button"
-                onClick={(postId, pkArray) =>
+                onClick={(postId, pkArray) => {
                   history.push(
                     `/board/${pkArray[pkArray.indexOf[parseInt(postId)] + 1]}`
-                  )
-                }
+                  );
+                }}
               ></button>
             </div>
           </div>
