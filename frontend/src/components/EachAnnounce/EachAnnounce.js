@@ -1,16 +1,9 @@
 import React, { useState, useRef, useEffect } from "react";
-import "./EachPost.css";
-import { EachPostNavigator, CommentList, Warning } from "../../components";
+import "./EachAnnounce.css";
+import { EachPostNavigator, CommentList, Warning } from "..";
 import axios from "axios";
 import useAsync from "../../utils/useAsync";
 import logogif from "../../img/logogif.gif";
-
-async function getEachPost(postId) {
-  const response = await axios.get(
-    `https://sidi.hongik.ac.kr/api/v1/postings/board/${postId}`
-  );
-  return response.data;
-}
 
 async function getEachAnnounce(postId) {
   const response = await axios.get(
@@ -31,17 +24,14 @@ function setCategoryNumber(category) {
   return categoryName;
 }
 
-function EachPost({ postId, handleNavigateClick }) {
+function EachAnnounce({ postId, handleNavigateClick }) {
   const [style, setStyle] = useState({
     color: null,
     borderColor: null,
   });
   const [warningVisibility] = useState(false);
-  const [current, setCurrent] = useState("");
-  const [postState] = useAsync(() => getEachPost(postId), [postId]);
-  const [announceState] = useAsync(() => getEachAnnounce(postId), [postId]);
-  const { loading, data: eachPost, error } = postState;
-  const { anLoading, data: eachAnnounce, anError } = announceState;
+  const [postState] = useAsync(() => getEachAnnounce(postId), [postId]);
+  const { loading, data: eachAnnounce, error } = postState;
 
   const colorArray = [
     "#A3B3C4",
@@ -103,30 +93,31 @@ function EachPost({ postId, handleNavigateClick }) {
         열람할 수 있습니다.
       </div>
     );
-  if (!eachPost) return null;
+  if (!eachAnnounce) return null;
 
   return (
     <div className="each_post_wrapper" style={style}>
       <div className="each_post">
         <div className="each_post_tag">
-          {setCategoryNumber(eachPost.category)}
+          {setCategoryNumber(eachAnnounce.category)}
         </div>
-        <h1>{eachPost.title}</h1>
+        <h1>{eachAnnounce.title}</h1>
         <hr style={{ marginBottom: 1 + "em" }}></hr>
         <div className="each_post_info">
-          <span>작성자 {eachPost.author}</span>
-          <span>작성일 {eachPost.updated.slice(0, 10)}</span>
+          <span>작성자 {eachAnnounce.author}</span>
+          <span>작성일 {eachAnnounce.updated.slice(0, 10)}</span>
         </div>
         <hr></hr>
         <div className="each_post_files">
           <span className="attached_file">
-            첨부파일 {eachPost.files[0] ? eachPost.files[0].name : "없음"}
+            첨부파일{" "}
+            {eachAnnounce.files[0] ? eachAnnounce.files[0].name : "없음"}
           </span>
-          {eachPost.files.length ? (
+          {eachAnnounce.files.length ? (
             <a
-              href={eachPost.files[0].files}
+              href={eachAnnounce.files[0].files}
               target="_blank"
-              download={eachPost.files[0].files}
+              download={eachAnnounce.files[0].files}
               rel="noopener noreferrer"
             >
               <button className="download_button">다운로드</button>
@@ -135,7 +126,7 @@ function EachPost({ postId, handleNavigateClick }) {
         </div>
         <hr style={{ marginBottom: 2 + "em" }}></hr>
         <p>
-          {eachPost.text.split("\n").map((line) => {
+          {eachAnnounce.text.split("\n").map((line) => {
             return (
               <span>
                 {line}
@@ -144,8 +135,8 @@ function EachPost({ postId, handleNavigateClick }) {
             );
           })}
         </p>
-        {eachPost.photos.length
-          ? eachPost.photos.map((photo) => {
+        {eachAnnounce.photos.length
+          ? eachAnnounce.photos.map((photo) => {
               return (
                 <div>
                   <img
@@ -161,23 +152,23 @@ function EachPost({ postId, handleNavigateClick }) {
               );
             })
           : null}
-        {eachPost.link.length ? (
+        {eachAnnounce.link.length ? (
           <>
             <hr style={{ marginBottom: 1 + "em", marginTop: 1 + "em" }}></hr>
             <a
-              href={eachPost.link}
+              href={eachAnnounce.link}
               target="_blank"
               rel="noopener noreferrer"
               alt="링크"
               className="attached_link"
             >
-              링크 {eachPost.link}
+              링크 {eachAnnounce.link}
             </a>
           </>
         ) : null}
         <hr style={{ marginBottom: 1 + "em", marginTop: 1 + "em" }}></hr>
         <CommentList
-          comments={eachPost.comments}
+          comments={eachAnnounce.comments}
           style={style}
           postId={postId}
         ></CommentList>
@@ -195,4 +186,4 @@ function EachPost({ postId, handleNavigateClick }) {
   );
 }
 
-export default EachPost;
+export default EachAnnounce;

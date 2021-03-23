@@ -71,23 +71,24 @@ function EachAnnounceContainer({ match, location }) {
     );
   if (!list) return null;
 
-  return (
-    <div className="each_post_container">
-      {location.pathname.includes("announce") ? (
-        <BoardListWrapper
-          list={list.filter(
-            (data) =>
-              data.category === 9 ||
-              data.category === 10 ||
-              data.category === 11
-          )}
-          postId={postId}
-          handleNavigateClick={() => handleNavigateClick()}
-          curLoc={curLoc}
-        ></BoardListWrapper>
-      ) : null}
-    </div>
-  );
+  if (list)
+    return (
+      <div className="each_post_container">
+        {location.pathname.includes("announce") ? (
+          <BoardListWrapper
+            list={list.filter(
+              (data) =>
+                data.category === 9 ||
+                data.category === 10 ||
+                data.category === 11
+            )}
+            postId={postId}
+            handleNavigateClick={() => handleNavigateClick()}
+            curLoc={curLoc}
+          ></BoardListWrapper>
+        ) : null}
+      </div>
+    );
 }
 
 export default EachAnnounceContainer;
