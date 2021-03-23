@@ -59,12 +59,10 @@ function EachPost({ postId }) {
     if (id > 0) {
       history.push(`/board/${pkArray[pkArray.indexOf[parseInt(id)] - 1]}`);
     }
-    getEachPost(pkArray[pkArray.indexOf[parseInt(id)] - 1]);
   }
 
   function routeToNextPost(id, pkArray) {
     history.push(`/board/${pkArray[pkArray.indexOf[parseInt(id)] + 1]}`);
-    getEachPost(pkArray[pkArray.indexOf[parseInt(id)] + 1]);
   }
 
   const colorArray = [
