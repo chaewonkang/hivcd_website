@@ -117,14 +117,14 @@ function EachPost({ postId }) {
     );
   if (!eachPost) return null;
 
-  if (isLogged === null && eachPost && eachPost.sidi_only)
+  if (!isLogged && eachPost && eachPost.sidi_only)
     return (
       <div className="each_post_wrapper" style={style}>
         시각디자인과 학생에게만 공개된 게시물입니다.
       </div>
     );
 
-  if (postList) {
+  if (isLogged && postList) {
     let pkArray = [];
 
     postList.map((post) => {
