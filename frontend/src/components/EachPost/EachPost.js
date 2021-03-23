@@ -55,18 +55,18 @@ function EachPost({ postId }) {
   let history = useHistory();
   let id = parseInt(postId, 10);
 
-  function routeToPrevPost(id) {
+  function routeToPrevPost(id, pkArray) {
     id = id - 1;
     if (id > 0) {
       history.push(`/board/${id}`);
     }
-    handleNavigateClick("PREV", postId);
+    getEachPost(pkArray[pkArray.indexOf[parseInt(postId)] - 1]);
   }
 
-  function routeToNextPost(id) {
+  function routeToNextPost(id, pkArray) {
     id = id + 1;
     history.push(`/board/${id}`);
-    handleNavigateClick("NEXT", postId);
+    getEachPost(pkArray[pkArray.indexOf[parseInt(postId)] + 1]);
   }
 
   const colorArray = [
