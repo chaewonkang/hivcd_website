@@ -41,7 +41,6 @@ function EachPost({ postId, handleNavigateClick }) {
   const [postState] = useAsync(() => getEachPost(postId), [postId]);
   const [announceState] = useAsync(() => getEachAnnounce(postId), [postId]);
   const { loading, data: eachPost, error } = postState;
-  const { anLoading, data: eachAnnounce, anError } = announceState;
 
   const colorArray = [
     "#A3B3C4",
@@ -104,6 +103,13 @@ function EachPost({ postId, handleNavigateClick }) {
       </div>
     );
   if (!eachPost) return null;
+
+  if (eachPost && eachPost.sidi_only)
+    return (
+      <div className="each_post_wrapper" style={style}>
+        시각디자인과 학생에게만 공개된 게시물입니다.
+      </div>
+    );
 
   return (
     <div className="each_post_wrapper" style={style}>
