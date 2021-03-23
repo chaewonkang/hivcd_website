@@ -8,13 +8,9 @@ import { useHistory } from "react-router-dom";
 
 function handleNavigateClick(type, postId, pkArray) {
   if (type === "NEXT") {
-    getEachPost(
-      parseInt(postId) + pkArray[pkArray.indexOf[parseInt(postId)] + 1]
-    );
+    getEachPost(pkArray[pkArray.indexOf[parseInt(postId)] + 1]);
   } else {
-    getEachPost(
-      parseInt(postId) + pkArray[pkArray.indexOf[parseInt(postId)] - 1]
-    );
+    getEachPost(pkArray[pkArray.indexOf[parseInt(postId)] - 1]);
   }
 }
 
