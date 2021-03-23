@@ -6,13 +6,13 @@ import useAsync from "../../utils/useAsync";
 import logogif from "../../img/logogif.gif";
 import { useHistory } from "react-router-dom";
 
-function handleNavigateClick(type, postId, pkArray) {
-  if (type === "NEXT") {
-    getEachPost(pkArray[pkArray.indexOf[parseInt(postId)] + 1]);
-  } else {
-    getEachPost(pkArray[pkArray.indexOf[parseInt(postId)] - 1]);
-  }
-}
+// function handleNavigateClick(type, postId, pkArray) {
+//   if (type === "NEXT") {
+//     getEachPost(pkArray[pkArray.indexOf[parseInt(postId)] + 1]);
+//   } else {
+//     getEachPost(pkArray[pkArray.indexOf[parseInt(postId)] - 1]);
+//   }
+// }
 
 async function getPosts() {
   const response = await axios.get(
