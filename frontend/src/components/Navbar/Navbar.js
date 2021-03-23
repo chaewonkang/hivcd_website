@@ -34,28 +34,28 @@ export const NavComponent = ({ onClick }) => {
             <hr className="first_line"></hr>
             <ul>
               <Link to="/">
-                <li onClick={onClick}>홈</li>{" "}
+                <li onClick={onClick}>홈 Home</li>{" "}
               </Link>
               <Link to="/aboutus">
-                <li onClick={onClick}>소개</li>{" "}
+                <li onClick={onClick}>소개 About</li>{" "}
               </Link>
               <Link to="/board">
-                <li onClick={onClick}>소식</li>{" "}
+                <li onClick={onClick}>소식 News</li>{" "}
               </Link>
               <Link to="/announce">
-                <li onClick={onClick}>안내</li>{" "}
+                <li onClick={onClick}>안내 Announce</li>{" "}
               </Link>
               <Link to="/alumni">
-                <li onClick={onClick}>동문</li>{" "}
+                <li onClick={onClick}>동문 Alumni</li>{" "}
               </Link>
               {/* <Link to="/archive">
                 <li onClick={onClick}>아카이브</li>{" "}
               </Link> */}
               <Link to="/exhibition">
-                <li onClick={onClick}>전시</li>{" "}
+                <li onClick={onClick}>전시 Show</li>{" "}
               </Link>
               <Link to="/calandar">
-                <li onClick={onClick}>일정</li>{" "}
+                <li onClick={onClick}>일정 Calandar</li>{" "}
               </Link>
             </ul>
           </div>
