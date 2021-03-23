@@ -47,12 +47,12 @@ function EachPost({ postId }) {
 
   function routeToPrevPost(id, arr) {
     if (id > 0) {
-      history.push(`/board/${arr[arr.indexOf[parseInt(id)] - 1]}`);
+      history.push(`/board/${arr[arr.indexOf(parseInt(id)) - 1]}`);
     }
   }
 
   function routeToNextPost(id, arr) {
-    history.push(`/board/${arr[arr.indexOf[parseInt(id)] + 1]}`);
+    history.push(`/board/${arr[arr.indexOf(parseInt(id)) + 1]}`);
   }
 
   const colorArray = [
