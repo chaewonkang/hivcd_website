@@ -62,14 +62,14 @@ function EachPost({ postId }) {
   function routeToPrevPost(id) {
     id = id - 1;
     if (id > 0) {
-      history.push(`/announce/${id}`);
+      history.push(`/board/${id}`);
     }
     handleNavigateClick("PREV", postId);
   }
 
   function routeToNextPost(id) {
     id = id + 1;
-    history.push(`/announce/${id}`);
+    history.push(`/board/${id}`);
     handleNavigateClick("NEXT", postId);
   }
 
