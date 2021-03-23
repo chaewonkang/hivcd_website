@@ -45,14 +45,14 @@ function EachPost({ postId }) {
   const { loading: postLoading, data: postList, error: postError } = posts;
   let history = useHistory();
 
-  function routeToPrevPost(id, pkArray) {
+  function routeToPrevPost(id, arr) {
     if (id > 0) {
-      history.push(`/board/${pkArray[pkArray.indexOf[parseInt(id)] - 1]}`);
+      history.push(`/board/${arr[arr.indexOf[parseInt(id)] - 1]}`);
     }
   }
 
-  function routeToNextPost(id, pkArray) {
-    history.push(`/board/${pkArray[pkArray.indexOf[parseInt(id)] + 1]}`);
+  function routeToNextPost(id, arr) {
+    history.push(`/board/${arr[arr.indexOf[parseInt(id)] + 1]}`);
   }
 
   const colorArray = [
@@ -212,18 +212,14 @@ function EachPost({ postId }) {
             <div className="each_post_navigator">
               <button
                 className="navigate_left_button"
-                onClick={(postId, pkArray) => {
-                  history.push(
-                    `/board/${pkArray[pkArray.indexOf[parseInt(postId)] - 1]}`
-                  );
+                onClick={(k = postId, arr = pkArray) => {
+                  routeToPrevPost((k = postId), (arr = pkArray));
                 }}
               ></button>
               <button
                 className="navigate_right_button"
-                onClick={(postId, pkArray) => {
-                  history.push(
-                    `/board/${pkArray[pkArray.indexOf[parseInt(postId)] + 1]}`
-                  );
+                onClick={(k = postId, arr = pkArray) => {
+                  routeToNextPost((k = postId), (arr = pkArray));
                 }}
               ></button>
             </div>
