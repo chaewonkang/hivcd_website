@@ -8,7 +8,7 @@ import { useHistory } from "react-router-dom";
 
 async function getPosts() {
   const response = await axios.get(
-    `https://sidi.hongik.ac.kr/api/v1/postings/board`
+    "https://sidi.hongik.ac.kr/api/v1/postings/board/"
   );
   return response.data;
 }
@@ -43,7 +43,6 @@ function EachPost({ postId }) {
   const [posts] = useAsync(() => getPosts());
   const { loading, data: eachPost, error } = postState;
   const { loading: postLoading, data: postList, error: postError } = posts;
-  let pkArray = [];
   let history = useHistory();
 
   function routeToPrevPost(id, pkArray) {
@@ -126,9 +125,12 @@ function EachPost({ postId }) {
     );
 
   if (postList) {
+    let pkArray = [];
+
     postList.map((post) => {
       pkArray.push(post.pk);
     });
+    console.log(pkArray);
 
     return (
       <div className="each_post_wrapper" style={style}>
