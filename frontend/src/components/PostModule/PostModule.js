@@ -35,22 +35,28 @@ const PostModule = ({ style, title, date, category, id }) => {
 
   return (
     <>
-      {isLogged === false ? (
-        <div>
-          <div className="post" style={style} onClick={() => showWarning()}>
-            <div className="post_tag">
-              <span>{categoryName}</span>
-            </div>
-            <div className="post_content">
-              <div className="post_content_header">
-                {title} <br></br>
+      {category === 1 ||
+      category === 2 ||
+      category === 3 ||
+      category === 4 ||
+      category === 5 ? (
+        <Link to={`/board/${postId}`}>
+          <div>
+            <div className="post" style={style} onClick={() => showWarning()}>
+              <div className="post_tag">
+                <span>{categoryName}</span>
               </div>
-              <span className="post_content_date">{slicedDate}</span>
+              <div className="post_content">
+                <div className="post_content_header">
+                  {title} <br></br>
+                </div>
+                <span className="post_content_date">{slicedDate}</span>
+              </div>
             </div>
           </div>
-        </div>
+        </Link>
       ) : (
-        <Link to={`/board/${postId}`}>
+        <Link to={`/announce/${postId}`}>
           <div className="post" style={style}>
             <div className="post_tag">
               <span>{categoryName}</span>

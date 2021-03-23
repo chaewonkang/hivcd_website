@@ -97,6 +97,29 @@ function EachPostContainer({ match, location }) {
           isBoard={isBoard}
         ></BoardListWrapper>
       )}
+      {location.pathname.includes("announce") ? (
+        <BoardListWrapper
+          list={list.filter(
+            (data) =>
+              data.category === 9 ||
+              data.category === 10 ||
+              data.category === 11
+          )}
+          postId={postId}
+          handleNavigateClick={() => handleNavigateClick()}
+          isBoard={isBoard}
+        ></BoardListWrapper>
+      ) : (
+        <BoardListWrapper
+          list={list.filter(
+            (data) =>
+              data.category === 5 || data.category === 6 || data.category === 7
+          )}
+          postId={postId}
+          handleNavigateClick={() => handleNavigateClick()}
+          isBoard={isBoard}
+        ></BoardListWrapper>
+      )}
     </div>
   );
 }

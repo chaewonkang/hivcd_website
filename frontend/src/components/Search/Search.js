@@ -36,7 +36,7 @@ function Search({ handleSearchKeyword }) {
         onClickAway={() => closeModal()}
       >
         <form onSubmit={(e) => submitSearch(e)}>
-          <input placeholder="검색" type="text" name="search"></input>
+          <input placeholder="Search..." type="text" name="search"></input>
         </form>
       </Modal>
       <div className="navbar_search_item" onClick={() => openModal()}>

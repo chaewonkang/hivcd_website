@@ -58,16 +58,17 @@ function Board() {
           </button>
           <button
             className="board_filter_option"
-            onClick={() => setBoardFilter(3)}
-          >
-            행사/홍보
-          </button>
-          <button
-            className="board_filter_option"
             activaClassName="filter_option_active"
             onClick={() => setBoardFilter(4)}
           >
             구인구직
+          </button>
+          <button
+            className="board_filter_option"
+            activaClassName="filter_option_active"
+            onClick={() => setBoardFilter(5)}
+          >
+            분실물
           </button>
         </div>
       </div>

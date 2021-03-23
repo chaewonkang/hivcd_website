@@ -68,13 +68,13 @@ export const NavComponent = ({ onClick }) => {
                   className="mobile_login_input_button"
                   onClick={(t = token) => handleLogout((t = token))}
                 >
-                  로그아웃
+                  Logout
                 </button>
               </a>
             ) : (
               <a href="https://www.hongik.ac.kr/login.do?Refer=https://sidi.hongik.ac.kr/api/v1/auth/login">
                 <button type="submit" className="mobile_login_input_button">
-                  로그인
+                  Login
                 </button>
               </a>
             )}
@@ -89,7 +89,7 @@ export const NavComponent = ({ onClick }) => {
                 rel="noopener noreferrer"
                 style={{ color: "#000" }}
               >
-                뉴스레터 구독하기
+                Newsletter Subscribe
               </a>
             </span>
           </div>
