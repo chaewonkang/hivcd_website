@@ -2,10 +2,10 @@ import React from "react";
 import { EachPost, EachExhibition } from "../../components";
 import "./EachPostWrapper.css";
 
-const EachPostWrapper = ({ handleNavigateClick, postId, style, isBoard }) => {
+const EachPostWrapper = ({ handleNavigateClick, postId, style, curLoc }) => {
   return (
     <div className="temp_EachPostWrapper" style={style}>
-      {isBoard ? (
+      {curLoc === "board" || curLoc === "announce" ? (
         <EachPost
           handleNavigateClick={() => handleNavigateClick()}
           postId={postId}

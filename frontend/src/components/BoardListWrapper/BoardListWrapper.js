@@ -3,7 +3,7 @@ import "./BoardListWrapper.css";
 import { useHistory } from "react-router-dom";
 import { EachPostWrapper } from "../../components";
 
-function BoardListWrapper({ list, postId, handleNavigateClick, isBoard }) {
+function BoardListWrapper({ list, postId, handleNavigateClick, curLoc }) {
   let history = useHistory();
 
   const [currentPage, setCurrentPage] = useState(1);
@@ -25,7 +25,7 @@ function BoardListWrapper({ list, postId, handleNavigateClick, isBoard }) {
     <>
       <div className="board_list_container">
         <div>
-          {isBoard
+          {curLoc === "board"
             ? currentsPosts.map((el, key) => {
                 let categoryName = null;
                 if (el.category === 1) categoryName = "소식";
@@ -38,7 +38,7 @@ function BoardListWrapper({ list, postId, handleNavigateClick, isBoard }) {
                     <div
                       className="list_grid list_data"
                       key={key}
-                      onClick={() => history.push(`/board/${el.pk}`)}
+                      onClick={() => history.push(`/${curLoc}/${el.pk}`)}
                     >
                       <div className="list_tag">
                         <span>{categoryName}</span>
@@ -54,6 +54,9 @@ function BoardListWrapper({ list, postId, handleNavigateClick, isBoard }) {
                 if (el.category === 6) categoryName = "졸업 주간";
                 else if (el.category === 7) categoryName = "와우영상제";
                 else if (el.category === 8) categoryName = "소모임";
+                else if (el.category === 9) categoryName = "학과생활";
+                else if (el.category === 10) categoryName = "학사정보";
+                else if (el.category === 11) categoryName = "학사내규";
                 return (
                   <React.Fragment key={key}>
                     <div
@@ -90,7 +93,7 @@ function BoardListWrapper({ list, postId, handleNavigateClick, isBoard }) {
       <EachPostWrapper
         postId={postId}
         handleNavigateClick={() => handleNavigateClick()}
-        isBoard={isBoard}
+        curLoc={curLoc}
       ></EachPostWrapper>
     </>
   );
