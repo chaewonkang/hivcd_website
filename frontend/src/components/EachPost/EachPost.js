@@ -56,17 +56,15 @@ function EachPost({ postId }) {
   let id = parseInt(postId, 10);
 
   function routeToPrevPost(id, pkArray) {
-    id = id - 1;
     if (id > 0) {
-      history.push(`/board/${id}`);
+      history.push(`/board/${pkArray[pkArray.indexOf[parseInt(id)] - 1]}`);
     }
-    getEachPost(pkArray[pkArray.indexOf[parseInt(postId)] - 1]);
+    getEachPost(pkArray[pkArray.indexOf[parseInt(id)] - 1]);
   }
 
   function routeToNextPost(id, pkArray) {
-    id = id + 1;
-    history.push(`/board/${id}`);
-    getEachPost(pkArray[pkArray.indexOf[parseInt(postId)] + 1]);
+    history.push(`/board/${pkArray[pkArray.indexOf[parseInt(id)] + 1]}`);
+    getEachPost(pkArray[pkArray.indexOf[parseInt(id)] + 1]);
   }
 
   const colorArray = [
