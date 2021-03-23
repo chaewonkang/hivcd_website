@@ -53,7 +53,6 @@ function EachPost({ postId }) {
   const { loading: postLoading, data: postList, error: postError } = posts;
   let pkArray = [];
   let history = useHistory();
-  let id = parseInt(postId, 10);
 
   function routeToPrevPost(id, pkArray) {
     if (id > 0) {
@@ -219,17 +218,17 @@ function EachPost({ postId }) {
             <div className="each_post_navigator">
               <button
                 className="navigate_left_button"
-                onClick={(id) =>
+                onClick={(postId, pkArray) =>
                   history.push(
-                    `/board/${pkArray[pkArray.indexOf[parseInt(id)] - 1]}`
+                    `/board/${pkArray[pkArray.indexOf[parseInt(postId)] - 1]}`
                   )
                 }
               ></button>
               <button
                 className="navigate_right_button"
-                onClick={(id) =>
+                onClick={(postId, pkArray) =>
                   history.push(
-                    `/board/${pkArray[pkArray.indexOf[parseInt(id)] + 1]}`
+                    `/board/${pkArray[pkArray.indexOf[parseInt(postId)] + 1]}`
                   )
                 }
               ></button>
