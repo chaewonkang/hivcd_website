@@ -23,7 +23,6 @@
   border: 2px solid #ffba00;
   padding: 20px;
   position: relative;
-  overflow: auto;
   height: 100%;
   animation: 1s ease-out 0s 1 fadeIn;
 }

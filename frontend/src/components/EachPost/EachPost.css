@@ -21,7 +21,6 @@
 .each_post_wrapper {
   padding: 20px;
   position: relative;
-  overflow: auto;
   height: 100%;
 }
 
