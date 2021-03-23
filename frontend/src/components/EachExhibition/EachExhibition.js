@@ -72,7 +72,7 @@ function EachExhibition({ postId, handleNavigateClick }) {
               alt="링크"
               className="attached_link"
             >
-              링크 {exhibition.link}
+              링크 {exhibition.link.slice(0, 30)}...
             </a>
           </>
         ) : null}

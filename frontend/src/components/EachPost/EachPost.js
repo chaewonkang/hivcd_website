@@ -12,13 +12,6 @@ async function getEachPost(postId) {
   return response.data;
 }
 
-async function getEachAnnounce(postId) {
-  const response = await axios.get(
-    `https://sidi.hongik.ac.kr/api/v1/postings/announce/${postId}`
-  );
-  return response.data;
-}
-
 function setCategoryNumber(category) {
   let categoryName = null;
   if (category === 1) categoryName = "학과 공지";
@@ -39,7 +32,6 @@ function EachPost({ postId, handleNavigateClick }) {
   const [warningVisibility] = useState(false);
   const [current, setCurrent] = useState("");
   const [postState] = useAsync(() => getEachPost(postId), [postId]);
-  const [announceState] = useAsync(() => getEachAnnounce(postId), [postId]);
   const { loading, data: eachPost, error } = postState;
 
   const colorArray = [
@@ -177,7 +169,7 @@ function EachPost({ postId, handleNavigateClick }) {
               alt="링크"
               className="attached_link"
             >
-              링크 {eachPost.link}
+              링크 {eachPost.link.slice(0, 30)}...
             </a>
           </>
         ) : null}

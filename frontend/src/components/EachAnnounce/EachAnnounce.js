@@ -91,6 +91,13 @@ function EachAnnounce({ postId, handleNavigateClick }) {
     );
   if (!eachAnnounce) return null;
 
+  if (eachAnnounce && eachAnnounce.sidi_only)
+    return (
+      <div className="each_post_wrapper" style={style}>
+        시각디자인과 학생에게만 공개된 게시물입니다.
+      </div>
+    );
+
   return (
     <div className="each_post_wrapper" style={style}>
       <div className="each_post">
@@ -158,7 +165,7 @@ function EachAnnounce({ postId, handleNavigateClick }) {
               alt="링크"
               className="attached_link"
             >
-              링크 {eachAnnounce.link}
+              링크 {eachAnnounce.link.slice(0, 30)}...
             </a>
           </>
         ) : null}
