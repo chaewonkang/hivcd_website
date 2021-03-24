@@ -15,6 +15,8 @@ function Header({ handleLogout, handleSearchKeyword }) {
     calandar: "일정",
     newsletter: "뉴스레터",
     title: "홍익대학교 미술대학 시각디자인과",
+    archive: "아카이브",
+    reservation: "예약",
   });
 
   return (
@@ -103,9 +105,40 @@ function Header({ handleLogout, handleSearchKeyword }) {
                 </span>{" "}
               </NavLink>
             </span>
-            {/* <span className="navbar_menu_wrapper_item_title">
-              <Link to="/archive">아카이브</Link>
-            </span> */}
+            <span className="navbar_menu_wrapper_item_title">
+              <NavLink className="link" activeClassName="active" to="/archive">
+                <span
+                  id="archive"
+                  onMouseOver={() =>
+                    setMenuText({ ...menuText, archive: "Archive" })
+                  }
+                  onMouseLeave={() =>
+                    setMenuText({ ...menuText, archive: "아카이브" })
+                  }
+                >
+                  {menuText.archive}
+                </span>{" "}
+              </NavLink>
+            </span>
+            <span className="navbar_menu_wrapper_item_title">
+              <NavLink
+                className="link"
+                activeClassName="active"
+                to="/reservation"
+              >
+                <span
+                  id="reservation"
+                  onMouseOver={() =>
+                    setMenuText({ ...menuText, reservation: "Reservation" })
+                  }
+                  onMouseLeave={() =>
+                    setMenuText({ ...menuText, reservation: "예약" })
+                  }
+                >
+                  {menuText.reservation}
+                </span>{" "}
+              </NavLink>
+            </span>
             <span className="navbar_menu_wrapper_item_title">
               <NavLink
                 className="link"
@@ -146,24 +179,26 @@ function Header({ handleLogout, handleSearchKeyword }) {
             <div className="header_container_search">
               <Search handleSearchKeyword={handleSearchKeyword}></Search>
             </div>
-            <div className="header_container_search subscription_button">
+            <div className="header_container_login">
               <a
                 href="http://eepurl.com/hk_U8n"
                 target="_blank"
                 rel="noopener noreferrer"
-                style={{ color: "#000" }}
-                className="subscribe"
               >
-                <span
-                  onMouseOver={() =>
-                    setMenuText({ ...menuText, newsletter: "Newsletter" })
-                  }
-                  onMouseLeave={() =>
-                    setMenuText({ ...menuText, newsletter: "뉴스레터" })
-                  }
-                >
-                  {menuText.newsletter}
-                </span>
+                <>
+                  <div className="navbar_login_item">
+                    <span
+                      onMouseOver={() =>
+                        setMenuText({ ...menuText, newsletter: "Newsletter" })
+                      }
+                      onMouseLeave={() =>
+                        setMenuText({ ...menuText, newsletter: "뉴스레터" })
+                      }
+                    >
+                      {menuText.newsletter}
+                    </span>
+                  </div>
+                </>
               </a>
             </div>
           </div>

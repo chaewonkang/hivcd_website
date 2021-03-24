@@ -53,6 +53,10 @@ header {
   right: 0;
 }
 
+.header_container_system div {
+  width: auto;
+}
+
 .title {
   font-family: "Helvetica";
   font-weight: 400;
@@ -67,30 +71,16 @@ header {
 #show,
 #info,
 #calandar,
+#reservation,
+#archive,
 #about:link,
 #news:link,
 #alumni:link,
 #info:link,
 #show:link,
 #calandar:link,
-#about:link:visited,
-#about:link:focus,
-#about:link:active,
-#about:link:visited,
-#about:link:focus,
-#about:link:active,
-#about:link:visited,
-#about:link:focus,
-#about:link:active,
-#about:link:visited,
-#about:link:focus,
-#about:link:active,
-#about:link:visited,
-#about:link:focus,
-#about:link:active,
-#about:link:visited,
-#about:link:focus,
-#about:link:active {
+#reservation:link,
+#archive:link {
   display: inline-block;
   text-decoration: none !important;
   color: #000;
