@@ -42,7 +42,8 @@ table {
 #faculty_table tr:nth-child(1),
 #facility_table tr:nth-child(1),
 #facility_table_eng tr:nth-child(1),
-#credit_table tr:nth-child(1) {
+#credit_table tr:nth-child(1),
+#history_table {
   border-top: 1px solid black;
 }
 
