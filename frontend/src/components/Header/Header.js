@@ -13,6 +13,7 @@ function Header({ handleLogout, handleSearchKeyword }) {
     alumni: "동문",
     show: "전시",
     calandar: "일정",
+    newsletter: "뉴스레터",
   });
 
   return (
@@ -136,7 +137,16 @@ function Header({ handleLogout, handleSearchKeyword }) {
                     style={{ color: "#000" }}
                     className="subscribe"
                   >
-                    뉴스레터
+                    <span
+                      onMouseOver={() =>
+                        setMenuText({ ...menuText, newsletter: "Newsletter" })
+                      }
+                      onMouseLeave={() =>
+                        setMenuText({ ...menuText, newsletter: "뉴스레터" })
+                      }
+                    >
+                      {menuText.newsletter}
+                    </span>
                   </a>
                 </div>
               </div>
