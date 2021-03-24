@@ -37,6 +37,7 @@ function Login() {
               onMouseLeave={() =>
                 setLoginText({ ...loginText, logout: "로그아웃" })
               }
+              onClick={() => handleLogout()}
             >
               {loginText.logout}
             </span>
