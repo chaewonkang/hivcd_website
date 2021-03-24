@@ -48,7 +48,6 @@ header {
   column-gap: 10px;
   text-align: center;
   font-size: 15px;
-  width: fit-content;
   top: 0.5px;
   position: relative;
   right: 0;
@@ -142,9 +141,8 @@ header {
 .subscription_button {
   font-family: "Helvetica";
   font-weight: 400;
-  padding: 0.1em 0.75em 0.1em 0.75em;
+  padding: 0.1em 1em 0.1em 1em;
   font-size: 15px;
-  width: fit-content;
   border: 1px solid #000;
 }
 

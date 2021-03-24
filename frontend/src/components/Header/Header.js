@@ -127,29 +127,25 @@ function Header({ handleLogout, handleSearchKeyword }) {
             <div className="header_container_search">
               <Search handleSearchKeyword={handleSearchKeyword}></Search>
             </div>
-            <div className="header_container_search" id="subscription">
-              <div id="subscription_button" class="subscription_button">
-                <div>
-                  <a
-                    href="http://eepurl.com/hk_U8n"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    style={{ color: "#000" }}
-                    className="subscribe"
-                  >
-                    <span
-                      onMouseOver={() =>
-                        setMenuText({ ...menuText, newsletter: "Newsletter" })
-                      }
-                      onMouseLeave={() =>
-                        setMenuText({ ...menuText, newsletter: "뉴스레터" })
-                      }
-                    >
-                      {menuText.newsletter}
-                    </span>
-                  </a>
-                </div>
-              </div>
+            <div className="header_container_search subscription_button">
+              <a
+                href="http://eepurl.com/hk_U8n"
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{ color: "#000" }}
+                className="subscribe"
+              >
+                <span
+                  onMouseOver={() =>
+                    setMenuText({ ...menuText, newsletter: "Newsletter" })
+                  }
+                  onMouseLeave={() =>
+                    setMenuText({ ...menuText, newsletter: "뉴스레터" })
+                  }
+                >
+                  {menuText.newsletter}
+                </span>
+              </a>
             </div>
           </div>
         </div>
