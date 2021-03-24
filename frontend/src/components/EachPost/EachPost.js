@@ -50,7 +50,8 @@ function EachPost({ postId }) {
   }
 
   function routeToNextPost(id, arr) {
-    history.push(`/board/${arr[arr.indexOf(parseInt(id)) + 1]}`);
+    if (arr.indexOf(parseInt(id)) !== arr[arr.length - 1])
+      history.push(`/board/${arr[arr.indexOf(parseInt(id)) + 1]}`);
   }
 
   const colorArray = [
