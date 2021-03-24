@@ -49,7 +49,7 @@ function EachAnnounce({ postId }) {
 
   function routeToPrevPost(id, arr) {
     if (arr.indexOf(parseInt(id)) > 0) {
-      history.push(`announce/${arr[arr.indexOf(parseInt(id)) - 1]}`);
+      history.push(`/announce/${arr[arr.indexOf(parseInt(id)) - 1]}`);
     }
   }
 
