@@ -41,7 +41,7 @@
 .exhibition_filter_option {
   font-size: 15px;
   color: #000;
-  font-weight: 100;
+  font-weight: 400;
   padding: 0.1em 0.75em 0.1em 0.75em;
   margin-right: 10px;
   text-align: center;
@@ -61,7 +61,7 @@
 .exhibition_filter_option:focus {
   font-size: 15px;
   color: #fff;
-  font-weight: 100;
+  font-weight: 400;
   padding: 0.1em 0.75em 0.1em 0.75em;
   margin-right: 10px;
   text-align: center;
