@@ -54,7 +54,8 @@ function EachAnnounce({ postId }) {
   }
 
   function routeToNextPost(id, arr) {
-    history.push(`/announce/${arr[arr.indexOf(parseInt(id)) + 1]}`);
+    if (arr.indexOf(parseInt(id)) !== arr.length - 1)
+      history.push(`/announce/${arr[arr.indexOf(parseInt(id)) + 1]}`);
   }
 
   const colorArray = [

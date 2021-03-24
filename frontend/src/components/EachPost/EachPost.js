@@ -50,7 +50,7 @@ function EachPost({ postId }) {
   }
 
   function routeToNextPost(id, arr) {
-    if (arr.indexOf(parseInt(id)) !== arr[arr.length - 1])
+    if (arr.indexOf(parseInt(id)) !== arr.length - 1)
       history.push(`/board/${arr[arr.indexOf(parseInt(id)) + 1]}`);
   }
 
