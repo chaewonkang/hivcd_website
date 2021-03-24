@@ -14,6 +14,7 @@ function Header({ handleLogout, handleSearchKeyword }) {
     show: "전시",
     calandar: "일정",
     newsletter: "뉴스레터",
+    title: "홍익대학교 미술대학 시각디자인과",
   });
 
   return (
@@ -22,7 +23,25 @@ function Header({ handleLogout, handleSearchKeyword }) {
         <div className="header_container_left">
           <div className="header_container_title">
             <Link to="/">
-              <h1 className="title">홍익대학교 미술대학 시각디자인과</h1>
+              <h1 className="title">
+                <span
+                  id="title"
+                  onMouseOver={() =>
+                    setMenuText({
+                      ...menuText,
+                      title: "Hongik University Visual Communication Design",
+                    })
+                  }
+                  onMouseLeave={() =>
+                    setMenuText({
+                      ...menuText,
+                      title: "홍익대학교 미술대학 시각디자인과",
+                    })
+                  }
+                >
+                  {menuText.title}
+                </span>
+              </h1>
             </Link>
           </div>
         </div>
