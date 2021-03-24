@@ -89,7 +89,7 @@ export const NavComponent = ({ onClick }) => {
                 rel="noopener noreferrer"
                 style={{ color: "#000" }}
               >
-                Newsletter Subscribe
+                뉴스레터 구독하기 Newsletter Subscribe
               </a>
             </span>
           </div>
@@ -116,36 +116,6 @@ export const NavComponent = ({ onClick }) => {
             <div>
               월-금 9:00 am - 5:30 pm <br></br>(동절기) 9:00 am - 5:00 pm
             </div>
-          </div>
-
-          <div className="nav_class_copyright">
-            <hr className="bottomline"></hr>
-            <p>
-              <a
-                href="https://www.hongik.ac.kr/index.do"
-                className="fa fa-home"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                {""}
-              </a>
-              <a
-                href="https://www.facebook.com/HIVCD.GW"
-                className="fa fa-facebook"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                {""}
-              </a>
-              <a
-                href="https://www.instagram.com/hivcd2021/"
-                className="fa fa-instagram"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                {""}
-              </a>
-            </p>
           </div>
         </div>
       </nav>
