@@ -16,16 +16,10 @@ const AboutUs = () => {
                 <tr>
                   <td>1946</td>
                   <td>홍문대학관 설립</td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
                 </tr>
                 <tr>
                   <td>1949</td>
                   <td>홍익대학 설립인가, 미술과 개설</td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
                 </tr>
                 <tr>
                   <td>1954</td>

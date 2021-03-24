@@ -74,7 +74,6 @@ table {
   position: relative;
   padding: 1.5rem;
   width: 100%;
-  height: 100%;
   overflow: auto;
   width: 100%;
   display: inline-grid;
@@ -180,19 +179,16 @@ table {
   }
   .aboutus_container {
     grid-template-columns: 1fr;
-    grid-template-rows: repeat(4, 450px);
+    grid-template-rows: repeat(6, 25vh);
     column-gap: 20px;
     row-gap: 20px;
   }
 }
 
 @media (max-width: 576px) {
-  #react-naver-map {
-    width: 100% !important;
-  }
-
-  #map .aboutus_item_tag {
-    margin-bottom: 5px;
+  .aboutus_item .aboutus_item_tag span {
+    font-family: "Helvetica";
+    font-size: 10px;
   }
 
   .aboutus_wrapper {
@@ -210,7 +206,6 @@ table {
 
   .aboutus_item .aboutus_content {
     font-size: 10px;
-    display: block;
     line-height: 2.5em;
     margin-top: 0;
   }
@@ -219,38 +214,8 @@ table {
     padding: 0.5rem;
   }
 
-  .aboutus_contact td {
-    padding: 0;
-    padding-top: 1px;
-    padding-bottom: 1px;
-    padding-right: 10px;
-    border-bottom: 1px solid black;
-  }
-
-  .faculty {
-    font-size: 9px;
-  }
-
-  .mobile_hide {
-    display: none;
-  }
-
-  .faculty tr td {
-    padding-right: 5px;
-    font-size: 9px;
-  }
-
-  .subfaculty {
-    display: grid;
-    grid-template-columns: 1fr;
-  }
-
-  .subfaculty td {
-    width: 50%;
-  }
-
   .aboutus_item .aboutus_item_tag {
-    padding: 5px;
+    padding-bottom: 1em;
     font-size: 18px;
   }
 }
