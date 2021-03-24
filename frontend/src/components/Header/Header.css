@@ -290,4 +290,8 @@ header {
   .header_container_right {
     display: none;
   }
+
+  .title:hover:before {
+    font-size: 15px;
+  }
 }
