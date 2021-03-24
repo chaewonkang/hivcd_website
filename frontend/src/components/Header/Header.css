@@ -2,6 +2,7 @@ header {
   background-color: #fff5f5;
   padding: 15px 20px;
   width: 100%;
+  text-decoration: none !important;
 }
 
 .header_line {
@@ -30,6 +31,7 @@ header {
 .header_container_menubar {
   position: relative;
   right: 0;
+  text-decoration: none !important;
 }
 
 .navber_menu_wrapper_item_title a:link {
@@ -76,6 +78,12 @@ header {
   right: 0;
 }
 
+#about,
+#news,
+#alumni,
+#show,
+#announce,
+#calandar,
 #about:link,
 #news:link,
 #alumni:link,
@@ -93,12 +101,7 @@ header {
 #announce:hover,
 #show:hover,
 #calandar:hover {
-  display: inline-block;
   font-size: 0px;
-  text-decoration: none !important;
-  top: 3px;
-  position: relative;
-  right: 0;
   color: #000;
 }
 
@@ -106,31 +109,27 @@ header {
   content: "About";
   font-size: 18px;
   text-decoration: none !important;
-  border-bottom: 1px solid #000 !important;
   color: #000;
 }
 
 #news:hover:before {
   content: "News";
-  font-size: 18px;
+  font-size: 17px;
   text-decoration: none !important;
-  border-bottom: 1px solid #000 !important;
   color: #000;
 }
 
 #alumni:hover:before {
   content: "Alumni";
-  font-size: 18px;
+  font-size: 17px;
   text-decoration: none !important;
-  border-bottom: 1px solid #000 !important;
   color: #000;
 }
 
 #announce:hover:before {
-  content: "Announce";
+  content: "Info";
   font-size: 18px;
   text-decoration: none !important;
-  border-bottom: 1px solid #000 !important;
   color: #000;
 }
 
@@ -138,7 +137,6 @@ header {
   content: "Show";
   font-size: 18px;
   text-decoration: none !important;
-  border-bottom: 1px solid #000 !important;
   color: #000;
 }
 
@@ -147,7 +145,6 @@ header {
   content: "Calandar";
   font-size: 18px;
   text-decoration: none !important;
-  border-bottom: 1px solid #000 !important;
   color: #000;
 }
 
@@ -175,6 +172,10 @@ header {
   color: #000;
   font-size: 18px;
   margin-right: 20px;
+}
+
+.navbar_menu_wrapper_item_title:hover {
+  text-decoration: none !important;
 }
 
 .header_container_responsive {

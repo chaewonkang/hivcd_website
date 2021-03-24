@@ -19,13 +19,8 @@ function Header({ handleLogout, handleSearchKeyword }) {
         <div className="header_container_right">
           <div className="header_container_menubar">
             <span className="navbar_menu_wrapper_item_title">
-              <NavLink
-                id="about"
-                className="link"
-                activeClassName="active"
-                to="/aboutus"
-              >
-                소개
+              <NavLink className="link" activeClassName="active" to="/aboutus">
+                <span id="about">소개</span>
               </NavLink>
             </span>
             <span className="navbar_menu_wrapper_item_title">

@@ -14,7 +14,7 @@
 .footer_container {
   display: inline-grid;
   width: 100%;
-  grid-template-columns: repeat(6, auto);
+  grid-template-columns: repeat(4, auto);
 }
 
 .footer-item .footer-item-title {

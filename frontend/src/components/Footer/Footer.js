@@ -8,7 +8,7 @@ const Footer = () => {
       <div className="footer">
         <div className="footer_container">
           <div className="footer-item">
-            <img src={logo} width="35" height="35" alt="HIVCD Logo"></img>
+            <img src={logo} width="33" height="33" alt="HIVCD Logo"></img>
           </div>
           <div className="footer-item">
             <p>
@@ -29,32 +29,8 @@ const Footer = () => {
               94, Wausan-ro, Mapo-gu, Seoul 04066, South Korea
             </p>
           </div>
-          <div className="footer-item">
-            <p>
-              <a
-                href="https://www.hongik.ac.kr/index.do"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                홍익대학교<br></br>
-                Hongik University
-              </a>
-            </p>
-          </div>
-          <div className="footer-item">
-            <p>
-              <a
-                href="https://www.instagram.com/hivcd2021/"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                홍익대학교 미술대학<br></br>
-                Hongik University College of Fine Arts
-              </a>
-            </p>
-          </div>
+
           <div className="footer-item" id="subscription">
-            <span className="footer-item-title">뉴스레터</span>
             <div id="subscription_button" class="subscription_button">
               <a
                 href="http://eepurl.com/hk_U8n"
@@ -63,7 +39,7 @@ const Footer = () => {
                 style={{ color: "#000" }}
                 className="subscribe"
               >
-                Subscribe
+                뉴스레터
               </a>
             </div>
           </div>
