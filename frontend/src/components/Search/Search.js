@@ -5,6 +5,9 @@ import { useHistory } from "react-router-dom";
 
 function Search({ handleSearchKeyword }) {
   const [visible, setVisible] = useState(false);
+  const [searchText, setSearchText] = useState({
+    search: "검색",
+  });
   let history = useHistory();
 
   const openModal = () => {
@@ -40,7 +43,12 @@ function Search({ handleSearchKeyword }) {
         </form>
       </Modal>
       <div className="navbar_search_item" onClick={() => openModal()}>
-        Search
+        <span
+          onMouseOver={() => setSearchText({ ...searchText, search: "Search" })}
+          onMouseLeave={() => setSearchText({ ...searchText, search: "검색" })}
+        >
+          {searchText.search}
+        </span>
       </div>
     </div>
   );

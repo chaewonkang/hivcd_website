@@ -44,7 +44,7 @@ header {
 
 .header_container_system {
   display: inline-grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
   column-gap: 10px;
   text-align: center;
   font-size: 15px;
@@ -82,68 +82,33 @@ header {
 #news,
 #alumni,
 #show,
-#announce,
+#info,
 #calandar,
 #about:link,
 #news:link,
 #alumni:link,
-#announce:link,
+#info:link,
 #show:link,
-#calandar:link {
+#calandar:link,
+#about:link:visited,
+#about:link:focus,
+#about:link:active,
+#about:link:visited,
+#about:link:focus,
+#about:link:active,
+#about:link:visited,
+#about:link:focus,
+#about:link:active,
+#about:link:visited,
+#about:link:focus,
+#about:link:active,
+#about:link:visited,
+#about:link:focus,
+#about:link:active,
+#about:link:visited,
+#about:link:focus,
+#about:link:active {
   display: inline-block;
-  text-decoration: none !important;
-  color: #000;
-}
-
-#about:hover,
-#news:hover,
-#alumni:hover,
-#announce:hover,
-#show:hover,
-#calandar:hover {
-  font-size: 0px;
-  color: #000;
-}
-
-#about:hover:before {
-  content: "About";
-  font-size: 18px;
-  text-decoration: none !important;
-  color: #000;
-}
-
-#news:hover:before {
-  content: "News";
-  font-size: 17px;
-  text-decoration: none !important;
-  color: #000;
-}
-
-#alumni:hover:before {
-  content: "Alumni";
-  font-size: 17px;
-  text-decoration: none !important;
-  color: #000;
-}
-
-#announce:hover:before {
-  content: "Info";
-  font-size: 18px;
-  text-decoration: none !important;
-  color: #000;
-}
-
-#show:hover:before {
-  content: "Show";
-  font-size: 18px;
-  text-decoration: none !important;
-  color: #000;
-}
-
-#calandar:hover:before {
-  display: inline-block;
-  content: "Calandar";
-  font-size: 18px;
   text-decoration: none !important;
   color: #000;
 }
@@ -172,6 +137,15 @@ header {
   color: #000;
   font-size: 18px;
   margin-right: 20px;
+}
+
+.subscription_button {
+  font-family: "Helvetica";
+  font-weight: 400;
+  padding: 0.1em 0.75em 0.1em 0.75em;
+  font-size: 15px;
+  width: fit-content;
+  border: 1px solid #000;
 }
 
 .navbar_menu_wrapper_item_title:hover {

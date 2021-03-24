@@ -14,7 +14,7 @@
 .footer_container {
   display: inline-grid;
   width: 100%;
-  grid-template-columns: repeat(4, auto);
+  grid-template-columns: repeat(3, auto);
 }
 
 .footer-item .footer-item-title {
@@ -34,18 +34,6 @@
   margin-right: 0.75em;
   margin-top: 0.25em;
   color: #000;
-}
-
-#subscription_button {
-  margin-top: 0.3em;
-}
-
-.subscription_button {
-  font-family: "Helvetica";
-  font-weight: 400;
-  padding: 0.1em 0.75em 0.1em 0.75em;
-  width: fit-content;
-  border: 1px solid #000;
 }
 
 /********** Large devices only **********/

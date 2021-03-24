@@ -29,20 +29,6 @@ const Footer = () => {
               94, Wausan-ro, Mapo-gu, Seoul 04066, South Korea
             </p>
           </div>
-
-          <div className="footer-item" id="subscription">
-            <div id="subscription_button" class="subscription_button">
-              <a
-                href="http://eepurl.com/hk_U8n"
-                target="_blank"
-                rel="noopener noreferrer"
-                style={{ color: "#000" }}
-                className="subscribe"
-              >
-                뉴스레터
-              </a>
-            </div>
-          </div>
         </div>
       </div>
     </div>
