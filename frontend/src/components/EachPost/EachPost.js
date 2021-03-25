@@ -229,7 +229,7 @@ function EachPost({ postId }) {
     );
   }
 
-  if (eachPost) {
+  if (postList && eachPost) {
     let pkArray = [];
 
     postList.map((post) => {

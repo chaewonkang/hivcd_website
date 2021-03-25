@@ -236,7 +236,7 @@ function EachAnnounce({ postId }) {
     );
   }
 
-  if (eachAnnounce) {
+  if (announceList && eachAnnounce) {
     let pkArray = [];
 
     announceList.map((post) => {
