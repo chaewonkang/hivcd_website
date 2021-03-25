@@ -123,7 +123,115 @@ function EachPost({ postId }) {
       </div>
     );
 
-  if (isLogged && postList) {
+  if (isLogged && eachPost && !eachPost.sidi_only) {
+    let pkArray = [];
+
+    postList.map((post) => {
+      pkArray.push(post.pk);
+    });
+    console.log(pkArray);
+    return (
+      <div className="each_post_wrapper" style={style}>
+        <div className="each_post">
+          <div className="each_post_tag">
+            {setCategoryNumber(eachPost.category)}
+          </div>
+          <h1>{eachPost.title}</h1>
+          <hr style={{ marginBottom: 1 + "em" }}></hr>
+          <div className="each_post_info">
+            <span>작성자 {eachPost.author}</span>
+            <span>작성일 {eachPost.updated.slice(0, 10)}</span>
+          </div>
+          <hr></hr>
+          <div className="each_post_files">
+            <span className="attached_file">
+              첨부파일 {eachPost.files[0] ? eachPost.files[0].name : "없음"}
+            </span>
+            {eachPost.files.length ? (
+              <a
+                href={eachPost.files[0].files}
+                target="_blank"
+                download={eachPost.files[0].files}
+                rel="noopener noreferrer"
+              >
+                <button className="download_button">다운로드</button>
+              </a>
+            ) : null}
+          </div>
+          <hr style={{ marginBottom: 2 + "em" }}></hr>
+          <p>
+            {eachPost.text.split("\n").map((line) => {
+              return (
+                <span>
+                  {line}
+                  <br />
+                </span>
+              );
+            })}
+          </p>
+          {eachPost.photos.length
+            ? eachPost.photos.map((photo) => {
+                return (
+                  <div>
+                    <img
+                      src={photo.photo}
+                      alt={photo.alt}
+                      style={{
+                        width: 100 + "%",
+                        border: `1px solid rgb(0, 0, 0, 0.1)`,
+                      }}
+                    ></img>
+                    <br />
+                  </div>
+                );
+              })
+            : null}
+          {eachPost.link.length ? (
+            <>
+              <hr style={{ marginBottom: 1 + "em", marginTop: 1 + "em" }}></hr>
+              <a
+                href={eachPost.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                alt="링크"
+                className="attached_link"
+              >
+                링크 {eachPost.link.slice(0, 30)}...
+              </a>
+            </>
+          ) : null}
+          <hr style={{ marginBottom: 1 + "em", marginTop: 1 + "em" }}></hr>
+          <CommentList
+            comments={eachPost.comments}
+            style={style}
+            postId={postId}
+          ></CommentList>
+          <div className="each_post_navigator_container">
+            <div className="each_post_navigator">
+              <button
+                className="navigate_left_button"
+                onClick={(k = postId, arr = pkArray) => {
+                  routeToPrevPost((k = postId), (arr = pkArray));
+                }}
+              ></button>
+              <button
+                className="navigate_right_button"
+                onClick={(k = postId, arr = pkArray) => {
+                  routeToNextPost((k = postId), (arr = pkArray));
+                }}
+              ></button>
+            </div>
+          </div>
+          <Warning
+            visible={warningVisibility}
+            message={"마지막 게시글입니다."}
+          ></Warning>
+        </div>
+      </div>
+    );
+  }
+
+  if (eachPost) {
     let pkArray = [];
 
     postList.map((post) => {
