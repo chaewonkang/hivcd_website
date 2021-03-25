@@ -119,7 +119,6 @@ function EachAnnounce({ postId }) {
       </div>
     );
   if (!eachAnnounce) return null;
-
   if (!isLogged && eachAnnounce && eachAnnounce.sidi_only)
     return (
       <div className="each_post_wrapper" style={style}>
@@ -127,7 +126,117 @@ function EachAnnounce({ postId }) {
       </div>
     );
 
-  if (isLogged && announceList) {
+  if (isLogged && eachAnnounce && !eachAnnounce.sidi_only) {
+    let pkArray = [];
+
+    announceList.map((post) => {
+      pkArray.push(post.pk);
+    });
+    console.log(pkArray);
+
+    return (
+      <div className="each_post_wrapper" style={style}>
+        <div className="each_post">
+          <div className="each_post_tag">
+            {setCategoryNumber(eachAnnounce.category)}
+          </div>
+          <h1>{eachAnnounce.title}</h1>
+          <hr style={{ marginBottom: 1 + "em" }}></hr>
+          <div className="each_post_info">
+            <span>작성자 {eachAnnounce.author}</span>
+            <span>작성일 {eachAnnounce.updated.slice(0, 10)}</span>
+          </div>
+          <hr></hr>
+          <div className="each_post_files">
+            <span className="attached_file">
+              첨부파일{" "}
+              {eachAnnounce.files[0] ? eachAnnounce.files[0].name : "없음"}
+            </span>
+            {eachAnnounce.files.length ? (
+              <a
+                href={eachAnnounce.files[0].files}
+                target="_blank"
+                download={eachAnnounce.files[0].files}
+                rel="noopener noreferrer"
+              >
+                <button className="download_button">다운로드</button>
+              </a>
+            ) : null}
+          </div>
+          <hr style={{ marginBottom: 2 + "em" }}></hr>
+          <p>
+            {eachAnnounce.text.split("\n").map((line) => {
+              return (
+                <span>
+                  {line}
+                  <br />
+                </span>
+              );
+            })}
+          </p>
+          {eachAnnounce.photos.length
+            ? eachAnnounce.photos.map((photo) => {
+                return (
+                  <div>
+                    <img
+                      src={photo.photo}
+                      alt={photo.alt}
+                      style={{
+                        width: 100 + "%",
+                        border: `1px solid rgb(0, 0, 0, 0.1)`,
+                      }}
+                    ></img>
+                    <br />
+                  </div>
+                );
+              })
+            : null}
+          {eachAnnounce.link.length ? (
+            <>
+              <hr style={{ marginBottom: 1 + "em", marginTop: 1 + "em" }}></hr>
+              <a
+                href={eachAnnounce.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                alt="링크"
+                className="attached_link"
+              >
+                링크 {eachAnnounce.link.slice(0, 30)}...
+              </a>
+            </>
+          ) : null}
+          <hr style={{ marginBottom: 1 + "em", marginTop: 1 + "em" }}></hr>
+          <CommentList
+            comments={eachAnnounce.comments}
+            style={style}
+            postId={postId}
+          ></CommentList>
+          <div className="each_post_navigator_container">
+            <div className="each_post_navigator">
+              <button
+                className="navigate_left_button"
+                onClick={(k = postId, arr = pkArray) => {
+                  routeToPrevPost((k = postId), (arr = pkArray));
+                }}
+              ></button>
+              <button
+                className="navigate_right_button"
+                onClick={(k = postId, arr = pkArray) => {
+                  routeToNextPost((k = postId), (arr = pkArray));
+                }}
+              ></button>
+            </div>
+          </div>
+          <Warning
+            visible={warningVisibility}
+            message={"마지막 게시글입니다."}
+          ></Warning>
+        </div>
+      </div>
+    );
+  }
+
+  if (eachAnnounce) {
     let pkArray = [];
 
     announceList.map((post) => {

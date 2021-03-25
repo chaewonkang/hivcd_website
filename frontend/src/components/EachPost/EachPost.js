@@ -110,12 +110,10 @@ function EachPost({ postId }) {
   if (error)
     return (
       <div className="each_post_wrapper" style={style}>
-        학과사무실에서 회원 권한을 확인 중입니다. 권한 승인 뒤 모든 게시물을
-        열람할 수 있습니다.
+        존재하지 않는 게시물입니다.
       </div>
     );
   if (!eachPost) return null;
-
   if (!isLogged && eachPost && eachPost.sidi_only)
     return (
       <div className="each_post_wrapper" style={style}>
