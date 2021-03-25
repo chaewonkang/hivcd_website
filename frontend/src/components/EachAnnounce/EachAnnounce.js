@@ -126,7 +126,7 @@ function EachAnnounce({ postId }) {
       </div>
     );
 
-  if (isLogged && eachAnnounce && !eachAnnounce.sidi_only) {
+  if (isLogged && announceList && eachAnnounce && !eachAnnounce.sidi_only) {
     let pkArray = [];
 
     announceList.map((post) => {

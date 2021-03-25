@@ -121,7 +121,7 @@ function EachPost({ postId }) {
       </div>
     );
 
-  if (isLogged && eachPost && !eachPost.sidi_only) {
+  if (isLogged && postList && eachPost && !eachPost.sidi_only) {
     let pkArray = [];
 
     postList.map((post) => {
