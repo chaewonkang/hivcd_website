@@ -15,6 +15,13 @@ async function getPosts(token) {
 
 function Board() {
   const [boardFilter, setBoardFilter] = useState(0);
+  const [options, setOptions] = useState({
+    all: "전체보기",
+    news: "소식",
+    notice: "학과 공지",
+    job: "구인구직",
+    lostandfound: "분실물",
+  });
   const [token] = useState(getCookie("csrftoken"));
   const [state] = useAsync(() => getPosts(token), [token]);
   const { loading, data: posts, error } = state;
@@ -41,34 +48,94 @@ function Board() {
             tabIndex="0"
             className="board_filter_option"
             onClick={() => setBoardFilter(0)}
+            onMouseOver={() =>
+              setOptions({
+                ...options,
+                all: "All",
+              })
+            }
+            onMouseLeave={() =>
+              setOptions({
+                ...options,
+                all: "전체보기",
+              })
+            }
           >
-            전체보기
+            {options.all}
           </button>
           <button
             className="board_filter_option"
             onClick={() => setBoardFilter(1)}
+            onMouseOver={() =>
+              setOptions({
+                ...options,
+                news: "News",
+              })
+            }
+            onMouseLeave={() =>
+              setOptions({
+                ...options,
+                news: "소식",
+              })
+            }
           >
-            소식
+            {options.news}
           </button>
           <button
             className="board_filter_option"
             onClick={() => setBoardFilter(2)}
+            onMouseOver={() =>
+              setOptions({
+                ...options,
+                notice: "Notice",
+              })
+            }
+            onMouseLeave={() =>
+              setOptions({
+                ...options,
+                notice: "학과 공지",
+              })
+            }
           >
-            학과 공지
+            {options.notice}
           </button>
           <button
             className="board_filter_option"
             activaClassName="filter_option_active"
             onClick={() => setBoardFilter(4)}
+            onMouseOver={() =>
+              setOptions({
+                ...options,
+                job: "Job",
+              })
+            }
+            onMouseLeave={() =>
+              setOptions({
+                ...options,
+                job: "구인구직",
+              })
+            }
           >
-            구인구직
+            {options.job}
           </button>
           <button
             className="board_filter_option"
             activaClassName="filter_option_active"
             onClick={() => setBoardFilter(5)}
+            onMouseOver={() =>
+              setOptions({
+                ...options,
+                lostandfound: "Lost and Found",
+              })
+            }
+            onMouseLeave={() =>
+              setOptions({
+                ...options,
+                lostandfound: "분실물",
+              })
+            }
           >
-            분실물
+            {options.lostandfound}
           </button>
         </div>
       </div>
