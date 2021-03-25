@@ -18,6 +18,12 @@ function Announce() {
   const [token] = useState(getCookie("csrftoken"));
   const [state] = useAsync(() => getPosts(token), [token]);
   const { loading, data: posts, error } = state;
+  const [options, setOptions] = useState({
+    all: "전체보기",
+    life: "학과생활",
+    information: "학사정보",
+    statues: "학사내규",
+  });
 
   if (loading)
     return (
@@ -41,26 +47,74 @@ function Announce() {
             tabIndex="0"
             className="board_filter_option"
             onClick={() => setBoardFilter(0)}
+            onMouseOver={() =>
+              setOptions({
+                ...options,
+                all: "All",
+              })
+            }
+            onMouseLeave={() =>
+              setOptions({
+                ...options,
+                all: "전체보기",
+              })
+            }
           >
-            전체보기
+            {options.all}
           </button>
           <button
             className="board_filter_option"
             onClick={() => setBoardFilter(9)}
+            onMouseOver={() =>
+              setOptions({
+                ...options,
+                life: "Life",
+              })
+            }
+            onMouseLeave={() =>
+              setOptions({
+                ...options,
+                life: "학과 생활",
+              })
+            }
           >
-            학과생활
+            {options.life}
           </button>
           <button
             className="board_filter_option"
             onClick={() => setBoardFilter(10)}
+            onMouseOver={() =>
+              setOptions({
+                ...options,
+                information: "Information",
+              })
+            }
+            onMouseLeave={() =>
+              setOptions({
+                ...options,
+                information: "학사 정보",
+              })
+            }
           >
-            학사정보
+            {options.information}
           </button>
           <button
             className="board_filter_option"
             onClick={() => setBoardFilter(11)}
+            onMouseOver={() =>
+              setOptions({
+                ...options,
+                statues: "Statues",
+              })
+            }
+            onMouseLeave={() =>
+              setOptions({
+                ...options,
+                statues: "학사 정보",
+              })
+            }
           >
-            학사내규
+            {options.statues}
           </button>
         </div>
       </div>
