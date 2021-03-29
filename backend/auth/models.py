@@ -39,5 +39,6 @@ class Account(AbstractBaseUser):
     is_sidi = models.BooleanField(default=False)
 
     USERNAME_FIELD = "suser_id"
+    REQUIRED_FIELS = ['suser_id']
 
     objects = UserManager()
