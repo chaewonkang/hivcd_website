@@ -38,7 +38,6 @@ class PostAdmin(admin.ModelAdmin):
                 'sidi_only',
                 'category',
                 'created_at',
-                'updated_at',
             ),
         }),
     )

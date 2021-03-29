@@ -62,7 +62,7 @@ class Comment(Timestamp):
 class Post(models.Model):
     author = models.ForeignKey(to=settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     title = models.CharField(max_length=255, blank=False, default="")
-    created_at = models.DateTimeField(auto_now_add=False)
+    created_at = models.DateTimeField(editable=True)
     updated_at = models.DateTimeField(auto_now=True)
     text = models.TextField()
     link = models.URLField(default="", blank=True)
@@ -88,7 +88,6 @@ class Post(models.Model):
         ordering = ["-pk", "-updated", "-created", "title"]
 
     def save(self, *args, **kwargs):
-        self.created_at = timezone.now()
         super().save(*args, **kwargs)
 
     def delete(self, *args, **kwargs):
