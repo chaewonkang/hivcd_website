@@ -1,5 +1,5 @@
 from django.db import models
-from django.contrib.auth.models import AbstractBaseUser
+from django.contrib.auth.models import AbstractBaseUser, BaseUserManager
 
 
 class Account(AbstractBaseUser):
@@ -7,3 +7,5 @@ class Account(AbstractBaseUser):
     is_sidi = models.BooleanField(default=False)
 
     USERNAME_FIELD = "suser_id"
+
+    objects = BaseUserManager
