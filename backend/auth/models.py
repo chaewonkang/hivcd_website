@@ -23,15 +23,14 @@ class UserManager(BaseUserManager):
         return self._create_user(username, password, **extra_fields)
 
     def create_superuser(self, username, password=None, **extra_fields):
-        extra_fields.setdefault('is_staff', True)
-        extra_fields.setdefault('is_superuser', True)
-        extra_fields.setdefault('is_sidi', True)
-        if extra_fields.get('is_staff') is not True:
-            raise ValueError('Superuser must have is_staff=True.')
-        if extra_fields.get('is_superuser') is not True:
-            raise ValueError('Superuser must have is_superuser=True.')
-
-        return self._create_user(username, password, **extra_fields)
+        user = self.model(
+            suser_id=username,
+        )
+        user.set_password(password)
+        user.is_staff = True
+        user.is_superuser = True
+        user.is_sidi = True
+        return user
 
 
 class Account(AbstractBaseUser):
