@@ -1,30 +1,29 @@
 import React, { useState } from "react";
-import { Post, BoardPostWrapper } from "../../components";
+import { Post, BoardPostWrapper } from "..";
 import axios from "axios";
-import "./Board.css";
+import "./Announce.css";
 import getCookie from "../../utils/getCookie";
 import useAsync from "../../utils/useAsync";
 import logogif from "../../img/logogif.gif";
 
 async function getPosts(token) {
   const response = await axios.get(
-    "https://sidi.hongik.ac.kr/api/v1/postings/board"
+    "https://sidi.hongik.ac.kr/api/v1/postings/announce"
   );
   return response.data;
 }
 
-function Board() {
+function Announce() {
   const [boardFilter, setBoardFilter] = useState(0);
-  const [options, setOptions] = useState({
-    all: "전체보기",
-    news: "소식",
-    notice: "학과 공지",
-    job: "구인구직",
-    lostandfound: "분실물",
-  });
   const [token] = useState(getCookie("csrftoken"));
   const [state] = useAsync(() => getPosts(token), [token]);
   const { loading, data: posts, error } = state;
+  const [options, setOptions] = useState({
+    all: "전체보기",
+    life: "학과생활",
+    information: "학사정보",
+    statues: "학사내규",
+  });
 
   if (loading)
     return (
@@ -65,77 +64,57 @@ function Board() {
           </button>
           <button
             className="board_filter_option"
-            onClick={() => setBoardFilter(1)}
+            onClick={() => setBoardFilter(9)}
             onMouseOver={() =>
               setOptions({
                 ...options,
-                news: "News",
+                life: "Life",
               })
             }
             onMouseLeave={() =>
               setOptions({
                 ...options,
-                news: "소식",
+                life: "학과 생활",
               })
             }
           >
-            {options.news}
+            {options.life}
           </button>
           <button
             className="board_filter_option"
-            onClick={() => setBoardFilter(2)}
+            onClick={() => setBoardFilter(10)}
             onMouseOver={() =>
               setOptions({
                 ...options,
-                notice: "Notice",
+                information: "Information",
               })
             }
             onMouseLeave={() =>
               setOptions({
                 ...options,
-                notice: "학과 공지",
+                information: "학사 정보",
               })
             }
           >
-            {options.notice}
+            {options.information}
           </button>
           <button
             className="board_filter_option"
-            activaClassName="filter_option_active"
-            onClick={() => setBoardFilter(4)}
+            onClick={() => setBoardFilter(11)}
             onMouseOver={() =>
               setOptions({
                 ...options,
-                job: "Job",
+                statues: "Statues",
               })
             }
             onMouseLeave={() =>
               setOptions({
                 ...options,
-                job: "구인구직",
+                statues: "학사 정보",
               })
             }
           >
-            {options.job}
-          </button>
-          <button
-            className="board_filter_option"
-            activaClassName="filter_option_active"
-            onClick={() => setBoardFilter(5)}
-            onMouseOver={() =>
-              setOptions({
-                ...options,
-                lostandfound: "Lost and Found",
-              })
-            }
-            onMouseLeave={() =>
-              setOptions({
-                ...options,
-                lostandfound: "분실물",
-              })
-            }
-          >
-            {options.lostandfound}
+            {options.statues}
           </button>
         </div>
       </div>
@@ -162,4 +141,4 @@ function Board() {
   );
 }
 
-export default Board;
+export default Announce;

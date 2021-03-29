@@ -35,17 +35,6 @@ function SearchResultContainer({ searchKeyword }) {
                 return result;
               return null;
             })
-            .filter((result) => {
-              if (
-                result.category === 0 ||
-                result.category === 1 ||
-                result.category === 2 ||
-                result.category === 3 ||
-                result.category === 4
-              )
-                return result;
-              return null;
-            })
             .map((data) => {
               return (
                 <Post

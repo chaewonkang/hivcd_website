@@ -3,9 +3,17 @@ import "./EachExhibition.css";
 import axios from "axios";
 import useAsync from "../../utils/useAsync";
 
+function handleNavigateClick(type, postId) {
+  if (type === "NEXT") {
+    getExhibitionInfo(parseInt(postId) + 1);
+  } else {
+    getExhibitionInfo(parseInt(postId) - 1);
+  }
+}
+
 async function getExhibitionInfo(postId) {
   const response = await axios.get(
-    `https://sidi.hongik.ac.kr/api/v1/postings/archive/${postId}`
+    `https://sidi.hongik.ac.kr/api/v1/postings/exhibition/${postId}`
   );
   return response.data;
 }
@@ -19,7 +27,7 @@ function setCategoryNumber(category) {
   return categoryName;
 }
 
-function EachExhibition({ postId, handleNavigateClick }) {
+function EachExhibition({ postId }) {
   const [state] = useAsync(() => getExhibitionInfo(postId), [postId]);
   const { loading, data: exhibition, error } = state;
 
@@ -72,7 +80,7 @@ function EachExhibition({ postId, handleNavigateClick }) {
               alt="링크"
               className="attached_link"
             >
-              웹사이트 바로가기 {exhibition.link}
+              링크 {exhibition.link.slice(0, 30)}...
             </a>
           </>
         ) : null}

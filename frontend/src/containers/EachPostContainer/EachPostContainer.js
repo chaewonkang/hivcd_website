@@ -6,17 +6,9 @@ import getCookie from "../../utils/getCookie";
 import useAsync from "../../utils/useAsync";
 import logogif from "../../img/logogif.gif";
 
-function handleNavigateClick(type, postId) {
-  if (type === "NEXT") {
-    getPost(parseInt(postId) + 1);
-  } else {
-    getPost(parseInt(postId) - 1);
-  }
-}
-
 async function getList(token) {
   const response = await axios.get(
-    "https://sidi.hongik.ac.kr/api/v1/postings/",
+    "https://sidi.hongik.ac.kr/api/v1/postings/board",
     {},
     {
       headers: {
@@ -32,7 +24,7 @@ async function getList(token) {
 
 async function getPost({ postId, token }) {
   return axios.get(
-    `https://sidi.hongik.ac.kr/api/v1/postings/${postId}`,
+    `https://sidi.hongik.ac.kr/api/v1/postings/board/${postId}`,
     {},
     {
       headers: {
@@ -50,11 +42,11 @@ function EachPostContainer({ match, location }) {
   const [state] = useAsync(() => getList(token), [token]);
   const { loading, data: list, error } = state;
   const [postId, setPostId] = useState(0);
-  const [isBoard, setIsBoard] = useState(true);
+  const [curLoc, setCurLoc] = useState("");
 
   useEffect(() => {
     setPostId(match.params.postId);
-    location.pathname.includes("board") ? setIsBoard(true) : setIsBoard(false);
+    setCurLoc(location.pathname);
   });
 
   if (loading)
@@ -73,30 +65,11 @@ function EachPostContainer({ match, location }) {
 
   return (
     <div className="each_post_container">
-      {location.pathname.includes("board") ? (
-        <BoardListWrapper
-          list={list.filter(
-            (data) =>
-              data.category === 1 ||
-              data.category === 2 ||
-              data.category === 3 ||
-              data.category === 4
-          )}
-          postId={postId}
-          handleNavigateClick={() => handleNavigateClick()}
-          isBoard={isBoard}
-        ></BoardListWrapper>
-      ) : (
-          <BoardListWrapper
-            list={list.filter(
-              (data) =>
-                data.category === 5 || data.category === 6 || data.category === 7
-            )}
-            postId={postId}
-            handleNavigateClick={() => handleNavigateClick()}
-            isBoard={isBoard}
-          ></BoardListWrapper>
-        )}
+      <BoardListWrapper
+        list={list}
+        postId={postId}
+        curLoc={curLoc}
+      ></BoardListWrapper>
     </div>
   );
 }

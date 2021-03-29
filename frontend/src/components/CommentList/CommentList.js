@@ -14,6 +14,7 @@ const CommentList = ({ comments, style, onPostComment, postId }) => {
           key={comment.id}
           id={comment.id}
           date={comment.created}
+          postId={postId}
         />
       );
     });
@@ -21,8 +22,12 @@ const CommentList = ({ comments, style, onPostComment, postId }) => {
 
   return (
     <div className="comment_list">
-      <ul>{commentList}</ul>
-      <hr className="mobile_commentlist_hr_hidden"></hr>
+      {commentList ? (
+        <>
+          <ul>{commentList}</ul>
+          <hr className="mobile_commentlist_hr_hidden"></hr>{" "}
+        </>
+      ) : null}
       <CommentInsertForm
         style={style}
         onPostComment={onPostComment}

@@ -23,7 +23,6 @@
   border: 2px solid #ffba00;
   padding: 20px;
   position: relative;
-  overflow: auto;
   height: 100%;
   animation: 1s ease-out 0s 1 fadeIn;
 }
@@ -86,7 +85,7 @@
   margin-left: 1em;
   font-size: 11px;
   color: #fff;
-  font-weight: 100;
+  font-weight: 400;
   padding: 0.3em 0.75em 0.3em 0.75em;
   text-align: center;
   width: fit-content;

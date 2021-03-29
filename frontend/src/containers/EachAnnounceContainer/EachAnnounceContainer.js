@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from "react";
 import { BoardListWrapper } from "../../components";
 import axios from "axios";
-import "./EachExhibitionContainer.css";
+import "./EachAnnounceContainer.css";
 import getCookie from "../../utils/getCookie";
 import useAsync from "../../utils/useAsync";
 import logogif from "../../img/logogif.gif";
 
 async function getList(token) {
   const response = await axios.get(
-    "https://sidi.hongik.ac.kr/api/v1/postings/exhibition/",
+    "https://sidi.hongik.ac.kr/api/v1/postings/announce",
     {},
     {
       headers: {
@@ -24,7 +24,7 @@ async function getList(token) {
 
 async function getPost({ postId, token }) {
   return axios.get(
-    `https://sidi.hongik.ac.kr/api/v1/postings/exhibition/${postId}`,
+    `https://sidi.hongik.ac.kr/api/v1/postings/announce/${postId}`,
     {},
     {
       headers: {
@@ -37,7 +37,7 @@ async function getPost({ postId, token }) {
   );
 }
 
-function EachExhibitionContainer({ match, location }) {
+function EachAnnounceContainer({ match, location }) {
   const [token] = useState(getCookie("csrftoken"));
   const [state] = useAsync(() => getList(token), [token]);
   const { loading, data: list, error } = state;
@@ -63,15 +63,23 @@ function EachExhibitionContainer({ match, location }) {
     );
   if (!list) return null;
 
-  return (
-    <div className="each_post_container">
-      <BoardListWrapper
-        list={list}
-        postId={postId}
-        curLoc={curLoc}
-      ></BoardListWrapper>
-    </div>
-  );
+  if (list)
+    return (
+      <div className="each_post_container">
+        {location.pathname.includes("announce") ? (
+          <BoardListWrapper
+            list={list.filter(
+              (data) =>
+                data.category === 9 ||
+                data.category === 10 ||
+                data.category === 11
+            )}
+            postId={postId}
+            curLoc={curLoc}
+          ></BoardListWrapper>
+        ) : null}
+      </div>
+    );
 }
 
-export default EachExhibitionContainer;
+export default EachAnnounceContainer;

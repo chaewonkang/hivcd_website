@@ -30,6 +30,8 @@ import CommentInsertForm from "./CommentInsertForm/CommentInsertForm";
 import Warning from "./Warning/Warning";
 import Exhibition from "./Exhibition/Exhibition";
 import EachExhibition from "./EachExhibition/EachExhibition";
+import Announce from "./Announce/Announce";
+import EachAnnounce from "./EachAnnounce/EachAnnounce";
 
 export {
   Header,
@@ -64,4 +66,6 @@ export {
   Warning,
   Exhibition,
   EachExhibition,
+  Announce,
+  EachAnnounce,
 };

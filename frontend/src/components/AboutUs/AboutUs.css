@@ -17,58 +17,48 @@
   font-size: 18px;
 }
 
-.aboutus_contact tr {
-  border-bottom: 1px solid black;
-}
-
-.aboutus_contact th {
-  border-bottom: 1px solid black;
-  padding: 10px;
-}
-
-.faculty {
-  font-size: 14px;
-  width: 100%;
-  text-align: left;
-}
-
-.faculty th {
-  border-bottom: 1px solid black;
-  padding: 2px;
-  font-weight: 400;
-}
-
-.subfaculty {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  text-align: left;
-}
-
 .aboutus_contact td {
-  padding: 5px;
-  font-weight: 400;
+  border-bottom: 1px solid black;
+}
+
+table {
+  margin-bottom: 1em;
+}
+
+#faculty_table td:nth-child(1),
+#club_table td:nth-child(1),
+#club_table td:nth-child(2),
+#faculty_table td:nth-child(3),
+#facility_table td:nth-child(3),
+#facility_table_eng td:nth-child(3),
+#credit_table td:nth-child(1) {
+  width: 40%;
+}
+
+#histody_table tr:nth-child(1),
+#contact_table tr:nth-child(1),
+#faculty_table tr:nth-child(1),
+#club_table tr:nth-child(1),
+#faculty_table tr:nth-child(1),
+#facility_table tr:nth-child(1),
+#facility_table_eng tr:nth-child(1),
+#credit_table tr:nth-child(1),
+#history_table {
+  border-top: 1px solid black;
+}
+
+#facility_table td:nth-child(1),
+#faculty_table td:nth-child(2),
+#facility_table_eng td:nth-child(1),
+#history_table td:nth-child(1),
+#club_table td:nth-child(3),
+#contact_table td:nth-child(1) {
+  width: 20%;
 }
 
 .aboutus_contact td a {
   color: #000;
   font-weight: 400;
-}
-.aboutus_content p,
-.credit a {
-  font-size: 18px;
-}
-
-.colophon_table {
-  width: 100%;
-}
-
-.colophon_table tr {
-  border-bottom: 1px solid black;
-}
-
-.colophon_table tr th {
-  font-weight: 400;
-  padding: 10px 0px 10px 0px;
 }
 
 .aboutus_container {
@@ -80,27 +70,27 @@
 }
 
 .aboutus_item {
-  overflow: auto;
-}
-
-.aboutus_container .aboutus_item {
   border: 2px solid #000000;
   position: relative;
   padding: 1.5rem;
   width: 100%;
-  height: 100%;
+  overflow: auto;
+  width: 100%;
+  display: inline-grid;
 }
 
 .aboutus_item p {
   font-size: 2rem;
-  margin-top: 20px;
 }
 
-.aboutus_item .aboutus_item_tag {
+.aboutus_item_tag {
+  display: inline-grid;
+  grid-template-columns: 20% 1fr;
+}
+
+.aboutus_item .aboutus_item_tag span {
   font-family: "Helvetica";
-  font-size: 22px;
-  text-align: center;
-  text-transform: uppercase;
+  font-size: 18px;
 }
 
 .aboutus_item .aboutus_content {
@@ -116,10 +106,6 @@
 .aboutus_content_contact {
   display: block;
   border-bottom: 1px solid black;
-}
-
-.aboutus_content_contact p {
-  display: inline;
 }
 
 #history {
@@ -150,10 +136,6 @@
 #colophon {
   background-color: #a3b3c4;
   border: 2px solid #78a4b7;
-}
-
-.aboutus_contact_mobile {
-  display: none;
 }
 
 @media (min-width: 1440px) and (max-width: 1920px) {
@@ -197,19 +179,16 @@
   }
   .aboutus_container {
     grid-template-columns: 1fr;
-    grid-template-rows: repeat(4, 450px);
+    grid-template-rows: repeat(6, 25vh);
     column-gap: 20px;
     row-gap: 20px;
   }
 }
 
 @media (max-width: 576px) {
-  #react-naver-map {
-    width: 100% !important;
-  }
-
-  #map .aboutus_item_tag {
-    margin-bottom: 5px;
+  .aboutus_item .aboutus_item_tag span {
+    font-family: "Helvetica";
+    font-size: 10px;
   }
 
   .aboutus_wrapper {
@@ -227,7 +206,6 @@
 
   .aboutus_item .aboutus_content {
     font-size: 10px;
-    display: block;
     line-height: 2.5em;
     margin-top: 0;
   }
@@ -236,38 +214,8 @@
     padding: 0.5rem;
   }
 
-  .aboutus_contact td {
-    padding: 0;
-    padding-top: 1px;
-    padding-bottom: 1px;
-    padding-right: 10px;
-    border-bottom: 1px solid black;
-  }
-
-  .faculty {
-    font-size: 9px;
-  }
-
-  .mobile_hide {
-    display: none;
-  }
-
-  .faculty tr td {
-    padding-right: 5px;
-    font-size: 9px;
-  }
-
-  .subfaculty {
-    display: grid;
-    grid-template-columns: 1fr;
-  }
-
-  .subfaculty td {
-    width: 50%;
-  }
-
   .aboutus_item .aboutus_item_tag {
-    padding: 5px;
+    padding-bottom: 1em;
     font-size: 18px;
   }
 }

@@ -9,6 +9,7 @@ import {
   Alumni,
   Archive,
   Exhibition,
+  Announce,
 } from "./components";
 import "./App.css";
 import "./components/Header/Header.css";
@@ -18,6 +19,7 @@ import {
   ReservationContainer,
   ContentContainer,
   EachExhibitionContainer,
+  EachAnnounceContainer,
 } from "./containers";
 
 function App() {
@@ -42,6 +44,12 @@ function App() {
             path="/exhibition/:postId"
             component={EachExhibitionContainer}
           ></Route>
+          <Route exact path="/announce" component={Announce} />
+          <Route
+            exact
+            path="/announce/:postId"
+            component={EachAnnounceContainer}
+          />
           <Route path="/calandar" component={CalandarContainer} />
           <Route path="/reservation" component={ReservationContainer} />
           <Route path="/archive" component={Archive} />

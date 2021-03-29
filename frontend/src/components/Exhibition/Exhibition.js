@@ -9,7 +9,7 @@ import logogif from "../../img/logogif.gif";
 
 async function getExhibitionInfo(token) {
   const response = await axios.get(
-    "https://sidi.hongik.ac.kr/api/v1/postings/archive/",
+    "https://sidi.hongik.ac.kr/api/v1/postings/exhibition/",
     {},
     {
       headers: {
@@ -25,8 +25,13 @@ async function getExhibitionInfo(token) {
 
 function Exhibition() {
   const [exhibitionFilter, setExhibitionFilter] = useState(0);
+  const [options, setOptions] = useState({
+    all: "전체보기",
+    gw: "졸업 주간",
+    wff: "와우영상제",
+    aetc: "소모임",
+  });
   const [token] = useState(getCookie("csrftoken"));
-
   const [state] = useAsync(() => getExhibitionInfo(token), [token]);
   const { loading, data: exhibition, error } = state;
 
@@ -52,38 +57,79 @@ function Exhibition() {
             <button
               className="exhibition_filter_option"
               onClick={() => setExhibitionFilter(0)}
+              onMouseOver={() =>
+                setOptions({
+                  ...options,
+                  all: "All",
+                })
+              }
+              onMouseLeave={() =>
+                setOptions({
+                  ...options,
+                  all: "전체보기",
+                })
+              }
             >
-              전체보기
-            </button>
-            <button
-              className="exhibition_filter_option"
-              onClick={() => setExhibitionFilter(5)}
-            >
-              졸업 주간
+              {options.all}
             </button>
             <button
               className="exhibition_filter_option"
               onClick={() => setExhibitionFilter(6)}
+              onMouseOver={() =>
+                setOptions({
+                  ...options,
+                  gw: "Graduation Week",
+                })
+              }
+              onMouseLeave={() =>
+                setOptions({
+                  ...options,
+                  gw: "졸업 주간",
+                })
+              }
             >
-              와우영상제
+              {options.gw}
             </button>
             <button
               className="exhibition_filter_option"
               onClick={() => setExhibitionFilter(7)}
+              onMouseOver={() =>
+                setOptions({
+                  ...options,
+                  wff: "WOW Film Festival",
+                })
+              }
+              onMouseLeave={() =>
+                setOptions({
+                  ...options,
+                  wff: "와우영상제",
+                })
+              }
             >
-              소모임
+              {options.wff}
+            </button>
+            <button
+              className="exhibition_filter_option"
+              onClick={() => setExhibitionFilter(8)}
+              onMouseOver={() =>
+                setOptions({
+                  ...options,
+                  aetc: "Club Exhibition",
+                })
+              }
+              onMouseLeave={() =>
+                setOptions({
+                  ...options,
+                  aetc: "소모임 전시",
+                })
+              }
+            >
+              {options.aetc}
             </button>
           </div>
         </div>
         <div className="exhibition_container">
           {exhibition
-            .filter(
-              (data) =>
-                data.category === 5 ||
-                data.category === 6 ||
-                data.category === 7
-            )
-            .slice(0, 100)
             .filter((data) => {
               if (exhibitionFilter === null || exhibitionFilter === 0)
                 return data;

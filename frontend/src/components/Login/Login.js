@@ -21,22 +21,42 @@ async function handleLogout(token) {
 
 function Login() {
   const [token] = useState(getCookie("csrftoken"));
+  const [loginText, setLoginText] = useState({
+    login: "로그인",
+    logout: "로그아웃",
+  });
   return (
     <>
       {getCookie("SUSER_ID") !== null ? (
         <a href="http://sidi.hongik.ac.kr">
-          <div
-            className="navbar_login_item"
-            onClick={(t = token) => handleLogout((t = token))}
-          >
-            로그아웃
+          <div className="navbar_login_item">
+            <span
+              onMouseOver={() =>
+                setLoginText({ ...loginText, logout: "Logout" })
+              }
+              onMouseLeave={() =>
+                setLoginText({ ...loginText, logout: "로그아웃" })
+              }
+              onClick={() => handleLogout()}
+            >
+              {loginText.logout}
+            </span>
           </div>
         </a>
       ) : (
-          <a href="http://www.hongik.ac.kr/login.do?Refer=https://sidi.hongik.ac.kr/api/v1/auth/login">
-            <div className="navbar_login_item">로그인</div>
-          </a>
-        )}
+        <a href="http://www.hongik.ac.kr/login.do?Refer=https://sidi.hongik.ac.kr/api/v1/auth/login">
+          <div className="navbar_login_item">
+            <span
+              onMouseOver={() => setLoginText({ ...loginText, login: "Login" })}
+              onMouseLeave={() =>
+                setLoginText({ ...loginText, login: "로그인" })
+              }
+            >
+              {loginText.login}
+            </span>
+          </div>
+        </a>
+      )}
     </>
   );
 }

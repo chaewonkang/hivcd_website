@@ -9,6 +9,25 @@ class PostAdmin(admin.ModelAdmin):
         'category',
     )
 
+    fieldsets = (
+        ("게시물정보", {
+            "fields": (
+                'author',
+                'title',
+                'text',
+                'link',
+                'sidi_only'
+                'category',
+                'created',
+                'updated',
+                'photos',
+                'comments',
+                'files',
+            ),
+        }),
+    )
+
+
 
 admin.site.register(Photo)
 admin.site.register(Comment)

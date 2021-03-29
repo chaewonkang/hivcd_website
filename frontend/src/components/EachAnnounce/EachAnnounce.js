@@ -1,57 +1,61 @@
 import React, { useState, useRef } from "react";
-import "./EachPost.css";
-import { CommentList, Warning } from "../../components";
+import "./EachAnnounce.css";
+import { CommentList, Warning } from "..";
 import axios from "axios";
-import getCookie from "../../utils/getCookie";
 import useAsync from "../../utils/useAsync";
+import getCookie from "../../utils/getCookie";
 import { useHistory } from "react-router-dom";
 
-async function getPosts() {
+async function getAnnounces() {
   const response = await axios.get(
-    "https://sidi.hongik.ac.kr/api/v1/postings/board/"
+    `https://sidi.hongik.ac.kr/api/v1/postings/announce`
   );
   return response.data;
 }
 
-async function getEachPost(postId) {
+async function getEachAnnounce(postId) {
   const response = await axios.get(
-    `https://sidi.hongik.ac.kr/api/v1/postings/board/${postId}`
+    `https://sidi.hongik.ac.kr/api/v1/postings/announce/${postId}`
   );
   return response.data;
 }
 
 function setCategoryNumber(category) {
   let categoryName = null;
-  if (category === 1) categoryName = "소식";
-  else if (category === 2) categoryName = "학과 공지";
-  else if (category === 3) categoryName = "행사/홍보";
-  else if (category === 4) categoryName = "구인구직";
-  else if (category === 5) categoryName = "분실물";
+  if (category === 9) categoryName = "학과생활";
+  else if (category === 10) categoryName = "학사정보";
+  else if (category === 11) categoryName = "학사내규";
   return categoryName;
 }
 
-function EachPost({ postId }) {
+function EachAnnounce({ postId }) {
   const [style, setStyle] = useState({
     color: null,
     borderColor: null,
   });
   const [warningVisibility] = useState(false);
-  const [postState] = useAsync(() => getEachPost(postId), [postId]);
-  const [posts] = useAsync(() => getPosts());
+  const [postState] = useAsync(() => getEachAnnounce(postId), [postId]);
+  const [announces] = useAsync(() => getAnnounces());
   const isLogged = getCookie("SUSER_ID") === null ? false : true;
-  const { loading, data: eachPost, error } = postState;
-  const { loading: postLoading, data: postList, error: postError } = posts;
+
+  const { loading, data: eachAnnounce, error } = postState;
+  const {
+    loading: announceLoading,
+    data: announceList,
+    error: announceError,
+  } = announces;
+
   let history = useHistory();
 
   function routeToPrevPost(id, arr) {
     if (arr.indexOf(parseInt(id)) > 0) {
-      history.push(`/board/${arr[arr.indexOf(parseInt(id)) - 1]}`);
+      history.push(`/announce/${arr[arr.indexOf(parseInt(id)) - 1]}`);
     }
   }
 
   function routeToNextPost(id, arr) {
     if (arr.indexOf(parseInt(id)) !== arr.length - 1)
-      history.push(`/board/${arr[arr.indexOf(parseInt(id)) + 1]}`);
+      history.push(`/announce/${arr[arr.indexOf(parseInt(id)) + 1]}`);
   }
 
   const colorArray = [
@@ -110,46 +114,49 @@ function EachPost({ postId }) {
   if (error)
     return (
       <div className="each_post_wrapper" style={style}>
-        존재하지 않는 게시물입니다.
+        학과사무실에서 회원 권한을 확인 중입니다. 권한 승인 뒤 모든 게시물을
+        열람할 수 있습니다.
       </div>
     );
-  if (!eachPost) return null;
-  if (!isLogged && eachPost && eachPost.sidi_only)
+  if (!eachAnnounce) return null;
+  if (!isLogged && eachAnnounce && eachAnnounce.sidi_only)
     return (
       <div className="each_post_wrapper" style={style}>
         시각디자인과 학생에게만 공개된 게시물입니다.
       </div>
     );
 
-  if (isLogged && postList && eachPost && !eachPost.sidi_only) {
+  if (isLogged && announceList && eachAnnounce && !eachAnnounce.sidi_only) {
     let pkArray = [];
 
-    postList.map((post) => {
+    announceList.map((post) => {
       pkArray.push(post.pk);
     });
     console.log(pkArray);
+
     return (
       <div className="each_post_wrapper" style={style}>
         <div className="each_post">
           <div className="each_post_tag">
-            {setCategoryNumber(eachPost.category)}
+            {setCategoryNumber(eachAnnounce.category)}
           </div>
-          <h1>{eachPost.title}</h1>
+          <h1>{eachAnnounce.title}</h1>
           <hr style={{ marginBottom: 1 + "em" }}></hr>
           <div className="each_post_info">
-            <span>작성자 {eachPost.author}</span>
-            <span>작성일 {eachPost.updated.slice(0, 10)}</span>
+            <span>작성자 {eachAnnounce.author}</span>
+            <span>작성일 {eachAnnounce.updated.slice(0, 10)}</span>
           </div>
           <hr></hr>
           <div className="each_post_files">
             <span className="attached_file">
-              첨부파일 {eachPost.files[0] ? eachPost.files[0].name : "없음"}
+              첨부파일{" "}
+              {eachAnnounce.files[0] ? eachAnnounce.files[0].name : "없음"}
             </span>
-            {eachPost.files.length ? (
+            {eachAnnounce.files.length ? (
               <a
-                href={eachPost.files[0].files}
+                href={eachAnnounce.files[0].files}
                 target="_blank"
-                download={eachPost.files[0].files}
+                download={eachAnnounce.files[0].files}
                 rel="noopener noreferrer"
               >
                 <button className="download_button">다운로드</button>
@@ -158,7 +165,7 @@ function EachPost({ postId }) {
           </div>
           <hr style={{ marginBottom: 2 + "em" }}></hr>
           <p>
-            {eachPost.text.split("\n").map((line) => {
+            {eachAnnounce.text.split("\n").map((line) => {
               return (
                 <span>
                   {line}
@@ -167,8 +174,8 @@ function EachPost({ postId }) {
               );
             })}
           </p>
-          {eachPost.photos.length
-            ? eachPost.photos.map((photo) => {
+          {eachAnnounce.photos.length
+            ? eachAnnounce.photos.map((photo) => {
                 return (
                   <div>
                     <img
@@ -184,23 +191,23 @@ function EachPost({ postId }) {
                 );
               })
             : null}
-          {eachPost.link.length ? (
+          {eachAnnounce.link.length ? (
             <>
               <hr style={{ marginBottom: 1 + "em", marginTop: 1 + "em" }}></hr>
               <a
-                href={eachPost.link}
+                href={eachAnnounce.link}
                 target="_blank"
                 rel="noopener noreferrer"
                 alt="링크"
                 className="attached_link"
               >
-                링크 {eachPost.link.slice(0, 30)}...
+                링크 {eachAnnounce.link.slice(0, 30)}...
               </a>
             </>
           ) : null}
           <hr style={{ marginBottom: 1 + "em", marginTop: 1 + "em" }}></hr>
           <CommentList
-            comments={eachPost.comments}
+            comments={eachAnnounce.comments}
             style={style}
             postId={postId}
           ></CommentList>
@@ -229,10 +236,10 @@ function EachPost({ postId }) {
     );
   }
 
-  if (postList && eachPost) {
+  if (announceList && eachAnnounce) {
     let pkArray = [];
 
-    postList.map((post) => {
+    announceList.map((post) => {
       pkArray.push(post.pk);
     });
     console.log(pkArray);
@@ -241,24 +248,25 @@ function EachPost({ postId }) {
       <div className="each_post_wrapper" style={style}>
         <div className="each_post">
           <div className="each_post_tag">
-            {setCategoryNumber(eachPost.category)}
+            {setCategoryNumber(eachAnnounce.category)}
           </div>
-          <h1>{eachPost.title}</h1>
+          <h1>{eachAnnounce.title}</h1>
           <hr style={{ marginBottom: 1 + "em" }}></hr>
           <div className="each_post_info">
-            <span>작성자 {eachPost.author}</span>
-            <span>작성일 {eachPost.updated.slice(0, 10)}</span>
+            <span>작성자 {eachAnnounce.author}</span>
+            <span>작성일 {eachAnnounce.updated.slice(0, 10)}</span>
           </div>
           <hr></hr>
           <div className="each_post_files">
             <span className="attached_file">
-              첨부파일 {eachPost.files[0] ? eachPost.files[0].name : "없음"}
+              첨부파일{" "}
+              {eachAnnounce.files[0] ? eachAnnounce.files[0].name : "없음"}
             </span>
-            {eachPost.files.length ? (
+            {eachAnnounce.files.length ? (
               <a
-                href={eachPost.files[0].files}
+                href={eachAnnounce.files[0].files}
                 target="_blank"
-                download={eachPost.files[0].files}
+                download={eachAnnounce.files[0].files}
                 rel="noopener noreferrer"
               >
                 <button className="download_button">다운로드</button>
@@ -267,7 +275,7 @@ function EachPost({ postId }) {
           </div>
           <hr style={{ marginBottom: 2 + "em" }}></hr>
           <p>
-            {eachPost.text.split("\n").map((line) => {
+            {eachAnnounce.text.split("\n").map((line) => {
               return (
                 <span>
                   {line}
@@ -276,8 +284,8 @@ function EachPost({ postId }) {
               );
             })}
           </p>
-          {eachPost.photos.length
-            ? eachPost.photos.map((photo) => {
+          {eachAnnounce.photos.length
+            ? eachAnnounce.photos.map((photo) => {
                 return (
                   <div>
                     <img
@@ -293,23 +301,23 @@ function EachPost({ postId }) {
                 );
               })
             : null}
-          {eachPost.link.length ? (
+          {eachAnnounce.link.length ? (
             <>
               <hr style={{ marginBottom: 1 + "em", marginTop: 1 + "em" }}></hr>
               <a
-                href={eachPost.link}
+                href={eachAnnounce.link}
                 target="_blank"
                 rel="noopener noreferrer"
                 alt="링크"
                 className="attached_link"
               >
-                링크 {eachPost.link.slice(0, 30)}...
+                링크 {eachAnnounce.link.slice(0, 30)}...
               </a>
             </>
           ) : null}
           <hr style={{ marginBottom: 1 + "em", marginTop: 1 + "em" }}></hr>
           <CommentList
-            comments={eachPost.comments}
+            comments={eachAnnounce.comments}
             style={style}
             postId={postId}
           ></CommentList>
@@ -340,4 +348,4 @@ function EachPost({ postId }) {
   return null;
 }
 
-export default EachPost;
+export default EachAnnounce;
