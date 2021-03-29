@@ -62,7 +62,7 @@ class Comment(Timestamp):
 class Post(Timestamp):
     author = models.ForeignKey(to=settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     title = models.CharField(max_length=255, blank=False, default="")
-    created_at = models.DateTimeField()
+    created_at = models.DateTimeField(auto_now_add=False)
     updated_at = models.DateTimeField(auto_now=True)
     text = models.TextField()
     link = models.URLField(default="", blank=True)
