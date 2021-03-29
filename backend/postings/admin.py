@@ -18,8 +18,8 @@ class PostAdmin(admin.ModelAdmin):
                 'link',
                 'sidi_only'
                 'category',
-                'created',
-                'updated',
+                'created_at',
+                'updated_at',
                 'photos',
                 'comments',
                 'files',
