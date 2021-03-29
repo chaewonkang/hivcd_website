@@ -38,13 +38,10 @@ class PostAdmin(admin.ModelAdmin):
                 'sidi_only',
                 'category',
                 'created_at',
-                # 'photos',
-                # 'comments',
-                # 'files',
+                'updated_at',
             ),
         }),
     )
-    exclude = ('created', 'updated', 'updated_at')
-    # readonly_fields = ['updated']
+    exclude = ('updated_at')
 
 

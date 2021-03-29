@@ -59,7 +59,7 @@ class Comment(Timestamp):
         return self.text
 
 
-class Post(Timestamp):
+class Post(models.Model):
     author = models.ForeignKey(to=settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     title = models.CharField(max_length=255, blank=False, default="")
     created_at = models.DateTimeField(auto_now_add=False)
