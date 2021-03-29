@@ -36,7 +36,9 @@ class UserManager(BaseUserManager):
 class Account(AbstractBaseUser):
     suser_id = models.CharField(max_length=255, blank=False, default="", unique=True)
     is_sidi = models.BooleanField(default=False)
-
+    is_staff = models.BooleanField(default=False)
+    is_superuser = models.BooleanField(default=False)
+    
     USERNAME_FIELD = "suser_id"
 
     objects = UserManager()
