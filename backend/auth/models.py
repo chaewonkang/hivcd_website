@@ -8,4 +8,4 @@ class Account(AbstractBaseUser):
 
     USERNAME_FIELD = "suser_id"
 
-    objects = BaseUserManager
+    objects = BaseUserManager()
