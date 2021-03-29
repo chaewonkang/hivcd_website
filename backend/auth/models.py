@@ -5,7 +5,7 @@ from django.contrib.auth.models import AbstractBaseUser, BaseUserManager, UserMa
 class UserManager(BaseUserManager):
     use_in_migrations = True
 
-    def _create_user(self, username, email=None, password, **extra_fields):
+    def _create_user(self, username, email=None, password=None, **extra_fields):
         """
         Create and save a user with the given username, email, and password.
         """
@@ -22,9 +22,9 @@ class UserManager(BaseUserManager):
         extra_fields.setdefault('is_superuser', False)
         return self._create_user(username, password, **extra_fields)
 
-    def create_superuser(self, username, email=None, password=None, **extra_fields):
+    def create_superuser(self, suser_id, password=None, **extra_fields):
         user = self.model(
-            suser_id=username,
+            suser_id=suser_id,
         )
         user.set_password(password)
         user.is_staff = True
