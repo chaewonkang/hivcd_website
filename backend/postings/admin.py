@@ -38,9 +38,9 @@ class PostAdmin(admin.ModelAdmin):
                 'sidi_only',
                 'category',
                 'created_at',
-                'photos',
-                'comments',
-                'files',
+                # 'photos',
+                # 'comments',
+                # 'files',
             ),
         }),
     )
