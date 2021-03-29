@@ -1,6 +1,7 @@
 from django.db import models
 from django.conf import settings
 from django.core.cache import cache
+from django.utils import timezone
 
 
 class Timestamp(models.Model):
@@ -61,7 +62,7 @@ class Comment(Timestamp):
 class Post(Timestamp):
     author = models.ForeignKey(to=settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     title = models.CharField(max_length=255, blank=False, default="")
-    created_at = models.DateTimeField(auto_now_add=True)
+    created_at = models.DateTimeField(auto_now_add=False)
     updated_at = models.DateTimeField(auto_now=True)
     text = models.TextField()
     link = models.URLField(default="", blank=True)
@@ -87,11 +88,10 @@ class Post(Timestamp):
         ordering = ["-pk", "-updated", "-created", "title"]
 
     def save(self, *args, **kwargs):
-        cache.delete("posts")
+        self.created_at = timezone.now()
         super().save(*args, **kwargs)
 
     def delete(self, *args, **kwargs):
-        cache.delete("posts")
         super().delete(*args, **kwargs)
 
     def __str__(self):
