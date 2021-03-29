@@ -23,9 +23,9 @@ class PostAdmin(admin.ModelAdmin):
     )
 
     inlines = [
-        'PhotoInline',
-        'CommentInline',
-        'FileInline',
+        PhotoInline,
+        CommentInline,
+        FileInline,
     ]
 
     fieldsets = (
