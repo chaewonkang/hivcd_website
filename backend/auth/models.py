@@ -1,5 +1,5 @@
 from django.db import models
-from django.contrib.auth.models import AbstractBaseUser, BaseUserManager
+from django.contrib.auth.models import AbstractBaseUser, BaseUserManager, UserManager
 
 
 class UserManager(BaseUserManager):
@@ -9,7 +9,7 @@ class UserManager(BaseUserManager):
         """
         Create and save a user with the given username, email, and password.
         """
-        if not suser_id:
+        if not username:
             raise ValueError('The given username must be set')
         username = self.model.normalize_username(username)
         user = self.model(username=username, **extra_fields)
@@ -39,6 +39,5 @@ class Account(AbstractBaseUser):
     is_sidi = models.BooleanField(default=False)
 
     USERNAME_FIELD = "suser_id"
-    REQUIRED_FIELS = ['suser_id']
 
     objects = UserManager()
