@@ -16,7 +16,7 @@ class PostAdmin(admin.ModelAdmin):
                 'title',
                 'text',
                 'link',
-                'sidi_only'
+                'sidi_only',
                 'category',
                 'created_at',
                 'photos',
