@@ -27,6 +27,7 @@ class PostAdmin(admin.ModelAdmin):
         }),
     )
 
+    readonly_fields = ['updated']
 
 
 admin.site.register(Photo)
