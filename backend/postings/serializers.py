@@ -53,8 +53,8 @@ class PostSerializer(serializers.ModelSerializer):
             "photos",
             "files",
             "comments",
-            "created",
-            "updated",
+            "created_at",
+            "updated_at",
             "link",
             "sidi_only",
         ]
