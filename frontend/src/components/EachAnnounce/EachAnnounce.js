@@ -144,7 +144,7 @@ function EachAnnounce({ postId }) {
           <hr style={{ marginBottom: 1 + "em" }}></hr>
           <div className="each_post_info">
             <span>작성자 {eachAnnounce.author}</span>
-            <span>작성일 {eachAnnounce.updated.slice(0, 10)}</span>
+            <span>작성일 {eachAnnounce.created_at.slice(0, 10)}</span>
           </div>
           <hr></hr>
           <div className="each_post_files">
@@ -254,7 +254,7 @@ function EachAnnounce({ postId }) {
           <hr style={{ marginBottom: 1 + "em" }}></hr>
           <div className="each_post_info">
             <span>작성자 {eachAnnounce.author}</span>
-            <span>작성일 {eachAnnounce.updated.slice(0, 10)}</span>
+            <span>작성일 {eachAnnounce.created_at.slice(0, 10)}</span>
           </div>
           <hr></hr>
           <div className="each_post_files">

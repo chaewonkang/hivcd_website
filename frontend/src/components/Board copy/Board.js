@@ -1,29 +1,23 @@
 import React, { useState } from "react";
 import { Post, BoardPostWrapper } from "..";
 import axios from "axios";
-import "./Announce.css";
+import "./Board.css";
 import getCookie from "../../utils/getCookie";
 import useAsync from "../../utils/useAsync";
 import logogif from "../../img/logogif.gif";
 
 async function getPosts(token) {
   const response = await axios.get(
-    "https://sidi.hongik.ac.kr/api/v1/postings/announce"
+    "https://sidi.hongik.ac.kr/api/v1/postings/board"
   );
   return response.data;
 }
 
-function Announce() {
+function Board() {
   const [boardFilter, setBoardFilter] = useState(0);
   const [token] = useState(getCookie("csrftoken"));
   const [state] = useAsync(() => getPosts(token), [token]);
   const { loading, data: posts, error } = state;
-  const [options, setOptions] = useState({
-    all: "전체보기",
-    life: "학과생활",
-    information: "학사정보",
-    statues: "학사내규",
-  });
 
   if (loading)
     return (
@@ -47,74 +41,32 @@ function Announce() {
             tabIndex="0"
             className="board_filter_option"
             onClick={() => setBoardFilter(0)}
-            onMouseOver={() =>
-              setOptions({
-                ...options,
-                all: "All",
-              })
-            }
-            onMouseLeave={() =>
-              setOptions({
-                ...options,
-                all: "전체보기",
-              })
-            }
           >
-            {options.all}
+            전체보기
           </button>
           <button
             className="board_filter_option"
-            onClick={() => setBoardFilter(9)}
-            onMouseOver={() =>
-              setOptions({
-                ...options,
-                life: "Life",
-              })
-            }
-            onMouseLeave={() =>
-              setOptions({
-                ...options,
-                life: "학과 생활",
-              })
-            }
+            onClick={() => setBoardFilter(1)}
           >
-            {options.life}
+            학과 공지
           </button>
           <button
             className="board_filter_option"
-            onClick={() => setBoardFilter(10)}
-            onMouseOver={() =>
-              setOptions({
-                ...options,
-                information: "Information",
-              })
-            }
-            onMouseLeave={() =>
-              setOptions({
-                ...options,
-                information: "학사 정보",
-              })
-            }
+            onClick={() => setBoardFilter(2)}
           >
-            {options.information}
+            행사/홍보
           </button>
           <button
             className="board_filter_option"
-            onClick={() => setBoardFilter(11)}
-            onMouseOver={() =>
-              setOptions({
-                ...options,
-                statues: "Statues",
-              })
-            }
-            onMouseLeave={() =>
-              setOptions({
-                ...options,
-                statues: "학사 정보",
-              })
-            }
+            onClick={() => setBoardFilter(3)}
           >
-            {options.statues}
+            구인구직
+          </button>
+          <button
+            className="board_filter_option"
+            onClick={() => setBoardFilter(4)}
+          >
+            소모임
           </button>
         </div>
       </div>
@@ -141,4 +93,4 @@ function Announce() {
   );
 }
 
-export default Announce;
+export default Board;

@@ -203,7 +203,7 @@ function ContentContainer() {
                       <Post
                         key={post.pk}
                         title={post.title}
-                        date={post.updated}
+                        date={post.created_at}
                         category={post.category}
                         id={post.pk}
                       ></Post>
@@ -212,7 +212,7 @@ function ContentContainer() {
                     <Post
                       key={post.pk}
                       title={post.title}
-                      date={post.updated}
+                      date={post.created_at}
                       category={post.category}
                       id={post.pk}
                     ></Post>
