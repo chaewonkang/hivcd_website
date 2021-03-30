@@ -46,7 +46,7 @@ function BoardListWrapper({ list, postId, curLoc }) {
                       <div className="board_list_title">{el.title}</div>
                       <div className="acenter">
                         {" "}
-                        {el.created_at_at.slice(2, 10)}{" "}
+                        {el.created_at.slice(2, 10)}{" "}
                       </div>
                     </div>
                   </React.Fragment>
