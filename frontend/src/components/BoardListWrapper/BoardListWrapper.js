@@ -44,7 +44,10 @@ function BoardListWrapper({ list, postId, curLoc }) {
                         <span>{categoryName}</span>
                       </div>
                       <div className="board_list_title">{el.title}</div>
-                      <div className="acenter"> {el.updated.slice(2, 10)} </div>
+                      <div className="acenter">
+                        {" "}
+                        {el.created_at_at.slice(2, 10)}{" "}
+                      </div>
                     </div>
                   </React.Fragment>
                 );
@@ -67,7 +70,10 @@ function BoardListWrapper({ list, postId, curLoc }) {
                         <span>{categoryName}</span>
                       </div>
                       <div className="board_list_title">{el.title}</div>
-                      <div className="acenter"> {el.updated.slice(2, 10)} </div>
+                      <div className="acenter">
+                        {" "}
+                        {el.created_at.slice(2, 10)}{" "}
+                      </div>
                     </div>
                   </React.Fragment>
                 );
@@ -90,7 +96,10 @@ function BoardListWrapper({ list, postId, curLoc }) {
                         <span>{categoryName}</span>
                       </div>
                       <div className="board_list_title">{el.title}</div>
-                      <div className="acenter"> {el.updated.slice(2, 10)} </div>
+                      <div className="acenter">
+                        {" "}
+                        {el.created_at.slice(2, 10)}{" "}
+                      </div>
                     </div>
                   </React.Fragment>
                 );

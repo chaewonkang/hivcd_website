@@ -41,7 +41,7 @@ function SearchResultContainer({ searchKeyword }) {
                   key={data.pk}
                   title={data.title}
                   id={data.pk}
-                  date={data.updated}
+                  date={data.updated_at}
                   category={data.category}
                 ></Post>
               );

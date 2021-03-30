@@ -152,7 +152,7 @@ function Board() {
                 key={data.pk}
                 title={data.title}
                 id={data.pk}
-                date={data.updated}
+                date={data.created_at}
                 category={data.category}
               ></Post>
             );
