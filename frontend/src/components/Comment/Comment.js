@@ -41,8 +41,8 @@ const Comment = ({ author, body, date, id, postId }) => {
           <div className="comment_container_date">{createdSliced}</div>
           <div
             className="comment_delete_button"
-            onClick={(k = commentKey, p = postId, t = token) =>
-              handleCommentDelete((k = commentKey), (p = postId), (t = token))
+            onClick={(p = postId, k = commentKey, t = token) =>
+              handleCommentDelete((p = postId), (k = commentKey), (t = token))
             }
           >
             ✕
