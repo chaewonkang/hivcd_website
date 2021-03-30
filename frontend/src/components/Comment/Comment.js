@@ -12,7 +12,7 @@ const Comment = ({ author, body, date, id, postId }) => {
     const response = await axios
       .delete(
         `https://sidi.hongik.ac.kr/api/v1/postings/comment/${postId}/`,
-        { comment_id: commentId },
+        { data: { comment_id: commentId } },
         {
           headers: {
             "Content-Type": "application/json",
