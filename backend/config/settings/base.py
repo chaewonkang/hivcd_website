@@ -51,6 +51,7 @@ THIRDPARTY_APPS = [
     "django_seed",
     "storages",
     "cacheops",
+    "drf_nested_routers",
 ]
 
 INSTALLED_APPS = DJANGO_APPS + PROJECT_APPS + THIRDPARTY_APPS
