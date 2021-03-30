@@ -69,11 +69,3 @@ class CommentViewSet(viewsets.GenericViewSet, ListModelMixin,
         serializer.save(author=user)
         return Response(status=status.HTTP_201_CREATED, data=serializer.data)
 
-    def perform_destroy(self, instance, *args, **kwargs):
-        pk = kwargs.pop('comment_id', None)
-        if pk is not None:
-            instance = get_object_or_404(Comment, pk=pk)
-            instance.delete()
-            return Response(status=status.HTTP_204_NO_CONTENT)
-        return Response(status=status.HTTP_404_NOT_FOUND,
-                        data=json.dumps({'detail': 'Can\'t find comment_id'}))
