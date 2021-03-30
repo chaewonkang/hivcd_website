@@ -85,7 +85,7 @@ class Post(models.Model):
     category = models.IntegerField(choices=PostCategory.choices)
 
     class Meta:
-        ordering = ["-created_at", "title"]
+        ordering = ["created_at", "title"]
 
     def save(self, *args, **kwargs):
         super().save(*args, **kwargs)
