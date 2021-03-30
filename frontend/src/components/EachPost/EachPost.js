@@ -138,7 +138,7 @@ function EachPost({ postId }) {
           <hr style={{ marginBottom: 1 + "em" }}></hr>
           <div className="each_post_info">
             <span>작성자 {eachPost.author}</span>
-            <span>작성일 {eachPost.updated_at.slice(0, 10)}</span>
+            <span>작성일 {eachPost.created_at.slice(0, 10)}</span>
           </div>
           <hr></hr>
           <div className="each_post_files">
@@ -236,7 +236,6 @@ function EachPost({ postId }) {
       pkArray.push(post.pk);
     });
     console.log(pkArray);
-
     return (
       <div className="each_post_wrapper" style={style}>
         <div className="each_post">
@@ -247,7 +246,7 @@ function EachPost({ postId }) {
           <hr style={{ marginBottom: 1 + "em" }}></hr>
           <div className="each_post_info">
             <span>작성자 {eachPost.author}</span>
-            <span>작성일 {eachPost.updated_at.slice(0, 10)}</span>
+            <span>작성일 {eachPost.created_at.slice(0, 10)}</span>
           </div>
           <hr></hr>
           <div className="each_post_files">
