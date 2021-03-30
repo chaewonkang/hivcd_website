@@ -13,6 +13,6 @@ router.register(r'exhibition', views.ExhibitionViewSet)
 router.register(r'announce', views.AnnounceViewSet)
 router.register(r'archive', views.ArchiveViewSet)
 
-comment_router = NestedSimpleRouter(router, r'', basename='posting-comments')
-
+comment_router = NestedSimpleRouter(router, r'', lookup='postings')
+comment_router.register(r'comments', views.CommentViewSet, basename='posting-comments')
 urlpatterns = router.urls + comment_router.urls
