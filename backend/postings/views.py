@@ -1,60 +1,71 @@
-import os
-from django.core.cache import cache
-from django.utils.decorators import method_decorator
-from django.views.decorators.cache import cache_page
-from django.views.decorators.vary import vary_on_cookie
-from rest_framework import generics
-from auth.decrypt import decrypt
+import json
+from django.shortcuts import get_object_or_404
+
+from rest_framework import viewsets, status
+from rest_framework.generics import GenericAPIView
+from rest_framework.mixins import (ListModelMixin, CreateModelMixin,
+                                   RetrieveModelMixin, DestroyModelMixin)
+from rest_framework.response import Response
+from rest_framework.viewsets import ViewSetMixin
+
+from api_v1.utils import get_user_id
 from auth.models import Account
-from .permissions import CookiePermission
-from .models import Post, Comment
-from .serializers import PostSerializer, CommentSerializer
+from postings.models import Post, Comment
+from postings.permissions import CookiePermission
+from postings.serializers import PostSerializer, CommentSerializer
 
 
-class PostListCreateAPIView(generics.ListCreateAPIView):
+class PostViewSet(ViewSetMixin, ListModelMixin, GenericAPIView):
     queryset = Post.objects.all()
     serializer_class = PostSerializer
 
-    permission_classes = (CookiePermission,)
 
-    @method_decorator(vary_on_cookie)
-    @method_decorator(cache_page(60 * 60))
-    def dispatch(self, *args, **kwargs):
-        return super(PostListCreateAPIView, self).dispatch(*args, **kwargs)
-
-
-class PostRetrieveAPIView(generics.RetrieveAPIView):
+class BoardViewSet(viewsets.ReadOnlyModelViewSet):
     queryset = Post.objects.all()
     serializer_class = PostSerializer
 
-    permission_classes = (CookiePermission,)
-
-    @method_decorator(vary_on_cookie)
-    @method_decorator(cache_page(60 * 60))
-    def dispatch(self, *args, **kwargs):
-        return super(PostRetrieveAPIView, self).dispatch(*args, **kwargs)
+    def get_queryset(self):
+        return super().get_queryset().filter(category__lte=5)
 
 
-class CommentListCreateAPIView(generics.ListCreateAPIView):
+class ExhibitionViewSet(viewsets.ReadOnlyModelViewSet):
+    queryset = Post.objects.all()
+    serializer_class = PostSerializer
 
-    try:
-        queryset = cache.get("comments")
-    except:
-        queryset = Comment.objects.all()
-        cache.set("comments", queryset)
+    def get_queryset(self):
+        return super().get_queryset().filter(category__range=[6, 8])
+
+
+class AnnounceViewSet(viewsets.ReadOnlyModelViewSet):
+    queryset = Post.objects.all()
+    serializer_class = PostSerializer
+
+    def get_queryset(self):
+        return super().get_queryset().filter(category__range=[9, 11])
+
+
+class ArchiveViewSet(viewsets.ReadOnlyModelViewSet):
+    queryset = Post.objects.all()
+    serializer_class = PostSerializer
+
+    def get_queryset(self):
+        return super().get_queryset().filter(category__exact=12)
+
+
+class CommentViewSet(viewsets.GenericViewSet, ListModelMixin,
+                     CreateModelMixin, RetrieveModelMixin, DestroyModelMixin):
+    queryset = Comment.objects.all()
     serializer_class = CommentSerializer
     permission_classes = (CookiePermission,)
 
-    @method_decorator(vary_on_cookie)
-    @method_decorator(cache_page(60 * 60))
-    def dispatch(self, *args, **kwargs):
-        return super(CommentListCreateAPIView, self).dispatch(*args, **kwargs)
-
-    def get_queryset(self):
-        qs = Comment.objects.filter(post_id=self.kwargs["pk"])
-        return qs
+    def retrieve(self, request, *args, **kwargs):
+        instance = Comment.objects.filter(post_id=kwargs['pk'])
+        serializer = self.get_serializer(instance, many=True)
+        return Response(status=status.HTTP_200_OK, data=serializer.data)
 
     def perform_create(self, serializer):
-        user_id = decrypt(s=self.request.COOKIE["SUSER_ID"], key=os.getenv("AUTH_KEY"))
-        user = Account.objects.get(username=user_id)
-        return serializer.save(author=user)
+        user_id = get_user_id(self.request.COOKIES)
+        user = get_object_or_404(Account, suser_id=user_id)
+        serializer.save(author=user)
+        return Response(status=status.HTTP_201_CREATED, data=serializer.data)
+

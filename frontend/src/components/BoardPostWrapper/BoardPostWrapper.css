@@ -3,7 +3,6 @@
   width: 100%;
   height: 100%;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  grid-template-rows: repeat(6, 200px);
   grid-auto-rows: 200px;
   grid-auto-columns: auto;
   grid-row-gap: 10px;
@@ -32,4 +31,9 @@
 }
 
 @media (max-width: 576px) {
+  .board_post_wrapper {
+    grid-template-rows: auto;
+    grid-auto-rows: auto;
+    margin-top: 10px;
+  }
 }

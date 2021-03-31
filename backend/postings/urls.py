@@ -1,10 +1,18 @@
-from django.urls import path, include
+from django.urls import include, path
+from rest_framework.routers import SimpleRouter
+from rest_framework_nested.routers import NestedSimpleRouter
 from . import views
+
 
 app_name = "postings"
 
-urlpatterns = [
-    path("", views.PostListCreateAPIView.as_view()),
-    path("<int:pk>/", views.PostRetrieveAPIView.as_view()),
-    path("<int:pk>/comments/", views.CommentListCreateAPIView.as_view()),
-]
+router = SimpleRouter()
+router.register(r'', views.PostViewSet)
+router.register(r'board', views.BoardViewSet)
+router.register(r'exhibition', views.ExhibitionViewSet)
+router.register(r'announce', views.AnnounceViewSet)
+router.register(r'archive', views.ArchiveViewSet)
+
+comment_router = NestedSimpleRouter(router, r'', lookup='postings')
+comment_router.register(r'comments', views.CommentViewSet, basename='posting-comments')
+urlpatterns = router.urls + comment_router.urls

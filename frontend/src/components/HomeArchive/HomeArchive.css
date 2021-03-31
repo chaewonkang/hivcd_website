@@ -1,3 +1,23 @@
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes slideIn {
+  0% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
 .archive {
   position: relative;
   background-color: #ffeb00;
@@ -7,6 +27,9 @@
   padding: 10px 10px 10px 10px;
   line-height: 1.7em;
   overflow: auto;
+  word-break: keep-all;
+  animation: 1s ease-out 0s 1 fadeIn;
+  overflow-x: hidden; /* Hide horizontal scrollbar */
 }
 
 .archive h2 {
@@ -26,7 +49,8 @@
   padding: 0.1em 0.75em 0.1em 0.75em;
   text-transform: uppercase;
   font-size: 11px;
-  font-weight: 100;
+  font-weight: 400;
+  z-index: 100;
 }
 
 .archive .archive_content {
@@ -39,6 +63,7 @@
   top: 0;
   padding-right: 0.5em;
   cursor: pointer;
+  color: #000;
 }
 
 .archive .archive_content .archive_content_header a {
@@ -85,6 +110,10 @@
 }
 
 @media only screen and (max-width: 576px) {
+  .archive {
+    animation: 1s ease-out 0s 1 slideIn;
+  }
+
   .archive_content_image {
     display: block;
   }
@@ -99,6 +128,7 @@
 
   .archive .archive_content {
     position: relative;
+    padding-right: 0;
   }
 
   .archive_content_body {

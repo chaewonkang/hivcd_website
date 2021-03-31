@@ -1,6 +1,7 @@
 from django.db import models
 from django.conf import settings
 from django.core.cache import cache
+from django.utils import timezone
 
 
 class Timestamp(models.Model):
@@ -41,9 +42,6 @@ class Comment(Timestamp):
         related_name="comments",
         db_column="author_username",
     )
-    parent = models.ForeignKey(
-        "self", related_name="reply", on_delete=models.CASCADE, null=True, blank=True
-    )
     text = models.TextField()
 
     class Meta:
@@ -61,34 +59,38 @@ class Comment(Timestamp):
         return self.text
 
 
-class Post(Timestamp):
+class Post(models.Model):
     author = models.ForeignKey(to=settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     title = models.CharField(max_length=255, blank=False, default="")
-    created_at = models.DateTimeField(auto_now_add=True)
+    created_at = models.DateTimeField(editable=True)
     updated_at = models.DateTimeField(auto_now=True)
     text = models.TextField()
     link = models.URLField(default="", blank=True)
+    sidi_only = models.BooleanField(default=False)
 
     class PostCategory(models.IntegerChoices):
-        NOTICE = 1
-        EVENT = 2
-        JOB = 3
-        LOSTANDFOUND = 4
-        GW = 5
-        WFF = 6
-        AETC = 7
+        News = 1
+        Notice = 2
+        Promotionandevent = 3
+        Job = 4
+        LostAndFound = 5
+        Gw = 6
+        Wff = 7
+        Aetc = 8
+        Life = 9
+        Informations = 10
+        Statute = 11
+        Archive = 12
 
     category = models.IntegerField(choices=PostCategory.choices)
 
     class Meta:
-        ordering = ["-pk", "-updated", "-created", "title"]
+        ordering = ["-created_at", "title"]
 
     def save(self, *args, **kwargs):
-        cache.delete("posts")
         super().save(*args, **kwargs)
 
     def delete(self, *args, **kwargs):
-        cache.delete("posts")
         super().delete(*args, **kwargs)
 
     def __str__(self):

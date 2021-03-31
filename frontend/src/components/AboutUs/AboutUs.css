@@ -1,6 +1,5 @@
 .aboutus_wrapper {
-  margin: 20px;
-  margin-bottom: 40px;
+  margin: 0px 20px 10px 20px;
   position: relative;
 }
 
@@ -18,53 +17,48 @@
   font-size: 18px;
 }
 
-.aboutus_contact tr {
-  border-bottom: 1px solid black;
-}
-
-.aboutus_contact th {
-  border-bottom: 1px solid black;
-  padding: 10px;
-}
-
-.faculty {
-  font-size: 14px;
-  width: 100%;
-  text-align: left;
-}
-
-.faculty th {
-  border-bottom: 1px solid black;
-  padding: 2px;
-  font-weight: 400;
-}
-
-.subfaculty {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  text-align: left;
-}
-
 .aboutus_contact td {
-  padding: 5px;
-}
-
-.aboutus_content p,
-.credit a {
-  font-size: 18px;
-}
-
-.colophon_table {
-  width: 100%;
-}
-
-.colophon_table tr {
   border-bottom: 1px solid black;
 }
 
-.colophon_table tr th {
+table {
+  margin-bottom: 1em;
+}
+
+#faculty_table td:nth-child(1),
+#club_table td:nth-child(1),
+#club_table td:nth-child(2),
+#faculty_table td:nth-child(3),
+#facility_table td:nth-child(3),
+#facility_table_eng td:nth-child(3),
+#credit_table td:nth-child(1) {
+  width: 40%;
+}
+
+#histody_table tr:nth-child(1),
+#contact_table tr:nth-child(1),
+#faculty_table tr:nth-child(1),
+#club_table tr:nth-child(1),
+#faculty_table tr:nth-child(1),
+#facility_table tr:nth-child(1),
+#facility_table_eng tr:nth-child(1),
+#credit_table tr:nth-child(1),
+#history_table {
+  border-top: 1px solid black;
+}
+
+#facility_table td:nth-child(1),
+#faculty_table td:nth-child(2),
+#facility_table_eng td:nth-child(1),
+#history_table td:nth-child(1),
+#club_table td:nth-child(3),
+#contact_table td:nth-child(1) {
+  width: 20%;
+}
+
+.aboutus_contact td a {
+  color: #000;
   font-weight: 400;
-  padding: 10px 0px 10px 0px;
 }
 
 .aboutus_container {
@@ -76,27 +70,27 @@
 }
 
 .aboutus_item {
-  overflow: auto;
-}
-
-.aboutus_container .aboutus_item {
   border: 2px solid #000000;
   position: relative;
   padding: 1.5rem;
   width: 100%;
-  height: 100%;
+  overflow: auto;
+  width: 100%;
+  display: inline-grid;
 }
 
 .aboutus_item p {
   font-size: 2rem;
-  margin-top: 20px;
 }
 
-.aboutus_item .aboutus_item_tag {
+.aboutus_item_tag {
+  display: inline-grid;
+  grid-template-columns: 20% 1fr;
+}
+
+.aboutus_item .aboutus_item_tag span {
   font-family: "Helvetica";
-  font-size: 22px;
-  text-align: center;
-  text-transform: uppercase;
+  font-size: 18px;
 }
 
 .aboutus_item .aboutus_content {
@@ -112,10 +106,6 @@
 .aboutus_content_contact {
   display: block;
   border-bottom: 1px solid black;
-}
-
-.aboutus_content_contact p {
-  display: inline;
 }
 
 #history {
@@ -148,10 +138,6 @@
   border: 2px solid #78a4b7;
 }
 
-.aboutus_contact_mobile {
-  display: none;
-}
-
 @media (min-width: 1440px) and (max-width: 1920px) {
 }
 
@@ -173,11 +159,11 @@
 /********** Small devices only **********/
 @media (min-width: 768px) and (max-width: 991px) {
   .aboutus_wrapper {
-    margin-top: 60px;
+    margin-top: 0px;
   }
   .aboutus_container {
     grid-template-columns: 1fr;
-    grid-template-rows: repeat(4, 450px);
+    grid-template-rows: repeat(6, 33vh);
     column-gap: 20px;
     row-gap: 20px;
   }
@@ -186,56 +172,50 @@
 /********** Extra small devices only **********/
 @media (min-width: 577px) and (max-width: 767px) {
   .aboutus_wrapper {
-    margin-top: 70px;
+    margin-top: 10px;
+    margin-right: 10px;
+    margin-left: 10px;
+    margin-bottom: 10px;
   }
   .aboutus_container {
     grid-template-columns: 1fr;
-    grid-template-rows: repeat(4, 450px);
+    grid-template-rows: repeat(6, 25vh);
     column-gap: 20px;
     row-gap: 20px;
   }
 }
 
 @media (max-width: 576px) {
-  .aboutus_wrapper {
-    margin-top: 70px;
-  }
-  .aboutus_container {
-    grid-template-columns: 1fr;
-    grid-template-rows: repeat(4, 450px);
-    column-gap: 20px;
-    row-gap: 20px;
-  }
-  .aboutus_item .aboutus_content {
-    font-size: 15px;
-    display: block;
+  .aboutus_item .aboutus_item_tag span {
+    font-family: "Helvetica";
+    font-size: 10px;
   }
 
-  .aboutus_contact {
-    display: none;
+  .aboutus_wrapper {
+    margin-top: 50px;
+    margin-right: 10px;
+    margin-left: 10px;
+    margin-bottom: 10px;
+  }
+
+  .aboutus_container {
+    grid-template-columns: 1fr;
+    column-gap: 10px;
+    row-gap: 10px;
+  }
+
+  .aboutus_item .aboutus_content {
+    font-size: 10px;
+    line-height: 2.5em;
+    margin-top: 0;
   }
 
   .aboutus_container .aboutus_item {
-    padding: 1rem;
+    padding: 0.5rem;
   }
 
-  .aboutus_contact_mobile {
-    display: block;
-    font-size: 12px;
-  }
-
-  table.aboutus_contact_mobile {
-    width: 100%;
-  }
-
-  .aboutus_contact_mobile {
-    width: 100%;
-  }
-
-  .aboutus_contact_mobile td {
-    padding-top: 5px;
-    padding-bottom: 5px;
-    width: 100%;
-    border-bottom: 1px solid black;
+  .aboutus_item .aboutus_item_tag {
+    padding-bottom: 1em;
+    font-size: 18px;
   }
 }

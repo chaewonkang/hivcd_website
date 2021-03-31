@@ -26,12 +26,25 @@
   display: none;
 }
 
+.comment_container_date_delete {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  text-align: right;
+}
+
+.comment_delete_button {
+  cursor: pointer;
+}
+
 /********** Large devices only **********/
 @media (min-width: 1200px) {
 }
 
 /********** Medium devices only **********/
 @media (min-width: 992px) and (max-width: 1199px) {
+  .comment_container {
+    grid-template-columns: 1fr 5fr 1.5fr;
+  }
 }
 
 /********** Small devices only **********/
@@ -44,6 +57,12 @@
 
 /********** Extra Extra small (xxs) devices only **********/
 @media (max-width: 576px) {
+  .comment_contaienr_date_delete {
+    grid-template-columns: 1fr 1fr;
+  }
+  .comment_container_date {
+    text-align: left;
+  }
   .comment_container {
     display: block;
   }

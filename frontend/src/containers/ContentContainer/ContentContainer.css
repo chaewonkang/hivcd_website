@@ -2,7 +2,45 @@
   margin-left: 20px;
   margin-right: 20px;
   position: relative;
-  height: auto;
+  height: 100%;
+}
+
+.welcome_modal {
+  padding: 2rem;
+  font-size: 18px;
+  background-color: #ffeb00;
+  border: 2px solid #ffba00;
+  font-family: "Helvetica", sans-serif;
+}
+
+span.title {
+  font-size: 25px;
+  font-weight: 400;
+}
+
+.paragraph {
+  margin-top: 20px;
+  width: 50vw;
+  word-break: keep-all;
+  line-height: 1.8em;
+}
+
+.container_loading {
+  display: flex;
+  height: calc(100vh - 160px);
+  justify-content: center;
+  align-items: center;
+}
+
+.loading_status {
+  width: 30vw;
+  margin: 0 auto;
+}
+
+.imgRef {
+  display: flex !important;
+  align-self: center !important;
+  justify-self: center !important;
 }
 
 @media (min-width: 1440px) and (max-width: 1920px) {
@@ -19,28 +57,48 @@
 /********** Small devices only **********/
 @media (min-width: 768px) and (max-width: 991px) {
   .contentcontainer {
-    margin-top: 60px;
+    margin-top: 0px;
     margin-left: 20px;
     margin-right: 20px;
-    position: relative;
   }
 }
 
 /********** Extra small devices only **********/
 @media (min-width: 577px) and (max-width: 767px) {
   .contentcontainer {
-    margin-top: 50px;
-    margin-left: 20px;
-    margin-right: 20px;
+    margin-top: 0px;
+    margin-left: 10px;
+    margin-right: 10px;
     position: relative;
   }
 }
 
 @media (max-width: 576px) {
   .contentcontainer {
-    margin-top: 70px;
+    margin-top: 50px;
     margin-left: 10px;
     margin-right: 10px;
     position: relative;
+  }
+
+  .welcome_modal {
+    padding: 1.5rem;
+    font-size: 18px;
+  }
+
+  span.title {
+    font-size: 15px;
+    font-weight: 400;
+  }
+
+  .paragraph {
+    margin-top: 10px;
+    width: 70vw;
+    word-break: keep-all;
+    line-height: 1.5em;
+  }
+
+  .imgRef {
+    display: none !important;
   }
 }

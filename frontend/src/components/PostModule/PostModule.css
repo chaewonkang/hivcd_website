@@ -1,3 +1,23 @@
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes slideIn {
+  0% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
 .post {
   position: relative;
   padding: 8px 10px 10px 10px;
@@ -5,7 +25,8 @@
   width: 100%;
   height: 100%;
   line-height: 1.7em;
-  overflow: auto;
+  word-break: keep-all;
+  animation: 1s ease-out 0s 1 fadeIn;
 }
 
 .post h2 {
@@ -31,7 +52,7 @@
   padding: 0.1em 0.75em 0.1em 0.75em;
   text-transform: uppercase;
   font-size: 11px;
-  font-weight: 100;
+  font-weight: 400;
   z-index: 100;
 }
 
@@ -63,6 +84,10 @@
 }
 
 @media only screen and (max-width: 576px) {
+  .post {
+    animation: 1s ease-out 0s 1 slideIn;
+  }
+
   .post .post_content {
     font-size: 15px;
   }

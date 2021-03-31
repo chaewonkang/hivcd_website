@@ -3,6 +3,7 @@ import axios from "axios";
 import { Post } from "../../components";
 import "./SearchResultContainer.css";
 import getCookie from "../../utils/getCookie";
+import logogif from "../../img/logogif.gif";
 
 function SearchResultContainer({ searchKeyword }) {
   const [postList, setPostList] = useState([]);
@@ -13,7 +14,7 @@ function SearchResultContainer({ searchKeyword }) {
   async function getSearchResult(searchKeyword, token) {
     await axios
       .get(
-        "http://devsidi.hongik.ac.kr/api/v1/postings/",
+        "https://sidi.hongik.ac.kr/api/v1/postings/",
         {},
         {
           headers: {
@@ -32,14 +33,15 @@ function SearchResultContainer({ searchKeyword }) {
               if (searchKeyword === null) return result;
               else if (result.title.toLowerCase().includes(searchKeyword))
                 return result;
+              return null;
             })
             .map((data) => {
               return (
                 <Post
                   key={data.pk}
                   title={data.title}
-                  date={data.updated}
                   id={data.pk}
+                  date={data.created_at}
                   category={data.category}
                 ></Post>
               );
@@ -54,18 +56,26 @@ function SearchResultContainer({ searchKeyword }) {
 
   useEffect(() => {
     getSearchResult(searchKeyword, token);
-    console.log(postList);
   }, [searchKeyword, token]);
 
-  if (loading) return <div>로딩 중...</div>;
-  if (error) return <div>에러 발생...</div>;
+  if (loading)
+    return (
+      <div className="container_loading">
+        <img className="loading_status" src={logogif} alt="logogif"></img>
+      </div>
+    );
+  if (error)
+    return (
+      <div className="container_loading">
+        <img className="loading_status" src={logogif} alt="logogif"></img>
+      </div>
+    );
 
   return (
     <div className="search_result_container">
-      {searchKeyword !== null ? <div>검색어: {searchKeyword}</div> : null}
       <div className="search_result_wrapper">
-        {searchKeyword === "" || searchKeyword === null
-          ? "검색어를 입력하세요."
+        {searchKeyword === "" || searchKeyword === null || !postList
+          ? "정확한 검색어를 입력하세요."
           : postList}
       </div>
     </div>

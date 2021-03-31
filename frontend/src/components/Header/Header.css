@@ -2,42 +2,92 @@ header {
   background-color: #fff5f5;
   padding: 15px 20px;
   width: 100%;
+  text-decoration: none !important;
 }
 
 .header_line {
   display: none;
 }
 
+.header_container {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+}
+
 .header_container_left {
   display: inline-grid;
-  width: calc((100vw - 40px) * 0.3);
+  width: calc((40vw - 20px));
   column-gap: 10px;
 }
 
 .header_container_right {
   display: inline-grid;
-  width: calc((100vw - 40px) * 0.7);
-  grid-template-columns: 6fr 1fr;
-  column-gap: 30px;
-  padding-left: 10px;
+  width: calc((60vw - 20px));
+  grid-template-columns: 1fr auto;
   font-size: 17px;
   text-align: right;
-  position: absolute;
-  right: 0;
 }
 
 .header_container_menubar {
-  margin-right: 20px;
+  position: relative;
+  right: 0;
+  text-decoration: none !important;
 }
 
-.header_container_title h1 {
+.navber_menu_wrapper_item_title a:link {
+  text-decoration: none !important;
+}
+
+.navber_menu_wrapper_item_title a:link:hover:before {
+  text-decoration: none !important;
+}
+
+.header_container_system {
+  display: inline-grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  column-gap: 10px;
+  text-align: center;
+  font-size: 15px;
+  top: 0.5px;
+  position: relative;
+  right: 0;
+}
+
+.header_container_system div {
+  width: auto;
+}
+
+.title {
   font-family: "Helvetica";
   font-weight: 400;
   color: #000;
   font-size: 18px;
+  display: inline-block;
 }
 
-.navbar_menu_wrapper_item_title a {
+#about,
+#news,
+#alumni,
+#show,
+#info,
+#calandar,
+#reservation,
+#archive,
+#about:link,
+#news:link,
+#alumni:link,
+#info:link,
+#show:link,
+#calandar:link,
+#reservation:link,
+#archive:link {
+  display: inline-block;
+  text-decoration: none !important;
+  color: #000;
+}
+
+.link {
+  display: inline-block;
   text-decoration: none !important;
   color: #000;
   position: relative;
@@ -45,36 +95,33 @@ header {
   top: 3px;
 }
 
-.navbar_menu_wrapper_item_title a:active,
-.navbar_menu_wrapper_item_title a:focus,
-.navbar_menu_wrapper_item_title a:hover {
-  border-bottom: 1px solid #000;
+.active {
+  display: inline-block;
+  text-decoration: none !important;
+  border-bottom: 1px solid #000 !important;
   color: #000;
 }
 
-.header_container_system {
-  display: inline-grid;
-  grid-template-columns: 1fr 1fr;
-  column-gap: 10px;
-  text-align: center;
-  font-size: 15px;
-  width: fit-content;
-  position: absolute;
-  right: 0;
-  top: 0.5px;
-  margin-right: 20px;
-}
-
-.header_container_login,
-.header_container_search {
-}
-
 .navbar_menu_wrapper_item_title {
+  display: inline-block;
   font-family: "Helvetica";
+  text-decoration: none !important;
   font-weight: 400;
   color: #000;
   font-size: 18px;
   margin-right: 20px;
+}
+
+.subscription_button {
+  font-family: "Helvetica";
+  font-weight: 400;
+  padding: 0.1em 1em 0.1em 1em;
+  font-size: 15px;
+  border: 1px solid #000;
+}
+
+.navbar_menu_wrapper_item_title:hover {
+  text-decoration: none !important;
 }
 
 .header_container_responsive {
@@ -95,10 +142,9 @@ header {
 /********** Small devices only **********/
 @media (min-width: 768px) and (max-width: 991px) {
   header {
-    position: fixed;
-    z-index: 2000;
-    left: 0;
-    top: 0;
+    background-color: #fff5f5;
+    padding: 15px 10px;
+    width: 100%;
   }
 
   .header_container_responsive {
@@ -109,13 +155,9 @@ header {
     background-color: none;
   }
 
-  .header_container_title {
-    text-align: left;
-  }
-
   .header_container_left {
     display: inline-grid;
-    width: calc(100vw - 40px);
+    width: 90%;
     grid-template-columns: 1fr;
     column-gap: 0;
     z-index: 1000;
@@ -131,10 +173,9 @@ header {
 /********** Extra small devices only **********/
 @media (min-width: 577px) and (max-width: 767px) {
   header {
-    position: fixed;
-    z-index: 2000;
-    left: 0;
-    top: 0;
+    background-color: #fff5f5;
+    padding: 15px 10px;
+    width: 100%;
   }
 
   .header_container_responsive {
@@ -145,13 +186,9 @@ header {
     background-color: none;
   }
 
-  .header_container_title {
-    text-align: center;
-  }
-
   .header_container_left {
     display: inline-grid;
-    width: calc(100vw - 40px);
+    width: 90%;
     grid-template-columns: 1fr;
     column-gap: 0;
     z-index: 1000;
@@ -181,6 +218,8 @@ header {
 
   .header_container_title h1 {
     font-size: 15px;
+    position: relative;
+    top: 3px;
   }
 
   .hamburger_btn {
@@ -196,5 +235,9 @@ header {
   .header_container_search,
   .header_container_right {
     display: none;
+  }
+
+  .title:hover:before {
+    font-size: 15px;
   }
 }

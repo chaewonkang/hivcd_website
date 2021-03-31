@@ -1,34 +1,43 @@
 import React, { useState } from "react";
-import { Post, LogoImage, BoardPostWrapper } from "../../components";
+import { Post, BoardPostWrapper } from "../../components";
 import axios from "axios";
 import "./Board.css";
 import getCookie from "../../utils/getCookie";
 import useAsync from "../../utils/useAsync";
+import logogif from "../../img/logogif.gif";
 
 async function getPosts(token) {
   const response = await axios.get(
-    "http://devsidi.hongik.ac.kr/api/v1/postings/",
-    {},
-    {
-      headers: {
-        Authorization: "Bearer " + localStorage.getItem("access_token"),
-        Accept: "application/json",
-        "X-CSRFToken": token,
-        "Content-type": "application/json",
-      },
-    }
+    "https://sidi.hongik.ac.kr/api/v1/postings/board"
   );
   return response.data;
 }
 
 function Board() {
   const [boardFilter, setBoardFilter] = useState(0);
+  const [options, setOptions] = useState({
+    all: "전체보기",
+    news: "소식",
+    notice: "학과",
+    job: "구인구직",
+    lostandfound: "분실물",
+  });
   const [token] = useState(getCookie("csrftoken"));
   const [state] = useAsync(() => getPosts(token), [token]);
   const { loading, data: posts, error } = state;
 
-  if (error) return <div className="contentcontainer">Error Occurred...</div>;
-  if (loading) return <div className="contentcontainer">Loading...</div>;
+  if (loading)
+    return (
+      <div className="container_loading">
+        <img className="loading_status" src={logogif} alt="logogif"></img>
+      </div>
+    );
+  if (error)
+    return (
+      <div className="container_loading">
+        <img className="loading_status" src={logogif} alt="logogif"></img>
+      </div>
+    );
   if (!posts) return null;
 
   return (
@@ -39,48 +48,103 @@ function Board() {
             tabIndex="0"
             className="board_filter_option"
             onClick={() => setBoardFilter(0)}
+            onMouseOver={() =>
+              setOptions({
+                ...options,
+                all: "All",
+              })
+            }
+            onMouseLeave={() =>
+              setOptions({
+                ...options,
+                all: "전체보기",
+              })
+            }
           >
-            전체보기
+            {options.all}
           </button>
           <button
             className="board_filter_option"
             onClick={() => setBoardFilter(1)}
+            onMouseOver={() =>
+              setOptions({
+                ...options,
+                news: "News",
+              })
+            }
+            onMouseLeave={() =>
+              setOptions({
+                ...options,
+                news: "소식",
+              })
+            }
           >
-            학과 공지
+            {options.news}
           </button>
           <button
             className="board_filter_option"
             onClick={() => setBoardFilter(2)}
+            onMouseOver={() =>
+              setOptions({
+                ...options,
+                notice: "Notice",
+              })
+            }
+            onMouseLeave={() =>
+              setOptions({
+                ...options,
+                notice: "학과",
+              })
+            }
           >
-            행사
+            {options.notice}
           </button>
           <button
             className="board_filter_option"
-            onClick={() => setBoardFilter(3)}
-          >
-            구인구직
-          </button>
-          <button
-            className="board_filter_option"
+            activaClassName="filter_option_active"
             onClick={() => setBoardFilter(4)}
+            onMouseOver={() =>
+              setOptions({
+                ...options,
+                job: "Job",
+              })
+            }
+            onMouseLeave={() =>
+              setOptions({
+                ...options,
+                job: "구인구직",
+              })
+            }
           >
-            분실물
+            {options.job}
+          </button>
+          <button
+            className="board_filter_option"
+            activaClassName="filter_option_active"
+            onClick={() => setBoardFilter(5)}
+            onMouseOver={() =>
+              setOptions({
+                ...options,
+                lostandfound: "Lost and Found",
+              })
+            }
+            onMouseLeave={() =>
+              setOptions({
+                ...options,
+                lostandfound: "분실물",
+              })
+            }
+          >
+            {options.lostandfound}
           </button>
         </div>
       </div>
       <BoardPostWrapper>
-        <LogoImage></LogoImage>
         {posts
-          .filter(
-            (data) =>
-              data.category === 1 ||
-              data.category === 2 ||
-              data.category === 3 ||
-              data.category === 4
-          )
           .filter((data) => {
             if (boardFilter === 0) return data;
             else if (data.category === boardFilter) return data;
+            return null;
           })
           .map((data) => {
             return (
@@ -88,7 +152,7 @@ function Board() {
                 key={data.pk}
                 title={data.title}
                 id={data.pk}
-                date={data.updated}
+                date={data.created_at}
                 category={data.category}
               ></Post>
             );

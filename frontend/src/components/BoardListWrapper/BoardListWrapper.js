@@ -3,7 +3,7 @@ import "./BoardListWrapper.css";
 import { useHistory } from "react-router-dom";
 import { EachPostWrapper } from "../../components";
 
-function BoardListWrapper({ list, postId, handleNavigateClick }) {
+function BoardListWrapper({ list, postId, curLoc }) {
   let history = useHistory();
 
   const [currentPage, setCurrentPage] = useState(1);
@@ -25,16 +25,14 @@ function BoardListWrapper({ list, postId, handleNavigateClick }) {
     <>
       <div className="board_list_container">
         <div>
-          {currentsPosts
+          {curLoc.includes("board")
             ? currentsPosts.map((el, key) => {
                 let categoryName = null;
-                if (el.category === 1) categoryName = "학과 공지";
-                else if (el.category === 2) categoryName = "행사";
-                else if (el.category === 3) categoryName = "구인구직";
-                else if (el.category === 4) categoryName = "분실물";
-                else if (el.category === 5) categoryName = "졸업 주간";
-                else if (el.category === 6) categoryName = "와우영상제";
-                else if (el.category === 7) categoryName = "기타";
+                if (el.category === 1) categoryName = "소식";
+                else if (el.category === 2) categoryName = "학과 공지";
+                else if (el.category === 3) categoryName = "행사/홍보";
+                else if (el.category === 4) categoryName = "구인구직";
+                else if (el.category === 5) categoryName = "소모임";
                 return (
                   <React.Fragment key={key}>
                     <div
@@ -45,10 +43,63 @@ function BoardListWrapper({ list, postId, handleNavigateClick }) {
                       <div className="list_tag">
                         <span>{categoryName}</span>
                       </div>
-                      <div className="board_list_title">
-                        {el.title.slice(0, 40)}...
+                      <div className="board_list_title">{el.title}</div>
+                      <div className="acenter">
+                        {" "}
+                        {el.created_at.slice(2, 10)}{" "}
                       </div>
-                      <div className="acenter"> {el.updated.slice(2, 10)} </div>
+                    </div>
+                  </React.Fragment>
+                );
+              })
+            : null}
+          {curLoc.includes("exhibition")
+            ? currentsPosts.map((el, key) => {
+                let categoryName = null;
+                if (el.category === 6) categoryName = "졸업 주간";
+                else if (el.category === 7) categoryName = "와우영상제";
+                else if (el.category === 8) categoryName = "소모임";
+                return (
+                  <React.Fragment key={key}>
+                    <div
+                      className="list_grid list_data"
+                      key={key}
+                      onClick={() => history.push(`/exhibition/${el.pk}`)}
+                    >
+                      <div className="list_tag">
+                        <span>{categoryName}</span>
+                      </div>
+                      <div className="board_list_title">{el.title}</div>
+                      <div className="acenter">
+                        {" "}
+                        {el.created_at.slice(2, 10)}{" "}
+                      </div>
+                    </div>
+                  </React.Fragment>
+                );
+              })
+            : null}
+          {curLoc.includes("announce")
+            ? currentsPosts.map((el, key) => {
+                let categoryName = null;
+                if (el.category === 9) categoryName = "학과생활";
+                else if (el.category === 10) categoryName = "학사정보";
+                else if (el.category === 11) categoryName = "학사내규";
+                return (
+                  <React.Fragment key={key}>
+                    <div
+                      className="list_grid list_data"
+                      key={key}
+                      onClick={() => history.push(`/announce/${el.pk}`)}
+                    >
+                      <div className="list_tag">
+                        <span>{categoryName}</span>
+                      </div>
+                      <div className="board_list_title">{el.title}</div>
+                      <div className="acenter">
+                        {" "}
+                        {el.created_at.slice(2, 10)}{" "}
+                      </div>
                     </div>
                   </React.Fragment>
                 );
@@ -71,10 +122,7 @@ function BoardListWrapper({ list, postId, handleNavigateClick }) {
           </div>
         </div>
       </div>
-      <EachPostWrapper
-        postId={postId}
-        handleNavigateClick={() => handleNavigateClick()}
-      ></EachPostWrapper>
+      <EachPostWrapper postId={postId} curLoc={curLoc}></EachPostWrapper>
     </>
   );
 }

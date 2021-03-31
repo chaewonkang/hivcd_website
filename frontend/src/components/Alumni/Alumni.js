@@ -1,13 +1,14 @@
 import React, { useState } from "react";
 import "./Alumni.css";
 import axios from "axios";
-import { AlumniModule, AlumniSearch, LogoImage } from "../../components";
+import { AlumniModule, AlumniSearch } from "../../components";
 import useAsync from "../../utils/useAsync";
 import getCookie from "../../utils/getCookie";
+import logogif from "../../img/logogif.gif";
 
 async function getAlumnis(token) {
   const response = await axios.get(
-    "http://devsidi.hongik.ac.kr/api/v1/alumnis/",
+    "https://sidi.hongik.ac.kr/api/v1/alumnis/",
     {},
     {
       headers: {
@@ -32,15 +33,24 @@ function Alumni() {
     setAlumniSearch(keyword);
   };
 
-  if (error) return <div className="alumni_wrapper">Error Occurred</div>;
-  if (loading) return <div className="alumni_wrapper">Loading...</div>;
+  if (loading)
+    return (
+      <div className="container_loading">
+        <img className="loading_status" src={logogif} alt="logogif"></img>
+      </div>
+    );
+  if (error)
+    return (
+      <div className="container_loading">
+        <img className="loading_status" src={logogif} alt="logogif"></img>
+      </div>
+    );
   if (!alumnis) return null;
 
   return (
     <div className="alumni_wrapper">
       <AlumniSearch onChange={(e) => alumniSearchSpace(e)}></AlumniSearch>
       <div className="alumni_container">
-        <LogoImage style={{ gridColumn: 1 / 1, gridRow: 1 / 1 }}></LogoImage>
         {alumnis
           .filter((data) => {
             if (alumniSearch === null) return data;

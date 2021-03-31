@@ -1,7 +1,5 @@
 from .base import *
 
-DEBUG = os.getenv("DEBUG", False)
-
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql",
@@ -12,9 +10,3 @@ DATABASES = {
         "PASSWORD": os.environ.get("DBPASS"),
     }
 }
-
-# SESSION_COOKIE_SECURE = True
-# CSRF_COOKIE_SECURE = True
-# SECURE_SSL_REDIRECT = True
-# SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
-# PREPEND_WWW = True

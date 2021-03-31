@@ -1,5 +1,8 @@
+import os
 from rest_framework.permissions import BasePermission
 from auth.models import Account
+from auth.decrypt import decrypt
+from api_v1.utils import get_user_id
 
 
 class CookiePermission(BasePermission):
@@ -8,7 +11,17 @@ class CookiePermission(BasePermission):
     """
 
     def has_permission(self, request, view):
-        cookies = request.COOKIES
-        user = request.user
+        try:
+            sid = get_user_id(request.COOKIES)
+            try:
+                account = Account.objects.get(suser_id=sid)
+            except:
+                return False
+            return account.is_sidi == True
+        except:
+            is_allowed = request.COOKIES.get('IS_PROFESSOR_OR_WORKER', 'False')
+            if is_allowed == 'True':
+                return True 
+            else:
+                return False
 
-        return Account.objects.get(pk=user.pk).is_sidi == True

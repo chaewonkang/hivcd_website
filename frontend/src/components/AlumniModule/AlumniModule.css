@@ -7,3 +7,14 @@
   font-family: "Helvetica";
   overflow: auto;
 }
+
+.alumni_url {
+  color: #000;
+  cursor: pointer;
+}
+
+@media (max-width: 576px) {
+  .alumni_module_container {
+    font-size: 11px;
+  }
+}

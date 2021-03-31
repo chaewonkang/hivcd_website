@@ -1,71 +1,39 @@
+.footer_wrapper {
+  position: relative;
+  z-index: 1000;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+}
+
 .footer {
   background-color: #fff5f5;
   padding: 15px 20px;
-  bottom: 0;
-  left: 0;
-  position: relative;
-}
-
-.footer_wrapper {
 }
 
 .footer_container {
   display: inline-grid;
   width: 100%;
-  grid-template-columns: repeat(6, 1fr);
+  grid-template-columns: repeat(3, auto);
 }
 
 .footer-item .footer-item-title {
   font-family: "Helvetica";
-  font-size: 16px;
   margin-bottom: 0.5em;
   margin-right: 1em;
 }
 
-.footer-item p {
-  font-family: "Helvetica";
-  font-size: 15px;
+.footer-item {
+  font-family: "Helvetica", sans-serif;
+  font-size: 13px;
   margin-top: 0.3em;
+  padding-right: 1em;
 }
 
-.fa-facebook,
-.fa-instagram,
-.fa-twitter {
-  font-size: 20px;
+.footer-item p a {
   margin-right: 0.75em;
   margin-top: 0.25em;
   color: #000;
-}
-
-#subscription_button {
-  margin-top: 0.3em;
-}
-
-#credit {
-  color: #7c7769;
-}
-
-#credit a {
-  color: #7c7769;
-}
-
-.korean_address {
-  font-family: "Helvetica";
-  font-size: 15px;
-}
-
-.english_address {
-  font-family: "Helvetica";
-  font-size: 15px;
-}
-
-.subscription_button {
-  font-family: "Helvetica";
-  font-weight: 100;
-  padding: 0.1em 0.75em 0.1em 0.75em;
-  font-size: 15px;
-  width: fit-content;
-  border: 1px solid #000;
 }
 
 /********** Large devices only **********/
@@ -74,25 +42,38 @@
 
 /********** Medium devices only **********/
 @media (min-width: 992px) and (max-width: 1199px) {
+  .footer_item {
+    font-size: 13px;
+  }
 }
 
 /********** Small devices only **********/
 @media (min-width: 768px) and (max-width: 991px) {
-  .footer {
-    display: none;
+  .footer_wrapper {
+    height: 0;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .footer_item {
+    font-size: 13px;
   }
 }
 
 /********** Extra small devices only **********/
 @media (min-width: 577px) and (max-width: 767px) {
-  .footer {
-    display: none;
+  .footer_wrapper {
+    height: 0;
+    overflow: hidden;
+    position: relative;
   }
 }
 
 /********** Extra Extra small (xxs) devices only **********/
 @media (max-width: 576px) {
-  .footer {
-    display: none;
+  .footer_wrapper {
+    height: 0;
+    overflow: hidden;
+    position: relative;
   }
 }

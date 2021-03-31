@@ -1,0 +1,166 @@
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes slideIn {
+  0% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.each_exhibition_wrapper {
+  background-color: #ffeb00;
+  border: 2px solid #ffba00;
+  padding: 20px;
+  position: relative;
+  height: 100%;
+  animation: 1s ease-out 0s 1 fadeIn;
+}
+
+.each_exhibition {
+  padding: 1rem;
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+  overflow: auto;
+  height: 100%;
+}
+
+.each_exhibition_tag {
+  top: 20px;
+  background-color: #000;
+  color: #fff;
+  width: fit-content;
+  padding: 0 1em 0 1em;
+  text-transform: uppercase;
+  font-size: 11px;
+}
+
+.each_exhibition h1 {
+  font-size: 30px;
+  font-weight: 400;
+  line-height: 46px;
+  font-family: "Helvetica", sans-serif;
+}
+
+.attached_link {
+  color: #000;
+}
+
+.attached_link:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.each_exhibition p {
+  font-size: 17px;
+  word-break: keep-all;
+  line-height: 27px;
+}
+
+.each_exhibition_info {
+  margin-bottom: 1em;
+}
+
+.attached_file a {
+  color: #000;
+}
+
+.each_exhibition_info span {
+  display: inline;
+  margin-right: 2em;
+  width: fit-content;
+}
+
+.download_button {
+  margin-left: 1em;
+  font-size: 11px;
+  color: #fff;
+  font-weight: 400;
+  padding: 0.3em 0.75em 0.3em 0.75em;
+  text-align: center;
+  width: fit-content;
+  background-color: #000;
+  border-bottom: none;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-radius: 0;
+  border: 1px solid #000;
+  outline: none;
+}
+
+.download_button:focus {
+  outline: none;
+}
+
+/********** Large devices only **********/
+@media (min-width: 1200px) {
+}
+
+/********** Medium devices only **********/
+@media (min-width: 992px) and (max-width: 1199px) {
+  .each_exhibition {
+    padding: 0;
+  }
+}
+
+/********** Small devices only **********/
+@media (min-width: 768px) and (max-width: 991px) {
+  .each_exhibition {
+    padding: 0;
+  }
+}
+
+/********** Extra small devices only **********/
+@media (min-width: 577px) and (max-width: 767px) {
+}
+
+/********** Extra Extra small (xxs) devices only **********/
+@media (max-width: 576px) {
+  .each_exhibition_wrapper {
+    padding: 10px;
+    position: relative;
+    overflow: auto;
+    animation: 1s ease-out 0s 1 slideIn;
+  }
+
+  .each_exhibition_info span {
+    display: block;
+    margin-bottom: 0.5em;
+  }
+
+  .each_exhibition {
+    padding: 0px;
+    padding-top: 10px;
+    margin-top: 0;
+    margin-bottom: 10px;
+    overflow: auto;
+  }
+
+  .each_exhibition_tag {
+    position: relative;
+    top: 0;
+  }
+
+  .each_exhibition h1 {
+    font-size: 25px;
+    margin-top: 10px;
+    word-break: keep-all;
+    line-height: 1.5em;
+  }
+
+  .each_exhibition p {
+    font-size: 16px;
+    line-height: 23px;
+  }
+}
