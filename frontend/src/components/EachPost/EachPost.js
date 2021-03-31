@@ -37,9 +37,6 @@ function EachPost({ postId }) {
   });
 
   const [warningVisibility] = useState(false);
-  const [token] = useState(getCookie("csrftoken"));
-  const [state] = useAsync(() => getEachPost(postId, token), [postId, token]);
-
   const [postState] = useAsync(() => getEachPost(postId), [postId]);
   const [posts] = useAsync(() => getPosts());
   const isLogged = getCookie("SUSER_ID") === null ? false : true;
