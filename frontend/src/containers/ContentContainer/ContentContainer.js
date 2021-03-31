@@ -8,7 +8,7 @@ import getCookie from "../../utils/getCookie";
 
 async function getPosts(token) {
   const response = await axios.get(
-    "http://18.219.73.211/api/v1/postings/",
+    "http://devsidi.hongik.ac.kr/api/v1/postings/",
     {},
     {
       headers: {
@@ -75,7 +75,9 @@ function ContentContainer() {
                   id={post.pk}
                   body={post.text}
                   category={post.category}
-                  thumbnailUrl={post.photos ? post.photos[0].photo : null}
+                  thumbnailUrl={
+                    post.photos.length ? post.photos[0].photo : null
+                  }
                   link={post.link}
                 ></HomeArchive>
               );

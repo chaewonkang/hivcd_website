@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { NavComponent } from "../Navbar/Navbar";
 import "./ResponsiveHeader.css";
 
-const ResponsiveHeader = ({ handleLogout, handleLogin }) => {
+const ResponsiveHeader = ({ handleLogout }) => {
   let [translate, setTranslate] = useState(true);
 
   return (
@@ -22,7 +22,6 @@ const ResponsiveHeader = ({ handleLogout, handleLogin }) => {
           linkClassName="nav-small-link"
           onClick={() => setTranslate(true)} //set translate to true to hide the sidebar list
           handleLogout={handleLogout}
-          handleLogin={handleLogin}
         />
       </div>
     </div>

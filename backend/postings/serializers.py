@@ -13,7 +13,8 @@ class PhotoSerializer(serializers.ModelSerializer):
 
 class CommentSerializer(serializers.ModelSerializer):
     reply = serializers.SerializerMethodField()
-    author = serializers.SlugRelatedField(read_only=True, slug_field="username")
+    author = serializers.SlugRelatedField(read_only=True, slug_field="userid")
+
     class Meta:
         model = Comment
         fields = (
@@ -26,11 +27,11 @@ class CommentSerializer(serializers.ModelSerializer):
             "updated",
             "reply",
         )
-        read_only_field = ['author']
+        read_only_field = ["author"]
 
     def get_reply(self, instance):
         serializer = self.__class__(instance.reply, many=True)
-        serializer.bind('', self)
+        serializer.bind("", self)
         return serializer.data
 
 
@@ -44,7 +45,7 @@ class FileSerializer(serializers.ModelSerializer):
 
 
 class PostSerializer(serializers.ModelSerializer):
-    author = serializers.SlugRelatedField(read_only=True, slug_field="username")
+    author = serializers.SlugRelatedField(read_only=True, slug_field="userid")
     photos = PhotoSerializer(many=True, required=False)
     comments = CommentSerializer(many=True, required=False)
     files = FileSerializer(many=True, required=False)

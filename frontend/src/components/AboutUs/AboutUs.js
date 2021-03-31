@@ -35,37 +35,82 @@ const AboutUs = () => {
         <div className="aboutus_container">
           <div id="history" className="aboutus_item">
             <div className="aboutus_item_tag">
-              <span>역사</span>
+              <span>연혁</span>
             </div>
             <div className="aboutus_content">
-              오늘날 매체의 발달로 시각디자인의 영역은 계속 넓어지고 있다.
-              따라서 시각디자인 전공 교육은 관련 분야와의 폭넓은 교류를 통해
-              새로운 이론을 받아들이고 이에 따른 교육 내용과 방법을 창출하여
-              교육에 반영하고 있다. <br></br>
-              <br></br>1학년 학부 공통 기초 과정에서는 조형 실기 및 이론을
-              가르치며, 2학년에서는 깊이 있는 세부 전공분야 실기 교육, 3-4학년
-              과정에는 광고디자인, 영상디자인, 편집 및 멀티미디어디자인,
-              포장디자인, 일러스트레이션, 사진디자인, 시각환경디자인 등을 학생
-              희망에 따라 분야 별 전공 코스트랙(course track)에 따라 교육하여
-              창의적인 전문 시각디자이너로서 능력을 기르는데 힘쓰고 있다.{" "}
-              <br></br>
-              <br></br>특히 국제적인 디자이너를 길러내기 위해 국내외 이름난
-              전문가 및 교육자 초청 디자인 워크숍을 정기적으로 열고, 해외 디자인
-              행사 학생 참여, 세계의 여러 유수 디자인대학과 학생 및 교수 교류를
-              활발히 하고 있다. 오늘날 매체의 발달로 시각디자인의 영역은 계속
-              넓어지고 있다. 따라서 시각디자인 전공 교육은 관련 분야와의 폭넓은
-              교류를 통해 새로운 이론을 받아들이고 이에 따른 교육 내용과 방법을
-              창출하여 교육에 반영하고 있다. 1학년 학부 공통 기초 과정에서는
-              조형 실기 및 이론을 가르치며, 2학년에서는 깊이 있는 세부 전공분야
-              실기 교육, 3-4학년 과정에는 광고디자인, 영상디자인, 편집 및
-              멀티미디어디자인, 포장디자인, 일러스트레이션, 사진디자인,
-              시각환경디자인 등을 학생 희망에 따라 분야 별 전공 코스트랙(course
-              track)에 따라 교육하여 창의적인 전문 시각디자이너로서 능력을
-              기르는데 힘쓰고 있다. <br></br>
-              <br></br>특히 국제적인 디자이너를 길러내기 위해 국내외 이름난
-              전문가 및 교육자 초청 디자인 워크숍을 정기적으로 열고, 해외 디자인
-              행사 학생 참여, 세계의 여러 유수 디자인대학과 학생 및 교수 교류를
-              활발히 하고 있다.
+              <table className="aboutus_contact">
+                <tr>
+                  <td>1946</td>
+                  <td>홍문대학관 설립</td>
+                </tr>
+                <tr>
+                  <td>1949</td>
+                  <td>홍익대학 설립인가, 미술과 개설</td>
+                </tr>
+                <tr>
+                  <td>1954</td>
+                  <td>미술학부 개설: 건축미술과, 회화과, 조각과</td>
+                </tr>
+                <tr>
+                  <td>1958</td>
+                  <td>공예과 신설</td>
+                </tr>
+                <tr>
+                  <td>1963</td>
+                  <td>공예과 세부 전공 ＞ 도안 전공</td>
+                </tr>
+                <tr>
+                  <td>1965</td>
+                  <td>
+                    미술학부와 공예학부 분리 개설, 공예학부: 공예과, 도안과
+                  </td>
+                </tr>
+                <tr>
+                  <td>1966</td>
+                  <td>공예학부 재편성: 공예과, 도안과, 도안과(2부)</td>
+                </tr>
+                <tr>
+                  <td>1967</td>
+                  <td>공예학부 재편성: 공예과, 공업도안과, 도안과(2부)</td>
+                </tr>
+                <tr>
+                  <td>1968</td>
+                  <td>학과 재편성: 공예과, 공업도안과 → 응용미술과</td>
+                </tr>
+                <tr>
+                  <td>1972</td>
+                  <td>
+                    홍익대학교가 종합대학교로 승격, 미술대학 편성, <br></br>
+                    미술대학 ＞ 공예학부 ＞ 공업도안과
+                  </td>
+                </tr>
+                <tr>
+                  <td>1976</td>
+                  <td>
+                    실험대학 실시, <br></br>미술대학 ＞ 공업도안과 ＞ 산업도안과
+                    <br></br>＞ 공업디자인전공, 산업디자인전공
+                  </td>
+                </tr>
+                <tr>
+                  <td>1982</td>
+                  <td>
+                    학과 재편성: 산업도안과, 도안과 → 산업도안과 <br></br>
+                    (산업도안전공, 산업디자인전공, 공간디자인전공)
+                  </td>
+                </tr>
+                <tr>
+                  <td>1987</td>
+                  <td>산업도안과가 산업디자인과로 학과 명칭 변경</td>
+                </tr>
+                <tr>
+                  <td>1988</td>
+                  <td>산업디자인과가 시각디자인과와 공업디자인과로 분리</td>
+                </tr>
+                <tr>
+                  <td>2006</td>
+                  <td>디자인학부 편성: 시각디자인전공, 산업디자인전공</td>
+                </tr>
+              </table>
             </div>
           </div>
           <div id="faculty" className="aboutus_item">
@@ -77,67 +122,201 @@ const AboutUs = () => {
                 <tr>
                   <th>직위</th>
                   <th>이름</th>
-                  <th>전공</th>
-                  <th>학위</th>
-                  <th>학위취득학교</th>
+                  <th>소속</th>
+                  <th>분야</th>
                 </tr>
                 <tr>
                   <td>교수</td>
-                  <td>이철영</td>
-                  <td>광고커뮤니케이션</td>
-                  <td>커뮤니케이션박사</td>
-                  <td>Univ. of Illinois, Urbana Champaign</td>
+                  <td>김대수</td>
+                  <td>홍익대학교 시각디자인과</td>
+                  <td>사진</td>
+                </tr>
+                <tr>
+                  <td>교수</td>
+                  <td>김현석</td>
+                  <td>홍익대학교 시각디자인과</td>
+                  <td>디지털미디어디자인</td>
+                </tr>
+                <tr>
+                  <td>교수</td>
+                  <td>장동련</td>
+                  <td>홍익대학교 시각디자인과</td>
+                  <td>브랜딩디자인</td>
                 </tr>
                 <tr>
                   <td>부교수</td>
-                  <td>Christopher J.Ro</td>
-                  <td>광고커뮤니케이션</td>
-                  <td>커뮤니케이션박사</td>
-                  <td>Univ. of Illinois, Urbana Champaign</td>
+                  <td>Ro, Chris</td>
+                  <td>홍익대학교 시각디자인과</td>
+                  <td>타이포그래피/그래픽디자인</td>
                 </tr>
                 <tr>
-                  <td>교수</td>
-                  <td>이철영</td>
-                  <td>광고커뮤니케이션</td>
-                  <td>커뮤니케이션박사</td>
-                  <td>홍익대학교</td>
+                  <td>부교수</td>
+                  <td>Griem, Oliver</td>
+                  <td>홍익대학교 시각디자인과</td>
+                  <td>디지털미디어디자인</td>
                 </tr>
                 <tr>
-                  <td>교수</td>
-                  <td>이철영</td>
-                  <td>광고커뮤니케이션</td>
-                  <td>커뮤니케이션박사</td>
-                  <td>홍익대학교</td>
+                  <td>조교수</td>
+                  <td>김예니</td>
+                  <td>홍익대학교 시각디자인과</td>
+                  <td>일러스트레이션</td>
                 </tr>
                 <tr>
-                  <td>교수</td>
-                  <td>이철영</td>
-                  <td>광고커뮤니케이션</td>
-                  <td>커뮤니케이션박사</td>
-                  <td>홍익대학교</td>
+                  <td>조교수</td>
+                  <td>민본</td>
+                  <td>홍익대학교 시각디자인과</td>
+                  <td>타이포그래피/타입디자인</td>
                 </tr>
                 <tr>
-                  <td>교수</td>
-                  <td>이철영</td>
-                  <td>광고커뮤니케이션</td>
-                  <td>커뮤니케이션박사</td>
-                  <td>홍익대학교</td>
+                  <td>조교수</td>
+                  <td>백승우</td>
+                  <td>홍익대학교 시각디자인과</td>
+                  <td>사진</td>
                 </tr>
                 <tr>
-                  <td>교수</td>
-                  <td>이철영</td>
-                  <td>광고커뮤니케이션</td>
-                  <td>커뮤니케이션박사</td>
-                  <td>홍익대학교</td>
+                  <td>조교수</td>
+                  <td>석재원</td>
+                  <td>홍익대학교 시각디자인과</td>
+                  <td>그래픽디자인</td>
                 </tr>
                 <tr>
-                  <td>교수</td>
-                  <td>이철영</td>
-                  <td>광고커뮤니케이션</td>
-                  <td>커뮤니케이션박사</td>
-                  <td>홍익대학교</td>
+                  <td>조교수</td>
+                  <td>안병학</td>
+                  <td>홍익대학교 시각디자인과</td>
+                  <td>타이포그래피</td>
+                </tr>
+                <tr>
+                  <td>조교수</td>
+                  <td>윤재영</td>
+                  <td>홍익대학교 시각디자인과</td>
+                  <td>UX, UI디자인</td>
+                </tr>
+                <tr>
+                  <td>조교수</td>
+                  <td>이연준</td>
+                  <td>홍익대학교 시각디자인과</td>
+                  <td>브랜딩디자인</td>
+                </tr>
+                <tr>
+                  <td>조교수</td>
+                  <td>전재운</td>
+                  <td>홍익대학교 시각디자인과</td>
+                  <td>그래픽디자인</td>
+                </tr>
+                <tr>
+                  <td>조교수</td>
+                  <td>정다희</td>
+                  <td>홍익대학교 시각디자인과</td>
+                  <td>일러스트레이션/애니메이션</td>
+                </tr>
+                <tr>
+                  <td>조교수</td>
+                  <td>허민재</td>
+                  <td>홍익대학교 시각디자인과</td>
+                  <td>그래픽디자인</td>
+                </tr>
+                <tr>
+                  <td>조교수</td>
+                  <td>Cooppoolse, Anneke</td>
+                  <td>홍익대학교 시각디자인과</td>
+                  <td>시각디자인</td>
+                </tr>
+                <tr>
+                  <td>조교수</td>
+                  <td>Lee, Marvin Jin</td>
+                  <td>홍익대학교 시각디자인과</td>
+                  <td>그래픽디자인</td>
+                </tr>
+                <tr>
+                  <td>조교수</td>
+                  <td>Beckett, Stephen J.</td>
+                  <td>홍익대학교 시각디자인과</td>
+                  <td>디자인이론</td>
                 </tr>
               </table>
+              <hr></hr>
+              <div className="subfaculty">
+                <table className="faculty">
+                  <tr>
+                    <th>이름</th>
+                    <th>소속</th>
+                  </tr>
+                  <tr>
+                    <td>김승인</td>
+                    <td>국제디자인전문대학원 교수</td>
+                  </tr>
+                  <tr>
+                    <td>김현선</td>
+                    <td>국제디자인전문대학원 부교수</td>
+                  </tr>
+                  <tr>
+                    <td>성열흥</td>
+                    <td>광고홍보대학원 부교수</td>
+                  </tr>
+                  <tr>
+                    <td>이나미</td>
+                    <td>산업미술대학원 부교수</td>
+                  </tr>
+                  <tr>
+                    <td>구유리</td>
+                    <td>산업미술대학원 조교수</td>
+                  </tr>
+                  <tr>
+                    <td>김보연</td>
+                    <td>국제디자인전문대학원 조교수</td>
+                  </tr>
+                  <tr>
+                    <td>정재희</td>
+                    <td>산업미술대학원 조교수</td>
+                  </tr>
+                  <tr>
+                    <td>Hall, David</td>
+                    <td>국제디자인전문대학원 조교수</td>
+                  </tr>
+                  <tr>
+                    <td>최문경</td>
+                    <td>시각디자인과 겸임교수</td>
+                  </tr>
+                </table>
+                <table className="faculty">
+                  <tr>
+                    <th>이름</th>
+                    <th>소속</th>
+                  </tr>
+                  <tr>
+                    <td>이철영</td>
+                    <td>광고홍보대학원 교수</td>
+                  </tr>
+                  <tr>
+                    <td>박현주</td>
+                    <td>시각디자인과 부교수(산학일체)</td>
+                  </tr>
+                  <tr>
+                    <td>오명열</td>
+                    <td>광고홍보대학원 부교수</td>
+                  </tr>
+                  <tr>
+                    <td>최백</td>
+                    <td>국제디자인전문대학원 부교수</td>
+                  </tr>
+                  <tr>
+                    <td>김거수</td>
+                    <td>산업미술대학원 조교수</td>
+                  </tr>
+                  <tr>
+                    <td>박보람</td>
+                    <td>국제디자인전문대학원 조교수</td>
+                  </tr>
+                  <tr>
+                    <td>한정엽</td>
+                    <td>영상대학원 조교수</td>
+                  </tr>
+                  <tr>
+                    <td>심대기</td>
+                    <td>시각디자인과 겸임교수</td>
+                  </tr>
+                </table>
+              </div>
             </div>
           </div>
           <div id="map" className="aboutus_item">
@@ -176,7 +355,15 @@ const AboutUs = () => {
                 </tr>
                 <tr>
                   <td>홈페이지</td>
-                  <td>https://hongiksidi.com</td>
+                  <td>sidi.hongik.ac.kr </td>
+                  <td></td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>주소</td>
+                  <td>
+                    04066 서울특별시 마포구 와우산로 94<br></br> 홍익대학교 R715
+                  </td>
                   <td></td>
                   <td></td>
                 </tr>
@@ -215,52 +402,126 @@ const AboutUs = () => {
               <span>링크</span>
             </div>
             <div className="aboutus_content">
-              <table className="colophon_table">
+              <table className="aboutus_contact">
                 <tr>
-                  <th>
-                    홍익대학교{" "}
-                    <a href="https://hongiksidi.com">www.hongik.ac.kr</a>
-                  </th>
+                  <td>홍익대학교</td>
+                  <td>
+                    <a
+                      href="https://hongik.ac.kr"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      www.hongik.ac.kr
+                    </a>
+                  </td>
                 </tr>
                 <tr>
-                  <th>
-                    홍익대학교 미술대학{" "}
-                    <a href="https://hongiksidi.com">www.hongik.ac.kr</a>
-                  </th>
+                  <td>홍익대학교 미술대학</td>
+                  <td>
+                    <a
+                      href="https://hongik.ac.kr"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      www.hongik.ac.kr
+                    </a>
+                  </td>
                 </tr>
                 <tr>
-                  <th>
-                    한글꼴연구회{" "}
-                    <a href="https://hongiksidi.com">www.hongik.ac.kr</a>
-                  </th>
+                  <td>홍익대학교 시각디자인과</td>
+                  <td>
+                    <a
+                      href="https://hongik.ac.kr"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      www.hongik.ac.kr
+                    </a>
+                  </td>
                 </tr>
                 <tr>
-                  <th>
-                    그린비 <a href="https://hongiksidi.com">www.hongik.ac.kr</a>
-                  </th>
+                  <td>한글꼴연구회</td>
+                  <td>
+                    <a
+                      href="https://hongik.ac.kr"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      www.hongik.ac.kr
+                    </a>
+                  </td>
                 </tr>
                 <tr>
-                  <th>
-                    드로마픽{" "}
-                    <a href="https://hongiksidi.com">www.hongik.ac.kr</a>
-                  </th>
+                  <td>그린비</td>
+                  <td>
+                    <a
+                      href="https://hongik.ac.kr"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      www.hongik.ac.kr
+                    </a>
+                  </td>
                 </tr>
                 <tr>
-                  <th>
-                    힙스 <a href="https://hongiksidi.com">www.hongik.ac.kr</a>
-                  </th>
+                  <td>드로마픽</td>
+                  <td>
+                    <a
+                      href="https://hongik.ac.kr"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      www.hongik.ac.kr
+                    </a>
+                  </td>
                 </tr>
                 <tr>
-                  <th>
-                    아이레이{" "}
-                    <a href="https://hongiksidi.com">www.hongik.ac.kr</a>
-                  </th>
+                  <td>힙스</td>
+                  <td>
+                    <a
+                      href="https://hongik.ac.kr"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      www.hongik.ac.kr
+                    </a>
+                  </td>
                 </tr>
                 <tr>
-                  <th>
-                    애드레날린{" "}
-                    <a href="https://hongiksidi.com">www.hongik.ac.kr</a>
-                  </th>
+                  <td>아이레이</td>
+                  <td>
+                    <a
+                      href="https://hongik.ac.kr"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      www.hongik.ac.kr
+                    </a>
+                  </td>
+                </tr>
+                <tr>
+                  <td>애드레날린</td>
+                  <td>
+                    <a
+                      href="https://hongik.ac.kr"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      www.hongik.ac.kr
+                    </a>
+                  </td>
+                </tr>
+                <tr>
+                  <td>하이픈</td>
+                  <td>
+                    <a
+                      href="https://hongik.ac.kr"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      www.hongik.ac.kr
+                    </a>
+                  </td>
                 </tr>
               </table>
             </div>
@@ -270,31 +531,31 @@ const AboutUs = () => {
               <span>콜로폰</span>
             </div>
             <div className="aboutus_content">
-              <table className="colophon_table">
+              <table className="aboutus_contact">
                 <tr>
-                  <th>웹사이트 디자인</th>
+                  <td>웹사이트 디자인</td>
                   <td>Yinyang yinyang.company</td>
                 </tr>
                 <tr>
-                  <th>웹사이트 개발</th>
+                  <td>웹사이트 개발</td>
                   <td>
                     강채원 yinyang.company<br></br>김서규 yinyang.company
                   </td>
                 </tr>
                 <tr>
-                  <th>웹사이트 구축 도움</th>
+                  <td>웹사이트 구축 도움</td>
                   <td>심윤서, 나혜린</td>
                 </tr>
                 <tr>
-                  <th>2021년 1월 00일</th>
+                  <td>2021년 1월 00일</td>
                   <td>구축 완료</td>
                 </tr>
                 <tr>
-                  <th>2021년 1월 00일</th>
+                  <td>2021년 1월 00일</td>
                   <td>v1.0 배포</td>
                 </tr>
                 <tr>
-                  <th>2021년 1월 00일</th>
+                  <td>2021년 1월 00일</td>
                   <td>v2.0 배포 - 무슨 무슨 기능 추가</td>
                 </tr>
               </table>

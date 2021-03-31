@@ -43,6 +43,7 @@ const Footer = () => {
                 href="http://eepurl.com/hk_U8n"
                 rel="noopener noreferrer"
                 target="_blank"
+                rel="noopener noreferrer"
                 style={{ color: "#000" }}
               >
                 구독하기
@@ -53,25 +54,43 @@ const Footer = () => {
             <span className="footer-item-title">바로가기</span>
             <p>
               <a
+<<<<<<< HEAD
                 href="https://www.hongik.ac.kr"
                 rel="noopener noreferrer"
                 target="_blank"
+=======
+                href="http://hongik.ac.kr"
+                target="_blank"
+                rel="noopener noreferrer"
+>>>>>>> cc913082961392f5c62b67856b515b940f9fb1e4
                 class="fa fa-facebook"
               >
                 {""}
               </a>
               <a
+<<<<<<< HEAD
                 href="https://www.hongik.ac.kr"
                 rel="noopener noreferrer"
                 target="_blank"
+=======
+                href="http://hongik.ac.kr"
+                target="_blank"
+                rel="noopener noreferrer"
+>>>>>>> cc913082961392f5c62b67856b515b940f9fb1e4
                 class="fa fa-twitter"
               >
                 {""}
               </a>
               <a
+<<<<<<< HEAD
                 href="https://www.hongik.ac.kr"
                 rel="noopener noreferrer"
                 target="_blank"
+=======
+                href="http://hongik.ac.kr"
+                target="_blank"
+                rel="noopener noreferrer"
+>>>>>>> cc913082961392f5c62b67856b515b940f9fb1e4
                 class="fa fa-instagram"
               >
                 {""}

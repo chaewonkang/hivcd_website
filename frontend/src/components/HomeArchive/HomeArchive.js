@@ -16,7 +16,16 @@ const HomeArchive = ({ title, thumbnailUrl, body, category, link }) => {
           <a href={link} target="_blank" rel="noopener noreferrer">
             {title} <br></br>
           </a>
-          <p className="archive_content_body">{body}</p>
+          <p className="archive_content_body">
+            {body.split("\n").map((line) => {
+              return (
+                <span>
+                  {line}
+                  <br />
+                </span>
+              );
+            })}
+          </p>
         </div>
       </div>
       <div

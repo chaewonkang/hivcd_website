@@ -9,7 +9,6 @@ import {
   Board,
   Alumni,
   Archive,
-  SignUp,
   Exhibition,
 } from "./components";
 import "./App.css";
@@ -20,12 +19,14 @@ import {
   EachPostContainer,
   ReservationContainer,
 } from "./containers";
-import axiosInstance from "./utils/axiosApi";
-import "./utils/Animation.css";
+import { useCookies } from "react-cookie";
 
 function App() {
-  const [logged, setLogged] = useState(false);
   const [searchKeyword, setSearchKeyword] = useState("");
+  const [cookies, setCookie, removeCookie] = useCookies([
+    "SUSER_ID",
+    "SUSER_NAME",
+  ]);
 
   const handleSearchKeyword = (keyword) => {
     setSearchKeyword(keyword);
@@ -35,73 +36,26 @@ function App() {
     setSearchKeyword(searchKeyword);
   }, [searchKeyword]);
 
-  const handleLogin = async (data) => {
-    const { email, password } = data;
-    try {
-      const response = await axiosInstance
-        .post("/auth/login/", {
-          email: email,
-          password: password,
-        })
-        .catch(function (error) {
-          if (error.response) {
-            console.log(error.response.data);
-            console.log(error.response.status);
-            console.log(error.response.headers);
-          } else if (error.request) {
-            console.log(error.request);
-          } else {
-            console.log("Error", error.message);
-          }
-          console.log(error.config);
-        });
-
-      axiosInstance.defaults.headers["Authorization"] =
-        "JWT " + response.data.tokens;
-
-      let tokens = response.data.tokens;
-      const evalTokens = eval(`tokens = ${tokens}`);
-
-      localStorage.setItem("access_token", evalTokens.access);
-      localStorage.setItem("refresh_token", evalTokens.refresh);
-      localStorage.setItem("email", response.data.email);
-      localStorage.setItem("username", response.data.username);
-
-      return response.tokens;
-    } catch (error) {
-      throw error;
-    }
-  };
-
-  const handleLogout = async (e) => {
-    try {
-      localStorage.removeItem("access_token");
-      localStorage.removeItem("refresh_token");
-      axiosInstance.defaults.headers["Authorization"] = null;
-      window.location.reload();
-    } catch (e) {
-      console.log(e);
-    }
-  };
-
-  useEffect(() => {
-    if (localStorage.username) {
-      setLogged(true);
-    }
-  });
+  //   const handleLogout = async (e) => {
+  //     try {
+  //       console.log("handleLogout enter");
+  //       removeCookie("SUSER_ID");
+  //       removeCookie("SUSER_NAME");
+  //       document.cookie =
+  //         "SUSER_ID=; domain=.hongik.ac.kr; expires= Wed, 20 Mar 1970 04:54:09 GMT";
+  //       document.cookie =
+  //         "SUSER_NAME=; domain=.hongik.ac.kr; expires= Wed, 20 Mar 1970 04:54:09 GMT";
+  //       console.log("handleLogout out");
+  //     } catch (e) {
+  //       console.log(e);
+  //     }
+  //   };
 
   return (
     <main>
       <Switch>
         <div className="AppBody">
-          <Route path="/auth/registration" component={SignUp}></Route>
-          <Route path="/mobile/signup" component={MobileSignup}></Route>
-          <Header
-            handleSearchKeyword={handleSearchKeyword}
-            handleLogout={handleLogout}
-            handleLogin={handleLogin}
-            isLogged={logged}
-          ></Header>
+          <Header handleSearchKeyword={handleSearchKeyword}></Header>
           <Route exact path="/" component={ContentContainer} />
           <Route exact path="/board" component={Board} />
           <Route path="/board/:postId" component={EachPostContainer}></Route>
