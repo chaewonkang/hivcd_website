@@ -20,7 +20,6 @@ async function handleLogout(token) {
 }
 
 function Login() {
-  const [token] = useState(getCookie("csrftoken"));
   const [loginText, setLoginText] = useState({
     login: "로그인",
     logout: "로그아웃",
