@@ -35,7 +35,17 @@ function EachPost({ postId }) {
     color: null,
     borderColor: null,
   });
+<<<<<<< HEAD
+  const [warningVisibility, setWarningVisibility] = useState(false);
+  const [token, setToken] = useState(getCookie("csrftoken"));
+=======
   const [warningVisibility] = useState(false);
+<<<<<<< HEAD
+  const [token] = useState(getCookie("csrftoken"));
+>>>>>>> cc913082961392f5c62b67856b515b940f9fb1e4
+  const [state] = useAsync(() => getEachPost(postId, token), [postId, token]);
+  const { loading, data: eachPost, error } = state;
+=======
   const [postState] = useAsync(() => getEachPost(postId), [postId]);
   const [posts] = useAsync(() => getPosts());
   const isLogged = getCookie("SUSER_ID") === null ? false : true;
@@ -53,6 +63,7 @@ function EachPost({ postId }) {
     if (arr.indexOf(parseInt(id)) !== arr.length - 1)
       history.push(`/board/${arr[arr.indexOf(parseInt(id)) + 1]}`);
   }
+>>>>>>> 71d51e69ffc0b429b3f76c10aaa8647edb23a3a0
 
   const colorArray = [
     "#A3B3C4",

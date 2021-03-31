@@ -29,7 +29,7 @@ function Exhibition() {
     all: "전체보기",
     gw: "졸업 주간",
     wff: "와우영상제",
-    aetc: "소모임",
+    aetc: "기타",
   });
   const [token] = useState(getCookie("csrftoken"));
   const [state] = useAsync(() => getExhibitionInfo(token), [token]);
@@ -114,13 +114,13 @@ function Exhibition() {
               onMouseOver={() =>
                 setOptions({
                   ...options,
-                  aetc: "Club Exhibition",
+                  aetc: "ETC",
                 })
               }
               onMouseLeave={() =>
                 setOptions({
                   ...options,
-                  aetc: "소모임 전시",
+                  aetc: "기타",
                 })
               }
             >

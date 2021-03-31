@@ -20,9 +20,9 @@ function Announce() {
   const { loading, data: posts, error } = state;
   const [options, setOptions] = useState({
     all: "전체보기",
-    life: "학과생활",
-    information: "학사정보",
-    statues: "학사내규",
+    life: "생활",
+    information: "학사",
+    statues: "내규",
   });
 
   if (loading)
@@ -74,7 +74,7 @@ function Announce() {
             onMouseLeave={() =>
               setOptions({
                 ...options,
-                life: "학과 생활",
+                life: "생활",
               })
             }
           >
@@ -92,7 +92,7 @@ function Announce() {
             onMouseLeave={() =>
               setOptions({
                 ...options,
-                information: "학사 정보",
+                information: "학사",
               })
             }
           >
@@ -110,7 +110,7 @@ function Announce() {
             onMouseLeave={() =>
               setOptions({
                 ...options,
-                statues: "학사 정보",
+                statues: "내규",
               })
             }
           >
