@@ -90,7 +90,7 @@ function Header({ handleLogout, handleSearchKeyword }) {
                 </span>
               </NavLink>
             </span>
-            <span className="navbar_menu_wrapper_item_title">
+            {/* <span className="navbar_menu_wrapper_item_title">
               <NavLink className="link" activeClassName="active" to="/alumni">
                 <span
                   id="alumni"
@@ -104,7 +104,7 @@ function Header({ handleLogout, handleSearchKeyword }) {
                   {menuText.alumni}
                 </span>{" "}
               </NavLink>
-            </span>
+            </span> */}
             <span className="navbar_menu_wrapper_item_title">
               <NavLink className="link" activeClassName="active" to="/archive">
                 <span
@@ -163,7 +163,7 @@ function Header({ handleLogout, handleSearchKeyword }) {
                 <span
                   id="calandar"
                   onMouseOver={() =>
-                    setMenuText({ ...menuText, calandar: "Calandar" })
+                    setMenuText({ ...menuText, calandar: "Calendar" })
                   }
                   onMouseLeave={() =>
                     setMenuText({ ...menuText, calandar: "일정" })
