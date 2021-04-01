@@ -124,7 +124,7 @@ export const NavComponent = ({ onClick }) => {
       <Route path="/board" />
       <Route path="/address" />
       <Route path="/archive" />
-      <Route path="/calandar" />
+      <Route path="/calendar" />
     </>
   );
 };
