@@ -159,7 +159,7 @@ function Header({ handleLogout, handleSearchKeyword }) {
               </NavLink>
             </span>
             <span className="navbar_menu_wrapper_item_title">
-              <NavLink className="link" activeClassName="active" to="/calandar">
+              <NavLink className="link" activeClassName="active" to="/calendar">
                 <span
                   id="calandar"
                   onMouseOver={() =>

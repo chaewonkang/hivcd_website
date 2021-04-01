@@ -54,7 +54,7 @@ export const NavComponent = ({ onClick }) => {
               <Link to="/exhibition">
                 <li onClick={onClick}>전시/행사 Show/Event</li>{" "}
               </Link>
-              <Link to="/calandar">
+              <Link to="/calendar">
                 <li onClick={onClick}>일정 Calendar</li>{" "}
               </Link>
             </ul>
