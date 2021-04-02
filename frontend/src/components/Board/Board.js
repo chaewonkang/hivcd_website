@@ -18,7 +18,7 @@ function Board() {
   const [options, setOptions] = useState({
     all: "전체보기",
     news: "소식",
-    notice: "학과 공지",
+    notice: "학과",
     job: "구인구직",
     lostandfound: "분실물",
   });
@@ -93,7 +93,7 @@ function Board() {
             onMouseLeave={() =>
               setOptions({
                 ...options,
-                notice: "학과 공지",
+                notice: "학과",
               })
             }
           >

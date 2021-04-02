@@ -35,6 +35,7 @@ function EachPost({ postId }) {
     color: null,
     borderColor: null,
   });
+
   const [warningVisibility] = useState(false);
   const [postState] = useAsync(() => getEachPost(postId), [postId]);
   const [posts] = useAsync(() => getPosts());

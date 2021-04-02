@@ -11,8 +11,8 @@ const Comment = ({ author, body, date, id, postId }) => {
   async function handleCommentDelete(postId, commentId, token) {
     const response = await axios
       .delete(
-        `https://sidi.hongik.ac.kr/api/v1/postings/comment/${postId}/`,
-        { data: { comment_id: commentId } },
+        `https://sidi.hongik.ac.kr/api/v1/postings/${postId}/comments/${commentId}/`,
+        {},
         {
           headers: {
             "Content-Type": "application/json",
