@@ -27,21 +27,17 @@ function Login() {
   return (
     <>
       {getCookie("SUSER_ID") !== null ? (
-        <a href="https://sidi.hongik.ac.kr/">
-          <div className="navbar_login_item">
-            <span
-              onMouseOver={() =>
-                setLoginText({ ...loginText, logout: "Logout" })
-              }
-              onMouseLeave={() =>
-                setLoginText({ ...loginText, logout: "로그아웃" })
-              }
-              onClick={() => handleLogout()}
-            >
-              {loginText.logout}
-            </span>
-          </div>
-        </a>
+        <div className="navbar_login_item">
+          <span
+            onMouseOver={() => setLoginText({ ...loginText, logout: "Logout" })}
+            onMouseLeave={() =>
+              setLoginText({ ...loginText, logout: "로그아웃" })
+            }
+            onClick={() => handleLogout()}
+          >
+            {loginText.logout}
+          </span>
+        </div>
       ) : (
         <a href="http://www.hongik.ac.kr/login.do?Refer=https://sidi.hongik.ac.kr/api/v1/auth/login/">
           <div className="navbar_login_item">
