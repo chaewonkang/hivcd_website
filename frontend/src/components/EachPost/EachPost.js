@@ -251,10 +251,7 @@ function EachPost({ postId }) {
               첨부파일 {eachPost.files[0] ? eachPost.files[0].name : "없음"}
             </span>
             {eachPost.files.length ? (
-              <a
-                href={eachPost.files[0].files}
-                download={eachPost.files[0].files}
-              >
+              <a href={eachPost.files[0].files} download>
                 <button className="download_button">다운로드</button>
               </a>
             ) : null}
