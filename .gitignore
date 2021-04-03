@@ -1,8 +1,8 @@
 backend/assets
 backend/uploads
 */.env
-frontend/build
-backend/build
+# frontend/build
+# backend/build
 backend/assets
 venv
 priv/
