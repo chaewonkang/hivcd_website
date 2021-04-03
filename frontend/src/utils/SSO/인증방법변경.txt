@@ -2,11 +2,7 @@
 http://www.hongik.ac.kr/login.do
 
 Refer 에 로그인 후 돌아올 페이지 URL을 적어서 보내면 로그인 후 Refer에 지정된 페이지로 이동
-<<<<<<< HEAD
-://www.hongik.ac.kr/login.do?Refer=
-=======
 http://www.hongik.ac.kr/login.do?Refer=http://devsidi.hongik.ac.kr
->>>>>>> cc913082961392f5c62b67856b515b940f9fb1e4
 
 로그인은 domain(hongik.ac.kr) cookie 를 이용하며
 SUSER_ID
@@ -25,19 +21,11 @@ SUSER_LIMIT - 로그인 시간(unix timestamp) (평문)
 사용자 구분
 
 1    학부생
-<<<<<<< HEAD
-2     대학원생
-3    직원
-4     조교
-5    교수
-6     학과
-=======
 2    대학원생
 3    직원
 4    조교
 5    교수
 6    학과
->>>>>>> cc913082961392f5c62b67856b515b940f9fb1e4
 7    T/A
 8    산업체
 9     고교생
