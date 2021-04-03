@@ -68,4 +68,3 @@ class CommentViewSet(viewsets.GenericViewSet, ListModelMixin,
         user = get_object_or_404(Account, suser_id=user_id)
         serializer.save(author=user)
         return Response(status=status.HTTP_201_CREATED, data=serializer.data)
-
