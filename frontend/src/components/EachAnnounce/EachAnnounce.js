@@ -239,7 +239,6 @@ function EachAnnounce({ postId }) {
     announceList.map((post) => {
       pkArray.push(post.pk);
     });
-    console.log(pkArray);
 
     return (
       <div className="each_post_wrapper" style={style}>

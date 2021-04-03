@@ -233,7 +233,6 @@ function EachPost({ postId }) {
     postList.map((post) => {
       pkArray.push(post.pk);
     });
-    console.log(pkArray);
     return (
       <div className="each_post_wrapper" style={style}>
         <div className="each_post">
