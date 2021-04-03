@@ -183,7 +183,7 @@ function Header({ handleLogout, handleSearchKeyword }) {
             </div>
             <div className="header_container_login">
               <a
-                href="http://eepurl.com/hk_U8n"
+                href="https://eepurl.com/hk_U8n"
                 target="_blank"
                 rel="noopener noreferrer"
               >
