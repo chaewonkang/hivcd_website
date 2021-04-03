@@ -148,9 +148,7 @@ function EachPost({ postId }) {
             {eachPost.files.length ? (
               <a
                 href={eachPost.files[0].files}
-                target="_blank"
                 download={eachPost.files[0].files}
-                rel="noopener noreferrer"
               >
                 <button className="download_button">다운로드</button>
               </a>
@@ -256,9 +254,7 @@ function EachPost({ postId }) {
             {eachPost.files.length ? (
               <a
                 href={eachPost.files[0].files}
-                target="_blank"
                 download={eachPost.files[0].files}
-                rel="noopener noreferrer"
               >
                 <button className="download_button">다운로드</button>
               </a>
