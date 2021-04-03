@@ -148,9 +148,7 @@ function EachPost({ postId }) {
             {eachPost.files.length ? (
               <a
                 href={eachPost.files[0].files}
-                target="_blank"
                 download={eachPost.files[0].files}
-                rel="noopener noreferrer"
               >
                 <button className="download_button">다운로드</button>
               </a>
@@ -235,7 +233,6 @@ function EachPost({ postId }) {
     postList.map((post) => {
       pkArray.push(post.pk);
     });
-    console.log(pkArray);
     return (
       <div className="each_post_wrapper" style={style}>
         <div className="each_post">
@@ -256,9 +253,7 @@ function EachPost({ postId }) {
             {eachPost.files.length ? (
               <a
                 href={eachPost.files[0].files}
-                target="_blank"
                 download={eachPost.files[0].files}
-                rel="noopener noreferrer"
               >
                 <button className="download_button">다운로드</button>
               </a>

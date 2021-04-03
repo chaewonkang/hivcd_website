@@ -154,9 +154,7 @@ function EachAnnounce({ postId }) {
             {eachAnnounce.files.length ? (
               <a
                 href={eachAnnounce.files[0].files}
-                target="_blank"
                 download={eachAnnounce.files[0].files}
-                rel="noopener noreferrer"
               >
                 <button className="download_button">다운로드</button>
               </a>
@@ -241,7 +239,6 @@ function EachAnnounce({ postId }) {
     announceList.map((post) => {
       pkArray.push(post.pk);
     });
-    console.log(pkArray);
 
     return (
       <div className="each_post_wrapper" style={style}>
