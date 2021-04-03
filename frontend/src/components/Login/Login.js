@@ -27,7 +27,7 @@ function Login() {
   return (
     <>
       {getCookie("SUSER_ID") !== null ? (
-        <a href="https://sidi.hongik.ac.kr">
+        <a href="https://sidi.hongik.ac.kr/">
           <div className="navbar_login_item">
             <span
               onMouseOver={() =>
@@ -43,7 +43,7 @@ function Login() {
           </div>
         </a>
       ) : (
-        <a href="https://www.hongik.ac.kr/login.do?Refer=https://sidi.hongik.ac.kr/api/v1/auth/login/">
+        <a href="http://www.hongik.ac.kr/login.do?Refer=https://sidi.hongik.ac.kr/api/v1/auth/login/">
           <div className="navbar_login_item">
             <span
               onMouseOver={() => setLoginText({ ...loginText, login: "Login" })}
