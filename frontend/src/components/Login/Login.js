@@ -4,14 +4,12 @@ import getCookie from "../../utils/getCookie";
 import axios from "axios";
 
 async function handleLogout(token) {
-  const response = await axios.get(
+  const response = await axios.post(
     "https://sidi.hongik.ac.kr/api/v1/auth/logout/",
     {},
     {
       headers: {
-        Authorization: "Bearer " + localStorage.getItem("access_token"),
         Accept: "application/json",
-        "X-CSRFToken": token,
         "Content-type": "application/json",
       },
     }
