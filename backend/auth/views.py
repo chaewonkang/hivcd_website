@@ -30,7 +30,7 @@ def login_view(request):
     return response
 
 
-@api_view(["POST"])
+@api_view(["GET"])
 def logout_view(request):
     logout(request)
     response = HttpResponse(content="success")
