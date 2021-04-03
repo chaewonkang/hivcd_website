@@ -41,6 +41,6 @@ class PostAdmin(admin.ModelAdmin):
             ),
         }),
     )
-    exclude = ('updated_at')
+    exclude = ('updated_at', )
 
 

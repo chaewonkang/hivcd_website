@@ -22,7 +22,6 @@ class Photo(Timestamp):
         format='JPEG',
         options= {'quality': 90 },
     )
-    photo = models.ImageField(blank=True, upload_to="photos/%Y/%m/%d")
     post = models.ForeignKey(
         "Post", related_name="photos", on_delete=models.CASCADE, db_column="post_title"
     )
