@@ -21,7 +21,6 @@ class CookiePermission(BasePermission):
         except:
             is_allowed = request.COOKIES.get('IS_PROFESSOR_OR_WORKER', 'False')
             if is_allowed == 'True':
-                return True 
+                return True
             else:
                 return False
-

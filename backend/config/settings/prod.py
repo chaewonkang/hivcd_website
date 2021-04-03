@@ -10,3 +10,6 @@ DATABASES = {
         "PASSWORD": os.environ.get("DBPASS"),
     }
 }
+
+PREPEND_WWW = False
+SECURE_SSL_REDIRECT = False
