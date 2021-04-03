@@ -51,6 +51,7 @@ THIRDPARTY_APPS = [
     "django_seed",
     "storages",
     "cacheops",
+    "imagekit",
 ]
 
 INSTALLED_APPS = DJANGO_APPS + PROJECT_APPS + THIRDPARTY_APPS
@@ -135,9 +136,9 @@ EMAIL_HOST_PASSWORD = os.environ.get("EMAIL_HOST_PASSWORD")
 # Cors Policy
 CORS_ORIGIN_WHITELIST = [
     "https://sidi.hongik.ac.kr",
-    "https://3.16.38.220",
-    "https://localhost:8000",
-    "https://127.0.0.1:8000",
+    "http://3.16.38.220",
+    "http://localhost:8000",
+    "http://127.0.0.1:8000",
 ]
 
 
