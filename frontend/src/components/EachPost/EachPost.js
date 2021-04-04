@@ -35,6 +35,7 @@ function EachPost({ postId }) {
     color: null,
     borderColor: null,
   });
+
   const [warningVisibility] = useState(false);
   const [postState] = useAsync(() => getEachPost(postId), [postId]);
   const [posts] = useAsync(() => getPosts());
@@ -127,7 +128,6 @@ function EachPost({ postId }) {
     postList.map((post) => {
       pkArray.push(post.pk);
     });
-    console.log(pkArray);
     return (
       <div className="each_post_wrapper" style={style}>
         <div className="each_post">
@@ -146,12 +146,7 @@ function EachPost({ postId }) {
               첨부파일 {eachPost.files[0] ? eachPost.files[0].name : "없음"}
             </span>
             {eachPost.files.length ? (
-              <a
-                href={eachPost.files[0].files}
-                target="_blank"
-                download={eachPost.files[0].files}
-                rel="noopener noreferrer"
-              >
+              <a href={eachPost.files[0].files} download>
                 <button className="download_button">다운로드</button>
               </a>
             ) : null}
@@ -235,7 +230,6 @@ function EachPost({ postId }) {
     postList.map((post) => {
       pkArray.push(post.pk);
     });
-    console.log(pkArray);
     return (
       <div className="each_post_wrapper" style={style}>
         <div className="each_post">
@@ -254,12 +248,7 @@ function EachPost({ postId }) {
               첨부파일 {eachPost.files[0] ? eachPost.files[0].name : "없음"}
             </span>
             {eachPost.files.length ? (
-              <a
-                href={eachPost.files[0].files}
-                target="_blank"
-                download={eachPost.files[0].files}
-                rel="noopener noreferrer"
-              >
+              <a href={eachPost.files[0].files} download>
                 <button className="download_button">다운로드</button>
               </a>
             ) : null}

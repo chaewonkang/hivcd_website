@@ -16,9 +16,9 @@ async function getPosts(token) {
 function Board() {
   const [boardFilter, setBoardFilter] = useState(0);
   const [options, setOptions] = useState({
-    all: "전체보기",
+    all: "전체",
     news: "소식",
-    notice: "학과 공지",
+    notice: "학과",
     job: "구인구직",
     lostandfound: "분실물",
   });
@@ -57,7 +57,7 @@ function Board() {
             onMouseLeave={() =>
               setOptions({
                 ...options,
-                all: "전체보기",
+                all: "전체",
               })
             }
           >
@@ -80,24 +80,6 @@ function Board() {
             }
           >
             {options.news}
-          </button>
-          <button
-            className="board_filter_option"
-            onClick={() => setBoardFilter(2)}
-            onMouseOver={() =>
-              setOptions({
-                ...options,
-                notice: "Notice",
-              })
-            }
-            onMouseLeave={() =>
-              setOptions({
-                ...options,
-                notice: "학과 공지",
-              })
-            }
-          >
-            {options.notice}
           </button>
           <button
             className="board_filter_option"

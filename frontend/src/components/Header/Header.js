@@ -8,14 +8,14 @@ import { Login, Search } from "../../components";
 function Header({ handleLogout, handleSearchKeyword }) {
   const [menuText, setMenuText] = useState({
     about: "소개",
-    news: "소식",
-    info: "안내",
+    news: "공지",
+    info: "정보",
     alumni: "동문",
-    show: "전시",
+    show: "전시/행사",
     calandar: "일정",
     newsletter: "뉴스레터",
     title: "홍익대학교 미술대학 시각디자인과",
-    archive: "아카이브",
+    archive: "기록",
     reservation: "예약",
   });
 
@@ -70,7 +70,7 @@ function Header({ handleLogout, handleSearchKeyword }) {
                   id="news"
                   onMouseOver={() => setMenuText({ ...menuText, news: "News" })}
                   onMouseLeave={() =>
-                    setMenuText({ ...menuText, news: "소식" })
+                    setMenuText({ ...menuText, news: "공지" })
                   }
                 >
                   {menuText.news}
@@ -83,14 +83,14 @@ function Header({ handleLogout, handleSearchKeyword }) {
                   id="info"
                   onMouseOver={() => setMenuText({ ...menuText, info: "Info" })}
                   onMouseLeave={() =>
-                    setMenuText({ ...menuText, info: "안내" })
+                    setMenuText({ ...menuText, info: "정보" })
                   }
                 >
                   {menuText.info}
                 </span>
               </NavLink>
             </span>
-            <span className="navbar_menu_wrapper_item_title">
+            {/* <span className="navbar_menu_wrapper_item_title">
               <NavLink className="link" activeClassName="active" to="/alumni">
                 <span
                   id="alumni"
@@ -104,7 +104,7 @@ function Header({ handleLogout, handleSearchKeyword }) {
                   {menuText.alumni}
                 </span>{" "}
               </NavLink>
-            </span>
+            </span> */}
             <span className="navbar_menu_wrapper_item_title">
               <NavLink className="link" activeClassName="active" to="/archive">
                 <span
@@ -113,7 +113,7 @@ function Header({ handleLogout, handleSearchKeyword }) {
                     setMenuText({ ...menuText, archive: "Archive" })
                   }
                   onMouseLeave={() =>
-                    setMenuText({ ...menuText, archive: "아카이브" })
+                    setMenuText({ ...menuText, archive: "기록" })
                   }
                 >
                   {menuText.archive}
@@ -147,9 +147,11 @@ function Header({ handleLogout, handleSearchKeyword }) {
               >
                 <span
                   id="show"
-                  onMouseOver={() => setMenuText({ ...menuText, show: "Show" })}
+                  onMouseOver={() =>
+                    setMenuText({ ...menuText, show: "Show/Event" })
+                  }
                   onMouseLeave={() =>
-                    setMenuText({ ...menuText, show: "전시" })
+                    setMenuText({ ...menuText, show: "전시/행사" })
                   }
                 >
                   {menuText.show}
@@ -157,11 +159,11 @@ function Header({ handleLogout, handleSearchKeyword }) {
               </NavLink>
             </span>
             <span className="navbar_menu_wrapper_item_title">
-              <NavLink className="link" activeClassName="active" to="/calandar">
+              <NavLink className="link" activeClassName="active" to="/calendar">
                 <span
                   id="calandar"
                   onMouseOver={() =>
-                    setMenuText({ ...menuText, calandar: "Calandar" })
+                    setMenuText({ ...menuText, calandar: "Calendar" })
                   }
                   onMouseLeave={() =>
                     setMenuText({ ...menuText, calandar: "일정" })
@@ -181,7 +183,7 @@ function Header({ handleLogout, handleSearchKeyword }) {
             </div>
             <div className="header_container_login">
               <a
-                href="http://eepurl.com/hk_U8n"
+                href="https://eepurl.com/hk_U8n"
                 target="_blank"
                 rel="noopener noreferrer"
               >

@@ -40,22 +40,22 @@ export const NavComponent = ({ onClick }) => {
                 <li onClick={onClick}>소개 About</li>{" "}
               </Link>
               <Link to="/board">
-                <li onClick={onClick}>소식 News</li>{" "}
+                <li onClick={onClick}>공지 News</li>{" "}
               </Link>
               <Link to="/announce">
-                <li onClick={onClick}>안내 Announce</li>{" "}
+                <li onClick={onClick}>정보 Info</li>{" "}
               </Link>
-              <Link to="/alumni">
+              {/* <Link to="/alumni">
                 <li onClick={onClick}>동문 Alumni</li>{" "}
-              </Link>
+              </Link> */}
               {/* <Link to="/archive">
                 <li onClick={onClick}>아카이브</li>{" "}
               </Link> */}
               <Link to="/exhibition">
-                <li onClick={onClick}>전시 Show</li>{" "}
+                <li onClick={onClick}>전시/행사 Show/Event</li>{" "}
               </Link>
-              <Link to="/calandar">
-                <li onClick={onClick}>일정 Calandar</li>{" "}
+              <Link to="/calendar">
+                <li onClick={onClick}>일정 Calendar</li>{" "}
               </Link>
             </ul>
           </div>
@@ -124,7 +124,7 @@ export const NavComponent = ({ onClick }) => {
       <Route path="/board" />
       <Route path="/address" />
       <Route path="/archive" />
-      <Route path="/calandar" />
+      <Route path="/calendar" />
     </>
   );
 };

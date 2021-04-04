@@ -26,10 +26,11 @@ async function getExhibitionInfo(token) {
 function Exhibition() {
   const [exhibitionFilter, setExhibitionFilter] = useState(0);
   const [options, setOptions] = useState({
-    all: "전체보기",
+    all: "전체",
     gw: "졸업 주간",
     wff: "와우영상제",
-    aetc: "소모임",
+    club: "소모임",
+    aetc: "기타",
   });
   const [token] = useState(getCookie("csrftoken"));
   const [state] = useAsync(() => getExhibitionInfo(token), [token]);
@@ -114,13 +115,31 @@ function Exhibition() {
               onMouseOver={() =>
                 setOptions({
                   ...options,
-                  aetc: "Club Exhibition",
+                  club: "Club",
                 })
               }
               onMouseLeave={() =>
                 setOptions({
                   ...options,
-                  aetc: "소모임 전시",
+                  club: "소모임",
+                })
+              }
+            >
+              {options.aetc}
+            </button>
+            <button
+              className="exhibition_filter_option"
+              onClick={() => setExhibitionFilter(8)}
+              onMouseOver={() =>
+                setOptions({
+                  ...options,
+                  aetc: "ETC",
+                })
+              }
+              onMouseLeave={() =>
+                setOptions({
+                  ...options,
+                  aetc: "기타",
                 })
               }
             >

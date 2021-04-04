@@ -19,13 +19,13 @@ const CommentInsertForm = ({ style, postId }) => {
     });
   }
 
-  async function handleSubmit(e, t, data) {
+  async function handleSubmit(e, t, data, pk) {
     e.preventDefault();
 
     try {
       const response = await axios
         .post(
-          "https://sidi.hongik.ac.kr/api/v1/postings/comment/",
+          `https://sidi.hongik.ac.kr/api/v1/postings/${pk}/comments/`,
           {
             ...data,
           },
@@ -71,8 +71,8 @@ const CommentInsertForm = ({ style, postId }) => {
           ></input>
           <button
             className="comment_input_button"
-            onClick={(e, t = token, data = comment) =>
-              handleSubmit(e, (t = token), (data = comment))
+            onClick={(e, t = token, data = comment, pk = postId) =>
+              handleSubmit(e, (t = token), (data = comment), (pk = postId))
             }
           >
             입력

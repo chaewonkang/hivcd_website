@@ -2,6 +2,8 @@ from django.db import models
 from django.conf import settings
 from django.core.cache import cache
 from django.utils import timezone
+from imagekit.models import ProcessedImageField
+from imagekit.processors import ResizeToFill
 
 
 class Timestamp(models.Model):
@@ -14,7 +16,12 @@ class Timestamp(models.Model):
 
 class Photo(Timestamp):
     caption = models.CharField(max_length=80)
-    photo = models.ImageField(blank=True, upload_to="photos/%Y/%m/%d")
+    photo = ProcessedImageField(
+        upload_to="photos/%Y/%m/%d",
+        processors=[ResizeToFill(600,600)],
+        format='JPEG',
+        options= {'quality': 90 },
+    )
     post = models.ForeignKey(
         "Post", related_name="photos", on_delete=models.CASCADE, db_column="post_title"
     )

@@ -1,11 +1,12 @@
 import React from "react";
 import "./Archive.css";
+import logogif from "../../img/logogif.gif";
 
 function Archive() {
   return (
-    <>
-      <div className="archive_wrapper">페이지 준비중입니다.</div>
-    </>
+    <div className="container_loading">
+      <img className="loading_status" src={logogif} alt="logogif"></img>
+    </div>
   );
 }
 

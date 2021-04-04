@@ -38,7 +38,7 @@ function App() {
           <Route exact path="/board" component={Board} />
           <Route path="/board/:postId" component={EachPostContainer}></Route>
           <Route path="/aboutus" component={AboutUs} />
-          <Route path="/alumni" component={Alumni} />
+          {/* <Route path="/alumni" component={Alumni} /> */}
           <Route exact path="/exhibition" component={Exhibition} />
           <Route
             path="/exhibition/:postId"
@@ -50,7 +50,7 @@ function App() {
             path="/announce/:postId"
             component={EachAnnounceContainer}
           />
-          <Route path="/calandar" component={CalandarContainer} />
+          <Route path="/calendar" component={CalandarContainer} />
           <Route path="/reservation" component={ReservationContainer} />
           <Route path="/archive" component={Archive} />
           <Route

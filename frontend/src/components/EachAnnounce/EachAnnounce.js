@@ -132,7 +132,6 @@ function EachAnnounce({ postId }) {
     announceList.map((post) => {
       pkArray.push(post.pk);
     });
-    console.log(pkArray);
 
     return (
       <div className="each_post_wrapper" style={style}>
@@ -153,12 +152,7 @@ function EachAnnounce({ postId }) {
               {eachAnnounce.files[0] ? eachAnnounce.files[0].name : "없음"}
             </span>
             {eachAnnounce.files.length ? (
-              <a
-                href={eachAnnounce.files[0].files}
-                target="_blank"
-                download={eachAnnounce.files[0].files}
-                rel="noopener noreferrer"
-              >
+              <a href={eachAnnounce.files[0].files} download>
                 <button className="download_button">다운로드</button>
               </a>
             ) : null}
@@ -242,7 +236,6 @@ function EachAnnounce({ postId }) {
     announceList.map((post) => {
       pkArray.push(post.pk);
     });
-    console.log(pkArray);
 
     return (
       <div className="each_post_wrapper" style={style}>
@@ -263,12 +256,7 @@ function EachAnnounce({ postId }) {
               {eachAnnounce.files[0] ? eachAnnounce.files[0].name : "없음"}
             </span>
             {eachAnnounce.files.length ? (
-              <a
-                href={eachAnnounce.files[0].files}
-                target="_blank"
-                download={eachAnnounce.files[0].files}
-                rel="noopener noreferrer"
-              >
+              <a href={eachAnnounce.files[0].files} download>
                 <button className="download_button">다운로드</button>
               </a>
             ) : null}

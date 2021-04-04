@@ -22,21 +22,6 @@ async function getList(token) {
   return response.data;
 }
 
-async function getPost({ postId, token }) {
-  return axios.get(
-    `https://sidi.hongik.ac.kr/api/v1/postings/exhibition/${postId}`,
-    {},
-    {
-      headers: {
-        Authorization: "Bearer " + localStorage.getItem("access_token"),
-        Accept: "application/json",
-        "X-CSRFToken": token,
-        "Content-type": "application/json",
-      },
-    }
-  );
-}
-
 function EachExhibitionContainer({ match, location }) {
   const [token] = useState(getCookie("csrftoken"));
   const [state] = useAsync(() => getList(token), [token]);
