@@ -58,90 +58,30 @@ function Exhibition() {
             <button
               className="exhibition_filter_option"
               onClick={() => setExhibitionFilter(0)}
-              onMouseOver={() =>
-                setOptions({
-                  ...options,
-                  all: "All",
-                })
-              }
-              onMouseLeave={() =>
-                setOptions({
-                  ...options,
-                  all: "전체보기",
-                })
-              }
             >
               {options.all}
             </button>
             <button
               className="exhibition_filter_option"
               onClick={() => setExhibitionFilter(6)}
-              onMouseOver={() =>
-                setOptions({
-                  ...options,
-                  gw: "Graduation Week",
-                })
-              }
-              onMouseLeave={() =>
-                setOptions({
-                  ...options,
-                  gw: "졸업 주간",
-                })
-              }
             >
               {options.gw}
             </button>
             <button
               className="exhibition_filter_option"
               onClick={() => setExhibitionFilter(7)}
-              onMouseOver={() =>
-                setOptions({
-                  ...options,
-                  wff: "WOW Film Festival",
-                })
-              }
-              onMouseLeave={() =>
-                setOptions({
-                  ...options,
-                  wff: "와우영상제",
-                })
-              }
             >
               {options.wff}
             </button>
             <button
               className="exhibition_filter_option"
               onClick={() => setExhibitionFilter(8)}
-              onMouseOver={() =>
-                setOptions({
-                  ...options,
-                  club: "Club",
-                })
-              }
-              onMouseLeave={() =>
-                setOptions({
-                  ...options,
-                  club: "소모임",
-                })
-              }
             >
               {options.aetc}
             </button>
             <button
               className="exhibition_filter_option"
               onClick={() => setExhibitionFilter(8)}
-              onMouseOver={() =>
-                setOptions({
-                  ...options,
-                  aetc: "ETC",
-                })
-              }
-              onMouseLeave={() =>
-                setOptions({
-                  ...options,
-                  aetc: "기타",
-                })
-              }
             >
               {options.aetc}
             </button>

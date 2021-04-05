@@ -47,54 +47,18 @@ function Announce() {
             tabIndex="0"
             className="board_filter_option"
             onClick={() => setBoardFilter(0)}
-            onMouseOver={() =>
-              setOptions({
-                ...options,
-                all: "All",
-              })
-            }
-            onMouseLeave={() =>
-              setOptions({
-                ...options,
-                all: "전체",
-              })
-            }
           >
             {options.all}
           </button>
           <button
             className="board_filter_option"
             onClick={() => setBoardFilter(9)}
-            onMouseOver={() =>
-              setOptions({
-                ...options,
-                life: "Life",
-              })
-            }
-            onMouseLeave={() =>
-              setOptions({
-                ...options,
-                life: "생활",
-              })
-            }
           >
             {options.life}
           </button>
           <button
             className="board_filter_option"
             onClick={() => setBoardFilter(10)}
-            onMouseOver={() =>
-              setOptions({
-                ...options,
-                information: "Statues",
-              })
-            }
-            onMouseLeave={() =>
-              setOptions({
-                ...options,
-                information: "규정",
-              })
-            }
           >
             {options.information}
           </button>

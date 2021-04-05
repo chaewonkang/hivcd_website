@@ -83,8 +83,10 @@ function Slider() {
         <div>
           <Button onClick={prevSlide} className="navigate_left_button"></Button>
         </div>
-        <div style={{ textAlign: "center" }}>
-          {currentSlide}/{TOTAL_SLIDES}
+        <div className="date">
+          <span>
+            {currentSlide}/{TOTAL_SLIDES}
+          </span>
         </div>
         <div>
           <Button
