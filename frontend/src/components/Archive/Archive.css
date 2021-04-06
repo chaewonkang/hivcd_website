@@ -1,3 +1,23 @@
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes slideIn {
+  0% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
 .archive_container {
   margin-left: 20px;
   margin-right: 20px;
@@ -12,6 +32,9 @@
   column-gap: 20px;
   background-color: #ffeb00;
   border: 2px solid #ffba00;
+  animation: 1s ease-out 0s 1 fadeIn;
+  height: 70vh;
+  max-height: 70vh;
 }
 
 .archive_wrapper_text {
@@ -19,6 +42,7 @@
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: 1fr 1fr 7fr 1fr;
+  max-height: inherit;
 }
 
 .arrows_and_number_container {
@@ -57,6 +81,7 @@
 .archive_wrapper_slider {
   padding-top: 20px;
   position: relative;
+  max-height: inherit;
 }
 
 .slick-dots {
@@ -88,6 +113,18 @@
   margin: 0 16px 0 16px;
 }
 
+.archive_index_container_before {
+  margin-top: 20px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 200px;
+  grid-auto-rows: 200px;
+  grid-column-gap: 20px;
+  grid-row-gap: 20px;
+  height: 100vh;
+  overflow: auto;
+}
+
 .archive_index_box {
   border: 1px solid #000;
   display: grid;
@@ -95,6 +132,7 @@
   padding: 15px;
   position: relative;
   overflow: auto;
+  animation: 1s ease-out 0s 1 fadeIn;
 }
 
 .archive_index_box_text_title {
@@ -111,7 +149,8 @@
   top: 0;
   background-color: #000;
   color: #fff;
-  padding: 0.25em 0.75em 0.25em 0.75em;
+  padding: 0.1em 0.5em 0.1em 0.5em;
+  font-size: 11px;
 }
 
 .archive_index_box_image img {
@@ -122,7 +161,7 @@
 .date {
   display: flex;
   align-items: center;
-  justify-items: center;
+  justify-content: center;
 }
 
 .date_span {
@@ -156,6 +195,9 @@
   .archive_wrapper_text {
     order: 2;
   }
+  .arrows_and_number_container {
+    padding-right: 40px;
+  }
 }
 
 /********** Small devices only **********/
@@ -175,6 +217,10 @@
 
   .archive_wrapper_text {
     order: 2;
+  }
+
+  .arrows_and_number_container {
+    padding-right: 40px;
   }
 }
 
@@ -196,6 +242,10 @@
   .archive_wrapper_text {
     order: 2;
   }
+
+  .arrows_and_number_container {
+    padding-right: 40px;
+  }
 }
 
 @media (max-width: 576px) {
@@ -214,5 +264,14 @@
 
   .archive_wrapper_text {
     order: 2;
+  }
+
+  .archive_container {
+    margin-top: 50px;
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+  .arrows_and_number_container {
+    padding-right: 40px;
   }
 }

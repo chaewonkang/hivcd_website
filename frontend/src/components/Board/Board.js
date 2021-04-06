@@ -6,7 +6,7 @@ import getCookie from "../../utils/getCookie";
 import useAsync from "../../utils/useAsync";
 import logogif from "../../img/logogif.gif";
 
-async function getPosts(token) {
+async function getPosts() {
   const response = await axios.get(
     "https://sidi.hongik.ac.kr/api/v1/postings/board"
   );
@@ -22,8 +22,7 @@ function Board() {
     job: "구인구직",
     lostandfound: "분실물",
   });
-  const [token] = useState(getCookie("csrftoken"));
-  const [state] = useAsync(() => getPosts(token), [token]);
+  const [state] = useAsync(() => getPosts(), []);
   const { loading, data: posts, error } = state;
 
   if (loading)

@@ -7,15 +7,13 @@ import useAsync from "../../utils/useAsync";
 import getCookie from "../../utils/getCookie";
 import logogif from "../../img/logogif.gif";
 
-async function getExhibitionInfo(token) {
+async function getExhibitionInfo() {
   const response = await axios.get(
     "https://sidi.hongik.ac.kr/api/v1/postings/exhibition/",
     {},
     {
       headers: {
-        Authorization: "Bearer " + localStorage.getItem("access_token"),
         Accept: "application/json",
-        "X-CSRFToken": token,
         "Content-type": "application/json",
       },
     }
@@ -32,8 +30,7 @@ function Exhibition() {
     club: "소모임",
     aetc: "기타",
   });
-  const [token] = useState(getCookie("csrftoken"));
-  const [state] = useAsync(() => getExhibitionInfo(token), [token]);
+  const [state] = useAsync(() => getExhibitionInfo(), []);
   const { loading, data: exhibition, error } = state;
 
   if (loading)

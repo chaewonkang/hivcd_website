@@ -6,15 +6,13 @@ import useAsync from "../../utils/useAsync";
 import getCookie from "../../utils/getCookie";
 import logogif from "../../img/logogif.gif";
 
-async function getAlumnis(token) {
+async function getAlumnis() {
   const response = await axios.get(
     "https://sidi.hongik.ac.kr/api/v1/alumnis/",
     {},
     {
       headers: {
-        Authorization: "Bearer " + localStorage.getItem("access_token"),
         Accept: "application/json",
-        "X-CSRFToken": token,
         "Content-type": "application/json",
       },
     }
@@ -24,8 +22,7 @@ async function getAlumnis(token) {
 
 function Alumni() {
   const [alumniSearch, setAlumniSearch] = useState(null);
-  const [token] = useState(getCookie("csrftoken"));
-  const [state] = useAsync(() => getAlumnis(token), [token]);
+  const [state] = useAsync(() => getAlumnis(), []);
   const { loading, data: alumnis, error } = state;
 
   const alumniSearchSpace = (e) => {

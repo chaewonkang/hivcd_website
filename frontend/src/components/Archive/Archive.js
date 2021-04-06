@@ -9,6 +9,13 @@ import ex2 from "../../img/carousel_2.jpg";
 import ex3 from "../../img/carousel_3.jpg";
 import ex4 from "../../img/carousel_4.jpg";
 import ex5 from "../../img/carousel_5.jpg";
+import useAsync from "../../utils/useAsync";
+import axios from "axios";
+
+async function getArchives() {
+  const response = await axios.get("http://jsonplaceholder.typicode.com/posts");
+  return response.data;
+}
 
 const items = [
   { id: 1, url: ex1 },
@@ -48,12 +55,11 @@ const SliderContainer = styled.div`
 
 const TOTAL_SLIDES = items.length - 1;
 
-function Slider() {
+function Slider({ archiveId }) {
   const [currentSlide, setCurrentSlide] = useState(0);
   const slideRef = useRef(null);
   const nextSlide = () => {
     if (currentSlide >= TOTAL_SLIDES) {
-      // 더 이상 넘어갈 슬라이드가 없으면 슬라이드를 초기화합니다.
       setCurrentSlide(0);
     } else {
       setCurrentSlide(currentSlide + 1);
@@ -69,14 +75,14 @@ function Slider() {
 
   useEffect(() => {
     slideRef.current.style.transition = "all 0.5s ease-in-out";
-    slideRef.current.style.transform = `translateX(-${currentSlide}00%)`; // 백틱을 사용하여 슬라이드로 이동하는 애니메이션을 만듭니다.
+    slideRef.current.style.transform = `translateX(-${currentSlide}00%)`;
   }, [currentSlide]);
 
   return (
     <Container>
       <SliderContainer ref={slideRef}>
         {items.map((item) => (
-          <Slide img={item.url}></Slide>
+          <Slide key={item.id} img={item.url}></Slide>
         ))}
       </SliderContainer>
       <div className="arrows_and_number_container">
@@ -85,7 +91,7 @@ function Slider() {
         </div>
         <div className="date">
           <span>
-            {currentSlide}/{TOTAL_SLIDES}
+            {currentSlide} / {TOTAL_SLIDES}
           </span>
         </div>
         <div>
@@ -101,70 +107,135 @@ function Slider() {
 }
 
 function Archive() {
-  return (
-    <div className="archive_container">
-      <div className="archive_wrapper">
-        <div className="archive_wrapper_text">
-          <div className="archive_wrapper_text_title">
-            <span>2020 졸업전시회 도록</span>
-          </div>
-          <div className="archive_wrapper_text_date">
-            <span>2020.20.20</span>
-          </div>
-          <div className="archive_wrapper_text_body">
-            <span>
-              2020 와우영상제는 드로마픽, 그린비, 한글꼴연구회, 힙스 외 10명의
-              참가자가 총 5편의 장편, 50편의 단편 영상을 상영했습니다. 대상은
-              어쩌구저쩌구 팀의 “내일 저녁은 무엇을 먹을까?”입니다.
-            </span>
-          </div>
-          <div className="archive_wrapper_text_link">
-            <span>https://google.com</span>
-          </div>
-        </div>
-        <div className="archive_wrapper_slider">
-          <Slider></Slider>
-        </div>
+  const [archives] = useAsync(() => getArchives());
+  const { loading, data: list, error } = archives;
+  const [post, setPost] = useState(null);
+
+  async function getArchive(archiveId) {
+    const response = await axios
+      .get(`http://jsonplaceholder.typicode.com/posts/${archiveId}`)
+      .then((response) => {
+        const ret = response.data;
+        setPost(ret);
+      });
+    return response;
+  }
+
+  useEffect(() => {}, [post]);
+  if (loading)
+    return (
+      <div className="container_loading">
+        <img className="loading_status" src={logogif} alt="logogif"></img>
       </div>
-      <div className="archive_index_container">
-        <div className="archive_index_box">
-          <div className="archive_index_box_text">
-            <div className="archive_index_box_text_title">
-              홍익대학교 융합예술연구센터 인터랩(INTERLAB), 런던 파이돈 출판사서
-              한국현대미술 영문저서 출판
+    );
+  if (error)
+    return (
+      <div className="container_loading">
+        <img className="loading_status" src={logogif} alt="logogif"></img>
+      </div>
+    );
+  if (!list) return null;
+
+  if (!post)
+    return (
+      <div className="archive_container">
+        <div className="archive_index_container_before">
+          {list.map((data) => {
+            return (
+              <div key={data.id} className="archive_index_box">
+                <div className="archive_index_box_text">
+                  <div
+                    className="archive_index_box_text_title"
+                    onClick={() => {
+                      setPost(getArchive(data.id));
+                    }}
+                  >
+                    {data.title}
+                  </div>
+                  <div className="archive_index_box_text_date">2020.20.20</div>
+                </div>
+                <div className="archive_index_box_image">
+                  <span>Archive</span>
+                  <img src={ex4}></img>
+                </div>
+              </div>
+            );
+          })}
+          <div className="archive_index_box">
+            <div className="archive_index_box_text">
+              <div className="archive_index_box_text_title">
+                홍익대학교 융합예술연구센터 인터랩(INTERLAB), 런던 파이돈
+                출판사서 한국현대미술 영문저서 출판
+              </div>
+              <div className="archive_index_box_text_date">2020.20.20</div>
             </div>
-            <div className="archive_index_box_text_date">2020.20.20</div>
-          </div>
-          <div className="archive_index_box_image">
-            <span>Hello</span>
-            <img src={logogif}></img>
+            <div className="archive_index_box_image">
+              <span>Hello</span>
+              <img src={logogif}></img>
+            </div>
           </div>
         </div>
-        <div className="archive_index_box"></div>
-        <div className="archive_index_box"></div>
-        <div className="archive_index_box"></div>
-        <div className="archive_index_box"></div>
-        <div className="archive_index_box"></div>
-        <div className="archive_index_box"></div>
-        <div className="archive_index_box"></div>
-        <div className="archive_index_box"></div>
-        <div className="archive_index_box"></div>
-        <div className="archive_index_box"></div>
-        <div className="archive_index_box"></div>
-        <div className="archive_index_box"></div>
-        <div className="archive_index_box"></div>
-        <div className="archive_index_box"></div>
-        <div className="archive_index_box"></div>
-        <div className="archive_index_box"></div>
-        <div className="archive_index_box"></div>
-        <div className="archive_index_box"></div>
-        <div className="archive_index_box"></div>
-        <div className="archive_index_box"></div>
-        <div className="archive_index_box"></div>
-        <div className="archive_index_box"></div>
       </div>
-    </div>
-  );
+    );
+
+  if (post)
+    return (
+      <div className="archive_container">
+        <div className="archive_wrapper">
+          <div className="archive_wrapper_text">
+            <div className="archive_wrapper_text_title">
+              <span>{post.title}</span>
+            </div>
+            <div className="archive_wrapper_text_date">
+              <span>{post.title}</span>
+            </div>
+            <div className="archive_wrapper_text_body">
+              <span>{post.body}</span>
+            </div>
+            <div className="archive_wrapper_text_link">
+              <span>https://{post.title}</span>
+            </div>
+          </div>
+          <div className="archive_wrapper_slider">
+            <Slider></Slider>
+          </div>
+        </div>
+        <div className="archive_index_container">
+          {list.map((data) => {
+            return (
+              <div key={data.id} className="archive_index_box">
+                <div className="archive_index_box_text">
+                  <div
+                    className="archive_index_box_text_title"
+                    onClick={() => getArchive(data.id)}
+                  >
+                    {data.title}
+                  </div>
+                  <div className="archive_index_box_text_date">2020.20.20</div>
+                </div>
+                <div className="archive_index_box_image">
+                  <span>Archive</span>
+                  <img src={ex4}></img>
+                </div>
+              </div>
+            );
+          })}
+          <div className="archive_index_box">
+            <div className="archive_index_box_text">
+              <div className="archive_index_box_text_title">
+                홍익대학교 융합예술연구센터 인터랩(INTERLAB), 런던 파이돈
+                출판사서 한국현대미술 영문저서 출판
+              </div>
+              <div className="archive_index_box_text_date">2020.20.20</div>
+            </div>
+            <div className="archive_index_box_image">
+              <span>Hello</span>
+              <img src={logogif}></img>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
 }
 
 export default Archive;

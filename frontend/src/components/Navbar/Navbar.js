@@ -4,15 +4,13 @@ import getCookie from "../../utils/getCookie";
 import axios from "axios";
 import "./Navbar.css";
 
-async function handleLogout(token) {
+async function handleLogout() {
   const response = await axios.get(
     "https://sidi.hongik.ac.kr/api/v1/auth/logout",
     {},
     {
       headers: {
-        Authorization: "Bearer " + localStorage.getItem("access_token"),
         Accept: "application/json",
-        "X-CSRFToken": token,
         "Content-type": "application/json",
       },
     }
@@ -24,8 +22,6 @@ const Navbar = ({ navClass, linkClassName }) => (
 );
 
 export const NavComponent = ({ onClick }) => {
-  const [token] = useState(getCookie("csrftoken"));
-
   return (
     <>
       <nav>
@@ -49,7 +45,7 @@ export const NavComponent = ({ onClick }) => {
                 <li onClick={onClick}>동문 Alumni</li>{" "}
               </Link> */}
               {/* <Link to="/archive">
-                <li onClick={onClick}>아카이브</li>{" "}
+                <li onClick={onClick}>기록</li>{" "}
               </Link> */}
               <Link to="/exhibition">
                 <li onClick={onClick}>전시/행사 Show/Event</li>{" "}
@@ -66,7 +62,7 @@ export const NavComponent = ({ onClick }) => {
                 <button
                   type="submit"
                   className="mobile_login_input_button"
-                  onClick={(t = token) => handleLogout((t = token))}
+                  onClick={() => handleLogout()}
                 >
                   Logout
                 </button>

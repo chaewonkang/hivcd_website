@@ -6,7 +6,7 @@ import getCookie from "../../utils/getCookie";
 import useAsync from "../../utils/useAsync";
 import logogif from "../../img/logogif.gif";
 
-async function getList(token) {
+async function getList() {
   const response = await axios.get(
     "https://sidi.hongik.ac.kr/api/v1/postings/announce",
     {},
@@ -14,7 +14,6 @@ async function getList(token) {
       headers: {
         Authorization: "Bearer " + localStorage.getItem("access_token"),
         Accept: "application/json",
-        "X-CSRFToken": token,
         "Content-type": "application/json",
       },
     }
@@ -23,8 +22,7 @@ async function getList(token) {
 }
 
 function EachAnnounceContainer({ match, location }) {
-  const [token] = useState(getCookie("csrftoken"));
-  const [state] = useAsync(() => getList(token), [token]);
+  const [state] = useAsync(() => getList(), []);
   const { loading, data: list, error } = state;
   const [postId, setPostId] = useState(0);
   const [curLoc, setCurLoc] = useState("");

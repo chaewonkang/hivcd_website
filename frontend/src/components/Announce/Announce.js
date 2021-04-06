@@ -6,7 +6,7 @@ import getCookie from "../../utils/getCookie";
 import useAsync from "../../utils/useAsync";
 import logogif from "../../img/logogif.gif";
 
-async function getPosts(token) {
+async function getPosts() {
   const response = await axios.get(
     "https://sidi.hongik.ac.kr/api/v1/postings/announce"
   );
@@ -15,8 +15,7 @@ async function getPosts(token) {
 
 function Announce() {
   const [boardFilter, setBoardFilter] = useState(0);
-  const [token] = useState(getCookie("csrftoken"));
-  const [state] = useAsync(() => getPosts(token), [token]);
+  const [state] = useAsync(() => getPosts(), []);
   const { loading, data: posts, error } = state;
   const [options, setOptions] = useState({
     all: "전체",
