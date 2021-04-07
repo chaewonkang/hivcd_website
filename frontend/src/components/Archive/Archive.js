@@ -68,14 +68,14 @@ function Archive() {
                     {data.created_at ? data.created_at.slice(0, 10) : null}
                   </div>
                 </div>
-                <div className="archive_index_box_image image_fill">
-                  style=
-                  {{
+                <div
+                  className="archive_index_box_image image_fill"
+                  style={{
                     backgroundImage: data.photos.length
                       ? data.photos[0].photo
                       : null,
                   }}
-                </div>
+                ></div>
               </div>
             );
           })}
@@ -127,14 +127,14 @@ function Archive() {
                     {data.created_at ? data.created_at.slice(0, 10) : null}
                   </div>
                 </div>
-                <div className="archive_index_box_image image_fill">
-                  style=
-                  {{
+                <div
+                  className="archive_index_box_image image_fill"
+                  style={{
                     backgroundImage: data.photos.length
                       ? data.photos[0].photo
                       : null,
                   }}
-                </div>
+                ></div>
               </div>
             );
           })}
