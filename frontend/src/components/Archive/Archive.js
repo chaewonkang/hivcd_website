@@ -78,32 +78,41 @@ function Slider({ images }) {
     slideRef.current.style.transform = `translateX(-${currentSlide}00%)`;
   }, [currentSlide]);
 
-  return (
-    <Container>
-      <SliderContainer ref={slideRef}>
-        {images.map((item) => (
-          <Slide key={item.key} img={item.photo} caption={item.caption}></Slide>
-        ))}
-      </SliderContainer>
-      <div className="arrows_and_number_container">
-        <div>
-          <Button onClick={prevSlide} className="navigate_left_button"></Button>
+  if (images)
+    return (
+      <Container>
+        <SliderContainer ref={slideRef}>
+          {images.map((item) => (
+            <Slide
+              key={item.key}
+              img={item.photo}
+              caption={item.caption}
+            ></Slide>
+          ))}
+        </SliderContainer>
+        <div className="arrows_and_number_container">
+          <div>
+            <Button
+              onClick={prevSlide}
+              className="navigate_left_button"
+            ></Button>
+          </div>
+          <div className="date">
+            <span>
+              {currentSlide} / {TOTAL_SLIDES}
+            </span>
+          </div>
+          <div>
+            <Button
+              onClick={nextSlide}
+              className="navigate_right_button"
+              style={{ right: 20 }}
+            ></Button>
+          </div>
         </div>
-        <div className="date">
-          <span>
-            {currentSlide} / {TOTAL_SLIDES}
-          </span>
-        </div>
-        <div>
-          <Button
-            onClick={nextSlide}
-            className="navigate_right_button"
-            style={{ right: 20 }}
-          ></Button>
-        </div>
-      </div>
-    </Container>
-  );
+      </Container>
+    );
+  return null;
 }
 
 function Archive() {
@@ -153,7 +162,7 @@ function Archive() {
                   >
                     {data.title}
                   </div>
-                  <div className="archive_index_box_text_date">2020.20.20</div>
+                  <div className="archive_index_box_text_date">{data.created_at}/div>
                 </div>
                 <div className="archive_index_box_image">
                   <span>Archive</span>
