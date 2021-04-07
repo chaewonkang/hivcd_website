@@ -2,8 +2,6 @@ import React, { useState, useRef, useEffect } from "react";
 import "./Archive.css";
 import styled from "styled-components";
 import logogif from "../../img/logogif.gif";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
 import ex1 from "../../img/carousel_1.jpg";
 import ex2 from "../../img/carousel_2.jpg";
 import ex3 from "../../img/carousel_3.jpg";
@@ -13,7 +11,9 @@ import useAsync from "../../utils/useAsync";
 import axios from "axios";
 
 async function getArchives() {
-  const response = await axios.get("http://jsonplaceholder.typicode.com/posts");
+  const response = await axios.get(
+    "https://sidi.hongik.ac.kr/api/v1/postings/archive/"
+  );
   return response.data;
 }
 
@@ -55,7 +55,7 @@ const SliderContainer = styled.div`
 
 const TOTAL_SLIDES = items.length - 1;
 
-function Slider({ archiveId }) {
+function Slider({ images }) {
   const [currentSlide, setCurrentSlide] = useState(0);
   const slideRef = useRef(null);
   const nextSlide = () => {
@@ -113,7 +113,7 @@ function Archive() {
 
   async function getArchive(archiveId) {
     const response = await axios
-      .get(`http://jsonplaceholder.typicode.com/posts/${archiveId}`)
+      .get(`https://sidi.hongik.ac.kr/api/v1/postings/archive/${archiveId}`)
       .then((response) => {
         const ret = response.data;
         setPost(ret);
@@ -121,7 +121,8 @@ function Archive() {
     return response;
   }
 
-  useEffect(() => {}, [post]);
+  useEffect(() => {}, []);
+
   if (loading)
     return (
       <div className="container_loading">
@@ -142,12 +143,12 @@ function Archive() {
         <div className="archive_index_container_before">
           {list.map((data) => {
             return (
-              <div key={data.id} className="archive_index_box">
+              <div key={data.pk} className="archive_index_box">
                 <div className="archive_index_box_text">
                   <div
                     className="archive_index_box_text_title"
                     onClick={() => {
-                      setPost(getArchive(data.id));
+                      setPost(getArchive(data.pk));
                     }}
                   >
                     {data.title}
@@ -156,24 +157,13 @@ function Archive() {
                 </div>
                 <div className="archive_index_box_image">
                   <span>Archive</span>
-                  <img src={ex4}></img>
+                  <img
+                    src={data.photos.length ? data.photos[0].photo : null}
+                  ></img>
                 </div>
               </div>
             );
           })}
-          <div className="archive_index_box">
-            <div className="archive_index_box_text">
-              <div className="archive_index_box_text_title">
-                홍익대학교 융합예술연구센터 인터랩(INTERLAB), 런던 파이돈
-                출판사서 한국현대미술 영문저서 출판
-              </div>
-              <div className="archive_index_box_text_date">2020.20.20</div>
-            </div>
-            <div className="archive_index_box_image">
-              <span>Hello</span>
-              <img src={logogif}></img>
-            </div>
-          </div>
         </div>
       </div>
     );
@@ -187,52 +177,45 @@ function Archive() {
               <span>{post.title}</span>
             </div>
             <div className="archive_wrapper_text_date">
-              <span>{post.title}</span>
+              <span>{post.updated_at}</span>
             </div>
             <div className="archive_wrapper_text_body">
-              <span>{post.body}</span>
+              <span>{post.text}</span>
             </div>
             <div className="archive_wrapper_text_link">
-              <span>https://{post.title}</span>
+              <span>{post.link}</span>
             </div>
           </div>
           <div className="archive_wrapper_slider">
-            <Slider></Slider>
+            <Slider images={post.photos}></Slider>
           </div>
         </div>
         <div className="archive_index_container">
           {list.map((data) => {
             return (
-              <div key={data.id} className="archive_index_box">
+              <div key={data.pk} className="archive_index_box">
                 <div className="archive_index_box_text">
                   <div
                     className="archive_index_box_text_title"
-                    onClick={() => getArchive(data.id)}
+                    onClick={() => {
+                      setPost(getArchive(data.pk));
+                    }}
                   >
                     {data.title}
                   </div>
-                  <div className="archive_index_box_text_date">2020.20.20</div>
+                  <div className="archive_index_box_text_date">
+                    {data.updated_at}
+                  </div>
                 </div>
                 <div className="archive_index_box_image">
                   <span>Archive</span>
-                  <img src={ex4}></img>
+                  <img
+                    src={data.photos.length ? data.photos[0].photo : null}
+                  ></img>
                 </div>
               </div>
             );
           })}
-          <div className="archive_index_box">
-            <div className="archive_index_box_text">
-              <div className="archive_index_box_text_title">
-                홍익대학교 융합예술연구센터 인터랩(INTERLAB), 런던 파이돈
-                출판사서 한국현대미술 영문저서 출판
-              </div>
-              <div className="archive_index_box_text_date">2020.20.20</div>
-            </div>
-            <div className="archive_index_box_image">
-              <span>Hello</span>
-              <img src={logogif}></img>
-            </div>
-          </div>
         </div>
       </div>
     );
