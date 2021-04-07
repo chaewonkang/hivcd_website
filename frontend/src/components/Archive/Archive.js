@@ -111,6 +111,8 @@ function Archive() {
   const { loading, data: list, error } = archives;
   const [post, setPost] = useState(null);
 
+  useEffect(() => {}, [post]);
+
   async function getArchive(archiveId) {
     const response = await axios
       .get(`https://sidi.hongik.ac.kr/api/v1/postings/archive/${archiveId}`)
@@ -179,7 +181,9 @@ function Archive() {
               <span>{post.title}</span>
             </div>
             <div className="archive_wrapper_text_date">
-              <span>{post.created_at.slice(0, 10)}</span>
+              <span>
+                {post.created_at ? post.created_at.slice(0, 10) : null}
+              </span>
             </div>
             <div className="archive_wrapper_text_body">
               <span>{post.text}</span>
