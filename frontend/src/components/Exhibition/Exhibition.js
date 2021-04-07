@@ -74,7 +74,7 @@ function Exhibition() {
               className="exhibition_filter_option"
               onClick={() => setExhibitionFilter(8)}
             >
-              {options.aetc}
+              {options.club}
             </button>
             <button
               className="exhibition_filter_option"

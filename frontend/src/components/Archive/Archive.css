@@ -134,12 +134,12 @@
   animation: 1s ease-out 0s 1 fadeIn;
 }
 
-.archive_index_box_text_title {
-  padding-right: 20px;
-  margin-bottom: 20px;
+.archive_index_box_text {
+  padding-left: 20px;
 }
 
-.archive_index_box_image {
+.archive_index_box_text_title {
+  padding-right: 20px;
 }
 
 .archive_index_box_image span {

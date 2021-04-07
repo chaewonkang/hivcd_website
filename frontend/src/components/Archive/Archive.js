@@ -104,7 +104,6 @@ function Slider({ images }) {
       </div>
     </Container>
   );
-  return null;
 }
 
 function Archive() {
@@ -155,7 +154,7 @@ function Archive() {
                     {data.title}
                   </div>
                   <div className="archive_index_box_text_date">
-                    {data.updated_at}
+                    {data.updated_at.slice(0, 10)}
                   </div>
                 </div>
                 <div className="archive_index_box_image">
@@ -180,7 +179,7 @@ function Archive() {
               <span>{post.title}</span>
             </div>
             <div className="archive_wrapper_text_date">
-              <span>{post.updated_at}</span>
+              <span>{post.updated_at.slice(0, 10)}</span>
             </div>
             <div className="archive_wrapper_text_body">
               <span>{post.text}</span>
@@ -207,7 +206,7 @@ function Archive() {
                     {data.title}
                   </div>
                   <div className="archive_index_box_text_date">
-                    {data.updated_at}
+                    {data.updated_at.slice(0, 10)}
                   </div>
                 </div>
                 <div className="archive_index_box_image">

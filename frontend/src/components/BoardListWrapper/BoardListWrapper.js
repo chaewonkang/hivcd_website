@@ -82,7 +82,7 @@ function BoardListWrapper({ list, postId, curLoc }) {
           {curLoc.includes("announce")
             ? currentsPosts.map((el, key) => {
                 let categoryName = null;
-                if (el.category === 9) categoryName = "학과생활";
+                if (el.category === 9) categoryName = "";
                 else if (el.category === 10) categoryName = "학사정보";
                 else if (el.category === 11) categoryName = "학사내규";
                 return (
