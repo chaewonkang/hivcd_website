@@ -4,16 +4,18 @@ import getCookie from "../../utils/getCookie";
 import axios from "axios";
 
 async function handleLogout() {
-  const response = await axios.get(
-    "https://sidi.hongik.ac.kr/api/v1/auth/logout/",
-    {},
-    {
-      headers: {
-        Accept: "application/json",
-        "Content-type": "application/json",
-      },
-    }
-  );
+  const response = await axios
+    .get(
+      "https://sidi.hongik.ac.kr/api/v1/auth/logout/",
+      {},
+      {
+        headers: {
+          Accept: "application/json",
+          "Content-type": "application/json",
+        },
+      }
+    )
+    .then(() => window.location.reload());
   return response;
 }
 

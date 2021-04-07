@@ -5,16 +5,18 @@ import axios from "axios";
 import "./Navbar.css";
 
 async function handleLogout() {
-  const response = await axios.get(
-    "https://sidi.hongik.ac.kr/api/v1/auth/logout",
-    {},
-    {
-      headers: {
-        Accept: "application/json",
-        "Content-type": "application/json",
-      },
-    }
-  );
+  const response = await axios
+    .get(
+      "https://sidi.hongik.ac.kr/api/v1/auth/logout",
+      {},
+      {
+        headers: {
+          Accept: "application/json",
+          "Content-type": "application/json",
+        },
+      }
+    )
+    .then(() => window.location.reload());
   return response;
 }
 const Navbar = ({ navClass, linkClassName }) => (
@@ -30,43 +32,44 @@ export const NavComponent = ({ onClick }) => {
             <hr className="first_line"></hr>
             <ul>
               <Link to="/">
-                <li onClick={onClick}>홈 Home</li>{" "}
+                <li onClick={onClick}>홈</li>{" "}
               </Link>
               <Link to="/aboutus">
-                <li onClick={onClick}>소개 About</li>{" "}
+                <li onClick={onClick}>소개</li>{" "}
               </Link>
               <Link to="/board">
-                <li onClick={onClick}>공지 News</li>{" "}
+                <li onClick={onClick}>공지</li>{" "}
               </Link>
               <Link to="/announce">
-                <li onClick={onClick}>정보 Info</li>{" "}
+                <li onClick={onClick}>정보</li>{" "}
               </Link>
               {/* <Link to="/alumni">
                 <li onClick={onClick}>동문 Alumni</li>{" "}
               </Link> */}
-              {/* <Link to="/archive">
+              <Link to="/archive">
                 <li onClick={onClick}>기록</li>{" "}
-              </Link> */}
+              </Link>
+              <Link to="/reservation">
+                <li onClick={onClick}>예약</li>{" "}
+              </Link>
               <Link to="/exhibition">
-                <li onClick={onClick}>전시/행사 Show/Event</li>{" "}
+                <li onClick={onClick}>전시/행사</li>{" "}
               </Link>
               <Link to="/calendar">
-                <li onClick={onClick}>일정 Calendar</li>{" "}
+                <li onClick={onClick}>일정</li>{" "}
               </Link>
             </ul>
           </div>
           <hr></hr>
           <div>
             {getCookie("SUSER_ID") !== null ? (
-              <a href="https://sidi.hongik.ac.kr">
-                <button
-                  type="submit"
-                  className="mobile_login_input_button"
-                  onClick={() => handleLogout()}
-                >
-                  Logout
-                </button>
-              </a>
+              <button
+                type="submit"
+                className="mobile_login_input_button"
+                onClick={() => handleLogout()}
+              >
+                Logout
+              </button>
             ) : (
               <a href="https://www.hongik.ac.kr/login.do?Refer=https://sidi.hongik.ac.kr/api/v1/auth/login">
                 <button type="submit" className="mobile_login_input_button">
