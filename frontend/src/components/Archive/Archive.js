@@ -52,7 +52,10 @@ function Archive() {
           {list.map((data) => {
             return (
               <div key={data.pk} className="archive_index_box">
-                <div className="archive_index_box_text">
+                <div className="archive_index_box_tag">
+                  <span>Archive</span>
+                </div>
+                <div className="archive_index_box_content">
                   <div
                     className="archive_index_box_text_title"
                     onClick={() => {
@@ -65,11 +68,13 @@ function Archive() {
                     {data.created_at ? data.created_at.slice(0, 10) : null}
                   </div>
                 </div>
-                <div className="archive_index_box_image">
-                  <span>Archive</span>
-                  <img
-                    src={data.photos.length ? data.photos[0].photo : null}
-                  ></img>
+                <div className="archive_index_box_image image_fill">
+                  style=
+                  {{
+                    backgroundImage: data.photos.length
+                      ? data.photos[0].photo
+                      : null,
+                  }}
                 </div>
               </div>
             );
@@ -106,7 +111,10 @@ function Archive() {
           {list.map((data) => {
             return (
               <div key={data.pk} className="archive_index_box">
-                <div className="archive_index_box_text">
+                <div className="archive_index_box_tag">
+                  <span>Archive</span>
+                </div>
+                <div className="archive_index_box_content">
                   <div
                     className="archive_index_box_text_title"
                     onClick={() => {
@@ -119,11 +127,13 @@ function Archive() {
                     {data.created_at ? data.created_at.slice(0, 10) : null}
                   </div>
                 </div>
-                <div className="archive_index_box_image">
-                  <span>Archive</span>
-                  <img
-                    src={data.photos.length ? data.photos[0].photo : null}
-                  ></img>
+                <div className="archive_index_box_image image_fill">
+                  style=
+                  {{
+                    backgroundImage: data.photos.length
+                      ? data.photos[0].photo
+                      : null,
+                  }}
                 </div>
               </div>
             );
