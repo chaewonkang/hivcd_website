@@ -17,13 +17,13 @@ async function getArchives() {
   return response.data;
 }
 
-const items = [
-  { id: 1, url: ex1 },
-  { id: 2, url: ex2 },
-  { id: 3, url: ex3 },
-  { id: 4, url: ex4 },
-  { id: 5, url: ex5 },
-];
+// const items = [
+//   { id: 1, url: ex1 },
+//   { id: 2, url: ex2 },
+//   { id: 3, url: ex3 },
+//   { id: 4, url: ex4 },
+//   { id: 5, url: ex5 },
+// ];
 
 function Slide({ img, caption }) {
   return <IMG src={img} />;
@@ -53,11 +53,11 @@ const SliderContainer = styled.div`
   height: 90%;
 `;
 
-const TOTAL_SLIDES = items.length - 1;
-
 function Slider({ images }) {
   const [currentSlide, setCurrentSlide] = useState(0);
   const slideRef = useRef(null);
+  const TOTAL_SLIDES = images.length - 1;
+
   const nextSlide = () => {
     if (currentSlide >= TOTAL_SLIDES) {
       setCurrentSlide(0);
