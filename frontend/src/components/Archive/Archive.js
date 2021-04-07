@@ -25,7 +25,7 @@ const items = [
   { id: 5, url: ex5 },
 ];
 
-function Slide({ img }) {
+function Slide({ img, caption }) {
   return <IMG src={img} />;
 }
 const IMG = styled.img`
@@ -81,8 +81,8 @@ function Slider({ images }) {
   return (
     <Container>
       <SliderContainer ref={slideRef}>
-        {items.map((item) => (
-          <Slide key={item.id} img={item.url}></Slide>
+        {images.map((item) => (
+          <Slide key={item.key} img={item.photo} caption={item.caption}></Slide>
         ))}
       </SliderContainer>
       <div className="arrows_and_number_container">
