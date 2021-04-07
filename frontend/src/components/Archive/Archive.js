@@ -17,13 +17,13 @@ async function getArchives() {
   return response.data;
 }
 
-// const items = [
-//   { id: 1, url: ex1 },
-//   { id: 2, url: ex2 },
-//   { id: 3, url: ex3 },
-//   { id: 4, url: ex4 },
-//   { id: 5, url: ex5 },
-// ];
+const items = [
+  { id: 1, url: ex1 },
+  { id: 2, url: ex2 },
+  { id: 3, url: ex3 },
+  { id: 4, url: ex4 },
+  { id: 5, url: ex5 },
+];
 
 function Slide({ img, caption }) {
   return <IMG src={img} />;
@@ -53,25 +53,21 @@ const SliderContainer = styled.div`
   height: 90%;
 `;
 
-function Archive() {
-  const [archives] = useAsync(() => getArchives());
-  const { loading, data: list, error } = archives;
-  const [post, setPost] = useState(null);
+const TOTAL_SLIDES = items.length - 1;
 
+function Slider({ images }) {
   const [currentSlide, setCurrentSlide] = useState(0);
   const slideRef = useRef(null);
-
-  const nextSlide = (len) => {
-    if (currentSlide >= len - 1) {
+  const nextSlide = () => {
+    if (currentSlide >= TOTAL_SLIDES) {
       setCurrentSlide(0);
     } else {
       setCurrentSlide(currentSlide + 1);
     }
   };
-
-  const prevSlide = (len) => {
+  const prevSlide = () => {
     if (currentSlide === 0) {
-      setCurrentSlide(len);
+      setCurrentSlide(TOTAL_SLIDES);
     } else {
       setCurrentSlide(currentSlide - 1);
     }
@@ -82,6 +78,48 @@ function Archive() {
     slideRef.current.style.transform = `translateX(-${currentSlide}00%)`;
   }, [currentSlide]);
 
+  if (images)
+    return (
+      <Container>
+        <SliderContainer ref={slideRef}>
+          {images.map((item) => (
+            <Slide
+              key={item.key}
+              img={item.photo}
+              caption={item.caption}
+            ></Slide>
+          ))}
+        </SliderContainer>
+        <div className="arrows_and_number_container">
+          <div>
+            <Button
+              onClick={prevSlide}
+              className="navigate_left_button"
+            ></Button>
+          </div>
+          <div className="date">
+            <span>
+              {currentSlide} / {TOTAL_SLIDES}
+            </span>
+          </div>
+          <div>
+            <Button
+              onClick={nextSlide}
+              className="navigate_right_button"
+              style={{ right: 20 }}
+            ></Button>
+          </div>
+        </div>
+      </Container>
+    );
+  return null;
+}
+
+function Archive() {
+  const [archives] = useAsync(() => getArchives());
+  const { loading, data: list, error } = archives;
+  const [post, setPost] = useState(null);
+
   async function getArchive(archiveId) {
     const response = await axios
       .get(`https://sidi.hongik.ac.kr/api/v1/postings/archive/${archiveId}`)
@@ -91,6 +129,8 @@ function Archive() {
       });
     return response;
   }
+
+  useEffect(() => {}, []);
 
   if (loading)
     return (
@@ -158,37 +198,7 @@ function Archive() {
             </div>
           </div>
           <div className="archive_wrapper_slider">
-            <Container>
-              <SliderContainer ref={slideRef}>
-                {post.photos.map((item) => (
-                  <Slide
-                    key={item.key}
-                    img={item.photo}
-                    caption={item.caption}
-                  ></Slide>
-                ))}
-              </SliderContainer>
-              <div className="arrows_and_number_container">
-                <div>
-                  <Button
-                    onClick={() => prevSlide(post.photos.length)}
-                    className="navigate_left_button"
-                  ></Button>
-                </div>
-                <div className="date">
-                  <span>
-                    {currentSlide} / {post.photos.length}
-                  </span>
-                </div>
-                <div>
-                  <Button
-                    onClick={() => nextSlide(post.photos.length)}
-                    className="navigate_right_button"
-                    style={{ right: 20 }}
-                  ></Button>
-                </div>
-              </div>
-            </Container>
+            <Slider images={post.photos}></Slider>
           </div>
         </div>
         <div className="archive_index_container">
