@@ -162,7 +162,9 @@ function Archive() {
                   >
                     {data.title}
                   </div>
-                  <div className="archive_index_box_text_date">{data.created_at}/div>
+                  <div className="archive_index_box_text_date">
+                    {data.updated_at}
+                  </div>
                 </div>
                 <div className="archive_index_box_image">
                   <span>Archive</span>
