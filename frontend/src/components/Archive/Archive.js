@@ -72,7 +72,7 @@ function Archive() {
                   className="archive_index_box_image image_fill"
                   style={{
                     backgroundImage: data.photos.length
-                      ? data.photos[0].photo
+                      ? `url(${data.photos[0].photo})`
                       : null,
                   }}
                 ></div>
@@ -131,7 +131,7 @@ function Archive() {
                   className="archive_index_box_image image_fill"
                   style={{
                     backgroundImage: data.photos.length
-                      ? data.photos[0].photo
+                      ? `url(${data.photos[0].photo})`
                       : null,
                   }}
                 ></div>
