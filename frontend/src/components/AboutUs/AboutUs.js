@@ -555,6 +555,19 @@ const AboutUs = () => {
                   <td></td>
                 </tr>
                 <tr>
+                  <td>프로토</td>
+                  <td>
+                    <a
+                      href="https://www.instagram.com/hivcdproto"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      @hivcdproto
+                    </a>
+                  </td>
+                  <td></td>
+                </tr>
+                <tr>
                   <td>하이픈</td>
                   <td>
                     <a

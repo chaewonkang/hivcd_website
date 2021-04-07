@@ -12,9 +12,9 @@
 }
 
 .footer_container {
-  display: inline-grid;
+  display: inline-flex;
   width: 100%;
-  grid-template-columns: repeat(3, auto);
+  /* grid-template-columns: repeat(3, auto); */
 }
 
 .footer-item .footer-item-title {
