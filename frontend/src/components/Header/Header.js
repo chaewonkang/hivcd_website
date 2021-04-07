@@ -72,18 +72,18 @@ function Header({ handleLogout, handleSearchKeyword }) {
               <NavLink
                 className="link"
                 activeClassName="active"
-                to="/reservation"
+                to="/exhibition"
               >
-                <span id="reservation">{menuText.reservation}</span>{" "}
+                <span id="show">{menuText.show}</span>{" "}
               </NavLink>
             </span>
             <span className="navbar_menu_wrapper_item_title">
               <NavLink
                 className="link"
                 activeClassName="active"
-                to="/exhibition"
+                to="/reservation"
               >
-                <span id="show">{menuText.show}</span>{" "}
+                <span id="reservation">{menuText.reservation}</span>{" "}
               </NavLink>
             </span>
             <span className="navbar_menu_wrapper_item_title">

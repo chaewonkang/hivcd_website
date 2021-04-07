@@ -1,12 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
 import "./Archive.css";
-import styled from "styled-components";
 import logogif from "../../img/logogif.gif";
-import ex1 from "../../img/carousel_1.jpg";
-import ex2 from "../../img/carousel_2.jpg";
-import ex3 from "../../img/carousel_3.jpg";
-import ex4 from "../../img/carousel_4.jpg";
-import ex5 from "../../img/carousel_5.jpg";
 import useAsync from "../../utils/useAsync";
 import axios from "axios";
 import Slider from "../Slider/Slider";

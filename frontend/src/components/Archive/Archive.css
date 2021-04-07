@@ -24,6 +24,7 @@
   font-size: 15px;
   word-break: keep-all;
   line-height: 1.8em;
+  font-family: "Helvetica", sans-serif;
 }
 
 .archive_wrapper {
@@ -185,6 +186,8 @@
     grid-template-rows: 1.5fr 1fr;
     background-color: #ffeb00;
     border: 2px solid #ffba00;
+    height: inherit;
+    max-height: inherit;
   }
 
   .archive_wrapper_slider {
@@ -208,6 +211,8 @@
     grid-template-rows: 1.5fr 1fr;
     background-color: #ffeb00;
     border: 2px solid #ffba00;
+    height: inherit;
+    max-height: inherit;
   }
 
   .archive_wrapper_slider {
@@ -232,6 +237,8 @@
     grid-template-rows: 1.5fr 1fr;
     background-color: #ffeb00;
     border: 2px solid #ffba00;
+    height: inherit;
+    max-height: inherit;
   }
 
   .archive_wrapper_slider {
@@ -255,6 +262,8 @@
     grid-template-rows: 1.5fr 1fr;
     background-color: #ffeb00;
     border: 2px solid #ffba00;
+    height: inherit;
+    max-height: inherit;
   }
 
   .archive_wrapper_slider {
