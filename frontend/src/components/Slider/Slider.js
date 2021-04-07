@@ -58,7 +58,7 @@ export default function Slider({ items }) {
     <Container>
       <SliderContainer ref={slideRef}>
         {items.map((item) => (
-          <Slide key={item.key} img={item.url}></Slide>
+          <Slide key={item.key} img={item.photo}></Slide>
         ))}
       </SliderContainer>
       <div className="arrows_and_number_container">
