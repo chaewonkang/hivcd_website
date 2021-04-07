@@ -114,7 +114,6 @@
 }
 
 .archive_index_container_before {
-  margin-top: 20px;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 200px;

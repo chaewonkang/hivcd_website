@@ -78,40 +78,32 @@ function Slider({ images }) {
     slideRef.current.style.transform = `translateX(-${currentSlide}00%)`;
   }, [currentSlide]);
 
-  if (images)
-    return (
-      <Container>
-        <SliderContainer ref={slideRef}>
-          {images.map((item) => (
-            <Slide
-              key={item.key}
-              img={item.photo}
-              caption={item.caption}
-            ></Slide>
-          ))}
-        </SliderContainer>
-        <div className="arrows_and_number_container">
-          <div>
-            <Button
-              onClick={prevSlide}
-              className="navigate_left_button"
-            ></Button>
-          </div>
-          <div className="date">
-            <span>
-              {currentSlide} / {TOTAL_SLIDES}
-            </span>
-          </div>
-          <div>
-            <Button
-              onClick={nextSlide}
-              className="navigate_right_button"
-              style={{ right: 20 }}
-            ></Button>
-          </div>
+  return (
+    <Container>
+      <SliderContainer ref={slideRef}>
+        {items.map((item) => (
+          <Slide key={item.key} img={item.url}></Slide>
+        ))}
+      </SliderContainer>
+      <div className="arrows_and_number_container">
+        <div>
+          <Button onClick={prevSlide} className="navigate_left_button"></Button>
         </div>
-      </Container>
-    );
+        <div className="date">
+          <span>
+            {currentSlide} / {TOTAL_SLIDES}
+          </span>
+        </div>
+        <div>
+          <Button
+            onClick={nextSlide}
+            className="navigate_right_button"
+            style={{ right: 20 }}
+          ></Button>
+        </div>
+      </div>
+    </Container>
+  );
   return null;
 }
 
@@ -149,7 +141,7 @@ function Archive() {
   if (!post)
     return (
       <div className="archive_container">
-        <div className="archive_index_container_before">
+        <div className="archive_index_container">
           {list.map((data) => {
             return (
               <div key={data.pk} className="archive_index_box">
