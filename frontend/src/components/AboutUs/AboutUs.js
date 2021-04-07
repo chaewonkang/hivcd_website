@@ -51,32 +51,32 @@ const AboutUs = () => {
                   <td>1968</td>
                   <td>학과 재편성: 공예과, 공업도안과 → 응용미술과</td>
                 </tr>
-                <tr style={{ borderBottom: "none" }}>
-                  <td>1972</td>
+                <tr>
+                  <td style={{ borderBottom: "none" }}>1972</td>
                   <td>홍익대학교가 종합대학교로 승격, 미술대학 편성, </td>
                 </tr>
                 <tr>
                   <td></td>
                   <td>미술대학 ＞ 공예학부 ＞ 공업도안과</td>
                 </tr>
-                <tr style={{ borderBottom: "none" }}>
-                  <td>1976</td>
+                <tr>
+                  <td style={{ borderBottom: "none" }}>1976</td>
                   <td>실험대학 실시,</td>
                 </tr>
-                <tr style={{ borderBottom: "none" }}>
-                  <td></td>
+                <tr>
+                  <td style={{ borderBottom: "none" }}></td>
                   <td>미술대학 ＞ 공업도안과 ＞ 산업도안과</td>
                 </tr>
                 <tr>
                   <td></td>
                   <td>＞ 공업디자인전공, 산업디자인전공</td>
                 </tr>
-                <tr style={{ borderBottom: "none" }}>
-                  <td>1982</td>
+                <tr>
+                  <td style={{ borderBottom: "none" }}>1982</td>
                   <td>학과 재편성: 산업도안과, 도안과</td>
                 </tr>
                 <tr style={{ borderBottom: "none" }}>
-                  <td></td>
+                  <td style={{ borderBottom: "none" }}></td>
                   <td>
                     → 산업도안과 (산업도안전공, 산업디자인전공, 공간디자인전공)
                   </td>
