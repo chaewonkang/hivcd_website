@@ -53,21 +53,25 @@ const SliderContainer = styled.div`
   height: 90%;
 `;
 
-function Slider({ images }) {
+function Archive() {
+  const [archives] = useAsync(() => getArchives());
+  const { loading, data: list, error } = archives;
+  const [post, setPost] = useState(null);
+
   const [currentSlide, setCurrentSlide] = useState(0);
   const slideRef = useRef(null);
-  const TOTAL_SLIDES = images.length - 1;
 
-  const nextSlide = () => {
-    if (currentSlide >= TOTAL_SLIDES) {
+  const nextSlide = (len) => {
+    if (currentSlide >= len - 1) {
       setCurrentSlide(0);
     } else {
       setCurrentSlide(currentSlide + 1);
     }
   };
-  const prevSlide = () => {
+
+  const prevSlide = (len) => {
     if (currentSlide === 0) {
-      setCurrentSlide(TOTAL_SLIDES);
+      setCurrentSlide(len);
     } else {
       setCurrentSlide(currentSlide - 1);
     }
@@ -78,48 +82,6 @@ function Slider({ images }) {
     slideRef.current.style.transform = `translateX(-${currentSlide}00%)`;
   }, [currentSlide]);
 
-  if (images)
-    return (
-      <Container>
-        <SliderContainer ref={slideRef}>
-          {images.map((item) => (
-            <Slide
-              key={item.key}
-              img={item.photo}
-              caption={item.caption}
-            ></Slide>
-          ))}
-        </SliderContainer>
-        <div className="arrows_and_number_container">
-          <div>
-            <Button
-              onClick={prevSlide}
-              className="navigate_left_button"
-            ></Button>
-          </div>
-          <div className="date">
-            <span>
-              {currentSlide} / {TOTAL_SLIDES}
-            </span>
-          </div>
-          <div>
-            <Button
-              onClick={nextSlide}
-              className="navigate_right_button"
-              style={{ right: 20 }}
-            ></Button>
-          </div>
-        </div>
-      </Container>
-    );
-  return null;
-}
-
-function Archive() {
-  const [archives] = useAsync(() => getArchives());
-  const { loading, data: list, error } = archives;
-  const [post, setPost] = useState(null);
-
   async function getArchive(archiveId) {
     const response = await axios
       .get(`https://sidi.hongik.ac.kr/api/v1/postings/archive/${archiveId}`)
@@ -129,8 +91,6 @@ function Archive() {
       });
     return response;
   }
-
-  useEffect(() => {}, []);
 
   if (loading)
     return (
@@ -198,7 +158,37 @@ function Archive() {
             </div>
           </div>
           <div className="archive_wrapper_slider">
-            <Slider images={post.photos}></Slider>
+            <Container>
+              <SliderContainer ref={slideRef}>
+                {post.photos.map((item) => (
+                  <Slide
+                    key={item.key}
+                    img={item.photo}
+                    caption={item.caption}
+                  ></Slide>
+                ))}
+              </SliderContainer>
+              <div className="arrows_and_number_container">
+                <div>
+                  <Button
+                    onClick={() => prevSlide(post.photos.length)}
+                    className="navigate_left_button"
+                  ></Button>
+                </div>
+                <div className="date">
+                  <span>
+                    {currentSlide} / {post.photos.length}
+                  </span>
+                </div>
+                <div>
+                  <Button
+                    onClick={() => nextSlide(post.photos.length)}
+                    className="navigate_right_button"
+                    style={{ right: 20 }}
+                  ></Button>
+                </div>
+              </div>
+            </Container>
           </div>
         </div>
         <div className="archive_index_container">
