@@ -128,7 +128,7 @@ function Archive() {
                   </div>
                 </div>
                 <div
-                  className="archive_index_box_image image_fill"
+                  className="archive_index_box_image"
                   style={{
                     backgroundImage: data.photos.length
                       ? `url(${data.photos[0].photo})`
