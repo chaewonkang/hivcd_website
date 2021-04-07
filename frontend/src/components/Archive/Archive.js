@@ -154,7 +154,7 @@ function Archive() {
                     {data.title}
                   </div>
                   <div className="archive_index_box_text_date">
-                    {data.created_at.slice(0, 10)}
+                    {data.created_at ? data.created_at.slice(0, 10) : null}
                   </div>
                 </div>
                 <div className="archive_index_box_image">
@@ -206,7 +206,7 @@ function Archive() {
                     {data.title}
                   </div>
                   <div className="archive_index_box_text_date">
-                    {data.updated_at.slice(0, 10)}
+                    {data.created_at ? data.created_at.slice(0, 10) : null}
                   </div>
                 </div>
                 <div className="archive_index_box_image">
