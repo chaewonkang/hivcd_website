@@ -121,26 +121,26 @@ function Archive() {
     return response;
   }
 
-  useEffect(() => {}, []);
-
   if (loading)
     return (
       <div className="container_loading">
         <img className="loading_status" src={logogif} alt="logogif"></img>
       </div>
     );
+
   if (error)
     return (
       <div className="container_loading">
         <img className="loading_status" src={logogif} alt="logogif"></img>
       </div>
     );
+
   if (!list) return null;
 
-  if (!post)
+  if (!post && list)
     return (
       <div className="archive_container">
-        <div className="archive_index_container">
+        <div className="archive_index_container_before">
           {list.map((data) => {
             return (
               <div key={data.pk} className="archive_index_box">
@@ -154,7 +154,7 @@ function Archive() {
                     {data.title}
                   </div>
                   <div className="archive_index_box_text_date">
-                    {data.updated_at.slice(0, 10)}
+                    {data.created_at.slice(0, 10)}
                   </div>
                 </div>
                 <div className="archive_index_box_image">
@@ -170,7 +170,7 @@ function Archive() {
       </div>
     );
 
-  if (post)
+  if (post && list)
     return (
       <div className="archive_container">
         <div className="archive_wrapper">
@@ -179,7 +179,7 @@ function Archive() {
               <span>{post.title}</span>
             </div>
             <div className="archive_wrapper_text_date">
-              <span>{post.updated_at.slice(0, 10)}</span>
+              <span>{post.created_at.slice(0, 10)}</span>
             </div>
             <div className="archive_wrapper_text_body">
               <span>{post.text}</span>
@@ -221,6 +221,7 @@ function Archive() {
         </div>
       </div>
     );
+  return null;
 }
 
 export default Archive;
