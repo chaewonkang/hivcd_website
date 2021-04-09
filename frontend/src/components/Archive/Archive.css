@@ -201,11 +201,11 @@
     display: grid;
     grid-template-columns: 1fr;
     column-gap: 20px;
-    grid-template-rows: 1.5fr 1fr;
+    grid-template-rows: repeat(2, auto);
     background-color: #ffeb00;
     border: 2px solid #ffba00;
-    height: inherit;
-    max-height: inherit;
+    height: 100vh;
+    height: 100vh;
   }
 
   .archive_wrapper_text {
@@ -223,11 +223,11 @@
     display: grid;
     grid-template-columns: 1fr;
     column-gap: 20px;
-    grid-template-rows: 1.5fr 1fr;
+    grid-template-rows: repeat(2, auto);
     background-color: #ffeb00;
     border: 2px solid #ffba00;
-    height: inherit;
-    max-height: inherit;
+    height: 100vh;
+    height: 100vh;
   }
 
   .archive_wrapper_text {
@@ -245,11 +245,11 @@
     display: grid;
     grid-template-columns: 1fr;
     column-gap: 20px;
-    grid-template-rows: 1.5fr 1fr;
+    grid-template-rows: repeat(2, auto);
     background-color: #ffeb00;
     border: 2px solid #ffba00;
-    height: inherit;
-    max-height: inherit;
+    height: 100vh;
+    height: 100vh;
   }
 
   .archive_wrapper_text {
@@ -266,11 +266,11 @@
     display: grid;
     grid-template-columns: 1fr;
     column-gap: 20px;
-    grid-template-rows: 1.5fr 1fr;
+    grid-template-rows: repeat(2, auto);
     background-color: #ffeb00;
     border: 2px solid #ffba00;
-    height: inherit;
-    max-height: inherit;
+    height: 100vh;
+    height: 100vh;
   }
 
   .archive_wrapper_text {
@@ -282,8 +282,5 @@
     margin-top: 50px;
     margin-left: 10px;
     margin-right: 10px;
-  }
-  .arrows_and_number_container {
-    padding-right: 40px;
   }
 }
