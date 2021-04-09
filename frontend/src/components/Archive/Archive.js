@@ -4,6 +4,7 @@ import logogif from "../../img/logogif.gif";
 import useAsync from "../../utils/useAsync";
 import axios from "axios";
 import Slider from "../Slider/Slider";
+import { nominalTypeHack } from "prop-types";
 
 async function getArchives() {
   const response = await axios.get(
@@ -51,12 +52,20 @@ function Archive() {
         <div className="archive_index_container_before">
           {list.map((data) => {
             return (
-              <div className="archive">
+              <div
+                className="archive"
+                style={{ backgroundColor: "none", border: "none" }}
+              >
                 <div className="archive_tag">
                   <span>기록</span>
                 </div>
                 <div className="archive_content">
-                  <div className="archive_content_header">
+                  <div
+                    className="archive_content_header"
+                    onClick={() => {
+                      setPost(getArchive(data.pk));
+                    }}
+                  >
                     <span>
                       {data.title} <br></br>
                     </span>
