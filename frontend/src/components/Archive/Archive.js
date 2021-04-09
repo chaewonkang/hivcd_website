@@ -79,6 +79,31 @@ function Archive() {
               </div>
             );
           })}
+          {list.map((data) => {
+            return (
+              <div className="archive">
+                <div className="archive_tag">
+                  <span>기록</span>
+                </div>
+                <div className="archive_content">
+                  <div className="archive_content_header">
+                    <span>
+                      {data.title} <br></br>
+                    </span>
+                    <p className="archive_content_body">
+                      {data.created_at ? data.created_at.slice(0, 10) : null}
+                    </p>
+                  </div>
+                </div>
+                <div
+                  className="archive_content_image image_fill"
+                  style={{
+                    backgroundImage: `url(${data.photos[0].photo})`,
+                  }}
+                ></div>
+              </div>
+            );
+          })}
         </div>
       </div>
     );
@@ -97,7 +122,16 @@ function Archive() {
               </span>
             </div>
             <div className="archive_wrapper_text_body">
-              <span>{post.text}</span>
+              <span>
+                {post.text.split("\n").map((line) => {
+                  return (
+                    <span>
+                      {line}
+                      <br />
+                    </span>
+                  );
+                })}
+              </span>
             </div>
             <div className="archive_wrapper_text_link">
               <span>{post.link}</span>

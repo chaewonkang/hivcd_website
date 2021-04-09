@@ -199,6 +199,11 @@
 
 /********** Medium devices only **********/
 @media (min-width: 992px) and (max-width: 1199px) {
+  .archive_wrapper_text_title {
+    font-size: 18px;
+    border-bottom: 1px solid #000;
+  }
+
   .archive_wrapper {
     display: grid;
     grid-template-columns: 1fr;

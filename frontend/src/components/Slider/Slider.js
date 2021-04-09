@@ -31,18 +31,18 @@ const SliderContainer = styled.div`
 `;
 
 export default function Slider({ items }) {
-  const TOTAL_SLIDES = items.length;
+  const TOTAL_SLIDES = items.length - 1;
   const [currentSlide, setCurrentSlide] = useState(0);
   const slideRef = useRef(null);
   const nextSlide = () => {
     if (currentSlide >= TOTAL_SLIDES) {
-      setCurrentSlide(1);
+      setCurrentSlide(0);
     } else {
       setCurrentSlide(currentSlide + 1);
     }
   };
   const prevSlide = () => {
-    if (currentSlide === 1) {
+    if (currentSlide === 0) {
       setCurrentSlide(TOTAL_SLIDES);
     } else {
       setCurrentSlide(currentSlide - 1);
