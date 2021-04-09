@@ -12,7 +12,6 @@ const IMG = styled.img`
 const Container = styled.div`
   width: calc(100% - 20px);
   overflow: hidden;
-  height: 100%;
 `;
 
 const Button = styled.button`
@@ -27,11 +26,10 @@ const Button = styled.button`
 const SliderContainer = styled.div`
   width: 100%;
   display: flex;
-  height: 90%;
 `;
 
 export default function Slider({ items }) {
-  const TOTAL_SLIDES = items.length;
+  const TOTAL_SLIDES = items.length - 1;
   const [currentSlide, setCurrentSlide] = useState(0);
   const slideRef = useRef(null);
   const nextSlide = () => {
