@@ -28,8 +28,9 @@
 }
 
 .archive_wrapper {
+  padding: 20px;
   display: grid;
-  grid-template-columns: 1fr 2fr;
+  grid-template-columns: repeat(2, auto);
   column-gap: 20px;
   background-color: #ffeb00;
   border: 2px solid #ffba00;
@@ -78,7 +79,6 @@
 }
 
 .archive_wrapper_slider {
-  padding: 20px 20px 20px 0px;
   position: relative;
 }
 
@@ -100,11 +100,9 @@
 
 .arrows_and_number_container {
   position: absolute;
-  bottom: 20px;
+  bottom: 0;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  padding-right: 20px;
-  height: 5%;
 }
 
 .slide_container {
@@ -209,10 +207,6 @@
     border: 2px solid #ffba00;
     height: inherit;
     max-height: inherit;
-  }
-
-  .archive_wrapper_slider {
-    padding-left: 20px;
   }
 
   .archive_wrapper_text {
