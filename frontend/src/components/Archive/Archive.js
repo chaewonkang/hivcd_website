@@ -58,7 +58,7 @@ function Archive() {
                 ref={(node) => {
                   if (node) {
                     node.style.setProperty(
-                      "backgroundColor",
+                      "background-color",
                       "none",
                       "important"
                     );
@@ -143,7 +143,7 @@ function Archive() {
                 ref={(node) => {
                   if (node) {
                     node.style.setProperty(
-                      "backgroundColor",
+                      "background-color",
                       "none",
                       "important"
                     );

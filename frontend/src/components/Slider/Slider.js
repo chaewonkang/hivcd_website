@@ -3,10 +3,15 @@ import "./Slider.css";
 import styled from "styled-components";
 
 function Slide({ img }) {
-  return <IMG src={img} />;
+  return (
+    <IMG>
+      <img src={img}></img>
+    </IMG>
+  );
 }
-const IMG = styled.img`
+const IMG = styled.div`
   width: 100%;
+  object-fit: center;
 `;
 
 const Container = styled.div`
