@@ -2,17 +2,7 @@ import React, { useState, useRef, useEffect } from "react";
 import styled from "styled-components";
 
 function Slide({ img }) {
-  return (
-    <div
-      style={{
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-      }}
-    >
-      <IMG src={img} />
-    </div>
-  );
+  return <IMG src={img} />;
 }
 const IMG = styled.img`
   width: 100%;
@@ -21,7 +11,6 @@ const IMG = styled.img`
 const Container = styled.div`
   width: 100%;
   overflow: hidden;
-  height: 100%;
 `;
 
 const Button = styled.button`
