@@ -12,6 +12,7 @@ const IMG = styled.img`
 const Container = styled.div`
   width: calc(100% - 20px);
   overflow: hidden;
+  height: 100%;
 `;
 
 const Button = styled.button`
@@ -26,6 +27,7 @@ const Button = styled.button`
 const SliderContainer = styled.div`
   width: 100%;
   display: flex;
+  height: 90%;
 `;
 
 export default function Slider({ items }) {
