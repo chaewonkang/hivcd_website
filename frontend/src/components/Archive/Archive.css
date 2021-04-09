@@ -34,8 +34,6 @@
   background-color: #ffeb00;
   border: 2px solid #ffba00;
   animation: 1s ease-out 0s 1 fadeIn;
-  height: 70vh;
-  max-height: 70vh;
 }
 
 .archive_wrapper_text {
