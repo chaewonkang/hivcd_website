@@ -36,13 +36,13 @@ export default function Slider({ items }) {
   const slideRef = useRef(null);
   const nextSlide = () => {
     if (currentSlide >= TOTAL_SLIDES) {
-      setCurrentSlide(0);
+      setCurrentSlide(1);
     } else {
       setCurrentSlide(currentSlide + 1);
     }
   };
   const prevSlide = () => {
-    if (currentSlide === 0) {
+    if (currentSlide === 1) {
       setCurrentSlide(TOTAL_SLIDES);
     } else {
       setCurrentSlide(currentSlide - 1);
