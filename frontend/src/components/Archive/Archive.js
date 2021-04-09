@@ -51,36 +51,6 @@ function Archive() {
         <div className="archive_index_container_before">
           {list.map((data) => {
             return (
-              <div key={data.pk} className="archive_index_box">
-                <div className="archive_index_box_tag">
-                  <span>Archive</span>
-                </div>
-                <div className="archive_index_box_content">
-                  <div
-                    className="archive_index_box_text_title"
-                    onClick={() => {
-                      setPost(getArchive(data.pk));
-                    }}
-                  >
-                    {data.title}
-                  </div>
-                  <div className="archive_index_box_text_date">
-                    {data.created_at ? data.created_at.slice(0, 10) : null}
-                  </div>
-                </div>
-                <div
-                  className="archive_index_box_image"
-                  style={{
-                    backgroundImage: data.photos.length
-                      ? `url(${data.photos[0].photo})`
-                      : null,
-                  }}
-                ></div>
-              </div>
-            );
-          })}
-          {list.map((data) => {
-            return (
               <div className="archive">
                 <div className="archive_tag">
                   <span>기록</span>
@@ -98,7 +68,9 @@ function Archive() {
                 <div
                   className="archive_content_image image_fill"
                   style={{
-                    backgroundImage: `url(${data.photos[0].photo})`,
+                    backgroundImage: data.photos.length
+                      ? `url(${data.photos[0].photo})`
+                      : null,
                   }}
                 ></div>
               </div>
