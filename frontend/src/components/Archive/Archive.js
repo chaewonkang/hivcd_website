@@ -54,7 +54,16 @@ function Archive() {
             return (
               <div
                 className="archive"
-                style={{ backgroundColor: "none !important", border: "none" }}
+                style={{ border: "1px solid #000" }}
+                ref={(node) => {
+                  if (node) {
+                    node.style.setProperty(
+                      "backgroundColor",
+                      "none",
+                      "important"
+                    );
+                  }
+                }}
               >
                 <div className="archive_tag">
                   <span>기록</span>
@@ -128,29 +137,44 @@ function Archive() {
         <div className="archive_index_container">
           {list.map((data) => {
             return (
-              <div key={data.pk} className="archive_index_box">
-                <div className="archive_index_box_tag">
-                  <span>Archive</span>
+              <div
+                className="archive"
+                style={{ border: "1px solid #000" }}
+                ref={(node) => {
+                  if (node) {
+                    node.style.setProperty(
+                      "backgroundColor",
+                      "none",
+                      "important"
+                    );
+                  }
+                }}
+              >
+                <div className="archive_tag">
+                  <span>기록</span>
                 </div>
-                <div className="archive_index_box_content">
+                <div className="archive_content">
                   <div
-                    className="archive_index_box_text_title"
+                    className="archive_content_header"
                     onClick={() => {
                       setPost(getArchive(data.pk));
                     }}
                   >
-                    {data.title}
-                  </div>
-                  <div className="archive_index_box_text_date">
-                    {data.created_at ? data.created_at.slice(0, 10) : null}
+                    <span>
+                      {data.title} <br></br>
+                    </span>
+                    <p className="archive_content_body">
+                      {data.created_at ? data.created_at.slice(0, 10) : null}
+                    </p>
                   </div>
                 </div>
                 <div
-                  className="archive_index_box_image"
+                  className="archive_content_image image_fill"
                   style={{
                     backgroundImage: data.photos.length
                       ? `url(${data.photos[0].photo})`
                       : null,
+                    border: "none",
                   }}
                 ></div>
               </div>
