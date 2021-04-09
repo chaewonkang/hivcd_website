@@ -18,7 +18,6 @@ class Photo(Timestamp):
     caption = models.CharField(max_length=80)
     photo = ProcessedImageField(
         upload_to="photos/%Y/%m/%d",
-        processors=[ResizeToFit(width=970, upscale=False)],
         options= {'quality': 90 },
     )
     post = models.ForeignKey(
