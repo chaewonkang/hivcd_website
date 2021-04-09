@@ -54,7 +54,7 @@ function Archive() {
             return (
               <div
                 className="archive"
-                style={{ backgroundColor: "none", border: "none" }}
+                style={{ backgroundColor: "none !important", border: "none" }}
               >
                 <div className="archive_tag">
                   <span>기록</span>
@@ -80,6 +80,7 @@ function Archive() {
                     backgroundImage: data.photos.length
                       ? `url(${data.photos[0].photo})`
                       : null,
+                    border: "none",
                   }}
                 ></div>
               </div>
@@ -104,14 +105,16 @@ function Archive() {
             </div>
             <div className="archive_wrapper_text_body">
               <span>
-                {post.text.split("\n").map((line) => {
-                  return (
-                    <span>
-                      {line}
-                      <br />
-                    </span>
-                  );
-                })}
+                {post.text
+                  ? post.text.split("\n").map((line) => {
+                      return (
+                        <span>
+                          {line}
+                          <br />
+                        </span>
+                      );
+                    })
+                  : null}
               </span>
             </div>
             <div className="archive_wrapper_text_link">
