@@ -204,8 +204,8 @@
     grid-template-rows: repeat(2, auto);
     background-color: #ffeb00;
     border: 2px solid #ffba00;
-    height: 100vh;
-    height: 100vh;
+    height: inherit;
+    height: inherit;
   }
 
   .archive_wrapper_text {
@@ -226,8 +226,8 @@
     grid-template-rows: repeat(2, auto);
     background-color: #ffeb00;
     border: 2px solid #ffba00;
-    height: 100vh;
-    height: 100vh;
+    height: inherit;
+    height: inherit;
   }
 
   .archive_wrapper_text {
@@ -248,8 +248,8 @@
     grid-template-rows: repeat(2, auto);
     background-color: #ffeb00;
     border: 2px solid #ffba00;
-    height: 100vh;
-    height: 100vh;
+    height: inherit;
+    height: inherit;
   }
 
   .archive_wrapper_text {
@@ -269,8 +269,8 @@
     grid-template-rows: repeat(2, auto);
     background-color: #ffeb00;
     border: 2px solid #ffba00;
-    height: 100vh;
-    height: 100vh;
+    height: inherit;
+    height: inherit;
   }
 
   .archive_wrapper_text {
