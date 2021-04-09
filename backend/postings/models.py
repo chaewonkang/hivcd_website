@@ -3,7 +3,7 @@ from django.conf import settings
 from django.core.cache import cache
 from django.utils import timezone
 from imagekit.models import ProcessedImageField
-from imagekit.processors import ResizeToFill
+from imagekit.processors import ResizeToFit
 
 
 class Timestamp(models.Model):
