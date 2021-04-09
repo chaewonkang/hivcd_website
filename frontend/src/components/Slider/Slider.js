@@ -9,7 +9,8 @@ const IMG = styled.img`
 `;
 
 const Container = styled.div`
-  width: calc(100% - 20px);
+  width: 100%;
+
   overflow: hidden;
   height: 100%;
 `;
@@ -24,9 +25,9 @@ const Button = styled.button`
 `;
 
 const SliderContainer = styled.div`
-  width: 100%;
   display: flex;
   height: 90%;
+  max-height: 90%;
 `;
 
 export default function Slider({ items }) {
@@ -65,9 +66,7 @@ export default function Slider({ items }) {
           <Button onClick={prevSlide} className="navigate_left_button"></Button>
         </div>
         <div className="date">
-          <span>
-            {currentSlide} / {TOTAL_SLIDES}
-          </span>
+          <span></span>
         </div>
         <div>
           <Button
