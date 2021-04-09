@@ -1,5 +1,4 @@
 import React, { useState, useRef, useEffect } from "react";
-import "./Slider.css";
 import styled from "styled-components";
 
 function Slide({ img }) {
