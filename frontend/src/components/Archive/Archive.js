@@ -54,16 +54,7 @@ function Archive() {
             return (
               <div
                 className="archive"
-                style={{ border: "1px solid #000" }}
-                ref={(node) => {
-                  if (node) {
-                    node.style.setProperty(
-                      "background-color",
-                      "none",
-                      "important"
-                    );
-                  }
-                }}
+                style={{ border: "1px solid #000", backgroundColor: "unset" }}
               >
                 <div className="archive_tag">
                   <span>기록</span>
@@ -139,16 +130,7 @@ function Archive() {
             return (
               <div
                 className="archive"
-                style={{ border: "1px solid #000" }}
-                ref={(node) => {
-                  if (node) {
-                    node.style.setProperty(
-                      "background-color",
-                      "none",
-                      "important"
-                    );
-                  }
-                }}
+                style={{ border: "1px solid #000", backgroundColor: "unset" }}
               >
                 <div className="archive_tag">
                   <span>기록</span>

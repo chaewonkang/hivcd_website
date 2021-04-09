@@ -3,7 +3,11 @@ import "./Slider.css";
 import styled from "styled-components";
 
 function Slide({ img }) {
-  return <IMG src={img} />;
+  return (
+    <div>
+      <IMG src={img} />
+    </div>
+  );
 }
 const IMG = styled.img`
   width: 100%;
