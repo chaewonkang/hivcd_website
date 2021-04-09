@@ -2,7 +2,17 @@ import React, { useState, useRef, useEffect } from "react";
 import styled from "styled-components";
 
 function Slide({ img }) {
-  return <IMG src={img} />;
+  return (
+    <div
+      style={{
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+      }}
+    >
+      <IMG src={img} />
+    </div>
+  );
 }
 const IMG = styled.img`
   width: 100%;
@@ -10,7 +20,6 @@ const IMG = styled.img`
 
 const Container = styled.div`
   width: 100%;
-
   overflow: hidden;
   height: 100%;
 `;
@@ -26,8 +35,7 @@ const Button = styled.button`
 
 const SliderContainer = styled.div`
   display: flex;
-  height: 90%;
-  max-height: 90%;
+  width: 100%;
 `;
 
 export default function Slider({ items }) {
@@ -66,7 +74,9 @@ export default function Slider({ items }) {
           <Button onClick={prevSlide} className="navigate_left_button"></Button>
         </div>
         <div className="date">
-          <span></span>
+          <span>
+            {currentSlide} / {TOTAL_SLIDES}
+          </span>
         </div>
         <div>
           <Button
