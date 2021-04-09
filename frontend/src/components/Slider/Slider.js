@@ -5,9 +5,8 @@ import styled from "styled-components";
 function Slide({ img }) {
   return <IMG src={img} />;
 }
-const IMG = styled.div`
+const IMG = styled.img`
   width: 100%;
-  object-fit: center;
 `;
 
 const Container = styled.div`
