@@ -1,6 +1,6 @@
 import os
 from django.shortcuts import redirect
-from django.http import HttpResponse, JsonResponse
+from django.http import HttpResponseRedirect, JsonResponse
 from django.contrib.auth import logout
 from rest_framework.decorators import api_view
 from rest_framework import generics
@@ -33,7 +33,7 @@ def login_view(request):
 @api_view(["GET"])
 def logout_view(request):
     logout(request)
-    response = HttpResponse(content="success")
+    response = HttpResponseRedirect(redirect_to=MAIN_PAGE, content="success")
 
     response.delete_cookie(key="SUSER_ID", domain=DOMAIN)
     response.delete_cookie(key="SUSER_NAME", domain=DOMAIN)

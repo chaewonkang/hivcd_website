@@ -66,6 +66,16 @@ class Comment(Timestamp):
         return self.text
 
 
+class Video(Timestamp):
+    post = models.ForeignKey("Post", on_delete=models.CASCADE, related_name="post")
+    name = models.TextField()
+    video_key = models.CharField(max_length=25)
+
+    class Meta:
+        ordering = ["-updated"]
+
+
+
 class Post(models.Model):
     author = models.ForeignKey(to=settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     title = models.CharField(max_length=255, blank=False, default="")

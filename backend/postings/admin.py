@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Post, Photo, Comment, File
+from .models import Post, Photo, Comment, File, Video
 
 
 class PhotoInline(admin.TabularInline):
@@ -14,6 +14,10 @@ class FileInline(admin.TabularInline):
     model = File
 
 
+class VideoInline(admin.TabularInline):
+    model = Video
+
+
 @admin.register(Post)
 class PostAdmin(admin.ModelAdmin):
     list_display = ('title', 'author', 'category')
@@ -26,6 +30,7 @@ class PostAdmin(admin.ModelAdmin):
         PhotoInline,
         CommentInline,
         FileInline,
+        VideoInline,
     ]
 
     fieldsets = (
