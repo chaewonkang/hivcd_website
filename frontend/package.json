@@ -40,6 +40,7 @@
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.3",
     "react-scroll": "^1.8.1",
+    "react-slick": "^0.28.1",
     "react-split-pane": "^0.1.92",
     "redux": "^4.0.5",
     "redux-actions": "^2.6.5",
@@ -51,6 +52,7 @@
     "rxjs-compat": "^6.6.3",
     "sass-loader": "^10.0.2",
     "semantic-ui-css": "^2.4.1",
+    "slick-carousel": "^1.8.1",
     "styled-components": "^5.2.1"
   },
   "scripts": {

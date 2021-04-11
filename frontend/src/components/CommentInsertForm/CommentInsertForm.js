@@ -6,7 +6,6 @@ import getCookie from "../../utils/getCookie";
 const CommentInsertForm = ({ style, postId }) => {
   const [username, setUsername] = useState("");
   const [comment, setComment] = useState({});
-  const token = getCookie("csrftoken");
 
   useEffect(() => {
     setUsername(localStorage.username);
@@ -19,7 +18,7 @@ const CommentInsertForm = ({ style, postId }) => {
     });
   }
 
-  async function handleSubmit(e, t, data, pk) {
+  async function handleSubmit(e, data, pk) {
     e.preventDefault();
 
     try {
@@ -32,8 +31,6 @@ const CommentInsertForm = ({ style, postId }) => {
           {
             headers: {
               "Content-Type": "application/json",
-              Authorization: "Bearer " + localStorage.getItem("access_token"),
-              "X-CSRFToken": t,
             },
           }
         )
@@ -71,8 +68,8 @@ const CommentInsertForm = ({ style, postId }) => {
           ></input>
           <button
             className="comment_input_button"
-            onClick={(e, t = token, data = comment, pk = postId) =>
-              handleSubmit(e, (t = token), (data = comment), (pk = postId))
+            onClick={(e, data = comment, pk = postId) =>
+              handleSubmit(e, (data = comment), (pk = postId))
             }
           >
             입력

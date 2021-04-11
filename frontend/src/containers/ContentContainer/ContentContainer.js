@@ -4,7 +4,6 @@ import { PostWrapper, Post, HomeArchive } from "../../components";
 import { ArchiveWrapper } from "../../components";
 import "./ContentContainer.css";
 import useAsync from "../../utils/useAsync";
-import getCookie from "../../utils/getCookie";
 import Modal from "react-awesome-modal";
 import logogif from "../../img/logogif.gif";
 import H_1 from "../../img/ㅎ_1.gif";
@@ -12,7 +11,7 @@ import I_1 from "../../img/ㅇ_1.gif";
 import S_1 from "../../img/ㅅ_1.gif";
 import D_1 from "../../img/ㄷ_1.gif";
 
-async function getPosts(token) {
+async function getPosts() {
   const response = await axios.get(
     "https://sidi.hongik.ac.kr/api/v1/postings/",
     {},
@@ -20,7 +19,6 @@ async function getPosts(token) {
       headers: {
         Authorization: "Bearer " + localStorage.getItem("access_token"),
         Accept: "application/json",
-        "X-CSRFToken": token,
         "Content-type": "application/json",
       },
     }
@@ -28,7 +26,7 @@ async function getPosts(token) {
   return response.data;
 }
 
-async function getArchives(token) {
+async function getArchives() {
   const response = await axios.get(
     "https://sidi.hongik.ac.kr/api/v1/postings/exhibition/",
     {},
@@ -36,7 +34,6 @@ async function getArchives(token) {
       headers: {
         Authorization: "Bearer " + localStorage.getItem("access_token"),
         Accept: "application/json",
-        "X-CSRFToken": token,
         "Content-type": "application/json",
       },
     }
@@ -56,9 +53,8 @@ function debounce(fn, ms) {
 }
 
 function ContentContainer() {
-  const [token] = useState(getCookie("csrftoken"));
-  const [state] = useAsync(() => getPosts(token), [token]);
-  const [archiveState] = useAsync(() => getArchives(token), [token]);
+  const [state] = useAsync(() => getPosts(), []);
+  const [archiveState] = useAsync(() => getArchives(), []);
   const { loading, data: posts, error } = state;
   const { loading: aLoading, data: archives, error: aError } = archiveState;
   let pkArray = [];

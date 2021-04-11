@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import "./PostModule.css";
 import { Link, Redirect } from "react-router-dom";
 import { Warning } from "../../components";
-import getCookie from "../../utils/getCookie";
 
 const PostModule = ({ style, title, date, category, id }) => {
   let categoryName = null;
@@ -14,15 +13,13 @@ const PostModule = ({ style, title, date, category, id }) => {
   else if (category === 6) categoryName = "졸업 주간";
   else if (category === 7) categoryName = "와우영상제";
   else if (category === 8) categoryName = "소모임";
-  else if (category === 9) categoryName = "학과생활";
-  else if (category === 10) categoryName = "학사정보";
+  else if (category === 9) categoryName = "생활";
+  else if (category === 10) categoryName = "학사";
   else if (category === 11) categoryName = "학사내규";
   else if (category === 12) categoryName = "아카이브";
   const postId = parseInt(id, 10);
   const slicedDate = date.slice(0, 10);
   const [warningVisibility, setWarningVisibility] = useState(false);
-
-  const isLogged = getCookie("SUSER_ID") === null ? false : true;
 
   const showWarning = () => {
     setWarningVisibility(true);

@@ -8,10 +8,9 @@ import logogif from "../../img/logogif.gif";
 function SearchResultContainer({ searchKeyword }) {
   const [postList, setPostList] = useState([]);
   const [error, setError] = useState(null);
-  const [token] = useState(getCookie("csrftoken"));
   const [loading, setLoading] = useState(false);
 
-  async function getSearchResult(searchKeyword, token) {
+  async function getSearchResult(searchKeyword) {
     await axios
       .get(
         "https://sidi.hongik.ac.kr/api/v1/postings/",
@@ -20,7 +19,6 @@ function SearchResultContainer({ searchKeyword }) {
           headers: {
             Authorization: "Bearer " + localStorage.getItem("access_token"),
             Accept: "application/json",
-            "X-CSRFToken": token,
             "Content-type": "application/json",
           },
         }
@@ -55,8 +53,8 @@ function SearchResultContainer({ searchKeyword }) {
   }
 
   useEffect(() => {
-    getSearchResult(searchKeyword, token);
-  }, [searchKeyword, token]);
+    getSearchResult(searchKeyword);
+  }, [searchKeyword]);
 
   if (loading)
     return (

@@ -16,13 +16,13 @@ header {
 
 .header_container_left {
   display: inline-grid;
-  width: calc((40vw - 20px));
+  width: calc((30vw - 20px));
   column-gap: 10px;
 }
 
 .header_container_right {
   display: inline-grid;
-  width: calc((60vw - 20px));
+  width: calc((70vw - 20px));
   grid-template-columns: 1fr auto;
   font-size: 17px;
   text-align: right;

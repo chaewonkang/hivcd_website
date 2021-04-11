@@ -3,7 +3,7 @@ from django.conf import settings
 from django.core.cache import cache
 from django.utils import timezone
 from imagekit.models import ProcessedImageField
-from imagekit.processors import ResizeToFill
+from imagekit.processors import ResizeToFit
 
 
 class Timestamp(models.Model):
@@ -18,8 +18,6 @@ class Photo(Timestamp):
     caption = models.CharField(max_length=80)
     photo = ProcessedImageField(
         upload_to="photos/%Y/%m/%d",
-        processors=[ResizeToFill(600,600)],
-        format='JPEG',
         options= {'quality': 90 },
     )
     post = models.ForeignKey(

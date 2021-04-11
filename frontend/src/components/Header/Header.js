@@ -26,23 +26,7 @@ function Header({ handleLogout, handleSearchKeyword }) {
           <div className="header_container_title">
             <Link to="/">
               <h1 className="title">
-                <span
-                  id="title"
-                  onMouseOver={() =>
-                    setMenuText({
-                      ...menuText,
-                      title: "Hongik University Visual Communication Design",
-                    })
-                  }
-                  onMouseLeave={() =>
-                    setMenuText({
-                      ...menuText,
-                      title: "홍익대학교 미술대학 시각디자인과",
-                    })
-                  }
-                >
-                  {menuText.title}
-                </span>
+                <span id="title">{menuText.title}</span>
               </h1>
             </Link>
           </div>
@@ -51,43 +35,17 @@ function Header({ handleLogout, handleSearchKeyword }) {
           <div className="header_container_menubar">
             <span className="navbar_menu_wrapper_item_title">
               <NavLink className="link" activeClassName="active" to="/aboutus">
-                <span
-                  id="about"
-                  onMouseOver={() =>
-                    setMenuText({ ...menuText, about: "About" })
-                  }
-                  onMouseLeave={() =>
-                    setMenuText({ ...menuText, about: "소개" })
-                  }
-                >
-                  {menuText.about}
-                </span>
+                <span id="about">{menuText.about}</span>
               </NavLink>
             </span>
             <span className="navbar_menu_wrapper_item_title">
               <NavLink className="link" activeClassName="active" to="/board">
-                <span
-                  id="news"
-                  onMouseOver={() => setMenuText({ ...menuText, news: "News" })}
-                  onMouseLeave={() =>
-                    setMenuText({ ...menuText, news: "공지" })
-                  }
-                >
-                  {menuText.news}
-                </span>
+                <span id="news">{menuText.news}</span>
               </NavLink>
             </span>
             <span className="navbar_menu_wrapper_item_title">
               <NavLink className="link" activeClassName="active" to="/announce">
-                <span
-                  id="info"
-                  onMouseOver={() => setMenuText({ ...menuText, info: "Info" })}
-                  onMouseLeave={() =>
-                    setMenuText({ ...menuText, info: "정보" })
-                  }
-                >
-                  {menuText.info}
-                </span>
+                <span id="info">{menuText.info}</span>
               </NavLink>
             </span>
             {/* <span className="navbar_menu_wrapper_item_title">
@@ -107,36 +65,7 @@ function Header({ handleLogout, handleSearchKeyword }) {
             </span> */}
             <span className="navbar_menu_wrapper_item_title">
               <NavLink className="link" activeClassName="active" to="/archive">
-                <span
-                  id="archive"
-                  onMouseOver={() =>
-                    setMenuText({ ...menuText, archive: "Archive" })
-                  }
-                  onMouseLeave={() =>
-                    setMenuText({ ...menuText, archive: "기록" })
-                  }
-                >
-                  {menuText.archive}
-                </span>{" "}
-              </NavLink>
-            </span>
-            <span className="navbar_menu_wrapper_item_title">
-              <NavLink
-                className="link"
-                activeClassName="active"
-                to="/reservation"
-              >
-                <span
-                  id="reservation"
-                  onMouseOver={() =>
-                    setMenuText({ ...menuText, reservation: "Reservation" })
-                  }
-                  onMouseLeave={() =>
-                    setMenuText({ ...menuText, reservation: "예약" })
-                  }
-                >
-                  {menuText.reservation}
-                </span>{" "}
+                <span id="archive">{menuText.archive}</span>{" "}
               </NavLink>
             </span>
             <span className="navbar_menu_wrapper_item_title">
@@ -145,32 +74,21 @@ function Header({ handleLogout, handleSearchKeyword }) {
                 activeClassName="active"
                 to="/exhibition"
               >
-                <span
-                  id="show"
-                  onMouseOver={() =>
-                    setMenuText({ ...menuText, show: "Show/Event" })
-                  }
-                  onMouseLeave={() =>
-                    setMenuText({ ...menuText, show: "전시/행사" })
-                  }
-                >
-                  {menuText.show}
-                </span>{" "}
+                <span id="show">{menuText.show}</span>{" "}
+              </NavLink>
+            </span>
+            <span className="navbar_menu_wrapper_item_title">
+              <NavLink
+                className="link"
+                activeClassName="active"
+                to="/reservation"
+              >
+                <span id="reservation">{menuText.reservation}</span>{" "}
               </NavLink>
             </span>
             <span className="navbar_menu_wrapper_item_title">
               <NavLink className="link" activeClassName="active" to="/calendar">
-                <span
-                  id="calandar"
-                  onMouseOver={() =>
-                    setMenuText({ ...menuText, calandar: "Calendar" })
-                  }
-                  onMouseLeave={() =>
-                    setMenuText({ ...menuText, calandar: "일정" })
-                  }
-                >
-                  {menuText.calandar}
-                </span>{" "}
+                <span id="calandar">{menuText.calandar}</span>{" "}
               </NavLink>
             </span>
           </div>
@@ -189,16 +107,7 @@ function Header({ handleLogout, handleSearchKeyword }) {
               >
                 <>
                   <div className="navbar_login_item">
-                    <span
-                      onMouseOver={() =>
-                        setMenuText({ ...menuText, newsletter: "Newsletter" })
-                      }
-                      onMouseLeave={() =>
-                        setMenuText({ ...menuText, newsletter: "뉴스레터" })
-                      }
-                    >
-                      {menuText.newsletter}
-                    </span>
+                    <span>{menuText.newsletter}</span>
                   </div>
                 </>
               </a>

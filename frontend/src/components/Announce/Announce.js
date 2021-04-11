@@ -6,7 +6,7 @@ import getCookie from "../../utils/getCookie";
 import useAsync from "../../utils/useAsync";
 import logogif from "../../img/logogif.gif";
 
-async function getPosts(token) {
+async function getPosts() {
   const response = await axios.get(
     "https://sidi.hongik.ac.kr/api/v1/postings/announce"
   );
@@ -15,11 +15,10 @@ async function getPosts(token) {
 
 function Announce() {
   const [boardFilter, setBoardFilter] = useState(0);
-  const [token] = useState(getCookie("csrftoken"));
-  const [state] = useAsync(() => getPosts(token), [token]);
+  const [state] = useAsync(() => getPosts(), []);
   const { loading, data: posts, error } = state;
   const [options, setOptions] = useState({
-    all: "전체보기",
+    all: "전체",
     life: "생활",
     information: "학사",
     statues: "내규",
@@ -47,74 +46,20 @@ function Announce() {
             tabIndex="0"
             className="board_filter_option"
             onClick={() => setBoardFilter(0)}
-            onMouseOver={() =>
-              setOptions({
-                ...options,
-                all: "All",
-              })
-            }
-            onMouseLeave={() =>
-              setOptions({
-                ...options,
-                all: "전체보기",
-              })
-            }
           >
             {options.all}
           </button>
           <button
             className="board_filter_option"
             onClick={() => setBoardFilter(9)}
-            onMouseOver={() =>
-              setOptions({
-                ...options,
-                life: "Life",
-              })
-            }
-            onMouseLeave={() =>
-              setOptions({
-                ...options,
-                life: "생활",
-              })
-            }
           >
             {options.life}
           </button>
           <button
             className="board_filter_option"
             onClick={() => setBoardFilter(10)}
-            onMouseOver={() =>
-              setOptions({
-                ...options,
-                information: "Information",
-              })
-            }
-            onMouseLeave={() =>
-              setOptions({
-                ...options,
-                information: "학사",
-              })
-            }
           >
             {options.information}
-          </button>
-          <button
-            className="board_filter_option"
-            onClick={() => setBoardFilter(11)}
-            onMouseOver={() =>
-              setOptions({
-                ...options,
-                statues: "Statues",
-              })
-            }
-            onMouseLeave={() =>
-              setOptions({
-                ...options,
-                statues: "내규",
-              })
-            }
-          >
-            {options.statues}
           </button>
         </div>
       </div>
