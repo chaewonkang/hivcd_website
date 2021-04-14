@@ -16,11 +16,11 @@ async function getPosts() {
 function Board() {
   const [boardFilter, setBoardFilter] = useState(0);
   const [options, setOptions] = useState({
-    all: "전체",
-    news: "소식",
-    notice: "학과",
-    job: "구인구직",
-    lostandfound: "분실물",
+    all: { title: "전체", set: false },
+    news: { title: "소식", set: false },
+    notice: { title: "학과", set: false },
+    job: { title: "구인구직", set: false },
+    lostandfound: { title: "분실물", set: false },
   });
   const [state] = useAsync(() => getPosts(), []);
   const { loading, data: posts, error } = state;
@@ -48,27 +48,27 @@ function Board() {
             className="board_filter_option"
             onClick={() => setBoardFilter(0)}
           >
-            {options.all}
+            {options.all.title}
           </button>
           <button
             className="board_filter_option"
             onClick={() => setBoardFilter(1)}
           >
-            {options.news}
+            {options.news.title}
           </button>
           <button
             className="board_filter_option"
             activaClassName="filter_option_active"
             onClick={() => setBoardFilter(4)}
           >
-            {options.job}
+            {options.job.title}
           </button>
           <button
             className="board_filter_option"
             activaClassName="filter_option_active"
             onClick={() => setBoardFilter(5)}
           >
-            {options.lostandfound}
+            {options.lostandfound.title}
           </button>
         </div>
       </div>
