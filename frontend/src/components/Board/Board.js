@@ -50,7 +50,7 @@ function Board() {
       <div className="board_filter_wrapper">
         <div className="board_filter_container">
           <button
-            id={options.all}
+            id={options.all.title}
             tabIndex="0"
             className="board_filter_option"
             onClick={() => {
