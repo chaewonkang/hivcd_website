@@ -55,7 +55,7 @@ function EachPostContainer({ match, location }) {
   if (!list) return null;
 
   return (
-    <div className="each_post_container">
+    <>
       <div className="board_filter_wrapper">
         <div className="board_filter_container">
           <button
@@ -87,13 +87,15 @@ function EachPostContainer({ match, location }) {
           </button>
         </div>
       </div>
-      <BoardListWrapper
-        list={list}
-        postId={postId}
-        curLoc={curLoc}
-        category={boardFilter}
-      ></BoardListWrapper>
-    </div>
+      <div className="each_post_container">
+        <BoardListWrapper
+          list={list}
+          postId={postId}
+          curLoc={curLoc}
+          category={boardFilter}
+        ></BoardListWrapper>
+      </div>
+    </>
   );
 }
 
