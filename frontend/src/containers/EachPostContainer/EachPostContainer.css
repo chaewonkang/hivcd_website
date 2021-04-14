@@ -10,6 +10,11 @@
   font-family: Helvetica, sans-serif;
 }
 
+.each_post_board_filter_wrapper {
+  margin-left: 20px;
+  margin-bottom: 20px;
+}
+
 @media (min-width: 1440px) and (max-width: 1920px) {
 }
 
