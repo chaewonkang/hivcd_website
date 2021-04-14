@@ -28,8 +28,7 @@ function BoardListWrapper({ list, postId, curLoc, category }) {
           {curLoc.includes("board")
             ? currentsPosts
                 .filter((data) => {
-                  if (data.category === 0) break;
-                  else return data;
+                  if (data.category === category) return data;
                   return null;
                 })
                 .map((el, key) => {
@@ -38,6 +37,7 @@ function BoardListWrapper({ list, postId, curLoc, category }) {
                   else if (el.category === 2) categoryName = "학과 공지";
                   else if (el.category === 3) categoryName = "행사/홍보";
                   else if (el.category === 4) categoryName = "구인구직";
+                  else if (el.category === 5) categoryName = "분실물";
                   return (
                     <React.Fragment key={key}>
                       <div
