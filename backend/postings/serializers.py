@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Post, Comment, Photo, File
+from .models import Post, Comment, Photo, File, Video
 
 
 class PhotoSerializer(serializers.ModelSerializer):
@@ -36,11 +36,21 @@ class FileSerializer(serializers.ModelSerializer):
         )
 
 
+class VideoSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Video
+        fields = (
+            "video_key",
+            "name",
+        )
+
+
 class PostSerializer(serializers.ModelSerializer):
     author = serializers.SlugRelatedField(read_only=True, slug_field="suser_id")
     photos = PhotoSerializer(many=True, required=False)
     comments = CommentSerializer(many=True, required=False)
     files = FileSerializer(many=True, required=False)
+    videos = VideoSerializer(many=True, required=False)
 
     class Meta:
         model = Post
@@ -52,6 +62,7 @@ class PostSerializer(serializers.ModelSerializer):
             "category",
             "photos",
             "files",
+            "videos",
             "comments",
             "created_at",
             "updated_at",
