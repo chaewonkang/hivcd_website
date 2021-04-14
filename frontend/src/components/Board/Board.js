@@ -25,6 +25,12 @@ function Board() {
   const [state] = useAsync(() => getPosts(), []);
   const { loading, data: posts, error } = state;
 
+  const setOptionColor = (opts) => {
+    const target = document.getElementById(opts);
+    target.classList.add("clicked");
+    return null;
+  };
+
   if (loading)
     return (
       <div className="container_loading">
@@ -44,9 +50,13 @@ function Board() {
       <div className="board_filter_wrapper">
         <div className="board_filter_container">
           <button
+            id={options.all}
             tabIndex="0"
             className="board_filter_option"
-            onClick={() => setBoardFilter(0)}
+            onClick={() => {
+              setBoardFilter(0);
+              setOptionColor(options.all.title);
+            }}
           >
             {options.all.title}
           </button>
