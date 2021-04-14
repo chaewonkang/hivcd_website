@@ -59,7 +59,7 @@ function Board() {
             onClick={() => {
               setBoardFilter(0);
               options.all.set = true;
-              setOptionColor(options, options.all.title);
+              setOptionColor(options, options.all);
             }}
             onMouseAway={() => {
               options.all.set = false;
