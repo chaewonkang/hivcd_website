@@ -38,7 +38,6 @@ function EachPostContainer({ match, location }) {
   useEffect(() => {
     setPostId(match.params.postId);
     setCurLoc(location.pathname);
-    setBoardFilter(0);
   });
 
   if (loading)

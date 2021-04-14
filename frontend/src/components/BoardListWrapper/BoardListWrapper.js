@@ -28,7 +28,7 @@ function BoardListWrapper({ list, postId, curLoc, category }) {
           {curLoc.includes("board")
             ? currentsPosts
                 .filter((data) => {
-                  if (data.category === 0) return data;
+                  if (category === 0) return data;
                   else if (data.category === category) return data;
                   return null;
                 })
