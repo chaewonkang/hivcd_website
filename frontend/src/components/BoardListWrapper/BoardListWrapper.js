@@ -29,7 +29,8 @@ function BoardListWrapper({ list, postId, curLoc, category }) {
             ? currentsPosts
                 .filter((data) => {
                   if (data.category === 0) return data;
-                  else return data.category === category;
+                  else if (data.category === category) return data;
+                  return null;
                 })
                 .map((el, key) => {
                   let categoryName = null;
