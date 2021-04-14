@@ -25,9 +25,12 @@ function Board() {
   const [state] = useAsync(() => getPosts(), []);
   const { loading, data: posts, error } = state;
 
-  const setOptionColor = (opts) => {
-    const target = document.getElementById(opts);
-    target.classList.add("clicked");
+  const setOptionColor = (obj, tar) => {
+    const elem = document.getElementById(tar);
+    if (obj.tar[1]) {
+      elem.classList.remove("board_filter_option");
+      elem.classList.add("clicked");
+    }
     return null;
   };
 
@@ -55,7 +58,11 @@ function Board() {
             className="board_filter_option"
             onClick={() => {
               setBoardFilter(0);
-              setOptionColor(options.all.title);
+              options.all.set = true;
+              setOptionColor(options, options.all.title);
+            }}
+            onMouseAway={() => {
+              options.all.set = false;
             }}
           >
             {options.all.title}
