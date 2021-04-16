@@ -62,7 +62,7 @@ function BoardListWrapper({ list, postId, curLoc, category }) {
           {curLoc.includes("exhibition")
             ? currentsPosts.map((el, key) => {
                 let categoryName = null;
-                if (el.category === 6) categoryName = "졸업 주간";
+                if (el.category === 6) categoryName = "졸업주간";
                 else if (el.category === 7) categoryName = "와우영상제";
                 else if (el.category === 8) categoryName = "소모임";
                 return (
@@ -95,7 +95,7 @@ function BoardListWrapper({ list, postId, curLoc, category }) {
                 .map((el, key) => {
                   let categoryName = null;
                   if (el.category === 9) categoryName = "생활";
-                  else if (el.category === 10) categoryName = "정보";
+                  else if (el.category === 10) categoryName = "규정";
                   else if (el.category === 11) categoryName = "학사";
                   return (
                     <React.Fragment key={key}>

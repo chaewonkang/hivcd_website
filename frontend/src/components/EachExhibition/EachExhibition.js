@@ -20,7 +20,7 @@ async function getExhibitionInfo(postId) {
 
 function setCategoryNumber(category) {
   let categoryName = null;
-  if (category === 5) categoryName = "졸업 주간";
+  if (category === 5) categoryName = "졸업주간";
   else if (category === 6) categoryName = "와우영상제";
   else if (category === 7) categoryName = "소모임";
 

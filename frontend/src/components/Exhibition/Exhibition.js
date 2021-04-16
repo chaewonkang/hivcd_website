@@ -24,7 +24,7 @@ function Exhibition() {
   const [exhibitionFilter, setExhibitionFilter] = useState(0);
   const [options] = useState({
     all: "전체",
-    gw: "졸업 주간",
+    gw: "졸업주간",
     wff: "와우영상제",
     club: "소모임",
     aetc: "기타",

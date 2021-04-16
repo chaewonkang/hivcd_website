@@ -29,7 +29,7 @@ function EachAnnounceContainer({ match, location }) {
   const [options] = useState({
     all: "전체",
     life: "생활",
-    information: "학사",
+    information: "규정",
     statues: "내규",
   });
 
