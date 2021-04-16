@@ -22,6 +22,28 @@ body {
   border: 1px solid #000;
 }
 
+.board_filter_option:focus {
+  font-size: 15px;
+  color: #fff;
+  font-weight: 400;
+  padding: 0.1em 0.75em 0.1em 0.75em;
+  margin-right: 10px;
+  text-align: center;
+  width: fit-content;
+  background-color: #000;
+  border-bottom: none;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-radius: 0;
+  border: 1px solid #000;
+  outline: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  -webkit-border-radius: 0;
+}
+
 @media (min-width: 1440px) and (max-width: 1920px) {
 }
 

@@ -55,38 +55,40 @@ function EachExhibitionContainer({ match, location }) {
 
   return (
     <>
-      <div className="exhibition_filter_wrapper">
-        <div className="exhibition_filter_container" onTouchStart>
-          <button
-            className="exhibition_filter_option"
-            onClick={() => setExhibitionFilter(0)}
-          >
-            {options.all}
-          </button>
-          <button
-            className="exhibition_filter_option"
-            onClick={() => setExhibitionFilter(6)}
-          >
-            {options.gw}
-          </button>
-          <button
-            className="exhibition_filter_option"
-            onClick={() => setExhibitionFilter(7)}
-          >
-            {options.wff}
-          </button>
-          <button
-            className="exhibition_filter_option"
-            onClick={() => setExhibitionFilter(8)}
-          >
-            {options.club}
-          </button>
-          <button
-            className="exhibition_filter_option"
-            onClick={() => setExhibitionFilter(8)}
-          >
-            {options.aetc}
-          </button>
+      <div className="each_post_board_filter_wrapper">
+        <div className="exhibition_filter_wrapper">
+          <div className="exhibition_filter_container" onTouchStart>
+            <button
+              className="exhibition_filter_option"
+              onClick={() => setExhibitionFilter(0)}
+            >
+              {options.all}
+            </button>
+            <button
+              className="exhibition_filter_option"
+              onClick={() => setExhibitionFilter(6)}
+            >
+              {options.gw}
+            </button>
+            <button
+              className="exhibition_filter_option"
+              onClick={() => setExhibitionFilter(7)}
+            >
+              {options.wff}
+            </button>
+            <button
+              className="exhibition_filter_option"
+              onClick={() => setExhibitionFilter(8)}
+            >
+              {options.club}
+            </button>
+            <button
+              className="exhibition_filter_option"
+              onClick={() => setExhibitionFilter(8)}
+            >
+              {options.aetc}
+            </button>
+          </div>
         </div>
       </div>
       <div className="each_post_container">
