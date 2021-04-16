@@ -68,9 +68,9 @@ function Archive() {
                     <span>
                       {data.title} <br></br>
                     </span>
-                    <p className="archive_content_body">
+                    <span>
                       {data.created_at ? data.created_at.slice(0, 10) : null}
-                    </p>
+                    </span>
                   </div>
                 </div>
                 <div
@@ -144,9 +144,9 @@ function Archive() {
                     <span>
                       {data.title} <br></br>
                     </span>
-                    <p className="archive_content_body">
+                    <span>
                       {data.created_at ? data.created_at.slice(0, 10) : null}
-                    </p>
+                    </span>
                   </div>
                 </div>
                 <div

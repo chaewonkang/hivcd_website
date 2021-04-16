@@ -193,7 +193,9 @@ function EachPost({ postId }) {
               </a>
             </>
           ) : null}
-          <hr style={{ marginBottom: 1 + "em", marginTop: 1 + "em" }}></hr>
+          {eachPost.comments.length ? (
+            <hr style={{ marginBottom: 1 + "em", marginTop: 1 + "em" }}></hr>
+          ) : null}
           <CommentList
             comments={eachPost.comments}
             style={style}
