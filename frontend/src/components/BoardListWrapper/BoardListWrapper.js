@@ -60,30 +60,36 @@ function BoardListWrapper({ list, postId, curLoc, category }) {
                 })
             : null}
           {curLoc.includes("exhibition")
-            ? currentsPosts.map((el, key) => {
-                let categoryName = null;
-                if (el.category === 6) categoryName = "졸업주간";
-                else if (el.category === 7) categoryName = "와우영상제";
-                else if (el.category === 8) categoryName = "소모임";
-                return (
-                  <React.Fragment key={key}>
-                    <div
-                      className="list_grid list_data"
-                      key={key}
-                      onClick={() => history.push(`/exhibition/${el.pk}`)}
-                    >
-                      <div className="list_tag">
-                        <span>{categoryName}</span>
+            ? currentsPosts
+                .filter((data) => {
+                  if (category === 0) return data;
+                  else if (data.category === category) return data;
+                  return null;
+                })
+                .map((el, key) => {
+                  let categoryName = null;
+                  if (el.category === 6) categoryName = "졸업주간";
+                  else if (el.category === 7) categoryName = "와우영상제";
+                  else if (el.category === 8) categoryName = "소모임";
+                  return (
+                    <React.Fragment key={key}>
+                      <div
+                        className="list_grid list_data"
+                        key={key}
+                        onClick={() => history.push(`/exhibition/${el.pk}`)}
+                      >
+                        <div className="list_tag">
+                          <span>{categoryName}</span>
+                        </div>
+                        <div className="board_list_title">{el.title}</div>
+                        <div className="acenter">
+                          {" "}
+                          {el.created_at.slice(2, 10)}{" "}
+                        </div>
                       </div>
-                      <div className="board_list_title">{el.title}</div>
-                      <div className="acenter">
-                        {" "}
-                        {el.created_at.slice(2, 10)}{" "}
-                      </div>
-                    </div>
-                  </React.Fragment>
-                );
-              })
+                    </React.Fragment>
+                  );
+                })
             : null}
           {curLoc.includes("announce")
             ? currentsPosts
