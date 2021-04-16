@@ -116,8 +116,8 @@ li.page_num:target {
 @media (min-width: 768px) and (max-width: 991px) {
   .board_list_container {
     /* display: none; */
-    margin-top: 20px;
-    margin-bottom: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
     order: 2;
   }
 }

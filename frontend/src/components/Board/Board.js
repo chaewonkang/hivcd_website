@@ -24,9 +24,9 @@ function Board() {
   const [state] = useAsync(() => getPosts(), []);
   const { loading, data: posts, error } = state;
 
-  const setOptionColor = (obj, tar) => {
+  const setOptionColor = (tar) => {
     const elem = document.getElementById(tar);
-    if (obj["tar"].set) {
+    if (tar[1]) {
       elem.classList.remove("board_filter_option");
       elem.classList.add("clicked");
     }
@@ -58,7 +58,7 @@ function Board() {
             onClick={() => {
               setBoardFilter(0);
               options.all.set = true;
-              setOptionColor(options, options.all);
+              setOptionColor(options.all);
             }}
             onMouseAway={() => {
               options.all.set = false;
