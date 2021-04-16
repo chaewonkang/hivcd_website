@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { Post, BoardPostWrapper } from "..";
 import axios from "axios";
 import "./Announce.css";
-import getCookie from "../../utils/getCookie";
 import useAsync from "../../utils/useAsync";
 import logogif from "../../img/logogif.gif";
 
@@ -17,7 +16,7 @@ function Announce() {
   const [boardFilter, setBoardFilter] = useState(0);
   const [state] = useAsync(() => getPosts(), []);
   const { loading, data: posts, error } = state;
-  const [options, setOptions] = useState({
+  const [options] = useState({
     all: "전체",
     life: "생활",
     information: "학사",

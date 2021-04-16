@@ -3,7 +3,6 @@ import "./Alumni.css";
 import axios from "axios";
 import { AlumniModule, AlumniSearch } from "../../components";
 import useAsync from "../../utils/useAsync";
-import getCookie from "../../utils/getCookie";
 import logogif from "../../img/logogif.gif";
 
 async function getAlumnis() {

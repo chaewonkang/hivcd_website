@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import { BoardListWrapper } from "../../components";
 import axios from "axios";
 import "./EachPostContainer.css";
-import getCookie from "../../utils/getCookie";
 import useAsync from "../../utils/useAsync";
 import logogif from "../../img/logogif.gif";
 
@@ -27,7 +26,7 @@ function EachPostContainer({ match, location }) {
   const [postId, setPostId] = useState(0);
   const [curLoc, setCurLoc] = useState("");
   const [boardFilter, setBoardFilter] = useState(0);
-  const [options, setOptions] = useState({
+  const [options] = useState({
     all: { title: "전체", set: false },
     news: { title: "소식", set: false },
     notice: { title: "학과", set: false },

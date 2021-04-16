@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { Post, BoardPostWrapper } from "../../components";
 import axios from "axios";
 import "./Board.css";
-import getCookie from "../../utils/getCookie";
 import useAsync from "../../utils/useAsync";
 import logogif from "../../img/logogif.gif";
 
@@ -15,7 +14,7 @@ async function getPosts() {
 
 function Board() {
   const [boardFilter, setBoardFilter] = useState(0);
-  const [options, setOptions] = useState({
+  const [options] = useState({
     all: { title: "전체", set: false },
     news: { title: "소식", set: false },
     notice: { title: "학과", set: false },
@@ -27,7 +26,7 @@ function Board() {
 
   const setOptionColor = (obj, tar) => {
     const elem = document.getElementById(tar);
-    if (obj[tar][1]) {
+    if (obj["tar"].set) {
       elem.classList.remove("board_filter_option");
       elem.classList.add("clicked");
     }

@@ -20,7 +20,7 @@ async function handleLogout() {
 }
 
 function Login() {
-  const [loginText, setLoginText] = useState({
+  const [loginText] = useState({
     login: "로그인",
     logout: "로그아웃",
   });

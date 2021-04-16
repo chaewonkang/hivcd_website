@@ -39,11 +39,7 @@ function EachAnnounce({ postId }) {
   const isLogged = getCookie("SUSER_ID") === null ? false : true;
 
   const { loading, data: eachAnnounce, error } = postState;
-  const {
-    loading: announceLoading,
-    data: announceList,
-    error: announceError,
-  } = announces;
+  const { data: announceList } = announces;
 
   let history = useHistory();
 

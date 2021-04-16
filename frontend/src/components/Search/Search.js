@@ -5,7 +5,7 @@ import { useHistory } from "react-router-dom";
 
 function Search({ handleSearchKeyword }) {
   const [visible, setVisible] = useState(false);
-  const [searchText, setSearchText] = useState({
+  const [searchText] = useState({
     search: "검색",
   });
   let history = useHistory();

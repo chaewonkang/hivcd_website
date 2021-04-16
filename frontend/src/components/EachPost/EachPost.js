@@ -41,7 +41,7 @@ function EachPost({ postId }) {
   const [posts] = useAsync(() => getPosts());
   const isLogged = getCookie("SUSER_ID") === null ? false : true;
   const { loading, data: eachPost, error } = postState;
-  const { loading: postLoading, data: postList, error: postError } = posts;
+  const { data: postList } = posts;
   let history = useHistory();
 
   function routeToPrevPost(id, arr) {

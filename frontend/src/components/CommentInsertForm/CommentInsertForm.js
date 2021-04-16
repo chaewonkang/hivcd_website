@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./CommentInsertForm.css";
 import axios from "axios";
-import getCookie from "../../utils/getCookie";
 
 const CommentInsertForm = ({ style, postId }) => {
   const [username, setUsername] = useState("");

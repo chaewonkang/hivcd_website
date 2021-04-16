@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import { BoardListWrapper } from "../../components";
 import axios from "axios";
 import "./EachExhibitionContainer.css";
-import getCookie from "../../utils/getCookie";
 import useAsync from "../../utils/useAsync";
 import logogif from "../../img/logogif.gif";
 

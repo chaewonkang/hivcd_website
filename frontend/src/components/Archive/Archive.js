@@ -1,10 +1,9 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import "./Archive.css";
 import logogif from "../../img/logogif.gif";
 import useAsync from "../../utils/useAsync";
 import axios from "axios";
 import Slider from "../Slider/Slider";
-import { nominalTypeHack } from "prop-types";
 
 async function getArchives() {
   const response = await axios.get(

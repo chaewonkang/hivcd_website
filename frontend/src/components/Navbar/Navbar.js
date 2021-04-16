@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { Link, Route } from "react-router-dom";
 import getCookie from "../../utils/getCookie";
 import axios from "axios";
