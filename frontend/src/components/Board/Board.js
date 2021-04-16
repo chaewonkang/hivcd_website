@@ -25,7 +25,7 @@ function Board() {
   const { loading, data: posts, error } = state;
 
   const setOptionColor = (tar) => {
-    const elem = document.getElementById(tar);
+    const elem = document.getElementById(tar[0]);
     if (tar[1]) {
       elem.classList.remove("board_filter_option");
       elem.classList.add("clicked");
