@@ -13,9 +13,9 @@ async function getPosts() {
 }
 
 function Announce() {
-  const [boardFilter, setBoardFilter] = useState(0);
   const [state] = useAsync(() => getPosts(), []);
   const { loading, data: posts, error } = state;
+  const [boardFilter, setBoardFilter] = useState(0);
   const [options] = useState({
     all: "전체",
     life: "생활",

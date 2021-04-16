@@ -86,30 +86,36 @@ function BoardListWrapper({ list, postId, curLoc, category }) {
               })
             : null}
           {curLoc.includes("announce")
-            ? currentsPosts.map((el, key) => {
-                let categoryName = null;
-                if (el.category === 9) categoryName = "생활";
-                else if (el.category === 10) categoryName = "정보";
-                else if (el.category === 11) categoryName = "학사";
-                return (
-                  <React.Fragment key={key}>
-                    <div
-                      className="list_grid list_data"
-                      key={key}
-                      onClick={() => history.push(`/announce/${el.pk}`)}
-                    >
-                      <div className="list_tag">
-                        <span>{categoryName}</span>
+            ? currentsPosts
+                .filter((data) => {
+                  if (category === 0) return data;
+                  else if (data.category === category) return data;
+                  return null;
+                })
+                .map((el, key) => {
+                  let categoryName = null;
+                  if (el.category === 9) categoryName = "생활";
+                  else if (el.category === 10) categoryName = "정보";
+                  else if (el.category === 11) categoryName = "학사";
+                  return (
+                    <React.Fragment key={key}>
+                      <div
+                        className="list_grid list_data"
+                        key={key}
+                        onClick={() => history.push(`/announce/${el.pk}`)}
+                      >
+                        <div className="list_tag">
+                          <span>{categoryName}</span>
+                        </div>
+                        <div className="board_list_title">{el.title}</div>
+                        <div className="acenter">
+                          {" "}
+                          {el.created_at.slice(2, 10)}{" "}
+                        </div>
                       </div>
-                      <div className="board_list_title">{el.title}</div>
-                      <div className="acenter">
-                        {" "}
-                        {el.created_at.slice(2, 10)}{" "}
-                      </div>
-                    </div>
-                  </React.Fragment>
-                );
-              })
+                    </React.Fragment>
+                  );
+                })
             : null}
         </div>
         <div className="paging_div">
