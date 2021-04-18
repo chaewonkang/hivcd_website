@@ -544,7 +544,7 @@ const AboutUs = () => {
                 </tr>
                 <tr>
                   <td style={{ borderBottom: "none" }}></td>
-                  <td>디자인. 설계. 개발</td>
+                  <td>디자인. 개발</td>
                   <td>
                     YinYang{" "}
                     <a
@@ -559,7 +559,7 @@ const AboutUs = () => {
                 </tr>
                 <tr>
                   <td style={{ borderBottom: "none" }}></td>
-                  <td>서버 API 개발. 배포</td>
+                  <td>API 개발. 배포</td>
                   <td>
                     김서규{" "}
                     <a
@@ -584,7 +584,7 @@ const AboutUs = () => {
                 </tr>
                 <tr>
                   <td style={{ borderBottom: "none" }}></td>
-                  <td>디자인. 설계. 개발</td>
+                  <td>디자인. 개발</td>
                   <td>
                     YinYang{" "}
                     <a
@@ -599,7 +599,7 @@ const AboutUs = () => {
                 </tr>
                 <tr>
                   <td style={{ borderBottom: "none" }}></td>
-                  <td>서버 API 개발. 배포</td>
+                  <td>API 개발. 배포</td>
                   <td>
                     김서규{" "}
                     <a
