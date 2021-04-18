@@ -63,7 +63,12 @@
     "postinstall": "npx patch-package"
   },
   "eslintConfig": {
-    "extends": "react-app"
+    "extends": "react-app",
+    "rules": {
+      "no-unused-vars": 0,
+      "array-callback-return": 0,
+      "react-hooks/exhaustive-deps": 0
+    }
   },
   "browserslist": {
     "production": [
