@@ -65,7 +65,7 @@ class Comment(Timestamp):
 
 
 class Video(Timestamp):
-    post = models.ForeignKey("Post", on_delete=models.CASCADE, related_name="post")
+    post = models.ForeignKey("Post", on_delete=models.CASCADE, related_name="videos")
     name = models.TextField()
     video_link = models.URLField()
 
@@ -84,17 +84,15 @@ class Post(models.Model):
 
     class PostCategory(models.IntegerChoices):
         News = 1
-        Notice = 2
-        Promotionandevent = 3
-        Job = 4
-        LostAndFound = 5
+        Job = 2
+        LostAndFound = 3
+        Life = 4
+        Info = 5
         Gw = 6
         Wff = 7
-        Aetc = 8
-        Life = 9
-        Informations = 10
-        Statute = 11
-        Archive = 12
+        Club = 8
+        Etc = 9
+        Archive = 10
 
     category = models.IntegerField(choices=PostCategory.choices)
 
