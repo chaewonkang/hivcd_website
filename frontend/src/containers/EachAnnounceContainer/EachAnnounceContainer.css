@@ -46,7 +46,6 @@
 
 @media (max-width: 576px) {
   .each_post_container {
-    margin-top: 50px;
     grid-template-columns: 1fr;
     width: calc(100%-20px);
     margin-left: 10px;

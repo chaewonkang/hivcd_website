@@ -67,13 +67,13 @@ function EachAnnounceContainer({ match, location }) {
               </button>
               <button
                 className="board_filter_option"
-                onClick={() => setBoardFilter(9)}
+                onClick={() => setBoardFilter(4)}
               >
                 {options.life}
               </button>
               <button
                 className="board_filter_option"
-                onClick={() => setBoardFilter(10)}
+                onClick={() => setBoardFilter(5)}
               >
                 {options.information}
               </button>
