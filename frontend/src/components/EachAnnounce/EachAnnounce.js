@@ -8,14 +8,14 @@ import { useHistory } from "react-router-dom";
 
 async function getAnnounces() {
   const response = await axios.get(
-    `https://sidi.hongik.ac.kr/api/v1/postings/announce`
+    `https://sidi.hongik.ac.kr/api/v1/postings/info`
   );
   return response.data;
 }
 
 async function getEachAnnounce(postId) {
   const response = await axios.get(
-    `https://sidi.hongik.ac.kr/api/v1/postings/announce/${postId}`
+    `https://sidi.hongik.ac.kr/api/v1/postings/info/${postId}`
   );
   return response.data;
 }
@@ -44,13 +44,13 @@ function EachAnnounce({ postId }) {
 
   function routeToPrevPost(id, arr) {
     if (arr.indexOf(parseInt(id)) > 0) {
-      history.push(`/announce/${arr[arr.indexOf(parseInt(id)) - 1]}`);
+      history.push(`/info/${arr[arr.indexOf(parseInt(id)) - 1]}`);
     }
   }
 
   function routeToNextPost(id, arr) {
     if (arr.indexOf(parseInt(id)) !== arr.length - 1)
-      history.push(`/announce/${arr[arr.indexOf(parseInt(id)) + 1]}`);
+      history.push(`/info/${arr[arr.indexOf(parseInt(id)) + 1]}`);
   }
 
   const colorArray = [

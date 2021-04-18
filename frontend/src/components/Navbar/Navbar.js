@@ -40,7 +40,7 @@ export const NavComponent = ({ onClick }) => {
               <Link to="/board">
                 <li onClick={onClick}>공지</li>{" "}
               </Link>
-              <Link to="/announce">
+              <Link to="/info">
                 <li onClick={onClick}>정보</li>{" "}
               </Link>
               {/* <Link to="/alumni">

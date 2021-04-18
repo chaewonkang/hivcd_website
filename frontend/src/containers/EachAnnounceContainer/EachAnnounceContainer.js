@@ -7,7 +7,7 @@ import logogif from "../../img/logogif.gif";
 
 async function getList() {
   const response = await axios.get(
-    "https://sidi.hongik.ac.kr/api/v1/postings/announce",
+    "https://sidi.hongik.ac.kr/api/v1/postings/info",
     {},
     {
       headers: {

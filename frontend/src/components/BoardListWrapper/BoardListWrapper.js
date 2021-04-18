@@ -90,7 +90,7 @@ function BoardListWrapper({ list, postId, curLoc, category }) {
                   );
                 })
             : null}
-          {curLoc.includes("announce")
+          {curLoc.includes("info")
             ? currentsPosts
                 .filter((data) => {
                   if (category === 0) return data;
@@ -106,7 +106,7 @@ function BoardListWrapper({ list, postId, curLoc, category }) {
                       <div
                         className="list_grid list_data"
                         key={key}
-                        onClick={() => history.push(`/announce/${el.pk}`)}
+                        onClick={() => history.push(`/info/${el.pk}`)}
                       >
                         <div className="list_tag">
                           <span>{categoryName}</span>
