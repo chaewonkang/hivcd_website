@@ -63,22 +63,24 @@ function Announce() {
       </div>
       <BoardPostWrapper>
         {posts
-          .filter((data) => {
-            if (boardFilter === 0) return data;
-            else if (data.category === boardFilter) return data;
-            return null;
-          })
-          .map((data) => {
-            return (
-              <Post
-                key={data.pk}
-                title={data.title}
-                id={data.pk}
-                date={data.created_at}
-                category={data.category}
-              ></Post>
-            );
-          })}
+          ? posts
+              .filter((data) => {
+                if (boardFilter === 0) return data;
+                else if (data.category === boardFilter) return data;
+                return null;
+              })
+              .map((data) => {
+                return (
+                  <Post
+                    key={data.pk}
+                    title={data.title}
+                    id={data.pk}
+                    date={data.created_at}
+                    category={data.category}
+                  ></Post>
+                );
+              })
+          : null}
       </BoardPostWrapper>
     </div>
   );
