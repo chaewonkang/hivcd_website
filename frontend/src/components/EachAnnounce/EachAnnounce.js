@@ -189,6 +189,7 @@ function EachAnnounce({ postId }) {
                       type="text/html"
                       sandbox="allow-scripts allow-forms allow-same-origin allow-presentation"
                       width="100%"
+                      height="420"
                       src={`${video.video_link}?enablejsapi=1&origin=http://sidi.hongik.ac.kr`}
                       frameBorder="0"
                       allowFullScreen
@@ -313,6 +314,7 @@ function EachAnnounce({ postId }) {
                       type="text/html"
                       sandbox="allow-scripts allow-forms allow-same-origin allow-presentation"
                       width="100%"
+                      height="420"
                       src={`${video.video_link}?enablejsapi=1&origin=http://sidi.hongik.ac.kr`}
                       frameBorder="0"
                       allowFullScreen
