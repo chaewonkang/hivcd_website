@@ -7,7 +7,7 @@ import logogif from "../../img/logogif.gif";
 
 async function getList() {
   const response = await axios.get(
-    "https://sidi.hongik.ac.kr/api/v1/postings/info",
+    "https://sidi.hongik.ac.kr/api/v1/postings/info/",
     {},
     {
       headers: {
@@ -81,7 +81,7 @@ function EachAnnounceContainer({ match, location }) {
           </div>
         </div>
         <div className="each_post_container">
-          {location.pathname.includes("announce") ? (
+          {location.pathname.includes("info") ? (
             <BoardListWrapper
               list={list.filter(
                 (data) => data.category === 4 || data.category === 5
