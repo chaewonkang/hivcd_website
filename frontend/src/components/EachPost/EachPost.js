@@ -184,12 +184,16 @@ function EachPost({ postId }) {
                 return (
                   <div>
                     <iframe
+                      id="player"
+                      type="text/html"
                       width="100%"
                       height="315"
-                      src={`${video.video_link}?enablejsapi=1&origin=https://sidi.hongik.ac.kr`}
+                      src={`${video.video_link}?enablejsapi=1&origin=http://sidi.hongik.ac.kr`}
                       frameborder="0"
                     ></iframe>
                     <iframe
+                      id="player"
+                      type="text/html"
                       width="100%"
                       height="315"
                       src={`${video.video_link}?enablejsapi=1&origin=http://18.219.107.78`}
