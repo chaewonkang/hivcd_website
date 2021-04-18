@@ -186,23 +186,19 @@ function EachPost({ postId }) {
                     <iframe
                       id="player"
                       type="text/html"
+                      sandbox="allow-scripts allow-forms allow-same-origin"
                       width="100%"
                       height="315"
                       src={`${video.video_link}?enablejsapi=1&origin=http://sidi.hongik.ac.kr`}
-                      frameBorder="0"
-                      gesture="media"
-                      allow="encrypted-media"
                       allowFullScreen
                     ></iframe>
                     <iframe
                       id="player"
+                      sandbox="allow-scripts allow-forms allow-same-origin"
                       type="text/html"
                       width="100%"
                       height="315"
                       src={`${video.video_link}?enablejsapi=1&origin=http://18.219.107.78`}
-                      frameBorder="0"
-                      gesture="media"
-                      allow="encrypted-media"
                       allowFullScreen
                     ></iframe>
                   </div>
