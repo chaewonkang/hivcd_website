@@ -194,7 +194,7 @@ function EachPost({ postId }) {
                     ></iframe>
                     <iframe
                       id="player"
-                      sandbox="allow-scripts allow-forms allow-same-origin"
+                      sandbox="allow-scripts allow-forms allow-same-origin allow-presentation"
                       type="text/html"
                       width="100%"
                       height="315"
