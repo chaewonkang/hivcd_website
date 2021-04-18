@@ -97,16 +97,10 @@ div[data-widgetuuid="fc14c30a-1881-4601-9d23-5ce266b746dc"]
 
 /********** Small devices only **********/
 @media (min-width: 768px) and (max-width: 991px) {
-  .calandar_container {
-    margin-top: 50px;
-  }
 }
 
 /********** Extra small devices only **********/
 @media (min-width: 577px) and (max-width: 767px) {
-  .calandar_container {
-    margin-top: 50px;
-  }
 }
 
 @media (max-width: 576px) {
