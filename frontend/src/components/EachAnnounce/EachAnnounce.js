@@ -181,6 +181,24 @@ function EachAnnounce({ postId }) {
                 );
               })
             : null}
+          {eachAnnounce.videos.length
+            ? eachAnnounce.videos.map((video) => {
+                return (
+                  <div>
+                    <iframe
+                      id="player"
+                      type="text/html"
+                      sandbox="allow-scripts allow-forms allow-same-origin allow-presentation"
+                      width="100%"
+                      src={`${video.video_link}?enablejsapi=1&origin=http://sidi.hongik.ac.kr`}
+                      frameBorder="0"
+                      allowFullScreen
+                    ></iframe>
+                    <br />
+                  </div>
+                );
+              })
+            : null}
           {eachAnnounce.link.length ? (
             <>
               <hr style={{ marginBottom: 1 + "em", marginTop: 1 + "em" }}></hr>
@@ -282,6 +300,24 @@ function EachAnnounce({ postId }) {
                         border: `1px solid rgb(0, 0, 0, 0.1)`,
                       }}
                     ></img>
+                    <br />
+                  </div>
+                );
+              })
+            : null}
+          {eachAnnounce.videos.length
+            ? eachAnnounce.videos.map((video) => {
+                return (
+                  <div>
+                    <iframe
+                      id="player"
+                      type="text/html"
+                      sandbox="allow-scripts allow-forms allow-same-origin allow-presentation"
+                      width="100%"
+                      src={`${video.video_link}?enablejsapi=1&origin=http://sidi.hongik.ac.kr`}
+                      frameBorder="0"
+                      allowFullScreen
+                    ></iframe>
                     <br />
                   </div>
                 );

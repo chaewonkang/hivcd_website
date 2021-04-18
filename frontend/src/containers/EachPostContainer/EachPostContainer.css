@@ -45,15 +45,25 @@
   .each_post_container {
     margin-top: 0;
     grid-template-columns: 1fr;
+    width: calc(100% - 20px);
+  }
+
+  .each_post_board_filter_wrapper {
+    margin-left: 20px;
+    margin-bottom: 20px;
   }
 }
 
 @media (max-width: 576px) {
   .each_post_container {
-    margin-top: 50px;
     grid-template-columns: 1fr;
     width: calc(100%-20px);
     margin-left: 10px;
     margin-right: 10px;
+  }
+
+  .each_post_board_filter_wrapper {
+    margin-left: 10px;
+    margin-bottom: 10px;
   }
 }
