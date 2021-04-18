@@ -184,13 +184,10 @@ function EachPost({ postId }) {
                 return (
                   <div>
                     <iframe
-                      width="560"
+                      width="100%"
                       height="315"
                       src={video.video_link}
-                      title="YouTube video player"
                       frameborder="0"
-                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                      allowfullscreen
                     ></iframe>
                   </div>
                 );
