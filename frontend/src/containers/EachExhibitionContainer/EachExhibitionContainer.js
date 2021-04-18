@@ -84,7 +84,7 @@ function EachExhibitionContainer({ match, location }) {
             </button>
             <button
               className="exhibition_filter_option"
-              onClick={() => setExhibitionFilter(8)}
+              onClick={() => setExhibitionFilter(9)}
             >
               {options.aetc}
             </button>
