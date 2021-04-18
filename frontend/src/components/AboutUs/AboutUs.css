@@ -25,14 +25,15 @@ table {
   margin-bottom: 1em;
 }
 
-#faculty_table td:nth-child(1),
-#club_table td:nth-child(1),
-#club_table td:nth-child(2),
-#faculty_table td:nth-child(3),
-#facility_table td:nth-child(3),
-#facility_table_eng td:nth-child(3),
-#credit_table td:nth-child(1) {
+#facility_table_eng td:nth-child(3) {
   width: 40%;
+}
+
+#facility_table td:nth-child(3),
+#credit_table td:nth-child(3),
+#club_table td:nth-child(3),
+#faculty_table td:nth-child(3) {
+  width: 60%;
 }
 
 #histody_table tr:nth-child(1),
@@ -47,12 +48,17 @@ table {
   border-top: 1px solid black;
 }
 
+#club_table td:nth-child(1),
+#club_table td:nth-child(2),
+#faculty_table td:nth-child(1),
 #facility_table td:nth-child(1),
+#facility_table td:nth-child(2),
 #faculty_table td:nth-child(2),
 #facility_table_eng td:nth-child(1),
 #history_table td:nth-child(1),
-#club_table td:nth-child(3),
-#contact_table td:nth-child(1) {
+#contact_table td:nth-child(1),
+#credit_table td:nth-child(1),
+#credit_table td:nth-child(2) {
   width: 20%;
 }
 

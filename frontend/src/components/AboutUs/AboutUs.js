@@ -538,7 +538,13 @@ const AboutUs = () => {
             <div className="aboutus_content">
               <table id="credit_table" className="aboutus_contact">
                 <tr>
-                  <td>디자인, 설계 및 개발</td>
+                  <td style={{ borderBottom: "none" }}>2021. 3. 2</td>
+                  <td>시험판 배포</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td style={{ borderBottom: "none" }}></td>
+                  <td>디자인. 설계. 개발</td>
                   <td>
                     YinYang{" "}
                     <a
@@ -552,7 +558,8 @@ const AboutUs = () => {
                   </td>
                 </tr>
                 <tr>
-                  <td>서버 API 개발 및 배포</td>
+                  <td style={{ borderBottom: "none" }}></td>
+                  <td>서버 API 개발. 배포</td>
                   <td>
                     김서규{" "}
                     <a
@@ -566,20 +573,59 @@ const AboutUs = () => {
                   </td>
                 </tr>
                 <tr>
-                  <td>웹사이트 구축 도움</td>
+                  <td></td>
+                  <td>운영 도움</td>
                   <td>심윤서, 나혜린, 임종윤</td>
                 </tr>
                 <tr>
-                  <td>2021년 3월 2일</td>
-                  <td>구축 완료, 1.0 배포</td>
+                  <td style={{ borderBottom: "none" }}>2021. 4. 12</td>
+                  <td>1.0 배포</td>
+                  <td></td>
                 </tr>
                 <tr>
-                  <td>2021년 3월 24일</td>
-                  <td>2.0 배포</td>
+                  <td style={{ borderBottom: "none" }}></td>
+                  <td>디자인. 설계. 개발</td>
+                  <td>
+                    YinYang{" "}
+                    <a
+                      href="https://www.instagram.com/yinyang.fig"
+                      alt="instagram"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      @yinyang.fig
+                    </a>
+                  </td>
                 </tr>
                 <tr>
-                  <td>2021년 6월</td>
-                  <td>3.0 배포 예정</td>
+                  <td style={{ borderBottom: "none" }}></td>
+                  <td>서버 API 개발. 배포</td>
+                  <td>
+                    김서규{" "}
+                    <a
+                      href="https://www.github.com/SeogyuGim"
+                      alt="instagram"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      github.com/seogyugim
+                    </a>
+                  </td>
+                </tr>
+                <tr>
+                  <td style={{ borderBottom: "none" }}></td>
+                  <td>뉴스레터</td>
+                  <td>김재연, 윤충근, 이소림, 이민지, 제지아</td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>운영 도움</td>
+                  <td>심윤서, 나혜린, 임종윤, 김재연</td>
+                </tr>
+                <tr>
+                  <td>2021. 6.</td>
+                  <td>2.0 배포 예정</td>
+                  <td></td>
                 </tr>
               </table>
             </div>
