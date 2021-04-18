@@ -192,15 +192,6 @@ function EachPost({ postId }) {
                       src={`${video.video_link}?enablejsapi=1&origin=http://sidi.hongik.ac.kr`}
                       allowFullScreen
                     ></iframe>
-                    <iframe
-                      id="player"
-                      sandbox="allow-scripts allow-forms allow-same-origin allow-presentation"
-                      type="text/html"
-                      width="100%"
-                      height="315"
-                      src={`${video.video_link}?enablejsapi=1&origin=http://18.219.107.78`}
-                      allowFullScreen
-                    ></iframe>
                   </div>
                 );
               })
@@ -309,6 +300,23 @@ function EachPost({ postId }) {
                 );
               })
             : null}
+          {eachPost.videos.length
+            ? eachPost.videos.map((video) => {
+                return (
+                  <div>
+                    <iframe
+                      id="player"
+                      type="text/html"
+                      sandbox="allow-scripts allow-forms allow-same-origin"
+                      width="100%"
+                      height="315"
+                      src={`${video.video_link}?enablejsapi=1&origin=http://sidi.hongik.ac.kr`}
+                      allowFullScreen
+                    ></iframe>
+                  </div>
+                );
+              })
+            : null}
           {eachPost.link.length ? (
             <>
               <hr style={{ marginBottom: 1 + "em", marginTop: 1 + "em" }}></hr>
@@ -323,6 +331,23 @@ function EachPost({ postId }) {
               </a>
             </>
           ) : null}
+          {eachPost.videos.length
+            ? eachPost.videos.map((video) => {
+                return (
+                  <div>
+                    <iframe
+                      id="player"
+                      type="text/html"
+                      sandbox="allow-scripts allow-forms allow-same-origin"
+                      width="100%"
+                      height="315"
+                      src={`${video.video_link}?enablejsapi=1&origin=http://sidi.hongik.ac.kr`}
+                      allowFullScreen
+                    ></iframe>
+                  </div>
+                );
+              })
+            : null}
           {eachPost.comments.length ? (
             <hr style={{ marginBottom: 1 + "em", marginTop: 1 + "em" }}></hr>
           ) : null}
