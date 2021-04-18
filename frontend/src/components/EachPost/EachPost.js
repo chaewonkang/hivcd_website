@@ -179,6 +179,20 @@ function EachPost({ postId }) {
                 );
               })
             : null}
+          {eachPost.videos.length
+            ? eachPost.videos.map((video) => {
+                return (
+                  <div>
+                    <iframe
+                      width="100%"
+                      height="315"
+                      src={video.video_link}
+                      frameborder="0"
+                    ></iframe>
+                  </div>
+                );
+              })
+            : null}
           {eachPost.link.length ? (
             <>
               <hr style={{ marginBottom: 1 + "em", marginTop: 1 + "em" }}></hr>

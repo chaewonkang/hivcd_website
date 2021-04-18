@@ -52,9 +52,9 @@ export const NavComponent = ({ onClick }) => {
               <Link to="/exhibition">
                 <li onClick={onClick}>전시/행사</li>{" "}
               </Link>
-              <Link to="/reservation">
+              {/* <Link to="/reservation">
                 <li onClick={onClick}>예약</li>{" "}
-              </Link>
+              </Link> */}
               <Link to="/calendar">
                 <li onClick={onClick}>일정</li>{" "}
               </Link>
