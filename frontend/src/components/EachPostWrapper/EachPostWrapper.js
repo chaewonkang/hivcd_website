@@ -6,7 +6,7 @@ const EachPostWrapper = ({ handleNavigateClick, postId, style, curLoc }) => {
   return (
     <div className="temp_EachPostWrapper" style={style}>
       {curLoc.includes("board") ? <EachPost postId={postId}></EachPost> : null}
-      {curLoc.includes("announce") ? (
+      {curLoc.includes("info") ? (
         <EachAnnounce postId={postId}></EachAnnounce>
       ) : null}
       {curLoc.includes("exhibition") ? (
