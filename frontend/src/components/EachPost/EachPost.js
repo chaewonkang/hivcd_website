@@ -329,23 +329,6 @@ function EachPost({ postId }) {
               </a>
             </>
           ) : null}
-          {eachPost.videos.length
-            ? eachPost.videos.map((video) => {
-                return (
-                  <div>
-                    <iframe
-                      id="player"
-                      type="text/html"
-                      sandbox="allow-scripts allow-forms allow-same-origin allow-presentation"
-                      width="100%"
-                      src={`${video.video_link}?enablejsapi=1&origin=http://sidi.hongik.ac.kr`}
-                      frameBorder="0"
-                      allowFullScreen
-                    ></iframe>
-                  </div>
-                );
-              })
-            : null}
           {eachPost.comments.length ? (
             <hr style={{ marginBottom: 1 + "em", marginTop: 1 + "em" }}></hr>
           ) : null}
