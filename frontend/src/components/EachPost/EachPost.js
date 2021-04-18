@@ -189,7 +189,10 @@ function EachPost({ postId }) {
                       width="100%"
                       height="315"
                       src={`${video.video_link}?enablejsapi=1&origin=http://sidi.hongik.ac.kr`}
-                      frameborder="0"
+                      frameBorder="0"
+                      gesture="media"
+                      allow="encrypted-media"
+                      allowFullScreen
                     ></iframe>
                     <iframe
                       id="player"
@@ -197,7 +200,10 @@ function EachPost({ postId }) {
                       width="100%"
                       height="315"
                       src={`${video.video_link}?enablejsapi=1&origin=http://18.219.107.78`}
-                      frameborder="0"
+                      frameBorder="0"
+                      gesture="media"
+                      allow="encrypted-media"
+                      allowFullScreen
                     ></iframe>
                   </div>
                 );
