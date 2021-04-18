@@ -7,6 +7,7 @@ const ArchiveModule = ({ title, thumbnailUrl, category, id, body }) => {
   if (category === 6) categoryName = "졸업주간";
   else if (category === 7) categoryName = "와우영상제";
   else if (category === 8) categoryName = "소모임";
+  else if (category === 9) categoryName = "기타";
   const postId = parseInt(id, 10);
   return (
     <Link to={`/exhibition/${postId}`}>

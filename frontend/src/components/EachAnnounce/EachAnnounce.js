@@ -22,9 +22,8 @@ async function getEachAnnounce(postId) {
 
 function setCategoryNumber(category) {
   let categoryName = null;
-  if (category === 9) categoryName = "생활";
-  else if (category === 10) categoryName = "규정";
-  else if (category === 11) categoryName = "학사내규";
+  if (category === 4) categoryName = "생활";
+  else if (category === 5) categoryName = "규정";
   return categoryName;
 }
 

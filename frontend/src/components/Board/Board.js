@@ -75,14 +75,14 @@ function Board() {
           <button
             className="board_filter_option"
             activaClassName="filter_option_active"
-            onClick={() => setBoardFilter(4)}
+            onClick={() => setBoardFilter(2)}
           >
             {options.job.title}
           </button>
           <button
             className="board_filter_option"
             activaClassName="filter_option_active"
-            onClick={() => setBoardFilter(5)}
+            onClick={() => setBoardFilter(3)}
           >
             {options.lostandfound.title}
           </button>

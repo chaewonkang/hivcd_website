@@ -20,7 +20,6 @@ function Announce() {
     all: "전체",
     life: "생활",
     information: "규정",
-    statues: "내규",
   });
 
   if (loading)
@@ -50,13 +49,13 @@ function Announce() {
           </button>
           <button
             className="board_filter_option"
-            onClick={() => setBoardFilter(9)}
+            onClick={() => setBoardFilter(4)}
           >
             {options.life}
           </button>
           <button
             className="board_filter_option"
-            onClick={() => setBoardFilter(10)}
+            onClick={() => setBoardFilter(5)}
           >
             {options.information}
           </button>

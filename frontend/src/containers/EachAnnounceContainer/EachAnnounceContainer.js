@@ -84,10 +84,7 @@ function EachAnnounceContainer({ match, location }) {
           {location.pathname.includes("announce") ? (
             <BoardListWrapper
               list={list.filter(
-                (data) =>
-                  data.category === 9 ||
-                  data.category === 10 ||
-                  data.category === 11
+                (data) => data.category === 4 || data.category === 5
               )}
               postId={postId}
               curLoc={curLoc}

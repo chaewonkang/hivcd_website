@@ -35,10 +35,8 @@ function BoardListWrapper({ list, postId, curLoc, category }) {
                 .map((el, key) => {
                   let categoryName = null;
                   if (el.category === 1) categoryName = "소식";
-                  else if (el.category === 2) categoryName = "학과 공지";
-                  else if (el.category === 3) categoryName = "행사/홍보";
-                  else if (el.category === 4) categoryName = "구인구직";
-                  else if (el.category === 5) categoryName = "분실물";
+                  else if (el.category === 2) categoryName = "구인구직";
+                  else if (el.category === 3) categoryName = "분실물";
                   return (
                     <React.Fragment key={key}>
                       <div
@@ -71,6 +69,7 @@ function BoardListWrapper({ list, postId, curLoc, category }) {
                   if (el.category === 6) categoryName = "졸업주간";
                   else if (el.category === 7) categoryName = "와우영상제";
                   else if (el.category === 8) categoryName = "소모임";
+                  else if (el.category === 9) categoryName = "기타";
                   return (
                     <React.Fragment key={key}>
                       <div
@@ -100,9 +99,8 @@ function BoardListWrapper({ list, postId, curLoc, category }) {
                 })
                 .map((el, key) => {
                   let categoryName = null;
-                  if (el.category === 9) categoryName = "생활";
-                  else if (el.category === 10) categoryName = "규정";
-                  else if (el.category === 11) categoryName = "학사";
+                  if (el.category === 4) categoryName = "생활";
+                  else if (el.category === 5) categoryName = "규정";
                   return (
                     <React.Fragment key={key}>
                       <div

@@ -179,10 +179,7 @@ function ContentContainer() {
                   post.category === 2 ||
                   post.category === 3 ||
                   post.category === 4 ||
-                  post.category === 5 ||
-                  post.category === 9 ||
-                  post.category === 10 ||
-                  post.category === 11
+                  post.category === 5
               )
               .map((post) => (
                 <>
