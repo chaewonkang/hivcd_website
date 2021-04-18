@@ -25,7 +25,7 @@ class BoardViewSet(viewsets.ReadOnlyModelViewSet):
     serializer_class = PostSerializer
 
     def get_queryset(self):
-        return super().get_queryset().filter(category__lte=5)
+        return super().get_queryset().filter(category__lte=3)
 
 
 class ExhibitionViewSet(viewsets.ReadOnlyModelViewSet):
@@ -33,15 +33,7 @@ class ExhibitionViewSet(viewsets.ReadOnlyModelViewSet):
     serializer_class = PostSerializer
 
     def get_queryset(self):
-        return super().get_queryset().filter(category__range=[6, 8])
-
-
-class AnnounceViewSet(viewsets.ReadOnlyModelViewSet):
-    queryset = Post.objects.all()
-    serializer_class = PostSerializer
-
-    def get_queryset(self):
-        return super().get_queryset().filter(category__range=[9, 11])
+        return super().get_queryset().filter(category__range=[6, 9])
 
 
 class ArchiveViewSet(viewsets.ReadOnlyModelViewSet):
@@ -49,7 +41,7 @@ class ArchiveViewSet(viewsets.ReadOnlyModelViewSet):
     serializer_class = PostSerializer
 
     def get_queryset(self):
-        return super().get_queryset().filter(category__exact=12)
+        return super().get_queryset().filter(category__exact=10)
 
 
 class CommentViewSet(viewsets.GenericViewSet, ListModelMixin,
