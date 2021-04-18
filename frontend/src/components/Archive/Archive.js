@@ -1,10 +1,9 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import "./Archive.css";
 import logogif from "../../img/logogif.gif";
 import useAsync from "../../utils/useAsync";
 import axios from "axios";
 import Slider from "../Slider/Slider";
-import { nominalTypeHack } from "prop-types";
 
 async function getArchives() {
   const response = await axios.get(
@@ -69,9 +68,9 @@ function Archive() {
                     <span>
                       {data.title} <br></br>
                     </span>
-                    <p className="archive_content_body">
+                    <span>
                       {data.created_at ? data.created_at.slice(0, 10) : null}
-                    </p>
+                    </span>
                   </div>
                 </div>
                 <div
@@ -145,9 +144,9 @@ function Archive() {
                     <span>
                       {data.title} <br></br>
                     </span>
-                    <p className="archive_content_body">
+                    <span>
                       {data.created_at ? data.created_at.slice(0, 10) : null}
-                    </p>
+                    </span>
                   </div>
                 </div>
                 <div

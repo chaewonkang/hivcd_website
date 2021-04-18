@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Post } from "../../components";
 import "./SearchResultContainer.css";
-import getCookie from "../../utils/getCookie";
 import logogif from "../../img/logogif.gif";
 
 function SearchResultContainer({ searchKeyword }) {

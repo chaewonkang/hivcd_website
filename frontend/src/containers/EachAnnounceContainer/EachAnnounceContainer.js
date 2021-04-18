@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import { BoardListWrapper } from "../../components";
 import axios from "axios";
 import "./EachAnnounceContainer.css";
-import getCookie from "../../utils/getCookie";
 import useAsync from "../../utils/useAsync";
 import logogif from "../../img/logogif.gif";
 
@@ -26,6 +25,13 @@ function EachAnnounceContainer({ match, location }) {
   const { loading, data: list, error } = state;
   const [postId, setPostId] = useState(0);
   const [curLoc, setCurLoc] = useState("");
+  const [boardFilter, setBoardFilter] = useState(0);
+  const [options] = useState({
+    all: "전체",
+    life: "생활",
+    information: "규정",
+    statues: "내규",
+  });
 
   useEffect(() => {
     setPostId(match.params.postId);
@@ -48,20 +54,48 @@ function EachAnnounceContainer({ match, location }) {
 
   if (list)
     return (
-      <div className="each_post_container">
-        {location.pathname.includes("announce") ? (
-          <BoardListWrapper
-            list={list.filter(
-              (data) =>
-                data.category === 9 ||
-                data.category === 10 ||
-                data.category === 11
-            )}
-            postId={postId}
-            curLoc={curLoc}
-          ></BoardListWrapper>
-        ) : null}
-      </div>
+      <>
+        <div className="each_post_board_filter_wrapper">
+          <div className="board_filter_wrapper">
+            <div className="board_filter_container">
+              <button
+                tabIndex="0"
+                className="board_filter_option"
+                onClick={() => setBoardFilter(0)}
+              >
+                {options.all}
+              </button>
+              <button
+                className="board_filter_option"
+                onClick={() => setBoardFilter(9)}
+              >
+                {options.life}
+              </button>
+              <button
+                className="board_filter_option"
+                onClick={() => setBoardFilter(10)}
+              >
+                {options.information}
+              </button>
+            </div>
+          </div>
+        </div>
+        <div className="each_post_container">
+          {location.pathname.includes("announce") ? (
+            <BoardListWrapper
+              list={list.filter(
+                (data) =>
+                  data.category === 9 ||
+                  data.category === 10 ||
+                  data.category === 11
+              )}
+              postId={postId}
+              curLoc={curLoc}
+              category={boardFilter}
+            ></BoardListWrapper>
+          ) : null}
+        </div>
+      </>
     );
 }
 

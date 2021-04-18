@@ -4,7 +4,6 @@ import "./Exhibition.css";
 import axios from "axios";
 import { ArchiveModule } from "../../components";
 import useAsync from "../../utils/useAsync";
-import getCookie from "../../utils/getCookie";
 import logogif from "../../img/logogif.gif";
 
 async function getExhibitionInfo() {
@@ -23,9 +22,9 @@ async function getExhibitionInfo() {
 
 function Exhibition() {
   const [exhibitionFilter, setExhibitionFilter] = useState(0);
-  const [options, setOptions] = useState({
+  const [options] = useState({
     all: "전체",
-    gw: "졸업 주간",
+    gw: "졸업주간",
     wff: "와우영상제",
     club: "소모임",
     aetc: "기타",

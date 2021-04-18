@@ -23,7 +23,7 @@ async function getEachAnnounce(postId) {
 function setCategoryNumber(category) {
   let categoryName = null;
   if (category === 9) categoryName = "생활";
-  else if (category === 10) categoryName = "학사";
+  else if (category === 10) categoryName = "규정";
   else if (category === 11) categoryName = "학사내규";
   return categoryName;
 }
@@ -39,11 +39,7 @@ function EachAnnounce({ postId }) {
   const isLogged = getCookie("SUSER_ID") === null ? false : true;
 
   const { loading, data: eachAnnounce, error } = postState;
-  const {
-    loading: announceLoading,
-    data: announceList,
-    error: announceError,
-  } = announces;
+  const { data: announceList } = announces;
 
   let history = useHistory();
 
@@ -199,7 +195,9 @@ function EachAnnounce({ postId }) {
               </a>
             </>
           ) : null}
-          <hr style={{ marginBottom: 1 + "em", marginTop: 1 + "em" }}></hr>
+          {eachAnnounce.comments.length ? (
+            <hr style={{ marginBottom: 1 + "em", marginTop: 1 + "em" }}></hr>
+          ) : null}
           <CommentList
             comments={eachAnnounce.comments}
             style={style}

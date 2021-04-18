@@ -41,7 +41,7 @@ function EachPost({ postId }) {
   const [posts] = useAsync(() => getPosts());
   const isLogged = getCookie("SUSER_ID") === null ? false : true;
   const { loading, data: eachPost, error } = postState;
-  const { loading: postLoading, data: postList, error: postError } = posts;
+  const { data: postList } = posts;
   let history = useHistory();
 
   function routeToPrevPost(id, arr) {
@@ -193,7 +193,9 @@ function EachPost({ postId }) {
               </a>
             </>
           ) : null}
-          <hr style={{ marginBottom: 1 + "em", marginTop: 1 + "em" }}></hr>
+          {eachPost.comments.length ? (
+            <hr style={{ marginBottom: 1 + "em", marginTop: 1 + "em" }}></hr>
+          ) : null}
           <CommentList
             comments={eachPost.comments}
             style={style}
@@ -295,7 +297,9 @@ function EachPost({ postId }) {
               </a>
             </>
           ) : null}
-          <hr style={{ marginBottom: 1 + "em", marginTop: 1 + "em" }}></hr>
+          {eachPost.comments.length ? (
+            <hr style={{ marginBottom: 1 + "em", marginTop: 1 + "em" }}></hr>
+          ) : null}
           <CommentList
             comments={eachPost.comments}
             style={style}

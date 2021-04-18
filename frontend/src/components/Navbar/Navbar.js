@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { Link, Route } from "react-router-dom";
 import getCookie from "../../utils/getCookie";
 import axios from "axios";
@@ -88,7 +88,7 @@ export const NavComponent = ({ onClick }) => {
                 rel="noopener noreferrer"
                 style={{ color: "#000" }}
               >
-                뉴스레터 구독하기 Newsletter Subscribe
+                뉴스레터
               </a>
             </span>
           </div>

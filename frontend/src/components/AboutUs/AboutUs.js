@@ -9,7 +9,6 @@ const AboutUs = () => {
           <div id="history" className="aboutus_item">
             <div className="aboutus_item_tag">
               <span>연혁</span>
-              <span>History</span>
             </div>
             <div className="aboutus_content">
               <table id="history_table" className="aboutus_contact">
@@ -103,7 +102,6 @@ const AboutUs = () => {
           <div id="faculty" className="aboutus_item">
             <div className="aboutus_item_tag">
               <span>교수진 </span>
-              <span>Faculty</span>
             </div>
             <div className="aboutus_content">
               <table id="faculty_table" className="aboutus_contact">
@@ -125,7 +123,7 @@ const AboutUs = () => {
                 <tr>
                   <td>로, 크리스</td>
                   <td>조교수</td>
-                  <td>타이포그래피/그래픽디자인</td>
+                  <td>타이포그라피/그래픽디자인</td>
                 </tr>
                 <tr>
                   <td>리, 마빈</td>
@@ -135,7 +133,7 @@ const AboutUs = () => {
                 <tr>
                   <td>민본</td>
                   <td>조교수</td>
-                  <td>타이포그래피/타입디자인</td>
+                  <td>타이포그라피/타입디자인</td>
                 </tr>
                 <tr>
                   <td>박현주</td>
@@ -155,7 +153,7 @@ const AboutUs = () => {
                 <tr>
                   <td>석재원</td>
                   <td>조교수</td>
-                  <td>타이포그래피/그래픽디자인</td>
+                  <td>타이포그라피/그래픽디자인</td>
                 </tr>
                 <tr>
                   <td>심대기</td>
@@ -170,7 +168,7 @@ const AboutUs = () => {
                 <tr>
                   <td>안병학</td>
                   <td>조교수</td>
-                  <td>타이포그래피</td>
+                  <td>타이포그라피</td>
                 </tr>
                 <tr>
                   <td>윤재영</td>
@@ -208,7 +206,6 @@ const AboutUs = () => {
           <div id="map" className="aboutus_item">
             <div className="aboutus_item_tag">
               <span>시설 </span>
-              <span>Facility</span>
             </div>
             <div className="aboutus_content">
               <table id="facility_table" className="aboutus_contact">
@@ -338,157 +335,14 @@ const AboutUs = () => {
                   <td>특수영상촬영실</td>
                 </tr>
               </table>
-              <br></br>
-              <table id="facility_table_eng" className="aboutus_contact">
-                <tr>
-                  <td>R</td>
-                  <td>712</td>
-                  <td>Department Office</td>
-                </tr>
-                <tr>
-                  <td>R</td>
-                  <td>711-1</td>
-                  <td>Equipment Room HEXA</td>
-                </tr>
-                <tr>
-                  <td>R</td>
-                  <td>711-2</td>
-                  <td>Student Council</td>
-                </tr>
-                <tr>
-                  <td>R</td>
-                  <td>713</td>
-                  <td>Print Shop</td>
-                </tr>
-                <tr>
-                  <td>R</td>
-                  <td>714</td>
-                  <td>Computer Lab 1</td>
-                </tr>
-                <tr>
-                  <td>R</td>
-                  <td>715</td>
-                  <td>Computer Lab 2</td>
-                </tr>
-                <tr>
-                  <td>R</td>
-                  <td>719</td>
-                  <td>Junior Studio</td>
-                </tr>
-                <tr>
-                  <td>R</td>
-                  <td>720</td>
-                  <td>Senior Studio</td>
-                </tr>
-                <tr>
-                  <td>R</td>
-                  <td>716</td>
-                  <td>Studio</td>
-                </tr>
-                <tr>
-                  <td>R</td>
-                  <td>717</td>
-                  <td>Studio</td>
-                </tr>
-                <tr>
-                  <td>R</td>
-                  <td>718</td>
-                  <td>Studio</td>
-                </tr>
-                <tr>
-                  <td>R</td>
-                  <td>721</td>
-                  <td>Studio</td>
-                </tr>
-                <tr>
-                  <td>R</td>
-                  <td>722</td>
-                  <td>Studio</td>
-                </tr>
-                <tr>
-                  <td>R</td>
-                  <td>723</td>
-                  <td>Studio</td>
-                </tr>
-                <tr>
-                  <td>R</td>
-                  <td>724</td>
-                  <td>Studio</td>
-                </tr>
-                <tr>
-                  <td>R</td>
-                  <td>725</td>
-                  <td>Studio</td>
-                </tr>
-                <tr>
-                  <td>R</td>
-                  <td>726</td>
-                  <td>Studio</td>
-                </tr>
-                <tr>
-                  <td>R</td>
-                  <td>727</td>
-                  <td>Studio</td>
-                </tr>
-                <tr>
-                  <td>R</td>
-                  <td>624</td>
-                  <td>Silk Screen Shop</td>
-                </tr>
-                <tr>
-                  <td>R</td>
-                  <td>625</td>
-                  <td>Seminar Room</td>
-                </tr>
-                <tr>
-                  <td>R</td>
-                  <td>626-1</td>
-                  <td>Usability Testing Lab</td>
-                </tr>
-                <tr>
-                  <td>R</td>
-                  <td>626-2</td>
-                  <td>Locker Room</td>
-                </tr>
-                <tr>
-                  <td>R</td>
-                  <td>927</td>
-                  <td>Computer Lab 3</td>
-                </tr>
-                <tr>
-                  <td>MH</td>
-                  <td>B105</td>
-                  <td>Dark Room</td>
-                </tr>
-                <tr>
-                  <td>MH</td>
-                  <td>B108</td>
-                  <td>Film Production Studio</td>
-                </tr>
-              </table>
             </div>
           </div>
-
           <div id="link" className="aboutus_item">
             <div className="aboutus_item_tag">
               <span>소모임</span>
-              <span>Club</span>
             </div>
             <div className="aboutus_content">
               <table id="club_table" className="aboutus_contact">
-                <tr>
-                  <td>한글꼴연구회</td>
-                  <td>
-                    <a
-                      href="https://www.instagram.com/hangeulggol_hivcd/"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      @hangeulggol_hivcd
-                    </a>
-                  </td>
-                  <td></td>
-                </tr>
                 <tr>
                   <td>그린비</td>
                   <td>
@@ -511,19 +365,6 @@ const AboutUs = () => {
                       rel="noopener noreferrer"
                     >
                       @dromapic
-                    </a>
-                  </td>
-                  <td></td>
-                </tr>
-                <tr>
-                  <td>힙스</td>
-                  <td>
-                    <a
-                      href="https://ilovehips.kr/index.html"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      ilovehips.kr
                     </a>
                   </td>
                   <td></td>
@@ -580,13 +421,38 @@ const AboutUs = () => {
                   </td>
                   <td></td>
                 </tr>
+                <tr>
+                  <td>한글꼴연구회</td>
+                  <td>
+                    <a
+                      href="https://www.instagram.com/hangeulggol_hivcd/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      @hangeulggol_hivcd
+                    </a>
+                  </td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>힙스</td>
+                  <td>
+                    <a
+                      href="https://ilovehips.kr/index.html"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      ilovehips.kr
+                    </a>
+                  </td>
+                  <td></td>
+                </tr>
               </table>
             </div>
           </div>
           <div id="contact" className="aboutus_item">
             <div className="aboutus_item_tag">
               <span>연락처</span>
-              <span>Contact</span>
             </div>
             <div className="aboutus_content">
               <table id="contact_table" className="aboutus_contact">
@@ -612,18 +478,18 @@ const AboutUs = () => {
                 </tr>
                 <tr>
                   <td style={{ borderBottom: "none" }}>업무시간</td>
-                  <td>월 - 금 9:00 - 17:30 / 점심시간 12:00-1:00</td>
+                  <td>월-금 9:00 - 17:30 / 점심시간 12:00-1:00</td>
                 </tr>
                 <tr>
                   <td></td>
-                  <td>동절기 월 - 금 9:00 - 17:00 / 점심시간 12:00-1:00</td>
+                  <td>동절기 월-금 9:00 - 17:00 / 점심시간 12:00-1:00</td>
                 </tr>
                 <tr>
                   <td style={{ borderBottom: "none" }}>웹사이트</td>
                   <td>
                     홍익대학교
                     <a
-                      href="https://hongik.ac.kr"
+                      href="http://hongik.ac.kr"
                       target="_blank"
                       rel="noopener noreferrer"
                     >
@@ -637,7 +503,7 @@ const AboutUs = () => {
                   <td>
                     홍익대학교 미술대학
                     <a
-                      href="https://hongik.ac.kr"
+                      href="http://cfa.hongik.ac.kr"
                       target="_blank"
                       rel="noopener noreferrer"
                     >
@@ -652,7 +518,7 @@ const AboutUs = () => {
                   <td>
                     홍익대학교 시각디자인과{" "}
                     <a
-                      href="https://sidi.hongik.ac.kr"
+                      href="http://sidi.hongik.ac.kr"
                       target="_blank"
                       rel="noopener noreferrer"
                     >
@@ -667,13 +533,18 @@ const AboutUs = () => {
           </div>
           <div id="colophon" className="aboutus_item">
             <div className="aboutus_item_tag">
-              <span>개발 </span>
-              <span>Credit</span>
+              <span>웹사이트</span>
             </div>
             <div className="aboutus_content">
               <table id="credit_table" className="aboutus_contact">
                 <tr>
-                  <td>디자인, 설계 및 개발</td>
+                  <td style={{ borderBottom: "none" }}>2021. 3. 2</td>
+                  <td>시험판 배포</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td style={{ borderBottom: "none" }}></td>
+                  <td>디자인. 개발</td>
                   <td>
                     YinYang{" "}
                     <a
@@ -687,7 +558,8 @@ const AboutUs = () => {
                   </td>
                 </tr>
                 <tr>
-                  <td>서버 API 개발 및 배포</td>
+                  <td style={{ borderBottom: "none" }}></td>
+                  <td>API 개발. 배포</td>
                   <td>
                     김서규{" "}
                     <a
@@ -701,20 +573,59 @@ const AboutUs = () => {
                   </td>
                 </tr>
                 <tr>
-                  <td>웹사이트 구축 도움</td>
+                  <td></td>
+                  <td>운영 도움</td>
                   <td>심윤서, 나혜린, 임종윤</td>
                 </tr>
                 <tr>
-                  <td>2021년 3월 2일</td>
-                  <td>구축 완료, 1.0 배포</td>
+                  <td style={{ borderBottom: "none" }}>2021. 4. 12</td>
+                  <td>1.0 배포</td>
+                  <td></td>
                 </tr>
                 <tr>
-                  <td>2021년 3월 24일</td>
-                  <td>2.0 배포</td>
+                  <td style={{ borderBottom: "none" }}></td>
+                  <td>디자인. 개발</td>
+                  <td>
+                    YinYang{" "}
+                    <a
+                      href="https://www.instagram.com/yinyang.fig"
+                      alt="instagram"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      @yinyang.fig
+                    </a>
+                  </td>
                 </tr>
                 <tr>
-                  <td>2021년 6월</td>
-                  <td>3.0 배포 예정</td>
+                  <td style={{ borderBottom: "none" }}></td>
+                  <td>API 개발. 배포</td>
+                  <td>
+                    김서규{" "}
+                    <a
+                      href="https://www.github.com/SeogyuGim"
+                      alt="instagram"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      github.com/seogyugim
+                    </a>
+                  </td>
+                </tr>
+                <tr>
+                  <td style={{ borderBottom: "none" }}></td>
+                  <td>뉴스레터</td>
+                  <td>김재연, 윤충근, 이소림, 이민지, 제지아</td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>운영 도움</td>
+                  <td>심윤서, 나혜린, 임종윤, 김재연</td>
+                </tr>
+                <tr>
+                  <td>2021. 6.</td>
+                  <td>2.0 배포 예정</td>
+                  <td></td>
                 </tr>
               </table>
             </div>

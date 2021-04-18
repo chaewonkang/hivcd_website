@@ -51,7 +51,7 @@ function App() {
             component={EachAnnounceContainer}
           />
           <Route path="/calendar" component={CalandarContainer} />
-          <Route path="/reservation" component={ReservationContainer} />
+          {/* <Route path="/reservation" component={ReservationContainer} /> */}
           <Route path="/archive" component={Archive} />
           <Route
             path="/search"

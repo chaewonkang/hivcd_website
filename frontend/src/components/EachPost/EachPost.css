@@ -26,7 +26,6 @@
 
 .each_post {
   padding: 1rem;
-  margin-top: 1rem;
   margin-bottom: 2rem;
   overflow: auto;
   height: 100%;
@@ -116,6 +115,12 @@
 @media (min-width: 768px) and (max-width: 991px) {
   .each_post {
     padding: 0;
+  }
+
+  .each_post_container {
+    width: calc(100% - 20px);
+    margin-left: 10px;
+    margin-right: 10px;
   }
 }
 

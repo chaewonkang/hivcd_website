@@ -56,7 +56,7 @@ function ContentContainer() {
   const [state] = useAsync(() => getPosts(), []);
   const [archiveState] = useAsync(() => getArchives(), []);
   const { loading, data: posts, error } = state;
-  const { loading: aLoading, data: archives, error: aError } = archiveState;
+  const { data: archives } = archiveState;
   let pkArray = [];
   let randPost = [];
   let randImg = [];

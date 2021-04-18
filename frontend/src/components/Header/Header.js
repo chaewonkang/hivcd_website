@@ -6,7 +6,7 @@ import "./Header.css";
 import { Login, Search } from "../../components";
 
 function Header({ handleLogout, handleSearchKeyword }) {
-  const [menuText, setMenuText] = useState({
+  const [menuText] = useState({
     about: "소개",
     news: "공지",
     info: "정보",
