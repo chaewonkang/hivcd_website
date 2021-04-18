@@ -40,7 +40,7 @@ class VideoSerializer(serializers.ModelSerializer):
     class Meta:
         model = Video
         fields = (
-            "video_key",
+            "video_link",
             "name",
         )
 

@@ -10,9 +10,9 @@ from rest_framework.viewsets import ViewSetMixin
 
 from api_v1.utils import get_user_id
 from auth.models import Account
-from postings.models import Post, Comment
+from postings.models import Post, Comment, Video
 from postings.permissions import CookiePermission
-from postings.serializers import PostSerializer, CommentSerializer
+from postings.serializers import PostSerializer, CommentSerializer, VideoSerializer
 
 
 class PostViewSet(ViewSetMixin, ListModelMixin, GenericAPIView):
@@ -68,3 +68,8 @@ class CommentViewSet(viewsets.GenericViewSet, ListModelMixin,
         user = get_object_or_404(Account, suser_id=user_id)
         serializer.save(author=user)
         return Response(status=status.HTTP_201_CREATED, data=serializer.data)
+
+
+class VideoViewSet(viewsets.ReadOnlyModelViewSet):
+    queryset = Video.objects.all()
+    serializer_class = VideoSerializer
