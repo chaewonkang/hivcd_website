@@ -15,4 +15,7 @@ router.register(r'archive', views.ArchiveViewSet)
 
 comment_router = NestedSimpleRouter(router, r'', lookup='postings')
 comment_router.register(r'comments', views.CommentViewSet, basename='posting-comments')
-urlpatterns = router.urls + comment_router.urls
+
+video_router = NestedSimpleRouter(router, r'', lookup='postings')
+video_router.register(r'video', views.VideoViewSet, basename='posting-videos')
+urlpatterns = router.urls + comment_router.urls + video_router
