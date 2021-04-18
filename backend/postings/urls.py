@@ -10,6 +10,7 @@ router = SimpleRouter()
 router.register(r'', views.PostViewSet)
 router.register(r'board', views.BoardViewSet)
 router.register(r'exhibition', views.ExhibitionViewSet)
+router.register(r'info', views.InfoViewSet)
 router.register(r'archive', views.ArchiveViewSet)
 
 comment_router = NestedSimpleRouter(router, r'', lookup='postings')

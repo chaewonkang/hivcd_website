@@ -44,12 +44,8 @@ function App() {
             path="/exhibition/:postId"
             component={EachExhibitionContainer}
           ></Route>
-          <Route exact path="/announce" component={Announce} />
-          <Route
-            exact
-            path="/announce/:postId"
-            component={EachAnnounceContainer}
-          />
+          <Route exact path="/info" component={Announce} />
+          <Route exact path="/info/:postId" component={EachAnnounceContainer} />
           <Route path="/calendar" component={CalandarContainer} />
           {/* <Route path="/reservation" component={ReservationContainer} /> */}
           <Route path="/archive" component={Archive} />

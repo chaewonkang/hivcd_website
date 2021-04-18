@@ -61,7 +61,7 @@ const PostModule = ({ style, title, date, category, id }) => {
         </Link>
       ) : null}
       {category === 4 || category === 5 ? (
-        <Link to={`/announce/${postId}`}>
+        <Link to={`/info/${postId}`}>
           <div className="post" style={style}>
             <div className="post_tag">
               <span>{categoryName}</span>

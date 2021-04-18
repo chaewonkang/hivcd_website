@@ -29,6 +29,13 @@ class BoardViewSet(viewsets.ReadOnlyModelViewSet):
     def get_queryset(self):
         return super().get_queryset().filter(category__lte=3)
 
+class InfoViewSet(viewsets.ReadOnlyModelViewSet):
+    queryset = Post.objects.all()
+    serializer_class = PostSerializer
+
+    def get_queryset(self):
+        return super().get_queryset().filter(category__range=[4, 5])
+
 
 class ExhibitionViewSet(viewsets.ReadOnlyModelViewSet):
     queryset = Post.objects.all()
