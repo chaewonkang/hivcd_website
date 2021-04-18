@@ -179,6 +179,23 @@ function EachPost({ postId }) {
                 );
               })
             : null}
+          {eachPost.videos.length
+            ? eachPost.videos.map((video) => {
+                return (
+                  <div>
+                    <iframe
+                      width="560"
+                      height="315"
+                      src={video.video_link}
+                      title="YouTube video player"
+                      frameborder="0"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowfullscreen
+                    ></iframe>
+                  </div>
+                );
+              })
+            : null}
           {eachPost.link.length ? (
             <>
               <hr style={{ marginBottom: 1 + "em", marginTop: 1 + "em" }}></hr>

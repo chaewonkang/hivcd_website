@@ -77,7 +77,7 @@ function Header({ handleLogout, handleSearchKeyword }) {
                 <span id="show">{menuText.show}</span>{" "}
               </NavLink>
             </span>
-            <span className="navbar_menu_wrapper_item_title">
+            {/* <span className="navbar_menu_wrapper_item_title">
               <NavLink
                 className="link"
                 activeClassName="active"
@@ -85,7 +85,7 @@ function Header({ handleLogout, handleSearchKeyword }) {
               >
                 <span id="reservation">{menuText.reservation}</span>{" "}
               </NavLink>
-            </span>
+            </span> */}
             <span className="navbar_menu_wrapper_item_title">
               <NavLink className="link" activeClassName="active" to="/calendar">
                 <span id="calandar">{menuText.calandar}</span>{" "}
