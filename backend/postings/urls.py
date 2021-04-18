@@ -17,4 +17,4 @@ comment_router.register(r'comments', views.CommentViewSet, basename='posting-com
 
 video_router = NestedSimpleRouter(router, r'', lookup='postings')
 video_router.register(r'video', views.VideoViewSet, basename='posting-videos')
-urlpatterns = router.urls + comment_router.urls + video_router
+urlpatterns = router.urls + comment_router.urls + video_router.urls

@@ -1,5 +1,7 @@
 import json
 from django.shortcuts import get_object_or_404
+from django.utils.decorators import method_decorator
+from django.views.decorators.clickjacking import xframe_options_exempt
 
 from rest_framework import viewsets, status
 from rest_framework.generics import GenericAPIView

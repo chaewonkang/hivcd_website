@@ -67,7 +67,7 @@ class Comment(Timestamp):
 class Video(Timestamp):
     post = models.ForeignKey("Post", on_delete=models.CASCADE, related_name="videos")
     name = models.TextField()
-    video_link = models.URLField()
+    video_link = models.URLField(null=True)
 
     class Meta:
         ordering = ["-updated"]
