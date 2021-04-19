@@ -9,9 +9,6 @@ const IMG = styled.img`
   display: flex;
   justify-self: center;
   align-self: center;
-  @media screen and (max-width: 576px) {
-    height: fit-content;
-  }
 `;
 
 const Container = styled.div`
