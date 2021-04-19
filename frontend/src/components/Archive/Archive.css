@@ -40,7 +40,8 @@
 .archive_wrapper_text {
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: 1fr 1fr 7fr 1fr;
+  grid-template-rows: repeat(4, auto);
+  row-gap: 0.3em;
   max-height: inherit;
 }
 
@@ -57,6 +58,8 @@
   display: flex;
   align-items: flex-start;
   justify-items: center;
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
 }
 
 .archive_wrapper_text_date {
@@ -65,6 +68,8 @@
   display: flex;
   align-items: center;
   justify-items: center;
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
 }
 
 .archive_wrapper_text_body {
@@ -98,8 +103,6 @@
 }
 
 .arrows_and_number_container {
-  position: absolute;
-  bottom: 0;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
 }
