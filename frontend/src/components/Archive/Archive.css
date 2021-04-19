@@ -43,6 +43,7 @@
   grid-template-rows: repeat(4, max-content);
   row-gap: 0.3em;
   max-height: inherit;
+  position: relative;
 }
 
 .arrows_and_number_container {
@@ -80,6 +81,8 @@
 .archive_wrapper_text_link {
   display: flex;
   align-items: flex-end;
+  position: absolute;
+  bottom: 0;
 }
 
 .archive_wrapper_slider {
