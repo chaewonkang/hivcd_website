@@ -51,7 +51,7 @@ export default function Slider({ items }) {
 
   useEffect(() => {
     slideRef.current.style.transition = "all 0.5s ease-in-out";
-    slideRef.current.style.transform = `translateX(-${currentSlide}00%)`;
+    slideRef.current.style.transform = `translateX(-${currentSlide - 1}00%)`;
   }, [currentSlide]);
 
   return (
