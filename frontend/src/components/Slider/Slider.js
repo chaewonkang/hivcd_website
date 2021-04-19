@@ -6,8 +6,11 @@ function Slide({ img }) {
 }
 const IMG = styled.img`
   width: inherit;
+  display: flex;
+  justify-self: center;
+  align-self: center;
   @media screen and (max-width: 576px) {
-    height: 33vh;
+    height: fit-content;
   }
 `;
 
