@@ -31,8 +31,8 @@ const SliderContainer = styled.div`
 `;
 
 export default function Slider({ items }) {
-  const TOTAL_SLIDES = items.length;
-  const [currentSlide, setCurrentSlide] = useState(0);
+  const TOTAL_SLIDES = items.length - 1;
+  const [currentSlide, setCurrentSlide] = useState(1);
   const slideRef = useRef(null);
   const nextSlide = () => {
     if (currentSlide >= TOTAL_SLIDES) {
