@@ -6,6 +6,9 @@ function Slide({ img }) {
 }
 const IMG = styled.img`
   width: inherit;
+  @media screen and (max-width: 576px) {
+    height: 33vh;
+  }
 `;
 
 const Container = styled.div`
