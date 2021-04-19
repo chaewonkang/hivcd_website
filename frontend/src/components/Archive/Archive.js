@@ -117,7 +117,16 @@ function Archive() {
               </span>
             </div>
             <div className="archive_wrapper_text_link">
-              <span>{post.link}</span>
+              <span>
+                <a
+                  href="{post.link}"
+                  target="_blank"
+                  rel="noopenner noreferrer"
+                  style={{ color: "black" }}
+                >
+                  {post.link}
+                </a>
+              </span>
             </div>
           </div>
           <div className="archive_wrapper_slider">
