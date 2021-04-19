@@ -42,7 +42,7 @@ export default function Slider({ items }) {
     }
   };
   const prevSlide = () => {
-    if (currentSlide === 0) {
+    if (currentSlide === 1) {
       setCurrentSlide(TOTAL_SLIDES);
     } else {
       setCurrentSlide(currentSlide - 1);
