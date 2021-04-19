@@ -5,7 +5,7 @@ function Slide({ img }) {
   return <IMG src={img} />;
 }
 const IMG = styled.img`
-  width: 100%;
+  width: inherit;
 `;
 
 const Container = styled.div`
