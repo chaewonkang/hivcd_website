@@ -40,7 +40,7 @@
 .archive_wrapper_text {
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: repeat(4, auto);
+  grid-template-rows: repeat(4, max-content);
   row-gap: 0.3em;
   max-height: inherit;
 }
