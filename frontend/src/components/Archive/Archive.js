@@ -119,7 +119,7 @@ function Archive() {
             <div className="archive_wrapper_text_link">
               <span>
                 <a
-                  href="{post.link}"
+                  href={post.link}
                   target="_blank"
                   rel="noopenner noreferrer"
                   style={{ color: "black" }}
