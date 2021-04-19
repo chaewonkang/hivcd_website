@@ -269,7 +269,7 @@
     display: grid;
     grid-template-columns: 1fr;
     column-gap: 20px;
-    grid-template-rows: 33vh 45vh;
+    grid-template-rows: auto;
     background-color: #ffeb00;
     border: 2px solid #ffba00;
     height: inherit;
