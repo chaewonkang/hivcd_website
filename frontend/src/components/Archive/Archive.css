@@ -25,6 +25,7 @@
   word-break: keep-all;
   line-height: 1.8em;
   font-family: "Helvetica", sans-serif;
+  animation: 1s ease-out 0s 1 fadeIn;
 }
 
 .archive_wrapper {
@@ -44,6 +45,7 @@
   row-gap: 0.3em;
   max-height: inherit;
   position: relative;
+  animation: 1s ease-out 0s 1 fadeIn;
 }
 
 .arrows_and_number_container {
@@ -104,6 +106,7 @@
   grid-row-gap: 20px;
   height: 40vh;
   overflow: auto;
+  animation: 1s ease-out 0s 1 fadeIn;
 }
 
 .arrows_and_number_container {
