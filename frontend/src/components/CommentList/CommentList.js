@@ -25,7 +25,7 @@ const CommentList = ({ comments, style, onPostComment, postId }) => {
       {commentList ? (
         <>
           <ul>{commentList}</ul>
-          <hr className="mobile_commentlist_hr_hidden"></hr>{" "}
+          <hr></hr>
         </>
       ) : null}
       <CommentInsertForm
