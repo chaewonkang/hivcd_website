@@ -113,7 +113,7 @@ export const NavComponent = ({ onClick }) => {
           <div className="nav_class_openhours">
             <span>학과사무실</span>
             <div>
-              월-금 9:00 am - 5:30 pm <br></br>(동절기) 9:00 am - 5:00 pm
+              월-금 9:00 am-5:30 pm <br></br>(동절기) 9:00 am-5:00 pm
             </div>
           </div>
         </div>
