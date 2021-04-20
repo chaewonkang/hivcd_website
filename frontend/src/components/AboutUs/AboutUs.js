@@ -396,6 +396,19 @@ const AboutUs = () => {
                   <td></td>
                 </tr>
                 <tr>
+                  <td>야즈</td>
+                  <td>
+                    <a
+                      href="https://www.instagram.com/yadz_archive/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      @yadz_archive
+                    </a>
+                  </td>
+                  <td></td>
+                </tr>
+                <tr>
                   <td>프로토</td>
                   <td>
                     <a
