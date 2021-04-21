@@ -54,7 +54,7 @@ function Post({ title, id, category, date }) {
     setStyle({
       ...style,
       backgroundColor: selectedColor,
-      border: `2px solid ${selectedBorderColor}`,
+      border: `1px solid ${selectedBorderColor}`,
     });
   }
 
