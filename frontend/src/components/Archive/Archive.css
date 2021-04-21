@@ -236,6 +236,11 @@
     max-height: auto;
     overflow: auto;
   }
+
+  .archive_wrapper_text {
+    height: auto;
+    max-height: auto;
+  }
 }
 
 /********** Small devices only **********/
@@ -265,6 +270,11 @@
     max-height: auto;
     overflow: auto;
   }
+
+  .archive_wrapper_text {
+    height: auto;
+    max-height: auto;
+  }
 }
 
 /********** Extra small devices only **********/
@@ -293,6 +303,11 @@
     height: auto;
     max-height: auto;
     overflow: auto;
+  }
+
+  .archive_wrapper_text {
+    height: auto;
+    max-height: auto;
   }
 }
 
@@ -327,5 +342,10 @@
     height: auto;
     max-height: auto;
     overflow: auto;
+  }
+
+  .archive_wrapper_text {
+    height: auto;
+    max-height: auto;
   }
 }
