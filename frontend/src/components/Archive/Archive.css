@@ -34,7 +34,7 @@
   grid-template-columns: 40% auto;
   column-gap: 20px;
   background-color: #ffeb00;
-  border: 2px solid #ffba00;
+  border: 1px solid #ffba00;
   animation: 1s ease-out 0s 1 fadeIn;
 }
 
@@ -213,7 +213,7 @@
     column-gap: 20px;
     grid-template-rows: repeat(2, auto);
     background-color: #ffeb00;
-    border: 2px solid #ffba00;
+    border: 1px solid #ffba00;
     height: inherit;
     height: inherit;
   }
@@ -235,7 +235,7 @@
     column-gap: 20px;
     grid-template-rows: repeat(2, auto);
     background-color: #ffeb00;
-    border: 2px solid #ffba00;
+    border: 1px solid #ffba00;
     height: inherit;
     height: inherit;
   }
@@ -257,7 +257,7 @@
     column-gap: 20px;
     grid-template-rows: repeat(2, auto);
     background-color: #ffeb00;
-    border: 2px solid #ffba00;
+    border: 1px solid #ffba00;
     height: inherit;
     height: inherit;
   }
@@ -278,7 +278,7 @@
     column-gap: 20px;
     grid-template-rows: auto;
     background-color: #ffeb00;
-    border: 2px solid #ffba00;
+    border: 1px solid #ffba00;
     height: inherit;
     height: inherit;
   }

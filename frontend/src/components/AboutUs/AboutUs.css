@@ -76,7 +76,7 @@ table {
 }
 
 .aboutus_item {
-  border: 2px solid #000000;
+  border: 1px solid #000000;
   position: relative;
   padding: 1.5rem;
   width: 100%;
@@ -116,32 +116,32 @@ table {
 
 #history {
   background-color: #deadf0;
-  border: 2px solid #bb12d8;
+  border: 1px solid #bb12d8;
 }
 
 #map {
   background-color: #93f421;
-  border: 2px solid #64cb0c;
+  border: 1px solid #64cb0c;
 }
 
 #faculty {
   background-color: #fdfbc1;
-  border: 2px solid #cfd372;
+  border: 1px solid #cfd372;
 }
 
 #contact {
   background-color: #cdcc33;
-  border: 2px solid #a8b419;
+  border: 1px solid #a8b419;
 }
 
 #link {
   background-color: #fecc99;
-  border: 2px solid #fd9191;
+  border: 1px solid #fd9191;
 }
 
 #colophon {
   background-color: #a3b3c4;
-  border: 2px solid #78a4b7;
+  border: 1px solid #78a4b7;
 }
 
 @media (min-width: 1440px) and (max-width: 1920px) {

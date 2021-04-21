@@ -99,7 +99,7 @@ function EachAnnounce({ postId }) {
   if (willMount.current) {
     setStyle({
       backgroundColor: selectedColor,
-      border: `2px solid ${selectedBorderColor}`,
+      border: `1px solid ${selectedBorderColor}`,
     });
   }
 
