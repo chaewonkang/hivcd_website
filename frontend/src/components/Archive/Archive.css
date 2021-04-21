@@ -117,6 +117,8 @@
 .arrows_and_number_container {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
+  position: absolute;
+  bottom: 0;
 }
 
 .slide_container {
@@ -256,6 +258,13 @@
     order: 2;
     padding-top: 20px;
   }
+
+  .archive_wrapper_slider {
+    position: relative;
+    height: auto;
+    max-height: auto;
+    overflow: auto;
+  }
 }
 
 /********** Extra small devices only **********/
@@ -277,6 +286,13 @@
   .archive_wrapper_text {
     order: 2;
     padding-top: 20px;
+  }
+
+  .archive_wrapper_slider {
+    position: relative;
+    height: auto;
+    max-height: auto;
+    overflow: auto;
   }
 }
 
@@ -304,5 +320,12 @@
     margin-top: 50px;
     margin-left: 10px;
     margin-right: 10px;
+  }
+
+  .archive_wrapper_slider {
+    position: relative;
+    height: auto;
+    max-height: auto;
+    overflow: auto;
   }
 }
