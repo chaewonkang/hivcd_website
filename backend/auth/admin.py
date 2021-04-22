@@ -4,4 +4,5 @@ from .models import Account
 
 @admin.register(Account)
 class AccountAdmin(admin.ModelAdmin):
-    list_filter = ('suser_id',)
+
+    search_fields = ('suser_id',)
