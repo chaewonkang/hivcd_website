@@ -14,7 +14,7 @@ class UserManager(BaseUserManager):
         username = self.model.normalize_username(username)
         user = self.model(username=username, **extra_fields)
         user.set_password(password)
-        user.save(using=self._db)
+        user.save()
         return user
 
     def create_user(self, username, email=None, password=None, **extra_fields):
@@ -30,7 +30,7 @@ class UserManager(BaseUserManager):
         user.is_staff = True
         user.is_superuser = True
         user.is_sidi = True
-        user.save(using=self._db)
+        user.save()
         return user
 
 
