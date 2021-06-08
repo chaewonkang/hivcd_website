@@ -22,7 +22,8 @@ def login_view(request):
         try:
             Account.objects.get(suser_id=suser_id)
         except:
-            account = Account.objects.create_user(suser_id=suser_id, username=suser_id)
+            account = Account(suser_id=suser_id)
+            account.save()
 
     except:
         response.set_cookie("IS_PROFESSOR_OR_WORKER", "True")
