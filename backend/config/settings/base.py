@@ -16,27 +16,26 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
    ...
    'corsheaders.middleware.CorsMiddleware',
+   'django.middleware.common.CommonMiddleware',
+   ...
 ]
 
 CORS_ORIGIN_ALLOW_ALL = True
 
-CORS_ORIGIN_WHITELIST = [
-       'http://127.0.0.1:8000',
-       'http://127.0.0.1:3000',
-]
-
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.environ.get("DEBUG", True)
 
-if DEBUG == False:
+# if DEBUG == False:
     ALLOWED_HOSTS = [
+        "web",
         "sidi.hongiksidi.ac.kr",
         "3.16.38.220",
         "127.0.0.1",
         "localhost",
+        "*"
     ]
-else:
-    ALLOWED_HOSTS = ["*"]
+# else:
+#    ALLOWED_HOSTS = ["*"]
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.environ.get("SECRET_KEY")
