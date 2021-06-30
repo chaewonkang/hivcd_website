@@ -4,7 +4,6 @@ import { PostWrapper, Post, HomeArchive } from '../../components';
 import { ArchiveWrapper } from '../../components';
 import './ContentContainer.css';
 import useAsync from '../../utils/useAsync';
-import Modal from 'react-awesome-modal';
 import logogif from '../../img/logogif.gif';
 import H_1 from '../../img/ㅎ_1.gif';
 import I_1 from '../../img/ㅇ_1.gif';
@@ -66,24 +65,9 @@ function ContentContainer() {
     width: window.innerWidth,
   });
 
-  const [showModal, setShowModal] = useState(true);
   const [imgArray] = useState([H_1, I_1, S_1, D_1]);
-  const HAS_VISITED_BEFORE = localStorage.getItem('hasVisitedBefore');
 
   useEffect(() => {
-    const handleShowModal = () => {
-      if (HAS_VISITED_BEFORE && HAS_VISITED_BEFORE > new Date()) {
-        return;
-      }
-
-      if (!HAS_VISITED_BEFORE) {
-        setShowModal(true);
-        let expires = new Date();
-        expires = expires.setHours(expires.getHours() + 24);
-        localStorage.setItem('hasVisitedBefore', expires);
-      }
-    };
-
     const debouncedHandleResize = debounce(function handleResize() {
       setDimensions({
         height: window.innerHeight,
@@ -97,9 +81,7 @@ function ContentContainer() {
     return () => {
       window.removeEventListener('resize', debouncedHandleResize);
     };
-  }, [HAS_VISITED_BEFORE]);
-
-  const handleClose = () => setShowModal(false);
+  }, []);
 
   if (loading)
     return (
@@ -119,6 +101,7 @@ function ContentContainer() {
   if (posts) {
     posts.map((post) => {
       pkArray.push(post.pk);
+      return null;
     });
     for (let i = 0; i < 4; i++) {
       if (randPost.length === 0 || randPost.length === 1)
