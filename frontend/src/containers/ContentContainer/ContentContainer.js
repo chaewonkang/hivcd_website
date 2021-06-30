@@ -11,13 +11,15 @@ import S_1 from '../../img/ㅅ_1.gif';
 import D_1 from '../../img/ㄷ_1.gif';
 
 async function getPosts() {
-  const response = await axios.get('http://172.31.22.148/api/v1/postings/');
+  const response = await axios.get(
+    'https://sidi.hongik.ac.kr/api/v1/postings/'
+  );
   return response.data;
 }
 
 async function getArchives() {
   const response = await axios.get(
-    'http://172.31.22.148/api/v1/postings/exhibition/'
+    'https://sidi.hongik.ac.kr/api/v1/postings/exhibition/'
   );
   return response.data;
 }
