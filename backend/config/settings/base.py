@@ -12,13 +12,13 @@ ALLOWED_HOSTS = ['localhost', '127.0.0.1', '127.0.0.1:3000', '127.0.0.1:8000']
 DEBUG = os.environ.get("DEBUG", True)
 
 # if DEBUG == False:
-    ALLOWED_HOSTS = [
-        "web",
-        "sidi.hongiksidi.ac.kr",
-        "3.16.38.220",
-        "127.0.0.1",
-        "localhost",
-        "*"
+ALLOWED_HOSTS = [
+    "web",
+    "sidi.hongiksidi.ac.kr",
+    "3.16.38.220",
+    "127.0.0.1",
+    "localhost",
+    "*"
     ]
 # else:
 #    ALLOWED_HOSTS = ["*"]
