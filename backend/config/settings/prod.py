@@ -37,7 +37,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = [
 	"web",
-	"sidi.hongiksidi.ac.kr",
+	"sidi.hongik.ac.kr",
 	"3.16.38.220",
 	"127.0.0.1",
 	"localhost",

@@ -11,31 +11,13 @@ import S_1 from '../../img/ㅅ_1.gif';
 import D_1 from '../../img/ㄷ_1.gif';
 
 async function getPosts() {
-  const response = await axios.get(
-    'https://sidi.hongik.ac.kr/api/v1/postings/',
-    {},
-    {
-      headers: {
-        Authorization: 'Bearer ' + localStorage.getItem('access_token'),
-        Accept: 'application/json',
-        'Content-type': 'application/json',
-      },
-    }
-  );
+  const response = await axios.get('http://172.31.22.148/api/v1/postings/');
   return response.data;
 }
 
 async function getArchives() {
   const response = await axios.get(
-    'https://sidi.hongik.ac.kr/api/v1/postings/exhibition/',
-    {},
-    {
-      headers: {
-        Authorization: 'Bearer ' + localStorage.getItem('access_token'),
-        Accept: 'application/json',
-        'Content-type': 'application/json',
-      },
-    }
+    'http://172.31.22.148/api/v1/postings/exhibition/'
   );
   return response.data;
 }
