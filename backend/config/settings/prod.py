@@ -44,7 +44,6 @@ ALLOWED_HOSTS = [
 	"*"
 ]
 
-INSTALLED_APPS += ["corsheaders"]
 
 MIDDLEWARE += [
     "corsheaders.middleware.CorsMiddleware",
