@@ -8,18 +8,6 @@ APP_SCHEME = os.environ.get("APP_SCHEME")
 
 ALLOWED_HOSTS = ['localhost', '127.0.0.1', '127.0.0.1:3000', '127.0.0.1:8000']
 
-INSTALLED_APPS = [
-   ...
-   'corsheaders',
-]
-
-MIDDLEWARE = [
-   ...
-   'corsheaders.middleware.CorsMiddleware',
-   'django.middleware.common.CommonMiddleware',
-   ...
-]
-
 CORS_ORIGIN_ALLOW_ALL = True
 
 # SECURITY WARNING: don't run with debug turned on in production!
