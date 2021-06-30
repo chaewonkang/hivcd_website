@@ -1,51 +1,51 @@
-import React, { useState } from "react";
-import { Link, NavLink } from "react-router-dom";
-import "bootstrap/dist/css/bootstrap.min.css";
-import { ResponsiveHeader } from "../../components";
-import "./Header.css";
-import { Login, Search } from "../../components";
+import React, { useState } from 'react';
+import { Link, NavLink } from 'react-router-dom';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { ResponsiveHeader } from '../../components';
+import './Header.css';
+import { Login, Search } from '../../components';
 
 function Header({ handleLogout, handleSearchKeyword }) {
   const [menuText] = useState({
-    about: "소개",
-    news: "공지",
-    info: "정보",
-    alumni: "동문",
-    show: "전시/행사",
-    calandar: "일정",
-    newsletter: "뉴스레터",
-    title: "홍익대학교 미술대학 시각디자인과",
-    archive: "기록",
-    reservation: "예약",
+    about: '소개',
+    news: '공지',
+    info: '정보',
+    alumni: '동문',
+    show: '전시/행사',
+    calandar: '일정',
+    newsletter: '뉴스레터',
+    title: '홍익대학교 미술대학 시각디자인과',
+    archive: '기록',
+    reservation: '예약',
   });
 
   return (
     <header>
-      <div className="header_container">
-        <div className="header_container_left">
-          <div className="header_container_title">
-            <Link to="/">
-              <h1 className="title">
-                <span id="title">{menuText.title}</span>
+      <div className='header_container'>
+        <div className='header_container_left'>
+          <div className='header_container_title'>
+            <Link to='/'>
+              <h1 className='title'>
+                <span id='title'>{menuText.title}</span>
               </h1>
             </Link>
           </div>
         </div>
-        <div className="header_container_right">
-          <div className="header_container_menubar">
-            <span className="navbar_menu_wrapper_item_title">
-              <NavLink className="link" activeClassName="active" to="/aboutus">
-                <span id="about">{menuText.about}</span>
+        <div className='header_container_right'>
+          <div className='header_container_menubar'>
+            <span className='navbar_menu_wrapper_item_title'>
+              <NavLink className='link' activeClassName='active' to='/aboutus'>
+                <span id='about'>{menuText.about}</span>
               </NavLink>
             </span>
-            <span className="navbar_menu_wrapper_item_title">
-              <NavLink className="link" activeClassName="active" to="/board">
-                <span id="news">{menuText.news}</span>
+            <span className='navbar_menu_wrapper_item_title'>
+              <NavLink className='link' activeClassName='active' to='/board'>
+                <span id='news'>{menuText.news}</span>
               </NavLink>
             </span>
-            <span className="navbar_menu_wrapper_item_title">
-              <NavLink className="link" activeClassName="active" to="/info">
-                <span id="info">{menuText.info}</span>
+            <span className='navbar_menu_wrapper_item_title'>
+              <NavLink className='link' activeClassName='active' to='/info'>
+                <span id='info'>{menuText.info}</span>
               </NavLink>
             </span>
             {/* <span className="navbar_menu_wrapper_item_title">
@@ -63,50 +63,50 @@ function Header({ handleLogout, handleSearchKeyword }) {
                 </span>{" "}
               </NavLink>
             </span> */}
-            <span className="navbar_menu_wrapper_item_title">
-              <NavLink className="link" activeClassName="active" to="/archive">
-                <span id="archive">{menuText.archive}</span>{" "}
+            <span className='navbar_menu_wrapper_item_title'>
+              <NavLink className='link' activeClassName='active' to='/archive'>
+                <span id='archive'>{menuText.archive}</span>{' '}
               </NavLink>
             </span>
-            <span className="navbar_menu_wrapper_item_title">
+            <span className='navbar_menu_wrapper_item_title'>
               <NavLink
-                className="link"
-                activeClassName="active"
-                to="/exhibition"
+                className='link'
+                activeClassName='active'
+                to='/exhibition'
               >
-                <span id="show">{menuText.show}</span>{" "}
+                <span id='show'>{menuText.show}</span>{' '}
               </NavLink>
             </span>
-            {/* <span className="navbar_menu_wrapper_item_title">
+            {/* <span className='navbar_menu_wrapper_item_title'>
               <NavLink
-                className="link"
-                activeClassName="active"
-                to="/reservation"
+                className='link'
+                activeClassName='active'
+                to='/reservation'
               >
-                <span id="reservation">{menuText.reservation}</span>{" "}
+                <span id='reservation'>{menuText.reservation}</span>{' '}
               </NavLink>
             </span> */}
-            <span className="navbar_menu_wrapper_item_title">
-              <NavLink className="link" activeClassName="active" to="/calendar">
-                <span id="calandar">{menuText.calandar}</span>{" "}
+            <span className='navbar_menu_wrapper_item_title'>
+              <NavLink className='link' activeClassName='active' to='/calendar'>
+                <span id='calandar'>{menuText.calandar}</span>{' '}
               </NavLink>
             </span>
           </div>
-          <div className="header_container_system">
-            <div className="header_container_login">
+          <div className='header_container_system'>
+            <div className='header_container_login'>
               <Login handleLogout={handleLogout}></Login>
             </div>
-            <div className="header_container_search">
+            <div className='header_container_search'>
               <Search handleSearchKeyword={handleSearchKeyword}></Search>
             </div>
-            <div className="header_container_login">
+            <div className='header_container_login'>
               <a
-                href="https://eepurl.com/hk_U8n"
-                target="_blank"
-                rel="noopener noreferrer"
+                href='https://eepurl.com/hk_U8n'
+                target='_blank'
+                rel='noopener noreferrer'
               >
                 <>
-                  <div className="navbar_login_item">
+                  <div className='navbar_login_item'>
                     <span>{menuText.newsletter}</span>
                   </div>
                 </>
@@ -114,10 +114,10 @@ function Header({ handleLogout, handleSearchKeyword }) {
             </div>
           </div>
         </div>
-        <div className="header_container_responsive">
+        <div className='header_container_responsive'>
           <ResponsiveHeader
-            navClass="nav-small"
-            linkClassName="nav-small-link"
+            navClass='nav-small'
+            linkClassName='nav-small-link'
             handleLogout={handleLogout}
           ></ResponsiveHeader>
         </div>
