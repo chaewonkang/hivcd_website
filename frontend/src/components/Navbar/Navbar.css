@@ -1,21 +1,62 @@
 .nav_class_wrapper {
-  padding: 20px;
+  padding: 20px 20px;
 }
 
 .nav_class_boilerplate {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  font-size: 13px;
+  font-size: 15px;
 }
 
-.nav_class_wrapper span {
+.nav_class_wrapper span a {
   text-decoration: underline;
 }
 
+.nav_class_boilerplate div span {
+  font-family: "Helvetica";
+  font-size: 15px;
+}
+
+.nav_class_boilerplate div p {
+  font-family: "Helvetica";
+  font-size: 15px;
+  line-height: 23px;
+}
+
+.nav_class_openhours {
+  font-family: "Helvetica";
+  font-size: 15px;
+  margin-bottom: 1em;
+  line-height: 23px;
+}
+
 .nav_class_copyright {
-  position: absolute;
-  bottom: 0;
+  bottom: 40px;
+  line-height: 1.8em;
   padding-bottom: 20px;
+}
+
+.become_a_member,
+.nav_class_newsletter {
+  font-family: "Helvetica";
+  font-size: 15px;
+  margin-bottom: 1em;
+}
+
+.nav_class_copyright {
+  margin-bottom: 20px;
+  font-family: "Helvetica";
+  font-size: 13px;
+}
+
+.nav_class_copyright p {
+  color: darkgray;
+  line-height: 1.6em;
+  font-size: 0.9em;
+}
+
+.applebox {
+  height: 10px;
 }
 
 .nav_class_menubar ul {
@@ -24,25 +65,68 @@
   padding: 0;
 }
 
+.nav_class_menubar ul li {
+  font-family: "Helvetica";
+  font-size: 15px;
+  color: #000;
+  cursor: pointer;
+  margin-bottom: 0.5em;
+}
+
 .navbar_login {
   position: relative;
 }
 
-.navbar_login_item {
-  font-family: "NewParisSkyline";
-  padding: 2px 2px 2px 2px;
-  font-size: 18px;
-  width: fit-content;
-  border: 1px solid #000;
-  cursor: pointer;
+.comment_input_container {
+  display: inline-grid;
+  grid-template-columns: 1fr 6fr;
+  width: 100%;
 }
 
-.navbar_login_modal_container {
-  display: grid;
-  grid-template-columns: 370px;
-  grid-template-rows: 70px 70px 70px;
-  row-gap: 20px;
-  padding: 40px;
-  align-content: center;
-  justify-content: center;
+button.mobile_login_input_button {
+  font-family: "Helvetica", sans-serif;
+  font-size: 15px;
+  border: 1px solid #000;
+  background-color: #000;
+  color: #fff;
+  justify-self: right;
+  right: 0;
+}
+
+@media (min-width: 1440px) and (max-width: 1920px) {
+}
+
+/********** Large devices only **********/
+@media (min-width: 1200px) and (max-width: 1440px) {
+}
+
+/********** Medium devices only **********/
+@media (min-width: 992px) and (max-width: 1199px) {
+}
+
+/********** Small devices only **********/
+@media (min-width: 768px) and (max-width: 991px) {
+  .nav_class_wrapper {
+    padding-left: 10px;
+    padding-top: 0px;
+  }
+}
+
+/********** Extra small devices only **********/
+@media (min-width: 577px) and (max-width: 767px) {
+  .nav_class_wrapper {
+    padding-left: 10px;
+    padding-top: 0px;
+  }
+}
+
+@media (max-width: 576px) {
+  .nav_class_wrapper {
+    padding-left: 10px;
+    padding-top: 0px;
+  }
+
+  .first_line {
+    margin-top: 0px;
+  }
 }

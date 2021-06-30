@@ -1,0 +1,33 @@
+.each_post_navigator_container {
+  position: relative;
+  background-color: #000;
+  margin-top: 2em;
+}
+
+button.navigate_right_button {
+  font-family: "Helvetica", sans-serif;
+  border: 1px solid #000;
+  float: right;
+  bottom: 0;
+  background: url("../../img/right.png") no-repeat scroll #000;
+  width: 30px;
+  height: 30px;
+  background-size: 100%;
+}
+
+button.navigate_left_button {
+  font-family: "Helvetica", sans-serif;
+  border: 1px solid #000;
+  color: #fff;
+  float: left;
+  bottom: 0;
+  background: url("../../img/left.png") no-repeat scroll #000;
+  width: 30px;
+  height: 30px;
+  background-size: 100%;
+}
+
+button span {
+  align-self: center;
+  justify-self: center;
+}

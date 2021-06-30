@@ -1,6 +1,5 @@
 .aboutus_wrapper {
-  margin: 20px;
-  margin-bottom: 120px;
+  margin: 0px 20px 10px 20px;
   position: relative;
 }
 
@@ -14,61 +13,97 @@
   text-align: left;
 }
 
-.aboutus_contact tr {
+.aboutus_content p {
+  font-size: 18px;
+}
+
+.aboutus_contact td {
   border-bottom: 1px solid black;
 }
 
-th {
-  border-bottom: 1px solid black;
-  padding: 10px;
+table {
+  margin-bottom: 1em;
 }
 
-td {
-  padding: 5px;
+#facility_table_eng td:nth-child(3) {
+  width: 40%;
 }
+
+#facility_table td:nth-child(3),
+#credit_table td:nth-child(3),
+#club_table td:nth-child(3),
+#faculty_table td:nth-child(3) {
+  width: 60%;
+}
+
+#histody_table tr:nth-child(1),
+#contact_table tr:nth-child(1),
+#faculty_table tr:nth-child(1),
+#club_table tr:nth-child(1),
+#faculty_table tr:nth-child(1),
+#facility_table tr:nth-child(1),
+#facility_table_eng tr:nth-child(1),
+#credit_table tr:nth-child(1),
+#history_table {
+  border-top: 1px solid black;
+}
+
+#club_table td:nth-child(1),
+#club_table td:nth-child(2),
+#faculty_table td:nth-child(1),
+#facility_table td:nth-child(1),
+#facility_table td:nth-child(2),
+#faculty_table td:nth-child(2),
+#facility_table_eng td:nth-child(1),
+#history_table td:nth-child(1),
+#contact_table td:nth-child(1),
+#credit_table td:nth-child(1),
+#credit_table td:nth-child(2) {
+  width: 20%;
+}
+
+.aboutus_contact td a {
+  color: #000;
+  font-weight: 400;
+}
+
 .aboutus_container {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-template-rows: repeat(2, 450px);
-  column-gap: 20px;
-  row-gap: 20px;
+  grid-template-rows: repeat(3, 33vh);
+  column-gap: 10px;
+  row-gap: 10px;
 }
 
-.aboutus_container div {
-  overflow: auto;
-  line-height: 1.7em;
-}
-
-.aboutus_container .aboutus_item {
-  border: 2px solid #000000;
+.aboutus_item {
+  border: 1px solid #000000;
   position: relative;
-  background-color: #ffffff;
   padding: 1.5rem;
   width: 100%;
-  height: 100%;
-}
-
-.aboutus_item h2 {
-  font-family: "AGChoiJeongHo";
-  font-size: 22px;
-  padding-top: 0.5rem;
+  overflow: auto;
+  width: 100%;
+  display: inline-grid;
 }
 
 .aboutus_item p {
   font-size: 2rem;
-  margin-top: 20px;
 }
 
-.aboutus_item .aboutus_item_tag {
-  font-family: Helvetica;
-  font-size: 22px;
-  text-align: center;
+.aboutus_item_tag {
+  display: inline-grid;
+  grid-template-columns: 20% 1fr;
+}
+
+.aboutus_item .aboutus_item_tag span {
+  font-family: "Helvetica";
+  font-size: 18px;
 }
 
 .aboutus_item .aboutus_content {
   position: absolute;
   margin-top: 20px;
-  font-family: "CenturySchoolbook";
+  font-family: "Helvetica";
+  line-height: 30px;
   font-size: 18px;
   position: sticky;
   top: 0;
@@ -79,26 +114,114 @@ td {
   border-bottom: 1px solid black;
 }
 
-.aboutus_content_contact p {
-  display: inline;
-}
-
 #history {
-  background-color: #9099ff;
-  border: 2px solid #6f55ff;
+  background-color: #deadf0;
+  border: 1px solid #bb12d8;
 }
 
 #map {
-  background-color: #ffcc99;
-  border: 2px solid #ff9191;
+  background-color: #93f421;
+  border: 1px solid #64cb0c;
 }
 
-#curriculum {
-  background-color: #ff01ff;
-  border: 2px solid #e3001f;
+#faculty {
+  background-color: #fdfbc1;
+  border: 1px solid #cfd372;
 }
 
 #contact {
-  background-color: #729b00;
-  border: 2px solid #19a300;
+  background-color: #cdcc33;
+  border: 1px solid #a8b419;
+}
+
+#link {
+  background-color: #fecc99;
+  border: 1px solid #fd9191;
+}
+
+#colophon {
+  background-color: #a3b3c4;
+  border: 1px solid #78a4b7;
+}
+
+@media (min-width: 1440px) and (max-width: 1920px) {
+}
+
+/********** Large devices only **********/
+@media (min-width: 1200px) and (max-width: 1440px) {
+}
+
+/********** Medium devices only **********/
+@media (min-width: 992px) and (max-width: 1199px) {
+  .aboutus_contact {
+    font-size: 14px;
+  }
+
+  .faculty {
+    font-size: 12px;
+  }
+}
+
+/********** Small devices only **********/
+@media (min-width: 768px) and (max-width: 991px) {
+  .aboutus_wrapper {
+    margin-top: 0px;
+  }
+  .aboutus_container {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(6, 33vh);
+    column-gap: 20px;
+    row-gap: 20px;
+  }
+}
+
+/********** Extra small devices only **********/
+@media (min-width: 577px) and (max-width: 767px) {
+  .aboutus_wrapper {
+    margin-top: 10px;
+    margin-right: 10px;
+    margin-left: 10px;
+    margin-bottom: 10px;
+  }
+  .aboutus_container {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(6, 25vh);
+    column-gap: 20px;
+    row-gap: 20px;
+  }
+}
+
+@media (max-width: 576px) {
+  .aboutus_item .aboutus_item_tag span {
+    font-family: "Helvetica";
+    font-size: 10px;
+  }
+
+  .aboutus_wrapper {
+    margin-top: 50px;
+    margin-right: 10px;
+    margin-left: 10px;
+    margin-bottom: 10px;
+  }
+
+  .aboutus_container {
+    grid-template-columns: 1fr;
+    column-gap: 10px;
+    row-gap: 10px;
+  }
+
+  .aboutus_item .aboutus_content {
+    font-size: 10px;
+    line-height: 2.5em;
+    margin-top: 0;
+  }
+
+  .aboutus_container .aboutus_item {
+    padding: 0.5rem;
+  }
+
+  .aboutus_item .aboutus_item_tag {
+    padding-bottom: 1em;
+    font-size: 18px;
+  }
 }

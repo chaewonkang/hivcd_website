@@ -1,0 +1,52 @@
+.comment_list {
+  border-radius: 5px;
+}
+
+.comment_list ul {
+  list-style-type: none;
+  text-align: left;
+  padding-left: 0;
+}
+
+/********** Large devices only **********/
+@media (min-width: 1200px) {
+}
+
+/********** Medium devices only **********/
+@media (min-width: 992px) and (max-width: 1199px) {
+}
+
+/********** Small devices only **********/
+@media (min-width: 768px) and (max-width: 991px) {
+}
+
+/********** Extra small devices only **********/
+@media (min-width: 577px) and (max-width: 767px) {
+}
+
+/********** Extra Extra small (xxs) devices only **********/
+@media (max-width: 576px) {
+  .comment_input_container {
+    display: block;
+  }
+
+  button.comment_input_button {
+    margin-left: 0px;
+  }
+
+  input[name="comment"] {
+    margin-bottom: 1em;
+    width: 100%;
+    padding: 2em;
+    outline: none;
+    border: 1px solid #000;
+  }
+
+  .comment_input_username {
+    margin-bottom: 1em;
+  }
+
+  .mobile_commentlist_hr_hidden {
+    display: none;
+  }
+}

@@ -1,0 +1,113 @@
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes slideIn {
+  0% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.calandar_container {
+  margin-top: -10px;
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-bottom: 0px;
+  animation: 1s ease-out 0s 1 fadeIn;
+}
+
+div[data-widgetuuid="fc14c30a-1881-4601-9d23-5ce266b746dc"]
+  #event-calendar-app
+  .event-summary,
+div[data-widgetuuid="fc14c30a-1881-4601-9d23-5ce266b746dc"]
+  #event-calendar-app
+  .md
+  .filters-mobile-button,
+div[data-widgetuuid="fc14c30a-1881-4601-9d23-5ce266b746dc"]
+  #event-calendar-app
+  .md
+  .filters-mobile-button,
+div[data-widgetuuid="fc14c30a-1881-4601-9d23-5ce266b746dc"]
+  #event-calendar-app
+  .md
+  .search-toggle,
+div[data-widgetuuid="fc14c30a-1881-4601-9d23-5ce266b746dc"]
+  #event-calendar-app
+  .event-summary,
+div[data-widgetuuid="fc14c30a-1881-4601-9d23-5ce266b746dc"]
+  #event-calendar-app
+  .view-mode,
+div[data-widgetuuid="fc14c30a-1881-4601-9d23-5ce266b746dc"]
+  #event-calendar-app
+  .event-summary
+  ul
+  li {
+  border-radius: 0px !important;
+}
+
+div[data-widgetuuid="fc14c30a-1881-4601-9d23-5ce266b746dc"]
+  #event-calendar-app
+  .calendar-list-view__navigate-button--left {
+  border-radius: 0px !important;
+}
+
+div[data-widgetuuid="fc14c30a-1881-4601-9d23-5ce266b746dc"]
+  #event-calendar-app
+  .subcribe-to-calendar__inverse,
+#event-calendar-app .subcribe-to-calendar__inverse {
+  border-radius: 0px !important;
+}
+
+.subcribe-to-calendar {
+  border-radius: 0px !important;
+}
+
+#event-calendar-app .view-mode ul li:first-child {
+  border-radius: 0px !important;
+}
+
+#event-calendar-app .sm .subcribe-to-calendar,
+div[data-widgetuuid="fc14c30a-1881-4601-9d23-5ce266b746dc"]
+  #event-calendar-app
+  .subcribe-to-calendar {
+  box-shadow: none !important;
+  border-radius: 0 !important;
+}
+
+@media (min-width: 1440px) and (max-width: 1920px) {
+}
+
+/********** Large devices only **********/
+@media (min-width: 1200px) and (max-width: 1440px) {
+}
+
+/********** Medium devices only **********/
+@media (min-width: 992px) and (max-width: 1199px) {
+}
+
+/********** Small devices only **********/
+@media (min-width: 768px) and (max-width: 991px) {
+}
+
+/********** Extra small devices only **********/
+@media (min-width: 577px) and (max-width: 767px) {
+}
+
+@media (max-width: 576px) {
+  .calandar_container {
+    margin-top: 50px;
+    margin-right: 10px;
+    margin-left: 10px;
+    animation: 1s ease-out 0s 1 slideIn;
+  }
+}

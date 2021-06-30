@@ -1,6 +1,346 @@
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes slideIn {
+  0% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
 .archive_container {
+  margin-left: 20px;
+  margin-right: 20px;
+  font-size: 15px;
+  word-break: keep-all;
+  line-height: 1.8em;
+  font-family: "Helvetica", sans-serif;
+  animation: 1s ease-out 0s 1 fadeIn;
+}
+
+.archive_wrapper {
+  padding: 20px;
+  display: grid;
+  grid-template-columns: 40% auto;
+  column-gap: 20px;
+  background-color: #ffeb00;
+  border: 1px solid #ffba00;
+  animation: 1s ease-out 0s 1 fadeIn;
+}
+
+.archive_wrapper_text {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(4, max-content);
+  row-gap: 0.3em;
+  max-height: inherit;
+  position: relative;
+  animation: 1s ease-out 0s 1 fadeIn;
+  max-height: 70vh;
+  overflow: auto;
+}
+
+.arrows_and_number_container {
+  width: 100%;
+}
+.arrows_and_number {
+  margin: 0 auto;
+}
+
+.archive_wrapper_text_title {
+  font-size: 24px;
+  border-bottom: 1px solid #000;
+  display: flex;
+  align-items: flex-start;
+  justify-items: center;
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+}
+
+.archive_wrapper_text_date {
+  border-bottom: 1px solid #000;
+  font-size: 17px;
+  display: flex;
+  align-items: center;
+  justify-items: center;
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+}
+
+.archive_wrapper_text_body {
+  font-size: 17px;
+  margin-top: 1em;
+  margin-bottom: 3em;
+}
+
+.archive_wrapper_text_link {
+  display: flex;
+  align-items: flex-end;
+}
+
+.archive_wrapper_slider {
+  position: relative;
+}
+
+.slick-dots {
+  position: relative;
+}
+
+.archive_index_container {
+  margin-top: 20px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 200px;
+  grid-auto-rows: 200px;
+  grid-column-gap: 20px;
+  grid-row-gap: 20px;
+  height: 40vh;
+  overflow: auto;
+  animation: 1s ease-out 0s 1 fadeIn;
+}
+
+.arrows_and_number_container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  position: absolute;
+  bottom: 0;
+}
+
+.slide_container {
+  margin: 0 16px 0 16px;
+}
+
+.archive_index_container_before {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 200px;
+  grid-auto-rows: 200px;
+  grid-column-gap: 20px;
+  grid-row-gap: 20px;
+  height: 100vh;
+  overflow: auto;
+}
+
+.archive_index_box {
+  position: relative;
+  border: 1px solid #000;
+  width: 100%;
+  height: 100%;
+  padding: 10px 10px 10px 10px;
+  line-height: 1.7em;
+  overflow: auto;
+  word-break: keep-all;
+  animation: 1s ease-out 0s 1 fadeIn;
+  overflow-x: hidden; /* Hide horizontal scrollbar */
+}
+
+.archive_index_box_tag {
+  position: absolute;
+  top: 0;
+  right: -1px;
+  font-family: "Helvetica";
+  background-color: #000;
+  color: #fff;
+  text-align: center;
+  padding: 0.1em 0.75em 0.1em 0.75em;
+  text-transform: uppercase;
+  font-size: 11px;
+  font-weight: 400;
+  z-index: 100;
+}
+
+.archive_index_box_content {
+  font-family: "Helvetica";
+  font-size: 18px;
   display: inline-grid;
-  grid-template-columns: repeat(9, 1fr);
-  column-gap: 10px;
-  grid-template-rows: repeat(10, 1fr);
+  width: 65%;
+  grid-template-rows: 1fr;
+  position: sticky;
+  top: 0;
+  padding-right: 0.5em;
+  cursor: pointer;
+  color: #000;
+}
+
+.archive_index_box_text_title {
+  padding-right: 20px;
+}
+
+.archive_index_box_image {
+  float: right;
+  width: 35%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+}
+
+.date {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.date_span {
+  display: flex;
+  align-self: center;
+  justify-self: center;
+}
+
+@media (min-width: 1440px) and (max-width: 1920px) {
+}
+
+/********** Large devices only **********/
+@media (min-width: 1200px) and (max-width: 1440px) {
+}
+
+/********** Medium devices only **********/
+@media (min-width: 992px) and (max-width: 1199px) {
+  .archive_wrapper_text_title {
+    font-size: 18px;
+  }
+
+  .archive_wrapper {
+    display: grid;
+    grid-template-columns: 1fr;
+    column-gap: 20px;
+    grid-template-rows: repeat(2, auto);
+    background-color: #ffeb00;
+    border: 1px solid #ffba00;
+    height: inherit;
+    height: inherit;
+  }
+
+  .archive_wrapper_text {
+    order: 2;
+    padding-top: 20px;
+  }
+
+  .archive_wrapper_slider {
+    position: relative;
+    height: auto;
+    max-height: auto;
+    overflow: auto;
+  }
+
+  .archive_wrapper_text {
+    height: auto;
+    max-height: auto;
+  }
+}
+
+/********** Small devices only **********/
+@media (min-width: 768px) and (max-width: 991px) {
+  .archive_wrapper_text_title {
+    font-size: 18px;
+  }
+  .archive_wrapper {
+    display: grid;
+    grid-template-columns: 1fr;
+    column-gap: 20px;
+    grid-template-rows: repeat(2, auto);
+    background-color: #ffeb00;
+    border: 1px solid #ffba00;
+    height: inherit;
+    height: inherit;
+  }
+
+  .archive_wrapper_text {
+    order: 2;
+    padding-top: 20px;
+  }
+
+  .archive_wrapper_slider {
+    position: relative;
+    height: auto;
+    max-height: auto;
+    overflow: auto;
+  }
+
+  .archive_wrapper_text {
+    height: auto;
+    max-height: auto;
+  }
+}
+
+/********** Extra small devices only **********/
+@media (min-width: 577px) and (max-width: 767px) {
+  .archive_wrapper_text_title {
+    font-size: 18px;
+  }
+  .archive_wrapper {
+    display: grid;
+    grid-template-columns: 1fr;
+    column-gap: 20px;
+    grid-template-rows: repeat(2, auto);
+    background-color: #ffeb00;
+    border: 1px solid #ffba00;
+    height: inherit;
+    height: inherit;
+  }
+
+  .archive_wrapper_text {
+    order: 2;
+    padding-top: 20px;
+  }
+
+  .archive_wrapper_slider {
+    position: relative;
+    height: auto;
+    max-height: auto;
+    overflow: auto;
+  }
+
+  .archive_wrapper_text {
+    height: auto;
+    max-height: auto;
+  }
+}
+
+@media (max-width: 576px) {
+  .archive_wrapper_text_title {
+    font-size: 18px;
+  }
+  .archive_wrapper {
+    display: grid;
+    grid-template-columns: 1fr;
+    column-gap: 20px;
+    grid-template-rows: auto;
+    background-color: #ffeb00;
+    border: 1px solid #ffba00;
+    height: inherit;
+    height: inherit;
+  }
+
+  .archive_wrapper_text {
+    order: 2;
+    padding-top: 20px;
+  }
+
+  .archive_container {
+    margin-top: 50px;
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+
+  .archive_wrapper_slider {
+    position: relative;
+    height: auto;
+    max-height: auto;
+    overflow: auto;
+  }
+
+  .archive_wrapper_text {
+    height: auto;
+    max-height: auto;
+  }
 }

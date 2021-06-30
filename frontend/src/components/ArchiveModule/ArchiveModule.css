@@ -1,0 +1,136 @@
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes slideIn {
+  0% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.archive_module {
+  position: relative;
+  background-color: #ffeb00;
+  border: 1px solid #ffba00;
+  width: 100%;
+  height: 100%;
+  padding: 10px 10px 10px 10px;
+  line-height: 1.7em;
+  overflow-wrap: break-word;
+  animation: 1s ease-out 0s 1 fadeIn;
+  overflow-x: hidden; /* Hide horizontal scrollbar */
+}
+
+.archive h2 {
+  font-family: "Helvetica";
+  font-size: 18px;
+  padding-top: 0.5rem;
+}
+
+.archive_module_tag {
+  position: absolute;
+  top: 0;
+  right: 0px;
+  font-family: "Helvetica";
+  background-color: #000;
+  color: #fff;
+  text-align: center;
+  padding: 0.1em 0.75em 0.1em 0.75em;
+  text-transform: uppercase;
+  font-size: 11px;
+  font-weight: 400;
+  z-index: 2;
+}
+
+.archive_module .archive_module_content {
+  font-family: "Helvetica";
+  font-size: 18px;
+  display: inline-grid;
+  width: 60%;
+  position: sticky;
+  top: 0;
+  padding-right: 0.5em;
+  cursor: pointer;
+}
+
+.archive_module .archive_module_content .archive_module_content_header a {
+  color: #000;
+}
+
+.archive_module .archive_module_content_image {
+  float: right;
+  width: 40%;
+  height: 100%;
+  border: 1px solid #ffba00;
+}
+
+.image_fill {
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+}
+
+@media (min-width: 1440px) and (max-width: 1920px) {
+}
+
+/********** Large devices only **********/
+@media (min-width: 1200px) and (max-width: 1440px) {
+}
+
+/********** Medium devices only **********/
+@media (min-width: 992px) and (max-width: 1199px) {
+}
+
+/********** Small devices only **********/
+@media (min-width: 768px) and (max-width: 991px) {
+}
+
+/********** Extra small devices only **********/
+@media (min-width: 577px) and (max-width: 767px) {
+}
+
+@media (max-width: 576px) {
+}
+
+@media only screen and (max-width: 576px) {
+  .archive_module {
+    animation: 1s ease-out 0s 1 slideIn;
+  }
+
+  .archive_module_container {
+    margin-bottom: 20px;
+  }
+
+  .archive_module .archive_module_content_image {
+    display: block;
+    width: 50%;
+    position: relative;
+    margin-bottom: 10px;
+  }
+
+  .archive_module .archive_module_content {
+    width: 50%;
+    font-size: 15px;
+  }
+
+  .archive .archive_content {
+    width: 100%;
+    font-size: 15px;
+  }
+
+  .archive_filter_option:active,
+  .archive_filter_option:focus {
+    font-size: 12px;
+    padding: 0.4em 0.7em;
+  }
+}

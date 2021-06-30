@@ -1,115 +1,173 @@
-import React, { Component } from "react";
-import axios from "axios";
-import { BrowserRouter as Router } from "react-router-dom";
-import {
-  PostWrapper,
-  Post,
-  HomeArchive,
-  Calandar,
-  Equipment,
-  Classroom,
-  LogoImage,
-} from "../../components";
-import { ArchiveWrapper } from "../../components";
-import "./ContentContainer.css";
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+import { PostWrapper, Post, HomeArchive } from '../../components';
+import { ArchiveWrapper } from '../../components';
+import './ContentContainer.css';
+import useAsync from '../../utils/useAsync';
+import logogif from '../../img/logogif.gif';
+import H_1 from '../../img/ㅎ_1.gif';
+import I_1 from '../../img/ㅇ_1.gif';
+import S_1 from '../../img/ㅅ_1.gif';
+import D_1 from '../../img/ㄷ_1.gif';
 
-class ContentContainer extends Component {
-  state = {
-    postId: 1,
-    loadingPost: false,
-    loadingArchive: false,
-    postList: [],
-    archiveList: [],
-    items: 20,
-    preItems: 0,
+async function getPosts() {
+  const response = await axios.get(
+    'https://sidi.hongik.ac.kr/api/v1/postings/'
+  );
+  return response.data;
+}
+
+async function getArchives() {
+  const response = await axios.get(
+    'https://sidi.hongik.ac.kr/api/v1/postings/exhibition/'
+  );
+  return response.data;
+}
+
+function debounce(fn, ms) {
+  let timer;
+  return () => {
+    clearTimeout(timer);
+    timer = setTimeout(() => {
+      timer = null;
+      fn.apply(this, arguments);
+    }, ms);
   };
+}
 
-  componentWillMount() {}
+function ContentContainer() {
+  const [state] = useAsync(() => getPosts(), []);
+  const [archiveState] = useAsync(() => getArchives(), []);
+  const { loading, data: posts, error } = state;
+  const { data: archives } = archiveState;
+  let pkArray = [];
+  let randPost = [];
+  let randImg = [];
 
-  componentDidMount() {
-    // this.fetchPostInfo(1);
-    this._loadPost();
-    this._loadArchive();
-    // window.addEventListener('scroll', this._infiniteScroll);
-  }
+  const [dimensions, setDimensions] = useState({
+    height: window.innerHeight,
+    width: window.innerWidth,
+  });
 
-  //   componentWillUnmount() {
-  // 	  window.removeEventListener("scroll", this.infiniteScroll);
-  //   }
+  const [imgArray] = useState([H_1, I_1, S_1, D_1]);
 
-  _loadPost = async () => {
-    axios
-      .get("https://jsonplaceholder.typicode.com/posts")
-      .then(({ data }) => {
-        this.setState({
-          ...this.state,
-          loadingPost: true,
-          postList: data,
-        });
-      })
-      .catch((e) => {
-        console.error(e);
-        this.setState({
-          ...this.state,
-          loadingPost: false,
-        });
+  useEffect(() => {
+    const debouncedHandleResize = debounce(function handleResize() {
+      setDimensions({
+        height: window.innerHeight,
+        width: window.innerWidth,
+        row: window.innerHeight / 210,
       });
-  };
+    }, 1);
 
-  _loadArchive = async () => {
-    axios
-      .get("https://jsonplaceholder.typicode.com/photos")
-      .then(({ data }) => {
-        this.setState({
-          ...this.state,
-          loadingArchive: true,
-          archiveList: data,
-        });
-      })
-      .catch((e) => {
-        console.error(e);
-        this.setState({
-          ...this.state,
-          loadingArchive: false,
-        });
-      });
-  };
+    window.addEventListener('resize', debouncedHandleResize);
 
-  render() {
-    const { postList, archiveList } = this.state;
-    const latestArchiveList = archiveList.slice(0, 6);
-    const latestPostList = postList.slice(0, 20);
+    return () => {
+      window.removeEventListener('resize', debouncedHandleResize);
+    };
+  }, []);
+
+  if (loading)
     return (
-      <Router>
-        <div className="contentcontainer">
-          <PostWrapper>
-            <LogoImage></LogoImage>
+      <div className='container_loading'>
+        <img className='loading_status' src={logogif} alt='logogif'></img>
+      </div>
+    );
+  if (error)
+    return (
+      <div className='container_loading'>
+        <img className='loading_status' src={logogif} alt='logogif'></img>
+      </div>
+    );
 
-            {latestPostList &&
-              latestPostList.map((post) => {
-                return <Post title={post.title} id={post.id}></Post>;
-              })}
-            <Classroom></Classroom>
-            <Calandar
-              onClick={() => console.log("Calandar Module Clicked!")}
-            ></Calandar>
-            <Equipment></Equipment>
-          </PostWrapper>
-          <ArchiveWrapper>
-            {latestArchiveList &&
-              latestArchiveList.map((post) => {
-                return (
-                  <HomeArchive
-                    title={post.title}
-                    id={post.id}
-                    thumbnailUrl={post.thumbnailUrl}
-                  ></HomeArchive>
-                );
-              })}
-          </ArchiveWrapper>
-        </div>
-        <main></main>
-      </Router>
+  if (!posts) return null;
+
+  if (posts) {
+    posts.map((post) => {
+      pkArray.push(post.pk);
+      return null;
+    });
+    for (let i = 0; i < 4; i++) {
+      if (randPost.length === 0 || randPost.length === 1)
+        randPost[i] = Math.floor(Math.random() * pkArray.length);
+      if (randPost.length > 1 && randPost[i] !== randPost[i - 1])
+        randPost[i] = Math.floor(Math.random() * pkArray.length);
+    }
+    randImg = [
+      pkArray[randPost[0]],
+      pkArray[randPost[1]],
+      pkArray[randPost[2]],
+      pkArray[randPost[3]],
+    ];
+    randImg = randImg.sort(function (a, b) {
+      return a - b;
+    });
+
+    return (
+      <div className='contentcontainer'>
+        <PostWrapper dimensions={dimensions}>
+          {randImg &&
+            posts &&
+            posts
+              .filter(
+                (post) =>
+                  post.category === 1 ||
+                  post.category === 2 ||
+                  post.category === 3 ||
+                  post.category === 4 ||
+                  post.category === 5
+              )
+              .map((post, i) => (
+                <>
+                  {randImg.includes(post.pk) ? (
+                    <>
+                      <img
+                        src={imgArray[randImg.indexOf(post.pk)]}
+                        alt='randomImage'
+                        style={{
+                          width: 195 + 'px',
+                        }}
+                        className='imgRef'
+                      ></img>
+                      <Post
+                        key={post.pk}
+                        title={post.title}
+                        date={post.created_at}
+                        category={post.category}
+                        id={post.pk}
+                      ></Post>
+                    </>
+                  ) : (
+                    <Post
+                      key={post.pk}
+                      title={post.title}
+                      date={post.created_at}
+                      category={post.category}
+                      id={post.pk}
+                    ></Post>
+                  )}
+                </>
+              ))}
+        </PostWrapper>
+        <ArchiveWrapper dimensions={dimensions}>
+          {archives &&
+            archives.map((post, i) => {
+              return (
+                <HomeArchive
+                  key={i}
+                  title={post.title}
+                  id={post.pk}
+                  body={post.text}
+                  category={post.category}
+                  thumbnailUrl={
+                    post.photos.length ? post.photos[0].photo : null
+                  }
+                  link={post.link}
+                ></HomeArchive>
+              );
+            })}
+        </ArchiveWrapper>
+      </div>
     );
   }
 }

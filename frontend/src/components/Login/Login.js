@@ -1,98 +1,35 @@
-import React, { Component } from "react";
-import { BrowserRouter as Router } from "react-router-dom";
-import Modal from "react-awesome-modal";
-import "./Login.css";
+import React, { useState } from 'react';
+import './Login.css';
+import getCookie from '../../utils/getCookie';
+import axios from 'axios';
 
-class Login extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      visible: false,
-      search: "",
-    };
-  }
+async function handleLogout() {
+  const response = await axios
+    .get('https://sidi.hongik.ac.kr/api/v1/auth/logout/')
+    .then(() => window.location.reload());
+  return response;
+}
 
-  _openModal = function () {
-    this.setState({
-      visible: true,
-    });
-  };
-
-  _closeModal = function () {
-    this.setState({
-      visible: false,
-    });
-  };
-
-  _changeSearch = function () {
-    const searchValue = document.getElementsByName("search")[0].value;
-    console.log(searchValue);
-
-    this.setState({
-      ...this.tate,
-      search: searchValue,
-    });
-  };
-
-  _changeId = function () {
-    const idValue = document.getElementsByName("id")[0].value;
-    console.log(idValue);
-
-    this.setState({
-      ...this.state,
-      id: idValue,
-    });
-  };
-
-  _changePW = function () {
-    const pwValue = document.getElementsByName("password")[0].value;
-    console.log(pwValue);
-
-    this.setState({
-      ...this.state,
-      password: pwValue,
-    });
-  };
-
-  render() {
-    return (
-      <div className="header_container_login">
-        <Modal
-          visible={this.state.visible}
-          width="450"
-          height="380"
-          effect="fadeInDown"
-          onClickAway={() => this._closeModal()}
-        >
-          <div>
-            <form>
-              <div className="navbar_login_modal_container">
-                <input
-                  placeholder="ID"
-                  type="text"
-                  name="id"
-                  onChange={() => this._changeId()}
-                ></input>
-                <input
-                  placeholder="password"
-                  type="text"
-                  name="password"
-                  onChange={() => this._changePW()}
-                ></input>
-                <div className="button">
-                  <span>LOGIN</span>
-                </div>
-                <span className="create-account">create account</span>
-              </div>
-            </form>
-          </div>
-        </Modal>
-        <div className="navbar_login_item" onClick={() => this._openModal()}>
-          LOGIN
+function Login() {
+  const [loginText] = useState({
+    login: '로그인',
+    logout: '로그아웃',
+  });
+  return (
+    <>
+      {getCookie('SUSER_ID') !== null ? (
+        <div className='navbar_login_item'>
+          <span onClick={() => handleLogout()}>{loginText.logout}</span>
         </div>
-      </div>
-    );
-  }
+      ) : (
+        <a href='http://www.hongik.ac.kr/login.do?Refer=https://sidi.hongik.ac.kr/api/v1/auth/login/'>
+          <div className='navbar_login_item'>
+            <span>{loginText.login}</span>
+          </div>
+        </a>
+      )}
+    </>
+  );
 }
 
 export default Login;

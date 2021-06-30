@@ -1,20 +1,21 @@
+import "react-app-polyfill/ie11";
+import "react-app-polyfill/stable";
 import React from "react";
 import ReactDOM from "react-dom";
-import { createStore } from "redux";
-import reducers from "./reducers";
-import { Provider } from "react-redux";
+import { BrowserRouter } from "react-router-dom";
 import App from "./App";
-import "semantic-ui-css/semantic.min.css";
-import "bootstrap/dist/css/bootstrap.css";
 import "./index.css";
+import "normalize.css";
+import "semantic-ui-css/semantic.min.css";
 import * as serviceWorker from "./serviceWorker";
-
-const store = createStore(reducers);
+import { CookiesProvider } from "react-cookie";
 
 ReactDOM.render(
-  <Provider store={store}>
-    <App />
-  </Provider>,
+  <BrowserRouter>
+    <CookiesProvider>
+      <App />
+    </CookiesProvider>
+  </BrowserRouter>,
   document.getElementById("root")
 );
 

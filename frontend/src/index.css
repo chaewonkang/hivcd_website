@@ -2,6 +2,14 @@ body {
   background: #fff5f5;
 }
 
+.element::-webkit-scrollbar {
+  width: 0 !important;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
 @font-face {
   font-family: "AGChoiJeongHo";
   src: local("AGChoiJeongHo"),
@@ -18,4 +26,22 @@ body {
   font-family: "NewParisSkyline";
   src: local("NewParisSkyline"),
     url(./fonts/NewParisSkylineTrial-Regular.otf) format("opentype");
+}
+
+@font-face {
+  font-family: "KoPubBatangBold";
+  src: local("KoPubBatangBold"),
+    url(./fonts/KoPubWorld_Batang_Pro_Bold.otf) format("opentype");
+}
+
+@font-face {
+  font-family: "KoPubBatangMedium";
+  src: local("KoPubBatangMedium"),
+    url(./fonts/KoPubWorld_Batang_Pro_Medium.otf) format("opentype");
+}
+
+@font-face {
+  font-family: "KoPubBatangLight";
+  src: local("KoPubBatangLight"),
+    url(./fonts/KoPubWorld_Batang_Pro_Light.otf) format("opentype");
 }

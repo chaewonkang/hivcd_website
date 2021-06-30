@@ -1,0 +1,94 @@
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes slideIn {
+  0% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.post {
+  position: relative;
+  padding: 8px 10px 10px 10px;
+  color: #000;
+  width: 100%;
+  height: 100%;
+  line-height: 1.7em;
+  word-break: keep-all;
+  animation: 1s ease-out 0s 1 fadeIn;
+}
+
+.post h2 {
+  font-family: "Helvetica";
+  font-size: 18px;
+  padding-top: 0.5rem;
+  cursor: pointer;
+  font-weight: 400;
+}
+
+.post p {
+  font-size: 2rem;
+}
+
+.post .post_tag {
+  position: absolute;
+  top: 0;
+  right: -1px;
+  font-family: "Helvetica";
+  background-color: #000;
+  color: #fff;
+  text-align: center;
+  padding: 0.1em 0.75em 0.1em 0.75em;
+  text-transform: uppercase;
+  font-size: 11px;
+  font-weight: 400;
+  z-index: 100;
+}
+
+.post .post_content {
+  font-family: "Helvetica";
+  font-size: 18px;
+  position: sticky;
+  top: 0;
+  cursor: pointer;
+}
+
+@media (min-width: 1440px) and (max-width: 1920px) {
+}
+
+/********** Large devices only **********/
+@media (min-width: 1200px) and (max-width: 1440px) {
+}
+
+/********** Medium devices only **********/
+@media (min-width: 992px) and (max-width: 1199px) {
+}
+
+/********** Small devices only **********/
+@media (min-width: 768px) and (max-width: 991px) {
+}
+
+/********** Extra small devices only **********/
+@media (min-width: 577px) and (max-width: 767px) {
+}
+
+@media only screen and (max-width: 576px) {
+  .post {
+    animation: 1s ease-out 0s 1 slideIn;
+  }
+
+  .post .post_content {
+    font-size: 15px;
+  }
+}

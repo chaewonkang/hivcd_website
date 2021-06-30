@@ -1,67 +1,52 @@
-import React, { Component } from "react";
-import { BrowserRouter as Router } from "react-router-dom";
-import "bootstrap/dist/css/bootstrap.min.css";
+import React, { useState } from "react";
 import Modal from "react-awesome-modal";
 import "./Search.css";
+import { useHistory } from "react-router-dom";
 
-class Search extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      visible: false,
-      search: "",
-    };
-  }
+function Search({ handleSearchKeyword }) {
+  const [visible, setVisible] = useState(false);
+  const [searchText] = useState({
+    search: "검색",
+  });
+  let history = useHistory();
 
-  _openModal = function () {
-    this.setState({
-      visible: true,
-    });
+  const openModal = () => {
+    setVisible(true);
+    document.body.style.overflow = "hidden";
   };
 
-  _closeModal = function () {
-    this.setState({
-      visible: false,
-    });
+  const closeModal = () => {
+    setVisible(false);
+    document.body.style.overflow = "unset";
   };
 
-  _changeSearch = function () {
+  const submitSearch = (e) => {
+    e.preventDefault();
     const searchValue = document.getElementsByName("search")[0].value;
-    console.log(searchValue);
 
-    this.setState({
-      ...this.tate,
-      search: searchValue,
-    });
+    handleSearchKeyword(searchValue);
+    closeModal();
+    history.push("/search");
   };
 
-  render() {
-    return (
-      <Router>
-        <div>
-          <Modal
-            visible={this.state.visible}
-            width="815"
-            height="70"
-            effect="fadeInDown"
-            onClickAway={() => this._closeModal()}
-          >
-            <form>
-              <input
-                placeholder="SEARCH..."
-                type="text"
-                name="search"
-                onChange={() => this._changeSearch()}
-              ></input>
-            </form>
-          </Modal>
-          <div className="navbar_search_item" onClick={() => this._openModal()}>
-            SEARCH
-          </div>
-        </div>
-      </Router>
-    );
-  }
+  return (
+    <div className="modal_div">
+      <Modal
+        visible={visible}
+        width="815"
+        height="70"
+        effect="fadeInDown"
+        onClickAway={() => closeModal()}
+      >
+        <form onSubmit={(e) => submitSearch(e)}>
+          <input placeholder="Search..." type="text" name="search"></input>
+        </form>
+      </Modal>
+      <div className="navbar_search_item" onClick={() => openModal()}>
+        <span>{searchText.search}</span>
+      </div>
+    </div>
+  );
 }
 
 export default Search;
