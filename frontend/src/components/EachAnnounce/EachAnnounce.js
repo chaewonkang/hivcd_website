@@ -125,10 +125,9 @@ function EachAnnounce({ postId }) {
   if (isLogged && announceList && eachAnnounce && !eachAnnounce.sidi_only) {
     let pkArray = [];
 
-    announceList.map((post) => {
-      pkArray.push(post.pk);
-      return null;
-    });
+    for (let i = 0; i < announceList.length; i++) {
+      pkArray.push(announceList[i].pk);
+    }
 
     return (
       <div className='each_post_wrapper' style={style}>
@@ -252,10 +251,9 @@ function EachAnnounce({ postId }) {
   if (announceList && eachAnnounce) {
     let pkArray = [];
 
-    announceList.map((post) => {
-      pkArray.push(post.pk);
-      return null;
-    });
+    for (let i = 0; i < announceList.length; i++) {
+      pkArray.push(announceList[i].pk);
+    }
 
     return (
       <div className='each_post_wrapper' style={style}>
@@ -283,9 +281,9 @@ function EachAnnounce({ postId }) {
           </div>
           <hr style={{ marginBottom: 2 + 'em' }}></hr>
           <p>
-            {eachAnnounce.text.split('\n').map((line) => {
+            {eachAnnounce.text.split('\n').map((line, i) => {
               return (
-                <span>
+                <span key={i}>
                   {line}
                   <br />
                 </span>
@@ -293,9 +291,9 @@ function EachAnnounce({ postId }) {
             })}
           </p>
           {eachAnnounce.photos.length
-            ? eachAnnounce.photos.map((photo) => {
+            ? eachAnnounce.photos.map((photo, i) => {
                 return (
-                  <div>
+                  <div key={i}>
                     <img
                       src={photo.photo}
                       alt={photo.alt}
@@ -310,9 +308,9 @@ function EachAnnounce({ postId }) {
               })
             : null}
           {eachAnnounce.videos.length
-            ? eachAnnounce.videos.map((video) => {
+            ? eachAnnounce.videos.map((video, i) => {
                 return (
-                  <div>
+                  <div key={i}>
                     <iframe
                       title={`${video.video_link}`}
                       id='player'

@@ -123,10 +123,10 @@ function EachPost({ postId }) {
   if (isLogged && postList && eachPost && !eachPost.sidi_only) {
     let pkArray = [];
 
-    postList.map((post) => {
-      pkArray.push(post.pk);
-      return null;
-    });
+    for (let i = 0; i < postList.length; i++) {
+      pkArray.push(postList[i].pk);
+    }
+
     return (
       <div className='each_post_wrapper' style={style}>
         <div className='each_post'>
@@ -152,9 +152,9 @@ function EachPost({ postId }) {
           </div>
           <hr style={{ marginBottom: 2 + 'em' }}></hr>
           <p>
-            {eachPost.text.split('\n').map((line) => {
+            {eachPost.text.split('\n').map((line, i) => {
               return (
-                <span>
+                <span key={i}>
                   {line}
                   <br />
                 </span>
@@ -162,10 +162,11 @@ function EachPost({ postId }) {
             })}
           </p>
           {eachPost.photos.length
-            ? eachPost.photos.map((photo) => {
+            ? eachPost.photos.map((photo, i) => {
                 return (
                   <div>
                     <img
+                      key={i}
                       src={photo.photo}
                       alt={photo.alt}
                       style={{
@@ -179,9 +180,9 @@ function EachPost({ postId }) {
               })
             : null}
           {eachPost.videos.length
-            ? eachPost.videos.map((video) => {
+            ? eachPost.videos.map((video, i) => {
                 return (
-                  <div>
+                  <div key={i}>
                     <iframe
                       title={`${video.video_link}`}
                       id='player'
@@ -247,10 +248,10 @@ function EachPost({ postId }) {
   if (postList && eachPost) {
     let pkArray = [];
 
-    postList.map((post) => {
-      pkArray.push(post.pk);
-      return null;
-    });
+    for (let i = 0; i < postList.length; i++) {
+      pkArray.push(postList[i].pk);
+    }
+
     return (
       <div className='each_post_wrapper' style={style}>
         <div className='each_post'>
@@ -276,9 +277,9 @@ function EachPost({ postId }) {
           </div>
           <hr style={{ marginBottom: 2 + 'em' }}></hr>
           <p>
-            {eachPost.text.split('\n').map((line) => {
+            {eachPost.text.split('\n').map((line, i) => {
               return (
-                <span>
+                <span key={i}>
                   {line}
                   <br />
                 </span>
@@ -286,9 +287,9 @@ function EachPost({ postId }) {
             })}
           </p>
           {eachPost.photos.length
-            ? eachPost.photos.map((photo) => {
+            ? eachPost.photos.map((photo, i) => {
                 return (
-                  <div>
+                  <div key={i}>
                     <img
                       src={photo.photo}
                       alt={photo.alt}
@@ -303,9 +304,9 @@ function EachPost({ postId }) {
               })
             : null}
           {eachPost.videos.length
-            ? eachPost.videos.map((video) => {
+            ? eachPost.videos.map((video, i) => {
                 return (
-                  <div>
+                  <div key={i}>
                     <iframe
                       title={`${video.video_link}`}
                       id='player'

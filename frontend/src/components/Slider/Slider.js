@@ -1,5 +1,5 @@
-import React, { useState, useRef, useEffect } from "react";
-import styled from "styled-components";
+import React, { useState, useRef, useEffect } from 'react';
+import styled from 'styled-components';
 
 function Slide({ img }) {
   return <IMG src={img} />;
@@ -51,22 +51,22 @@ export default function Slider({ items }) {
   };
 
   useEffect(() => {
-    slideRef.current.style.transition = "all 0.5s ease-in-out";
+    slideRef.current.style.transition = 'all 0.5s ease-in-out';
     slideRef.current.style.transform = `translateX(-${currentSlide - 1}00%)`;
   }, [currentSlide]);
 
   return (
     <Container>
       <SliderContainer ref={slideRef}>
-        {items.map((item) => (
-          <Slide key={item.key} img={item.photo}></Slide>
+        {items.map((item, i) => (
+          <Slide key={i} img={item.photo}></Slide>
         ))}
       </SliderContainer>
-      <div className="arrows_and_number_container">
+      <div className='arrows_and_number_container'>
         <div>
-          <Button onClick={prevSlide} className="navigate_left_button"></Button>
+          <Button onClick={prevSlide} className='navigate_left_button'></Button>
         </div>
-        <div className="date">
+        <div className='date'>
           <span>
             {currentSlide} / {TOTAL_SLIDES}
           </span>
@@ -74,7 +74,7 @@ export default function Slider({ items }) {
         <div>
           <Button
             onClick={nextSlide}
-            className="navigate_right_button"
+            className='navigate_right_button'
             style={{ right: 20 }}
           ></Button>
         </div>

@@ -6,7 +6,6 @@ import {
   CalandarContainer,
   AboutUs,
   Board,
-  Alumni,
   Archive,
   Exhibition,
   Announce,
@@ -27,6 +26,7 @@ function App() {
 
   const handleSearchKeyword = (keyword) => {
     setSearchKeyword(keyword);
+    console.log(keyword);
   };
 
   return (

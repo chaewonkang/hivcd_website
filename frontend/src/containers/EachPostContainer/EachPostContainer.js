@@ -7,7 +7,7 @@ import logogif from '../../img/logogif.gif';
 
 async function getList() {
   const response = await axios.get(
-    'https://sidi.hongik.ac.kr/api/v1/postings/board'
+    'https://sidi.hongik.ac.kr/api/v1/postings/board/'
   );
   return response.data;
 }
@@ -65,14 +65,12 @@ function EachPostContainer({ match, location }) {
             </button>
             <button
               className='board_filter_option'
-              activaClassName='filter_option_active'
               onClick={() => setBoardFilter(2)}
             >
               {options.job.title}
             </button>
             <button
               className='board_filter_option'
-              activaClassName='filter_option_active'
               onClick={() => setBoardFilter(3)}
             >
               {options.lostandfound.title}

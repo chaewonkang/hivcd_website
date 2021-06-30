@@ -134,7 +134,8 @@
     padding: 10px;
     position: relative;
     overflow: auto;
-    animation: 1s ease-out 0s 1 slideIn;
+	animation: 1s ease-out 0s 1 slideIn;
+	width: calc(100vw - 20px);
   }
 
   .each_post_info span {

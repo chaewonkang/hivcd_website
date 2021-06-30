@@ -83,10 +83,10 @@ function ContentContainer() {
   if (!posts) return null;
 
   if (posts) {
-    posts.map((post) => {
-      pkArray.push(post.pk);
-      return null;
-    });
+    for (let i = 0; i < posts.length; i++) {
+      pkArray.push(posts[i].pk);
+    }
+
     for (let i = 0; i < 4; i++) {
       if (randPost.length === 0 || randPost.length === 1)
         randPost[i] = Math.floor(Math.random() * pkArray.length);
