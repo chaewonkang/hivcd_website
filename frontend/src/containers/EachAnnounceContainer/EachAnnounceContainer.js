@@ -1,21 +1,13 @@
-import React, { useState, useEffect } from "react";
-import { BoardListWrapper } from "../../components";
-import axios from "axios";
-import "./EachAnnounceContainer.css";
-import useAsync from "../../utils/useAsync";
-import logogif from "../../img/logogif.gif";
+import React, { useState, useEffect } from 'react';
+import { BoardListWrapper } from '../../components';
+import axios from 'axios';
+import './EachAnnounceContainer.css';
+import useAsync from '../../utils/useAsync';
+import logogif from '../../img/logogif.gif';
 
 async function getList() {
   const response = await axios.get(
-    "https://sidi.hongik.ac.kr/api/v1/postings/info/",
-    {},
-    {
-      headers: {
-        Authorization: "Bearer " + localStorage.getItem("access_token"),
-        Accept: "application/json",
-        "Content-type": "application/json",
-      },
-    }
+    'https://sidi.hongik.ac.kr/api/v1/postings/info/'
   );
   return response.data;
 }
@@ -24,13 +16,13 @@ function EachAnnounceContainer({ match, location }) {
   const [state] = useAsync(() => getList(), []);
   const { loading, data: list, error } = state;
   const [postId, setPostId] = useState(0);
-  const [curLoc, setCurLoc] = useState("");
+  const [curLoc, setCurLoc] = useState('');
   const [boardFilter, setBoardFilter] = useState(0);
   const [options] = useState({
-    all: "전체",
-    life: "생활",
-    information: "규정",
-    statues: "내규",
+    all: '전체',
+    life: '생활',
+    information: '규정',
+    statues: '내규',
   });
 
   useEffect(() => {
@@ -40,14 +32,14 @@ function EachAnnounceContainer({ match, location }) {
 
   if (loading)
     return (
-      <div className="container_loading">
-        <img className="loading_status" src={logogif} alt="logogif"></img>
+      <div className='container_loading'>
+        <img className='loading_status' src={logogif} alt='logogif'></img>
       </div>
     );
   if (error)
     return (
-      <div className="container_loading">
-        <img className="loading_status" src={logogif} alt="logogif"></img>
+      <div className='container_loading'>
+        <img className='loading_status' src={logogif} alt='logogif'></img>
       </div>
     );
   if (!list) return null;
@@ -55,24 +47,24 @@ function EachAnnounceContainer({ match, location }) {
   if (list)
     return (
       <>
-        <div className="each_post_board_filter_wrapper">
-          <div className="board_filter_wrapper">
-            <div className="board_filter_container">
+        <div className='each_post_board_filter_wrapper'>
+          <div className='board_filter_wrapper'>
+            <div className='board_filter_container'>
               <button
-                tabIndex="0"
-                className="board_filter_option"
+                tabIndex='0'
+                className='board_filter_option'
                 onClick={() => setBoardFilter(0)}
               >
                 {options.all}
               </button>
               <button
-                className="board_filter_option"
+                className='board_filter_option'
                 onClick={() => setBoardFilter(4)}
               >
                 {options.life}
               </button>
               <button
-                className="board_filter_option"
+                className='board_filter_option'
                 onClick={() => setBoardFilter(5)}
               >
                 {options.information}
@@ -80,8 +72,8 @@ function EachAnnounceContainer({ match, location }) {
             </div>
           </div>
         </div>
-        <div className="each_post_container">
-          {location.pathname.includes("info") ? (
+        <div className='each_post_container'>
+          {location.pathname.includes('info') ? (
             <BoardListWrapper
               list={list.filter(
                 (data) => data.category === 4 || data.category === 5

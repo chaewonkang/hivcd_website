@@ -1,21 +1,12 @@
-import React, { useState } from "react";
-import "./Alumni.css";
-import axios from "axios";
-import { AlumniModule, AlumniSearch } from "../../components";
-import useAsync from "../../utils/useAsync";
-import logogif from "../../img/logogif.gif";
+import React, { useState } from 'react';
+import './Alumni.css';
+import axios from 'axios';
+import { AlumniModule, AlumniSearch } from '../../components';
+import useAsync from '../../utils/useAsync';
+import logogif from '../../img/logogif.gif';
 
 async function getAlumnis() {
-  const response = await axios.get(
-    "https://sidi.hongik.ac.kr/api/v1/alumnis/",
-    {},
-    {
-      headers: {
-        Accept: "application/json",
-        "Content-type": "application/json",
-      },
-    }
-  );
+  const response = await axios.get('https://sidi.hongik.ac.kr/api/v1/alumnis/');
   return response.data;
 }
 
@@ -31,22 +22,22 @@ function Alumni() {
 
   if (loading)
     return (
-      <div className="container_loading">
-        <img className="loading_status" src={logogif} alt="logogif"></img>
+      <div className='container_loading'>
+        <img className='loading_status' src={logogif} alt='logogif'></img>
       </div>
     );
   if (error)
     return (
-      <div className="container_loading">
-        <img className="loading_status" src={logogif} alt="logogif"></img>
+      <div className='container_loading'>
+        <img className='loading_status' src={logogif} alt='logogif'></img>
       </div>
     );
   if (!alumnis) return null;
 
   return (
-    <div className="alumni_wrapper">
+    <div className='alumni_wrapper'>
       <AlumniSearch onChange={(e) => alumniSearchSpace(e)}></AlumniSearch>
-      <div className="alumni_container">
+      <div className='alumni_container'>
         {alumnis
           .filter((data) => {
             if (alumniSearch === null) return data;

@@ -117,7 +117,7 @@ function ContentContainer() {
                   post.category === 4 ||
                   post.category === 5
               )
-              .map((post) => (
+              .map((post, i) => (
                 <>
                   {randImg.includes(post.pk) ? (
                     <>
@@ -151,10 +151,10 @@ function ContentContainer() {
         </PostWrapper>
         <ArchiveWrapper dimensions={dimensions}>
           {archives &&
-            archives.map((post) => {
+            archives.map((post, i) => {
               return (
                 <HomeArchive
-                  key={post.pk}
+                  key={i}
                   title={post.title}
                   id={post.pk}
                   body={post.text}

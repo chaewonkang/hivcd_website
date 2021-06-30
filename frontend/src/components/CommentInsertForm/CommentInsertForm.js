@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from "react";
-import "./CommentInsertForm.css";
-import axios from "axios";
+import React, { useState, useEffect } from 'react';
+import './CommentInsertForm.css';
+import axios from 'axios';
 
 const CommentInsertForm = ({ style, postId }) => {
-  const [username, setUsername] = useState("");
+  const [username, setUsername] = useState('');
   const [comment, setComment] = useState({});
 
   useEffect(() => {
@@ -22,17 +22,9 @@ const CommentInsertForm = ({ style, postId }) => {
 
     try {
       const response = await axios
-        .post(
-          `https://sidi.hongik.ac.kr/api/v1/postings/${pk}/comments/`,
-          {
-            ...data,
-          },
-          {
-            headers: {
-              "Content-Type": "application/json",
-            },
-          }
-        )
+        .post(`https://sidi.hongik.ac.kr/api/v1/postings/${pk}/comments/`, {
+          ...data,
+        })
         .then(function () {
           window.location.reload();
           console.log(response);
@@ -45,7 +37,7 @@ const CommentInsertForm = ({ style, postId }) => {
           } else if (error.request) {
             console.log(error.request);
           } else {
-            console.log("Error", error.message);
+            console.log('Error', error.message);
           }
           console.log(error.config);
         });
@@ -55,18 +47,18 @@ const CommentInsertForm = ({ style, postId }) => {
   }
 
   return (
-    <div className="comment_input_container">
-      <div className="comment_insert_form_container">
+    <div className='comment_input_container'>
+      <div className='comment_insert_form_container'>
         <form>
           <input
-            type="text"
-            name="text"
-            placeholder="댓글을 입력하세요."
+            type='text'
+            name='text'
+            placeholder='댓글을 입력하세요.'
             style={{ backgroundColor: style.backgroundColor }}
             onChange={(e) => handleChange(e)}
           ></input>
           <button
-            className="comment_input_button"
+            className='comment_input_button'
             onClick={(e, data = comment, pk = postId) =>
               handleSubmit(e, (data = comment), (pk = postId))
             }

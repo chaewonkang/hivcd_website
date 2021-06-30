@@ -49,11 +49,12 @@ function Archive() {
     return (
       <div className='archive_container'>
         <div className='archive_index_container_before'>
-          {list.map((data) => {
+          {list.map((data, i) => {
             return (
               <div
                 className='archive'
                 style={{ border: '1px solid #000', backgroundColor: 'unset' }}
+                key={i}
               >
                 <div className='archive_tag'>
                   <span>기록</span>
