@@ -1,6 +1,5 @@
 .postwrapper {
   display: inline-grid;
-  grid-template-columns: repeat(auto-fit, minmax(195px, 1fr));
   grid-auto-rows: 195px;
   grid-auto-columns: auto;
   grid-row-gap: 10px;
