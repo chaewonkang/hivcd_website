@@ -1,8 +1,10 @@
 .contentcontainer {
   margin-left: 20px;
   margin-right: 20px;
+  margin-bottom: 10px;
   position: relative;
   height: 100%;
+  max-height: calc(100vh - 60px);
 }
 
 .welcome_modal {
@@ -27,7 +29,7 @@ span.title {
 
 .container_loading {
   display: flex;
-  height: calc(100vh - 160px);
+  height: calc(100vh - 60px);
   justify-content: center;
   align-items: center;
 }

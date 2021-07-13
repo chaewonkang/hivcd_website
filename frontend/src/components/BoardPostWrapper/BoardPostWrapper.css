@@ -8,6 +8,9 @@
   grid-row-gap: 10px;
   grid-column-gap: 10px;
   margin-top: 20px;
+  min-height: calc(100vh - 100px);
+  max-height: calc(100vh - 100px);
+  overflow: auto;
 }
 
 @media (min-width: 1440px) and (max-width: 1920px) {

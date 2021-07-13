@@ -70,9 +70,11 @@ table {
 .aboutus_container {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-template-rows: repeat(3, 33vh);
+  grid-template-rows: repeat(3, 1fr);
   column-gap: 10px;
   row-gap: 10px;
+  height: 100%;
+  max-height: calc(100vh - 60px);
 }
 
 .aboutus_item {

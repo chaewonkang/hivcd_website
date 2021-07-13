@@ -30,6 +30,7 @@
   overflow: auto;
   height: 100%;
   animation: 1s ease-out 0s 1 fadeIn;
+  max-height: calc(100vh - 120px);
 }
 
 .each_post_tag {
@@ -61,7 +62,7 @@
 .each_post p {
   font-size: 17px;
   word-break: keep-all;
-  line-height: 27px;
+  line-height: 1.8em;
 }
 
 .each_post_info {
@@ -158,6 +159,6 @@
 
   .each_post p {
     font-size: 16px;
-    line-height: 23px;
+	line-height: 1.8em;
   }
 }

@@ -18,11 +18,16 @@
   }
 }
 
-.calandar_container {
+.calendar_container {
+  position: relative;
   margin-top: -10px;
   margin-left: 20px;
   margin-right: 20px;
   margin-bottom: 0px;
+  min-height: calc(100vh - 60px);
+  height: calc(100vh - 60px);
+  overflow: auto;
+  max-height: calc(100vh - 60px);
   animation: 1s ease-out 0s 1 fadeIn;
 }
 
@@ -104,7 +109,7 @@ div[data-widgetuuid="fc14c30a-1881-4601-9d23-5ce266b746dc"]
 }
 
 @media (max-width: 576px) {
-  .calandar_container {
+  .calendar_container {
     margin-top: 50px;
     margin-right: 10px;
     margin-left: 10px;

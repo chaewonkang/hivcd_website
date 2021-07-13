@@ -129,6 +129,7 @@
   grid-row-gap: 20px;
   height: 100vh;
   overflow: auto;
+  min-height: calc(100vh - 120px);
 }
 
 .archive_index_box {

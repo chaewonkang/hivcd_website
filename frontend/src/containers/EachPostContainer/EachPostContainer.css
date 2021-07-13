@@ -5,8 +5,9 @@
   margin-right: 20px;
   background: #fff5f5;
   grid-template-columns: 1fr 2fr;
-  height: 100%;
   font-family: Helvetica, sans-serif;
+  height: 100%;
+  min-height: calc(100vh - 100px);
 }
 
 .each_post_board_filter_wrapper {

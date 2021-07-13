@@ -14,7 +14,6 @@
 .footer_container {
   display: inline-flex;
   width: 100%;
-  /* grid-template-columns: repeat(3, auto); */
 }
 
 .footer-item .footer-item-title {

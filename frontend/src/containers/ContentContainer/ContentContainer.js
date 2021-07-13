@@ -89,9 +89,9 @@ function ContentContainer() {
 
     for (let i = 0; i < 4; i++) {
       if (randPost.length === 0 || randPost.length === 1)
-        randPost[i] = Math.floor(Math.random() * pkArray.length);
+        randPost[i] = Math.floor(Math.random() * 50);
       if (randPost.length > 1 && randPost[i] !== randPost[i - 1])
-        randPost[i] = Math.floor(Math.random() * pkArray.length);
+        randPost[i] = Math.floor(Math.random() * 50);
     }
     randImg = [
       pkArray[randPost[0]],
@@ -100,7 +100,7 @@ function ContentContainer() {
       pkArray[randPost[3]],
     ];
     randImg = randImg.sort(function (a, b) {
-      return a - b;
+      return b - a;
     });
 
     return (
@@ -117,6 +117,7 @@ function ContentContainer() {
                   post.category === 4 ||
                   post.category === 5
               )
+              .splice(0, 53)
               .map((post, i) => (
                 <>
                   {randImg.includes(post.pk) ? (

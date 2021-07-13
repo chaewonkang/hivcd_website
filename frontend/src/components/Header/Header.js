@@ -12,7 +12,7 @@ function Header({ handleLogout, handleSearchKeyword }) {
     info: '정보',
     alumni: '동문',
     show: '전시/행사',
-    calandar: '일정',
+    calendar: '일정',
     newsletter: '뉴스레터',
     title: '홍익대학교 미술대학 시각디자인과',
     archive: '기록',
@@ -88,7 +88,7 @@ function Header({ handleLogout, handleSearchKeyword }) {
             </span> */}
             <span className='navbar_menu_wrapper_item_title'>
               <NavLink className='link' activeClassName='active' to='/calendar'>
-                <span id='calandar'>{menuText.calandar}</span>{' '}
+                <span id='calendar'>{menuText.calendar}</span>{' '}
               </NavLink>
             </span>
           </div>

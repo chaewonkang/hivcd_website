@@ -70,7 +70,7 @@ header {
 #alumni,
 #show,
 #info,
-#calandar,
+#calendar,
 #reservation,
 #archive,
 #about:link,
@@ -78,7 +78,7 @@ header {
 #alumni:link,
 #info:link,
 #show:link,
-#calandar:link,
+#calendar:link,
 #reservation:link,
 #archive:link {
   display: inline-block;
@@ -143,7 +143,7 @@ header {
 @media (min-width: 768px) and (max-width: 991px) {
   header {
     background-color: #fff5f5;
-    padding: 15px 20px;
+    padding: 15px 10px;
     width: 100%;
   }
 

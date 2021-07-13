@@ -1,13 +1,13 @@
-import React, { useState } from "react";
-import "./BoardListWrapper.css";
-import { useHistory } from "react-router-dom";
-import { EachPostWrapper } from "../../components";
+import React, { useState } from 'react';
+import './BoardListWrapper.css';
+import { useHistory } from 'react-router-dom';
+import { EachPostWrapper } from '../../components';
 
 function BoardListWrapper({ list, postId, curLoc, category }) {
   let history = useHistory();
 
   const [currentPage, setCurrentPage] = useState(1);
-  const [postsPerPage] = useState(20);
+  const [postsPerPage] = useState(23);
   const pageNumber = [];
 
   const indexOfLastPost = currentPage * postsPerPage;
@@ -23,9 +23,9 @@ function BoardListWrapper({ list, postId, curLoc, category }) {
 
   return (
     <>
-      <div className="board_list_container">
+      <div className='board_list_container'>
         <div>
-          {curLoc.includes("board")
+          {curLoc.includes('board')
             ? currentsPosts
                 .filter((data) => {
                   if (category === 0) return data;
@@ -34,30 +34,30 @@ function BoardListWrapper({ list, postId, curLoc, category }) {
                 })
                 .map((el, key) => {
                   let categoryName = null;
-                  if (el.category === 1) categoryName = "소식";
-                  else if (el.category === 2) categoryName = "구인구직";
-                  else if (el.category === 3) categoryName = "분실물";
+                  if (el.category === 1) categoryName = '소식';
+                  else if (el.category === 2) categoryName = '구인구직';
+                  else if (el.category === 3) categoryName = '분실물';
                   return (
                     <React.Fragment key={key}>
                       <div
-                        className="list_grid list_data"
+                        className='list_grid list_data'
                         key={key}
                         onClick={() => history.push(`/board/${el.pk}`)}
                       >
-                        <div className="list_tag">
+                        <div className='list_tag'>
                           <span>{categoryName}</span>
                         </div>
-                        <div className="board_list_title">{el.title}</div>
-                        <div className="acenter">
-                          {" "}
-                          {el.created_at.slice(2, 10)}{" "}
+                        <div className='board_list_title'>{el.title}</div>
+                        <div className='acenter'>
+                          {' '}
+                          {el.created_at.slice(2, 10)}{' '}
                         </div>
                       </div>
                     </React.Fragment>
                   );
                 })
             : null}
-          {curLoc.includes("exhibition")
+          {curLoc.includes('exhibition')
             ? currentsPosts
                 .filter((data) => {
                   if (category === 0) return data;
@@ -66,31 +66,31 @@ function BoardListWrapper({ list, postId, curLoc, category }) {
                 })
                 .map((el, key) => {
                   let categoryName = null;
-                  if (el.category === 6) categoryName = "졸업주간";
-                  else if (el.category === 7) categoryName = "와우영상제";
-                  else if (el.category === 8) categoryName = "소모임";
-                  else if (el.category === 9) categoryName = "기타";
+                  if (el.category === 6) categoryName = '졸업주간';
+                  else if (el.category === 7) categoryName = '와우영상제';
+                  else if (el.category === 8) categoryName = '소모임';
+                  else if (el.category === 9) categoryName = '기타';
                   return (
                     <React.Fragment key={key}>
                       <div
-                        className="list_grid list_data"
+                        className='list_grid list_data'
                         key={key}
                         onClick={() => history.push(`/exhibition/${el.pk}`)}
                       >
-                        <div className="list_tag">
+                        <div className='list_tag'>
                           <span>{categoryName}</span>
                         </div>
-                        <div className="board_list_title">{el.title}</div>
-                        <div className="acenter">
-                          {" "}
-                          {el.created_at.slice(2, 10)}{" "}
+                        <div className='board_list_title'>{el.title}</div>
+                        <div className='acenter'>
+                          {' '}
+                          {el.created_at.slice(2, 10)}{' '}
                         </div>
                       </div>
                     </React.Fragment>
                   );
                 })
             : null}
-          {curLoc.includes("info")
+          {curLoc.includes('info')
             ? currentsPosts
                 .filter((data) => {
                   if (category === 0) return data;
@@ -99,22 +99,22 @@ function BoardListWrapper({ list, postId, curLoc, category }) {
                 })
                 .map((el, key) => {
                   let categoryName = null;
-                  if (el.category === 4) categoryName = "생활";
-                  else if (el.category === 5) categoryName = "규정";
+                  if (el.category === 4) categoryName = '생활';
+                  else if (el.category === 5) categoryName = '규정';
                   return (
                     <React.Fragment key={key}>
                       <div
-                        className="list_grid list_data"
+                        className='list_grid list_data'
                         key={key}
                         onClick={() => history.push(`/info/${el.pk}`)}
                       >
-                        <div className="list_tag">
+                        <div className='list_tag'>
                           <span>{categoryName}</span>
                         </div>
-                        <div className="board_list_title">{el.title}</div>
-                        <div className="acenter">
-                          {" "}
-                          {el.created_at.slice(2, 10)}{" "}
+                        <div className='board_list_title'>{el.title}</div>
+                        <div className='acenter'>
+                          {' '}
+                          {el.created_at.slice(2, 10)}{' '}
                         </div>
                       </div>
                     </React.Fragment>
@@ -122,13 +122,13 @@ function BoardListWrapper({ list, postId, curLoc, category }) {
                 })
             : null}
         </div>
-        <div className="paging_div">
+        <div className='paging_div'>
           <div>
-            <ul className="pagination">
+            <ul className='pagination'>
               {pageNumber.map((pageNum) => (
                 <li
                   key={pageNum}
-                  className="page_num"
+                  className='page_num'
                   onClick={() => paginate(pageNum)}
                 >
                   {pageNum}
