@@ -1,13 +1,13 @@
-import React from "react";
-import "./PostWrapper.css";
+import React from 'react';
+import './PostWrapper.css';
 
 const PostWrapper = ({ children, dimensions }) => {
   return (
     <div
-      className="postwrapper"
+      className='postwrapper'
       style={{
-        width: dimensions.width * 0.6 - 10 + "px",
-        height: dimensions.height - 50 + "px",
+        width: dimensions.width * 0.6 - 10 + 'px',
+        height: dimensions.height - 50 + 'px',
       }}
     >
       {children}
