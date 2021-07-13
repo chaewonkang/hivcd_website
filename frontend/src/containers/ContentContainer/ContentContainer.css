@@ -103,4 +103,8 @@ span.title {
   .imgRef {
     display: none !important;
   }
+
+  .post_shell {
+	  width: inherit;
+  }
 }

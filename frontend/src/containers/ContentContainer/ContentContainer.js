@@ -139,13 +139,15 @@ function ContentContainer() {
                       ></Post>
                     </>
                   ) : (
-                    <Post
-                      key={post.pk}
-                      title={post.title}
-                      date={post.created_at}
-                      category={post.category}
-                      id={post.pk}
-                    ></Post>
+                    <div className='post_shell'>
+                      <Post
+                        key={post.pk}
+                        title={post.title}
+                        date={post.created_at}
+                        category={post.category}
+                        id={post.pk}
+                      ></Post>
+                    </div>
                   )}
                 </>
               ))}
