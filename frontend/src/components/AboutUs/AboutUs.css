@@ -208,8 +208,10 @@ table {
 
   .aboutus_container {
     grid-template-columns: 1fr;
-    column-gap: 10px;
-    row-gap: 10px;
+	column-gap: 10px;
+	grid-template-rows: repeat(6, auto);
+	row-gap: 10px;
+
   }
 
   .aboutus_item .aboutus_content {
