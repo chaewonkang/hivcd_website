@@ -273,8 +273,8 @@ width: 40%;
 
   .archive_wrapper_slider {
     position: relative;
-    height: fit-content;
-    max-height: 30%;
+    min-height: 400px;
+    max-height: 40%;
 	overflow: auto;
 	margin-bottom: 20px;
   }
