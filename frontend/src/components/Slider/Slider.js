@@ -6,6 +6,7 @@ function Slide({ img }) {
 }
 const IMG = styled.img`
   width: inherit;
+  object-fit: contain;
   display: flex;
   justify-self: center;
   align-self: center;
@@ -13,6 +14,7 @@ const IMG = styled.img`
 
 const Container = styled.div`
   width: 100%;
+  height: 100%;
   overflow: hidden;
 `;
 
@@ -28,6 +30,7 @@ const Button = styled.button`
 const SliderContainer = styled.div`
   display: flex;
   width: 100%;
+  height: 100%;
 `;
 
 export default function Slider({ items }) {

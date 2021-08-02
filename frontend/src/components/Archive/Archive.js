@@ -93,6 +93,45 @@ function Archive() {
   if (post && list)
     return (
       <div className='archive_container'>
+        <div className='archive_index_container'>
+          {list.map((data, i) => {
+            return (
+              <div
+                key={i}
+                className='archive'
+                style={{ border: '1px solid #000', backgroundColor: 'unset' }}
+              >
+                <div className='archive_tag'>
+                  <span>기록</span>
+                </div>
+                <div className='archive_content'>
+                  <div
+                    className='archive_content_header'
+                    onClick={() => {
+                      setPost(getArchive(data.pk));
+                    }}
+                  >
+                    <span>
+                      {data.title} <br></br>
+                    </span>
+                    <span>
+                      {data.created_at ? data.created_at.slice(0, 10) : null}
+                    </span>
+                  </div>
+                </div>
+                <div
+                  className='archive_content_image image_fill'
+                  style={{
+                    backgroundImage: data.photos.length
+                      ? `url(${data.photos[0].photo})`
+                      : null,
+                    border: 'none',
+                  }}
+                ></div>
+              </div>
+            );
+          })}
+        </div>
         <div className='archive_wrapper'>
           <div className='archive_wrapper_text'>
             <div className='archive_wrapper_text_title'>
@@ -133,45 +172,6 @@ function Archive() {
           <div className='archive_wrapper_slider'>
             {post.photos ? <Slider items={post.photos}></Slider> : null}
           </div>
-        </div>
-        <div className='archive_index_container'>
-          {list.map((data, i) => {
-            return (
-              <div
-                key={i}
-                className='archive'
-                style={{ border: '1px solid #000', backgroundColor: 'unset' }}
-              >
-                <div className='archive_tag'>
-                  <span>기록</span>
-                </div>
-                <div className='archive_content'>
-                  <div
-                    className='archive_content_header'
-                    onClick={() => {
-                      setPost(getArchive(data.pk));
-                    }}
-                  >
-                    <span>
-                      {data.title} <br></br>
-                    </span>
-                    <span>
-                      {data.created_at ? data.created_at.slice(0, 10) : null}
-                    </span>
-                  </div>
-                </div>
-                <div
-                  className='archive_content_image image_fill'
-                  style={{
-                    backgroundImage: data.photos.length
-                      ? `url(${data.photos[0].photo})`
-                      : null,
-                    border: 'none',
-                  }}
-                ></div>
-              </div>
-            );
-          })}
         </div>
       </div>
     );

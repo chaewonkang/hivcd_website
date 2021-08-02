@@ -112,7 +112,7 @@
     margin-bottom: 20px;
   }
   .exhibition_container {
-    width: calc(100vw - 40px);
+	width: calc(100vw - 20px);
     grid-template-columns: 1fr 1fr;
     margin-bottom: 20px;
   }
@@ -124,10 +124,6 @@
     margin-bottom: 20px;
     margin-left: 10px;
     margin-right: 10px;
-  }
-
-  .exhibition_filter_wrapper {
-    margin-top: 50px;
   }
 
   .exhibition_filter_container {
