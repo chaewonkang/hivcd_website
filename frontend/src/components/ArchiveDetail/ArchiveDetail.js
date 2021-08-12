@@ -71,9 +71,9 @@ function ArchiveDetail({ match, location }) {
             <div className='archive_wrapper_text_body'>
               <span>
                 {post.text
-                  ? post.text.split('\n').map((line) => {
+                  ? post.text.split('\n').map((line, i) => {
                       return (
-                        <span>
+                        <span key={i}>
                           {line}
                           <br />
                         </span>
