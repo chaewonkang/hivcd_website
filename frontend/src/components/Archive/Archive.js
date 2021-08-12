@@ -25,6 +25,8 @@ function Archive() {
       .then((response) => {
         const ret = response.data;
         setPost(ret);
+        console.log('post');
+        console.log(post);
       });
     return response;
   }
@@ -70,7 +72,9 @@ function Archive() {
                       {data.title} <br></br>
                     </span>
                     <span>
-                      {data.created_at ? data.created_at.slice(0, 10) : null}
+                      {data.created_at
+                        ? data.created_at.slice(0, 10).replace(/-/g, '.')
+                        : null}
                     </span>
                   </div>
                 </div>
@@ -115,7 +119,9 @@ function Archive() {
                       {data.title} <br></br>
                     </span>
                     <span>
-                      {data.created_at ? data.created_at.slice(0, 10) : null}
+                      {data.created_at
+                        ? data.created_at.slice(0, 10).replace(/-/g, '.')
+                        : null}
                     </span>
                   </div>
                 </div>
@@ -139,7 +145,9 @@ function Archive() {
             </div>
             <div className='archive_wrapper_text_date'>
               <span>
-                {post.created_at ? post.created_at.slice(0, 10) : null}
+                {post.created_at
+                  ? post.created_at.slice(0, 10).replace(/-/g, '.')
+                  : null}
               </span>
             </div>
             <div className='archive_wrapper_text_body'>
@@ -168,9 +176,9 @@ function Archive() {
                 </a>
               </span>
             </div>
-          </div>
-          <div className='archive_wrapper_slider'>
-            {post.photos ? <Slider items={post.photos}></Slider> : null}
+            <div className='archive_wrapper_slider'>
+              {post.photos ? <Slider items={post.photos}></Slider> : null}
+            </div>
           </div>
         </div>
       </div>

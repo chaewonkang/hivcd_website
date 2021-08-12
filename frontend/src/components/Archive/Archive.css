@@ -47,15 +47,16 @@ max-height: calc(100vh - 120px);
 }
 
 .archive_wrapper_text {
-	height: 50%;
-  display: flex;
-  flex-direction: column;
-  row-gap: 0.3em;
-  max-height: inherit;
-  position: relative;
-  animation: 1s ease-out 0s 1 fadeIn;
-  max-height: 70vh;
-  overflow: auto;
+	height: 100%;
+    display: flex;
+    flex-direction: column;
+    grid-row-gap: 0.3em;
+    row-gap: 0.3em;
+    max-height: inherit;
+    position: relative;
+    animation: 1s ease-out 0s 1 fadeIn;
+    max-height: 100%;
+    overflow: auto;
 }
 
 .arrows_and_number_container {
@@ -123,17 +124,17 @@ max-height: calc(100vh - 120px);
 }
 
 .archive_index_container {
-width: 40%;
-  margin-right: 20px;
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: 200px;
-  grid-auto-rows: 200px;
-  grid-column-gap: 20px;
-  grid-row-gap: 20px;
-  height: 100%;
-  overflow: auto;
-  animation: 1s ease-out 0s 1 fadeIn;
+    width: 40%;
+    margin-right: 14px;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 200px;
+    grid-auto-rows: 200px;
+    grid-column-gap: 10px;
+    grid-row-gap: 10px;
+    height: 100%;
+    overflow: auto;
+    animation: 1s ease-out 0s 1 fadeIn;
 }
 
 .arrows_and_number_container {
@@ -148,16 +149,16 @@ width: 40%;
 }
 
 .archive_index_container_before {
-	width: 100%;
+  width: 100%;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 200px;
   grid-auto-rows: 200px;
-  grid-column-gap: 20px;
-  grid-row-gap: 20px;
+  grid-column-gap: 10px;
+  grid-row-gap: 10px;
   height: 100vh;
   overflow: auto;
-  min-height: calc(100vh - 120px);
+  max-height: calc(100vh - 120px);
 }
 
 .archive_index_box {
@@ -255,6 +256,9 @@ width: 40%;
 	max-height: calc(100vh - 80px);
 }
 
+.archive_wrapper_text_title {
+	padding-top: 0px;
+}
   .archive_wrapper {
 	  height: 100%;
 	  max-height: 100%;
@@ -266,9 +270,9 @@ width: 40%;
 
   .archive_wrapper_text {
     order: 2;
-	padding-top: 20px;
+	padding-top: 10px;
 	height: fit-content;
-	max-height: 70%;
+	max-height: 100%;
   }
 
   .archive_wrapper_slider {
