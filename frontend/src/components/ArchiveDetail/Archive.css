@@ -35,7 +35,6 @@ max-height: calc(100vh - 120px);
 }
 
 .archive_wrapper {
-order: 2;
   width: 60%;
   height: 100%;
   padding: 20px;

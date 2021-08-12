@@ -4,6 +4,7 @@ import logogif from '../../img/logogif.gif';
 import useAsync from '../../utils/useAsync';
 import axios from 'axios';
 import Slider from '../Slider/Slider';
+import { Link, Redirect } from 'react-router-dom';
 
 async function getArchives() {
   const response = await axios.get(
@@ -53,155 +54,49 @@ function Archive() {
         <div className='archive_index_container_before'>
           {list.map((data, i) => {
             return (
-              <div
-                className='archive'
-                style={{ border: '1px solid #000', backgroundColor: 'unset' }}
-                key={i}
-              >
-                <div className='archive_tag'>
-                  <span>기록</span>
-                </div>
-                <div className='archive_content'>
-                  <div
-                    className='archive_content_header'
-                    onClick={() => {
-                      setPost(getArchive(data.pk));
-                    }}
-                  >
-                    <span>
-                      {data.title} <br></br>
-                    </span>
-                    <span>
-                      {data.created_at
-                        ? data.created_at.slice(0, 10).replace(/-/g, '.')
-                        : null}
-                    </span>
-                  </div>
-                </div>
+              <Link to={`/archive/${data.pk}`}>
                 <div
-                  className='archive_content_image image_fill'
-                  style={{
-                    backgroundImage: data.photos.length
-                      ? `url(${data.photos[0].photo})`
-                      : null,
-                    border: 'none',
-                  }}
-                ></div>
-              </div>
+                  className='archive'
+                  style={{ border: '1px solid #000', backgroundColor: 'unset' }}
+                  key={i}
+                >
+                  <div className='archive_tag'>
+                    <span>기록</span>
+                  </div>
+                  <div className='archive_content'>
+                    <div
+                      className='archive_content_header'
+                      onClick={() => {
+                        setPost(getArchive(data.pk));
+                      }}
+                    >
+                      <span>
+                        {data.title} <br></br>
+                      </span>
+                      <span>
+                        {data.created_at
+                          ? data.created_at.slice(0, 10).replace(/-/g, '.')
+                          : null}
+                      </span>
+                    </div>
+                  </div>
+                  <div
+                    className='archive_content_image image_fill'
+                    style={{
+                      backgroundImage: data.photos.length
+                        ? `url(${data.photos[0].photo})`
+                        : null,
+                      border: 'none',
+                    }}
+                  ></div>
+                </div>
+              </Link>
             );
           })}
         </div>
       </div>
     );
 
-  if (post && list)
-    return (
-      <div className='archive_container'>
-        <div className='archive_index_container'>
-          {list.map((data, i) => {
-            return (
-              <div
-                key={i}
-                className='archive'
-                style={{ border: '1px solid #000', backgroundColor: 'unset' }}
-              >
-                <div className='archive_tag'>
-                  <span>기록</span>
-                </div>
-                <div className='archive_content'>
-                  <div
-                    className='archive_content_header'
-                    onClick={() => {
-                      setPost(getArchive(data.pk));
-                    }}
-                  >
-                    <span>
-                      {data.title} <br></br>
-                    </span>
-                    <span>
-                      {data.created_at
-                        ? data.created_at.slice(0, 10).replace(/-/g, '.')
-                        : null}
-                    </span>
-                  </div>
-                </div>
-                <div
-                  className='archive_content_image image_fill'
-                  style={{
-                    backgroundImage: data.photos.length
-                      ? `url(${data.photos[0].photo})`
-                      : null,
-                    border: 'none',
-                  }}
-                ></div>
-              </div>
-            );
-          })}
-        </div>
-        <div className='archive_wrapper'>
-          <div className='archive_wrapper_text'>
-            <div className='archive_wrapper_text_title'>
-              <span>{post.title}</span>
-            </div>
-            <div className='archive_wrapper_text_date'>
-              <span>
-                {post.created_at
-                  ? post.created_at.slice(0, 10).replace(/-/g, '.')
-                  : null}
-              </span>
-            </div>
-            <div className='archive_wrapper_text_body'>
-              <span>
-                {post.text
-                  ? post.text.split('\n').map((line, i) => {
-                      return (
-                        <span key={i}>
-                          {line}
-                          <br />
-                        </span>
-                      );
-                    })
-                  : null}
-              </span>
-            </div>
-            <div className='archive_wrapper_text_link'>
-              <span>
-                <a
-                  href={post && post.link}
-                  target='_blank'
-                  rel='noopener noreferrer'
-                  style={{ color: 'black' }}
-                >
-                  {post && post.link}
-                </a>
-              </span>
-            </div>
-            <div className='archive_wrapper_slider'>
-              {post.photos ? <Slider items={post.photos}></Slider> : null}
-            </div>
-            {post.videos && post.videos.length
-              ? post.videos.map((video, i) => {
-                  return (
-                    <div key={i}>
-                      <iframe
-                        title={`${video.video_link}`}
-                        id='player'
-                        type='text/html'
-                        sandbox='allow-scripts allow-forms allow-same-origin allow-presentation'
-                        width='100%'
-                        height='420'
-                        src={`${video.video_link}?enablejsapi=1&origin=http://sidi.hongik.ac.kr`}
-                        frameBorder='0'
-                        allowFullScreen
-                      ></iframe>
-                    </div>
-                  );
-                })
-              : null}
-          </div>
-        </div>
-      </div>
-    );
   return null;
 }
 

@@ -9,6 +9,7 @@ import {
   Archive,
   Exhibition,
   Announce,
+  ArchiveDetail,
 } from './components';
 import './App.css';
 import './components/Header/Header.css';
@@ -53,7 +54,9 @@ function App() {
             />
             <Route path='/calendar' component={CalandarContainer} />
             <Route path='/reservation' component={ReservationContainer} />
-            <Route path='/archive' component={Archive} />
+            <Route exact path='/archive' component={Archive} />
+            <Route exact path='/archive/:postId' component={ArchiveDetail} />
+            <Route path='/board/:postId' component={EachPostContainer} />
             <Route
               path='/search'
               render={() => (
