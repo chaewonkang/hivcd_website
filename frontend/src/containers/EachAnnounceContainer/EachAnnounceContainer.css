@@ -47,7 +47,7 @@
 @media (max-width: 576px) {
   .each_post_container {
     grid-template-columns: 1fr;
-    width: calc(100%-20px);
+    width: calc(100% - 20px);
     margin-left: 10px;
     margin-right: 10px;
   }

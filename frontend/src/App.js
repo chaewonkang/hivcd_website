@@ -56,7 +56,6 @@ function App() {
             <Route path='/reservation' component={ReservationContainer} />
             <Route exact path='/archive' component={Archive} />
             <Route exact path='/archive/:postId' component={ArchiveDetail} />
-            <Route path='/board/:postId' component={EachPostContainer} />
             <Route
               path='/search'
               render={() => (

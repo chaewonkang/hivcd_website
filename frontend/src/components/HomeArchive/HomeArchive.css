@@ -33,7 +33,7 @@
 }
 
 .archive h2 {
-  font-family: "Helvetica";
+  font-family: 'Helvetica';
   font-size: 18px;
   padding-top: 0.5rem;
 }
@@ -42,7 +42,7 @@
   position: absolute;
   top: 0;
   right: -1px;
-  font-family: "Helvetica";
+  font-family: 'Helvetica';
   background-color: #000;
   color: #fff;
   text-align: center;
@@ -54,7 +54,7 @@
 }
 
 .archive .archive_content {
-  font-family: "Helvetica";
+  font-family: 'Helvetica';
   font-size: 18px;
   display: inline-grid;
   width: 65%;
@@ -112,6 +112,15 @@
 @media only screen and (max-width: 576px) {
   .archive {
     animation: 1s ease-out 0s 1 slideIn;
+  }
+
+  .archive_main {
+    display: flex;
+    flex-direction: column !important;
+  }
+
+  .main_archive_content_iamge {
+    margin-top: 10px !important;
   }
 
   .archive_content_image {

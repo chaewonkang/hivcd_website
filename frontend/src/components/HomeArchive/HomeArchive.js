@@ -12,7 +12,7 @@ const HomeArchive = ({ title, thumbnailUrl, body, category, id }) => {
   const postId = parseInt(id, 10);
   return (
     <Link to={`/exhibition/${postId}`}>
-      <div className='archive'>
+      <div className='archive archive_main'>
         <div className='archive_tag'>
           <span>{categoryName}</span>
         </div>
@@ -34,7 +34,7 @@ const HomeArchive = ({ title, thumbnailUrl, body, category, id }) => {
           </div>
         </div>
         <div
-          className='archive_content_image image_fill'
+          className='archive_content_image image_fill main_archive_content_iamge'
           style={{
             backgroundImage: `url(${thumbnailUrl})`,
           }}

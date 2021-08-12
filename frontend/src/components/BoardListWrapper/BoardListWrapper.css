@@ -60,7 +60,7 @@
 }
 
 .list_tag span {
-  font-family: "Helvetica";
+  font-family: 'Helvetica';
   background-color: #000;
   color: #fff;
   text-align: center;
@@ -142,8 +142,8 @@ li.page_num:target {
     margin-top: 10px;
     margin-bottom: 10px;
     order: 2;
-	padding: 10px;
-	padding-bottom: 50px;
+    padding: 10px;
+    padding-bottom: 50px;
   }
 
   .list_grid {

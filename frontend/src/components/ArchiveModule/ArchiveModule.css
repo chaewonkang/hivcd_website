@@ -32,7 +32,7 @@
 }
 
 .archive h2 {
-  font-family: "Helvetica";
+  font-family: 'Helvetica';
   font-size: 18px;
   padding-top: 0.5rem;
 }
@@ -41,7 +41,7 @@
   position: absolute;
   top: 0;
   right: 0px;
-  font-family: "Helvetica";
+  font-family: 'Helvetica';
   background-color: #000;
   color: #fff;
   text-align: center;
@@ -53,7 +53,7 @@
 }
 
 .archive_module .archive_module_content {
-  font-family: "Helvetica";
+  font-family: 'Helvetica';
   font-size: 18px;
   display: inline-grid;
   width: 60%;
