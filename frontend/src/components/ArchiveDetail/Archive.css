@@ -271,7 +271,7 @@ max-height: calc(100vh - 120px);
 
   .archive_wrapper_text {
     order: 2;
-	padding-top: 10px;
+	padding-top: 0px;
 	height: fit-content;
 	max-height: 100%;
   }
@@ -316,7 +316,7 @@ max-height: calc(100vh - 120px);
 
   .archive_wrapper_text {
     order: 2;
-    padding-top: 20px;
+    padding-top: 0px;
   }
 
 
@@ -336,5 +336,28 @@ max-height: calc(100vh - 120px);
 		height: calc(100vh - 70px);
 	max-height: calc(100vh - 70px);
 	flex-direction: column;
+	}
+
+	.archive_index_container_before {
+		width: 100%;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 150px;
+    grid-auto-rows: 150px;
+    grid-column-gap: 10px;
+    grid-row-gap: 10px;
+    height: 100vh;
+    overflow: auto;
+    max-height: calc(100vh - 40px);
+	}
+
+	.archive {
+		display: flex;
+    flex-direction: row;
+	}
+
+	.archive .archive_content_image {
+		height: 100%;
+		margin-top: 0px;
 	}
   }
