@@ -167,18 +167,37 @@ function Archive() {
             <div className='archive_wrapper_text_link'>
               <span>
                 <a
-                  href={post.link}
+                  href={post && post.link}
                   target='_blank'
                   rel='noopener noreferrer'
                   style={{ color: 'black' }}
                 >
-                  {post.link}
+                  {post && post.link}
                 </a>
               </span>
             </div>
             <div className='archive_wrapper_slider'>
               {post.photos ? <Slider items={post.photos}></Slider> : null}
             </div>
+            {post.videos && post.videos.length
+              ? post.videos.map((video, i) => {
+                  return (
+                    <div key={i}>
+                      <iframe
+                        title={`${video.video_link}`}
+                        id='player'
+                        type='text/html'
+                        sandbox='allow-scripts allow-forms allow-same-origin allow-presentation'
+                        width='100%'
+                        height='420'
+                        src={`${video.video_link}?enablejsapi=1&origin=http://sidi.hongik.ac.kr`}
+                        frameBorder='0'
+                        allowFullScreen
+                      ></iframe>
+                    </div>
+                  );
+                })
+              : null}
           </div>
         </div>
       </div>

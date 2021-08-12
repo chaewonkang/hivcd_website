@@ -158,7 +158,7 @@ max-height: calc(100vh - 120px);
   grid-row-gap: 10px;
   height: 100vh;
   overflow: auto;
-  max-height: calc(100vh - 120px);
+  max-height: calc(100vh - 80px);
 }
 
 .archive_index_box {
