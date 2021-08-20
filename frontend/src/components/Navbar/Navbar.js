@@ -79,7 +79,7 @@ export const NavComponent = ({ onClick }) => {
                 rel='noopener noreferrer'
                 style={{ color: '#000' }}
               >
-                뉴스레터
+                소식지
               </a>
             </span>
           </div>

@@ -13,7 +13,7 @@ function Header({ handleLogout, handleSearchKeyword }) {
     alumni: '동문',
     show: '전시/행사',
     calendar: '일정',
-    newsletter: '뉴스레터',
+    newsletter: '소식지',
     title: '홍익대학교 미술대학 시각디자인과',
     archive: '기록',
     reservation: '예약',

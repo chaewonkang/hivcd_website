@@ -50,7 +50,7 @@ function Archive() {
 
   if (!post && list)
     return (
-      <div className='archive_container'>
+      <div className='archive_container' style={{ marginBottom: '40px' }}>
         <div className='archive_index_container_before'>
           {list.map((data, i) => {
             return (
