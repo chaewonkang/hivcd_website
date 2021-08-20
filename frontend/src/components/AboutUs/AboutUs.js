@@ -1,17 +1,17 @@
-import React from "react";
-import "./AboutUs.css";
+import React from 'react';
+import './AboutUs.css';
 
 const AboutUs = () => {
   return (
     <>
-      <div className="aboutus_wrapper">
-        <div className="aboutus_container">
-          <div id="history" className="aboutus_item">
-            <div className="aboutus_item_tag">
+      <div className='aboutus_wrapper'>
+        <div className='aboutus_container'>
+          <div id='history' className='aboutus_item'>
+            <div className='aboutus_item_tag'>
               <span>연혁</span>
             </div>
-            <div className="aboutus_content">
-              <table id="history_table" className="aboutus_contact">
+            <div className='aboutus_content'>
+              <table id='history_table' className='aboutus_contact'>
                 <tr>
                   <td>1946</td>
                   <td>홍문대학관 설립</td>
@@ -51,7 +51,7 @@ const AboutUs = () => {
                   <td>학과 재편성: 공예과, 공업도안과 → 응용미술과</td>
                 </tr>
                 <tr>
-                  <td style={{ borderBottom: "none" }}>1972</td>
+                  <td style={{ borderBottom: 'none' }}>1972</td>
                   <td>홍익대학교가 종합대학교로 승격, 미술대학 편성, </td>
                 </tr>
                 <tr>
@@ -59,11 +59,11 @@ const AboutUs = () => {
                   <td>미술대학 ＞ 공예학부 ＞ 공업도안과</td>
                 </tr>
                 <tr>
-                  <td style={{ borderBottom: "none" }}>1976</td>
+                  <td style={{ borderBottom: 'none' }}>1976</td>
                   <td>실험대학 실시,</td>
                 </tr>
                 <tr>
-                  <td style={{ borderBottom: "none" }}></td>
+                  <td style={{ borderBottom: 'none' }}></td>
                   <td>미술대학 ＞ 공업도안과 ＞ 산업도안과</td>
                 </tr>
                 <tr>
@@ -71,11 +71,11 @@ const AboutUs = () => {
                   <td>＞ 공업디자인전공, 산업디자인전공</td>
                 </tr>
                 <tr>
-                  <td style={{ borderBottom: "none" }}>1982</td>
+                  <td style={{ borderBottom: 'none' }}>1982</td>
                   <td>학과 재편성: 산업도안과, 도안과</td>
                 </tr>
-                <tr style={{ borderBottom: "none" }}>
-                  <td style={{ borderBottom: "none" }}></td>
+                <tr style={{ borderBottom: 'none' }}>
+                  <td style={{ borderBottom: 'none' }}></td>
                   <td>
                     → 산업도안과 (산업도안전공, 산업디자인전공, 공간디자인전공)
                   </td>
@@ -99,12 +99,12 @@ const AboutUs = () => {
               </table>
             </div>
           </div>
-          <div id="faculty" className="aboutus_item">
-            <div className="aboutus_item_tag">
+          <div id='faculty' className='aboutus_item'>
+            <div className='aboutus_item_tag'>
               <span>교수진 </span>
             </div>
-            <div className="aboutus_content">
-              <table id="faculty_table" className="aboutus_contact">
+            <div className='aboutus_content'>
+              <table id='faculty_table' className='aboutus_contact'>
                 <tr>
                   <td>그림, 올리버</td>
                   <td>부교수</td>
@@ -203,12 +203,12 @@ const AboutUs = () => {
               </table>
             </div>
           </div>
-          <div id="map" className="aboutus_item">
-            <div className="aboutus_item_tag">
+          <div id='map' className='aboutus_item'>
+            <div className='aboutus_item_tag'>
               <span>시설 </span>
             </div>
-            <div className="aboutus_content">
-              <table id="facility_table" className="aboutus_contact">
+            <div className='aboutus_content'>
+              <table id='facility_table' className='aboutus_contact'>
                 <tr>
                   <td>홍문관</td>
                   <td>R712</td>
@@ -337,19 +337,19 @@ const AboutUs = () => {
               </table>
             </div>
           </div>
-          <div id="link" className="aboutus_item">
-            <div className="aboutus_item_tag">
+          <div id='link' className='aboutus_item'>
+            <div className='aboutus_item_tag'>
               <span>소모임</span>
             </div>
-            <div className="aboutus_content">
-              <table id="club_table" className="aboutus_contact">
+            <div className='aboutus_content'>
+              <table id='club_table' className='aboutus_contact'>
                 <tr>
                   <td>그린비</td>
                   <td>
                     <a
-                      href="https://www.instagram.com/greenbee.hivcd/"
-                      target="_blank"
-                      rel="noopener noreferrer"
+                      href='https://www.instagram.com/greenbee.hivcd/'
+                      target='_blank'
+                      rel='noopener noreferrer'
                     >
                       @greenbee.hivcd
                     </a>
@@ -360,9 +360,9 @@ const AboutUs = () => {
                   <td>드로마픽</td>
                   <td>
                     <a
-                      href="https://www.instagram.com/dromapic/"
-                      target="_blank"
-                      rel="noopener noreferrer"
+                      href='https://www.instagram.com/dromapic/'
+                      target='_blank'
+                      rel='noopener noreferrer'
                     >
                       @dromapic
                     </a>
@@ -373,9 +373,9 @@ const AboutUs = () => {
                   <td>아이레이</td>
                   <td>
                     <a
-                      href="https://www.instagram.com/iray_hivcd/"
-                      target="_blank"
-                      rel="noopener noreferrer"
+                      href='https://www.instagram.com/iray_hivcd/'
+                      target='_blank'
+                      rel='noopener noreferrer'
                     >
                       @iray_hivcd
                     </a>
@@ -386,9 +386,9 @@ const AboutUs = () => {
                   <td>애드레날린</td>
                   <td>
                     <a
-                      href="https://www.instagram.com/ad_re_nalin/"
-                      target="_blank"
-                      rel="noopener noreferrer"
+                      href='https://www.instagram.com/ad_re_nalin/'
+                      target='_blank'
+                      rel='noopener noreferrer'
                     >
                       @ad_re_nalin
                     </a>
@@ -399,9 +399,9 @@ const AboutUs = () => {
                   <td>야즈</td>
                   <td>
                     <a
-                      href="https://www.instagram.com/yadz_archive/"
-                      target="_blank"
-                      rel="noopener noreferrer"
+                      href='https://www.instagram.com/yadz_archive/'
+                      target='_blank'
+                      rel='noopener noreferrer'
                     >
                       @yadz_archive
                     </a>
@@ -412,9 +412,9 @@ const AboutUs = () => {
                   <td>프로토</td>
                   <td>
                     <a
-                      href="https://www.instagram.com/hivcdproto"
-                      target="_blank"
-                      rel="noopener noreferrer"
+                      href='https://www.instagram.com/hivcdproto'
+                      target='_blank'
+                      rel='noopener noreferrer'
                     >
                       @hivcdproto
                     </a>
@@ -425,9 +425,9 @@ const AboutUs = () => {
                   <td>하이픈</td>
                   <td>
                     <a
-                      href="https://www.instagram.com/hyphen_hivcd/"
-                      target="_blank"
-                      rel="noopener noreferrer"
+                      href='https://www.instagram.com/hyphen_hivcd/'
+                      target='_blank'
+                      rel='noopener noreferrer'
                     >
                       @hyphen_hivcd
                     </a>
@@ -438,9 +438,9 @@ const AboutUs = () => {
                   <td>한글꼴연구회</td>
                   <td>
                     <a
-                      href="https://www.instagram.com/hangeulggol_hivcd/"
-                      target="_blank"
-                      rel="noopener noreferrer"
+                      href='https://www.instagram.com/hangeulggol_hivcd/'
+                      target='_blank'
+                      rel='noopener noreferrer'
                     >
                       @hangeulggol_hivcd
                     </a>
@@ -451,9 +451,9 @@ const AboutUs = () => {
                   <td>힙스</td>
                   <td>
                     <a
-                      href="https://ilovehips.kr/index.html"
-                      target="_blank"
-                      rel="noopener noreferrer"
+                      href='https://ilovehips.kr/index.html'
+                      target='_blank'
+                      rel='noopener noreferrer'
                     >
                       ilovehips.kr
                     </a>
@@ -463,14 +463,14 @@ const AboutUs = () => {
               </table>
             </div>
           </div>
-          <div id="contact" className="aboutus_item">
-            <div className="aboutus_item_tag">
+          <div id='contact' className='aboutus_item'>
+            <div className='aboutus_item_tag'>
               <span>연락처</span>
             </div>
-            <div className="aboutus_content">
-              <table id="contact_table" className="aboutus_contact">
+            <div className='aboutus_content'>
+              <table id='contact_table' className='aboutus_contact'>
                 <tr>
-                  <td style={{ borderBottom: "none" }}>주소</td>
+                  <td style={{ borderBottom: 'none' }}>주소</td>
                   <td>
                     04066 서울특별시 마포구 와우산로 94<br></br>
                   </td>
@@ -490,7 +490,7 @@ const AboutUs = () => {
                   <td>02-3145-5792</td>
                 </tr>
                 <tr>
-                  <td style={{ borderBottom: "none" }}>업무시간</td>
+                  <td style={{ borderBottom: 'none' }}>업무시간</td>
                   <td>월-금 9:00 -17:30 / 점심시간 12:00-1:00</td>
                 </tr>
                 <tr>
@@ -498,29 +498,29 @@ const AboutUs = () => {
                   <td>동절기 월-금 9:00-17:00 / 점심시간 12:00-1:00</td>
                 </tr>
                 <tr>
-                  <td style={{ borderBottom: "none" }}>웹사이트</td>
+                  <td style={{ borderBottom: 'none' }}>웹사이트</td>
                   <td>
                     홍익대학교
                     <a
-                      href="http://hongik.ac.kr"
-                      target="_blank"
-                      rel="noopener noreferrer"
+                      href='http://hongik.ac.kr'
+                      target='_blank'
+                      rel='noopener noreferrer'
                     >
-                      {" "}
+                      {' '}
                       hongik.ac.kr
                     </a>
                   </td>
                 </tr>
                 <tr>
-                  <td style={{ borderBottom: "none" }}></td>
+                  <td style={{ borderBottom: 'none' }}></td>
                   <td>
                     홍익대학교 미술대학
                     <a
-                      href="http://cfa.hongik.ac.kr"
-                      target="_blank"
-                      rel="noopener noreferrer"
+                      href='http://cfa.hongik.ac.kr'
+                      target='_blank'
+                      rel='noopener noreferrer'
                     >
-                      {" "}
+                      {' '}
                       cfa.hongik.ac.kr
                     </a>
                   </td>
@@ -529,13 +529,13 @@ const AboutUs = () => {
                 <tr>
                   <td></td>
                   <td>
-                    홍익대학교 시각디자인과{" "}
+                    홍익대학교 시각디자인과{' '}
                     <a
-                      href="http://sidi.hongik.ac.kr"
-                      target="_blank"
-                      rel="noopener noreferrer"
+                      href='http://sidi.hongik.ac.kr'
+                      target='_blank'
+                      rel='noopener noreferrer'
                     >
-                      {" "}
+                      {' '}
                       sidi.hongik.ac.kr
                     </a>
                   </td>
@@ -544,42 +544,42 @@ const AboutUs = () => {
               </table>
             </div>
           </div>
-          <div id="colophon" className="aboutus_item">
-            <div className="aboutus_item_tag">
+          <div id='colophon' className='aboutus_item'>
+            <div className='aboutus_item_tag'>
               <span>웹사이트</span>
             </div>
-            <div className="aboutus_content">
-              <table id="credit_table" className="aboutus_contact">
+            <div className='aboutus_content'>
+              <table id='credit_table' className='aboutus_contact'>
                 <tr>
-                  <td style={{ borderBottom: "none" }}>2021. 3. 2</td>
+                  <td style={{ borderBottom: 'none' }}>2021. 3. 2</td>
                   <td>시험판 배포</td>
                   <td></td>
                 </tr>
                 <tr>
-                  <td style={{ borderBottom: "none" }}></td>
+                  <td style={{ borderBottom: 'none' }}></td>
                   <td>디자인. 개발</td>
                   <td>
-                    YinYang{" "}
+                    YinYang{' '}
                     <a
-                      href="https://www.instagram.com/yinyang.fig"
-                      alt="instagram"
-                      target="_blank"
-                      rel="noopener noreferrer"
+                      href='https://www.instagram.com/yinyang.fig'
+                      alt='instagram'
+                      target='_blank'
+                      rel='noopener noreferrer'
                     >
                       @yinyang.fig
                     </a>
                   </td>
                 </tr>
                 <tr>
-                  <td style={{ borderBottom: "none" }}></td>
+                  <td style={{ borderBottom: 'none' }}></td>
                   <td>API 개발. 배포</td>
                   <td>
-                    김서규{" "}
+                    김서규{' '}
                     <a
-                      href="https://www.github.com/SeogyuGim"
-                      alt="instagram"
-                      target="_blank"
-                      rel="noopener noreferrer"
+                      href='https://www.github.com/SeogyuGim'
+                      alt='instagram'
+                      target='_blank'
+                      rel='noopener noreferrer'
                     >
                       github.com/seogyugim
                     </a>
@@ -591,43 +591,43 @@ const AboutUs = () => {
                   <td>심윤서, 나혜린, 임종윤</td>
                 </tr>
                 <tr>
-                  <td style={{ borderBottom: "none" }}>2021. 4. 12</td>
+                  <td style={{ borderBottom: 'none' }}>2021. 4. 12</td>
                   <td>1.0 배포</td>
                   <td></td>
                 </tr>
                 <tr>
-                  <td style={{ borderBottom: "none" }}></td>
+                  <td style={{ borderBottom: 'none' }}></td>
                   <td>디자인. 개발</td>
                   <td>
-                    YinYang{" "}
+                    YinYang{' '}
                     <a
-                      href="https://www.instagram.com/yinyang.fig"
-                      alt="instagram"
-                      target="_blank"
-                      rel="noopener noreferrer"
+                      href='https://www.instagram.com/yinyang.fig'
+                      alt='instagram'
+                      target='_blank'
+                      rel='noopener noreferrer'
                     >
                       @yinyang.fig
                     </a>
                   </td>
                 </tr>
                 <tr>
-                  <td style={{ borderBottom: "none" }}></td>
+                  <td style={{ borderBottom: 'none' }}></td>
                   <td>API 개발. 배포</td>
                   <td>
-                    김서규{" "}
+                    김서규{' '}
                     <a
-                      href="https://www.github.com/SeogyuGim"
-                      alt="instagram"
-                      target="_blank"
-                      rel="noopener noreferrer"
+                      href='https://www.github.com/SeogyuGim'
+                      alt='instagram'
+                      target='_blank'
+                      rel='noopener noreferrer'
                     >
                       github.com/seogyugim
                     </a>
                   </td>
                 </tr>
                 <tr>
-                  <td style={{ borderBottom: "none" }}></td>
-                  <td>뉴스레터</td>
+                  <td style={{ borderBottom: 'none' }}></td>
+                  <td>소식지</td>
                   <td>김재연, 윤충근, 이소림, 이민지, 제지아</td>
                 </tr>
                 <tr>
