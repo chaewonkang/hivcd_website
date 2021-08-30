@@ -101,7 +101,7 @@ function Header({ handleLogout, handleSearchKeyword }) {
             </div>
             <div className='header_container_login'>
               <a
-                href='https://eepurl.com/hk_U8n'
+                href='https://sidi-hongik-newsletter.webflow.io/archive'
                 target='_blank'
                 rel='noopener noreferrer'
               >

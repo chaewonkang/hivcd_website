@@ -64,6 +64,7 @@
   }
 
   .each_post_board_filter_wrapper {
+	margin-top: 50px;
     margin-left: 10px;
     margin-bottom: 10px;
   }

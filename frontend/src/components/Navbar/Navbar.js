@@ -74,7 +74,7 @@ export const NavComponent = ({ onClick }) => {
           <div className='nav_class_newsletter'>
             <span onClick={onClick}>
               <a
-                href='https://eepurl.com/hk_U8n'
+                href='https://sidi-hongik-newsletter.webflow.io/archive'
                 target='_blank'
                 rel='noopener noreferrer'
                 style={{ color: '#000' }}
