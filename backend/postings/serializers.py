@@ -59,7 +59,7 @@ class PostSerializer(serializers.ModelSerializer):
             "author",
             "title",
             "text",
-                'more_text',
+            "more_text",
             "category",
             "photos",
             "files",
