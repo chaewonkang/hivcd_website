@@ -4,6 +4,7 @@ from django.core.cache import cache
 from django.utils import timezone
 from imagekit.models import ProcessedImageField
 from imagekit.processors import ResizeToFit
+from ckeditor_uploader.fields import RichTextUploadingField
 
 
 class Timestamp(models.Model):
@@ -79,6 +80,7 @@ class Post(models.Model):
     created_at = models.DateTimeField(editable=True)
     updated_at = models.DateTimeField(auto_now=True)
     text = models.TextField()
+    more_text = models.TextField()
     link = models.URLField(default="", blank=True)
     sidi_only = models.BooleanField(default=False)
 

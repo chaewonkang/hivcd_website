@@ -45,6 +45,8 @@ PROJECT_APPS = [
 ]
 
 THIRDPARTY_APPS = [
+    "ckeditor",
+    "ckeditor_uploader",
     "rest_framework",
     "rest_framework.authtoken",
     "rest_framework_simplejwt",
