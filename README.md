@@ -10,4 +10,4 @@
 
 현재
 - AWS EC2 = (서버내부 POSTGRES를 활용하여 작업)
-psql -h localhost -p 5432 hongiksidi -d hivcd
+psql -h localhost -p 5432 xxxxx -d xxxx
