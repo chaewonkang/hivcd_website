@@ -12,7 +12,7 @@ async function getArchives() {
   return response.data;
 }
 
-function Archive({ match, location }) {
+function ArchiveDetail({ match, location }) {
   const [loaded, setLoaded] = useState(false);
   const [archives] = useAsync(() => getArchives());
   const [postId, setPostId] = useState(0);
@@ -24,14 +24,15 @@ function Archive({ match, location }) {
 
   async function getArchive(archiveId) {
     const response = await axios
-      .get(`https://sidi.hongik.ac.kr/api/v1/postings/archive/${archiveId}`)
-  
+      .get(`https://sidi.hongik.ac.kr/api/v1/postings/archive/${archiveId}`)  
     setPost(response.data);
     return response;
   }
 
   useEffect(() => {
     if (match && match.params && match.params.postId) {
+        console.log("match.params.postId")
+        console.log(match.params.postId);
       getArchive(match.params.postId);
     }
   }, []);
@@ -52,52 +53,6 @@ function Archive({ match, location }) {
     );
 
   if (!list) return null;
-
-  if (!post && list)
-    return (
-      <div className='archive_container'>
-        <div className='archive_index_container_before'>
-          
-          {list.map((data, i) => {
-            return (
-              <div
-                className='archive'
-                style={{ border: '1px solid #000', backgroundColor: 'unset' }}
-                key={i}
-              >
-                <div className='archive_tag'>
-                  <span>기록</span>
-                </div>
-                <div className='archive_content'>
-                  <div
-                    className='archive_content_header'
-                    onClick={() => {
-                      setPost(getArchive(data.pk));
-                    }}
-                  >
-                    <span>
-                      {data.title} <br></br>
-                    </span>
-                    <span>
-                      {data.created_at ? data.created_at.slice(0, 10) : null}
-                    </span>
-                  </div>
-                </div>
-                <div
-                  className='archive_content_image image_fill'
-                  style={{
-                    backgroundImage: data.photos.length
-                      ? `url(${data.photos[0].photo})`
-                      : null,
-                    border: 'none',
-                  }}
-                ></div>
-              </div>
-            );
-          })}
-        </div>
-      </div>
-    );
 
   if (post && list)
     return (
@@ -187,4 +142,4 @@ function Archive({ match, location }) {
   return null;
 }
 
-export default Archive;
+export default ArchiveDetail;

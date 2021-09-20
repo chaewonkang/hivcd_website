@@ -9,6 +9,7 @@ import Board from "./Board/Board";
 import AboutUs from "./AboutUs/AboutUs";
 import Alumni from "./Alumni/Alumni";
 import Archive from "./Archive/Archive";
+import ArchiveDetail from "./Archive/ArchiveDetail"
 import CalandarContainer from "./CalandarContainer/CalandarContainer";
 import Search from "./Search/Search";
 import BoardPostWrapper from "./BoardPostWrapper/BoardPostWrapper";
@@ -45,6 +46,7 @@ export {
   AboutUs,
   Alumni,
   Archive,
+  ArchiveDetail,
   CalandarContainer,
   Search,
   BoardPostWrapper,

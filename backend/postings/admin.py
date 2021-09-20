@@ -39,6 +39,7 @@ class PostAdmin(admin.ModelAdmin):
                 'author',
                 'title',
                 'text',
+                "more_text",
                 'link',
                 'sidi_only',
                 'category',

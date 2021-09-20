@@ -25,6 +25,7 @@ urlpatterns = [
     path("api-auth/", include("rest_framework.urls", namespace="rest_framework")),
     # API Settings
     path("api/v1/", include("api_v1.urls", namespace="api")),
+    path("ckeditor/", include("ckeditor_uploader.urls")),
     # Index Page
     path("", TemplateView.as_view(template_name="index.html")),
 ]
