@@ -51,4 +51,19 @@ git checkout -t origin/develop
 
 git log —graph —decorate —oneline
 
+===
 
+python manage.py shell
+from postings.models import Post
+
+list(Post.objects.values_list('text', flat=True).order_by('id'))
+texts = list(Post.objects.values_list('text', flat=True).order_by('id'))
+posts = Post.object.all().order_by('id')
+
+>>> i=0
+>>> while i<posts.count():
+...     Post.objects.filter(id=posts[i].id).update(more_text=texts[i])
+...     i += 1
+... 
+
+(개행/줄바꿈 표시[>>>, ...]는 PRESSED ENTER)
