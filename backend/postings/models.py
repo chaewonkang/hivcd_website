@@ -5,6 +5,7 @@ from django.utils import timezone
 from imagekit.models import ProcessedImageField
 from imagekit.processors import ResizeToFit
 from ckeditor_uploader.fields import RichTextUploadingField
+from django.db.models import Q
 
 
 class Timestamp(models.Model):
@@ -75,7 +76,12 @@ class Video(Timestamp):
 
 
 class Post(models.Model):
-    author = models.ForeignKey(to=settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    author = models.ForeignKey(
+        to=settings.AUTH_USER_MODEL, 
+        on_delete=models.CASCADE,
+        limit_choices_to={'is_superuser': True} 
+        # Q(is_superuser=True)
+    )
     title = models.CharField(max_length=255, blank=False, default="")
     created_at = models.DateTimeField(editable=True)
     updated_at = models.DateTimeField(auto_now=True)

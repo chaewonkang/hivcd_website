@@ -20,7 +20,7 @@ class VideoInline(admin.TabularInline):
 
 @admin.register(Post)
 class PostAdmin(admin.ModelAdmin):
-    list_display = ('title', 'author', 'category')
+    list_display = ('title', 'author', 'category', )
     search_fields = ('title', 'author',)
     list_filter = (
         'category',
