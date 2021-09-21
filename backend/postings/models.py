@@ -80,7 +80,7 @@ class Post(models.Model):
     created_at = models.DateTimeField(editable=True)
     updated_at = models.DateTimeField(auto_now=True)
     text = models.TextField()
-    more_text = RichTextUploadingField()
+    more_text = RichTextUploadingField(default="", blank=True, null=True)
     link = models.URLField(default="", blank=True)
     sidi_only = models.BooleanField(default=False)
 
