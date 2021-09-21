@@ -121,6 +121,10 @@ USE_L10N = True
 
 USE_TZ = True
 
+# Path of ckeditor upload
+
+CKEDITOR_UPLOAD_PATH = "uploads/"
+
 # Static files (CSS, JavaScript, Images)
 STATIC_URL = "/static/"
 STATIC_ROOT = os.path.join(BASE_DIR, "assets")
