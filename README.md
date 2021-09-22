@@ -59,12 +59,11 @@
 
 - list(Post.objects.values_list('text', flat=True).order_by('id'))
 - texts = list(Post.objects.values_list('text', flat=True).order_by('id'))
-- posts = Post.object.all().order_by('id')
+- posts = Post.objects.all().order_by('id')
 
-- >>> i=0
-- >>> while i<posts.count():
+- i=0
+- while i<posts.count():
 - ...     Post.objects.filter(id=posts[i].id).update(more_text=texts[i])
 - ...     i += 1
 - ... 
-- >>> exit()
-- (개행/줄바꿈 표시[>>>, ...]는 PRESSED ENTER)
+- exit()
