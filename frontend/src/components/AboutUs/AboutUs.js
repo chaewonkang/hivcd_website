@@ -483,7 +483,7 @@ const AboutUs = () => {
                 </tr>
                 <tr>
                   <td>전화</td>
-                  <td>02-370-8888</td>
+                  <td>02-320-1214</td>
                 </tr>
                 <tr>
                   <td>팩스</td>
@@ -520,7 +520,6 @@ const AboutUs = () => {
                       target='_blank'
                       rel='noopener noreferrer'
                     >
-                      {' '}
                       cfa.hongik.ac.kr
                     </a>
                   </td>
@@ -531,11 +530,10 @@ const AboutUs = () => {
                   <td>
                     홍익대학교 시각디자인과{' '}
                     <a
-                      href='http://sidi.hongik.ac.kr'
+                      href='https://sidi.hongik.ac.kr'
                       target='_blank'
                       rel='noopener noreferrer'
                     >
-                      {' '}
                       sidi.hongik.ac.kr
                     </a>
                   </td>
