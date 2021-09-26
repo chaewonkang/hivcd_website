@@ -19,7 +19,7 @@ from django.conf.urls.static import static
 from django.views.generic import TemplateView
 from django.contrib import admin
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
-from django.conf.urls import patterns, url
+from django.conf.urls import  url
 
 urlpatterns = [
     # path("ckeditor/", include("ckeditor_uploader.urls")),
@@ -37,15 +37,4 @@ urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 urlpatterns += [
     re_path(r"^(?:.*)/$", TemplateView.as_view(template_name="index.html")),
 ]
-if settings.DEBUG:
-    urlpatterns += patterns(
-        '',
-        url(
-            r'^media/(?P<path>.*)$',
-            'django.views.static.serve', {
-                'document_root': settings.MEDIA_ROOT,
-            }
-        ),
-    )
-
 urlpatterns += staticfiles_urlpatterns()
