@@ -123,7 +123,7 @@ USE_TZ = True
 
 # Path of ckeditor upload
 
-CKEDITOR_UPLOAD_PATH = "uploads/"
+CKEDITOR_UPLOAD_PATH = os.path.join(BASE_DIR, "uploads")
 
 # Static files (CSS, JavaScript, Images)
 STATIC_URL = "/static/"
