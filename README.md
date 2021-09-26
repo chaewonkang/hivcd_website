@@ -67,3 +67,22 @@
 - ...     i += 1
 - ... 
 - exit()
+
+===
+
+- abc라는 폴더를 aaa.tar로 압축하고자 한다면
+-  tar -cvf aaa.tar abc
+-  tar -cvf ckeditor.tar ckeditor
+- aaa.tar라는 tar파일 압축을 풀고자 한다면
+-  tar -xvf aaa.tar
+-  tar -xvf ckeditor.tar
+
+===
+
+- scp [옵션] [파일명] [원격지_id]@[원격지_ip]:[받는 위치]
+- scp -i ~/.ssh/hisidi_20200117.pemckeditor.tar ubuntu@hostip:hivcd_website/backend/assets/
+
+
+=== 
+
+- sudo tail -F /var/log/nginx/error.log
