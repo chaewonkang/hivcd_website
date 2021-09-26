@@ -122,8 +122,22 @@ USE_L10N = True
 USE_TZ = True
 
 # Path of ckeditor upload
+####################################
+    ##  CKEDITOR CONFIGURATION ##
+####################################
 
-CKEDITOR_UPLOAD_PATH = os.path.join(BASE_DIR, "uploads")
+CKEDITOR_JQUERY_URL = 'https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js'
+
+CKEDITOR_UPLOAD_PATH = 'uploads/'
+CKEDITOR_IMAGE_BACKEND = "pillow"
+
+CKEDITOR_IMAGE_BACKEND = "pillow"
+
+CKEDITOR_CONFIGS = {
+    'default': {
+        'toolbar': None,
+    },
+}
 
 # Static files (CSS, JavaScript, Images)
 STATIC_URL = "/static/"
