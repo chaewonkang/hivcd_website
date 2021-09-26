@@ -28,6 +28,8 @@ SECRET_KEY = os.environ.get("SECRET_KEY")
 
 # Application definition
 DJANGO_APPS = [
+    "ckeditor",
+    "ckeditor_uploader",
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
@@ -45,8 +47,6 @@ PROJECT_APPS = [
 ]
 
 THIRDPARTY_APPS = [
-    "ckeditor",
-    "ckeditor_uploader",
     "rest_framework",
     "rest_framework.authtoken",
     "rest_framework_simplejwt",
@@ -122,8 +122,20 @@ USE_L10N = True
 USE_TZ = True
 
 # Path of ckeditor upload
+####################################
+    ##  CKEDITOR CONFIGURATION ##
+####################################
 
-CKEDITOR_UPLOAD_PATH = "uploads/"
+CKEDITOR_JQUERY_URL = 'https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js'
+
+CKEDITOR_UPLOAD_PATH = 'uploads/'
+CKEDITOR_IMAGE_BACKEND = "pillow"
+
+CKEDITOR_CONFIGS = {
+    'default': {
+        'toolbar': None,
+    },
+}
 
 # Static files (CSS, JavaScript, Images)
 STATIC_URL = "/static/"
