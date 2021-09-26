@@ -5,6 +5,7 @@ import axios from 'axios';
 import getCookie from '../../utils/getCookie';
 import useAsync from '../../utils/useAsync';
 import { useHistory } from 'react-router-dom';
+import parse from 'html-react-parser';
 
 async function getPosts() {
   const response = await axios.get(
@@ -151,8 +152,9 @@ function EachPost({ postId }) {
             ) : null}
           </div>
           <hr style={{ marginBottom: 2 + 'em' }}></hr>
+          {/* {eachPost.more_text && parse(eachPost.more_text)} */}
           <p>
-            {eachPost.text.split('\n').map((line, i) => {
+            {eachPost.more_text.split('\n').map((line, i) => {
               return (
                 <span key={i}>
                   {line}
@@ -276,8 +278,9 @@ function EachPost({ postId }) {
             ) : null}
           </div>
           <hr style={{ marginBottom: 2 + 'em' }}></hr>
+          {/* {eachPost.more_text && parse(eachPost.more_text)} */}
           <p>
-            {eachPost.text.split('\n').map((line, i) => {
+            {eachPost.more_text.split('\n').map((line, i) => {
               return (
                 <span key={i}>
                   {line}
