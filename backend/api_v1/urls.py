@@ -19,6 +19,7 @@ schema_view = get_schema_view(
 )
 
 urlpatterns = [
+    path("ckeditor/", include("ckeditor_uploader.urls")),
     # API Settings
     path("postings/", include("postings.urls", namespace="postings")),
     path("auth/", include("auth.urls", namespace="auth")),
