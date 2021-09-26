@@ -80,9 +80,15 @@
 ===
 
 - scp [옵션] [파일명] [원격지_id]@[원격지_ip]:[받는 위치]
-- scp -i ~/.ssh/hisidi_20200117.pemckeditor.tar ubuntu@hostip:hivcd_website/backend/assets/
+- scp -i ~/.ssh/hisidi_20200117.pem ckeditor.tar ubuntu@hostip:hivcd_website/backend/assets/
 
 
 === 
 
 - sudo tail -F /var/log/nginx/error.log
+
+===
+
+- NGINX 파일 (find / -name nginx)
+- 다른 통상적인 프로젝트의 경우 /etc/nginx/sites-enabled/default
+- vim /etc/nginx/sites-enabled/hivcd
