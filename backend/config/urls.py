@@ -26,8 +26,7 @@ from django.views.decorators.cache import never_cache
 
 
 urlpatterns = [
-    #path("ckeditor/", include("ckeditor_uploader.urls")),
-    url(r'^ckeditor/', include('ckeditor_uploader.urls')),
+    path("ckeditor/", include("ckeditor_uploader.urls")),
     # Admin
     path("admin/", admin.site.urls),
     path("api-auth/", include("rest_framework.urls", namespace="rest_framework")),
