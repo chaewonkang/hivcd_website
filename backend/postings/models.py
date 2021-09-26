@@ -85,7 +85,7 @@ class Post(models.Model):
     title = models.CharField(max_length=255, blank=False, default="")
     created_at = models.DateTimeField(editable=True)
     updated_at = models.DateTimeField(auto_now=True)
-    text = models.TextField()
+    text = models.TextField(blank=True, null=True)
     more_text = RichTextUploadingField(default="", blank=True, null=True)
     link = models.URLField(default="", blank=True)
     sidi_only = models.BooleanField(default=False)
