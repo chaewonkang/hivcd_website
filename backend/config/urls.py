@@ -20,6 +20,7 @@ from django.views.generic import TemplateView
 from django.contrib import admin
 
 urlpatterns = [
+    path("ckeditor/", include("ckeditor_uploader.urls")),
     # Admin
     path("admin/", admin.site.urls),
     path("api-auth/", include("rest_framework.urls", namespace="rest_framework")),

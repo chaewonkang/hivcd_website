@@ -28,6 +28,8 @@ SECRET_KEY = os.environ.get("SECRET_KEY")
 
 # Application definition
 DJANGO_APPS = [
+    "ckeditor",
+    "ckeditor_uploader",
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
@@ -45,8 +47,6 @@ PROJECT_APPS = [
 ]
 
 THIRDPARTY_APPS = [
-    "ckeditor",
-    "ckeditor_uploader",
     "rest_framework",
     "rest_framework.authtoken",
     "rest_framework_simplejwt",
