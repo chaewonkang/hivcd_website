@@ -19,11 +19,10 @@ from django.conf.urls.static import static
 from django.views.generic import TemplateView
 from django.contrib import admin
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
-from django.conf.urls import  url
+from django.conf.urls import patterns, url
 
 urlpatterns = [
-    # path("ckeditor/", include("ckeditor_uploader.urls")),
-    url(r'^ckeditor/', include('ckeditor.urls')),
+    path("ckeditor/", include("ckeditor_uploader.urls")),
     # Admin
     path("admin/", admin.site.urls),
     path("api-auth/", include("rest_framework.urls", namespace="rest_framework")),
